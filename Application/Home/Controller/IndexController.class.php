@@ -8,6 +8,7 @@ class IndexController extends Controller {
                 'version' => $version,
                 'friends' => $friends));
         
+        $Dao = M("friend");
         echo json_encode($array);
     }
 }
