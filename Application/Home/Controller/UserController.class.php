@@ -71,7 +71,7 @@ class UserController extends Controller {
                 $fileName = "./Public/Image/".$file['name'];
             
                 if(move_uploaded_file($file['tmp_name'], $fileName)) {
-                    $account["photo_url"] = U($filePath."@192.168.1.106");
+                    $account["photo_url"] = U($filePath."@www.hideseek.cn");
                 } else {
                     $code = "10004";
                     $message = "上传图片失败";
