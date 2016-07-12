@@ -33,6 +33,7 @@ class UserController extends Controller {
     }
     
     public function register() {
+        define('ROOT', dirname(__FILE__).'/');
         header("Content-Type:text/html; charset=utf-8");
         session_start();
         session(array('name'=>'pk_id','expire'=>3600));
@@ -67,7 +68,7 @@ class UserController extends Controller {
             
             if(isset($_FILES['photo'])) {
                 $file = $_FILES['photo'];
-                $filePath = "/Public/Image/".$file['name'];
+                $filePath = ROOT."/Public/Image/".$file['name'];
                 $fileName = "./Public/Image/".$file['name'];
             
                 if(move_uploaded_file($file['tmp_name'], $fileName)) {
