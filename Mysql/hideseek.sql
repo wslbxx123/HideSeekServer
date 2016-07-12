@@ -239,7 +239,7 @@ CREATE TABLE IF NOT EXISTS `admin_account` (
   `version` bigint(20) DEFAULT NULL,
   PRIMARY KEY (`pk_id`),
   KEY `VERSION_KEY` (`version`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=55 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 --
 -- 转存表中的数据 `admin_account`
@@ -287,7 +287,7 @@ CREATE TABLE IF NOT EXISTS `admin_goal` (
   `type` int(11) DEFAULT NULL,
   `monster_type` int(11) DEFAULT NULL,
   PRIMARY KEY (`pk_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=20 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 --
 -- 转存表中的数据 `admin_goal`
@@ -417,7 +417,7 @@ CREATE TABLE IF NOT EXISTS `admin_record` (
   PRIMARY KEY (`pk_id`),
   KEY `USER_ID_KEY` (`account_id`),
   KEY `TIME_INDEX` (`time`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=12 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
