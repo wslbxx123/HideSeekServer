@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+		<meta name="x5-fullscreen" content="true">
+		<meta name="full-screen" content="yes">
+		<title>HideSeek</title>
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<link rel="stylesheet" href="css/HS.css">
+		<script type="text/javascript" src="js/HS.js"></script>
+		
+	</head>
+	<body>
+		<audio id="step"><source src="audio/step.mp3" type="audio/mpeg" preload="auto"> </audio>
+		<audio id="bbomb" ><source src="audio/bomb.mp3" type="audio/mpeg" preload="auto"> </audio>
+		<audio id="score1" autoplay=""><source src="audio/score.mp3" type="audio/mpeg" preload="auto"> </audio>
+		<div id="scene" >
+			<img src="img/camera.png" id="road">
+			<img src="img/mushroom.gif" id="mushroomgif">
+			<div id="score">+2</div>
+		</div>
+		<div id="getButton" >获得</div>
+		<div id="map">
+			<img src="img/spot.png" id="spot">
+			<img src="img/box.png" id="box">
+		</div>
+		<div id="order">
+			<div id="hint">&nbsp;士官！发现目标！</div>
+			<div id="guide">
+				<img src="img/location.png" id="location">
+				<div id="number">第<span id="N">1</span>个</div>
+				<div id="distance">目标距离</div>
+				<div id="meter"><span id="meter1">1000</span>米</div>
+			</div>
+			<div id="getit"><div id="quick">速拿下</div></div>
+		</div>
+		<div id="ad" ></div>
+			<div id="guidemap">
+				<div id="alert">疯狂敲击蘑菇，让距离接近以得到宝箱吧！</div>
+				<div id="closeBox"></div>
+				<img src="img/boyup.gif" id="boy">
+				<img src="img/box.png" id="mapbox">
+		</div>
+		<div id="report">
+			<div id="mushroomN">1</div>
+			<div id="bombN">1</div>
+			<div id="sum">1</div>
+		</div>
+	</body>
+</html>
