@@ -4,6 +4,16 @@ use Think\Controller;
 
 class BaseController extends Controller {
     public function getPkIdFromToken($sessionId){
+        $account = getAccountFromToken($sessionId);
+        
+        if(!isset($account)) {
+            return 0;
+        }
+        
+        return $account['pk_id'];
+    }
+    
+    public function getAccountFromToken($sessionId){
         session_id($sessionId);
         session_start();
         
@@ -14,11 +24,10 @@ class BaseController extends Controller {
             if(isset($sessionId)) {
                 $account_condition['SESSION_TOKEN'] = md5($sessionId);
                 $account = M("account")->where($account_condition)->find();
-                $account_id = $account['pk_id'];
             }
         }
         
-        return $account_id;
+        return $account;
     }
 }
 

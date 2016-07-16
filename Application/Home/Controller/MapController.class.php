@@ -149,7 +149,7 @@ class MapController extends BaseController {
         $code = "10000";
         $message = "设置炸弹成功";
         $sessionId = $_POST['session_id'];
-        $account_id = $this->getPkIdFromToken($sessionId);
+        $account = $this->getAccountFromToken($sessionId);
         
         if(isset($sessionId) && $sessionId != "") {
             if(isset($_POST['latitude']) && isset($_POST['longitude'])) {
@@ -166,6 +166,10 @@ class MapController extends BaseController {
                     $data['valid'] = 1;
                     $data['type'] = 3;
                     $Dao->add($data);
+                    
+                    $tempAccount['bomb_num'] = $account['bomb_num'] - 1;
+                    $pkId = $tempAccount['pk_id'];
+                    $Dao->where("pk_id=$pkId")->save($data);
                 } else {
                     $code = "10011";
                     $message = "方向值不能为空";
@@ -180,7 +184,7 @@ class MapController extends BaseController {
         }
         
         $array = array ('code' => $code, 'message' => $message,
-            'result' => []);
+            'result' => $tempAccount['bomb_num']);
         echo json_encode($array);
     }
 }
