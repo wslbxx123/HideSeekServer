@@ -144,6 +144,41 @@ class MapController extends BaseController {
             'result' => $account_array, 'test' => $sql);
         echo json_encode($array);
     }
+    
+    public function setBomb() {
+        $code = "10000";
+        $message = "设置炸弹成功";
+        $sessionId = $_POST['session_id'];
+        $account_id = $this->getPkIdFromToken($sessionId);
+        
+        if(isset($sessionId) && $sessionId != "") {
+            if(isset($_POST['latitude']) && isset($_POST['longitude'])) {
+                $latitude = $_POST['latitude'];
+                $longitude = $_POST['longitude'];
+                if(isset($_POST['orientation'])) {
+                    $orientation = $_POST['orientation'];
+                    $Dao = M("goal");
+                    $data['latitude'] = $latitude;
+                    $data['longitude'] = $longitude;
+                    $data['orientation'] = $orientation;
+                    $data['create_by'] = $account_id;
+                    $data['update_time'] = date('y-m-d H:i:s',time());
+                    $data['valid'] = 1;
+                    $data['type'] = 3;
+                    $Dao->add($data);
+                } else {
+                    $code = "10011";
+                    $message = "方向值不能为空";
+                }
+            } else{
+                $code = "10005";
+                $message = "经纬度不能为空";
+            }
+        } else {
+            $code = "10010";
+            $message = "用户未登录";
+        }
+    }
 }
 
 
