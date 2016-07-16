@@ -141,7 +141,7 @@ class MapController extends BaseController {
         }
         
         $array = array ('code' => $code, 'message' => $message,
-            'result' => $account_array, 'test' => $sql);
+            'result' => $account_array);
         echo json_encode($array);
     }
     
@@ -178,6 +178,10 @@ class MapController extends BaseController {
             $code = "10010";
             $message = "用户未登录";
         }
+        
+        $array = array ('code' => $code, 'message' => $message,
+            'result' => []);
+        echo json_encode($array);
     }
 }
 
