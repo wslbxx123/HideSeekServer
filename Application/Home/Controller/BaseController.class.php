@@ -4,7 +4,7 @@ use Think\Controller;
 
 class BaseController extends Controller {
     public function getPkIdFromToken($sessionId){
-        $account = getAccountFromToken($sessionId);
+        $account = $this->getAccountFromToken($sessionId);
         
         if(!isset($account)) {
             return 0;
