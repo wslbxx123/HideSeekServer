@@ -157,7 +157,7 @@ class MapController extends BaseController {
                 $longitude = $_POST['longitude'];
                 if(isset($_POST['orientation'])) {
                     $orientation = $_POST['orientation'];
-                    $Dao = M("goal");
+                    $dao = M("goal");
                     $data['latitude'] = $latitude;
                     $data['longitude'] = $longitude;
                     $data['orientation'] = $orientation;
@@ -165,11 +165,12 @@ class MapController extends BaseController {
                     $data['update_time'] = date('y-m-d H:i:s',time());
                     $data['valid'] = 1;
                     $data['type'] = 3;
-                    $Dao->add($data);
+                    $dao->add($data);
                     
                     $tempAccount['bomb_num'] = $account['bomb_num'] - 1;
                     $pkId = $tempAccount['pk_id'];
-                    $Dao->where("pk_id=$pkId")->save($data);
+                    $accountDao = M("account");
+                    $accountDao->where("pk_id=$pkId")->save($data);
                 } else {
                     $code = "10011";
                     $message = "方向值不能为空";
