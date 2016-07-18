@@ -1,6 +1,8 @@
 <?php
 namespace Home\Controller;
 use Think\Controller;
+use Resources;
+
 class UserController extends Controller {
     public function login(){
         session_start();
@@ -92,6 +94,15 @@ class UserController extends Controller {
         $array = array ('code' => $code, 'message' => $message,
             'result' => $account);
         echo json_encode($array);   
+    }
+    
+    public function getVerificationCode() {
+        $options['accountsid']='63160b32bb938243508e2d11cb8f3a1d';
+        $options['token']='d10ac1aec1d6f79fb8422ab9a7cb67be';
+        
+        $ucpass = new Ucpaas($options);
+        $appId = "aecc47a2c56c4638a0253da64649a137";
+        $to = "15673247044";
     }
 }
 
