@@ -152,7 +152,7 @@ class MapController extends BaseController {
         $account = $this->getAccountFromToken($sessionId);
         
         if(isset($sessionId) && $sessionId != "") {
-            $pkId = $tempAccount['pk_id'];
+            $pkId = $account['pk_id'];
             if(isset($_POST['latitude']) && isset($_POST['longitude'])) {
                 $latitude = $_POST['latitude'];
                 $longitude = $_POST['longitude'];
@@ -168,6 +168,7 @@ class MapController extends BaseController {
                     $data['type'] = 3;
                     $dao->add($data);
                     
+                    $tempAccount['pk_id'] = $pkId;
                     $tempAccount['bomb_num'] = $account['bomb_num'] - 1;
                     $accountDao = M("account");
                     $accountDao->where("pk_id=$pkId")->save($data);
