@@ -19,14 +19,15 @@ class BaseController extends Controller {
         
         $account_id = 0;
         if(isset($_SESSION['pk_id'])) {
-            $account_id = $_SESSION['pk_id'];    
+            $account_id = $_SESSION['pk_id'];
+            $account_condition['pk_id'] = $account_id;
         } else {
             if(isset($sessionId)) {
                 $account_condition['SESSION_TOKEN'] = md5($sessionId);
-                $account = M("account")->where($account_condition)->find();
             }
         }
         
+        $account = M("account")->where($account_condition)->find();
         return $account;
     }
 }
