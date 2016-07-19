@@ -152,16 +152,16 @@
     	
     	<!--弹出登录页面-->
     	<div id="newWin">
-    		<form id="form1" action="http://120.25.252.252/index.php/home/user/login" method="post" autocomplete="jsonResponse"
-    		<p><label for="fname">账号: <input type="text" id="fname" name="phone" class="reqd"></p>
-			<p><label for="lname">密码: <input type="password" id="lname" name="password" class="reqd"></p>
+    		<form id="form" action="http://120.25.252.252/index.php/home/user/login" method="post" autocomplete="jsonResponse">
+    		<p><label for="fname">我的账号: <input type="text" id="fname" name="phone"></p>
+			<p><label for="lname">我的密码: <input type="password" id="lname" class="reqd" name="password"></p>
 			<p><input type="button" value="登录" id="submitButton"></p>
         </form>
           <div id="fault">您输入的账号或密码有误！</div>
     	</div>
     	<!--弹出注册页面-->
     	<div id="newWin1">
-    		<form id="form2" action="http://120.25.252.252/index.php/home/user/login" method="post" autocomplete="jsonResponse">
+    		<form id="form2" action="code.html" method="post" autocomplete="jsonResponse">
     		<p><label for="userphone">注册手机: <input type="text" size="30" id="userphone" class="reqd"></label> </p>
     		<p><label for="userName">我的昵称: <input type="text" size="30" id="userName" class="reqd"></label> </p>
 			<p><label for="passwd1">我的密码: <input type="password" id="passwd1" class="reqd"></label></p>

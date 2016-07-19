@@ -19,8 +19,15 @@ function myStart(){
 		$("#partbuy").fadeOut(); 
 	}
 	
+	
+	
 	$("#test1").click(function(){
 		  	$("#newWin").fadeIn(); 
+			 $("#lname").bind("click",
+		function() {
+			$("#fname")[0].blur(); 
+	    	$("#lname")[0].focus(); 
+		});
 	});
 	
 	$("#test2").click(function(){
@@ -36,8 +43,6 @@ function myStart(){
      		}
 		}
 		return allGood;
-		alert(allGood);
-		
 		function validTag(thisTag) {
 		var outClass = "";
 		var allClasses = thisTag.className. split(" ");
@@ -47,7 +52,7 @@ function myStart(){
 		thisTag.className = outClass;
 		if (outClass.indexOf("invalid") > -1) {
 		        invalidLabel(thisTag.parentNode);
-		thisTag.focus();
+//		thisTag.focus();
 		if (thisTag.nodeName == "INPUT") {
 		thisTag.select();
 		}
@@ -67,13 +72,19 @@ function myStart(){
 		classBack += thisClass;
 		break;
 		default:
-		if (allGood) {
+		if (allGood && !crossCheck (thisTag,thisClass)) {
 		classBack = "invalid ";
 		}
 		classBack += thisClass;
 		}
 		return classBack;
-		         }
+		          }
+		function crossCheck (inTag,otherFieldID) {
+		if (!document.getElementById (otherFieldID)) {
+		return false;
+		}
+		return (inTag.value == document. getElementById(otherFieldID).value);
+		}
 		function invalidLabel(parentTag) {
 		if (parentTag.nodeName == "LABEL") {
 		parentTag.className += " invalid";
@@ -88,7 +99,6 @@ function myStart(){
 		var allTags = document.getElementById("newWin").getElementsByTagName("*");
 		for (var i=0; i<allTags.length; i++) {
 		if (!validTag(allTags[i])) {
-			alert(1);
 			allGood = false;
      		}
 		}
@@ -109,7 +119,6 @@ function myStart(){
 		return false;
 		}
 		return true;
-		
 		function validBasedOnClass(thisClass) {
 		var classBack = "";
 		switch(thisClass) {
@@ -117,32 +126,28 @@ function myStart(){
 		case "invalid":
 		break;
 		case "reqd":
-		if (allGood && thisTag. value == "") {
+		if (allGood ) {
 		     classBack = "invalid ";
 		}
 		classBack += thisClass;
 		break;
-		default:
-		break;;
-		}
-		return classBack;
-		}
+		default:break;
+		  }
 		
 		function invalidLabel(parentTag) {
 		if (parentTag.nodeName == "LABEL") {
 		parentTag.className += " invalid";
 		}
 	 }
-  }
-		if(allGood){
-		var params = [];
+}
+}		
+		if(allGood){var params = [];
 		params["phone"] = document.getElementById("fname").value;
 		params["password"] = document.getElementById("lname").value;
-		alert(1);
-		$.post("code.html", params, function(data) {
+		$.post("http://120.25.252.252/index.php/home/user/login", params, function(data) {
+			alert(JSON.stringify(data));
 			if(data["code"]=="10000"){
 				Num = data["result"]["record"];
-				alert(2);
 				document.getElementById("Num").innerHTML = Num;
 				Num1 = data["result"]["nickname"];
 				document.getElementById("name").innerHTML = Num1;
@@ -155,8 +160,8 @@ function myStart(){
 				$("#fault").fadeIn();  
 			}
 		}, "json");
-		
 	}	
+	
 });
 	
 	
