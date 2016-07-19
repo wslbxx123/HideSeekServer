@@ -94,7 +94,7 @@ label.invalid {
     border-radius:5px;
     cursor: pointer; 
     -webkit-appearance: none;
-    width: 70%;
+    width: 80%;
 }
 
 #register{
