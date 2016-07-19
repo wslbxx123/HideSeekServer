@@ -5,13 +5,13 @@ function myStart(){
 		document.getElementById("purchase").className = "selected";
 		document.getElementById("exchange").className ="";
 		$("#purArea").fadeIn(); 
-		$("#partchange").fadeOut(); 
+		$("#exArea").fadeOut(); 
 	}
 	
 	document.getElementById("exchange").onclick = function(){
 		document.getElementById("exchange").className = "selected";
 		document.getElementById("purchase").className ="";
-		$("#partchange").fadeIn(); 
+		$("#exArea").fadeIn(); 
 		$("#purArea").fadeOut(); 
 	}
 	

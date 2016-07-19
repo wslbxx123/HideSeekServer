@@ -149,13 +149,13 @@ label.invalid {
     display:none;
 }
 
-#form1{
+#loginF{
     position: relative;
     text-align: center;
     margin-top: 15%;
 }
 
-#form2{
+#registerF{
     position: relative;
     text-align: center;
     margin-top: 15%;
@@ -288,7 +288,7 @@ label.invalid {
 	z-index:5;
 }
 
-#partchange{
+#exArea{
 	position:absolute;
 	z-index:5;
 	display:none;

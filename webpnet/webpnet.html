@@ -93,7 +93,7 @@
     	</div>
     	
     	<!--兑换区-->
-    	<div id ="partchange">
+    	<div id ="exArea">
     	<div id="N1"><span id="time">特殊炸弹</span>
     		<img src="img/bomb.png" id="bomb">
     		<div>
@@ -118,9 +118,7 @@
     			<img src="img/score.png" id="point"><span class="money" id="moneyc3">1</span>
     			<img src="img/people.png" id="people"><span id="population">15865人购买</span>
     		</div>
-    		<div id="intro">
-    			放在指定位置，当怪兽出现可触发炸弹，造成大范围严重伤害。
-    		</div>
+    		<div id="intro">放在指定位置，当怪兽出现可触发炸弹，造成大范围严重伤害。</div>
     		<div id="c3" class="get2">购买</div>
     	</div>
     	<div id="N2">
@@ -130,9 +128,7 @@
     			<img src="img/score.png" id="point"><span class="money" id="moneyc4">1</span>
     			<img src="img/people.png" id="people"><span id="population">15865人购买</span>
     		</div>
-    		<div id="intro">
-    			放在指定位置，当怪兽出现可触发炸弹，造成大范围严重伤害。
-    		</div>
+    		<div id="intro">放在指定位置，当怪兽出现可触发炸弹，造成大范围严重伤害。</div>
     		<div id="c4" class="get2">购买</div>
     	</div>
     	<div id="N1"><span id="time">定时炸弹</span>
@@ -152,28 +148,28 @@
     		</div>
     		<div id="intro">放在指定位置，当怪兽出现可触发炸弹，造成大范围严重伤害。</div>
     		<div id="c6" class="get2">购买</div>
-    	</div>
+    		</div>
     	</div>
     	
     	<!--弹出登录页面-->
     	<div id="newWin">
-    		<form id="form1" action="http://120.25.252.252/index.php/home/user/login" method="post" autocomplete="jsonResponse">
-    		<p><label for="fname">我的账号: <input type="text" id="fname" name="phone" class="reqd"></p>
-			<p><label for="lname">我的密码: <input type="password" id="lname" name="password" class="reqd"></p>
-			<p><input type="button" value="登录" id="login"></p>
-        </form>
-          <div id="fault">您输入的账号或密码有误！</div>
+    		<form id="loginF" action="http://120.25.252.252/index.php/home/user/login" method="post" autocomplete="jsonResponse">
+	    		<p><label for="fname">我的账号: <input type="text" id="fname" name="phone" class="reqd"></p>
+				<p><label for="lname">我的密码: <input type="password" id="lname" name="password" class="reqd"></p>
+				<p><input type="button" value="登录" id="login"></p>
+        	</form>
+    		<div id="fault">您输入的账号或密码有误！</div>
     	</div>
     	<!--弹出注册页面-->
     	<div id="newWin1">
-    		<form id="form2" action="code.html" method="post" autocomplete="jsonResponse">
-    		<p><label for="userphone">注册手机: <input type="text" size="30" id="userphone" class="reqd"></label> </p>
-    		<p><label for="userName">我的昵称: <input type="text" size="30" id="userName" class="reqd"></label> </p>
-			<p><label for="passwd1">我的密码: <input type="password" id="passwd1" class="reqd"></label></p>
-			<p><label for="passwd2">确认密码: <input type="password" id="passwd2" class="reqd passwd1"></label></p>
-			<p><input type="button" id="submitButton1" value="注册"></p>
-        </form>
-          <div id="fault">您输入的账号或密码有误！</div>
+    		<form id="loginF" action="code.html" method="post" autocomplete="jsonResponse">
+	    		<p><label for="userphone">注册手机: <input type="text" size="30" id="userphone" class="reqd"></label> </p>
+	    		<p><label for="userName">我的昵称: <input type="text" size="30" id="userName" class="reqd"></label> </p>
+				<p><label for="passwd1">我的密码: <input type="password" id="passwd1" class="reqd"></label></p>
+				<p><label for="passwd2">确认密码: <input type="password" id="passwd2" class="reqd passwd1"></label></p>
+				<p><input type="button" value="注册" id="register"></p>
+        	</form>
+       		<div id="fault">您输入的账号或密码有误！</div>
     	</div>
 	</body>
 </html>
