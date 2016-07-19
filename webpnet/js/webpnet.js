@@ -97,7 +97,7 @@ function myStart(){
 		for (var i=0; i<allTags.length; i++) {
 			if (!validTag(allTags[i])) {
 				allGood = false;
-	     		}
+	     	}
 		}
 		
 		function validTag(thisTag) {
@@ -121,58 +121,58 @@ function myStart(){
 				return false;
 			}
 			return true;
+		}
 			
-			function validBasedOnClass(thisClass) {
-				var classBack = "";
-				switch(thisClass) {
-					case "":
-					case "invalid":
-					break;
-					case "reqd":
-					if (allGood ) {
-					     classBack = "invalid ";
-					}
-					classBack += thisClass;
-					break;
-					default:break;
+		function validBasedOnClass(thisClass) {
+			var classBack = "";
+			switch(thisClass) {
+				case "":
+				case "invalid":
+				break;
+				case "reqd":
+				if (allGood ) {
+				     classBack = "invalid ";
 				}
-		
-			function invalidLabel(parentTag) {
-				if (parentTag.nodeName == "LABEL") {
-					parentTag.className += " invalid";
-				}
+				classBack += thisClass;
+				break;
+				default:break;
 			}
 		}
-	}		
+		
+		function invalidLabel(parentTag) {
+			if (parentTag.nodeName == "LABEL") {
+				parentTag.className += " invalid";
+			}
+		}
 	
-	//	实现登录界面和服务器的交互
-	if(allGood){
-		var params = [];
-		params["phone"] = document.getElementById("fname").value;
-		params["password"] = document.getElementById("lname").value;
-		alert(params["phone"]);
-		alert(params["password"]);
-		$.post("http://120.25.252.252/index.php/home/user/login", params, function(data) {
-			alert(JSON.stringify(data));
-			if(data["code"]=="10000"){
-				Num = data["result"]["record"];
-				document.getElementById("Num").innerHTML = Num;
-				Num1 = data["result"]["nickname"];
-				document.getElementById("nickname").innerHTML = Num1;
-		  		$(".inner_menu").fadeOut();  
-		  		$("#myprofile").fadeIn(); 
-		  		$("#newWin").fadeOut(); 
-		  		checkBox();
-			}
-			else{
-				$("#fault").fadeIn();  
-			}
-		}, "json");
-	}		
-});
+		//	实现登录界面和服务器的交互
+		if(allGood) {
+			var params = [];
+			params["phone"] = document.getElementById("fname").value;
+			params["password"] = document.getElementById("lname").value;
+			alert(params["phone"]);
+			alert(params["password"]);
+			$.post("http://120.25.252.252/index.php/home/user/login", params, function(data) {
+				alert(JSON.stringify(data));
+				if(data["code"]=="10000"){
+					Num = data["result"]["record"];
+					document.getElementById("Num").innerHTML = Num;
+					Num1 = data["result"]["nickname"];
+					document.getElementById("nickname").innerHTML = Num1;
+			  		$(".inner_menu").fadeOut();  
+			  		$("#myprofile").fadeIn(); 
+			  		$("#newWin").fadeOut(); 
+			  		checkBox();
+				}
+				else{
+					$("#fault").fadeIn();  
+				}
+			}, "json");
+		}		
+	});
 	
 	//	弹出兑换确认框
-	function checkBox(){
+	function checkBox() {
 	    var mydd = $('.get2');
 	    mydd.each(function(i){
             $(this).click(function(){
