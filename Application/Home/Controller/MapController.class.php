@@ -141,7 +141,52 @@ class MapController extends BaseController {
         }
         
         $array = array ('code' => $code, 'message' => $message,
-            'result' => $account_array, 'test' => $sql);
+            'result' => $account_array);
+        echo json_encode($array);
+    }
+    
+    public function setBomb() {
+        $code = "10000";
+        $message = "设置炸弹成功";
+        $sessionId = $_POST['session_id'];
+        $account = $this->getAccountFromToken($sessionId);
+        
+        if(isset($sessionId) && $sessionId != "") {
+            $pkId = $account['pk_id'];
+            if(isset($_POST['latitude']) && isset($_POST['longitude'])) {
+                $latitude = $_POST['latitude'];
+                $longitude = $_POST['longitude'];
+                if(isset($_POST['orientation'])) {
+                    $orientation = $_POST['orientation'];
+                    $dao = M("goal");
+                    $data['latitude'] = $latitude;
+                    $data['longitude'] = $longitude;
+                    $data['orientation'] = $orientation;
+                    $data['create_by'] = $pkId;
+                    $data['update_time'] = date('y-m-d H:i:s',time());
+                    $data['valid'] = 1;
+                    $data['type'] = 3;
+                    $dao->add($data);
+                    
+                    $tempAccount['pk_id'] = $pkId;
+                    $tempAccount['bomb_num'] = $account['bomb_num'] - 1;
+                    $accountDao = M("account");
+                    $accountDao->where("pk_id=$pkId")->save($data);
+                } else {
+                    $code = "10011";
+                    $message = "方向值不能为空";
+                }
+            } else{
+                $code = "10005";
+                $message = "经纬度不能为空";
+            }
+        } else {
+            $code = "10010";
+            $message = "用户未登录";
+        }
+        
+        $array = array ('code' => $code, 'message' => $message,
+            'result' => $tempAccount['bomb_num']);
         echo json_encode($array);
     }
 }
