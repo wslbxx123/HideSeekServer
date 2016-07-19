@@ -1,147 +1,149 @@
 window.onload = myStart;
 
-
-
 function myStart(){
-	
-//	document.getElementById("get1").onclick = moneyPay;
-	
-	document.getElementById("buy").onclick = function(){
-		document.getElementById("buy").className = "selected";
-		document.getElementById("change").className ="";
-		$("#partbuy").fadeIn(); 
+	document.getElementById("purchase").onclick = function(){
+		document.getElementById("purchase").className = "selected";
+		document.getElementById("exchange").className ="";
+		$("#purArea").fadeIn(); 
 		$("#partchange").fadeOut(); 
 	}
-	document.getElementById("change").onclick = function(){
-		document.getElementById("change").className = "selected";
-		document.getElementById("buy").className ="";
-		$("#partchange").fadeIn(); 
-		$("#partbuy").fadeOut(); 
-	}
 	
+	document.getElementById("exchange").onclick = function(){
+		document.getElementById("exchange").className = "selected";
+		document.getElementById("purchase").className ="";
+		$("#partchange").fadeIn(); 
+		$("#purArea").fadeOut(); 
+	}
 	
 	
 	$("#test1").click(function(){
-		  	$("#newWin").fadeIn(); 
-			 $("#lname").bind("click",
-		function() {
-			$("#fname")[0].blur(); 
-	    	$("#lname")[0].focus(); 
-		});
+		$("#newWin").fadeIn(); 
 	});
 	
 	$("#test2").click(function(){
 		  	$("#newWin1").fadeIn(); 
 	});
 	
-	$("#submitButton1").click(function(){
+	$("#register").click(function(){
 		var allGood = true;
 		var allTags = document.getElementById("newWin1").getElementsByTagName("*");
 		for (var i=0; i<allTags.length; i++) {
-		if (!validTag(allTags[i])) {
-			allGood = false;
-     		}
+				if (!validTag(allTags[i])) {
+					allGood = false;
+		     		}
 		}
 		return allGood;
 		function validTag(thisTag) {
-		var outClass = "";
-		var allClasses = thisTag.className. split(" ");
-		for (var j=0; j<allClasses.length; j++) {
-		outClass += validBasedOnClass (allClasses[j]) + " ";
-		}
-		thisTag.className = outClass;
-		if (outClass.indexOf("invalid") > -1) {
+			var outClass = "";
+			var allClasses = thisTag.className. split(" ");
+			
+			for (var j=0; j<allClasses.length; j++) {
+				outClass += validBasedOnClass (allClasses[j]) + " ";
+			}
+			thisTag.className = outClass;
+			
+			if (outClass.indexOf("invalid") > -1) {
 		        invalidLabel(thisTag.parentNode);
-//		thisTag.focus();
-		if (thisTag.nodeName == "INPUT") {
-		thisTag.select();
-		}
-		return false;
-		}
-		return true;
-		function validBasedOnClass(thisClass) {
-		var classBack = "";
-		switch(thisClass) {
-		case "":
-		case "invalid":
-		break;
-		case "reqd":
-		if (allGood && thisTag. value == "") {
-		     classBack = "invalid ";
-		}
-		classBack += thisClass;
-		break;
-		default:
-		if (allGood && !crossCheck (thisTag,thisClass)) {
-		classBack = "invalid ";
-		}
-		classBack += thisClass;
-		}
-		return classBack;
-		          }
-		function crossCheck (inTag,otherFieldID) {
-		if (!document.getElementById (otherFieldID)) {
-		return false;
-		}
-		return (inTag.value == document. getElementById(otherFieldID).value);
-		}
-		function invalidLabel(parentTag) {
-		if (parentTag.nodeName == "LABEL") {
-		parentTag.className += " invalid";
-		}
-	 }
-  }
-});
+				thisTag.focus();
+				if (thisTag.nodeName == "INPUT") {
+						thisTag.select();
+				}
+				return false;
+			}
+			return true;
+	
+			function validBasedOnClass(thisClass) {
+				var classBack = "";
+				switch(thisClass) {
+					case "":
+					case "invalid":
+					break;
+					case "reqd":
+					if (allGood && thisTag. value == "") {
+					    	classBack = "invalid ";
+					}
+					classBack += thisClass;
+					break;
+					default:
+					if (allGood && !crossCheck (thisTag,thisClass)) {
+							classBack = "invalid ";
+					}
+					classBack += thisClass;
+				}
+				return classBack;
+			}
+	
+			function crossCheck (inTag,otherFieldID) {
+				if (!document.getElementById (otherFieldID)) {
+						return false;
+				}
+				return (inTag.value == document. getElementById(otherFieldID).value);
+			}
+			function invalidLabel(parentTag) {
+				if (parentTag.nodeName == "LABEL") {
+						parentTag.className += " invalid";
+				}
+		 	}
+  		}
+	});
 	
 	
-	$("#submitButton").click(function() {
+	$("#login").click(function() {
 		var allGood = true;
 		var allTags = document.getElementById("newWin").getElementsByTagName("*");
 		for (var i=0; i<allTags.length; i++) {
-		if (!validTag(allTags[i])) {
-			allGood = false;
-     		}
+			if (!validTag(allTags[i])) {
+				allGood = false;
+	     		}
 		}
 		
 		function validTag(thisTag) {
-		var outClass = "";
-		var allClasses = thisTag.className. split(" ");
-		for (var j=0; j<allClasses.length; j++) {
-		outClass += validBasedOnClass (allClasses[j]) + " ";
-		}
-		thisTag.className = outClass;
-		if (outClass.indexOf("invalid") > -1) {
+			var outClass = "";
+			var allClasses = thisTag.className. split(" ");
+			
+			for (var j=0; j<allClasses.length; j++) {
+				outClass += validBasedOnClass (allClasses[j]) + " ";
+			}
+			
+			thisTag.className = outClass;
+			
+			if (outClass.indexOf("invalid") > -1) {
 		        invalidLabel(thisTag.parentNode);
-		thisTag.focus();
-		if (thisTag.nodeName == "INPUT") {
-		thisTag.select();
-		}
-		return false;
-		}
-		return true;
-		function validBasedOnClass(thisClass) {
-		var classBack = "";
-		switch(thisClass) {
-		case "":
-		case "invalid":
-		break;
-		case "reqd":
-		if (allGood ) {
-		     classBack = "invalid ";
-		}
-		classBack += thisClass;
-		break;
-		default:break;
-		  }
+				thisTag.focus();
+				
+				if (thisTag.nodeName == "INPUT") {
+					thisTag.select();
+				}
 		
-		function invalidLabel(parentTag) {
-		if (parentTag.nodeName == "LABEL") {
-		parentTag.className += " invalid";
+				return false;
+			}
+			return true;
+			
+			function validBasedOnClass(thisClass) {
+				var classBack = "";
+				switch(thisClass) {
+					case "":
+					case "invalid":
+					break;
+					case "reqd":
+					if (allGood ) {
+					     classBack = "invalid ";
+					}
+					classBack += thisClass;
+					break;
+					default:break;
+				}
+		
+			function invalidLabel(parentTag) {
+				if (parentTag.nodeName == "LABEL") {
+					parentTag.className += " invalid";
+				}
+			}
 		}
-	 }
-}
-}		
-		if(allGood){var params = [];
+	}		
+	
+	if(allGood){
+		var params = [];
 		params["phone"] = document.getElementById("fname").value;
 		params["password"] = document.getElementById("lname").value;
 		$.post("http://120.25.252.252/index.php/home/user/login", params, function(data) {
@@ -150,9 +152,9 @@ function myStart(){
 				Num = data["result"]["record"];
 				document.getElementById("Num").innerHTML = Num;
 				Num1 = data["result"]["nickname"];
-				document.getElementById("name").innerHTML = Num1;
+				document.getElementById("nickname").innerHTML = Num1;
 		  		$(".inner_menu").fadeOut();  
-		  		$("#myplace").fadeIn(); 
+		  		$("#myprofile").fadeIn(); 
 		  		$("#newWin").fadeOut(); 
 		  		pointBuy();
 			}
@@ -160,26 +162,25 @@ function myStart(){
 				$("#fault").fadeIn();  
 			}
 		}, "json");
-	}	
-	
+	}		
 });
 	
 	
 	function pointBuy(){
-    var mydd = $('.get2');
-	mydd.each(function(i){
-             $(this).click(function(){
+	    var mydd = $('.get2');
+	    mydd.each(function(i){
+            $(this).click(function(){
              	if (confirm("是否确认兑换?")) {
              	   var thisId =mydd.eq(i).attr("id");
                    var moneyId = "money"+thisId;
 				   var n = document.getElementById(moneyId).innerHTML;
-				   var Num = document.getElementById("Num").innerHTML;
+				   var Num = document.getElementById("scoreNum").innerHTML;
 				   var a = Num - n;
 				   document.getElementById("Num").innerHTML= a;
-				   }
-             })			
- 		 });
-	  } 	 
-	}
+				}
+            });			
+ 		});
+	} 	 
+}
 
 
