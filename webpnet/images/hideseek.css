@@ -1,0 +1,836 @@
+      em {
+          font-style: normal;
+        }
+        a:focus {
+            outline: 0;
+        }
+        .row {
+          width: 1038px;
+          overflow: hidden;
+        }
+        .wrapper {
+          min-width: 1200px;
+          overflow: hidden;
+        }
+        /*banner*/
+        .banner {
+          position: relative;
+        }
+        /*城市导航*/
+        .cityPosition {
+          height: 50px;
+        }
+        .cityPosition .block {
+          width: 100%;
+          background: #242424;
+          height: 50px;
+          z-index: 98;
+        }
+        .cityPosition .positionInner {
+          position: relative;
+          z-index: 10;
+          width: 1100px;
+          margin: 0 auto;
+        }
+        .cityPosition .cityList {
+          float: left;
+          padding: 13px 0;
+          position: relative;
+        }
+        .cityPosition .cityList a {
+          float: left;
+          width: 70px;
+          height: 24px;
+          font-size: 16px;
+          margin-right: 18px;
+          line-height: 22px;
+          color: #ffffff;
+          text-align: center;
+          -moz-border-radius: 4px;
+          -webkit-border-radius: 4px;
+          border-radius: 4px;
+          transition: background ease 0.5s;
+        }
+        .cityPosition .cityList a:hover {
+          background: #e70084;
+        }
+        .cityPosition .cityList .active {
+          background: #e70084;
+        }
+        .cityPosition .cityList .moreCity {
+          width: 49px;
+          height: 22px;
+          line-height: 22px;
+          font-size: 14px;
+          margin: 0;
+          border: 1px solid #fde431;
+          color: #fde431;
+          border-radius: 10px;
+        }
+        .cityPosition .cityList .moreCity:hover {
+          background: none;
+        }
+        .cityPosition .moreCityList {
+          position: absolute;
+          width: 248px;
+          right: 10px;
+          top: 60px;
+        }
+        .cityPosition .moreCityList .cityArrow {
+          content: "";
+          position: absolute;
+          width: 0;
+          height: 0;
+          font-size: 0;
+          border-width: 4px 6px;
+          border-style: dashed solid solid dashed;
+          top: -8px;
+          right: 20px;
+          border-color: transparent #ffffff #ffffff transparent;
+        }
+        .cityPosition .moreCityList a {
+          float: left;
+          width: 80px;
+          height: 28px;
+          line-height: 28px;
+          border: 2px solid #242424;
+          text-align: center;
+          margin: 0 -2px -2px 0;
+          color: #242424;
+          transition: background ease 0.5s, color ease 0.5s;
+          -moz-border-radius:0;
+          -webkit-border-radius:0;
+          border-radius:0;
+          background: #fff;
+        }
+        .cityPosition .moreCityList a:hover {
+          background: #e30001;
+          color: #ffffff;
+        }
+        .cityPosition .moreCityList .active {
+          background: #e30001;
+          color: #ffffff;
+        }
+        /*公共*/
+        .content .block {
+          margin: 0 auto;
+          padding-bottom: 40px;
+        }
+        .content .title {
+          margin-top: 50px;
+          margin-bottom: 15px;
+        }
+        .content .title img {
+          display: block;
+          margin: 0 auto;
+        }
+        .product_box li {
+          position: relative;
+        }
+        .product_box li .sold_out {
+          height: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: 20;
+          display: none;
+        }
+        .product_box li .sold_out .sold_out_bg {
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0, 0, 0, 0.6);
+          filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#99000000', endColorstr='#99000000', GradientType=0);
+        }
+        .product_box li .sold_out .sold_out_bg img {
+          width: 143px;
+          height: 38px;
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          margin-left: -72px;
+          margin-top: -19px;
+          z-index: 20;
+        }
+        .product_box .image {
+          display: block;
+          position: relative;
+        }
+        .product_box .image img {
+          width: 100%;
+          height: 100%;
+        }
+        .product_box .image .corner {
+          position: absolute;
+        }
+        .product_box .image .mask {
+          width: 100%;
+          position: absolute;
+          bottom: 0;
+          left: 0;
+        }
+        .product_box .details {
+          display: block;
+        }
+        .product_box .details .name {
+          overflow: hidden;
+        }
+        .product_box .details .group {
+          overflow: hidden;
+        }
+        .product_box .details .price {
+          position: relative;
+          overflow: hidden;
+        }
+        .product_box .details .price .price_l {
+          overflow: hidden;
+          position: absolute;
+        }
+        .product_box .details .buynow_type {
+          display: block;
+          overflow: hidden;
+        }
+        .more {
+          margin: 10px 0;
+        }
+        .more_center {
+          text-align: center;
+        }
+        .more_left {
+          float: left;
+        }
+        .more_right {
+          float: right;
+        }
+        /*新增样式*/
+        .floor{
+            position: relative;
+        }
+        .card-block{
+            position: absolute;
+            overflow: hidden;
+        }
+        .pic-block{
+            width: 100%;
+            height: 100%;
+        }
+        .module-title{
+            width: 100%;
+            position: relative;
+            text-align: center;
+			padding-top:100px;
+        }
+		 .module-title1{
+            width: 100%;
+            position: relative;
+            text-align: center;
+			padding-top:30px;
+        }
+        .hide{
+            display: none;
+        }
+        .tab-normal{
+            width: 1038px;
+            font-size: 0;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        .tab-title{
+            display: inline-block;
+            line-height: 50px;
+            height: 50px;
+            text-align: center;
+            font-weight: 700;
+            font-size: 17px;
+            transition: .5s;
+        }
+        .tab-2{
+            width: 519px;
+        }
+        .tab-3{
+            width: 346px;
+        }
+        .tab-4{
+            width: 260px;
+        }
+        .tab-5{
+            width: 208px;
+        }
+        .tab-6{
+            width: 173px;
+        }
+        .tab-7{
+            width: 148px;
+        }
+        .tab-8{
+            width: 130px;
+        }
+        .tab-9{
+            width: 116px;
+        }
+        .tab-10{
+            width: 104px;
+        }
+        .more-btn{
+          position: absolute;
+        }
+        .more-btn img{
+          max-width: 200px;
+        }
+        .floor-block{
+          padding:15px;
+        }
+		em,i {
+  font-style: normal;
+}
+.route-item {
+  width: 238px;
+  padding-bottom: 9px;
+  border: 1px solid #242424;
+  background-color: #fff;
+}
+.route-item a {
+  cursor: pointer;
+}
+.route-item .routeImg {
+  width: 238px;
+  height: 170px;
+  position: relative;
+}
+.route-item .routeImg img {
+  *cursor: default;
+  width: 238px;
+  height: 170px;
+}
+.route-item .routeImg .text {
+  height: 25px;
+  line-height: 25px;
+  width: 218px;
+  padding:0 10px;
+  background-color: #000;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  font-size: 12px;
+  color: #cccccc;
+}
+.route-item .routeTitle {
+  font-size: 14px;
+  color: #333333;
+  padding: 6px;
+  line-height: 22px;
+  height: 40px;
+  overflow: hidden;
+}
+.route-item .price {
+  overflow: hidden;
+  line-height: 34px;
+  padding-left: 4px;
+}
+.route-item .price .salePrice {
+  font-size: 16px;
+  color: #333333;
+  float: left;
+}
+.route-item .price .salePrice em {
+  font-size: 16px;
+}
+.route-item .price .salePrice span {
+  font-size: 30px;
+  color: #ec284d;
+}
+.route-item .price .tuniuPrice {
+  margin-top: 7px;
+  font-size: 14px;
+  color: #999999;
+  float: left;
+  text-decoration: line-through;
+}
+.route-item .buyBtn {
+  width: 224px;
+  height: 38px;
+  margin: 3px auto 0;
+  text-align: center;
+  line-height: 38px;
+  font-size: 18px;
+  color: #ffffff;
+  background: url(http://img3.tuniucdn.com/site/market/topic/temaiDay/images/buyBtn.png) no-repeat;
+}
+.nr-icon {
+  width: 80px;
+  height: 80px;
+  background: url(	miaosha.png) no-repeat;
+  background-size:cover;
+  position: absolute;
+  left: 0px;
+  top: 8px;
+}.pendant_card_10{width: 95px;height: 37px;background: url(http://m.tuniucdn.com/fb2/t1/G1/M00/84/46/Cii9EVcfFgOIcqmOAAAFu42ZhgcAAD-_QP_-i0AAAXT399.png) center no-repeat;font-size: 16px; color: #ebfe6f;position: absolute;top: 14px;left: 22px;text-align: center; display:none; }.head .logo .logo_a img{
+  width: 110px;
+  height: 40px;
+}
+
+.cityLabel {
+    background:url(cityLabel.png) no-repeat center;
+    float: left;
+    height: 29px;
+    margin: 11px 23px 10px 0;
+    width: 120px;
+}
+.content .row{
+  width: 1031px;
+}
+.content #module_177{
+  width: 1039px;
+}
+.wrapper .content .block{
+  padding-bottom: 0;
+}
+.wrapper .content #module_177{
+     border:none;
+     overflow: visible;
+}
+.wrapper .content #module_177 .floor-block .card-block{
+  overflow: visible;
+}
+.wrapper .content  #module_177{
+      border:none;
+}
+#module_177 .floor{
+  margin-top: 0px;
+}
+
+#module_178 .module-title,#module_179 .module-title, #module_180 .module-title,#module_181 .module-title,#module_182 .module-title{
+  height: 176px;
+}
+#module_178 .floor-block,#module_179 .floor-block,#module_180 .floor-block,#module_181 .floor-block,#module_182 .floor-block{
+    padding:15px 15px 2px;
+    background: #fff;
+    border: 3px solid #242424;
+    border-radius: 25px;
+}
+.content #module_177 .floor-block{
+  background: url(canvas.png) no-repeat;
+        height: 547px;
+}
+.procedure {
+    width: 1038px;
+    height: 500px;
+    position: relative;
+    left: -13px;
+	top:1px;
+}
+.procedure .procedure-item {
+  width: 458px;
+  height: 458px;
+  background: url(introduce.png) no-repeat;
+}
+.procedure .procedure-item .riqi {
+  height: 47px;
+  text-align: center;
+  font-size: 25px;
+  color: #ec284d;
+}
+.procedure .procedure-item .yh {
+  font-size: 17px;
+  height: 32px;
+  line-height: 39px;
+  font-weight: bold;
+  color: #fdf097;
+  text-align: center;
+}
+.procedure .procedure-item .wl {
+  line-height: 38px;
+  font-size: 18px;
+  display: block;
+  margin: 57px auto 0;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.procedure .procedure-item .bt1 {
+  margin-top:80px;
+ }
+
+.procedure .procedure-item .bt {
+  line-height: 64px;
+  height:68px;
+  width:302px;
+  margin:30px 0 auto 83px;
+  text-align: center;
+  font-size: 20px;
+  display: block;
+  background: url(bt.png) no-repeat;
+}
+ .procedure .procedure-item a:link { 
+  color:#fefbfb; 
+  text-decoration:none; 
+} 
+ .procedure .procedure-item a:visited{ 
+  color:#fefbfb; 
+  text-decoration:none; 
+} 
+.procedure .procedure-item .mj {
+  font-size: 18px;
+  color: #ec284d;
+  line-height: 40px;
+  margin-top: 10px;
+  text-align: center;
+}
+.procedure .procedure-item1 {
+  position: absolute;
+  left: 42px;
+  top: 47px;
+}
+.procedure .procedure-item2 {
+  position: absolute;
+  left: 532px;
+  top: 47px;
+}
+
+.rule_btn {
+    width: 80px;
+    height: 24px;
+    background: #242424;
+    border-radius: 20px;
+    line-height: 24px;
+    text-align: center;
+    font-size: 14px;
+    color: #fff;
+    position: absolute;
+    top: -70px;
+    right: 45px;
+    cursor: pointer;
+}
+
+.coupons_con{position:fixed;left:50%;top:50%;margin:-326px 0 0 535px;z-index:100;height:186px}.top_box{width:106px;height:108px;padding:0 7px;background:url(http://m.tuniucdn.com/fb2/t1/G1/M00/96/17/Cii9EFcq3bWIMGhyAAAHgBz3iKUAAEpuwP_-GgAAAeY766.png) center no-repeat;position:relative}.top_box h1{font-size:18px;color:#fdf097;font-weight:bold;text-align:center;height:25px;padding-top:5px}.top_box h2{font-size:16px;color:#fff;text-align:center}#tel{width:97px;height:20px;line-height:20px;border:1px solid #000;padding-left:7px;font-size:12px;color:#999;border-radius:5px}.ljlq_btn{width:76px;height:24px;font-size:14px;color:#fff;border-radius:10px;text-align:center;line-height:24px;background:#242424;position:absolute;bottom:-10px;left:23px;cursor:pointer}.bottom_box{width:96px;border:2px solid #380300;border-top:1px solid #380300;border-radius:10px;padding:13px 9px 5px 10px;background:#fdf097;color:#ec284c;font-size:12px;line-height:19px;display:none}.quickNav{position:fixed;left:50%;top:50%;margin:-140px 0 0 535px;z-index:100;width:145px;display:none}.quickNav .fr_top{width:145px;height:97px;background:url(http://m.tuniucdn.com/fb2/t1/G1/M00/AB/D6/Cii9EVcq8IiIeFx1AAAvi9iNzbAAAFR-wObhnQAAC-j171.png) 0 0 no-repeat;margin-left:-10px}.quickNav .fr_con{width:114px;background:#242424;border-left:4px solid #131313;border-right:2px solid #131313;margin-left:2px}.quickNav .fr_con ul{border-right:2px solid #505050;padding:0 3px}.quickNav .fr_con ul li{height:32px;line-height:32px;color:#fff;font-size:14px;border-bottom:1px solid #3a3a3a;cursor:pointer;padding-left:7px;background-image:url(http://m.tuniucdn.com/fb2/t1/G1/M00/A7/63/Cii9EFcq8IeIAkHfAAACL17EInEAAFNHwP__bkAAAJH129.png);background-repeat:no-repeat;background-position:89px 10px}.quickNav .fr_con ul li.current{background-color:#fedc32;color:#242424;background-position:96px -29px;width:107px;height:29px;border:2px solid #131313;margin-left:-9px;padding-left:13px}.fr_last{width:120px;height:35px;background:url(http://m.tuniucdn.com/fb2/t1/G1/M00/9A/DC/Cii9EFcq8IeIcwZoAAAFKKtqahIAAE-qAP_-sAAAAVA201.png) no-repeat center;cursor:pointer;margin-left:2px}
+
+
+
+.TUI-mask{width:100%;height:100%;background:#000;position:fixed;left:0;top:0;opacity:.6;filter:alpha(opacity=60)}.TUI-dialog{position:absolute;z-index:9999;width:400px;left:50%;top:50%;background:#fff}.TUI-dialog-header{color:#fff;position:relative;background:#1439c5;height:40px;line-height:40px}.TUI-dialog-header h2{font-size:16px;text-indent:10px}.TUI-dialog-close{width:40px;height:40px;line-height:40px;overflow:hidden;position:absolute;top:0;right:0;color:#fff;font-size:30px;text-align:center}.TUI-dialog-content{padding:10px;max-height:500px;overflow:auto}.TUI-dialog-content h4{font-size:16px;font-weight:700}.TUI-dialog-content p{font-size:14px;padding:0 0 8px;color:#333}.TUI-dialog-content p span{color:#888}
+
+
+.banner {
+    margin: 0 auto;
+    overflow: hidden;
+    width: auto;
+    height: 671px;
+    position: relative; 
+}
+
+.mushroom  {
+  width: 336px;
+  height: 337px;
+  background: url(mushroom.png) no-repeat;
+  position: absolute;
+  left: 51%;
+  top: 203px;
+  margin-left: -479px;
+  z-index: 20;
+  background-size:cover;
+  }
+
+.button {
+  width: 200px;
+  height: 200px;
+  background: url(button.png) no-repeat;
+  position: absolute;
+  left: 64%;
+  top: 630px;
+  margin-left: -292px;
+  z-index: 20;
+  transform-origin: left bottom; 
+  background-size:cover;
+  }
+
+.bomb {
+  width: 209px;
+  height: 177px;
+  background: url(bomb.png) no-repeat;
+  position: absolute;
+  left: 36%;
+  top: 121px;
+  margin-left: -31px;
+  z-index: 5;
+ 
+  animation: fly 1.5s ease 1s infinite;
+    -webkit-animation: fly 1.5s ease 1s infinite; 
+
+}
+
+.test_title {
+  width: 537px;
+  height: 275px;
+  background: url(test_title.png) no-repeat;
+  position: absolute;
+  left: 44%;
+  top: 159px;
+  margin-left: -84px;
+  z-index: 8; 
+  animation: swing 0.5s linear 0s 3;}
+
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both; }
+
+.animated.infinite {
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite; }
+
+.animated.hinge {
+  -webkit-animation-duration: 2s;
+  animation-duration: 2s; }
+
+.tada {
+  -webkit-animation-name: tada;
+  animation-name: tada; }
+
+@keyframes tada {
+  0% {
+    transform: scale3d(1, 1, 1); }
+  10%, 20% {
+    transform: scale3d(0.8, 0.8, 0.8) rotate3d(0, 0, 1, -3deg); }
+  30%, 50%, 70%, 90% {
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg); }
+  40%, 60%, 80% {
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg); }
+  100% {
+    transform: scale3d(1, 1, 1); } }
+@-webkit-keyframes tada {
+  0% {
+    -webkit-transform: scale3d(1, 1, 1); }
+  10%, 20% {
+    -webkit-transform: scale3d(0.8, 0.8, 0.8) rotate3d(0, 0, 1, -3deg); }
+  30%, 50%, 70%, 90% {
+    -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg); }
+  40%, 60%, 80% {
+    -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg); }
+  100% {
+    -webkit-transform: scale3d(1, 1, 1); } }
+
+
+@keyframes swing {
+  0% {
+    transform: rotate(0); }
+  25% {
+    transform: rotate(-5deg); }
+  50% {
+    transform: rotate(0); }
+  75% {
+    transform: rotate(5deg); }
+  100% {
+    transform: rotate(0); } }
+@-webkit-keyframes swing {
+  0% {
+    -webkit-transform: rotate(0); }
+  25% {
+    -webkit-transform: rotate(-10deg); }
+  50% {
+    -webkit-transform: rotate(0); }
+  75% {
+    -webkit-transform: rotate(10deg); }
+  100% {
+    -webkit-transform: rotate(0); } }
+
+@keyframes fly {
+   0% {
+      transform: translateY(0px)
+    }
+    50% {
+      transform: translateY(-4px)
+    }
+    100% {
+      transform: translateY(0)
+    }}
+@-webkit-keyframes fly {
+  0% {
+      transform: translateY(0px)
+    }
+    50% {
+      transform: translateY(-4px)
+    }
+    100% {
+      transform: translateY(0)
+    }}
+
+
+	.leftNav{
+	position:fixed;
+	left:50%;
+	top:50%;
+	margin:-280px 0 0 -708px;
+	z-index:100;
+	width:188px;
+	display:none;
+	}
+	
+	.leftNav .left_top{
+	width:188px;
+	height:97px;
+	background:url(http://img3.tuniucdn.com/site/market/topic/2016shucu_zhu/images/rl_top.png) no-repeat 0 0;
+	position:relative;
+	z-index:5;
+	}
+	
+	.leftNav .left_top a{
+	width:126px;
+	height:25px;
+	position:absolute;
+	top:72px;
+	left:31px;
+	}
+	
+	.leftNav ul{
+	width:188px;
+	position:relative;
+	z-index:4;
+	margin-top:-30px;
+	}
+	
+	.leftNav ul li{
+	text-align:center;
+	margin-bottom:2px;
+	padding:0 31px;
+	}
+	
+	.leftNav ul li a{
+	font-size:14px;
+	color:#fff;
+	background:#402020;
+	display:block;
+	line-height:15px;
+	padding:5px 0;
+	}
+	
+	.leftNav ul li a.f{
+	padding:10px 0 5px 0;
+	}
+	
+	.left_bottom{
+	width:126px;
+	height:55px;
+	margin:0 auto;
+	position:relative;
+	background:url(http://img4.tuniucdn.com/site/market/topic/2016shucu_zhu/images/ri_b.png) no-repeat 0 0;
+	cursor:pointer;
+	}
+	
+	.left_bottom p{
+	text-align:center;
+	color:#fff;
+	font-weight:700;
+	}
+	
+	.left_bottom p.p1{
+	font-size:18px;
+	height:23px;
+	line-height:26px;
+	}
+	
+	.left_bottom p.p2{
+	font-size:16px;
+	height:20px;
+	line-height:20px;
+	}
+	
+	.left_bottom p.p2 em{
+	font-size:21px;
+	font-weight:400;
+	}
+	
+	.ewm_left{
+	width:125px;
+	height:125px;
+	background:url(http://img4.tuniucdn.com/site/market/topic/2016shucu_zhu/images/ewm_left.png) no-repeat;
+	position:absolute;
+	left:127px;
+	top:-72px;
+	display:none;
+	}
+	
+	.ewm_left div{
+	width:125px;
+	height:125px;
+	background:url(http://img4.tuniucdn.com/site/market/topic/2016shucu_zhu/images/left_ma.jpg?v=1) no-repeat center}
+   
+	body{
+	margin:0px;
+	padding:0px;
+	background:#f7f4f4;
+	}
+
+	.head{ 
+	height:58px; 
+	width: 100%; 
+	border-top:1px solid #999; 
+	border-bottom:#999; 
+	font-family: "Microsoft Yahei"; 
+	background: #fff; margin: 0 auto;}
+
+	.head .inner_menu{ 
+	width:838px; 
+	height:58px; 
+	float: right;
+	}
+	
+	.head .nav_list{
+	width:838px;
+	margin:0px;
+	padding:0px;
+	}
+	
+	.head .nav_list li{ 
+	float: right; 
+	height:58px;
+	list-style: 
+	none;margin:0px;
+	padding:0px;}
+	.head .nav_list li a{
+	font-size: 14px; 
+	height:58px; 
+	line-height:58px; 
+	color: #736f72; 
+	display: inline-block; 
+	padding-left:8px; 
+	padding-right: 8px;
+	text-decoration: none;
+	}
+	
+	.head .nav_list li a:hover{
+	color: #2e9900; 
+	background:#f7f7f7;
+	}
+	
+	.head .inner_head{
+	width: 1084px; 
+	margin: 0 auto; 
+	height:58px;
+	}
+	
+	.head .logo{
+	float: left; 
+	width:160px; 
+	padding-top: 10px;
+	}
+	
+	.head .nav_list li.tuniuphone-wrapper { 
+	line-height:58px; 
+	margin-left:10px;
+	} 
+	
+	.icon-tuniuphone{
+	width:13px; 
+	height:14px; 
+	background:url(http://img4.tuniucdn.com/site/file/zt/common/icons/icon-greenphone.png) top center no-repeat;
+	display:inline-block;
+	position:relative;
+	bottom:-2px;
+	margin-right:2px;
+	} 
+	
+	.head .nav_list li a.tuniuPhone {
+	display:inline-block; 
+	color:#38c249;
+	font-size:16px;
+	padding-left:0;
+	}
