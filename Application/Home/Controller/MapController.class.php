@@ -7,7 +7,7 @@ class MapController extends BaseController {
         $message = "地图刷新成功";
         
         if(isset($_POST['latitude']) && isset($_POST['longitude'])) {
-            $Dao = M("goal");
+            $goalDao = M("goal");
             $latitude = $_POST['latitude'];
             $longitude = $_POST['longitude'];
             $account_role = $_POST['account_role'];
@@ -25,16 +25,13 @@ class MapController extends BaseController {
             settype($longitude, "double");
             $sql = "call admin_monster_role_p($latitude, $longitude, "
                     . "$account_role, \"$update_timestamp\")";
-            $goals = $Dao->query($sql);
+            $goals = $goalDao->query($sql);
         } else{
             $code = "10005";
             $message = "经纬度不能为空";
         }
         
-        if(count($goals) > 0) {
-            $goal = $goals[0];
-            $update_timestamp = $goal['update_time'];
-        }
+        $update_timestamp = $goalDao->max('update_time');
         
         $array = array ('code' => $code, 'message' => $message, 
             'result' => array (
@@ -168,10 +165,9 @@ class MapController extends BaseController {
                     $data['type'] = 3;
                     $dao->add($data);
                     
-                    $tempAccount['pk_id'] = $pkId;
                     $tempAccount['bomb_num'] = $account['bomb_num'] - 1;
                     $accountDao = M("account");
-                    $accountDao->where("pk_id=$pkId")->save($data);
+                    $accountDao->where("pk_id=$pkId")->save($tempAccount);
                 } else {
                     $code = "10011";
                     $message = "方向值不能为空";
