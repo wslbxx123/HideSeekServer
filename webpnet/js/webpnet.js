@@ -138,9 +138,11 @@ function myStart(){
 		var params = [];
 		params["phone"] = document.getElementById("fname").value;
 		params["password"] = document.getElementById("lname").value;
+		alert(1);
 		$.post("code.html", params, function(data) {
 			if(data["code"]=="10000"){
 				Num = data["result"]["record"];
+				alert(2);
 				document.getElementById("Num").innerHTML = Num;
 				Num1 = data["result"]["nickname"];
 				document.getElementById("name").innerHTML = Num1;
