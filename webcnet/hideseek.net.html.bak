@@ -1,0 +1,1777 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>找我吧积分商城兑换</title>
+    <meta name="keywords" content="积分 商城兑换 hideseek 找我吧 旅游 美食" />
+    <meta name="description" content="积分 商城兑换 hideseek 找我吧 旅游 美食" />
+    <link rel="stylesheet" type="text/css" href="http://img2.tuniucdn.com/site/market/css/common.css" />
+    <link rel="stylesheet" type="text/css" href="images/hideseek.css" />
+    <script type="text/javascript" src="http://img1.tuniucdn.com/event/2016040116/websiteCms/jquery-1.12.0.min.js"></script>
+<body>
+<div class="wrapper">
+<div class="head" id="head">
+    <div class="inner_head clearfix">
+        <div class="logo">
+            <a class="logo_a" href="http://www.tuniu.com/"><img title="找我吧积分兑换商场" src="images/logo.gif" width="110"/></a>
+        </div>
+        <div class="inner_menu clearfix">
+            <ul class="nav_list clearfix">
+                <li class="tuniuphone-wrapper"><span class="icon-tuniuphone"></span><a class="tuniuPhone" href="javascript:void(0);">商务合作电话：13510239614；13510239470；</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <!-- 城市导航 -->
+    <div class="cityPosition">
+	<div class="block clearfix">
+		<div class="positionInner clearfix">
+		    <div class="cityLabel"></div>
+	    	<div class="cityList">
+			    <a href="#one">APP下载</a><a href="#two">美食</a><a href="#three">旅行</a><a href="#four">数码</a><a href="#five">护肤</a><a href="#six">美甲</a><a href="#seven">书籍</a><a href="#eight">礼物</a><a href="#nine">电影</a><a href="#ten">购物券</a></div></div>	        </div>
+		</div>
+	</div>
+</div>
+
+    <!-- banner -->
+    <div class="banner">
+    <img src="images/road.gif" style="width:1920px;left: 50%; position: relative; margin-left: -960px;">
+	<img src="images/road1.gif" style="width:1920px;left: 50%; position: relative; margin-left: -960px;">
+	<img src="images/road2.gif" style="width:1920px;left: 50%; position: relative; margin-left: -960px;">
+      </div>
+	<div class='button'></div>
+    <div class="content" id="one" style="background-color:#FFAD00">
+     <div id="module_177" class="block row">
+      <div class="module-title">
+        <img src="images/module-title.png">
+       </div>
+   <div class="floor-block floor-0 an_mo"  name="floor-id-199" liWithHan="cms_199_产品">
+      <div class="floor" >
+	   <div class="card-block">
+	    <div class="code-block">
+	      <div class="procedure">
+		    <div class="procedure-item procedure-item1">
+			  <div class="riqi">hideseek产品介绍</div>
+			    <div class="yh">首次下载的用户，立享2积分</div>
+				 <div class="wl">化身你命中注定的角色身份，来场虚拟与现实交融的奇妙探险吧！在找与藏之前感受未知的快感，还可获得丰厚积分，兑换你梦寐已久的现实愿望清单！说走就走的旅行、火爆的演唱会门票等丰厚礼品在这里都只剩下步与步之间力量组合的高能转换。
+	   </div>
+		</div>
+		<div class="procedure-item procedure-item2">
+			<div class="riqi">hideseek产品下载</div>
+			   <div class="yh">根据手机系统，自行选择版本下载</div>
+			      <div class="bt1">
+				    <a class="bt" href="images/bt.png" target="_blank">免费下载Android版本</a>  
+			        <a class="bt" href="images/bt.png" target="_blank">免费下载iOS版本</a> 
+			      </div>
+		     </div>
+      <div class="rule_btn">活动规则</div>
+	</div></div></div></div></div>
+            </div>
+    </div>
+<div class="content" id="two" style="background-color:#FFAD00">
+        <div id="module_178" class="block row">
+                    <div class="module-title1">
+                <img src="images/food.png">
+                                                        <!-- 标题右下 -->
+                    <a href="http://www.tuniu.com/niuren/" class="more-btn" style="bottom: 10px;right: 10px;" target="view_window"><img src="http://m.tuniucdn.com/fb2/t1/G1/M00/C7/8B/Cii9EFc5sK2IYaBzAAAPcAINNAUAAFy9wP_8E4AAA-y359.png"></a>
+                                                </div>
+                                    <div class="floor-block floor-0 an_mo" style="background:#ffffff" name="floor-id-200" liWithHan="cms_200_产品">
+                <div class="floor" style="height:672px;background:#ffffff;"><div class="card-block" style="width:252px;height:336px;top:0px;left:0px;"><div class="product_card_11"><div class="route-item">
+	<a href="http://www.tuniu.com/tours/470290" target="_blank" onclick="_gaq.push(['_trackEvent', '21-619', '点击', '178-200-&lt;法瑞意德奥11日游&gt;即日起2人预定6月29日团立减6000元，一价全含 迈瑙花岛 铁力士雪山 红酒火车湖区 巴黎自由活动']);">
+		<div class="routeImg">
+			<img src="images/food1.jpg">
+			<div class="text">出发 | 跟团游</div>
+		</div>
+		<div class="routeTitle">
+			&lt;法瑞意德奥11日游&gt;即日起2人预定6月29日团立减6000元，一价全含 迈瑙花岛 铁力士雪山 红酒火车湖区 巴黎自由活动
+		</div>
+		<div class="price">
+			<div class="salePrice"><em>￥</em><span>13999</span>起</div>
+			<div class="tuniuPrice">￥<em>16999</em></div>
+		</div>
+		<div class="buyBtn">需减<em>2积分</em></div>
+	</a>
+	</div> <div class="pendant_card_24"><div class="nr-icon"></div></div></div></div><div class="card-block" style="width:252px;height:336px;top:0px;left:252px;"><div class="product_card_11"><div class="route-item">
+	<a href="http://www.tuniu.com/tours/38298198" target="_blank" onclick="_gaq.push(['_trackEvent', '21-619', '点击', '178-200-&lt;西葡全景11日游&gt;暑假预售  立减1700  米其林美食 4至5星 巴塞主场入内  自由活动 全含']);">
+		<div class="routeImg">
+			<img src="images/food1.jpg">
+			<div class="text">出发 | 跟团游</div>
+		</div>
+		<div class="routeTitle">
+			&lt;西葡全景11日游&gt;暑假预售  立减1700  米其林美食 4至5星 巴塞主场入内  自由活动 全含
+		</div>
+		<div class="price">
+			<div class="salePrice"><em>￥</em><span>16099</span>起</div>
+			<div class="tuniuPrice">￥<em>17799</em></div>
+		</div>
+		<div class="buyBtn">需减<em>2积分</em></div>
+	</a>
+	</div> <div class="pendant_card_24"><div class="nr-icon"></div></div></div></div><div class="card-block" style="width:252px;height:336px;top:0px;left:504px;"><div class="product_card_11"><div class="route-item">
+	<a href="http://www.tuniu.com/tours/210137351" target="_blank" onclick="_gaq.push(['_trackEvent', '21-619', '点击', '178-200-<奔跑吧暑价-美国东西海岸-黄石公园-大瀑布14-16天游>途牛自营 经典景点全含 帝国大厦 尼亚加拉 环球影城 送西峡 0922含优胜美地']);">
+		<div class="routeImg">
+			<img src="images/food1.jpg">
+			<div class="text">上海出发 | 跟团游</div>
+		</div>
+		<div class="routeTitle">
+			<奔跑吧暑价-美国东西海岸-黄石公园-大瀑布14-16天游>途牛自营 经典景点全含 帝国大厦 尼亚加拉 环球影城 送西峡 0922含优胜美地
+		</div>
+		<div class="price">
+			<div class="salePrice"><em>￥</em><span>22899</span>起</div>
+			<div class="tuniuPrice">￥<em>24399</em></div>
+		</div>
+		<div class="buyBtn">需减<em>2积分</em></div>
+	</a>
+	</div> <div class="pendant_card_24"><div class="nr-icon"></div></div></div></div><div class="card-block" style="width:252px;height:336px;top:0px;left:756px;"><div class="product_card_11"><div class="route-item">
+	<a href="http://www.tuniu.com/tours/210136611" target="_blank" onclick="_gaq.push(['_trackEvent', '21-619', '点击', '178-200-[端午]<奔跑吧暑价-美国东西海岸-夏威夷-黄石16-19日游>途牛自营  精华景点全含  西峡 大提顿 大瀑布 0603最后两席']);">
+		<div class="routeImg">
+			<img src="images/food1.jpg">
+			<div class="text">上海出发 | 跟团游</div>
+		</div>
+		<div class="routeTitle">
+			[端午]<奔跑吧暑价-美国东西海岸-夏威夷-黄石16-19日游>途牛自营  精华景点全含  西峡 大提顿 大瀑布 0603最后两席
+		</div>
+		<div class="price">
+			<div class="salePrice"><em>￥</em><span>28300</span>起</div>
+			<div class="tuniuPrice">￥<em>29800</em></div>
+		</div>
+		<div class="buyBtn">需减<em>2积分</em></div>
+	</a>
+	</div> <div class="pendant_card_24"><div class="nr-icon"></div></div></div></div><div class="card-block" style="width:252px;height:336px;top:336px;left:0px;"><div class="product_card_11"><div class="route-item">
+	<a href="http://www.tuniu.com/tours/210136020" target="_blank" onclick="_gaq.push(['_trackEvent', '21-619', '点击', '178-200-&lt;暑期亲子爆款-澳凯墨11-12日游&gt;纯玩减1500，市区4星升2晚五星，外堡礁，大洋路，企鹅岛/史蒂芬港/猎人谷，12日行程特含海豚岛']);">
+		<div class="routeImg">
+			<img src="images/food1.jpg">
+			<div class="text">上海出发 | 跟团游</div>
+		</div>
+		<div class="routeTitle">
+			&lt;暑期亲子爆款-澳凯墨11-12日游&gt;纯玩减1500，市区4星升2晚五星，外堡礁，大洋路，企鹅岛/史蒂芬港/猎人谷，12日行程特含海豚岛
+		</div>
+		<div class="price">
+			<div class="salePrice"><em>￥</em><span>18299</span>起</div>
+			<div class="tuniuPrice">￥<em>19799</em></div>
+		</div>
+		<div class="buyBtn">需减<em>2积分</em></div>
+	</a>
+	</div> <div class="pendant_card_24"><div class="nr-icon"></div></div></div></div><div class="card-block" style="width:252px;height:336px;top:336px;left:252px;"><div class="product_card_11"><div class="route-item">
+	<a href="http://www.tuniu.com/tours/24490072" target="_blank" onclick="_gaq.push(['_trackEvent', '21-619', '点击', '178-200-&lt;邮储银联信用卡专享林志颖同款立减3000元 法瑞意12-13日 意大利深度游&gt;一价全含 4至5星 庄园酒店 五渔村 少女峰 最高立减3000元']);">
+		<div class="routeImg">
+			<img src="images/food1.jpg">
+			<div class="text">出发 | 跟团游</div>
+		</div>
+		<div class="routeTitle">
+			&lt;邮储银联信用卡专享林志颖同款立减3000元 法瑞意12-13日 意大利深度游&gt;一价全含 4至5星 庄园酒店 五渔村 少女峰 最高立减3000元
+		</div>
+		<div class="price">
+			<div class="salePrice"><em>￥</em><span>16799</span>起</div>
+			<div class="tuniuPrice">￥<em>18999</em></div>
+		</div>
+		<div class="buyBtn">需减<em>2积分</em></div>
+	</a>
+	</div><div class="pendant_card_10">已减¥<span>2200</span></div> <div class="clearfix"></div></div></div><div class="card-block" style="width:252px;height:336px;top:336px;left:504px;"><div class="product_card_11"><div class="route-item">
+	<a href="http://www.tuniu.com/tours/210140792" target="_blank" onclick="_gaq.push(['_trackEvent', '21-619', '点击', '178-200-[端午]<邮储银联信用卡专享欧洲爆款立减2000元每人 法瑞意11-12日 瑞士4晚深度游>4至5星，双火车，部分团期巴黎一天自由活动，爆款产品线路，点评过千']);">
+		<div class="routeImg">
+			<img src="images/food1.jpg">
+			<div class="text">上海出发 | 跟团游</div>
+		</div>
+		<div class="routeTitle">
+			[端午]<邮储银联信用卡专享欧洲爆款立减2000元每人 法瑞意11-12日 瑞士4晚深度游>4至5星，双火车，部分团期巴黎一天自由活动，爆款产品线路，点评过千
+		</div>
+		<div class="price">
+			<div class="salePrice"><em>￥</em><span>14999</span>起</div>
+			<div class="tuniuPrice">￥<em>15999</em></div>
+		</div>
+		<div class="buyBtn">需减<em>2积分</em></div>
+	</a>
+	</div><div class="pendant_card_10">已减¥<span>1000</span></div> <div class="clearfix"></div></div></div><div class="card-block" style="width:252px;height:336px;top:336px;left:756px;"><div class="product_card_11"><div class="route-item">
+	<a href="http://www.tuniu.com/tours/210147596" target="_blank" onclick="_gaq.push(['_trackEvent', '21-619', '点击', '178-200-&lt;暑期亲子爆款-澳凯墨10日游&gt;纯玩，市区4星升级2晚5星，大洋路，外堡礁，澳野奇观，大学游，部分团期企鹅岛/史蒂芬港，联运，奔跑吧红包']);">
+		<div class="routeImg">
+			<img src="images/food1.jpg">
+			<div class="text">上海出发 | 跟团游</div>
+		</div>
+		<div class="routeTitle">
+			&lt;暑期亲子爆款-澳凯墨10日游&gt;纯玩，市区4星升级2晚5星，大洋路，外堡礁，澳野奇观，大学游，部分团期企鹅岛/史蒂芬港，联运，奔跑吧红包
+		</div>
+		<div class="price">
+			<div class="salePrice"><em>￥</em><span>17438</span>起</div>
+			<div class="tuniuPrice">￥<em>18938</em></div>
+		</div>
+		<div class="buyBtn">需减<em>2积分</em></div>
+	</a>
+	</div><div class="pendant_card_10">需减<span>2积分</span></div> <div class="clearfix"></div></div></div></div>            </div>
+            </div>
+    </div>
+<div class="content" id="three" style="background-color:#FFAD00">
+        <div id="module_179" class="block row">
+                    <div class="module-title1">
+                <img src="images/travel.png">
+                                                        <!-- 标题右下 -->
+                    <a href="http://www.tuniu.com/ouzhou" class="more-btn" style="bottom: 10px;right: 10px;" target="view_window"><img src="http://m.tuniucdn.com/fb2/t1/G1/M00/C8/64/Cii9EFc5sTqIDk8tAAAPcAINNAUAAFzggP_8EoAAA-2938.png"></a>
+                                                </div>
+                                    <div class="floor-block floor-0 an_mo" style="background:#ffffff" name="floor-id-201" liWithHan="cms_201_产品">
+                <div class="floor" style="height:672px;background:#ffffff;"><div class="card-block" style="width:252px;height:336px;top:0px;left:0px;"><div class="product_card_11"><div class="route-item">
+	<a href="http://www.tuniu.com/tours/210139197" target="_blank" onclick="_gaq.push(['_trackEvent', '21-619', '点击', '179-201-<英-西欧11国14天11晚游>深圳出发，全景西欧，一次指模，大英博物馆，英国直飞西欧']);">
+		<div class="routeImg">
+			<img src="http://m.tuniucdn.com/filebroker/cdn/olb/51/d4/51d4f3b8d5ded3b825e0e23f38655174_w450_h300_c1_t0_w640_h480_c1_t0.jpg">
+			<div class="text">深圳出发 | 跟团游</div>
+		</div>
+		<div class="routeTitle">
+			<英-西欧11国14天11晚游>深圳出发，全景西欧，一次指模，大英博物馆，英国直飞西欧
+		</div>
+		<div class="price">
+			<div class="salePrice"><em>￥</em><span>13899</span>起</div>
+			<div class="tuniuPrice">￥<em>15099</em></div>
+		</div>
+		<div class="buyBtn">需减<em>2积分</em></div>
+	</a>
+	</div></div></div><div class="card-block" style="width:252px;height:336px;top:0px;left:252px;"><div class="product_card_11"><div class="route-item">
+	<a href="http://www.tuniu.com/tours/210140222" target="_blank" onclick="_gaq.push(['_trackEvent', '21-619', '点击', '179-201-<法瑞意10日游>世界遗产枫丹白露 瑞士黄金列车 醉美阿尔卑斯山 赠意大利特色餐 塞纳河畔水上餐']);">
+		<div class="routeImg">
+			<img src="http://m.tuniucdn.com/filebroker/cdn/online/18/a4/18a44c80_w450_h300_c1_t0_w640_h480_c1_t0.jpg">
+			<div class="text">深圳出发 | 跟团游</div>
+		</div>
+		<div class="routeTitle">
+			<法瑞意10日游>世界遗产枫丹白露 瑞士黄金列车 醉美阿尔卑斯山 赠意大利特色餐 塞纳河畔水上餐
+		</div>
+		<div class="price">
+			<div class="salePrice"><em>￥</em><span>10999</span>起</div>
+			<div class="tuniuPrice">￥<em>12199</em></div>
+		</div>
+		<div class="buyBtn">需减<em>2积分</em></div>
+	</a>
+	</div></div></div><div class="card-block" style="width:252px;height:336px;top:0px;left:504px;"><div class="product_card_11"><div class="route-item">
+	<a href="http://www.tuniu.com/tours/210133567" target="_blank" onclick="_gaq.push(['_trackEvent', '21-619', '点击', '179-201-&lt;德法瑞意4国12日游&gt;香港往返，五渔村，科尔马，卢浮宫，新天鹅堡，The Mall购物村，境外wifi，巴黎折购季']);">
+		<div class="routeImg">
+			<img src="http://m.tuniucdn.com/filebroker/cdn/prd/c2/57/c257396114a76997da538707383c2d99_w450_h300_c1_t0_w640_h480_c1_t0.jpg">
+			<div class="text">深圳出发 | 跟团游</div>
+		</div>
+		<div class="routeTitle">
+			&lt;德法瑞意4国12日游&gt;香港往返，五渔村，科尔马，卢浮宫，新天鹅堡，The Mall购物村，境外wifi，巴黎折购季
+		</div>
+		<div class="price">
+			<div class="salePrice"><em>￥</em><span>10459</span>起</div>
+			<div class="tuniuPrice">￥<em>11659</em></div>
+		</div>
+		<div class="buyBtn">需减<em>2积分</em></div>
+	</a>
+	</div></div></div><div class="card-block" style="width:252px;height:336px;top:0px;left:756px;"><div class="product_card_11"><div class="route-item">
+	<a href="http://www.tuniu.com/tours/210134292" target="_blank" onclick="_gaq.push(['_trackEvent', '21-619', '点击', '179-201-<英德法瑞意5国13日游>香港往返，四星，双火车，塞纳河游船，铁力士雪山，意大利特色餐，境外wifi，报名立减500']);">
+		<div class="routeImg">
+			<img src="http://m.tuniucdn.com/filebroker/cdn/vnd/8f/95/8f95451d982c14cd56a9bbf275c3cbe5_w450_h300_c1_t0_w640_h480_c1_t0.jpg">
+			<div class="text">深圳出发 | 跟团游</div>
+		</div>
+		<div class="routeTitle">
+			<英德法瑞意5国13日游>香港往返，四星，双火车，塞纳河游船，铁力士雪山，意大利特色餐，境外wifi，报名立减500
+		</div>
+		<div class="price">
+			<div class="salePrice"><em>￥</em><span>15999</span>起</div>
+			<div class="tuniuPrice">￥<em>18499</em></div>
+		</div>
+		<div class="buyBtn">需减<em>2积分</em></div>
+	</a>
+	</div></div></div><div class="card-block" style="width:252px;height:336px;top:336px;left:0px;"><div class="product_card_11"><div class="route-item">
+	<a href="http://www.tuniu.com/tours/210136632" target="_blank" onclick="_gaq.push(['_trackEvent', '21-619', '点击', '179-201-&lt;奥斯-德法瑞意6国14日游&gt;香港往返，新天鹅堡，莫奈花园，阿尔卑斯风光，多地自由活动，境外wifi']);">
+		<div class="routeImg">
+			<img src="http://m.tuniucdn.com/filebroker/cdn/online/0e/a1/ea19d25_w450_h300_c1_t0_w640_h480_c1_t0.jpg">
+			<div class="text">深圳出发 | 跟团游</div>
+		</div>
+		<div class="routeTitle">
+			&lt;奥斯-德法瑞意6国14日游&gt;香港往返，新天鹅堡，莫奈花园，阿尔卑斯风光，多地自由活动，境外wifi
+		</div>
+		<div class="price">
+			<div class="salePrice"><em>￥</em><span>12499</span>起</div>
+			<div class="tuniuPrice">￥<em>13999</em></div>
+		</div>
+		<div class="buyBtn">需减<em>2积分</em></div>
+	</a>
+	</div></div></div><div class="card-block" style="width:252px;height:336px;top:336px;left:252px;"><div class="product_card_11"><div class="route-item">
+	<a href="http://www.tuniu.com/tours/210140639" target="_blank" onclick="_gaq.push(['_trackEvent', '21-619', '点击', '179-201-<法瑞意德11日游>瑞士GOLDEN PASS观光列车  迪士尼原型新天鹅堡  阿尔卑斯雪山  葡萄酒酒庄']);">
+		<div class="routeImg">
+			<img src="http://m.tuniucdn.com/filebroker/cdn/online/0e/a1/ea19d25_w450_h300_c1_t0_w640_h480_c1_t0.jpg">
+			<div class="text">深圳出发 | 跟团游</div>
+		</div>
+		<div class="routeTitle">
+			<法瑞意德11日游>瑞士GOLDEN PASS观光列车  迪士尼原型新天鹅堡  阿尔卑斯雪山  葡萄酒酒庄
+		</div>
+		<div class="price">
+			<div class="salePrice"><em>￥</em><span>11299</span>起</div>
+			<div class="tuniuPrice">￥<em>12499</em></div>
+		</div>
+		<div class="buyBtn">需减<em>2积分</em></div>
+	</a>
+	</div></div></div><div class="card-block" style="width:252px;height:336px;top:336px;left:504px;"><div class="product_card_11"><div class="route-item">
+	<a href="http://www.tuniu.com/tours/38071409" target="_blank" onclick="_gaq.push(['_trackEvent', '21-619', '点击', '179-201-&lt;英国爱尔兰12日游&gt;一价全含  双学府 双古堡 伦敦自由活动 湖区游船+火车 踢踏舞 莫赫悬崖 巨人之路']);">
+		<div class="routeImg">
+			<img src="http://m.tuniucdn.com/fb2/t1/G1/M00/6E/6D/Cii9EVcORLCIQgISAA0NoxHiP10AADKDAOgXFkADQ27917_w640_h480_c1_t0.jpg">
+			<div class="text">广州出发 | 跟团游</div>
+		</div>
+		<div class="routeTitle">
+			&lt;英国爱尔兰12日游&gt;一价全含  双学府 双古堡 伦敦自由活动 湖区游船+火车 踢踏舞 莫赫悬崖 巨人之路
+		</div>
+		<div class="price">
+			<div class="salePrice"><em>￥</em><span>19499</span>起</div>
+			<div class="tuniuPrice">￥<em>20499</em></div>
+		</div>
+		<div class="buyBtn">需减<em>2积分</em></div>
+	</a>
+	</div></div></div><div class="card-block" style="width:252px;height:336px;top:336px;left:756px;"><div class="product_card_11"><div class="route-item">
+	<a href="http://www.tuniu.com/tours/210139919" target="_blank" onclick="_gaq.push(['_trackEvent', '21-619', '点击', '179-201-<英-法瑞意德荷比7国15日游游>香港往返，只按一次指纹，双宫，双火车，双游船，雪山，哈德昆观景及用餐，羊角村，购物村，暑期住宿升级']);">
+		<div class="routeImg">
+			<img src="http://m.tuniucdn.com/filebroker/cdn/snc/00/2d/002d9108d9dc429008c3bb1d605c58e7_w640_h480_c1_t0.jpg">
+			<div class="text">深圳出发 | 跟团游</div>
+		</div>
+		<div class="routeTitle">
+			<英-法瑞意德荷比7国15日游游>香港往返，只按一次指纹，双宫，双火车，双游船，雪山，哈德昆观景及用餐，羊角村，购物村，暑期住宿升级
+		</div>
+		<div class="price">
+			<div class="salePrice"><em>￥</em><span>21799</span>起</div>
+			<div class="tuniuPrice">￥<em>22999</em></div>
+		</div>
+		<div class="buyBtn">需减<em>2积分</em></div>
+	</a>
+	</div></div></div></div>            </div>
+            </div>
+    </div>
+<div class="content" id="four" style="background-color:#FFAD00">
+        <div id="module_180" class="block row">
+                    <div class="module-title1">
+                <img src="images/production.png">
+                                                        <!-- 标题右下 -->
+                    <a href="http://www.tuniu.com/meizhou" class="more-btn" style="bottom: 10px;right: 10px;" target="view_window"><img src="http://m.tuniucdn.com/fb2/t1/G1/M00/C8/8B/Cii9EFc5tBeIXw2eAAAPcAINNAUAAFzmAP_8D8AAA_B970.png"></a>
+                                                </div>
+                                    <div class="floor-block floor-0 an_mo" style="background:#ffffff" name="floor-id-202" liWithHan="cms_202_产品">
+                <div class="floor" style="height:672px;background:#ffffff;"><div class="card-block" style="width:252px;height:336px;top:0px;left:0px;"><div class="product_card_11"><div class="route-item">
+	<a href="http://www.tuniu.com/tours/210147390" target="_blank" onclick="_gaq.push(['_trackEvent', '21-619', '点击', '180-202-<醉美在路上-美国西海岸三城10天经典游>深圳集中香港往返 UA或CX 旧金山 洛杉矶  拉斯维加斯 1号公路 部分团期增游墨西哥蒂华纳']);">
+		<div class="routeImg">
+			<img src="http://m.tuniucdn.com/fb2/t1/G1/M00/A5/47/Cii9EVaPeECIDYvjACHGDtphIXEAABYFQMGEMEAIcYm048_w640_h480_c1_t0.png">
+			<div class="text">深圳出发 | 跟团游</div>
+		</div>
+		<div class="routeTitle">
+			<醉美在路上-美国西海岸三城10天经典游>深圳集中香港往返 UA或CX 旧金山 洛杉矶  拉斯维加斯 1号公路 部分团期增游墨西哥蒂华纳
+		</div>
+		<div class="price">
+			<div class="salePrice"><em>￥</em><span>10599</span>起</div>
+			<div class="tuniuPrice">￥<em>11599</em></div>
+		</div>
+		<div class="buyBtn">需减<em>2积分</em></div>
+	</a>
+	</div></div></div><div class="card-block" style="width:252px;height:336px;top:0px;left:252px;"><div class="product_card_11"><div class="route-item">
+	<a href="http://www.tuniu.com/tours/210136431" target="_blank" onclick="_gaq.push(['_trackEvent', '21-619', '点击', '180-202-<美国东西岸-黄石公园-大瀑布14日游>深圳集中 AA免费托运2件行李 圣地亚哥游 盐湖城 奥特莱斯购物']);">
+		<div class="routeImg">
+			<img src="http://m.tuniucdn.com/filebroker/cdn/olb/84/86/8486fd314d4189c181c4777a2c7daffd_w640_h480_c1_t0.jpg">
+			<div class="text">深圳出发 | 跟团游</div>
+		</div>
+		<div class="routeTitle">
+			<美国东西岸-黄石公园-大瀑布14日游>深圳集中 AA免费托运2件行李 圣地亚哥游 盐湖城 奥特莱斯购物
+		</div>
+		<div class="price">
+			<div class="salePrice"><em>￥</em><span>15599</span>起</div>
+			<div class="tuniuPrice">￥<em>17299</em></div>
+		</div>
+		<div class="buyBtn">需减<em>2积分</em></div>
+	</a>
+	</div></div></div><div class="card-block" style="width:252px;height:336px;top:0px;left:504px;"><div class="product_card_11"><div class="route-item">
+	<a href="http://www.tuniu.com/tours/210139224" target="_blank" onclick="_gaq.push(['_trackEvent', '21-619', '点击', '180-202-&lt;美东西哈佛夏令营五真亲子游学14-15日游&gt;深圳集中 国泰航空 真宿舍 真食堂 真老师 真课程 真学生 自由女神游船 环球影城 大瀑布']);">
+		<div class="routeImg">
+			<img src="http://m.tuniucdn.com/fb2/t1/G1/M00/DF/16/Cii9EVawIN-IcQRlAB0HirOgMEkAABuiwAAAAAAHQei438_w450_h300_c1_t0_w640_h480_c1_t0.jpg">
+			<div class="text">深圳出发 | 跟团游</div>
+		</div>
+		<div class="routeTitle">
+			&lt;美东西哈佛夏令营五真亲子游学14-15日游&gt;深圳集中 国泰航空 真宿舍 真食堂 真老师 真课程 真学生 自由女神游船 环球影城 大瀑布
+		</div>
+		<div class="price">
+			<div class="salePrice"><em>￥</em><span>0</span>起</div>
+			<div class="tuniuPrice">￥<em>0</em></div>
+		</div>
+		<div class="buyBtn">需减<em>2积分</em></div>
+	</a>
+	</div></div></div><div class="card-block" style="width:252px;height:336px;top:0px;left:756px;"><div class="product_card_11"><div class="route-item">
+	<a href="http://www.tuniu.com/tours/210147502" target="_blank" onclick="_gaq.push(['_trackEvent', '21-619', '点击', '180-202-<暑你惠玩-美国东西海岸-夏威夷15-16日游>深圳集中 UA航空 全景线路 尼亚加拉大瀑布 圣地亚哥 拉斯夜游 自由女神游船 可升级加拿大 SZ']);">
+		<div class="routeImg">
+			<img src="http://m.tuniucdn.com/filebroker/cdn/snc/bb/72/bb7231d9ed4befdbfa11ee4833142041_w640_h480_c1_t0.jpg">
+			<div class="text">深圳出发 | 跟团游</div>
+		</div>
+		<div class="routeTitle">
+			<暑你惠玩-美国东西海岸-夏威夷15-16日游>深圳集中 UA航空 全景线路 尼亚加拉大瀑布 圣地亚哥 拉斯夜游 自由女神游船 可升级加拿大 SZ
+		</div>
+		<div class="price">
+			<div class="salePrice"><em>￥</em><span>17899</span>起</div>
+			<div class="tuniuPrice">￥<em>19599</em></div>
+		</div>
+		<div class="buyBtn">需减<em>2积分</em></div>
+	</a>
+	</div></div></div><div class="card-block" style="width:252px;height:336px;top:336px;left:0px;"><div class="product_card_11"><div class="route-item">
+	<a href="http://www.tuniu.com/tours/210147531" target="_blank" onclick="_gaq.push(['_trackEvent', '21-619', '点击', '180-202-&lt;美国东海岸-迈阿密-奥兰多名校14日游&gt;深圳集中 优选美联航 迪斯尼 肯尼迪航天中心 自由女神 哈佛 麻省理工 耶鲁大学 西点军校 SZ']);">
+		<div class="routeImg">
+			<img src="http://m.tuniucdn.com/fb2/t1/G1/M00/40/63/Cii9EVbzkfOIG2x4AAcTMsM_jRYAACwfwMHybcABxNK920_w640_h480_c1_t0.jpg">
+			<div class="text">深圳出发 | 跟团游</div>
+		</div>
+		<div class="routeTitle">
+			&lt;美国东海岸-迈阿密-奥兰多名校14日游&gt;深圳集中 优选美联航 迪斯尼 肯尼迪航天中心 自由女神 哈佛 麻省理工 耶鲁大学 西点军校 SZ
+		</div>
+		<div class="price">
+			<div class="salePrice"><em>￥</em><span>22099</span>起</div>
+			<div class="tuniuPrice">￥<em>22599</em></div>
+		</div>
+		<div class="buyBtn">需减<em>2积分</em></div>
+	</a>
+	</div></div></div><div class="card-block" style="width:252px;height:336px;top:336px;left:252px;"><div class="product_card_11"><div class="route-item">
+	<a href="http://www.tuniu.com/tours/210137972" target="_blank" onclick="_gaq.push(['_trackEvent', '21-619', '点击', '180-202-<加拿大东西岸-落基山脉11日游>深圳集中 AC直飞加拿大 班芙国家公园 路易斯湖 尼亚加拉瀑布 温哥华一日自由活动']);">
+		<div class="routeImg">
+			<img src="http://m.tuniucdn.com/filebroker/cdn/snc/46/b2/46b25624e4dbd8f8025b40069ab3fefe_w640_h480_c1_t0.jpg">
+			<div class="text">深圳出发 | 跟团游</div>
+		</div>
+		<div class="routeTitle">
+			<加拿大东西岸-落基山脉11日游>深圳集中 AC直飞加拿大 班芙国家公园 路易斯湖 尼亚加拉瀑布 温哥华一日自由活动
+		</div>
+		<div class="price">
+			<div class="salePrice"><em>￥</em><span>20699</span>起</div>
+			<div class="tuniuPrice">￥<em>21699</em></div>
+		</div>
+		<div class="buyBtn">需减<em>2积分</em></div>
+	</a>
+	</div></div></div><div class="card-block" style="width:252px;height:336px;top:336px;left:504px;"><div class="product_card_11"><div class="route-item">
+	<a href="http://www.tuniu.com/tours/210140960" target="_blank" onclick="_gaq.push(['_trackEvent', '21-619', '点击', '180-202-[端午]&lt;美国东西-夏14日游&gt;7/17、7/20、8/4全程酒店升级，7/2名校之旅，部门城市免联运费，大瀑布，大峡谷，环影（奔跑吧暑价）']);">
+		<div class="routeImg">
+			<img src="http://m.tuniucdn.com/filebroker/cdn/prd/b9/0b/b90b6e133e4a87317f2fd0e4a555ff80_w450_h300_c1_t0_w640_h480_c1_t0.jpg">
+			<div class="text">上海出发 | 跟团游</div>
+		</div>
+		<div class="routeTitle">
+			[端午]&lt;美国东西-夏14日游&gt;7/17、7/20、8/4全程酒店升级，7/2名校之旅，部门城市免联运费，大瀑布，大峡谷，环影（奔跑吧暑价）
+		</div>
+		<div class="price">
+			<div class="salePrice"><em>￥</em><span>20915</span>起</div>
+			<div class="tuniuPrice">￥<em>20999</em></div>
+		</div>
+		<div class="buyBtn">需减<em>2积分</em></div>
+	</a>
+	</div></div></div><div class="card-block" style="width:252px;height:336px;top:336px;left:756px;"><div class="product_card_11"><div class="route-item">
+	<a href="http://www.tuniu.com/tours/210140228" target="_blank" onclick="_gaq.push(['_trackEvent', '21-619', '点击', '180-202-&lt;奔跑吧特价-美国东西海岸12日游&gt;香港往返直飞 棕榈泉奥特莱斯购物 自由女神像游船 1号公路 17英里 硅谷 暑假抢先购']);">
+		<div class="routeImg">
+			<img src="http://m.tuniucdn.com/filebroker/cdn/snc/4d/f0/4df02802bd45c90b6ae1ae9ac9410b48_w450_h300_c1_t0_w640_h480_c1_t0.jpg">
+			<div class="text">深圳出发 | 跟团游</div>
+		</div>
+		<div class="routeTitle">
+			&lt;奔跑吧特价-美国东西海岸12日游&gt;香港往返直飞 棕榈泉奥特莱斯购物 自由女神像游船 1号公路 17英里 硅谷 暑假抢先购
+		</div>
+		<div class="price">
+			<div class="salePrice"><em>￥</em><span>9799</span>起</div>
+			<div class="tuniuPrice">￥<em>10999</em></div>
+		</div>
+		<div class="buyBtn">需减<em>2积分</em></div>
+	</a>
+	</div></div></div></div>            </div>
+            </div>
+    </div>
+<div class="content" id="five" style="background-color:#FFAD00">
+        <div id="module_181" class="block row">
+                    <div class="module-title1">
+                <img src="images/face.png">
+                                                        <!-- 标题右下 -->
+                    <a href="http://all.tuniu.com/feizhou/" class="more-btn" style="bottom: 10px;right: 10px;" target="view_window"><img src="http://m.tuniucdn.com/fb2/t1/G1/M00/C8/EA/Cii9EVc5tIyICEWjAAAPcAINNAUAAFz3AP_8B0AAA_j096.png"></a>
+                                                </div>
+                                    <div class="floor-block floor-0 an_mo" style="background:#ffffff" name="floor-id-203" liWithHan="cms_203_产品">
+                <div class="floor" style="height:672px;background:#ffffff;"><div class="card-block" style="width:252px;height:336px;top:0px;left:0px;"><div class="product_card_11"><div class="route-item">
+	<a href="http://www.tuniu.com/tours/210139582" target="_blank" onclick="_gaq.push(['_trackEvent', '21-619', '点击', '181-203-[中秋]&lt;埃及包机游轮8日游&gt;深圳包机直飞，不走回头路，2晚游轮，女王庙，孟农神像，阿斯旺大坝（奔跑吧暑价）']);">
+		<div class="routeImg">
+			<img src="http://m.tuniucdn.com/filebroker/cdn/vnd/ce/c6/cec6b45699dc8a197d9151819aecb2f7_w450_h300_c1_t0_w640_h480_c1_t0.jpg">
+			<div class="text">深圳出发 | 跟团游</div>
+		</div>
+		<div class="routeTitle">
+			[中秋]&lt;埃及包机游轮8日游&gt;深圳包机直飞，不走回头路，2晚游轮，女王庙，孟农神像，阿斯旺大坝（奔跑吧暑价）
+		</div>
+		<div class="price">
+			<div class="salePrice"><em>￥</em><span>5299</span>起</div>
+			<div class="tuniuPrice">￥<em>6499</em></div>
+		</div>
+		<div class="buyBtn">需减<em>2积分</em></div>
+	</a>
+	</div></div></div><div class="card-block" style="width:252px;height:336px;top:0px;left:252px;"><div class="product_card_11"><div class="route-item">
+	<a href="http://www.tuniu.com/tours/210134724" target="_blank" onclick="_gaq.push(['_trackEvent', '21-619', '点击', '181-203-&lt;迪拜-阿布扎比6日游&gt;520爱的主题，宿5556星，入住一晚六星亚特兰蒂斯酒店，享6星美食，水族馆，畅游水世界冒险乐园，香港直飞']);">
+		<div class="routeImg">
+			<img src="http://m.tuniucdn.com/fb2/t1/G1/M00/E0/4E/Cii9EFawo--ILDU5ABIzbkocrZYAABvPQLpCOEAEjOG723_w640_h480_c1_t0.jpg">
+			<div class="text">深圳出发 | 跟团游</div>
+		</div>
+		<div class="routeTitle">
+			&lt;迪拜-阿布扎比6日游&gt;520爱的主题，宿5556星，入住一晚六星亚特兰蒂斯酒店，享6星美食，水族馆，畅游水世界冒险乐园，香港直飞
+		</div>
+		<div class="price">
+			<div class="salePrice"><em>￥</em><span>6099</span>起</div>
+			<div class="tuniuPrice">￥<em>7299</em></div>
+		</div>
+		<div class="buyBtn">需减<em>2积分</em></div>
+	</a>
+	</div></div></div><div class="card-block" style="width:252px;height:336px;top:0px;left:504px;"><div class="product_card_11"><div class="route-item">
+	<a href="http://www.tuniu.com/tours/210135433" target="_blank" onclick="_gaq.push(['_trackEvent', '21-619', '点击', '181-203-&lt;埃及-迪拜11日游&gt;埃及金字塔 红海 迪拜棕榈岛 谢赫扎伊德清真寺 全程五星']);">
+		<div class="routeImg">
+			<img src="http://m.tuniucdn.com/filebroker/cdn/prd/5a/b3/5ab3b3c4e442a0adbc9066930ed7eed8_w450_h300_c1_t0_w640_h480_c1_t0.jpg">
+			<div class="text">深圳出发 | 跟团游</div>
+		</div>
+		<div class="routeTitle">
+			&lt;埃及-迪拜11日游&gt;埃及金字塔 红海 迪拜棕榈岛 谢赫扎伊德清真寺 全程五星
+		</div>
+		<div class="price">
+			<div class="salePrice"><em>￥</em><span>7875</span>起</div>
+			<div class="tuniuPrice">￥<em>8375</em></div>
+		</div>
+		<div class="buyBtn">需减<em>2积分</em></div>
+	</a>
+	</div></div></div><div class="card-block" style="width:252px;height:336px;top:0px;left:756px;"><div class="product_card_11"><div class="route-item">
+	<a href="http://www.tuniu.com/tours/210136387" target="_blank" onclick="_gaq.push(['_trackEvent', '21-619', '点击', '181-203-&lt;迪拜-阿布扎比5-6日游&gt;夜游阿拉伯，私人游艇赏海上日落，纯玩无购物，全程国际五星，EK直飞']);">
+		<div class="routeImg">
+			<img src="http://m.tuniucdn.com/fb2/t1/G1/M00/2F/B8/Cii9EVbn8D2Iep2wABwIvS83lmoAACoKgOMcDIAHAjV915_w450_h300_c1_t0_w640_h480_c1_t0.jpg">
+			<div class="text">深圳出发 | 跟团游</div>
+		</div>
+		<div class="routeTitle">
+			&lt;迪拜-阿布扎比5-6日游&gt;夜游阿拉伯，私人游艇赏海上日落，纯玩无购物，全程国际五星，EK直飞
+		</div>
+		<div class="price">
+			<div class="salePrice"><em>￥</em><span>5298</span>起</div>
+			<div class="tuniuPrice">￥<em>6498</em></div>
+		</div>
+		<div class="buyBtn">需减<em>2积分</em></div>
+	</a>
+	</div></div></div><div class="card-block" style="width:252px;height:336px;top:336px;left:0px;"><div class="product_card_11"><div class="route-item">
+	<a href="http://www.tuniu.com/tours/210134015" target="_blank" onclick="_gaq.push(['_trackEvent', '21-619', '点击', '181-203-&lt;南非8日游&gt;香港直航，太阳城，开普敦，好望角，企鹅岛，海豹岛，特色餐，香槟日落，赠送葡萄美酒']);">
+		<div class="routeImg">
+			<img src="http://m.tuniucdn.com/fb2/t1/G1/M00/6D/F7/Cii9EVcODSqIGZUMAASX2rdLXyEAADJtwPsAr8ABJfy091_w640_h480_c1_t0.jpg">
+			<div class="text">深圳出发 | 跟团游</div>
+		</div>
+		<div class="routeTitle">
+			&lt;南非8日游&gt;香港直航，太阳城，开普敦，好望角，企鹅岛，海豹岛，特色餐，香槟日落，赠送葡萄美酒
+		</div>
+		<div class="price">
+			<div class="salePrice"><em>￥</em><span>6699</span>起</div>
+			<div class="tuniuPrice">￥<em>7199</em></div>
+		</div>
+		<div class="buyBtn">需减<em>2积分</em></div>
+	</a>
+	</div></div></div><div class="card-block" style="width:252px;height:336px;top:336px;left:252px;"><div class="product_card_11"><div class="route-item">
+	<a href="http://www.tuniu.com/tours/210134963" target="_blank" onclick="_gaq.push(['_trackEvent', '21-619', '点击', '181-203-&lt;迪拜-阿布扎比6日游&gt;立减500元/单，萨迪亚特岛奢华双岛游，可升级高端67星酒店，香港直飞']);">
+		<div class="routeImg">
+			<img src="http://m.tuniucdn.com/filebroker/cdn/vnd/07/c8/07c875cba22a0bc174d02bc44138cb36_w450_h300_c1_t0_w640_h480_c1_t0.jpg">
+			<div class="text">深圳出发 | 跟团游</div>
+		</div>
+		<div class="routeTitle">
+			&lt;迪拜-阿布扎比6日游&gt;立减500元/单，萨迪亚特岛奢华双岛游，可升级高端67星酒店，香港直飞
+		</div>
+		<div class="price">
+			<div class="salePrice"><em>￥</em><span>4929</span>起</div>
+			<div class="tuniuPrice">￥<em>5929</em></div>
+		</div>
+		<div class="buyBtn">需减<em>2积分</em></div>
+	</a>
+	</div></div></div><div class="card-block" style="width:252px;height:336px;top:336px;left:504px;"><div class="product_card_11"><div class="route-item">
+	<a href="http://www.tuniu.com/tours/210135249" target="_blank" onclick="_gaq.push(['_trackEvent', '21-619', '点击', '181-203-&lt;肯尼亚南非11-12日游&gt;两国联游，狂野之旅，马塞马拉国家公园，船游奈瓦沙湖，好望角单程缆车，桌山双程缆车，特别赠送酒庄园品酒，特色餐']);">
+		<div class="routeImg">
+			<img src="http://m.tuniucdn.com/filebroker/cdn/snc/82/0c/820c88139b8e71f971640535819746b2_w640_h480_c1_t0.jpg">
+			<div class="text">深圳出发 | 跟团游</div>
+		</div>
+		<div class="routeTitle">
+			&lt;肯尼亚南非11-12日游&gt;两国联游，狂野之旅，马塞马拉国家公园，船游奈瓦沙湖，好望角单程缆车，桌山双程缆车，特别赠送酒庄园品酒，特色餐
+		</div>
+		<div class="price">
+			<div class="salePrice"><em>￥</em><span>18374</span>起</div>
+			<div class="tuniuPrice">￥<em>19688</em></div>
+		</div>
+		<div class="buyBtn">需减<em>2积分</em></div>
+	</a>
+	</div></div></div><div class="card-block" style="width:252px;height:336px;top:336px;left:756px;"><div class="product_card_11"><div class="route-item">
+	<a href="http://www.tuniu.com/tours/210140232" target="_blank" onclick="_gaq.push(['_trackEvent', '21-619', '点击', '181-203-&lt;迪拜-阿布扎比6日游&gt;牛人专线，立减800，含七星帆船早餐，赠送沙漠冲沙，EKA380直飞，全程国际五星，奔跑吧暑价']);">
+		<div class="routeImg">
+			<img src="http://m.tuniucdn.com/fb2/t1/G1/M00/31/40/Cii9EFbpFmyISyHmAAZozOVFn0kAACo_wPFbQoABmjk188_w450_h300_c1_t0_w640_h480_c1_t0.jpg">
+			<div class="text">深圳出发 | 跟团游</div>
+		</div>
+		<div class="routeTitle">
+			&lt;迪拜-阿布扎比6日游&gt;牛人专线，立减800，含七星帆船早餐，赠送沙漠冲沙，EKA380直飞，全程国际五星，奔跑吧暑价
+		</div>
+		<div class="price">
+			<div class="salePrice"><em>￥</em><span>6799</span>起</div>
+			<div class="tuniuPrice">￥<em>7999</em></div>
+		</div>
+		<div class="buyBtn">需减<em>2积分</em></div>
+	</a>
+	</div><div class="pendant_card_10">已减¥<span>1200</span></div></div></div></div>            </div>
+            </div>
+    </div>
+<div class="content" id="six" style="background-color:#FFAD00">
+        <div id="module_182" class="block row">
+                    <div class="module-title1">
+                <img src="images/thumb.png">
+                                                        <!-- 标题右下 -->
+                    <a href="http://www.tuniu.com/aozhou/tours-all-0/" class="more-btn" style="bottom: 10px;right: 10px;" target="view_window"><img src="http://m.tuniucdn.com/fb2/t1/G1/M00/C8/35/Cii9EFc5tPKIK0XNAAAPcAINNAUAAFzagP_8AAAABAA807.png"></a>
+                                                </div>
+                                    <div class="floor-block floor-0 an_mo" style="background:#ffffff" name="floor-id-204" liWithHan="cms_204_产品">
+                <div class="floor" style="height:672px;background:#ffffff;"><div class="card-block" style="width:252px;height:336px;top:0px;left:0px;"><div class="product_card_11"><div class="route-item">
+	<a href="http://www.tuniu.com/tours/210150560" target="_blank" onclick="_gaq.push(['_trackEvent', '21-619', '点击', '182-204-<澳洲大堡礁8日乐淘精华游>深圳出发 香港QF直飞 悉尼游船 主题乐园游华纳或梦幻世界 热带雨林 土著盛情 绿岛大堡礁']);">
+		<div class="routeImg">
+			<img src="http://m.tuniucdn.com/filebroker/cdn/olb/97/42/974296386f6e1fc57f82bb85b27d773f_w450_h300_c1_t0_w640_h480_c1_t0.jpg">
+			<div class="text">深圳出发 | 跟团游</div>
+		</div>
+		<div class="routeTitle">
+			<澳洲大堡礁8日乐淘精华游>深圳出发 香港QF直飞 悉尼游船 主题乐园游华纳或梦幻世界 热带雨林 土著盛情 绿岛大堡礁
+		</div>
+		<div class="price">
+			<div class="salePrice"><em>￥</em><span>0</span>起</div>
+			<div class="tuniuPrice">￥<em>0</em></div>
+		</div>
+		<div class="buyBtn">需减<em>2积分</em></div>
+	</a>
+	</div></div></div><div class="card-block" style="width:252px;height:336px;top:0px;left:252px;"><div class="product_card_11"><div class="route-item">
+	<a href="http://www.tuniu.com/tours/210150240" target="_blank" onclick="_gaq.push(['_trackEvent', '21-619', '点击', '182-204-&lt;纯净醉美新西兰南北岛8天游&gt;深圳出发 CX或SQ香港往返 花园基督城 好牧羊人教堂 提卡坡湖 皇后镇1天自由活动 毛利文化村 地热奇观']);">
+		<div class="routeImg">
+			<img src="http://m.tuniucdn.com/filebroker/cdn/olb/e6/19/e61929cfe85706858b86de3b61b3351c_w450_h300_c1_t0_w640_h480_c1_t0.jpg">
+			<div class="text">深圳出发 | 跟团游</div>
+		</div>
+		<div class="routeTitle">
+			&lt;纯净醉美新西兰南北岛8天游&gt;深圳出发 CX或SQ香港往返 花园基督城 好牧羊人教堂 提卡坡湖 皇后镇1天自由活动 毛利文化村 地热奇观
+		</div>
+		<div class="price">
+			<div class="salePrice"><em>￥</em><span>11288</span>起</div>
+			<div class="tuniuPrice">￥<em>12488</em></div>
+		</div>
+		<div class="buyBtn">需减<em>2积分</em></div>
+	</a>
+	</div></div></div><div class="card-block" style="width:252px;height:336px;top:0px;left:504px;"><div class="product_card_11"><div class="route-item">
+	<a href="http://www.tuniu.com/tours/210151276" target="_blank" onclick="_gaq.push(['_trackEvent', '21-619', '点击', '182-204-<澳洲大堡礁新西兰12日趣味体验游>香港直飞 悉尼大学 黄金海岸主题公园 毛利文化村']);">
+		<div class="routeImg">
+			<img src="http://m.tuniucdn.com/filebroker/cdn/online/e3/ed/e3ed1748_w450_h300_c1_t0_w640_h480_c1_t0.jpg">
+			<div class="text">深圳出发 | 跟团游</div>
+		</div>
+		<div class="routeTitle">
+			<澳洲大堡礁新西兰12日趣味体验游>香港直飞 悉尼大学 黄金海岸主题公园 毛利文化村
+		</div>
+		<div class="price">
+			<div class="salePrice"><em>￥</em><span>0</span>起</div>
+			<div class="tuniuPrice">￥<em>0</em></div>
+		</div>
+		<div class="buyBtn">需减<em>2积分</em></div>
+	</a>
+	</div></div></div><div class="card-block" style="width:252px;height:336px;top:0px;left:756px;"><div class="product_card_11"><div class="route-item">
+	<a href="http://www.tuniu.com/tours/210150371" target="_blank" onclick="_gaq.push(['_trackEvent', '21-619', '点击', '182-204-<澳洲大堡礁9日游>深圳直飞 悉尼大学 卧龙岗 热带雨林 主题乐园']);">
+		<div class="routeImg">
+			<img src="http://m.tuniucdn.com/filebroker/cdn/snc/de/37/de3751e0d442192f89fd3165152c3a7a_w450_h300_c1_t0_w640_h480_c1_t0.jpg">
+			<div class="text">深圳出发 | 跟团游</div>
+		</div>
+		<div class="routeTitle">
+			<澳洲大堡礁9日游>深圳直飞 悉尼大学 卧龙岗 热带雨林 主题乐园
+		</div>
+		<div class="price">
+			<div class="salePrice"><em>￥</em><span>12588</span>起</div>
+			<div class="tuniuPrice">￥<em>13788</em></div>
+		</div>
+		<div class="buyBtn">需减<em>2积分</em></div>
+	</a>
+	</div></div></div><div class="card-block" style="width:252px;height:336px;top:336px;left:0px;"><div class="product_card_11"><div class="route-item">
+	<a href="http://www.tuniu.com/tours/210150613" target="_blank" onclick="_gaq.push(['_trackEvent', '21-619', '点击', '182-204-<澳洲东海岸四大名城8日特惠游>QF直飞香港往返 部分团期CZ广州往返 蓝山三姐妹峰 悉尼港游船西餐 黄金海岸 野生动物园 花园墨尔本 壮美大洋路']);">
+		<div class="routeImg">
+			<img src="http://m.tuniucdn.com/filebroker/cdn/olb/ed/73/ed73d5c4cb929a84f6813a09416b76e6_w450_h300_c1_t0_w640_h480_c1_t0.jpg">
+			<div class="text">深圳出发 | 跟团游</div>
+		</div>
+		<div class="routeTitle">
+			<澳洲东海岸四大名城8日特惠游>QF直飞香港往返 部分团期CZ广州往返 蓝山三姐妹峰 悉尼港游船西餐 黄金海岸 野生动物园 花园墨尔本 壮美大洋路
+		</div>
+		<div class="price">
+			<div class="salePrice"><em>￥</em><span>8399</span>起</div>
+			<div class="tuniuPrice">￥<em>9399</em></div>
+		</div>
+		<div class="buyBtn">需减<em>2积分</em></div>
+	</a>
+	</div></div></div><div class="card-block" style="width:252px;height:336px;top:336px;left:252px;"><div class="product_card_11"><div class="route-item">
+	<a href="http://www.tuniu.com/tours/210155609" target="_blank" onclick="_gaq.push(['_trackEvent', '21-619', '点击', '182-204-<至臻亲子系列-澳洲名校农庄交响荟9天游>SQ深圳往返 一价全包纯玩无购物 澳式农庄连住2晚  墨尔本悉尼大学 歌剧院 观鲸之旅 直升机游 升级特色餐']);">
+		<div class="routeImg">
+			<img src="http://m.tuniucdn.com/filebroker/cdn/olb/d9/10/d91082fa7dcd825698044c0208359d87_w450_h300_c1_t0_w640_h480_c1_t0.jpg">
+			<div class="text">深圳出发 | 跟团游</div>
+		</div>
+		<div class="routeTitle">
+			<至臻亲子系列-澳洲名校农庄交响荟9天游>SQ深圳往返 一价全包纯玩无购物 澳式农庄连住2晚  墨尔本悉尼大学 歌剧院 观鲸之旅 直升机游 升级特色餐
+		</div>
+		<div class="price">
+			<div class="salePrice"><em>￥</em><span>16588</span>起</div>
+			<div class="tuniuPrice">￥<em>17588</em></div>
+		</div>
+		<div class="buyBtn">需减<em>2积分</em></div>
+	</a>
+	</div></div></div><div class="card-block" style="width:252px;height:336px;top:336px;left:504px;"><div class="product_card_11"><div class="route-item">
+	<a href="http://www.tuniu.com/tours/210155018" target="_blank" onclick="_gaq.push(['_trackEvent', '21-619', '点击', '182-204-<至臻经典系列-澳洲8天农庄休闲游>悉尼歌剧院  莫布雷农庄体验地道农场生活 大洋路住1晚 海洋世界 天堂农庄']);">
+		<div class="routeImg">
+			<img src="http://m.tuniucdn.com/filebroker/cdn/olb/0a/2c/0a2c29b602c497b26bcbe20c818e33a1_w450_h300_c1_t0_w640_h480_c1_t0.jpg">
+			<div class="text">深圳出发 | 跟团游</div>
+		</div>
+		<div class="routeTitle">
+			<至臻经典系列-澳洲8天农庄休闲游>悉尼歌剧院  莫布雷农庄体验地道农场生活 大洋路住1晚 海洋世界 天堂农庄
+		</div>
+		<div class="price">
+			<div class="salePrice"><em>￥</em><span>14688</span>起</div>
+			<div class="tuniuPrice">￥<em>14688</em></div>
+		</div>
+		<div class="buyBtn">需减<em>2积分</em></div>
+	</a>
+	</div></div></div><div class="card-block" style="width:252px;height:336px;top:336px;left:756px;"><div class="product_card_11"><div class="route-item">
+	<a href="http://www.tuniu.com/tours/210136025" target="_blank" onclick="_gaq.push(['_trackEvent', '21-619', '点击', '182-204-<激情澳洲大堡礁阳光8天游>深圳集中 澳航直飞 （部分日期为广去深止南航直飞）翠儿河捉蟹 蓝山 科伦宾动物园 悉尼游船晚餐']);">
+		<div class="routeImg">
+			<img src="http://m.tuniucdn.com/filebroker/cdn/olb/e8/99/e8993a522dfdbdb087b5c817e42a7db6_w640_h480_c1_t0.jpg">
+			<div class="text">深圳出发 | 跟团游</div>
+		</div>
+		<div class="routeTitle">
+			<激情澳洲大堡礁阳光8天游>深圳集中 澳航直飞 （部分日期为广去深止南航直飞）翠儿河捉蟹 蓝山 科伦宾动物园 悉尼游船晚餐
+		</div>
+		<div class="price">
+			<div class="salePrice"><em>￥</em><span>9199</span>起</div>
+			<div class="tuniuPrice">￥<em>10199</em></div>
+		</div>
+		<div class="buyBtn">需减<em>2积分</em></div>
+	</a>
+	</div></div></div></div>            </div>
+            </div>
+    </div>
+<div class="content" id="seven" style="background-color:#FFAD00">
+        <div id="module_178" class="block row">
+                    <div class="module-title1">
+                <img src="images/book.png">
+                                                        <!-- 标题右下 -->
+                    <a href="http://www.tuniu.com/niuren/" class="more-btn" style="bottom: 10px;right: 10px;" target="view_window"><img src="http://m.tuniucdn.com/fb2/t1/G1/M00/C7/8B/Cii9EFc5sK2IYaBzAAAPcAINNAUAAFy9wP_8E4AAA-y359.png"></a>
+                                                </div>
+                                    <div class="floor-block floor-0 an_mo" style="background:#ffffff" name="floor-id-200" liWithHan="cms_200_产品">
+                <div class="floor" style="height:672px;background:#ffffff;"><div class="card-block" style="width:252px;height:336px;top:0px;left:0px;"><div class="product_card_11"><div class="route-item">
+	<a href="http://www.tuniu.com/tours/470290" target="_blank" onclick="_gaq.push(['_trackEvent', '21-619', '点击', '178-200-&lt;法瑞意德奥11日游&gt;即日起2人预定6月29日团立减6000元，一价全含 迈瑙花岛 铁力士雪山 红酒火车湖区 巴黎自由活动']);">
+		<div class="routeImg">
+			<img src="images/food1.jpg">
+			<div class="text">出发 | 跟团游</div>
+		</div>
+		<div class="routeTitle">
+			&lt;法瑞意德奥11日游&gt;即日起2人预定6月29日团立减6000元，一价全含 迈瑙花岛 铁力士雪山 红酒火车湖区 巴黎自由活动
+		</div>
+		<div class="price">
+			<div class="salePrice"><em>￥</em><span>13999</span>起</div>
+			<div class="tuniuPrice">￥<em>16999</em></div>
+		</div>
+		<div class="buyBtn">需减<em>2积分</em></div>
+	</a>
+	</div> <div class="pendant_card_24"><div class="nr-icon"></div></div></div></div><div class="card-block" style="width:252px;height:336px;top:0px;left:252px;"><div class="product_card_11"><div class="route-item">
+	<a href="http://www.tuniu.com/tours/38298198" target="_blank" onclick="_gaq.push(['_trackEvent', '21-619', '点击', '178-200-&lt;西葡全景11日游&gt;暑假预售  立减1700  米其林美食 4至5星 巴塞主场入内  自由活动 全含']);">
+		<div class="routeImg">
+			<img src="images/food1.jpg">
+			<div class="text">出发 | 跟团游</div>
+		</div>
+		<div class="routeTitle">
+			&lt;西葡全景11日游&gt;暑假预售  立减1700  米其林美食 4至5星 巴塞主场入内  自由活动 全含
+		</div>
+		<div class="price">
+			<div class="salePrice"><em>￥</em><span>16099</span>起</div>
+			<div class="tuniuPrice">￥<em>17799</em></div>
+		</div>
+		<div class="buyBtn">需减<em>2积分</em></div>
+	</a>
+	</div> <div class="pendant_card_24"><div class="nr-icon"></div></div></div></div><div class="card-block" style="width:252px;height:336px;top:0px;left:504px;"><div class="product_card_11"><div class="route-item">
+	<a href="http://www.tuniu.com/tours/210137351" target="_blank" onclick="_gaq.push(['_trackEvent', '21-619', '点击', '178-200-<奔跑吧暑价-美国东西海岸-黄石公园-大瀑布14-16天游>途牛自营 经典景点全含 帝国大厦 尼亚加拉 环球影城 送西峡 0922含优胜美地']);">
+		<div class="routeImg">
+			<img src="images/food1.jpg">
+			<div class="text">上海出发 | 跟团游</div>
+		</div>
+		<div class="routeTitle">
+			<奔跑吧暑价-美国东西海岸-黄石公园-大瀑布14-16天游>途牛自营 经典景点全含 帝国大厦 尼亚加拉 环球影城 送西峡 0922含优胜美地
+		</div>
+		<div class="price">
+			<div class="salePrice"><em>￥</em><span>22899</span>起</div>
+			<div class="tuniuPrice">￥<em>24399</em></div>
+		</div>
+		<div class="buyBtn">需减<em>2积分</em></div>
+	</a>
+	</div> <div class="pendant_card_24"><div class="nr-icon"></div></div></div></div><div class="card-block" style="width:252px;height:336px;top:0px;left:756px;"><div class="product_card_11"><div class="route-item">
+	<a href="http://www.tuniu.com/tours/210136611" target="_blank" onclick="_gaq.push(['_trackEvent', '21-619', '点击', '178-200-[端午]<奔跑吧暑价-美国东西海岸-夏威夷-黄石16-19日游>途牛自营  精华景点全含  西峡 大提顿 大瀑布 0603最后两席']);">
+		<div class="routeImg">
+			<img src="images/food1.jpg">
+			<div class="text">上海出发 | 跟团游</div>
+		</div>
+		<div class="routeTitle">
+			[端午]<奔跑吧暑价-美国东西海岸-夏威夷-黄石16-19日游>途牛自营  精华景点全含  西峡 大提顿 大瀑布 0603最后两席
+		</div>
+		<div class="price">
+			<div class="salePrice"><em>￥</em><span>28300</span>起</div>
+			<div class="tuniuPrice">￥<em>29800</em></div>
+		</div>
+		<div class="buyBtn">需减<em>2积分</em></div>
+	</a>
+	</div> <div class="pendant_card_24"><div class="nr-icon"></div></div></div></div><div class="card-block" style="width:252px;height:336px;top:336px;left:0px;"><div class="product_card_11"><div class="route-item">
+	<a href="http://www.tuniu.com/tours/210136020" target="_blank" onclick="_gaq.push(['_trackEvent', '21-619', '点击', '178-200-&lt;暑期亲子爆款-澳凯墨11-12日游&gt;纯玩减1500，市区4星升2晚五星，外堡礁，大洋路，企鹅岛/史蒂芬港/猎人谷，12日行程特含海豚岛']);">
+		<div class="routeImg">
+			<img src="images/food1.jpg">
+			<div class="text">上海出发 | 跟团游</div>
+		</div>
+		<div class="routeTitle">
+			&lt;暑期亲子爆款-澳凯墨11-12日游&gt;纯玩减1500，市区4星升2晚五星，外堡礁，大洋路，企鹅岛/史蒂芬港/猎人谷，12日行程特含海豚岛
+		</div>
+		<div class="price">
+			<div class="salePrice"><em>￥</em><span>18299</span>起</div>
+			<div class="tuniuPrice">￥<em>19799</em></div>
+		</div>
+		<div class="buyBtn">需减<em>2积分</em></div>
+	</a>
+	</div> <div class="pendant_card_24"><div class="nr-icon"></div></div></div></div><div class="card-block" style="width:252px;height:336px;top:336px;left:252px;"><div class="product_card_11"><div class="route-item">
+	<a href="http://www.tuniu.com/tours/24490072" target="_blank" onclick="_gaq.push(['_trackEvent', '21-619', '点击', '178-200-&lt;邮储银联信用卡专享林志颖同款立减3000元 法瑞意12-13日 意大利深度游&gt;一价全含 4至5星 庄园酒店 五渔村 少女峰 最高立减3000元']);">
+		<div class="routeImg">
+			<img src="images/food1.jpg">
+			<div class="text">出发 | 跟团游</div>
+		</div>
+		<div class="routeTitle">
+			&lt;邮储银联信用卡专享林志颖同款立减3000元 法瑞意12-13日 意大利深度游&gt;一价全含 4至5星 庄园酒店 五渔村 少女峰 最高立减3000元
+		</div>
+		<div class="price">
+			<div class="salePrice"><em>￥</em><span>16799</span>起</div>
+			<div class="tuniuPrice">￥<em>18999</em></div>
+		</div>
+		<div class="buyBtn">需减<em>2积分</em></div>
+	</a>
+	</div><div class="pendant_card_10">已减¥<span>2200</span></div> <div class="clearfix"></div></div></div><div class="card-block" style="width:252px;height:336px;top:336px;left:504px;"><div class="product_card_11"><div class="route-item">
+	<a href="http://www.tuniu.com/tours/210140792" target="_blank" onclick="_gaq.push(['_trackEvent', '21-619', '点击', '178-200-[端午]<邮储银联信用卡专享欧洲爆款立减2000元每人 法瑞意11-12日 瑞士4晚深度游>4至5星，双火车，部分团期巴黎一天自由活动，爆款产品线路，点评过千']);">
+		<div class="routeImg">
+			<img src="images/food1.jpg">
+			<div class="text">上海出发 | 跟团游</div>
+		</div>
+		<div class="routeTitle">
+			[端午]<邮储银联信用卡专享欧洲爆款立减2000元每人 法瑞意11-12日 瑞士4晚深度游>4至5星，双火车，部分团期巴黎一天自由活动，爆款产品线路，点评过千
+		</div>
+		<div class="price">
+			<div class="salePrice"><em>￥</em><span>14999</span>起</div>
+			<div class="tuniuPrice">￥<em>15999</em></div>
+		</div>
+		<div class="buyBtn">需减<em>2积分</em></div>
+	</a>
+	</div><div class="pendant_card_10">已减¥<span>1000</span></div> <div class="clearfix"></div></div></div><div class="card-block" style="width:252px;height:336px;top:336px;left:756px;"><div class="product_card_11"><div class="route-item">
+	<a href="http://www.tuniu.com/tours/210147596" target="_blank" onclick="_gaq.push(['_trackEvent', '21-619', '点击', '178-200-&lt;暑期亲子爆款-澳凯墨10日游&gt;纯玩，市区4星升级2晚5星，大洋路，外堡礁，澳野奇观，大学游，部分团期企鹅岛/史蒂芬港，联运，奔跑吧红包']);">
+		<div class="routeImg">
+			<img src="images/food1.jpg">
+			<div class="text">上海出发 | 跟团游</div>
+		</div>
+		<div class="routeTitle">
+			&lt;暑期亲子爆款-澳凯墨10日游&gt;纯玩，市区4星升级2晚5星，大洋路，外堡礁，澳野奇观，大学游，部分团期企鹅岛/史蒂芬港，联运，奔跑吧红包
+		</div>
+		<div class="price">
+			<div class="salePrice"><em>￥</em><span>17438</span>起</div>
+			<div class="tuniuPrice">￥<em>18938</em></div>
+		</div>
+		<div class="buyB   tn">需减<em>2积分</em></div>
+	</a>
+	</div><div class="pendant_card_10">需减<span>2积分</span></div> <div class="clearfix"></div></div></div></div>            </div>
+            </div>
+    </div>
+<div class="content" id="eight" style="background-color:#FFAD00">
+        <div id="module_178" class="block row">
+                    <div class="module-title1">
+                <img src="images/present.png">
+                                                        <!-- 标题右下 -->
+                    <a href="http://www.tuniu.com/niuren/" class="more-btn" style="bottom: 10px;right: 10px;" target="view_window"><img src="http://m.tuniucdn.com/fb2/t1/G1/M00/C7/8B/Cii9EFc5sK2IYaBzAAAPcAINNAUAAFy9wP_8E4AAA-y359.png"></a>
+                                                </div>
+                                    <div class="floor-block floor-0 an_mo" style="background:#ffffff" name="floor-id-200" liWithHan="cms_200_产品">
+                <div class="floor" style="height:672px;background:#ffffff;"><div class="card-block" style="width:252px;height:336px;top:0px;left:0px;"><div class="product_card_11"><div class="route-item">
+	<a href="http://www.tuniu.com/tours/470290" target="_blank" onclick="_gaq.push(['_trackEvent', '21-619', '点击', '178-200-&lt;法瑞意德奥11日游&gt;即日起2人预定6月29日团立减6000元，一价全含 迈瑙花岛 铁力士雪山 红酒火车湖区 巴黎自由活动']);">
+		<div class="routeImg">
+			<img src="images/food1.jpg">
+			<div class="text">出发 | 跟团游</div>
+		</div>
+		<div class="routeTitle">
+			&lt;法瑞意德奥11日游&gt;即日起2人预定6月29日团立减6000元，一价全含 迈瑙花岛 铁力士雪山 红酒火车湖区 巴黎自由活动
+		</div>
+		<div class="price">
+			<div class="salePrice"><em>￥</em><span>13999</span>起</div>
+			<div class="tuniuPrice">￥<em>16999</em></div>
+		</div>
+		<div class="buyBtn">需减<em>2积分</em></div>
+	</a>
+	</div> <div class="pendant_card_24"><div class="nr-icon"></div></div></div></div><div class="card-block" style="width:252px;height:336px;top:0px;left:252px;"><div class="product_card_11"><div class="route-item">
+	<a href="http://www.tuniu.com/tours/38298198" target="_blank" onclick="_gaq.push(['_trackEvent', '21-619', '点击', '178-200-&lt;西葡全景11日游&gt;暑假预售  立减1700  米其林美食 4至5星 巴塞主场入内  自由活动 全含']);">
+		<div class="routeImg">
+			<img src="images/food1.jpg">
+			<div class="text">出发 | 跟团游</div>
+		</div>
+		<div class="routeTitle">
+			&lt;西葡全景11日游&gt;暑假预售  立减1700  米其林美食 4至5星 巴塞主场入内  自由活动 全含
+		</div>
+		<div class="price">
+			<div class="salePrice"><em>￥</em><span>16099</span>起</div>
+			<div class="tuniuPrice">￥<em>17799</em></div>
+		</div>
+		<div class="buyBtn">需减<em>2积分</em></div>
+	</a>
+	</div> <div class="pendant_card_24"><div class="nr-icon"></div></div></div></div><div class="card-block" style="width:252px;height:336px;top:0px;left:504px;"><div class="product_card_11"><div class="route-item">
+	<a href="http://www.tuniu.com/tours/210137351" target="_blank" onclick="_gaq.push(['_trackEvent', '21-619', '点击', '178-200-<奔跑吧暑价-美国东西海岸-黄石公园-大瀑布14-16天游>途牛自营 经典景点全含 帝国大厦 尼亚加拉 环球影城 送西峡 0922含优胜美地']);">
+		<div class="routeImg">
+			<img src="images/food1.jpg">
+			<div class="text">上海出发 | 跟团游</div>
+		</div>
+		<div class="routeTitle">
+			<奔跑吧暑价-美国东西海岸-黄石公园-大瀑布14-16天游>途牛自营 经典景点全含 帝国大厦 尼亚加拉 环球影城 送西峡 0922含优胜美地
+		</div>
+		<div class="price">
+			<div class="salePrice"><em>￥</em><span>22899</span>起</div>
+			<div class="tuniuPrice">￥<em>24399</em></div>
+		</div>
+		<div class="buyBtn">需减<em>2积分</em></div>
+	</a>
+	</div> <div class="pendant_card_24"><div class="nr-icon"></div></div></div></div><div class="card-block" style="width:252px;height:336px;top:0px;left:756px;"><div class="product_card_11"><div class="route-item">
+	<a href="http://www.tuniu.com/tours/210136611" target="_blank" onclick="_gaq.push(['_trackEvent', '21-619', '点击', '178-200-[端午]<奔跑吧暑价-美国东西海岸-夏威夷-黄石16-19日游>途牛自营  精华景点全含  西峡 大提顿 大瀑布 0603最后两席']);">
+		<div class="routeImg">
+			<img src="images/food1.jpg">
+			<div class="text">上海出发 | 跟团游</div>
+		</div>
+		<div class="routeTitle">
+			[端午]<奔跑吧暑价-美国东西海岸-夏威夷-黄石16-19日游>途牛自营  精华景点全含  西峡 大提顿 大瀑布 0603最后两席
+		</div>
+		<div class="price">
+			<div class="salePrice"><em>￥</em><span>28300</span>起</div>
+			<div class="tuniuPrice">￥<em>29800</em></div>
+		</div>
+		<div class="buyBtn">需减<em>2积分</em></div>
+	</a>
+	</div> <div class="pendant_card_24"><div class="nr-icon"></div></div></div></div><div class="card-block" style="width:252px;height:336px;top:336px;left:0px;"><div class="product_card_11"><div class="route-item">
+	<a href="http://www.tuniu.com/tours/210136020" target="_blank" onclick="_gaq.push(['_trackEvent', '21-619', '点击', '178-200-&lt;暑期亲子爆款-澳凯墨11-12日游&gt;纯玩减1500，市区4星升2晚五星，外堡礁，大洋路，企鹅岛/史蒂芬港/猎人谷，12日行程特含海豚岛']);">
+		<div class="routeImg">
+			<img src="images/food1.jpg">
+			<div class="text">上海出发 | 跟团游</div>
+		</div>
+		<div class="routeTitle">
+			&lt;暑期亲子爆款-澳凯墨11-12日游&gt;纯玩减1500，市区4星升2晚五星，外堡礁，大洋路，企鹅岛/史蒂芬港/猎人谷，12日行程特含海豚岛
+		</div>
+		<div class="price">
+			<div class="salePrice"><em>￥</em><span>18299</span>起</div>
+			<div class="tuniuPrice">￥<em>19799</em></div>
+		</div>
+		<div class="buyBtn">需减<em>2积分</em></div>
+	</a>
+	</div> <div class="pendant_card_24"><div class="nr-icon"></div></div></div></div><div class="card-block" style="width:252px;height:336px;top:336px;left:252px;"><div class="product_card_11"><div class="route-item">
+	<a href="http://www.tuniu.com/tours/24490072" target="_blank" onclick="_gaq.push(['_trackEvent', '21-619', '点击', '178-200-&lt;邮储银联信用卡专享林志颖同款立减3000元 法瑞意12-13日 意大利深度游&gt;一价全含 4至5星 庄园酒店 五渔村 少女峰 最高立减3000元']);">
+		<div class="routeImg">
+			<img src="images/food1.jpg">
+			<div class="text">出发 | 跟团游</div>
+		</div>
+		<div class="routeTitle">
+			&lt;邮储银联信用卡专享林志颖同款立减3000元 法瑞意12-13日 意大利深度游&gt;一价全含 4至5星 庄园酒店 五渔村 少女峰 最高立减3000元
+		</div>
+		<div class="price">
+			<div class="salePrice"><em>￥</em><span>16799</span>起</div>
+			<div class="tuniuPrice">￥<em>18999</em></div>
+		</div>
+		<div class="buyBtn">需减<em>2积分</em></div>
+	</a>
+	</div><div class="pendant_card_10">已减¥<span>2200</span></div> <div class="clearfix"></div></div></div><div class="card-block" style="width:252px;height:336px;top:336px;left:504px;"><div class="product_card_11"><div class="route-item">
+	<a href="http://www.tuniu.com/tours/210140792" target="_blank" onclick="_gaq.push(['_trackEvent', '21-619', '点击', '178-200-[端午]<邮储银联信用卡专享欧洲爆款立减2000元每人 法瑞意11-12日 瑞士4晚深度游>4至5星，双火车，部分团期巴黎一天自由活动，爆款产品线路，点评过千']);">
+		<div class="routeImg">
+			<img src="images/food1.jpg">
+			<div class="text">上海出发 | 跟团游</div>
+		</div>
+		<div class="routeTitle">
+			[端午]<邮储银联信用卡专享欧洲爆款立减2000元每人 法瑞意11-12日 瑞士4晚深度游>4至5星，双火车，部分团期巴黎一天自由活动，爆款产品线路，点评过千
+		</div>
+		<div class="price">
+			<div class="salePrice"><em>￥</em><span>14999</span>起</div>
+			<div class="tuniuPrice">￥<em>15999</em></div>
+		</div>
+		<div class="buyBtn">需减<em>2积分</em></div>
+	</a>
+	</div><div class="pendant_card_10">已减¥<span>1000</span></div> <div class="clearfix"></div></div></div><div class="card-block" style="width:252px;height:336px;top:336px;left:756px;"><div class="product_card_11"><div class="route-item">
+	<a href="http://www.tuniu.com/tours/210147596" target="_blank" onclick="_gaq.push(['_trackEvent', '21-619', '点击', '178-200-&lt;暑期亲子爆款-澳凯墨10日游&gt;纯玩，市区4星升级2晚5星，大洋路，外堡礁，澳野奇观，大学游，部分团期企鹅岛/史蒂芬港，联运，奔跑吧红包']);">
+		<div class="routeImg">
+			<img src="images/food1.jpg">
+			<div class="text">上海出发 | 跟团游</div>
+		</div>
+		<div class="routeTitle">
+			&lt;暑期亲子爆款-澳凯墨10日游&gt;纯玩，市区4星升级2晚5星，大洋路，外堡礁，澳野奇观，大学游，部分团期企鹅岛/史蒂芬港，联运，奔跑吧红包
+		</div>
+		<div class="price">
+			<div class="salePrice"><em>￥</em><span>17438</span>起</div>
+			<div class="tuniuPrice">￥<em>18938</em></div>
+		</div>
+		<div class="buyBtn">需减<em>2积分</em></div>
+	</a>
+	</div><div class="pendant_card_10">需减<span>2积分</span></div> <div class="clearfix"></div></div></div></div>            </div>
+            </div>
+    </div>
+<div class="content" id="nine" style="background-color:#FFAD00">
+        <div id="module_178" class="block row">
+                    <div class="module-title1">
+                <img src="images/movie.png">
+                                                        <!-- 标题右下 -->
+                    <a href="http://www.tuniu.com/niuren/" class="more-btn" style="bottom: 10px;right: 10px;" target="view_window"><img src="http://m.tuniucdn.com/fb2/t1/G1/M00/C7/8B/Cii9EFc5sK2IYaBzAAAPcAINNAUAAFy9wP_8E4AAA-y359.png"></a>
+                                                </div>
+                                    <div class="floor-block floor-0 an_mo" style="background:#ffffff" name="floor-id-200" liWithHan="cms_200_产品">
+                <div class="floor" style="height:672px;background:#ffffff;"><div class="card-block" style="width:252px;height:336px;top:0px;left:0px;"><div class="product_card_11"><div class="route-item">
+	<a href="http://www.tuniu.com/tours/470290" target="_blank" onclick="_gaq.push(['_trackEvent', '21-619', '点击', '178-200-&lt;法瑞意德奥11日游&gt;即日起2人预定6月29日团立减6000元，一价全含 迈瑙花岛 铁力士雪山 红酒火车湖区 巴黎自由活动']);">
+		<div class="routeImg">
+			<img src="images/food1.jpg">
+			<div class="text">出发 | 跟团游</div>
+		</div>
+		<div class="routeTitle">
+			&lt;法瑞意德奥11日游&gt;即日起2人预定6月29日团立减6000元，一价全含 迈瑙花岛 铁力士雪山 红酒火车湖区 巴黎自由活动
+		</div>
+		<div class="price">
+			<div class="salePrice"><em>￥</em><span>13999</span>起</div>
+			<div class="tuniuPrice">￥<em>16999</em></div>
+		</div>
+		<div class="buyBtn">需减<em>2积分</em></div>
+	</a>
+	</div> <div class="pendant_card_24"><div class="nr-icon"></div></div></div></div><div class="card-block" style="width:252px;height:336px;top:0px;left:252px;"><div class="product_card_11"><div class="route-item">
+	<a href="http://www.tuniu.com/tours/38298198" target="_blank" onclick="_gaq.push(['_trackEvent', '21-619', '点击', '178-200-&lt;西葡全景11日游&gt;暑假预售  立减1700  米其林美食 4至5星 巴塞主场入内  自由活动 全含']);">
+		<div class="routeImg">
+			<img src="images/food1.jpg">
+			<div class="text">出发 | 跟团游</div>
+		</div>
+		<div class="routeTitle">
+			&lt;西葡全景11日游&gt;暑假预售  立减1700  米其林美食 4至5星 巴塞主场入内  自由活动 全含
+		</div>
+		<div class="price">
+			<div class="salePrice"><em>￥</em><span>16099</span>起</div>
+			<div class="tuniuPrice">￥<em>17799</em></div>
+		</div>
+		<div class="buyBtn">需减<em>2积分</em></div>
+	</a>
+	</div> <div class="pendant_card_24"><div class="nr-icon"></div></div></div></div><div class="card-block" style="width:252px;height:336px;top:0px;left:504px;"><div class="product_card_11"><div class="route-item">
+	<a href="http://www.tuniu.com/tours/210137351" target="_blank" onclick="_gaq.push(['_trackEvent', '21-619', '点击', '178-200-<奔跑吧暑价-美国东西海岸-黄石公园-大瀑布14-16天游>途牛自营 经典景点全含 帝国大厦 尼亚加拉 环球影城 送西峡 0922含优胜美地']);">
+		<div class="routeImg">
+			<img src="images/food1.jpg">
+			<div class="text">上海出发 | 跟团游</div>
+		</div>
+		<div class="routeTitle">
+			<奔跑吧暑价-美国东西海岸-黄石公园-大瀑布14-16天游>途牛自营 经典景点全含 帝国大厦 尼亚加拉 环球影城 送西峡 0922含优胜美地
+		</div>
+		<div class="price">
+			<div class="salePrice"><em>￥</em><span>22899</span>起</div>
+			<div class="tuniuPrice">￥<em>24399</em></div>
+		</div>
+		<div class="buyBtn">需减<em>2积分</em></div>
+	</a>
+	</div> <div class="pendant_card_24"><div class="nr-icon"></div></div></div></div><div class="card-block" style="width:252px;height:336px;top:0px;left:756px;"><div class="product_card_11"><div class="route-item">
+	<a href="http://www.tuniu.com/tours/210136611" target="_blank" onclick="_gaq.push(['_trackEvent', '21-619', '点击', '178-200-[端午]<奔跑吧暑价-美国东西海岸-夏威夷-黄石16-19日游>途牛自营  精华景点全含  西峡 大提顿 大瀑布 0603最后两席']);">
+		<div class="routeImg">
+			<img src="images/food1.jpg">
+			<div class="text">上海出发 | 跟团游</div>
+		</div>
+		<div class="routeTitle">
+			[端午]<奔跑吧暑价-美国东西海岸-夏威夷-黄石16-19日游>途牛自营  精华景点全含  西峡 大提顿 大瀑布 0603最后两席
+		</div>
+		<div class="price">
+			<div class="salePrice"><em>￥</em><span>28300</span>起</div>
+			<div class="tuniuPrice">￥<em>29800</em></div>
+		</div>
+		<div class="buyBtn">需减<em>2积分</em></div>
+	</a>
+	</div> <div class="pendant_card_24"><div class="nr-icon"></div></div></div></div><div class="card-block" style="width:252px;height:336px;top:336px;left:0px;"><div class="product_card_11"><div class="route-item">
+	<a href="http://www.tuniu.com/tours/210136020" target="_blank" onclick="_gaq.push(['_trackEvent', '21-619', '点击', '178-200-&lt;暑期亲子爆款-澳凯墨11-12日游&gt;纯玩减1500，市区4星升2晚五星，外堡礁，大洋路，企鹅岛/史蒂芬港/猎人谷，12日行程特含海豚岛']);">
+		<div class="routeImg">
+			<img src="images/food1.jpg">
+			<div class="text">上海出发 | 跟团游</div>
+		</div>
+		<div class="routeTitle">
+			&lt;暑期亲子爆款-澳凯墨11-12日游&gt;纯玩减1500，市区4星升2晚五星，外堡礁，大洋路，企鹅岛/史蒂芬港/猎人谷，12日行程特含海豚岛
+		</div>
+		<div class="price">
+			<div class="salePrice"><em>￥</em><span>18299</span>起</div>
+			<div class="tuniuPrice">￥<em>19799</em></div>
+		</div>
+		<div class="buyBtn">需减<em>2积分</em></div>
+	</a>
+	</div> <div class="pendant_card_24"><div class="nr-icon"></div></div></div></div><div class="card-block" style="width:252px;height:336px;top:336px;left:252px;"><div class="product_card_11"><div class="route-item">
+	<a href="http://www.tuniu.com/tours/24490072" target="_blank" onclick="_gaq.push(['_trackEvent', '21-619', '点击', '178-200-&lt;邮储银联信用卡专享林志颖同款立减3000元 法瑞意12-13日 意大利深度游&gt;一价全含 4至5星 庄园酒店 五渔村 少女峰 最高立减3000元']);">
+		<div class="routeImg">
+			<img src="images/food1.jpg">
+			<div class="text">出发 | 跟团游</div>
+		</div>
+		<div class="routeTitle">
+			&lt;邮储银联信用卡专享林志颖同款立减3000元 法瑞意12-13日 意大利深度游&gt;一价全含 4至5星 庄园酒店 五渔村 少女峰 最高立减3000元
+		</div>
+		<div class="price">
+			<div class="salePrice"><em>￥</em><span>16799</span>起</div>
+			<div class="tuniuPrice">￥<em>18999</em></div>
+		</div>
+		<div class="buyBtn">需减<em>2积分</em></div>
+	</a>
+	</div><div class="pendant_card_10">已减¥<span>2200</span></div> <div class="clearfix"></div></div></div><div class="card-block" style="width:252px;height:336px;top:336px;left:504px;"><div class="product_card_11"><div class="route-item">
+	<a href="http://www.tuniu.com/tours/210140792" target="_blank" onclick="_gaq.push(['_trackEvent', '21-619', '点击', '178-200-[端午]<邮储银联信用卡专享欧洲爆款立减2000元每人 法瑞意11-12日 瑞士4晚深度游>4至5星，双火车，部分团期巴黎一天自由活动，爆款产品线路，点评过千']);">
+		<div class="routeImg">
+			<img src="images/food1.jpg">
+			<div class="text">上海出发 | 跟团游</div>
+		</div>
+		<div class="routeTitle">
+			[端午]<邮储银联信用卡专享欧洲爆款立减2000元每人 法瑞意11-12日 瑞士4晚深度游>4至5星，双火车，部分团期巴黎一天自由活动，爆款产品线路，点评过千
+		</div>
+		<div class="price">
+			<div class="salePrice"><em>￥</em><span>14999</span>起</div>
+			<div class="tuniuPrice">￥<em>15999</em></div>
+		</div>
+		<div class="buyBtn">需减<em>2积分</em></div>
+	</a>
+	</div><div class="pendant_card_10">已减¥<span>1000</span></div> <div class="clearfix"></div></div></div><div class="card-block" style="width:252px;height:336px;top:336px;left:756px;"><div class="product_card_11"><div class="route-item">
+	<a href="http://www.tuniu.com/tours/210147596" target="_blank" onclick="_gaq.push(['_trackEvent', '21-619', '点击', '178-200-&lt;暑期亲子爆款-澳凯墨10日游&gt;纯玩，市区4星升级2晚5星，大洋路，外堡礁，澳野奇观，大学游，部分团期企鹅岛/史t蒂芬港，联运，奔跑吧红包']);">
+		<div class="routeImg">
+			<img src="images/food1.jpg">
+			<div class="text">上海出发 | 跟团游</div>
+		</div>
+		<div class="routeTitle">
+			&lt;暑期亲子爆款-澳凯墨10日游&gt;纯玩，市区4星升级2晚5星，大洋路，外堡礁，澳野奇观，大学游，部分团期企鹅岛/史蒂芬港，联运，奔跑吧红包
+		</div>
+		<div class="price">
+			<div class="salePrice"><em>￥</em><span>17438</span>起</div>
+			<div class="tuniuPrice">￥<em>18938</em></div>
+		</div>
+		<div class="buyBtn">需减<em>2积分</em></div>
+	</a>
+	</div><div class="pendant_card_10">需减<span>2积分</span></div> <div class="clearfix"></div></div></div></div>            </div>
+            </div>
+    </div>
+<div class="content" id="ten" style="background-color:#FFAD00">
+        <div id="module_178" class="block row">
+                    <div class="module-title1">
+                <img src="images/ticket.png">
+                                                        <!-- 标题右下 -->
+                    <a href="http://www.tuniu.com/niuren/" class="more-btn" style="bottom: 10px;right: 10px;" target="view_window"><img src="http://m.tuniucdn.com/fb2/t1/G1/M00/C7/8B/Cii9EFc5sK2IYaBzAAAPcAINNAUAAFy9wP_8E4AAA-y359.png"></a>
+                                                </div>
+                                    <div class="floor-block floor-0 an_mo" style="background:#ffffff" name="floor-id-200" liWithHan="cms_200_产品">
+                <div class="floor" style="height:672px;background:#ffffff;"><div class="card-block" style="width:252px;height:336px;top:0px;left:0px;"><div class="product_card_11"><div class="route-item">
+	<a href="http://www.tuniu.com/tours/470290" target="_blank" onclick="_gaq.push(['_trackEvent', '21-619', '点击', '178-200-&lt;法瑞意德奥11日游&gt;即日起2人预定6月29日团立减6000元，一价全含 迈瑙花岛 铁力士雪山 红酒火车湖区 巴黎自由活动']);">
+		<div class="routeImg">
+			<img src="images/food1.jpg">
+			<div class="text">出发 | 跟团游</div>
+		</div>
+		<div class="routeTitle">
+			&lt;法瑞意德奥11日游&gt;即日起2人预定6月29日团立减6000元，一价全含 迈瑙花岛 铁力士雪山 红酒火车湖区 巴黎自由活动
+		</div>
+		<div class="price">
+			<div class="salePrice"><em>￥</em><span>13999</span>起</div>
+			<div class="tuniuPrice">￥<em>16999</em></div>
+		</div>
+		<div class="buyBtn">需减<em>2积分</em></div>
+	</a>
+	</div> <div class="pendant_card_24"><div class="nr-icon"></div></div></div></div><div class="card-block" style="width:252px;height:336px;top:0px;left:252px;"><div class="product_card_11"><div class="route-item">
+	<a href="http://www.tuniu.com/tours/38298198" target="_blank" onclick="_gaq.push(['_trackEvent', '21-619', '点击', '178-200-&lt;西葡全景11日游&gt;暑假预售  立减1700  米其林美食 4至5星 巴塞主场入内  自由活动 全含']);">
+		<div class="routeImg">
+			<img src="images/food1.jpg">
+			<div class="text">出发 | 跟团游</div>
+		</div>
+		<div class="routeTitle">
+			&lt;西葡全景11日游&gt;暑假预售  立减1700  米其林美食 4至5星 巴塞主场入内  自由活动 全含
+		</div>
+		<div class="price">
+			<div class="salePrice"><em>￥</em><span>16099</span>起</div>
+			<div class="tuniuPrice">￥<em>17799</em></div>
+		</div>
+		<div class="buyBtn">需减<em>2积分</em></div>
+	</a>
+	</div> <div class="pendant_card_24"><div class="nr-icon"></div></div></div></div><div class="card-block" style="width:252px;height:336px;top:0px;left:504px;"><div class="product_card_11"><div class="route-item">
+	<a href="http://www.tuniu.com/tours/210137351" target="_blank" onclick="_gaq.push(['_trackEvent', '21-619', '点击', '178-200-<奔跑吧暑价-美国东西海岸-黄石公园-大瀑布14-16天游>途牛自营 经典景点全含 帝国大厦 尼亚加拉 环球影城 送西峡 0922含优胜美地']);">
+		<div class="routeImg">
+			<img src="images/food1.jpg">
+			<div class="text">上海出发 | 跟团游</div>
+		</div>
+		<div class="routeTitle">
+			<奔跑吧暑价-美国东西海岸-黄石公园-大瀑布14-16天游>途牛自营 经典景点全含 帝国大厦 尼亚加拉 环球影城 送西峡 0922含优胜美地
+		</div>
+		<div class="price">
+			<div class="salePrice"><em>￥</em><span>22899</span>起</div>
+			<div class="tuniuPrice">￥<em>24399</em></div>
+		</div>
+		<div class="buyBtn">需减<em>2积分</em></div>
+	</a>
+	</div> <div class="pendant_card_24"><div class="nr-icon"></div></div></div></div><div class="card-block" style="width:252px;height:336px;top:0px;left:756px;"><div class="product_card_11"><div class="route-item">
+	<a href="http://www.tuniu.com/tours/210136611" target="_blank" onclick="_gaq.push(['_trackEvent', '21-619', '点击', '178-200-[端午]<奔跑吧暑价-美国东西海岸-夏威夷-黄石16-19日游>途牛自营  精华景点全含  西峡 大提顿 大瀑布 0603最后两席']);">
+		<div class="routeImg">
+			<img src="images/food1.jpg">
+			<div class="text">上海出发 | 跟团游</div>
+		</div>
+		<div class="routeTitle">
+			[端午]<奔跑吧暑价-美国东西海岸-夏威夷-黄石16-19日游>途牛自营  精华景点全含  西峡 大提顿 大瀑布 0603最后两席
+		</div>
+		<div class="price">
+			<div class="salePrice"><em>￥</em><span>28300</span>起</div>
+			<div class="tuniuPrice">￥<em>29800</em></div>
+		</div>
+		<div class="buyBtn">需减<em>2积分</em></div>
+	</a>
+	</div> <div class="pendant_card_24"><div class="nr-icon"></div></div></div></div><div class="card-block" style="width:252px;height:336px;top:336px;left:0px;"><div class="product_card_11"><div class="route-item">
+	<a href="http://www.tuniu.com/tours/210136020" target="_blank" onclick="_gaq.push(['_trackEvent', '21-619', '点击', '178-200-&lt;暑期亲子爆款-澳凯墨11-12日游&gt;纯玩减1500，市区4星升2晚五星，外堡礁，大洋路，企鹅岛/史蒂芬港/猎人谷，12日行程特含海豚岛']);">
+		<div class="routeImg">
+			<img src="images/food1.jpg">
+			<div class="text">上海出发 | 跟团游</div>
+		</div>
+		<div class="routeTitle">
+			&lt;暑期亲子爆款-澳凯墨11-12日游&gt;纯玩减1500，市区4星升2晚五星，外堡礁，大洋路，企鹅岛/史蒂芬港/猎人谷，12日行程特含海豚岛
+		</div>
+		<div class="price">
+			<div class="salePrice"><em>￥</em><span>18299</span>起</div>
+			<div class="tuniuPrice">￥<em>19799</em></div>
+		</div>
+		<div class="buyBtn">需减<em>2积分</em></div>
+	</a>
+	</div> <div class="pendant_card_24"><div class="nr-icon"></div></div></div></div><div class="card-block" style="width:252px;height:336px;top:336px;left:252px;"><div class="product_card_11"><div class="route-item">
+	<a href="http://www.tuniu.com/tours/24490072" target="_blank" onclick="_gaq.push(['_trackEvent', '21-619', '点击', '178-200-&lt;邮储银联信用卡专享林志颖同款立减3000元 法瑞意12-13日 意大利深度游&gt;一价全含 4至5星 庄园酒店 五渔村 少女峰 最高立减3000元']);">
+		<div class="routeImg">
+			<img src="images/food1.jpg">
+			<div class="text">出发 | 跟团游</div>
+		</div>
+		<div class="routeTitle">
+			&lt;邮储银联信用卡专享林志颖同款立减3000元 法瑞意12-13日 意大利深度游&gt;一价全含 4至5星 庄园酒店 五渔村 少女峰 最高立减3000元
+		</div>
+		<div class="price">
+			<div class="salePrice"><em>￥</em><span>16799</span>起</div>
+			<div class="tuniuPrice">￥<em>18999</em></div>
+		</div>
+		<div class="buyBtn">需减<em>2积分</em></div>
+	</a>
+	</div><div class="pendant_card_10">已减¥<span>2200</span></div> <div class="clearfix"></div></div></div><div class="card-block" style="width:252px;height:336px;top:336px;left:504px;"><div class="product_card_11"><div class="route-item">
+	<a href="http://www.tuniu.com/tours/210140792" target="_blank" onclick="_gaq.push(['_trackEvent', '21-619', '点击', '178-200-[端午]<邮储银联信用卡专享欧洲爆款立减2000元每人 法瑞意11-12日 瑞士4晚深度游>4至5星，双火车，部分团期巴黎一天自由活动，爆款产品线路，点评过千']);">
+		<div class="routeImg">
+			<img src="images/food1.jpg">
+			<div class="text">上海出发 | 跟团游</div>
+		</div>
+		<div class="routeTitle">
+			[端午]<邮储银联信用卡专享欧洲爆款立减2000元每人 法瑞意11-12日 瑞士4晚深度游>4至5星，双火车，部分团期巴黎一天自由活动，爆款产品线路，点评过千
+		</div>
+		<div class="price">
+			<div class="salePrice"><em>￥</em><span>14999</span>起</div>
+			<div class="tuniuPrice">￥<em>15999</em></div>
+		</div>
+		<div class="buyBtn">需减<em>2积分</em></div>
+	</a>
+	</div><div class="pendant_card_10">已减¥<span>1000</span></div> <div class="clearfix"></div></div></div><div class="card-block" style="width:252px;height:336px;top:336px;left:756px;"><div class="product_card_11"><div class="route-item">
+	<a href="http://www.tuniu.com/tours/210147596" target="_blank" onclick="_gaq.push(['_trackEvent', '21-619', '点击', '178-200-&lt;暑期亲子爆款-澳凯墨10日游&gt;纯玩，市区4星升级2晚5星，大洋路，外堡礁，澳野奇观，大学游，部分团期企鹅岛/史t蒂芬港，联运，奔跑吧红包']);">
+		<div class="routeImg">
+			<img src="images/food1.jpg">
+			<div class="text">上海出发 | 跟团游</div>
+		</div>
+		<div class="routeTitle">
+			&lt;暑期亲子爆款-澳凯墨10日游&gt;纯玩，市区4星升级2晚5星，大洋路，外堡礁，澳野奇观，大学游，部分团期企鹅岛/史蒂芬港，联运，奔跑吧红包
+		</div>
+		<div class="price">
+			<div class="salePrice"><em>￥</em><span>17438</span>起</div>
+			<div class="tuniuPrice">￥<em>18938</em></div>
+		</div>
+		<div class="buyBtn">需减<em>2积分</em></div>
+	</a>
+	</div><div class="pendant_card_10">需减<span>2积分</span></div> <div class="clearfix"></div></div></div></div>            </div>
+            </div>
+    </div>
+<div class="content" style="background-color:#FFAD00">
+        <div id="module_207" class="block row">
+                                    <div class="floor-block floor-0 an_mo"  name="floor-id-225" liWithHan="cms_225_右侧导航">
+                <div class="floor" ><div class="card-block" "><div class="code-block"><div style='height:50px;'></div>
+<div class="coupons_box">
+			<div class="coupons_con">
+				<div class="top_box">
+					<h1>领取优惠券</h1>
+					<h2>6.6下单使用</h2>
+					<input type="text" id="tel" value="请输入手机号码"></input>
+					<div class="ljlq_btn">立即领取</div>
+				</div>
+				<div class="bottom_box">
+					你已领取，请在会员中心“优惠券”中查看!
+				</div>
+			</div>
+		</div>
+
+<!-- <div class="fr an_mo">    
+	        <div class="quickNav">
+	        	<div class="fr_top"></div>
+	        	<div class="fr_con">
+	                <ul>
+						<li>首付出发</li> 
+						<li>牛人专线</li>
+						<li>欧洲</li>
+						<li>美洲</li>
+						<li>中东非洲</li>
+						<li>澳洲</li>
+
+	                </ul>
+                </div>
+	            <div class="fr_last"></div>
+			</div>                  
+		</div> -->
+
+
+<!-- <div class="float_left">
+		<div class="leftNav">
+			<div class="left_top"><a href=" http://www.tuniu.com/zt/2016shucu/" target="_blank" class="f"></a></div>
+				<ul>
+	                <li>
+						<a href=" http://www.tuniu.com/zt/2016shucu/" target="_blank" class="f">暑促主会场</a>
+					</li>
+					<li>
+						<a href="http://www.tuniu.com/szt/shucu_chuchang/" target="_blank" class="f">欧美澳新中东非</a>
+					</li>
+					<li>
+						<a href="http://www.tuniu.com/szt/shucu_chuduan/" target="_blank">日韩东南亚</a>
+					</li>
+					<li>
+						<a href="http://www.tuniu.com/szt/shucu_guonei/" target="_blank">国内游</a>
+					</li>
+					<li>
+						<a href="http://www.tuniu.com/szt/shucu_zijiazhoubian/" target="_blank">端午小长假<br />周边自驾</a>
+					</li>
+					<li>
+						<a href="http://www.tuniu.com/szt/shucu_ziyouxing/" target="_blank">出境自由行</a>
+					</li>
+					<li>
+						<a href="http://www.tuniu.com/szt/shucu_haidao/" target="_blank">海岛马代</a>
+					</li>
+					<li>
+						<a href="http://www.tuniu.com/szt/shucu_youlun/" target="_blank">邮轮游</a>
+					</li>
+					<li>
+						<a href="http://www.tuniu.com/zt/summersfchufa/" target="_blank">首付出发<br />分期送现金</a>
+					</li>
+					<li>
+						<a href="http://www.tuniu.com/szt/523chuxing" target="_blank">出行立减666</a>
+					</li>
+					<li>
+						<a href="http://www.tuniu.com/zt/local/shuqicuxiao/" target="_blank">当地吃喝玩乐</a>
+					</li>
+					<li>
+						<a href="http://www.tuniu.com/zt/2016sqdc_wifi/" target="_blank">出境WIFI<br />0元起</a>
+					</li>
+					<li>
+						<a href="http://www.tuniu.com/zt/2016shucu_hotelfhc/" target="_blank">酒店下单<br />赢ipad</a>
+					</li>
+					<li>
+						<a href="http://www.tuniu.com/zt/shucu_yinhang/" target="_blank">银行特惠</a>
+					</li>
+					<li>
+						<a href="http://jr.tuniu.com/act/summerAct/" target="_blank">金融理财<br />领券大优惠</a>
+					</li>
+				</ul>
+				<div class="left_bottom">
+					<p class="p1">扫码领</p>
+					<p class="2p2"><em>6666</em>大礼包</p>
+					<div class="ewm_left"><div></div>
+				</div>
+			</div>
+		</div>			
+	</div></div></div></div>            </div>
+            </div>
+    </div> -->
+    <script>
+        $('.tab-title').on('mouseenter',function() {
+            var block=$(this).parents('.block'),
+                i=$(this).index(),
+                color=block.find('.tab-normal').attr('no-select-color'),
+                bg=block.find('.tab-normal').attr('no-select-bg'),
+                sColor=block.find('.tab-normal').attr('select-color'),
+                sBg=block.find('.tab-normal').attr('select-bg');
+            block.find('.tab-title').css({'color':color,'background':bg});
+            $(this).css({'color':sColor,'background':sBg});
+            block.find('.floor-block').addClass('hide');
+            block.find('.floor-'+i).removeClass('hide');
+        });
+        $('.pic-title').on('mouseenter',function() {
+            var block=$(this).parents('.block'),
+                i=$(this).index();
+            block.find('.pic-title').each(function(){
+                $(this).attr('src',$(this).attr('no-select'));
+            });
+            $(this).attr('src',$(this).attr('select'));
+            block.find('.floor-block').addClass('hide');
+            block.find('.floor-'+i).removeClass('hide');
+        });
+        if($('.cityPosition').length>0){
+          $('.moreCity').on('click',function(){
+              $('.moreCityList').fadeToggle();
+          });
+          var navTop = $('.cityPosition').offset().top;
+          $(window).on('scroll.cityPosition', function() {
+              var scrollTop = $(window).scrollTop();
+              if (scrollTop > navTop) {
+                  $('.cityPosition').css({
+                      position: 'fixed',
+                      width: '100%',
+                      left: 0,
+                      top: 0,
+                      'z-index': 999,
+                  });
+              } else if (scrollTop <= navTop) {
+                  $('.cityPosition').css({
+                      position: 'static'
+                  });
+              };
+          }); 
+        }
+
+        function getCookie(key){
+            var arr = document.cookie.match(new RegExp('(^| )' + key + '=([^;]*)(;|$)'));
+            if (arr !== null) {
+                return (arr[2]);
+            } else {
+                return '';
+            }
+        }
+        var base64DecodeChars = new Array(-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 62, -1, -1, -1, 63, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, -1, -1, -1, -1, -1, -1, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, -1, -1, -1, -1, -1, -1, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, -1, -1, -1, -1, -1);  
+        function base64decode(str){  
+            var c1, c2, c3, c4;  
+            var i, len, out;  
+            len = str.length;  
+            i = 0;  
+            out = "";  
+            while (i < len) {  
+                /* c1 */  
+                do {  
+                    c1 = base64DecodeChars[str.charCodeAt(i++) & 0xff];  
+                }  
+                while (i < len && c1 == -1);  
+                if (c1 == -1)   
+                    break;  
+                /* c2 */  
+                do {  
+                    c2 = base64DecodeChars[str.charCodeAt(i++) & 0xff];  
+                }  
+                while (i < len && c2 == -1);  
+                if (c2 == -1)   
+                    break;  
+                out += String.fromCharCode((c1 << 2) | ((c2 & 0x30) >> 4));  
+                /* c3 */  
+                do {  
+                    c3 = str.charCodeAt(i++) & 0xff;  
+                    if (c3 == 61)   
+                        return out;  
+                    c3 = base64DecodeChars[c3];  
+                }  
+                while (i < len && c3 == -1);  
+                if (c3 == -1)   
+                    break;  
+                out += String.fromCharCode(((c2 & 0XF) << 4) | ((c3 & 0x3C) >> 2));  
+                /* c4 */  
+                do {  
+                    c4 = str.charCodeAt(i++) & 0xff;  
+                    if (c4 == 61)   
+                        return out;  
+                    c4 = base64DecodeChars[c4];  
+                }  
+                while (i < len && c4 == -1);  
+                if (c4 == -1)   
+                    break;  
+                out += String.fromCharCode(((c3 & 0x03) << 6) | c4);  
+            }  
+            return out;  
+        } 
+        var code='';
+        // 选中当前城市
+        if(location.pathname.lastIndexOf('/')+1<location.pathname.length){
+            var cityCode=location.pathname.substring(location.pathname.lastIndexOf('/')+1,location.pathname.length);
+            $('.cityPosition [href="'+cityCode+'"]').addClass('active');
+            code=cityCode.substring(0,cityCode.lastIndexOf('.'))
+        }else{
+            if(getCookie('tuniuuser_citycode')){
+              code=parseInt(base64decode(getCookie('tuniuuser_citycode')));
+              if($('.cityPosition [href="'+code+'.html"]').length>0){
+                location.href=code+'.html'+location.search;
+              }
+            }else{
+              if($('.cityPosition a').length>0){
+                location.href=$('.cityPosition a').eq(0).attr('href')+location.search;
+              }
+            }
+        }
+        if($('.flight-card').length>0){
+          $.ajax({
+              url: 'http://m.tuniu.com/event/newCms/GetFlightDataHtmlAjax',
+              dataType: 'jsonp',
+              method: 'GET',
+              data:{
+                  act_id:21,
+                  city_code:code,
+              },
+              jsonp:'callback',
+              success: function(json) {
+                for(i=0;i<json.data.result.length;i++){
+                  var floor=json.data.result[i]
+                  for(id in floor){
+
+                    $('[name="floor-id-'+id+'"]').find('.flight-card').each(function(index){
+
+                      $(this).find('[name="url"]').attr('href',floor[id][index].jumpUrl);
+                      $(this).find('[name="imgUrl"]').attr('src',floor[id][index].url);
+                      $(this).find('[name="flightType"]').addClass('flightType-'+floor[id][index].flightType);
+
+                      for(key in floor[id][index]){
+                        if(key!='url' && key!='jumpUrl' && key!='flightType'){
+                          $(this).find('[name="'+key+'"]').html(floor[id][index][key]);
+                        }
+                      }
+
+                    });
+
+                  }
+                }
+              }
+          });
+        }
+    </script>
+    <script type="text/javascript">
+      (function($) {
+    $.fn.Dialog = function(options) {
+        var defaults = {
+            content: "",
+            title: '',
+            buttons: '',
+            closed: false,
+            id: null,
+            alpha: 30,
+            zindex: 9999
+        };
+
+        var opt = $.extend(defaults, options);
+        var id = opt.id ? opt.id : 'dialog' + (+new Date());
+        var closeHtml = '';
+        if (!opt.closed) closeHtml += '<a href="javascript:void(0);" class="TUI-dialog-close">×</a>';
+
+        $('body').append(
+                '<div class="TUI-dialog" id="'+ id +'" style="z-index: ' + opt.zindex + ';">' +
+                '<div class="TUI-dialog-header">' +
+                '<h2></h2>' +
+                closeHtml +
+                '</div>' +
+                '<div class="TUI-dialog-content"></div>' +
+                '<div class="TUI-dialog-footer"></div>' +
+                '</div>'
+        ).append('<div style="z-index:' + (opt.zindex - 1) + ';" class="TUI-mask"></div>');
+
+        opt.width && $('.TUI-dialog').css({
+            width: opt.width
+        });
+        opt.title && $('.TUI-dialog-header h2').html(opt.title);
+        opt.content && $('.TUI-dialog-content').html(opt.content);
+        opt.buttons && $('.TUI-dialog-footer').html(opt.buttons);
+
+        setLayout();
+
+        $('.TUI-dialog-close').bind('click', close);
+        $(window).bind('scroll resize', function() {
+            setLayout();
+        })
+
+        function setLayout() {
+            var windowHeight = $(window).height(),
+                    windowWidth = $(window).width(),
+                    width = $('.TUI-dialog').width(),
+                    height = $('.TUI-dialog').height(),
+                    scrollTop = $(window).scrollTop();
+
+            $('.TUI-dialog').css({
+                left: (windowWidth - width) / 2,
+                top: (windowHeight - height) / 2 + scrollTop
+            });
+        }
+
+        function close() {
+            $('.TUI-dialog').remove();
+            $('.TUI-mask').remove();
+        }
+
+        return {
+            close: close
+        }
+    }
+})(jQuery);
+
+//tab悬浮跟踪切换
+    var floatPosition = {
+        dataScrollTop: [],
+        init: function(initval) {
+            var _self = this;
+            var initval = initval;
+            // 存储位置
+            $('.wrapper .content').each(function() {
+                _self.dataScrollTop.push($(this).offset().top - initval);
+            });
+            this.dataScrollTop.push($('body').height());
+
+            $('.quickNav ul li').bind('click', function(){
+                var index = $(this).index();
+                $(window).scrollTop(_self.dataScrollTop[index]);
+                
+                _self.checkPosition();
+            });
+
+            _self.checkPosition();
+            $(window).scroll(function() {
+                _self.checkPosition();
+            });
+        },
+        checkPosition: function () {
+            if(this.getCurIndex()) {
+                this.changePosition(this.getCurIndex() - 1);
+            }else {
+                $('.quickNav li').removeClass('current');
+               // $('.quickNav li').eq(this.getCurIndex()).addClass('current');
+            }
+        },
+        getCurIndex: function() {
+            var index, scrollTop = $(window).scrollTop();
+            for (var i = 0; i < this.dataScrollTop.length; i++) {
+                if (this.dataScrollTop[i]-1 > scrollTop) {          //-1的原因是火狐浏览器里面有0.6的误差
+                    index = i;
+                    break;
+                }
+            };
+            return index;
+        },
+        changePosition: function (index) {
+            $('.quickNav ul li').eq(index).addClass('current').siblings().removeClass('current');
+        }
+    };
+
+$(function() {
+
+$(".banner").prepend(
+    "<div class='block'>"
+        +"<div class='test_title'></div>"
+        +"<div class='mushroom'></div>"
+        +"<div class='bomb'></div>"+
+    "</div>"
+);
+
+$('.route-item').each(function(index,element){
+	var yjValue = $(element).find('.buyBtn em').text();
+	if(yjValue<200){
+		$(element).find('.buyBtn').text('立即预订');
+	}
+})
+    
+$('#module_177 .route-item').each(function(index,element){
+	var tnPrice = parseInt($(element).find('.price .tuniuPrice em').text());
+	var sfPrice = tnPrice - (Math.round((tnPrice*0.8)/11))*11
+	$(element).find('.price .salePrice span').text(sfPrice);
+})
+
+    
+    function setLayer() {
+        var winW = $(window).width();
+        if (winW <= 1380) {
+            $('.quickNav').css({'margin-left': 535});
+        } else {
+            $('.quickNav').css({'margin-left': 535});
+        }
+    }
+    function setFloat() {
+        var scrollTop = $(window).scrollTop();
+        if (scrollTop >= 410) {
+            $('.quickNav').css({display: 'block'}).stop().animate({opacity: 1}, 200);
+        } else {
+            $('.quickNav').stop().animate({opacity: 0}, 200, function () {
+                $(this).css('display', 'none');
+            });
+        }
+    }
+    setTimeout(setLayer, 500);
+    setFloat();
+    $(window).bind('resize', setLayer).bind('scroll', setFloat);
+
+
+    floatPosition.init(70);
+
+    $(".fr_last").click(function(){
+        $("html,body").stop().animate({scrollTop:"0"},500);
+    });
+
+     $("#tel").bind("focus",function(){
+            if($(this).val() == "请输入手机号码"){
+                $(this).val("");
+            }
+        })
+        $("#tel").bind("blur",function(){
+            if($(this).val() == ""){
+                $(this).val("请输入手机号码");
+            }
+        })
+     $(".ljlq_btn").bind("click",function(){
+var reg = /^(13[0-9]|177|14(5|7)|15(0|1|2|3|5|6|7|8|9)|18[0-9])\d{8}$/;
+        var phone = $("#tel").val();
+        if(reg.test(phone)){
+            var tel_val = $("#tel").val();
+        $.ajax({
+            type:"GET",
+            url:"http://dynamic.m.tuniu.com/event/lottery/opeLottery/lotteryAndSendAjax",
+            data:{
+                "actId":717,
+                "mark":"shchuchang",
+                "sysType":1, //int 来源系统 1网站 2M站   
+                "isJsonp": 1, //出参格式是否JSONP 0否 1是 （默认1）
+                "callback":'jsonp',//默认回调 isJsonp为1时才生效
+                "type":1,
+                "tel":tel_val,
+                "one": 1
+            },
+            dataType:"jsonp",
+            jsonp:"callback",
+            jsonpCallback:"jsonp",
+            success:function(data){
+                console.log(data);
+                if(data.success){
+                    $(".bottom_box").text("成功！请在会员中心“优惠券”中查看！").show();
+                }   
+                if(data.errorCode == "710004" || data.errorCode == "710008"){
+                    $(".bottom_box").text("你已领取，请在会员中心“优惠券”中查看!").show();
+                }
+                if (data.errorCode == "710003" || data.errorCode == "710011" || data.errorCode == "710009" || data.errorCode == "710010" || data.errorCode == "710099") {
+                    //活动已过期或未开始
+                   $(".bottom_box").text("系统繁忙，请稍后...").show();
+                }
+
+            }
+        });
+        }else{
+            $(".bottom_box").text("请输入正确手机号码").show();
+        }
+    })
+
+    
+    
+
+var Dialog = function(msg) {
+    $().Dialog({
+        id: 'windowConfirm',
+        title: '提示信息',
+        content: msg,
+        width: 300
+    });
+};
+var ruleData = [
+       {
+        title: '首付出发活动规则',
+        content: '<p>一、开通送5元<br/>1、活动时间：5.23~6.5；<br/>2、活动期间，客户成功开通首付出发，可获得5元途牛宝红包，开通途牛宝后3个工作日内可到账；<br/>3、红包有效期7个工作日，若客户未在7个工作日内开通途牛宝，则红包失效；<br/>4、每日限量前100名可获得红包，先到先得。<br/>二、使用返20元；<br/>1、活动时间：6.6~6.8；<br/>2、活动期间，客户成功使用首付出发下单，可获得20元途牛宝红包，每个用户仅享受一次；<br/>3、红包有效期7个工作日，若客户未在7个工作日内开通途牛宝，则红包失效；<br/>4、已获取红包客户，可至“旅游网会员中心-我的小金库-金融红包”查看；<br/>5、尚未开通首付出发额度的用户，可在活动期间申请开通额度并参加活动；途牛金服将根据首付出发的相关规则和协议对客户资质进行审核并决定授予/不授予客户首付出发额度。</p>'
+    }
+];
+$(".rule_btn").bind("click",function(){
+   $().Dialog({
+         title: ruleData[0].title,
+         content: ruleData[0].content,
+         width: 600
+     });
+})
+		$(".left_bottom").mouseenter(function(){
+            $(".ewm_left").stop().animate({width: 'toggle'});
+        });
+        $(".left_bottom").mouseleave(function(){
+            $(".ewm_left").stop().animate({width: 'toggle'});
+        });
+		function setLayer2() {
+		    var winW = $(window).width();
+		    if (winW <= 1380) {
+		        $('.leftNav').css({'margin-left': -708});
+		    } else {
+		        $('.leftNav').css({'margin-left': -708});
+		    }
+		}
+		function setFloat2() {
+		    var scrollTop = $(window).scrollTop();
+		    if (scrollTop >= 510) {
+		        $('.leftNav').css({display: 'block'}).stop().animate({opacity: 1}, 200);
+		    } else {
+		        $('.leftNav').stop().animate({opacity: 0}, 200, function () {
+		            $(this).css('display', 'none');
+		        });
+		    }
+		}
+		setTimeout(setLayer2, 500);
+		setFloat2();
+		$(window).bind('resize', setLayer2).bind('scroll', setFloat2);
+});    </script>
+
+</div>
+</body>
+</html>
