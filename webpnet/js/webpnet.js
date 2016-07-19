@@ -1,6 +1,7 @@
 window.onload = myStart;
 
 function myStart(){
+	// 实现内部导航的切换
 	document.getElementById("purchase").onclick = function(){
 		document.getElementById("purchase").className = "selected";
 		document.getElementById("exchange").className ="";
@@ -15,15 +16,17 @@ function myStart(){
 		$("#purArea").fadeOut(); 
 	}
 	
-	
+	// 登录按钮
 	$("#test1").click(function(){
 		$("#newWin").fadeIn(); 
 	});
 	
+	//	注册按钮
 	$("#test2").click(function(){
 		  	$("#newWin1").fadeIn(); 
 	});
 	
+	//	检验注册界面填写框
 	$("#register").click(function(){
 		var allGood = true;
 		var allTags = document.getElementById("newWin1").getElementsByTagName("*");
@@ -87,7 +90,7 @@ function myStart(){
   		}
 	});
 	
-	
+	//	检验登录界面填写框
 	$("#login").click(function() {
 		var allGood = true;
 		var allTags = document.getElementById("newWin").getElementsByTagName("*");
@@ -142,6 +145,7 @@ function myStart(){
 		}
 	}		
 	
+	//	实现登录界面和服务器的交互
 	if(allGood){
 		var params = [];
 		params["phone"] = document.getElementById("fname").value;
@@ -156,7 +160,7 @@ function myStart(){
 		  		$(".inner_menu").fadeOut();  
 		  		$("#myprofile").fadeIn(); 
 		  		$("#newWin").fadeOut(); 
-		  		pointBuy();
+		  		checkBox();
 			}
 			else{
 				$("#fault").fadeIn();  
@@ -165,8 +169,8 @@ function myStart(){
 	}		
 });
 	
-	
-	function pointBuy(){
+	//	弹出兑换确认框
+	function checkBox(){
 	    var mydd = $('.get2');
 	    mydd.each(function(i){
             $(this).click(function(){
