@@ -150,6 +150,8 @@ function myStart(){
 		var params = [];
 		params["phone"] = document.getElementById("fname").value;
 		params["password"] = document.getElementById("lname").value;
+		alert(params["phone"]);
+		alert(params["password"]);
 		$.post("http://120.25.252.252/index.php/home/user/login", params, function(data) {
 			alert(JSON.stringify(data));
 			if(data["code"]=="10000"){
