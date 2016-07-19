@@ -139,7 +139,7 @@ function myStart(){
 		params["phone"] = document.getElementById("fname").value;
 		params["password"] = document.getElementById("lname").value;
 		alert(1);
-		$.post("code.html", params, function(data) {
+		$.post("http://120.25.252.252/index.php/home/user/login", params, function(data) {
 			if(data["code"]=="10000"){
 				Num = data["result"]["record"];
 				alert(2);
