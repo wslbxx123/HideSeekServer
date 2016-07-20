@@ -1,6 +1,22 @@
 window.onload = myStart;
 
 function myStart(){
+	// 加载商城信息
+	var store = {
+				url: "http://120.25.252.252/index.php/home/store/refreshProducts",
+				data: "version=0&product_min_id=0",
+				type: 'POST',
+				dataType: "json",
+				success: function(result, status) {
+					  alert(JSON.stringify());
+					
+				},
+				error: function(XMLHttpRequest, textStatus, errorThrown) {
+					alert("网络出现问题！");
+				}
+			};
+			$.ajax(options);
+	
 	// 实现内部导航的切换
 	document.getElementById("purchase").onclick = function(){
 		document.getElementById("purchase").className = "selected";
@@ -156,7 +172,6 @@ function myStart(){
 				type: 'POST',
 				dataType: "json",
 				success: function(result, status) {
-					alert(JSON.stringify(result));
 					switch(result["code"]){
 						case "10000":
 							Num = result["result"]["record"];
@@ -167,8 +182,7 @@ function myStart(){
 					  		$("#myprofile").fadeIn(); 
 					  		$("#newWin").fadeOut(); 
 					  		checkBox();
-					  	case "10001":	
-					  		
+					  	case "10001":
 					  		$("#fault").fadeIn();
 					}
 					

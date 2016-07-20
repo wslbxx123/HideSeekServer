@@ -59,16 +59,16 @@ label.invalid {
 
 #newWin{
 	width: 88%;
-    height: 220px;
+    height: 234px;
     background: white;
     border: 2px solid dimgrey;
     border-radius: 5px;
     display: none;
     margin: 30% auto auto 6%;
-    position:absolute;
-    z-index:10;
-    text-align:center;
-    font-size:15px;
+    position: absolute;
+    z-index: 10;
+    text-align: center;
+    font-size: 15px;
 }
 
 #newWin1{
@@ -135,7 +135,7 @@ label.invalid {
 
 #fault{
 	background: indianred;
-    width: 198px;
+    width: 70%;
     height: 33px;
     z-index: 10;
     font-size: 15px;
@@ -143,10 +143,9 @@ label.invalid {
     line-height: 33px;
     text-align: center;
     border-radius: 5px;
-    margin-left: 14%;
-    margin-top: 2%;
-    position: absolute;
-    display:none;
+    margin: 0px auto;
+    position: relative;
+    display: none;
 }
 
 #loginForm{
@@ -211,7 +210,7 @@ label.invalid {
     font-size: 14px;
 }
 
-#bomb{
+.goods{
 	width: 118px;
     height: 98px;
     margin: 9px auto 0 14px;
