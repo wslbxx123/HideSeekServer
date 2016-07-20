@@ -157,11 +157,12 @@ function myStart(){
 				url: "http://120.25.252.252/index.php/home/user/login",
 				data: params,
 				type: 'POST',
-				success: function(result) {
-					alert(JSON.stringify(data));
+				dataType: "json",
+				success: function(result, status) {
+					alert(JSON.stringify(result));
 				},
-				error: function() {
-					
+				error: function(XMLHttpRequest, textStatus, errorThrown) {
+					alert(errorThrown);
 				}
 			};
 			$.ajax(options);
