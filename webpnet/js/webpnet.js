@@ -155,7 +155,7 @@ function myStart(){
 			
 			var options = {
 				url: "http://120.25.252.252/index.php/home/user/login",
-				data: params.serialize(),
+				data: $("#loginForm").serialize(),
 				type: 'POST',
 				dataType: "json",
 				success: function(result, status) {
