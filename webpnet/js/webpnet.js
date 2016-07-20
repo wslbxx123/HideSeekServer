@@ -156,18 +156,21 @@ function myStart(){
 				type: 'POST',
 				dataType: "json",
 				success: function(result, status) {
-					Num = result["result"]["record"];
-					document.getElementById("scoreNum").innerHTML = Num;
-					Num1 = result["result"]["nickname"];
-					document.getElementById("nickname").innerHTML = Num1;
-			  		$(".inner_menu").fadeOut();  
-			  		$("#myprofile").fadeIn(); 
-			  		$("#newWin").fadeOut(); 
-			  		checkBox();
+					if(result["code"]=="10000"){
+						Num = result["result"]["record"];
+						document.getElementById("scoreNum").innerHTML = Num;
+						Num1 = result["result"]["nickname"];
+						document.getElementById("nickname").innerHTML = Num1;
+				  		$(".inner_menu").fadeOut();  
+				  		$("#myprofile").fadeIn(); 
+				  		$("#newWin").fadeOut(); 
+				  		checkBox();
+					}
+					alert(JSON.stringify());
+					
 				},
 				error: function(XMLHttpRequest, textStatus, errorThrown) {
-					alert(XMLHttpRequest.statusText);
-//					$("#fault").fadeIn();  
+					alert("网络出现问题！");
 				}
 			};
 			$.ajax(options);
