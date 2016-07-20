@@ -167,6 +167,7 @@ function myStart(){
 					  		$("#newWin").fadeOut(); 
 					  		checkBox();
 					  	case "10001":	
+					  		alert(JSON.stringify(result));
 					  		$("#fault").fadeOut();
 					}
 					
