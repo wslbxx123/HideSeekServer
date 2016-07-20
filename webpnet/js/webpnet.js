@@ -62,16 +62,16 @@ function myStart(){
 					case "invalid":
 					break;
 					case "reqd":
-					if (allGood && thisTag. value == "") {
-					    	classBack = "invalid ";
-					}
-					classBack += thisClass;
-					break;
+						if (allGood && thisTag. value == "") {
+						    	classBack = "invalid ";
+						}
+						classBack += thisClass;
+						break;
 					default:
-					if (allGood && !crossCheck (thisTag,thisClass)) {
-							classBack = "invalid ";
-					}
-					classBack += thisClass;
+						if (allGood && !crossCheck (thisTag,thisClass)) {
+								classBack = "invalid ";
+						}
+						classBack += thisClass;
 				}
 				return classBack;
 			}
@@ -100,6 +100,7 @@ function myStart(){
 	     	}
 		}
 		
+		
 		function validTag(thisTag) {
 			var outClass = "";
 			var allClasses = thisTag.className. split(" ");
@@ -121,30 +122,32 @@ function myStart(){
 				return false;
 			}
 			return true;
-		}
+		
 			
-		function validBasedOnClass(thisClass) {
-			var classBack = "";
-			switch(thisClass) {
-				case "":
-				case "invalid":
-				break;
-				case "reqd":
-				if (allGood ) {
-				     classBack = "invalid ";
+			function validBasedOnClass(thisClass) {
+				var classBack = "";
+				switch(thisClass) {
+					case "":
+					case "invalid":
+					break;
+					case "reqd":
+						if (allGood && thisTag. value == "") {
+							classBack = "invalid ";
+						}
+						classBack += thisClass;
+					break;
+					default:break;
 				}
-				classBack += thisClass;
-				break;
-				default:break;
+				return classBack;
+			}
+			
+			function invalidLabel(parentTag) {
+				if (parentTag.nodeName == "LABEL") {
+					parentTag.className += " invalid";
+				}
 			}
 		}
 		
-		function invalidLabel(parentTag) {
-			if (parentTag.nodeName == "LABEL") {
-				parentTag.className += " invalid";
-			}
-		}
-	
 		//	实现登录界面和服务器的交互
 		if(allGood) {			
 			var options = {
