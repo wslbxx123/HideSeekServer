@@ -156,6 +156,7 @@ function myStart(){
 				type: 'POST',
 				dataType: "json",
 				success: function(result, status) {
+					alert(JSON.stringify(result));
 					switch(result["code"]){
 						case "10000":
 							Num = result["result"]["record"];
@@ -167,7 +168,7 @@ function myStart(){
 					  		$("#newWin").fadeOut(); 
 					  		checkBox();
 					  	case "10001":	
-					  		alert(JSON.stringify(result));
+					  		
 					  		$("#fault").fadeOut();
 					}
 					
