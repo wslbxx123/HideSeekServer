@@ -8,14 +8,14 @@ function myStart(){
 				type: 'POST',
 				dataType: "json",
 				success: function(result, status) {
-					  alert(JSON.stringify());
+					  alert(JSON.stringify(result));
 					
 				},
 				error: function(XMLHttpRequest, textStatus, errorThrown) {
 					alert("网络出现问题！");
 				}
 			};
-			$.ajax(options);
+			$.ajax(store);
 	
 	// 实现内部导航的切换
 	document.getElementById("purchase").onclick = function(){
