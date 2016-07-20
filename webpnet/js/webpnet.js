@@ -153,9 +153,9 @@ function myStart(){
 				type: 'POST',
 				dataType: "json",
 				success: function(result, status) {
-					Num = data["result"]["record"];
+					Num = result["result"]["record"];
 					document.getElementById("scoreNum").innerHTML = Num;
-					Num1 = data["result"]["nickname"];
+					Num1 = result["result"]["nickname"];
 					document.getElementById("nickname").innerHTML = Num1;
 			  		$(".inner_menu").fadeOut();  
 			  		$("#myprofile").fadeIn(); 
