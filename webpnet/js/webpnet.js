@@ -166,7 +166,7 @@ function myStart(){
 			  		checkBox();
 				},
 				error: function(XMLHttpRequest, textStatus, errorThrown) {
-					alert(json.stringify());
+					alert(JSON.stringify());
 					$("#fault").fadeIn();  
 				}
 			};
