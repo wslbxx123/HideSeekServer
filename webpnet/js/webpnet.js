@@ -59,11 +59,13 @@ function myStart(){
 					  	var peopleNum = document.createElement('span');
 					  	peopleNum.className = "peopleNum";
 					  	peopleNum.innerHTML = result.result.products[i].purchase_count+"人购买";
+					  	alert(peopleNum.innerHTML);
 					  	messageDiv.appendChild(peopleNum);
 					  	  	
 					  	//创建商品介绍信息
 					  	var introDiv = document.createElement('div');
 					  	introDiv.innerHTML = result.result.products[i].introduction;
+					  	alert(introDiv.innerHTML);
 					    newDiv.appendChild(introDiv);
 					    
 					    //创建商品购买按钮
