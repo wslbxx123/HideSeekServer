@@ -152,22 +152,35 @@ function myStart(){
 			params["password"] = document.getElementById("lname").value;
 			alert(params["phone"]);
 			alert(params["password"]);
-			$.post("http://120.25.252.252/index.php/home/user/login", params, function(data) {
-				alert(JSON.stringify(data));
-				if(data["code"]=="10000"){
-					Num = data["result"]["record"];
-					document.getElementById("Num").innerHTML = Num;
-					Num1 = data["result"]["nickname"];
-					document.getElementById("nickname").innerHTML = Num1;
-			  		$(".inner_menu").fadeOut();  
-			  		$("#myprofile").fadeIn(); 
-			  		$("#newWin").fadeOut(); 
-			  		checkBox();
+			
+			var options = {
+				url: "http://120.25.252.252/index.php/home/user/login",
+				data: params,
+				type: 'POST',
+				success: function(result) {
+					alert(JSON.stringify(data));
+				},
+				error: function() {
+					
 				}
-				else{
-					$("#fault").fadeIn();  
-				}
-			}, "json");
+			};
+			$.ajax(options);
+//			$.post("http://120.25.252.252/index.php/home/user/login", params, function(data) {
+//				alert(JSON.stringify(data));
+//				if(data["code"]=="10000"){
+//					Num = data["result"]["record"];
+//					document.getElementById("scoreNum").innerHTML = Num;
+//					Num1 = data["result"]["nickname"];
+//					document.getElementById("nickname").innerHTML = Num1;
+//			  		$(".inner_menu").fadeOut();  
+//			  		$("#myprofile").fadeIn(); 
+//			  		$("#newWin").fadeOut(); 
+//			  		checkBox();
+//				}
+//				else{
+//					$("#fault").fadeIn();  
+//				}
+//			}, "json");
 		}		
 	});
 	
