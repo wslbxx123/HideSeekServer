@@ -9,6 +9,8 @@ function myStart(){
 				dataType: "json",
 				success: function(result, status) {
 					  alert(JSON.stringify(result));
+					  var n = result.result.length;
+					  alert(n);
 					
 				},
 				error: function(XMLHttpRequest, textStatus, errorThrown) {
