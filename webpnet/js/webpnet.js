@@ -267,11 +267,11 @@ function myStart(){
             $(this).click(function(){
              	if (confirm("是否确认兑换?")) {
              	   var thisId =mydd.eq(i).attr("id");
-                   var moneyId = "money"+thisId;
+                   var pointNumId = "pointNum"+thisId;
 				   var n = document.getElementById(moneyId).innerHTML;
 				   var Num = document.getElementById("scoreNum").innerHTML;
 				   var a = Num - n;
-				   document.getElementById("Num").innerHTML= a;
+				   document.getElementById("scoreNum").innerHTML= a;
 				}
             });			
  		});
