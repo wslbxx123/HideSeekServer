@@ -135,7 +135,7 @@ function myStart(){
 							classBack = "invalid ";
 						}
 						classBack += thisClass;
-					break;
+						break;
 					default:break;
 				}
 				return classBack;
@@ -156,17 +156,19 @@ function myStart(){
 				type: 'POST',
 				dataType: "json",
 				success: function(result, status) {
-					if(result["code"]=="10000"){
-						Num = result["result"]["record"];
-						document.getElementById("scoreNum").innerHTML = Num;
-						Num1 = result["result"]["nickname"];
-						document.getElementById("nickname").innerHTML = Num1;
-				  		$(".inner_menu").fadeOut();  
-				  		$("#myprofile").fadeIn(); 
-				  		$("#newWin").fadeOut(); 
-				  		checkBox();
+					switch(result["code"]){
+						case "10000":
+							Num = result["result"]["record"];
+							document.getElementById("scoreNum").innerHTML = Num;
+							Num1 = result["result"]["nickname"];
+							document.getElementById("nickname").innerHTML = Num1;
+					  		$(".inner_menu").fadeOut();  
+					  		$("#myprofile").fadeIn(); 
+					  		$("#newWin").fadeOut(); 
+					  		checkBox();
+					  	case "10001":	
+					  		$("#fault").fadeOut();
 					}
-					alert(JSON.stringify(result));
 					
 				},
 				error: function(XMLHttpRequest, textStatus, errorThrown) {
