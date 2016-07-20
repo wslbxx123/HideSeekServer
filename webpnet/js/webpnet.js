@@ -21,63 +21,63 @@ function myStart(){
 					  	}
 					  	exArea.appendChild(newDiv);
 					  	
-					  	//创建商品名称
-					  	var nameSpan = document.createElement('span');
-					  	alert(1);
-					  	nameSpan.className = "productName";
-					  	nameSpan.innerHTML = result.result.products[i].product_name;
-					  	alert(2);
-					  	newDiv.appendChild(nameSpan);
-					  	
-					  	//创建商品图片
-					  	var newImg = document.createElement('img');
-					  	newImg.className = "productImg";
-					  	newImg.src = result.result.products[i].product_image_url;
-					  	newDiv.appendChild(newImg);
-					  	alert(3);
-					  	
-					  	//创建商品兑换信息框
-					  	var messageDiv = document.createElement('div');
-					  	newDiv.appendChild(messageDiv);
-					  	alert(4);
-					  	
-					  	//商品兑换信息框：商品积分图标
-					  	var messageImg = document.createElement('img');
-					  	massageImg.src = "img/score.png";
-					  	massageImg.className = "scoreImg";
-					  	messageDiv.appendChild(messageImg);
-					  	
-					  	//商品兑换信息框：商品积分数字
-					  	var pointNum = document.createElement('span');
-					  	pointNum.className = "pointNum";
-					  	pointNum.id = "pointNumb"+i;
-					  	pointNum.innerHTML = result.result.products[i].price;
-					  	messageDiv.appendChild(pointNum);
-					  
-					  	//商品兑换信息框：商品人物图标
-					  	var peopleImg = document.createElement('img');
-					  	peopleImg.src = "img/people.png";
-					  	peopleImg.className = "peopleImg";
-					  	messageDiv.appendChild(peopleImg);
-					  	
-					  	//商品兑换信息框：商品购买人数
-					  	var peopleNum = document.createElement('span');
-					  	peopleNum.className = "peopleNum";
-					  	peopleNum.innerHTML = result.result.products[i].purchase_count+"人购买";
-					  	alert(peopleNum.innerHTML);
-					  	messageDiv.appendChild(peopleNum);
-					  	  	
-					  	//创建商品介绍信息
-					  	var introDiv = document.createElement('div');
-					  	introDiv.innerHTML = result.result.products[i].introduction;
-					  	alert(introDiv.innerHTML);
-					    newDiv.appendChild(introDiv);
-					    
-					    //创建商品购买按钮
-					    var getDiv = document.createElement('div');
-					    getDiv.className = "exGet";
-					    getDiv.id = "c"+i;
-					    newDiv.appendChild(getDiv);   
+//					  	//创建商品名称
+//					  	var nameSpan = document.createElement('span');
+//					  	alert(1);
+//					  	nameSpan.className = "productName";
+//					  	nameSpan.innerHTML = result.result.products[i].product_name;
+//					  	alert(2);
+//					  	newDiv.appendChild(nameSpan);
+//					  	
+//					  	//创建商品图片
+//					  	var newImg = document.createElement('img');
+//					  	newImg.className = "productImg";
+//					  	newImg.src = result.result.products[i].product_image_url;
+//					  	newDiv.appendChild(newImg);
+//					  	alert(3);
+//					  	
+//					  	//创建商品兑换信息框
+//					  	var messageDiv = document.createElement('div');
+//					  	newDiv.appendChild(messageDiv);
+//					  	alert(4);
+//					  	
+//					  	//商品兑换信息框：商品积分图标
+//					  	var messageImg = document.createElement('img');
+//					  	massageImg.src = "img/score.png";
+//					  	massageImg.className = "scoreImg";
+//					  	messageDiv.appendChild(messageImg);
+//					  	
+//					  	//商品兑换信息框：商品积分数字
+//					  	var pointNum = document.createElement('span');
+//					  	pointNum.className = "pointNum";
+//					  	pointNum.id = "pointNumb"+i;
+//					  	pointNum.innerHTML = result.result.products[i].price;
+//					  	messageDiv.appendChild(pointNum);
+//					  
+//					  	//商品兑换信息框：商品人物图标
+//					  	var peopleImg = document.createElement('img');
+//					  	peopleImg.src = "img/people.png";
+//					  	peopleImg.className = "peopleImg";
+//					  	messageDiv.appendChild(peopleImg);
+//					  	
+//					  	//商品兑换信息框：商品购买人数
+//					  	var peopleNum = document.createElement('span');
+//					  	peopleNum.className = "peopleNum";
+//					  	peopleNum.innerHTML = result.result.products[i].purchase_count+"人购买";
+//					  	alert(peopleNum.innerHTML);
+//					  	messageDiv.appendChild(peopleNum);
+//					  	  	
+//					  	//创建商品介绍信息
+//					  	var introDiv = document.createElement('div');
+//					  	introDiv.innerHTML = result.result.products[i].introduction;
+//					  	alert(introDiv.innerHTML);
+//					    newDiv.appendChild(introDiv);
+//					    
+//					    //创建商品购买按钮
+//					    var getDiv = document.createElement('div');
+//					    getDiv.className = "exGet";
+//					    getDiv.id = "c"+i;
+//					    newDiv.appendChild(getDiv);   
 					    
 					} 		
 				},
