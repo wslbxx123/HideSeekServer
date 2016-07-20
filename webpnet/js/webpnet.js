@@ -9,8 +9,9 @@ function myStart(){
 				dataType: "json",
 				success: function(result, status) {
 					alert(JSON.stringify(result));
-					for(var i = 0;i < result.result.products.length;i++){
+					for(var i = 0;i < result.result.products.length;i++){	
 						//创建商品橱窗框
+						var exArea = document.getElementById("exArea");
 					  	var newDiv = document.createElement('div');
 					  	if(i%2 == 0){
 					  		newDiv.className = "N2";
@@ -18,12 +19,14 @@ function myStart(){
 					  	else{
 					  		newDiv.className = "N1";
 					  	}
-					  	document.body.appendChild(newDiv);
+					  	exArea.appendChild(newDiv);
 					  	
 					  	//创建商品名称
 					  	var nameSpan = document.createElement('span');
+					  	alert(1);
 					  	nameSpan.className = "productName";
 					  	nameSpan.innerHTML = result.result.products[i].product_name;
+					  	alert(2);
 					  	newDiv.appendChild(nameSpan);
 					  	
 					  	//创建商品图片
@@ -31,10 +34,12 @@ function myStart(){
 					  	newImg.className = "productImg";
 					  	newImg.src = result.result.products[i].product_image_url;
 					  	newDiv.appendChild(newImg);
+					  	alert(3);
 					  	
 					  	//创建商品兑换信息框
 					  	var messageDiv = document.createElement('div');
 					  	newDiv.appendChild(messageDiv);
+					  	alert(4);
 					  	
 					  	//商品兑换信息框：商品积分图标
 					  	var messageImg = document.createElement('img');
