@@ -166,7 +166,7 @@ function myStart(){
 				  		$("#newWin").fadeOut(); 
 				  		checkBox();
 					}
-					alert(JSON.stringify());
+					alert(JSON.stringify(result));
 					
 				},
 				error: function(XMLHttpRequest, textStatus, errorThrown) {
