@@ -146,42 +146,27 @@ function myStart(){
 		}
 	
 		//	实现登录界面和服务器的交互
-		if(allGood) {
-			var params = [];
-			params["phone"] = document.getElementById("fname").value;
-			params["password"] = document.getElementById("lname").value;
-			alert(params["phone"]);
-			alert(params["password"]);
-			
+		if(allGood) {			
 			var options = {
 				url: "http://120.25.252.252/index.php/home/user/login",
 				data: $("#loginForm").serialize(),
 				type: 'POST',
 				dataType: "json",
 				success: function(result, status) {
-					alert(JSON.stringify(result));
+					Num = data["result"]["record"];
+					document.getElementById("scoreNum").innerHTML = Num;
+					Num1 = data["result"]["nickname"];
+					document.getElementById("nickname").innerHTML = Num1;
+			  		$(".inner_menu").fadeOut();  
+			  		$("#myprofile").fadeIn(); 
+			  		$("#newWin").fadeOut(); 
+			  		checkBox();
 				},
 				error: function(XMLHttpRequest, textStatus, errorThrown) {
-					alert(errorThrown);
+					$("#fault").fadeIn();  
 				}
 			};
 			$.ajax(options);
-//			$.post("http://120.25.252.252/index.php/home/user/login", params, function(data) {
-//				alert(JSON.stringify(data));
-//				if(data["code"]=="10000"){
-//					Num = data["result"]["record"];
-//					document.getElementById("scoreNum").innerHTML = Num;
-//					Num1 = data["result"]["nickname"];
-//					document.getElementById("nickname").innerHTML = Num1;
-//			  		$(".inner_menu").fadeOut();  
-//			  		$("#myprofile").fadeIn(); 
-//			  		$("#newWin").fadeOut(); 
-//			  		checkBox();
-//				}
-//				else{
-//					$("#fault").fadeIn();  
-//				}
-//			}, "json");
 		}		
 	});
 	

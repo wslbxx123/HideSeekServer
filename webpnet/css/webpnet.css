@@ -149,13 +149,13 @@ label.invalid {
     display:none;
 }
 
-#loginF{
+#loginForm{
     position: relative;
     text-align: center;
     margin-top: 15%;
 }
 
-#registerF{
+#registerForm{
     position: relative;
     text-align: center;
     margin-top: 15%;
