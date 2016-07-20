@@ -9,7 +9,7 @@ function myStart(){
 				dataType: "json",
 				success: function(result, status) {
 					  alert(JSON.stringify(result));
-					  var n = result.result.length;
+					  var n = result[result][products].length;
 					  alert(n);
 					
 				},
