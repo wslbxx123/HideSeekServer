@@ -169,7 +169,7 @@ function myStart(){
 					  		checkBox();
 					  	case "10001":	
 					  		
-					  		$("#fault").fadeOut();
+					  		$("#fault").fadeIn();
 					}
 					
 				},
