@@ -35,12 +35,8 @@ input:-webkit-autofill {
 }
 
 input.invalid {
-	background-color: #FF9;
+	background-color: lightyellow;
 	color: 1px red inset;
-}
-label.invalid {
-	color: #F00;
-	font-weight: bold;
 }
 
 

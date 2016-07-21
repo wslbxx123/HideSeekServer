@@ -239,7 +239,7 @@ function myStart(){
 			thisTag.className = outClass;
 			
 			if (outClass.indexOf("invalid") > -1) {
-		        invalidLabel(thisTag.parentNode);
+//		        invalidLabel(thisTag.parentNode);
 				thisTag.focus();
 				
 				if (thisTag.nodeName == "INPUT") {
@@ -263,15 +263,11 @@ function myStart(){
 						}
 						classBack += thisClass;
 						break;
-					default:break;
+					default:
+						classBack += thisClass;
+						break;
 				}
 				return classBack;
-			}
-			
-			function invalidLabel(parentTag) {
-				if (parentTag.nodeName == "LABEL") {
-					parentTag.className += " invalid";
-				}
 			}
 		}
 		
