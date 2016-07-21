@@ -101,12 +101,18 @@ function myStart(){
 	
 	// 登录按钮
 	$("#test1").click(function(){
+		$("#test1").click(function(){
+			$("#newWin").fadeOut(); 
+		});	
 		$("#newWin").fadeIn(); 
 		$("#newWin1").fadeOut(); 
 	});
 	
 	//	注册按钮
 	$("#test2").click(function(){
+		$("#test2").click(function(){
+			$("#newWin1").fadeOut(); 
+		});	
 		$("#newWin1").fadeIn(); 
 		$("#newWin").fadeOut(); 
 	});
