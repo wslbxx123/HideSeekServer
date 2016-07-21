@@ -156,8 +156,18 @@
     	<!--弹出登录页面-->
     	<div id="newWin">
     		<form id="loginForm" action="http://120.25.252.252/index.php/home/user/login" method="post" autocomplete="jsonResponse">
-	    		<p><label for="fname">我的账号: <input type="text" id="fname" name="phone" class="reqd"></p>
-				<p><label for="lname">我的密码: <input type="password" id="lname" name="password" class="reqd"></p>
+	    		<p>	<label for="fname">
+		    			<img src="img/phone.png" class="icon"> 
+		    			<input type="text" id="fname" name="phone" class="reqd" placeholder="我的手机号">
+	    			</label>
+	    		</p>
+	    		<hr class="line" size="1" width="70%" color="gray">		
+				<p>	<label for="lname">
+						<img src="img/password.png" class="icon">
+						<input type="password" id="lname" name="password" class="reqd" placeholder="我的密码">
+					</label>
+				</p>
+				<hr class="line" size="1" width="70%" color="gray">		
 				<p><input type="button" value="登录" id="login"></p>
         	</form>
     		<div id="fault">您输入的账号或密码有误！</div>
@@ -165,10 +175,35 @@
     	<!--弹出注册页面-->
     	<div id="newWin1">
     		<form id="registerForm" action="code.html" method="post" autocomplete="jsonResponse">
-	    		<p><label for="userphone">注册手机: <input type="text" size="30" id="userphone" class="reqd"></label> </p>
-	    		<p><label for="userName">我的昵称: <input type="text" size="30" id="userName" class="reqd"></label> </p>
-				<p><label for="passwd1">我的密码: <input type="password" id="passwd1" class="reqd"></label></p>
-				<p><label for="passwd2">确认密码: <input type="password" id="passwd2" class="reqd passwd1"></label></p>
+	    		<p>	<label for="userphone">
+	    			<img src="img/phone.png" class="icon">
+	    			<input type="text" size="30" id="userphone" class="reqd" placeholder="注册手机">
+	    			</label> 
+	    		</p>
+	    		<hr class="line" size="1" width="70%" color="gray">
+	    		
+	    		<p> <input type="button" value="发送验证码" id="verifiCode">
+	    			<input type="text" size="30" id="codeNum" class="reqd">
+	    		</p>
+	    		
+	    		<p>	<label for="userName">
+		    			<img src="img/account.png" class="icon">
+		    			<input type="text" size="30" id="userName" class="reqd" placeholder="我的昵称">
+	    			</label> 
+	    		</p>
+	    		<hr class="line" size="1" width="70%" color="gray">		
+				<p> <label for="passwd1">
+						<img src="img/password.png" class="icon">
+						<input type="password" id="passwd1" class="reqd" placeholder="我的密码">
+					</label>
+				</p>
+				<hr class="line" size="1" width="70%" color="gray">		
+				<p> <label for="passwd2">
+						<img src="img/password.png" class="icon">
+						<input type="password" id="passwd2" class="reqd passwd1" placeholder="重输密码">
+					</label>
+				</p>
+				<hr class="line" size="1" width="70%" color="gray">	
 				<p><input type="button" value="注册" id="register"></p>
         	</form>
        		<div id="fault">您输入的账号或密码有误！</div>

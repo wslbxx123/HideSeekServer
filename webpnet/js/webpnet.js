@@ -130,9 +130,9 @@ function myStart(){
 		for (var i=0; i<allTags.length; i++) {
 				if (!validTag(allTags[i])) {
 					allGood = false;
-		     		}
+		     	}
 		}
-		return allGood;
+		
 		function validTag(thisTag) {
 			var outClass = "";
 			var allClasses = thisTag.className. split(" ");
@@ -185,6 +185,36 @@ function myStart(){
 				}
 		 	}
   		}
+		
+		//	实现注册界面和服务器的交互
+		if(allGood) {			
+			var options = {
+				url: "http://120.25.252.252/index.php/home/user/register",
+				data: $("#loginForm").serialize(),
+				type: 'POST',
+				dataType: "json",
+				success: function(result, status) {
+					switch(result["code"]){
+						case "10000":
+							Num = result["result"]["record"];
+							document.getElementById("scoreNum").innerHTML = Num;
+							Num1 = result["result"]["nickname"];
+							document.getElementById("nickname").innerHTML = Num1;
+					  		$(".inner_menu").fadeOut();  
+					  		$("#myprofile").fadeIn(); 
+					  		$("#newWin").fadeOut(); 
+					  		checkBox();
+					  	case "10001":
+					  		$("#fault").fadeIn();
+					}
+					
+				},
+				error: function(XMLHttpRequest, textStatus, errorThrown) {
+					alert("网络出现问题！");
+				}
+			};
+			$.ajax(options);
+		}		
 	});
 	
 	//	检验登录界面填写框

@@ -19,10 +19,19 @@ body{
 }
 
 input{
-	width:53%;
-	height: 30px;
-	font-size:15px;
-	margin-bottom:10px;
+	width: 62%;
+    height: 30px;
+    margin-left: 4px;
+    font-size: 13px;
+    font-family: "微软雅黑";
+    margin-bottom: 10px;
+    border-color: dimgrey;
+    border-width: 0px;
+    background-color: white;
+}
+
+input:-webkit-autofill { 
+-webkit-box-shadow: 0 0 0px 1000px white inset; 
 }
 
 input.invalid {
@@ -293,3 +302,28 @@ label.invalid {
 	display:none;
 }
 
+.icon{
+	height: 19px;
+    width: 14px;
+    margin-bottom: -3px;
+}
+
+.line{
+	margin-top: -10px;
+    margin-bottom: 16px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+#verifiCode{
+	height: 29px;
+    width: 36%;
+    background-color: #fae077;
+    border-radius: 5px;
+}
+
+
+#codeNum{
+	border-width: 1px;
+	width:38%;
+	}
