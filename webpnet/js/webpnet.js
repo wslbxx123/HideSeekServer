@@ -102,11 +102,13 @@ function myStart(){
 	// 登录按钮
 	$("#test1").click(function(){
 		$("#newWin").fadeIn(); 
+		$("#newWin1").fadeOut(); 
 	});
 	
 	//	注册按钮
 	$("#test2").click(function(){
-		  	$("#newWin1").fadeIn(); 
+		$("#newWin1").fadeIn(); 
+		$("#newWin").fadeOut(); 
 	});
 	
 	//	检验注册界面填写框
