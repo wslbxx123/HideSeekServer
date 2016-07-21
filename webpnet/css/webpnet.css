@@ -78,7 +78,7 @@ label.invalid {
     border: 2px solid dimgrey;
     border-radius: 5px;
     display: none;
-    margin: 20% auto auto 6%;
+    margin: 10% auto auto 6%;
     position:absolute;
     z-index:10;
     text-align:center;
