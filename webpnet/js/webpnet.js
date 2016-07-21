@@ -23,10 +23,9 @@ function myStart(){
 				  	
 				  	//创建商品名称
 				  	var nameSpan = document.createElement('span');
-				  	alert(1);
+				  
 				  	nameSpan.className = "productName";
 				  	nameSpan.innerHTML = result.result.products[i].product_name;
-				  	alert(2);
 				  	newDiv.appendChild(nameSpan);
 				  	
 				  	//创建商品图片
@@ -34,12 +33,10 @@ function myStart(){
 				  	newImg.className = "productImg";
 				  	newImg.src = result.result.products[i].product_image_url;
 				  	newDiv.appendChild(newImg);
-				  	alert(3);
 			  	
 				  	//创建商品兑换信息框
 				  	var messageDiv = document.createElement('div');
 				  	newDiv.appendChild(messageDiv);
-				  	alert(4);
 				  	
 				  	//商品兑换信息框：商品积分图标
 				  	var messageImg = document.createElement('img');
@@ -64,14 +61,12 @@ function myStart(){
 				  	var peopleNum = document.createElement('span');
 				  	peopleNum.className = "peopleNum";
 				  	peopleNum.innerHTML = result.result.products[i].purchase_count+"人购买";
-				  	alert(peopleNum.innerHTML);
 				  	messageDiv.appendChild(peopleNum);
 
                     //创建商品介绍信息
 				  	var introDiv = document.createElement('div');
 					introDiv.id = "intro";
 				  	introDiv.innerHTML = result.result.products[i].introduction;
-				  	alert(introDiv.innerHTML);
 				    newDiv.appendChild(introDiv);
 				    
 				    //创建商品购买按钮
