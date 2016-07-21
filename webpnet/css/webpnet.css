@@ -316,6 +316,8 @@ input.invalid {
     width: 36%;
     background-color: #fae077;
     border-radius: 5px;
+    cursor: pointer; 
+    -webkit-appearance: none; 
 }
 
 
