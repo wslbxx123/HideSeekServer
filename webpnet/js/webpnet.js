@@ -101,20 +101,26 @@ function myStart(){
 	
 	// 登录按钮
 	$("#test1").click(function(){
-		$("#test1").click(function(){
+		if($("#newWin").css("display")=='none'){
+			$("#newWin").fadeIn(); 
+			$("#newWin1").fadeOut(); 
+			
+		}
+		else{
 			$("#newWin").fadeOut(); 
-		});	
-		$("#newWin").fadeIn(); 
-		$("#newWin1").fadeOut(); 
+		}
 	});
 	
 	//	注册按钮
 	$("#test2").click(function(){
-		$("#test2").click(function(){
+		if($("#newWin1").css("display")=='none'){
+			$("#newWin1").fadeIn(); 
+			$("#newWin").fadeOut(); 
+			
+		}
+		else{
 			$("#newWin1").fadeOut(); 
-		});	
-		$("#newWin1").fadeIn(); 
-		$("#newWin").fadeOut(); 
+		}
 	});
 	
 	//	检验注册界面填写框
