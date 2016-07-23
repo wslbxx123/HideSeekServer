@@ -19,19 +19,24 @@ body{
 }
 
 input{
-	width:53%;
-	height: 30px;
-	font-size:15px;
-	margin-bottom:10px;
+	width: 62%;
+    height: 30px;
+    margin-left: 4px;
+    font-size: 13px;
+    font-family: "微软雅黑";
+    margin-bottom: 10px;
+    border-color: dimgrey;
+    border-width: 0px;
+    background-color: white;
+}
+
+input:-webkit-autofill { 
+-webkit-box-shadow: 0 0 0px 1000px white inset; 
 }
 
 input.invalid {
-	background-color: #FF9;
+	background-color: lightyellow;
 	color: 1px red inset;
-}
-label.invalid {
-	color: #F00;
-	font-weight: bold;
 }
 
 
@@ -59,16 +64,16 @@ label.invalid {
 
 #newWin{
 	width: 88%;
-    height: 220px;
+    height: 234px;
     background: white;
     border: 2px solid dimgrey;
     border-radius: 5px;
     display: none;
-    margin: 30% auto auto 6%;
-    position:absolute;
-    z-index:10;
-    text-align:center;
-    font-size:15px;
+    margin: 20% auto auto 6%;
+    position: absolute;
+    z-index: 10;
+    text-align: center;
+    font-size: 15px;
 }
 
 #newWin1{
@@ -78,7 +83,7 @@ label.invalid {
     border: 2px solid dimgrey;
     border-radius: 5px;
     display: none;
-    margin: 20% auto auto 6%;
+    margin: 10% auto auto 6%;
     position:absolute;
     z-index:10;
     text-align:center;
@@ -94,7 +99,7 @@ label.invalid {
     border-radius:5px;
     cursor: pointer; 
     -webkit-appearance: none;
-    width: 70%;
+    width: 80%;
 }
 
 #register{
@@ -135,7 +140,7 @@ label.invalid {
 
 #fault{
 	background: indianred;
-    width: 198px;
+    width: 70%;
     height: 33px;
     z-index: 10;
     font-size: 15px;
@@ -143,19 +148,18 @@ label.invalid {
     line-height: 33px;
     text-align: center;
     border-radius: 5px;
-    margin-left: 14%;
-    margin-top: 2%;
-    position: absolute;
-    display:none;
+    margin: 0px auto;
+    position: relative;
+    display: none;
 }
 
-#loginF{
+#loginForm{
     position: relative;
     text-align: center;
     margin-top: 15%;
 }
 
-#registerF{
+#registerForm{
     position: relative;
     text-align: center;
     margin-top: 15%;
@@ -191,7 +195,7 @@ label.invalid {
     border-top-right-radius: 8px;
 }
 
-#N2{
+.N2{
 	float: left;
 	margin-left: 10px;
     margin-top: 10px;
@@ -201,7 +205,7 @@ label.invalid {
     font-size: 14px;
 }
 
-#N1{
+.N1{
 	float: right;
     margin-right: 10px;
     margin-top: 10px;
@@ -211,20 +215,20 @@ label.invalid {
     font-size: 14px;
 }
 
-#bomb{
+.productImg{
 	width: 118px;
     height: 98px;
     margin: 9px auto 0 14px;
 }
 
-#point{
+.scoreImg{
 	width: 17px;
     height: 17px;
     position: absolute;
     margin-left: 3px;
 }
 
-.money{
+.pointNum{
 	font-size: 8px;
     position: absolute;
     margin-left: 21px;
@@ -232,7 +236,7 @@ label.invalid {
     color: #d30b06;
 }
 
-#people{
+.peopleImg{
 	margin-left: 41px;
     width: 14px;
     height: 14px;
@@ -240,7 +244,7 @@ label.invalid {
     position: absolute;
 }
 
-#population{
+.peopleNum{
 	font-size: 8px;
     position: absolute;
     margin-left: 58px;
@@ -256,7 +260,7 @@ label.invalid {
     text-align: center;
 }
 
-.get2{
+.exGet{
 	margin-top: 6px;
     width: 100%;
     height: 11%;
@@ -264,7 +268,7 @@ label.invalid {
     text-align: center;
 }
 
-#time{
+.productName{
 	margin-top: 10px;
     margin-left: 10px;
 }
@@ -274,8 +278,8 @@ label.invalid {
     margin-right: 5px;
     margin-left: 5px;
     width: 99%;
-    height: 14%;
-    font-size: 8px;
+    height:47px;
+    font-size: 12px;
 }
 
 .selected{
@@ -294,3 +298,30 @@ label.invalid {
 	display:none;
 }
 
+.icon{
+	height: 19px;
+    width: 14px;
+    margin-bottom: -3px;
+}
+
+.line{
+	margin-top: -10px;
+    margin-bottom: 16px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+#verifiCode{
+	height: 29px;
+    width: 36%;
+    background-color: #fae077;
+    border-radius: 5px;
+    cursor: pointer; 
+    -webkit-appearance: none; 
+}
+
+
+#codeNum{
+	border-width: 1px;
+	width:38%;
+	}
