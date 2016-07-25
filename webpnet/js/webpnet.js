@@ -128,9 +128,9 @@ function myStart(){
 		var allGood = true;
 		var allTags = document.getElementById("newWin1").getElementsByTagName("*");
 		for (var i=0; i<allTags.length; i++) {
-				if (!validTag(allTags[i])) {
-					allGood = false;
-		     	}
+			if (!validTag(allTags[i])) {
+				allGood = false;
+		    }
 		}
 		
 		function validTag(thisTag) {
@@ -164,6 +164,10 @@ function myStart(){
 						}
 						classBack += thisClass;
 						break;
+					case "icon":
+					case "line":
+						classBack += thisClass;
+						break;
 					default:
 						if (allGood && !crossCheck (thisTag,thisClass)) {
 								classBack = "invalid ";
@@ -186,34 +190,74 @@ function myStart(){
 		 	}
   		}
 		
-		//	实现注册界面和服务器的交互
-		if(allGood) {			
-			var options = {
-				url: "http://120.25.252.252/index.php/home/user/register",
-				data: $("#loginForm").serialize(),
-				type: 'POST',
-				dataType: "json",
-				success: function(result, status) {
-					switch(result["code"]){
-						case "10000":
-							Num = result["result"]["record"];
-							document.getElementById("scoreNum").innerHTML = Num;
-							Num1 = result["result"]["nickname"];
-							document.getElementById("nickname").innerHTML = Num1;
-					  		$(".inner_menu").fadeOut();  
-					  		$("#myprofile").fadeIn(); 
-					  		$("#newWin").fadeOut(); 
-					  		checkBox();
-					  	case "10001":
-					  		$("#fault").fadeIn();
+		
+		if(allGood) {
+			//	跳转到第二注册界面
+			$("#newWin2").fadeIn(); 
+			$('input[type=file]').change(function(){
+				$("#newWin3").fadeIn(); 
+				var fileimg=document.getElementById("fileimg");
+				var mycamera = document.getElementById('mycamera');
+				var nh=fileimg.naturalHeight;
+            	var nw=fileimg.naturalWidth;
+                alert(nh);
+                alert(nw);
+//          	size=nw>nh?nh:nw;
+//     		    size=size>1000?1000:size;
+//     		    fileimg=$('<img width="'+size+'" height="'+size+'"/>')[0],
+				getPath(fileimg,mycamera,fileimg) ;
+			});
+			
+			function getPath(obj,fileQuery,transImg){
+				var imgSrc = '', imgArr = [], strSrc = '' ;
+				if(window.navigator.userAgent.indexOf("MSIE")>=1){ // IE浏览器判断
+				    if(obj.select){
+					    obj.select();
+					    var path=document.selection.createRange().text;
+					    alert(path) ;
+					    obj.removeAttribute("src");
+					    imgSrc = fileQuery.value ;
+					    imgArr = imgSrc.split('.') ;
+					    strSrc = imgArr[imgArr.length - 1].toLowerCase() ;
+					    if(strSrc.localeCompare('jpg') === 0 || strSrc.localeCompare('jpeg') === 0 || strSrc.localeCompare('gif') === 0 || strSrc.localeCompare('png') === 0){
+						    obj.setAttribute("src",transImg);
+						    obj.style.filter=
+						    "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='"+path+"', sizingMethod='scale');"; // IE通过滤镜的方式实现图片显示
+					    }
+					    else{
+					    	throw new Error('上传图片格式有误，请重新上传!'); 
+					    }
+				    }
+				    else{	 
+					    imgSrc = fileQuery.value ;
+					    imgArr = imgSrc.split('.') ;
+					    strSrc = imgArr[imgArr.length - 1].toLowerCase() ;
+					    if(strSrc.localeCompare('jpg') === 0 || strSrc.localeCompare('jpeg') === 0 || strSrc.localeCompare('gif') === 0 || strSrc.localeCompare('png') === 0){
+					    	obj.src = fileQuery.value ;
+				   		 }
+						else{ 
+					    	throw new Error('上传图片格式有误，请重新上传!') ;
+					    }
+				 
+				    }
+				} 
+				else{
+				    var file =fileQuery.files[0];
+				    var reader = new FileReader();
+				    reader.onload = function(e){
+					    imgSrc = fileQuery.value ;
+					    imgArr = imgSrc.split('.') ;
+					    strSrc = imgArr[imgArr.length - 1].toLowerCase() ;
+				    	if(strSrc.localeCompare('jpg') === 0 || strSrc.localeCompare('jpeg') === 0 || strSrc.localeCompare('gif') === 0 || strSrc.localeCompare('png') === 0){
+				    		obj.setAttribute("src", e.target.result) ;
+				    	}
+				    	else{
+				    		throw new Error('上传图片格式有误，请重新上传!') ;
+				    	}
 					}
-					
-				},
-				error: function(XMLHttpRequest, textStatus, errorThrown) {
-					alert("网络出现问题！");
+					reader.readAsDataURL(file);
 				}
-			};
-			$.ajax(options);
+			}		
 		}		
 	});
 	
@@ -319,5 +363,4 @@ function myStart(){
  		});
 	} 	 
 }
-
 
