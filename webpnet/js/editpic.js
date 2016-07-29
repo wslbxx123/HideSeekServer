@@ -7,13 +7,19 @@ $('input[type=file]').change(function(){
 });
 
 document.getElementById("matchId").onclick = function(){
+	
+	var m = 0;
+	var roleImages = new Array("img/grassfairy.png","img/watermagician.png","img/fireknight.png","img/stonemonster.png","img/lightninggiant.png");
+	var roleNames = new Array("草魅精灵","水影巫师","火光骑士","岩石兽族","闪电巨人");
+	var myId = Math.floor ((Math.random() * roleImages.length));
+	
 	var index=document.getElementById("sex").selectedIndex;
 	var data = "phone=" + document.getElementById("userphone").value 
 				+ "&nickname="+ document.getElementById("userName").value
 				+ "&password="+ document.getElementById("passwd1").value
 				+ "&sex="+ document.getElementById("sex").options[index].text
 				+ "&region=" + document.getElementById("citySelect").value
-				+ "&role=" + thisId;
+				+ "&role=" + myId;
 	alert(data);
 	var mymessages = {
 		url: "http://120.25.252.252/index.php/home/user/register",
@@ -21,11 +27,11 @@ document.getElementById("matchId").onclick = function(){
 		type: 'POST',
 		dataType: "json",
 		success: function(result, status) {
-			alert(JSON.stringify(result));
+			
 			switch(result["code"]){
 				case "10000":
 					alert("注册成功!")
-			  	case "10001":
+			  	case "10003":
 			  		alert("注册失败!")
 			}	
 		},
@@ -38,10 +44,7 @@ document.getElementById("matchId").onclick = function(){
 				
 	$("#newWin4").fadeIn(); 
 	$("#newWin2").fadeOut(); 
-	var m = 0;
-	var roleImages = new Array("img/grassfairy.png","img/watermagician.png","img/fireknight.png","img/stonemonster.png","img/lightninggiant.png");
-	var roleNames = new Array("草魅精灵","水影巫师","火光骑士","岩石兽族","闪电巨人");
-	var myId = Math.floor ((Math.random() * roleImages.length));
+	
 	var thisId = 0
 	document.getElementById("roleimages").src = roleImages[thisId];
 	document.getElementById("rolenames").innerHTML = roleNames[thisId];
