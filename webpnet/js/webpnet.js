@@ -8,7 +8,6 @@ function myStart(){
 			type: 'POST',
 			dataType: "json",
 			success: function(result, status) {
-				alert(JSON.stringify(result));
 				for(var i = 0;i < result.result.products.length;i++){	
 					//创建商品橱窗框
 					var exArea = document.getElementById("exArea");
@@ -128,10 +127,25 @@ function myStart(){
 		var allGood = true;
 		var allTags = document.getElementById("newWin1").getElementsByTagName("*");
 		for (var i=0; i<allTags.length; i++) {
-				if (!validTag(allTags[i])) {
-					allGood = false;
-		     	}
+			if (!validTag(allTags[i])) {
+				allGood = false;
+		    }
 		}
+		
+		checkPhone();
+		
+		function checkPhone(){
+			var tel = document.getElementById("userphone").value;
+ 
+ 			if(/^1\d{10}$/g.test(tel)){      
+     			allGood = true;
+    		}
+ 			else{
+      			alert("手机号错误");
+       			allGood = false;
+   			 }
+		}
+		
 		
 		function validTag(thisTag) {
 			var outClass = "";
@@ -164,6 +178,10 @@ function myStart(){
 						}
 						classBack += thisClass;
 						break;
+					case "icon":
+					case "line":
+						classBack += thisClass;
+						break;
 					default:
 						if (allGood && !crossCheck (thisTag,thisClass)) {
 								classBack = "invalid ";
@@ -186,34 +204,11 @@ function myStart(){
 		 	}
   		}
 		
-		//	实现注册界面和服务器的交互
-		if(allGood) {			
-			var options = {
-				url: "http://120.25.252.252/index.php/home/user/register",
-				data: $("#loginForm").serialize(),
-				type: 'POST',
-				dataType: "json",
-				success: function(result, status) {
-					switch(result["code"]){
-						case "10000":
-							Num = result["result"]["record"];
-							document.getElementById("scoreNum").innerHTML = Num;
-							Num1 = result["result"]["nickname"];
-							document.getElementById("nickname").innerHTML = Num1;
-					  		$(".inner_menu").fadeOut();  
-					  		$("#myprofile").fadeIn(); 
-					  		$("#newWin").fadeOut(); 
-					  		checkBox();
-					  	case "10001":
-					  		$("#fault").fadeIn();
-					}
-					
-				},
-				error: function(XMLHttpRequest, textStatus, errorThrown) {
-					alert("网络出现问题！");
-				}
-			};
-			$.ajax(options);
+		
+		if(allGood) {
+			//	跳转到第二注册界面
+			$("#newWin2").fadeIn(); 
+			
 		}		
 	});
 	
@@ -289,8 +284,10 @@ function myStart(){
 					  		$("#myprofile").fadeIn(); 
 					  		$("#newWin").fadeOut(); 
 					  		checkBox();
+					  		break;
 					  	case "10001":
 					  		$("#fault").fadeIn();
+					  		break;
 					}
 					
 				},
@@ -319,5 +316,4 @@ function myStart(){
  		});
 	} 	 
 }
-
 
