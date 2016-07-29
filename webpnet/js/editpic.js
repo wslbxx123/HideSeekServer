@@ -40,7 +40,7 @@ document.getElementById("matchId").onclick = function(){
 							+ "&password="+ document.getElementById("passwd1").value
 							+ "&sex="+ document.getElementById("sex").options[index].text
 							+ "&region=" + document.getElementById("citySelect").value
-							+ "&photo=" + document.getElementById("photo").src
+//							+ "&photo=" + document.getElementById("photo").src
 							+ "&role=" + thisId,
 					type: 'POST',
 					dataType: "json",
