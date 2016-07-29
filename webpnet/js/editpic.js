@@ -8,6 +8,11 @@ $('input[type=file]').change(function(){
 
 document.getElementById("matchId").onclick = function(){
 	var index=document.getElementById("sex").selectedIndex;
+	alert(document.getElementById("userphone").value);
+	alert(document.getElementById("userName").value);
+	alert(document.getElementById("passwd1").value);
+	alert(document.getElementById("sex").options[index].text);
+	alert(document.getElementById("citySelect").value);
 	var mymessages = {
 		url: "http://120.25.252.252/index.php/home/user/register",
 		data: "phone=" + document.getElementById("userphone").value 
@@ -20,6 +25,7 @@ document.getElementById("matchId").onclick = function(){
 		type: 'POST',
 		dataType: "json",
 		success: function(result, status) {
+			alert(JSON.stringify(result));
 			switch(result["code"]){
 				case "10000":
 					alert("注册成功!")
