@@ -169,7 +169,7 @@ class StoreController extends BaseController {
     
     public function purchase() {
         $code = "10000";
-        $message = "生成订单成功！";
+        $message = "购买商品成功！";
         $sessionId = $_POST['session_id'];
         $accountId = $this->getPkIdFromToken($sessionId);
         $orderId = $_POST['order_id'];
@@ -191,7 +191,27 @@ class StoreController extends BaseController {
         }
         
         $array = array ('code' => $code, 'message' => $message,
-            'result' => $lastInsId);
+            'result' => $orderId);
+        echo json_encode($array); 
+    }
+    
+    public function getOrders() {
+        $code = "10000";
+        $message = "生成订单成功！";
+        $sessionId = $_POST['session_id'];
+        $accountId = $this->getPkIdFromToken($sessionId);
+        
+        if(isset($sessionId) && $sessionId != "") {
+            $Dao = M("order");
+            $sql = "call admin_get_orders($accountId)";
+            $orderList = $Dao->query($sql);
+        } else {
+            $code = "10010";
+            $message = "用户未登录";
+        }
+        
+        $array = array ('code' => $code, 'message' => $message,
+            'result' => $orderList);
         echo json_encode($array); 
     }
 }
