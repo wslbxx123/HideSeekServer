@@ -22,7 +22,7 @@ input{
 	width: 62%;
     height: 30px;
     margin-left: 4px;
-    font-size: 13px;
+    font-size: 14px;
     font-family: "Microsoft Yahei";
     margin-bottom: 10px;
     border-color: dimgrey;
@@ -31,15 +31,18 @@ input{
 }
 
 select{
-	width: 58%;
+	width: 58%;citySelect
     height: 30px;
     margin-left: 4px;
-    font-size: 13px;
+    font-size: 14px;
     font-family: "Microsoft Yahei";
-    margin-bottom: 10px;
+    padding-left: 4px;
+    margin-bottom: 14px;
     border-color: dimgrey;
     border-width: 0px;
     background-color: white;
+  	-webkit-appearance:none;
+  	background: url("../img/arrow.png") no-repeat scroll right center transparent;
 }
 
 input:-webkit-autofill { 
@@ -117,9 +120,23 @@ input.invalid {
 }
 
 #newWin3{
-	width: 88%;
-    height: 350px;
+	width: 100%;
+    height: 600px;
     background: white;
+    border-radius: 5px;
+    display: none;
+    margin: 0 auto;
+    position: absolute;
+    z-index: 10;
+    font-size: 15px;
+    text-align:center;
+
+}
+
+#newWin4{
+	width: 88%;
+    height: 450px;
+    background: #fae077;
     border: 2px solid dimgrey;
     border-radius: 5px;
     display: none;
@@ -392,13 +409,14 @@ input.invalid {
     opacity: 0;
 }
 
-.mypicture{
+#mypicture{
 	margin-top: -20%;
     border-radius: 92px;
-    width: 38%;
+    width: 111px;
     height: 111px;
     background: url("../img/mypicture.png") no-repeat center;
     background-size: cover;
+    background-color: grey;
 }
 
 #bgColor{
@@ -408,7 +426,7 @@ input.invalid {
 }
 
 label{
-	font-size:13px;
+	font-size:14px;
 }
 
 
@@ -463,6 +481,7 @@ label{
 }
 
 .cityBox{
+	margin: 0 auto;
 	width:320px;
 	border:1px solid #85BEE5;
 	overflow:hidden;
@@ -558,7 +577,8 @@ p.tip{
     height: 30px;
     line-height: 24px;
     margin-left: 4px;
-    background: url(../img/T1EPyLXm0hXXXXXXXX-200-100.png) no-repeat 140px 6px;
+    font-size:14px;
+    background: url(../img/arrow.png) no-repeat scroll right center transparent;
 }
 
 #matchId{
@@ -573,6 +593,98 @@ p.tip{
     width: 80%;
 }
 
+#picWin{
+	position:relative;
+	margin:0 auto;
+}
+
 #fileimg{
-	margin-top: 10px;
+	position: absolute;
+    -webkit-user-select: none;
+    left: 8%;
+    margin-top: 50px;
+}
+
+#coverpic{
+	position: absolute;
+	left: 8%;
+	margin-top: 50px;
+}
+
+#upframe{
+	position: absolute;
+	left: 8%;
+	margin-top: 50px;
+	width:20px;
+	height:20px;
+	z-index:99;
+	-webkit-user-select: none;
+	-moz-user-select:none;
+}
+
+#downframe{
+	position: absolute;
+	left: 8%;
+	margin-top: 50px;
+    width: 20px;
+    height: 20px;
+    z-index:99;
+    -webkit-user-select: none;
+    -moz-user-select:none;
+}
+
+#title{
+	position: absolute;
+    margin-top: 10px;
+    background-color: #ffcc00;
+    font-size: 14px;
+    height: 29px;
+    width: 100%;
+    border-radius: 0px;
+    line-height: 29px;
+}
+
+#rangeDiv{
+	margin-top: 70%;
+}
+
+#rangeHint{
+	font-size:12px;
+}
+
+#confirmedit{
+	background-color: #ffcc00;
+    height: 33px;
+    width: 62%;
+    margin: 0 auto;
+    line-height: 33px;
+    border-radius: 4px;
+}
+
+#roleimages{
+	height: 278px;
+    width: 200px;
+    margin-top: 10px;
+}
+
+#rolenames{
+	height: 27px;
+    width: 80%;
+    position: relative;
+    margin:-4px auto 0 auto;
+    color: white;
+    font-size: 13px;
+    background-color: saddlebrown;
+    line-height:27px;
+    border:2px solid sandybrown;
+}
+
+#entrance{
+	background-color: white;
+    height: 36px;
+    width: 75%;
+    margin: 27px auto 0 auto;
+    line-height: 36px;
+    border-radius: 6px;
+    border: 1px solid saddlebrown;
 }
