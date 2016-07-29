@@ -20,7 +20,6 @@ document.getElementById("matchId").onclick = function(){
 				+ "&sex="+ document.getElementById("sex").options[index].text
 				+ "&region=" + document.getElementById("citySelect").value
 				+ "&role=" + myId;
-	alert(data);
 	var mymessages = {
 		url: "http://120.25.252.252/index.php/home/user/register",
 		data: data,
@@ -31,8 +30,10 @@ document.getElementById("matchId").onclick = function(){
 			switch(result["code"]){
 				case "10000":
 					alert("注册成功!")
+					break;
 			  	case "10003":
 			  		alert("注册失败!")
+			  		break;
 			}	
 		},
 		error: function(XMLHttpRequest, textStatus, errorThrown) {
@@ -238,8 +239,6 @@ function getPath(obj,fileQuery,transImg){
 					$("#newWin3").fadeOut(); 
 				}
 				else{
-					alert(x);
-					alert(-n);
 					cover.drawImage(fileimg,0,0.1*(-n)*(x-1)*y,coverpic.width*y,coverpic.width*y,0,0,200,200);
 					$("#newWin3").fadeOut(); 
 				}
