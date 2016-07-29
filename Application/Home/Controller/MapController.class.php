@@ -44,7 +44,7 @@ class MapController extends BaseController {
         $code = "10000";
         $message = "获得目标成功";
         $sessionId = $_POST['session_id'];
-        $account_id = $this->getPkIdFromToken($sessionId);
+        $account = $this->getAccountFromToken($sessionId);
         
         $goal_id = $_POST['goal_id'];
         $goal_type = $_POST['goal_type'];
@@ -61,20 +61,23 @@ class MapController extends BaseController {
             $recordDao = M("record");
             $record['goal_id'] = $goal_id;
             $record['goal_type'] = $goal_type;
-            $record['account_id'] = $account_id;
+            $record['account_id'] = $account['pk_id'];
             if($goal_type == 1) {
                 $record['score'] = 1;
             } else {
                 $record['score'] = -1;
             }   
             $record['time'] = date('y-m-d H:i:s',time());
-            $condition['account_id'] = $account_id;
+            $condition['account_id'] = $account['pk_id'];
             $record['score_sum'] = $recordDao->where($condition)->sum('score')
                     + $record['score'];
             $record['version'] = $version['race_group_version'];
             $recordDao->add($record);
             
             $versionDao->where('1=1')->save($version);
+            $accountDao = M("account");
+            $account['record'] = $record['score_sum'];
+            $accountDao->where($condition)->save($account);
         } else{
             $code = "10006";
             $message = "目标ID或目标类型为空";
@@ -90,39 +93,43 @@ class MapController extends BaseController {
         $message = "打怪兽成功";
         
         $sessionId = $_POST['session_id'];
-        $account_id = $this->getPkIdFromToken($sessionId);
+        $account = $this->getAccountFromToken($sessionId);
         $goal_id = $_POST['goal_id'];
         $account_role = $_POST['account_role'];
         if(isset($goal_id) && isset($account_role)) {
             $Dao = M("monster_temp_hit");
             $data['goal_id'] = $goal_id;
-            $data['account_id'] = $account_id;
+            $data['account_id'] = $account['pk_id'];
             $data['account_role'] = $account_role;
             $data['hit_time'] = date('y-m-d H:i:s',time());
             $Dao->add($data);
             
             $sql = "call admin_get_temp_hit($goal_id)";
-            $account_array = $Dao->query($sql);
+            $accountArray = $Dao->query($sql);
             
             $versionDao = M("pull_version");
             $version = $versionDao->find();
             $version['race_group_version'] = $version['race_group_version'] + 1;
             
             $flag = false;
-            foreach ($account_array as $account){ 
-                if($account['account_id'] == $account_id) {
+            foreach ($accountArray as $accountResult){ 
+                if($accountResult['account_id'] == $account['pk_id']) {
                     $recordDao = M("record");
                     $record['goal_id'] = $goal_id;
                     $record['goal_type'] = 2;
-                    $record['account_id'] = $account_id;
+                    $record['account_id'] = $account['pk_id'];
                     $record['score'] = 1;
                     $record['time'] = date('y-m-d H:i:s',time());
-                    $condition['account_id'] = $account_id;
+                    $condition['account_id'] = $account['pk_id'];
                     $record['score_sum'] = $recordDao->where($condition)->sum('score')
                             + $record['score'];
                     $record['version'] = $version['race_group_version'];
                     $recordDao->add($record);
                     $flag = true;
+                    
+                    $accountDao = M("account");
+                    $account['record'] = $record['score_sum'];
+                    $accountDao->where($condition)->save($account);
                 }
             }
             
