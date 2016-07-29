@@ -411,7 +411,7 @@ input.invalid {
 
 #mypicture{
 	margin-top: -20%;
-    border-radius: 0px;
+    border-radius: 63px;
     width: 111px;
     height: 111px;
     background: url("../img/mypicture.png") no-repeat center;

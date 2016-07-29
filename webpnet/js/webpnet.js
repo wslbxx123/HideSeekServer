@@ -132,6 +132,21 @@ function myStart(){
 		    }
 		}
 		
+		checkPhone();
+		
+		function checkPhone(){
+			var tel = document.getElementById("userphone").value;
+ 
+ 			if(/^1\d{10}$/g.test(tel)){      
+     			allGood = true;
+    		}
+ 			else{
+      			alert("手机号错误");
+       			allGood = false;
+   			 }
+		}
+		
+		
 		function validTag(thisTag) {
 			var outClass = "";
 			var allClasses = thisTag.className. split(" ");
