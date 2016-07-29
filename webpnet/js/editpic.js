@@ -125,7 +125,7 @@ function getPath(obj,fileQuery,transImg){
 
 	}  
 					    
-	$('img').load(function(){ 
+	$('img').load(function(){
 		var width = fileimg.naturalWidth;
 		var height = fileimg.naturalHeight;
 		var rangeBar = document.getElementById("rangeBar");
@@ -146,6 +146,7 @@ function getPath(obj,fileQuery,transImg){
 		var endy;
 		var x;
 		var n;
+		
 
 	    
 		if(width>document.body.clientWidth*0.8){
@@ -158,7 +159,11 @@ function getPath(obj,fileQuery,transImg){
 		}
 		fileimg.width = width;
 		fileimg.height = height;
-									
+		var y = fileimg.naturalWidth/fileimg.width;
+		var images = new Image();
+		
+		
+		
 		coverpic.width = fileimg.width;
 		coverpic.height = fileimg.height;
 		ctx.fillStyle = "rgba(0, 0, 0, 0.5)";
@@ -167,10 +172,12 @@ function getPath(obj,fileQuery,transImg){
 		x =1;
 		if(coverpic.width>coverpic.height){
 			ctx.clearRect(0, 0, coverpic.height, coverpic.height);	
+			n = coverpic.width - coverpic.height;
 			setFrame(coverpic.height);
 		}
 		else{
 			ctx.clearRect(0, 0, coverpic.width, coverpic.width);
+			n = coverpic.width - coverpic.height;
 			setFrame(coverpic.width);
 		}
 		
@@ -209,17 +216,16 @@ function getPath(obj,fileQuery,transImg){
 		}
 		
 		
-		
 		confirmedit.onclick = function(){
 			var images = new Image();
 			images.src = fileimg.src;
 			images.onload = function(){
 				if(n>0){
-					cover.drawImage(fileimg,0.1*n*(x-1),0,coverpic.height,coverpic.height,0,0,200,200);
+					cover.drawImage(fileimg,0.1*n*(x-1)*y,0,coverpic.height*y,coverpic.height*y,0,0,200,200);
 					$("#newWin3").fadeOut(); 
 				}
 				else{
-					cover.drawImage(fileimg,0,0.1*(-n)*(x-1),coverpic.width,coverpic.width,0,0,200,200);
+					cover.drawImage(fileimg,0,0.1*(-n)*(x-1)*y,coverpic.width*y,coverpic.width*y,0,0,200,200);
 					$("#newWin3").fadeOut(); 
 				}
 			}
