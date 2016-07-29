@@ -19,20 +19,24 @@ document.getElementById("matchId").onclick = function(){
 				+ "&password="+ document.getElementById("passwd1").value
 				+ "&sex="+ document.getElementById("sex").options[index].text
 				+ "&region=" + document.getElementById("citySelect").value
-				+ "&role=" + myId;
+				+ "&role=" + myId
+				+ "&photo=" + document.getElementById("photo").src;
+				alert(data);
 	var mymessages = {
 		url: "http://120.25.252.252/index.php/home/user/register",
 		data: data,
 		type: 'POST',
 		dataType: "json",
+		
 		success: function(result, status) {
-			
+			alert(JSON.stringify(result));
 			switch(result["code"]){
 				case "10000":
+			        rolechange();
 					alert("注册成功!")
 					break;
 			  	case "10003":
-			  		alert("注册失败!")
+			  		alert("填写信息失败！")
 			  		break;
 			}	
 		},
@@ -42,35 +46,36 @@ document.getElementById("matchId").onclick = function(){
 	};
 	$.ajax(mymessages);		
 				
-				
-	$("#newWin4").fadeIn(); 
-	$("#newWin2").fadeOut(); 
-	
-	var thisId = 0
-	document.getElementById("roleimages").src = roleImages[thisId];
-	document.getElementById("rolenames").innerHTML = roleNames[thisId];
-	rotate();
-	
-	function rotate(){
+	function rolechange(){	
+		$("#newWin4").fadeIn(); 
+		$("#newWin2").fadeOut(); 
 		
-		if(m<20){
+		var thisId = 0
+		document.getElementById("roleimages").src = roleImages[thisId];
+		document.getElementById("rolenames").innerHTML = roleNames[thisId];
+		rotate();
+		
+		function rotate(){
 			
-			m++;
-			thisId++;
-			if (thisId == roleImages.length) {
-				thisId = 0;
-			}
-			document.getElementById("roleimages").src = roleImages[thisId];
-			document.getElementById("rolenames").innerHTML = roleNames[thisId];
-			setTimeout(rotate, 100);
-		}
-		else{
-			document.getElementById("roleimages").src = roleImages[myId];
-			document.getElementById("rolenames").innerHTML = roleNames[myId];
-			
-			
-			document.getElementById("entrance").onclick = function(){
+			if(m<20){
 				
+				m++;
+				thisId++;
+				if (thisId == roleImages.length) {
+					thisId = 0;
+				}
+				document.getElementById("roleimages").src = roleImages[thisId];
+				document.getElementById("rolenames").innerHTML = roleNames[thisId];
+				setTimeout(rotate, 100);
+			}
+			else{
+				document.getElementById("roleimages").src = roleImages[myId];
+				document.getElementById("rolenames").innerHTML = roleNames[myId];
+				
+				
+				document.getElementById("entrance").onclick = function(){
+					
+				}
 			}
 		}
 	}
