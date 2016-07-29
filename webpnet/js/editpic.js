@@ -7,12 +7,40 @@ $('input[type=file]').change(function(){
 });
 
 document.getElementById("matchId").onclick = function(){
+	var index=document.getElementById("sex").selectedIndex;
+	var mymessages = {
+		url: "http://120.25.252.252/index.php/home/user/register",
+		data: "phone=" + document.getElementById("userphone").value 
+				+ "&nickName="+ document.getElementById("userName").value
+				+ "&password="+ document.getElementById("passwd1").value
+				+ "&sex="+ document.getElementById("sex").options[index].text
+				+ "&region=" + document.getElementById("citySelect").value
+//							+ "&photo=" + document.getElementById("photo").src
+				+ "&role=" + thisId,
+		type: 'POST',
+		dataType: "json",
+		success: function(result, status) {
+			switch(result["code"]){
+				case "10000":
+					alert("注册成功!")
+			  	case "10001":
+			  		alert("注册失败!")
+			}	
+		},
+		error: function(XMLHttpRequest, textStatus, errorThrown) {
+			alert("网络出现问题！");
+		}
+	};
+	$.ajax(mymessages);		
+				
+				
 	$("#newWin4").fadeIn(); 
 	$("#newWin2").fadeOut(); 
 	var m = 0;
 	var roleImages = new Array("img/grassfairy.png","img/watermagician.png","img/fireknight.png","img/stonemonster.png","img/lightninggiant.png");
 	var roleNames = new Array("草魅精灵","水影巫师","火光骑士","岩石兽族","闪电巨人");
-	var thisId = Math.floor ((Math.random() * roleImages.length));
+	var myId = Math.floor ((Math.random() * roleImages.length));
+	var thisId = 0
 	document.getElementById("roleimages").src = roleImages[thisId];
 	document.getElementById("rolenames").innerHTML = roleNames[thisId];
 	rotate();
@@ -31,32 +59,12 @@ document.getElementById("matchId").onclick = function(){
 			setTimeout(rotate, 100);
 		}
 		else{
-			var index=document.getElementById("sex").selectedIndex ;
+			document.getElementById("roleimages").src = roleImages[myId];
+			document.getElementById("rolenames").innerHTML = roleNames[myId];
+			
+			
 			document.getElementById("entrance").onclick = function(){
-				var mymessages = {
-					url: "http://120.25.252.252/index.php/home/user/register",
-					data: "phone=" + document.getElementById("userphone").value 
-							+ "&nickName="+ document.getElementById("userName").value
-							+ "&password="+ document.getElementById("passwd1").value
-							+ "&sex="+ document.getElementById("sex").options[index].text
-							+ "&region=" + document.getElementById("citySelect").value
-//							+ "&photo=" + document.getElementById("photo").src
-							+ "&role=" + thisId,
-					type: 'POST',
-					dataType: "json",
-					success: function(result, status) {
-						switch(result["code"]){
-							case "10000":
-								alert("注册成功!")
-						  	case "10001":
-						  		alert("注册失败!")
-						}	
-					},
-					error: function(XMLHttpRequest, textStatus, errorThrown) {
-						alert("网络出现问题！");
-					}
-				};
-				$.ajax(mymessages);		
+				
 			}
 		}
 	}
@@ -225,6 +233,8 @@ function getPath(obj,fileQuery,transImg){
 					$("#newWin3").fadeOut(); 
 				}
 				else{
+					alert(x);
+					alert(-n);
 					cover.drawImage(fileimg,0,0.1*(-n)*(x-1)*y,coverpic.width*y,coverpic.width*y,0,0,200,200);
 					$("#newWin3").fadeOut(); 
 				}
