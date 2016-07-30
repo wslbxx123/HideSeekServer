@@ -137,8 +137,81 @@ class StoreController extends BaseController {
         echo json_encode($array);
     }
     
+    public function createOrder() {
+        $code = "10000";
+        $message = "生成订单成功！";
+        $sessionId = $_POST['session_id'];
+        $accountId = $this->getPkIdFromToken($sessionId);
+        $storeId = $_POST['store_id'];
+        
+        if(isset($sessionId) && $sessionId != "") {
+            if(isset($storeId)) {
+                $Dao = M("order");
+                $order["store_id"] = $storeId;
+                $order['status'] = 0;
+                $order['create_by'] = $accountId;
+                $order['create_time'] = date('y-m-d H:i:s',time());
+                $order['update_time'] = date('y-m-d H:i:s',time());
+                $lastInsId = $Dao->add($order);
+            } else {
+                $code = "10014";
+                $message = "商品ID值为空";
+            }
+        } else {
+            $code = "10010";
+            $message = "用户未登录";
+        }
+        
+        $array = array ('code' => $code, 'message' => $message,
+            'result' => $lastInsId);
+        echo json_encode($array);   
+    }
+    
     public function purchase() {
         $code = "10000";
         $message = "购买商品成功！";
+        $sessionId = $_POST['session_id'];
+        $accountId = $this->getPkIdFromToken($sessionId);
+        $orderId = $_POST['order_id'];
+        
+        if(isset($sessionId) && $sessionId != "") {
+            if(isset($orderId)) {
+                $Dao = M("order");
+                $condition["pk_id"] = $orderId;
+                $order["status"] = 1;
+                $order['update_time'] = date('y-m-d H:i:s',time());
+                $Dao->where($condition)->save($order);
+            } else {
+                $code = "10015";
+                $message = "订单ID值为空";
+            }
+        } else {
+            $code = "10010";
+            $message = "用户未登录";
+        }
+        
+        $array = array ('code' => $code, 'message' => $message,
+            'result' => $orderId);
+        echo json_encode($array); 
+    }
+    
+    public function getOrders() {
+        $code = "10000";
+        $message = "生成订单成功！";
+        $sessionId = $_POST['session_id'];
+        $accountId = $this->getPkIdFromToken($sessionId);
+        
+        if(isset($sessionId) && $sessionId != "") {
+            $Dao = M("order");
+            $sql = "call admin_get_orders($accountId)";
+            $orderList = $Dao->query($sql);
+        } else {
+            $code = "10010";
+            $message = "用户未登录";
+        }
+        
+        $array = array ('code' => $code, 'message' => $message,
+            'result' => $orderList);
+        echo json_encode($array); 
     }
 }
