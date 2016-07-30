@@ -87,38 +87,56 @@ function myStart(){
 	document.getElementById("purchase").onclick = function(){
 		document.getElementById("purchase").className = "selected";
 		document.getElementById("exchange").className ="";
+		document.getElementById("appdownload").className ="";
 		$("#purArea").fadeIn(); 
 		$("#exArea").fadeOut(); 
+		$("#downArea").fadeOut(); 
 	}
 	
 	document.getElementById("exchange").onclick = function(){
 		document.getElementById("exchange").className = "selected";
 		document.getElementById("purchase").className ="";
+		document.getElementById("appdownload").className ="";
 		$("#exArea").fadeIn(); 
+		$("#purArea").fadeOut(); 
+		$("#downArea").fadeOut(); 
+	}
+	
+	document.getElementById("appdownload").onclick = function(){
+		document.getElementById("purchase").className = "";
+		document.getElementById("exchange").className ="";
+		document.getElementById("appdownload").className ="selected";
+		$("#downArea").fadeIn(); 
+		$("body").css("height","800px");
+		$("#exArea").fadeOut(); 
 		$("#purArea").fadeOut(); 
 	}
 	
 	// 登录按钮
 	$("#test1").click(function(){
 		if($("#newWin").css("display")=='none'){
+			$("#storecover").fadeIn(); 
 			$("#newWin").fadeIn(); 
 			$("#newWin1").fadeOut(); 
 			
 		}
 		else{
 			$("#newWin").fadeOut(); 
+			$("#storecover").fadeOut(); 
 		}
 	});
 	
 	//	注册按钮
 	$("#test2").click(function(){
 		if($("#newWin1").css("display")=='none'){
+			$("#storecover").fadeIn(); 
 			$("#newWin1").fadeIn(); 
 			$("#newWin").fadeOut(); 
 			
 		}
 		else{
 			$("#newWin1").fadeOut(); 
+			$("#storecover").fadeOut(); 
 		}
 	});
 	
@@ -208,7 +226,7 @@ function myStart(){
 		if(allGood) {
 			//	跳转到第二注册界面
 			$("#newWin2").fadeIn(); 
-			
+			$("#newWin1").fadeOut(); 
 		}		
 	});
 	

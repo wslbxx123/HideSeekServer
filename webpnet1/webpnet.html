@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+    	<meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+	    <meta name="x5-fullscreen" content="true">
+		<meta name="full-screen" content="yes">
+    	<meta name="keywords" content="积分 商城兑换 hideseek 寻宝部落  旅游 美食" />
+    	<meta name="description" content="积分 商城兑换 hideseek 寻宝部落 旅游 美食" />
+    	<title>寻宝部落积分商城</title>
+    	<link rel="stylesheet" href="css/webcnet.css">
+    	<script type="text/javascript" src="js/jquery.js"></script>
+    	<script type="text/javascript" src="js/webpnet.js"></script>
+
+    	
+	</head>
+	<body>
+		<div id ="storecover"></div>
+     	<div id="headline">
+        	<div class="logo">
+           		 <img title="寻宝部落积分商城" src="img/logo.png" width="125"/>
+           	</div>
+            <div class="inner_menu">
+           		 <button type="button" class="prompt" id="test1">登录</button>
+           		 <button type="button" class="prompt" id="test2">注册</button>
+           	</div>
+           	<div id="myprofile">
+           		<div id= "nickname"></div>
+           		<div id= "score">&nbsp;<span id="scoreNum">2</span>积分</div>
+           	</div>
+    	</div>
+    	
+    	
+    	<!-- banner图 -->
+	    <div class="banner">
+		    <img src="img/road.gif" style="width:100%;">
+			<img src="img/road1.gif" style="width:100%;">
+			<img src="img/road2.gif" style="width:100%;">
+			<!--<img src="img/button.png" id="gamebutton"/>-->
+			<img src="img/test_title.png" id="test_title"/>		
+			<div id="mushroom"></div>
+	    </div>
+    	
+    	<!--导航区-->
+    	<div id="guide">
+    		<a id="appdownload" class="selected" >APP下载区</a>
+    		<a id="purchase" class="">购买区</a>
+    		<a id="exchange" class="">兑换区</a>
+    	</div>
+    	
+    	<!--购买区-->
+    	<div id ="purArea">
+	    	<!--<div class="N1"><span class="productName">定时炸弹</span>
+	    		<img src="img/bomb.png" class="productImg">
+	    		<div>
+	    			<img src="img/score.png" class="scoreImg"><span class="pointNum" id="pointNumb1">32</span>
+	    			<img src="img/people.png" class="peopleImg"><span class="peopleNum">15865人购买</span>
+	    		</div>
+	    		<div id="intro">放在指定位置。</div>
+	    		<div id="b1" class="get1">购买</div>
+	    	</div>
+	    	<div class="N2"><span class="productName">定时炸弹</span>
+	    		<img src="img/bomb.png" class="productImg">
+	    		<div>
+	    			<img src="img/score.png" class="scoreImg"><span class="pointNum" id="pointNumb2">32</span>
+	    			<img src="img/people.png" class="peopleImg"><span class="peopleNum">15865人购买</span>
+	    		</div>
+	    		<div id="intro">放在指定位置，当怪兽出现可触发炸弹，造成大范围严重伤害。</div>
+	    		<div id="b2" class="get1">购买</div>
+	    	</div>
+	    	<div class="N1"><span class="productName">定时炸弹</span>
+	    		<img src="img/bomb.png" class="productImg">
+	    		<div>
+	    			<img src="img/score.png" class="scoreImg"><span class="pointNum" id="pointNumb3">32</span>
+	    			<img src="img/people.png" class="peopleImg"><span class="peopleNum">15865人购买</span>
+	    		</div>
+	    		<div id="intro">放在指定位置，当怪兽出现可触发炸弹，造成大范围严重伤害。</div>
+	    		<div id="b3" class="get1"name="b3">购买</div>
+	    	</div>
+	    	<div class="N2"><span class="productName">定时炸弹</span>
+	    		<img src="img/bomb.png" class="productImg">
+	    		<div>
+	    			<img src="img/score.png" class="scoreImg"><span class="pointNum" id="pointNumb4">32</span>
+	    			<img src="img/people.png" class="peopleImg"><span class="peopleNum">15865人购买</span>
+	    		</div>
+	    		<div id="intro">放在指定位置，当怪兽出现可触发炸弹，造成大范围严重伤害。</div>
+	    		<div id="b4" class="get1"name="b4">购买</div>
+	    	</div>
+	    	<div class="N1"><span class="productName">定时炸弹</span>
+	    		<img src="img/bomb.png" class="productImg">
+	    		<div>
+	    			<img src="img/score.png" class="scoreImg">
+	    			<span class="pointNum" id="pointNumb5">32</span>
+	    			<img src="img/people.png" class="peopleImg">
+	    			<span class="peopleNum">15865人购买</span>
+	    		</div>
+	    		<div id="intro">放在指定位置，当怪兽出现可触发炸弹，造成大范围严重伤害。</div>
+	    		<div id="b5" class="get1">购买</div>
+	    	</div>
+	    	<div class="N2"><span class="productName">定时炸弹</span>
+	    		<img src="img/bomb.png" class="productImg">
+	    		<div>
+	    			<img src="img/score.png" class="scoreImg"><span class="pointNum" id="pointNumb6">32</span>
+	    			<img src="img/people.png" class="peopleImg"><span class="peopleNum">15865人购买</span>
+	    		</div>
+	    		<div id="intro">放在指定位置，当怪兽出现可触发炸弹，造成大范围严重伤害。</div>
+	    		<div id="b6" class="get1">购买</div>
+			</div>-->
+    	</div>
+    	
+    	<!--兑换区-->
+    	<div id ="exArea">
+	    
+    	</div>
+    	
+    	<div id ="downArea">
+	    	<div class="APPfile">
+	    		<p class ="title1">APP介绍</p>
+	    		<hr class="line1" size="2" width="40%" color="#b81d25">	
+	    		<p class ="paragraph">化身你命中注定的角色身份，来场虚拟与现实交融的奇妙探险吧！在找与藏之前感受未知的快感，还可获得丰厚积分，兑换你梦寐已久的现实愿望清单！说走就走的旅行、火爆的演唱会门票等丰厚礼品在这里都只剩下步与步之间力量组合的高能转换。</p>
+	    	</div>
+	    	<div class="APPfile">
+	    		<p class ="title1">APP下载</p>
+	    		<hr class="line1" size="2" width="40%" color="#b81d25">	
+	    		<div class="apparea">下载Android版本</div>
+	    		<div class="apparea">下载iOS版本</div>
+	    	</div>
+    	</div>
+    	
+    	<!--弹出登录页面-->
+    	<div id="newWin">
+    		<form id="loginForm" action="http://120.25.252.252/index.php/home/user/login" method="post" autocomplete="jsonResponse">
+	    		<p>	<label for="fname">
+		    			<img src="img/phone.png" class="icon"> 
+		    			<input type="text" id="fname" name="phone" class="reqd" placeholder="我的手机号">
+	    			</label>
+	    		</p>
+	    		<hr class="line" size="1" width="70%" color="gray">		
+				<p>	<label for="lname">
+						<img src="img/password.png" class="icon">
+						<input type="password" id="lname" name="password" class="reqd" placeholder="我的密码">
+					</label>
+				</p>
+				<hr class="line" size="1" width="70%" color="gray">		
+				<p><input type="button" value="登录" id="login"></p>
+        	</form>
+    		<div id="fault">您输入的账号或密码有误！</div>
+    	</div>
+    	<!--弹出注册页面1-->
+    	<div id="newWin1">
+    		<form id="registerForm" action="code.html" method="post" autocomplete="jsonResponse">
+	    		<p>	<label for="userphone">
+	    			<img src="img/phone.png" class="icon">
+	    			<input type="text" size="30" id="userphone" class="reqd" placeholder="注册手机">
+	    			</label> 
+	    		</p>
+	    		<hr class="line" size="1" width="70%" color="gray">
+	    		
+	    		<p> <input type="button" value="发送验证码" id="verifiCode">
+	    			<input type="text" size="30" id="codeNum" class="reqd">
+	    		</p>
+	    		
+	    		<p>	<label for="userName">
+		    			<img src="img/account.png" class="icon">
+		    			<input type="text" size="30" id="userName" class="reqd" placeholder="我的昵称">
+	    			</label> 
+	    		</p>
+	    		<hr class="line" size="1" width="70%" color="gray">		
+				<p> <label for="passwd1">
+						<img src="img/password.png" class="icon">
+						<input type="password" id="passwd1" class="reqd" placeholder="我的密码">
+					</label>
+				</p>
+				<hr class="line" size="1" width="70%" color="gray">		
+				<p> <label for="passwd2">
+						<img src="img/password.png" class="icon">
+						<input type="password" id="passwd2" class="reqd passwd1" placeholder="重输密码">
+					</label>
+				</p>
+				<hr class="line" size="1" width="70%" color="gray">	
+				<p><input type="button" value="我要注册" id="register"></p>
+        	</form>
+       		<div id="fault">您输入的账号或密码有误！</div>
+    	</div>
+    	
+    	<!--弹出注册页面2-->
+    	<div id="newWin2">
+    		<div id="bgColor"></div>
+    		<canvas id="mypicture" width="200px" height="200px">
+    			<img id="photo">
+    		</canvas>
+    		<a class="file">
+            	<input type="file" accept="image/*;capture=camera" id="mycamera">
+        	</a>
+    		<p> <label for="sex">性别
+					<select id="sex" class="reqd">
+					<option value="" selected>未设置</option>
+					<option value="man">男</option>
+					<option value="woman">女</option>
+					</select>
+				</label>
+    		</p>
+			<hr class="line" size="1" width="70%" color="gray">	
+			<p> <div class="demo">
+					<label for="district">地区	
+					<input type="text" class="cityinput" id="citySelect" value="未设置"/>
+					<script type="text/javascript" src="js/querycity.js"></script>	
+				</div>
+			
+    		</p>
+			<hr class="line" size="1" width="70%" color="gray">
+			<p><input type="button" value="匹配我的身份" id="matchId"></p>
+			
+    	</div>
+    	
+    	<!--弹出注册页面3-->
+    	<div id="newWin3">
+    		 <p id="title">图片裁剪区</p>
+    		 <img src='' id='fileimg' />
+    		 <img src="img/upframe.png" id="upframe"/>
+    		 <img src="img/downframe.png" id="downframe"/>
+    		
+    		 <canvas id="coverpic" width="300px" height="300px"></canvas>
+    		 <canvas id="editpic" width="100" height="100"></canvas>
+    		 <div id="rangeDiv">
+    		 	<span id="rangeHint">调整截图位置：</span><br/> 
+    		 	<input type="range" id="rangeBar" name="points" min="1" max="10" value="1" />
+    		 </div>
+    		 <div id="confirmedit">确认裁剪</div>
+    		 <script type="text/javascript" src="js/editpic.js"></script>
+    	</div>
+    	
+    	<!--弹出注册页面4-->
+    	<div id="newWin4">
+    		<img src="img/grassfairy.png" id="roleimages"/>
+    		<p id= "rolenames">草魅精灵</p>
+    		<div id="entrance">进入寻宝部落</div>
+    	</div>
+    	
+    	
+    	<!--确认购买页面-->
+    	<div id ="confirmpurchase">
+    		<div id="goodsNum"></div>
+    		<span id ="goodsName"></span>
+    	</div>
+    	<!--<div id ="backgroundpic"></div>-->
+    	
+	</body>
+</html>
