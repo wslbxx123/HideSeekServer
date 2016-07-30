@@ -3,7 +3,7 @@ window.onload = myStart;
 function myStart(){
 	// 加载商城信息
 	var exStore = {
-			url: "http://120.25.252.252/index.php/home/store/refreshProducts",
+			url: "http://www.hideseek.cn/index.php/home/store/refreshProducts",
 			data: "version=0&product_min_id=0",
 			type: 'POST',
 			dataType: "json",
@@ -269,7 +269,7 @@ function myStart(){
 		//	实现登录界面和服务器的交互
 		if(allGood) {			
 			var options = {
-				url: "http://120.25.252.252/index.php/home/user/login",
+				url: "http://www.hideseek.cn/index.php/home/user/login",
 				data: $("#loginForm").serialize(),
 				type: 'POST',
 				dataType: "json",

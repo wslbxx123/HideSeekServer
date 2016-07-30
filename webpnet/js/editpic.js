@@ -23,7 +23,7 @@ document.getElementById("matchId").onclick = function(){
 				+ "&photo=" + document.getElementById("photo").src;
 				alert(data);
 	var mymessages = {
-		url: "http://120.25.252.252/index.php/home/user/register",
+		url: "http://www.hideseek.cn/index.php/home/user/register",
 		data: data,
 		type: 'POST',
 		dataType: "json",
@@ -32,8 +32,8 @@ document.getElementById("matchId").onclick = function(){
 			alert(JSON.stringify(result));
 			switch(result["code"]){
 				case "10000":
+					Num = result["result"]["record"];
 			        rolechange();
-					alert("注册成功!")
 					break;
 			  	case "10003":
 			  		alert("填写信息失败！")
@@ -74,7 +74,11 @@ document.getElementById("matchId").onclick = function(){
 				
 				
 				document.getElementById("entrance").onclick = function(){
-					
+					alert("注册成功!")
+					document.getElementById("nickname").innerHTML = document.getElementById("userName").value;
+					document.getElementById("scoreNum").innerHTML = Num;
+					$("#newWin4").fadeOut(); 
+					checkBox();
 				}
 			}
 		}

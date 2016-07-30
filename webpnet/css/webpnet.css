@@ -147,6 +147,20 @@ input.invalid {
     font-size:15px;
 }
 
+#confirmpurchase{
+	width: 88%;
+    height: 200px;
+    background: white;
+    border: 2px solid dimgrey;
+    border-radius: 5px;
+    display: block;
+    margin: 15% auto auto 6%;
+    position:absolute;
+    z-index:10;
+    text-align:center;
+    font-size:15px;
+}
+
 #login{
     height: 35px;
     margin-top: 10px;
@@ -687,4 +701,12 @@ p.tip{
     line-height: 36px;
     border-radius: 6px;
     border: 1px solid saddlebrown;
+}
+
+
+#goodsNum{
+	background-color: #f0f0f0;
+    height: 56px;
+    width: 87%;
+    margin: 7% auto;
 }
