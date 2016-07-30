@@ -83,7 +83,7 @@ input.invalid {
 }
 
 
-.logo{
+#headline .logo{
 	float: left; 
 	width:160px; 
 	padding-top: 10px;
