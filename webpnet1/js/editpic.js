@@ -172,13 +172,13 @@ function getPath(obj,fileQuery,transImg){
 		
 
 	    
-		if(width>document.body.clientWidth*0.8){
-	    	height = (height*document.body.clientWidth*0.8)/width;
-	    	width = document.body.clientWidth*0.8;
+		if(width>document.body.clientWidth*0.3){
+	    	height = (height*document.body.clientWidth*0.3)/width;
+	    	width = document.body.clientWidth*0.3;
 		}
-		if(height>document.body.clientWidth*0.8){
-			width = (width*document.body.clientWidth*0.8)/height;
-			height = document.body.clientWidth*0.8;
+		if(height>document.body.clientWidth*0.3){
+			width = (width*document.body.clientWidth*0.3)/height;
+			height = document.body.clientWidth*0.3;
 		}
 		fileimg.width = width;
 		fileimg.height = height;
@@ -218,8 +218,8 @@ function getPath(obj,fileQuery,transImg){
 			if(width>height){
 				n = width-height;
 				ctx.clearRect (0.1*n*(x-1),0,coverpic.height,coverpic.height);
-				upframe.style.left = document.body.clientWidth*0.8*0.1+0.1*n*(x-1)+"px";
-				downframe.style.left = height+document.body.clientWidth*0.8*0.1-20+0.1*n*(x-1)+"px";
+				upframe.style.left = document.body.clientWidth*0.3*0.1+0.1*n*(x-1)+"px";
+				downframe.style.left = height+document.body.clientWidth*0.3*0.1-20+0.1*n*(x-1)+"px";
 			}
 			else{
 				n = width-height;
@@ -233,9 +233,9 @@ function getPath(obj,fileQuery,transImg){
 
 		function setFrame(Num){
 			upframe.style.marginTop = 50+"px";
-			upframe.style.left = document.body.clientWidth*0.8*0.1+"px";
+			upframe.style.left = document.body.clientWidth*0.3*0.1+"px";
 			downframe.style.marginTop = Num+30+"px";
-			downframe.style.left = Num+document.body.clientWidth*0.8*0.1-20+"px";
+			downframe.style.left = Num+document.body.clientWidth*0.3*0.1-20+"px";
 		}
 		
 		

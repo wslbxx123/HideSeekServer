@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+    	<meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	    <meta name="x5-fullscreen" content="true">
+		<meta name="full-screen" content="yes">
+    	<meta name="keywords" content="积分 商城兑换 hideseek 寻宝部落  旅游 美食" />
+    	<meta name="description" content="积分 商城兑换 hideseek 寻宝部落 旅游 美食" />
+    	<title>寻宝部落积分商城</title>
+    	<link rel="stylesheet" href="css/webcnet.css">
+    	<script type="text/javascript" src="js/jquery.js"></script>
+    	<script type="text/javascript" src="js/webpnet.js"></script>
+		<style type="text/css">
+			*{margin:0;padding:0;       
+			}
+			
+			
+			body{
+				background:lightyellow;
+				width:100%;
+				height:800px;
+				position:absolute;
+				font-family:"Microsoft Yahei"; 
+				-webkit-overflow-scrolling: touch; 
+				overflow-scrolling: touch; 
+				}
+				
+			img {
+				border: 0 none; 
+				width: auto\9; 
+				vertical-align: top; 
+				-ms-interpolation-mode: bicubic; 
+			}
+			 
+			#headline{
+			    width: 100%;
+			    height: 58px;
+			}
+			
+			#mushroom  {
+			 	width: 289px;
+			    height: 278px;
+			    background: url(../img/mushroom.png) no-repeat;
+			    position: absolute;
+			    top: 192px;
+			    margin-left: 24%;
+			    z-index: 20;
+			    background-size: cover;
+			}
+			
+			#test_title{
+				margin-left: 47%;
+			    margin-top: -335px;
+			    height: 210px;
+			    width: 366px;
+			}
+			
+			/*#gamebutton{
+				height: 150px;
+			    width: 150px;
+			    margin: -78px 43%;
+			}*/
+			
+			input{
+				width: 62%;
+			    height: 30px;
+			    margin-left: 4px;
+			    font-size: 14px;
+			    font-family: "Microsoft Yahei";
+			    margin-bottom: 10px;
+			    border-color: dimgrey;
+			    border-width: 0px;
+			    background-color: white;
+			}
+			
+			select{
+				width: 58%;
+			    margin-left: 4px;
+			    font-size: 14px;
+			    font-family: "Microsoft Yahei";
+			    margin-bottom: 14px;
+			    border-color: dimgrey;
+			    border-width: 0px;
+			    background-color: white;
+			    -webkit-appearance: none;
+			    background: url("../img/arrow.png") no-repeat scroll right center transparent;
+			}
+			
+			input:-webkit-autofill { 
+			-webkit-box-shadow: 0 0 0px 1000px white inset; 
+			}
+			
+			input.invalid {
+				background-color: lightyellow;
+				color: 1px red inset;
+			}
+			
+			
+			#headline .logo{
+				float: left; 
+				width:160px; 
+				padding-top: 10px;
+				padding-left:10px;
+				}
+				
+			.prompt{
+				width: 52px;
+			    height: 28px;
+			    margin-right: 5px;
+			    font-size: 12px;
+			    font-family: "Microsoft Yahei";
+			}
+			
+			.inner_menu{
+				left: 87%;
+			    top: 12px;
+			    display: block;
+			    position: absolute;
+			}
+			
+			
+			#storecover{
+				position:absolute;
+				width:100%;
+				top:58px;
+				height:1942px;
+				background-color:#000000;
+				z-index:30;
+				filter:alpha(opacity=50); 
+				-moz-opacity:0.5; 
+				opacity:0.5;
+				display:none;
+			}
+			
+			#newWin{
+				width: 35%;
+			    height: 234px;
+			    background: white;
+			    border: 2px solid dimgrey;
+			    border-radius: 5px;
+			    display: none;
+			    margin: -37% 32% 6%;
+			    position: absolute;
+			    z-index: 32;
+			    text-align: center;
+			    font-size: 15px;
+			}
+			
+			#newWin1{
+				width: 28%;
+			    height: 351px;
+			    background: white;
+			    border: 2px solid dimgrey;
+			    border-radius: 5px;
+			    display: none;
+			    margin: -37% 34% 6%;
+			    position: absolute;
+			    z-index: 30;
+			    text-align: center;
+			    font-size: 15px;
+			}
+			
+			#newWin2{
+				width: 28%;
+			    height: 351px;
+			    background: white;
+			    border: 2px solid dimgrey;
+			    border-radius: 5px;
+			    display: none;
+			    margin: -37% 36% 6%;
+			    position: absolute;
+			    z-index: 30;
+			    text-align: center;
+			    font-size: 15px;
+			}
+			
+			#newWin3{
+				width: 30%;
+			    height: 600px;
+			    background: white;
+			    border-radius: 5px;
+			    display: none;
+			    margin: -44% 33%;
+			    position: absolute;
+			    z-index: 38;
+			    font-size: 15px;
+			    text-align: center;
+			}
+			
+			#newWin4{
+				width: 30%;
+			    height: 600px;
+			    background: white;
+			    border-radius: 5px;
+			    display: none;
+			    margin: -44% 33%;
+			    position: absolute;
+			    z-index: 38;
+			    font-size: 15px;
+			    text-align: center;
+			}
+			
+			#confirmpurchase{
+				width: 88%;
+			    height: 200px;
+			    background: white;
+			    border: 2px solid dimgrey;
+			    border-radius: 5px;
+			    display: none;
+			    margin: 15% auto auto 6%;
+			    position:absolute;
+			    z-index:10;
+			    text-align:center;
+			    font-size:15px;
+			}
+			
+			#login{
+			    height: 35px;
+			    margin-top: 10px;
+			    font-family: "Microsoft Yahei";
+			    font-size: 15px;
+			    background-color:#fae077;
+			    border-radius:5px;
+			    cursor: pointer; 
+			    -webkit-appearance: none;
+			    width: 80%;
+			}
+			
+			#register{
+			    height: 35px;
+			    margin-top: 10px;
+			    font-family: "Microsoft Yahei";
+			    font-size: 15px;
+			    background-color:#fae077;
+			    border-radius:5px;
+			    cursor: pointer; 
+			    -webkit-appearance: none; 
+			    width: 80%;
+			}
+			
+			#myprofile{
+				left: 80%;
+			    top: 1%;
+			    position: absolute;
+			    display: none;
+			    font-size: 12px;
+			    padding: 2px;
+			    background:#fae077;
+			    border-radius:2px;
+			    border:1px solid cornflowerblue;
+			}
+			
+			
+			#test1{
+				float: left;
+			    background: #b81d25;
+			    color: white;
+			    -webkit-appearance: none;
+			    height: 35px;
+			    width: 73px;
+			}
+			
+			#test2{
+				float: left;
+			    background: #b81d25;
+			    color: white;
+			    -webkit-appearance:none;
+			    height: 35px;
+			    width: 73px;
+			}
+			
+			
+			#fault{
+				background: indianred;
+			    width: 70%;
+			    height: 33px;
+			    z-index: 10;
+			    font-size: 15px;
+			    color: white;
+			    line-height: 33px;
+			    text-align: center;
+			    border-radius: 5px;
+			    margin: 0px auto;
+			    position: relative;
+			    display: none;
+			}
+			
+			#loginForm{
+			    position: relative;
+			    text-align: center;
+			    margin-top: 15%;
+			}
+			
+			#registerForm{
+			    position: relative;
+			    text-align: center;
+			    margin-top: 15%;
+			}
+			
+			#guide{
+				height: 50px;
+			    width: 302px;
+			    border-top-right-radius: 8px;
+			    border-top-left-radius: 8px;
+			    margin-top: -9px;
+			    margin-left: 2%;
+			    background: white;
+			    font-size: 14px;
+			    z-index: 30;
+			    position: absolute;
+			    border: 2px solid #b81d25;
+			}
+			
+			#appdownload{
+				float: left;
+			    height: 47px;
+			    width: 100px;
+			    text-align: center;
+			    line-height: 50px;
+			    border-top-left-radius: 5px;
+			}
+			
+			#purchase{
+				float: left;
+			    height: 47px;
+			    width: 100px;
+			    text-align: center;
+			    line-height: 50px;
+			    border-left: 1px solid #b81d25;
+			}
+			
+			#exchange{
+				float: right;
+			    height: 47px;
+			    width: 100px;
+			    text-align: center;
+			    line-height: 50px;
+			    border-top-right-radius: 5px;
+			    border-left: 1px solid #b81d25;
+			}
+			
+			.apparea{
+				background-color: #b81d25;
+			    width: 46%;
+			    height: 78px;
+			    float: left;
+			    margin-left: 15px;
+			    margin-top: 27px;
+			    border-radius: 10px;
+			    color: white;
+			    text-align: center;
+			    line-height: 78px;
+			}
+			
+			.N2{
+				float: left;
+				margin-left: 10px;
+			    margin-top: 10px;
+			    height: 35%;
+			    width: 45%;
+			    background: white;
+			    font-size: 14px;
+			}
+			
+			.N1{
+				float: right;
+			    margin-right: 10px;
+			    margin-top: 10px;
+			    height: 35%;
+			    width: 45%;
+			    background: white;
+			    font-size: 14px;
+			}
+			
+			.productImg{
+				width: 118px;
+			    height: 98px;
+			    margin: 9px auto 0 14px;
+			}
+			
+			.scoreImg{
+				width: 17px;
+			    height: 17px;
+			    position: absolute;
+			    margin-left: 3px;
+			}
+			
+			.pointNum{
+				font-size: 8px;
+			    position: absolute;
+			    margin-left: 21px;
+			    line-height: 17px;
+			    color: #d30b06;
+			}
+			
+			.peopleImg{
+				margin-left: 41px;
+			    width: 14px;
+			    height: 14px;
+			    margin-top: 1px;
+			    position: absolute;
+			}
+			
+			.peopleNum{
+				font-size: 8px;
+			    position: absolute;
+			    margin-left: 58px;
+			    line-height: 17px;
+			    color:#d30b06;
+			}
+			
+			.get1{
+				margin-top: 6px;
+			    width: 100%;
+			    height: 11%;
+			    background: #FFCC00;
+			    text-align: center;
+			}
+			
+			.exGet{
+				margin-top: 6px;
+			    width: 100%;
+			    height: 11%;
+			    background: #FFCC00;
+			    text-align: center;
+			}
+			
+			.productName{
+				margin-top: 10px;
+			    margin-left: 10px;
+			}
+			
+			#intro{
+				margin-top: 19px;
+			    margin-right: 5px;
+			    margin-left: 5px;
+			    width: 99%;
+			    height:47px;
+			    font-size: 12px;
+			}
+			
+			.selected{
+				background:#b81d25;
+				color:white;
+			}
+			
+			
+			#purArea{
+				position: absolute;
+			    background-color: white;
+			    z-index: 44;
+			    display: block;
+			    width: 96%;
+			    margin-left: 2%;
+			    margin-top: 38px;
+			    border-top-right-radius: 10px;
+			    border-bottom-left-radius: 10px;
+			    border-bottom-right-radius: 10px;
+			}
+			
+			#downArea{
+				position: absolute;
+			    background-color: white;
+			    z-index: 44;
+			    display: block;
+			    height: 223px;
+			    width: 96%;
+			    margin-left: 2%;
+			    margin-top: 38px;
+			    border-top-right-radius: 10px;
+			    border-bottom-left-radius: 10px;
+			    border-bottom-right-radius: 10px;
+			    border: 2px solid #b81d25;
+			}
+			
+			#exArea{
+				position: absolute;
+			    background-color: white;
+			    z-index: 44;
+			    display: block;
+			    width: 96%;
+			    margin-left: 2%;
+			    margin-top: 38px;
+			    border-top-right-radius: 10px;
+			    border-bottom-left-radius: 10px;
+			    border-bottom-right-radius: 10px;
+			}
+			
+			.icon{
+				height: 19px;
+			    width: 14px;
+			    margin-bottom: -3px;
+			}
+			
+			.line{
+				margin-top: -10px;
+			    margin-bottom: 16px;
+			    margin-left:auto;
+			    margin-right:auto;
+			}
+			
+			.line1{
+				margin-top: 13px;
+			}
+			
+			#verifiCode{
+				height: 29px;
+			    width: 36%;
+			    background-color: #fae077;
+			    border-radius: 5px;
+			    cursor: pointer; 
+			    -webkit-appearance: none; 
+			}
+			
+			.APPfile{
+				height: 176px;
+			    width: 47%;
+			    background-color: lightyellow;
+			    margin-top: 20px;
+			    margin-left: 2%;
+			    float: left;
+			}
+			
+			
+			#codeNum{
+				border-width: 1px;
+				width:38%;
+				}
+				
+				
+			.file {
+			    position: relative;
+			    display: inline-block;
+			    background: url("../img/mycamera.png") no-repeat center;
+			    border-radius: 4px;
+			    padding: 4px 12px;
+			    overflow: hidden;
+			    text-decoration: none;
+			    text-indent: 0;
+			    line-height: 20px;
+			    height: 23px;
+			    width: 20px;
+			    background-size: contain; 
+			    margin-left: -16%;
+			}	
+			
+			.paragraph{
+				margin-top: 23px;
+			    margin-left: 30px;
+			    margin-right: 30px;
+			}
+			
+			.title1{
+				margin-top: 5px;
+			    margin-left: 5px;
+			    height: 10px;
+			    width: 77px;
+			}
+			
+			#mycamera{
+				position: absolute;
+			    font-size: 100px;
+			    right: 0;
+			    top: 0;
+			    opacity: 0;
+			}
+			
+			#mypicture{
+				margin-top: -20%;
+			    border-radius: 63px;
+			    width: 111px;
+			    height: 111px;
+			    background: url("../img/mypicture.png") no-repeat center;
+			    background-size: cover;
+			    background-color: grey;
+			}
+			
+			#bgColor{
+				background-color: #fae077;
+			    width: 100%;
+			    height: 36%;
+			}
+			
+			label{
+				font-size:14px;
+			}
+			
+			
+			/* citySelector */
+			.citySelector{
+				font:12px/1.5 tahoma,arial,\5b8b\4f53;
+				background:#fff;
+				text-align:left;
+			}
+			.cityslide{
+				width:250px;
+				list-style:none;
+				margin:0;
+				padding:0;
+				border:1px solid #85BEE5;
+				border-right-color:#3485C0;
+				border-bottom-color:#3485C0;
+				box-shadow:2px 2px 3px rgba(0,0,0,0.3);
+				margin-top:-2px;
+			}
+			
+			.cityslide li{
+				list-style:none;overflow:
+				hidden;height:16px;
+				padding:4px 5px;
+			}
+			
+			.cityslide li.on{
+				background:#9CD9FF;
+				color:#fff;
+			}
+			
+			.cityslide li b{
+				font-weight:normal;
+			}
+			
+			.cityslide li.empty{
+				background:#fff2e8;
+				color:#666;
+			}
+			
+			.cityslide li.empty em{
+				color:red;
+				font-style:normal;
+			}
+			
+			.cityname{
+				float:left;
+			}
+			.cityspell{
+				float:right;
+			}
+			
+			.cityBox{
+				margin: 0 auto;
+				width:320px;
+				border:1px solid #85BEE5;
+				overflow:hidden;
+				box-shadow:2px 2px 3px rgba(0,0,0,0.3);
+			}
+			
+			.cityBox ul{
+				margin:0;padding:0;
+				overflow:hidden;
+			}
+			
+			.cityBox ul li{
+				float:left;
+				list-style:none;
+				padding:2px 4px;
+				border:1px solid #85BEE5;
+				cursor:pointer;
+				margin-left:4px;
+				display:inline;
+				background:#E1EFFE;
+			}
+			
+			.cityBox ul li.on{
+				background:#fff;
+				border-bottom-color:#fff;
+				position:relative;
+			}
+			
+			.hide{
+				display:none;
+			}
+			
+			p.tip{
+				color:#666;
+				line-height:20px;
+				padding:5px;
+				margin:0;
+				text-indent:3px;
+			}
+			
+			.hotCity{
+				border-top:1px solid #85BEE5;
+				margin-top:-1px;
+				clear:left;
+				overflow:hidden;
+				padding-bottom:5px;
+				padding-top:5px;
+				_margin-bottom:8px;
+			}
+				
+			.cityTab{
+				overflow:hidden;
+			}
+			.cityTab dl{
+				margin:0;
+				padding:0;
+				overflow:hidden;
+			}
+			
+			.cityTab dl dt{
+				float:left;
+				padding-left:3px;
+				color:#F30;
+				text-indent:5px;
+				font-family:"Lucida console","consolas","courier new";
+				line-height:22px;
+				font-size:14px;
+				width:20px;
+			}
+			
+			.cityTab dl dd{
+				margin-left:2px;
+				float:left;
+				width:290px;
+			}
+			
+			.cityTab dl dd a{
+				padding-left:5px;
+				width:66px;
+				line-height:22px;
+				display:inline-block;
+				color:#000;
+				text-decoration:none;
+			}
+			
+			.cityTab dl dd a:hover{
+				text-decoration:underline;
+				color:red;
+			}
+			
+			.cityinput{
+				width: 57%;
+			    height: 30px;
+			    line-height: 24px;
+			    padding-left: 3px;
+			    font-size: 14px;
+			    background: url(../img/arrow.png) no-repeat scroll right center transparent;
+			}
+			
+			#matchId{
+				height: 35px;
+			    margin-top: 10px;
+			    font-family: "Microsoft Yahei";
+			    font-size: 15px;
+			    background-color:#fae077;
+			    border-radius:5px;
+			    cursor: pointer; 
+			    -webkit-appearance: none; 
+			    width: 80%;
+			}
+			
+			#picWin{
+				position:relative;
+				margin:0 auto;
+			}
+			
+			#fileimg{
+				position: absolute;
+			    -webkit-user-select: none;
+			    left: 10%;
+			    margin-top: 50px;
+			}
+			
+			#coverpic{
+				position: absolute;
+				left: 10%;
+				margin-top: 50px;
+			}
+			
+			#upframe{
+				position: absolute;
+				left: 10%;
+				margin-top: 50px;
+				width:20px;
+				height:20px;
+				z-index:99;
+				-webkit-user-select: none;
+				-moz-user-select:none;
+			}
+			
+			#downframe{
+				position: absolute;
+				left: 10%;
+				margin-top: 50px;
+			    width: 20px;
+			    height: 20px;
+			    z-index:99;
+			    -webkit-user-select: none;
+			    -moz-user-select:none;
+			}
+			
+			#title{
+				position: absolute;
+			    margin-top: 10px;
+			    background-color: #ffcc00;
+			    font-size: 14px;
+			    height: 29px;
+			    width: 100%;
+			    border-radius: 0px;
+			    line-height: 29px;
+			}
+			
+			#rangeDiv{
+				margin-top: 91%;
+			}
+			
+			#rangeHint{
+				font-size:12px;
+			}
+			
+			#confirmedit{
+				background-color: #ffcc00;
+			    height: 33px;
+			    width: 62%;
+			    margin: 0 auto;
+			    line-height: 33px;
+			    border-radius: 4px;
+			}
+			
+			#roleimages{
+				height: 278px;
+			    width: 200px;
+			    margin-top: 10px;
+			}
+			
+			#rolenames{
+				height: 27px;
+			    width: 80%;
+			    position: relative;
+			    margin:-4px auto 0 auto;
+			    color: white;
+			    font-size: 13px;
+			    background-color: saddlebrown;
+			    line-height:27px;
+			    border:2px solid sandybrown;
+			}
+			
+			#entrance{
+				background-color: white;
+			    height: 36px;
+			    width: 75%;
+			    margin: 27px auto 0 auto;
+			    line-height: 36px;
+			    border-radius: 6px;
+			    border: 1px solid saddlebrown;
+			}
+			
+			
+			#goodsNum{
+				background-color: #f0f0f0;
+			    height: 56px;
+			    width: 87%;
+			    margin: 7% auto;
+			}
+			
+			#backgroundpic{
+				width: 97%;
+			    height: 800px;
+			    margin: 3% auto;
+			    background-color: white;
+			    border-radius: 10px;
+			}
+
+		</style>
+    	
+	</head>
+	<body>
+		<div id ="storecover"></div>
+     	<div id="headline">
+        	<div class="logo">
+           		 <img title="寻宝部落积分商城" src="img/logo.png" width="125"/>
+           	</div>
+            <div class="inner_menu">
+           		 <button type="button" class="prompt" id="test1">登录</button>
+           		 <button type="button" class="prompt" id="test2">注册</button>
+           	</div>
+           	<div id="myprofile">
+           		<div id= "nickname"></div>
+           		<div id= "score">&nbsp;<span id="scoreNum">2</span>积分</div>
+           	</div>
+    	</div>
+    	
+    	
+    	<!-- banner图 -->
+	    <div class="banner">
+		    <img src="img/road.gif" style="width:100%;">
+			<img src="img/road1.gif" style="width:100%;">
+			<img src="img/road2.gif" style="width:100%;">
+			<!--<img src="img/button.png" id="gamebutton"/>-->
+			<img src="img/test_title.png" id="test_title"/>		
+			<div id="mushroom"></div>
+	    </div>
+    	
+    	<!--导航区-->
+    	<div id="guide">
+    		<a id="appdownload" class="selected" >APP下载区</a>
+    		<a id="purchase" class="">购买区</a>
+    		<a id="exchange" class="">兑换区</a>
+    	</div>
+    	
+    	<!--购买区-->
+    	<div id ="purArea">
+	    	<!--<div class="N1"><span class="productName">定时炸弹</span>
+	    		<img src="img/bomb.png" class="productImg">
+	    		<div>
+	    			<img src="img/score.png" class="scoreImg"><span class="pointNum" id="pointNumb1">32</span>
+	    			<img src="img/people.png" class="peopleImg"><span class="peopleNum">15865人购买</span>
+	    		</div>
+	    		<div id="intro">放在指定位置。</div>
+	    		<div id="b1" class="get1">购买</div>
+	    	</div>
+	    	<div class="N2"><span class="productName">定时炸弹</span>
+	    		<img src="img/bomb.png" class="productImg">
+	    		<div>
+	    			<img src="img/score.png" class="scoreImg"><span class="pointNum" id="pointNumb2">32</span>
+	    			<img src="img/people.png" class="peopleImg"><span class="peopleNum">15865人购买</span>
+	    		</div>
+	    		<div id="intro">放在指定位置，当怪兽出现可触发炸弹，造成大范围严重伤害。</div>
+	    		<div id="b2" class="get1">购买</div>
+	    	</div>
+	    	<div class="N1"><span class="productName">定时炸弹</span>
+	    		<img src="img/bomb.png" class="productImg">
+	    		<div>
+	    			<img src="img/score.png" class="scoreImg"><span class="pointNum" id="pointNumb3">32</span>
+	    			<img src="img/people.png" class="peopleImg"><span class="peopleNum">15865人购买</span>
+	    		</div>
+	    		<div id="intro">放在指定位置，当怪兽出现可触发炸弹，造成大范围严重伤害。</div>
+	    		<div id="b3" class="get1"name="b3">购买</div>
+	    	</div>
+	    	<div class="N2"><span class="productName">定时炸弹</span>
+	    		<img src="img/bomb.png" class="productImg">
+	    		<div>
+	    			<img src="img/score.png" class="scoreImg"><span class="pointNum" id="pointNumb4">32</span>
+	    			<img src="img/people.png" class="peopleImg"><span class="peopleNum">15865人购买</span>
+	    		</div>
+	    		<div id="intro">放在指定位置，当怪兽出现可触发炸弹，造成大范围严重伤害。</div>
+	    		<div id="b4" class="get1"name="b4">购买</div>
+	    	</div>
+	    	<div class="N1"><span class="productName">定时炸弹</span>
+	    		<img src="img/bomb.png" class="productImg">
+	    		<div>
+	    			<img src="img/score.png" class="scoreImg">
+	    			<span class="pointNum" id="pointNumb5">32</span>
+	    			<img src="img/people.png" class="peopleImg">
+	    			<span class="peopleNum">15865人购买</span>
+	    		</div>
+	    		<div id="intro">放在指定位置，当怪兽出现可触发炸弹，造成大范围严重伤害。</div>
+	    		<div id="b5" class="get1">购买</div>
+	    	</div>
+	    	<div class="N2"><span class="productName">定时炸弹</span>
+	    		<img src="img/bomb.png" class="productImg">
+	    		<div>
+	    			<img src="img/score.png" class="scoreImg"><span class="pointNum" id="pointNumb6">32</span>
+	    			<img src="img/people.png" class="peopleImg"><span class="peopleNum">15865人购买</span>
+	    		</div>
+	    		<div id="intro">放在指定位置，当怪兽出现可触发炸弹，造成大范围严重伤害。</div>
+	    		<div id="b6" class="get1">购买</div>
+			</div>-->
+    	</div>
+    	
+    	<!--兑换区-->
+    	<div id ="exArea">
+	    
+    	</div>
+    	
+    	<div id ="downArea">
+	    	<div class="APPfile">
+	    		<p class ="title1">APP介绍</p>
+	    		<hr class="line1" size="2" width="40%" color="#b81d25">	
+	    		<p class ="paragraph">化身你命中注定的角色身份，来场虚拟与现实交融的奇妙探险吧！在找与藏之前感受未知的快感，还可获得丰厚积分，兑换你梦寐已久的现实愿望清单！说走就走的旅行、火爆的演唱会门票等丰厚礼品在这里都只剩下步与步之间力量组合的高能转换。</p>
+	    	</div>
+	    	<div class="APPfile">
+	    		<p class ="title1">APP下载</p>
+	    		<hr class="line1" size="2" width="40%" color="#b81d25">	
+	    		<div class="apparea">下载Android版本</div>
+	    		<div class="apparea">下载iOS版本</div>
+	    	</div>
+    	</div>
+    	
+    	<!--弹出登录页面-->
+    	<div id="newWin">
+    		<form id="loginForm" action="http://120.25.252.252/index.php/home/user/login" method="post" autocomplete="jsonResponse">
+	    		<p>	<label for="fname">
+		    			<img src="img/phone.png" class="icon"> 
+		    			<input type="text" id="fname" name="phone" class="reqd" placeholder="我的手机号">
+	    			</label>
+	    		</p>
+	    		<hr class="line" size="1" width="70%" color="gray">		
+				<p>	<label for="lname">
+						<img src="img/password.png" class="icon">
+						<input type="password" id="lname" name="password" class="reqd" placeholder="我的密码">
+					</label>
+				</p>
+				<hr class="line" size="1" width="70%" color="gray">		
+				<p><input type="button" value="登录" id="login"></p>
+        	</form>
+    		<div id="fault">您输入的账号或密码有误！</div>
+    	</div>
+    	<!--弹出注册页面1-->
+    	<div id="newWin1">
+    		<form id="registerForm" action="code.html" method="post" autocomplete="jsonResponse">
+	    		<p>	<label for="userphone">
+	    			<img src="img/phone.png" class="icon">
+	    			<input type="text" size="30" id="userphone" class="reqd" placeholder="注册手机">
+	    			</label> 
+	    		</p>
+	    		<hr class="line" size="1" width="70%" color="gray">
+	    		
+	    		<p> <input type="button" value="发送验证码" id="verifiCode">
+	    			<input type="text" size="30" id="codeNum" class="reqd">
+	    		</p>
+	    		
+	    		<p>	<label for="userName">
+		    			<img src="img/account.png" class="icon">
+		    			<input type="text" size="30" id="userName" class="reqd" placeholder="我的昵称">
+	    			</label> 
+	    		</p>
+	    		<hr class="line" size="1" width="70%" color="gray">		
+				<p> <label for="passwd1">
+						<img src="img/password.png" class="icon">
+						<input type="password" id="passwd1" class="reqd" placeholder="我的密码">
+					</label>
+				</p>
+				<hr class="line" size="1" width="70%" color="gray">		
+				<p> <label for="passwd2">
+						<img src="img/password.png" class="icon">
+						<input type="password" id="passwd2" class="reqd passwd1" placeholder="重输密码">
+					</label>
+				</p>
+				<hr class="line" size="1" width="70%" color="gray">	
+				<p><input type="button" value="我要注册" id="register"></p>
+        	</form>
+       		<div id="fault">您输入的账号或密码有误！</div>
+    	</div>
+    	
+    	<!--弹出注册页面2-->
+    	<div id="newWin2">
+    		<div id="bgColor"></div>
+    		<canvas id="mypicture" width="200px" height="200px">
+    			<img id="photo">
+    		</canvas>
+    		<a class="file">
+            	<input type="file" accept="image/*;capture=camera" id="mycamera">
+        	</a>
+    		<p> <label for="sex">性别
+					<select id="sex" class="reqd">
+					<option value="" selected>未设置</option>
+					<option value="man">男</option>
+					<option value="woman">女</option>
+					</select>
+				</label>
+    		</p>
+			<hr class="line" size="1" width="70%" color="gray">	
+			<p> <div class="demo">
+					<label for="district">地区	
+					<input type="text" class="cityinput" id="citySelect" value="未设置"/>
+					<script type="text/javascript" src="js/querycity.js"></script>	
+				</div>
+			
+    		</p>
+			<hr class="line" size="1" width="70%" color="gray">
+			<p><input type="button" value="匹配我的身份" id="matchId"></p>
+			
+    	</div>
+    	
+    	<!--弹出注册页面3-->
+    	<div id="newWin3">
+    		 <p id="title">图片裁剪区</p>
+    		 <img src='' id='fileimg' />
+    		 <img src="img/upframe.png" id="upframe"/>
+    		 <img src="img/downframe.png" id="downframe"/>
+    		
+    		 <canvas id="coverpic" width="300px" height="300px"></canvas>
+    		 <canvas id="editpic" width="100" height="100"></canvas>
+    		 <div id="rangeDiv">
+    		 	<span id="rangeHint">调整截图位置：</span><br/> 
+    		 	<input type="range" id="rangeBar" name="points" min="1" max="10" value="1" />
+    		 </div>
+    		 <div id="confirmedit">确认裁剪</div>
+    		 <script type="text/javascript" src="js/editpic.js"></script>
+    	</div>
+    	
+    	<!--弹出注册页面4-->
+    	<div id="newWin4">
+    		<img src="img/grassfairy.png" id="roleimages"/>
+    		<p id= "rolenames">草魅精灵</p>
+    		<div id="entrance">进入寻宝部落</div>
+    	</div>
+    	
+    	
+    	<!--确认购买页面-->
+    	<div id ="confirmpurchase">
+    		<div id="goodsNum"></div>
+    		<span id ="goodsName"></span>
+    	</div>
+    	<!--<div id ="backgroundpic"></div>-->
+    	
+	</body>
+</html>
