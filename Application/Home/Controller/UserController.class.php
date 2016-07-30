@@ -70,11 +70,11 @@ class UserController extends Controller {
             
             if(isset($_FILES['photo'])) {
                 $file = $_FILES['photo'];
-                $filePath = ROOT."/Public/Image/".$file['name'];
-                $fileName = "./Public/Image/".$file['name'];
+                $filePath = ROOT."/Public/Image/Photo".$file['name'];
+                $fileName = "./Public/Image/Photo".$file['name'];
             
                 if(move_uploaded_file($file['tmp_name'], $fileName)) {
-                    $account["photo_url"] = U($filePath."@www.hideseek.cn");
+                    $account["photo_url"] = U($filePath, '', true, true);
                 } else {
                     $code = "10004";
                     $message = "上传图片失败";
