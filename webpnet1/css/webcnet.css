@@ -145,7 +145,7 @@ input.invalid {
     border-radius: 5px;
     -moz-border-radius: 5px; /* Firefox */
   	-webkit-border-radius: 5px; /* Safari 和 Chrome */
-  	behavior: url(border-radius.htc);
+  	behavior: url("border-radius.htc");
     display: none;
     margin: -37% 34% 6%;
     position: absolute;
