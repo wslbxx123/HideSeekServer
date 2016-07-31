@@ -143,16 +143,23 @@ class StoreController extends BaseController {
         $sessionId = $_POST['session_id'];
         $accountId = $this->getPkIdFromToken($sessionId);
         $storeId = $_POST['store_id'];
+        $count = $_POST['count'];
         
         if(isset($sessionId) && $sessionId != "") {
             if(isset($storeId)) {
-                $Dao = M("order");
-                $order["store_id"] = $storeId;
-                $order['status'] = 0;
-                $order['create_by'] = $accountId;
-                $order['create_time'] = date('y-m-d H:i:s',time());
-                $order['update_time'] = date('y-m-d H:i:s',time());
-                $lastInsId = $Dao->add($order);
+                if(isset($count)) {
+                    $Dao = M("order");
+                    $order["store_id"] = $storeId;
+                    $order['status'] = 0;
+                    $order['create_by'] = $accountId;
+                    $order['create_time'] = date('y-m-d H:i:s',time());
+                    $order['update_time'] = date('y-m-d H:i:s',time());
+                    $order['count'] = $count;
+                    $lastInsId = $Dao->add($order);
+                } else {
+                    $code = "10015";
+                    $message = "商品数量为空";
+                }   
             } else {
                 $code = "10014";
                 $message = "商品ID值为空";
@@ -181,6 +188,24 @@ class StoreController extends BaseController {
                 $order["status"] = 1;
                 $order['update_time'] = date('y-m-d H:i:s',time());
                 $Dao->where($condition)->save($order);
+                $condition['pk_id'] = $orderId;
+                $order = $Dao->where($condition)->find();
+                
+                if($order == null) {
+                    $code = "10016";
+                    $message = "订单编号错误";
+                } else {
+                    $storeDao = M("store");
+                    $storeCondition["pk_id"] = $order['store_id'];
+                    $store = $storeDao->where($storeCondition)->find();
+                    $store['purchase_count'] = $store['purchase_count'] + 1;
+                    $storeDao->where($storeCondition)->save($store);
+                    
+                    $versionDao = M("pull_version");
+                    $version = $versionDao->find();
+                    $version['store_version'] = $version['store_version'] + 1;
+                    $versionDao->where('1=1')->save($version);
+                }
             } else {
                 $code = "10015";
                 $message = "订单ID值为空";
