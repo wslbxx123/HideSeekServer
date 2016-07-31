@@ -35,6 +35,9 @@ img {
     margin-left: 24%;
     z-index: 20;
     background-size: cover;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(
+	src='../img/mushroom.png',
+	sizingMethod='scale');
 }
 
 #test_title{
