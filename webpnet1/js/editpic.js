@@ -20,7 +20,7 @@ document.getElementById("matchId").onclick = function(){
 				+ "&sex="+ document.getElementById("sex").options[index].text
 				+ "&region=" + document.getElementById("citySelect").value
 				+ "&role=" + myId
-				+ "&photo=" + document.getElementById("photo").src;
+				+ "&photo_url=" + document.getElementById("photo").src;
 				alert(data);
 	var mymessages = {
 		url: "http://120.25.252.252/index.php/home/user/register",
