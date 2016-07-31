@@ -27,11 +27,12 @@ img {
 }
 
 #mushroom  {
- 	width: 289px;
-    height: 278px;
+ 	width: 24%;
+    height: 35%;
     background: url(../img/mushroom.png) no-repeat;
+    background-size:cover;
     position: absolute;
-    top: 192px;
+    margin-top: -26%;
     margin-left: 24%;
     z-index: 20;
 }
@@ -145,7 +146,7 @@ input.invalid {
     border-radius: 5px;
     -moz-border-radius: 5px; /* Firefox */
   	-webkit-border-radius: 5px; /* Safari 和 Chrome */
-  	behavior: url(ie-<a href="https://www.baidu.com/s?wd=css3&tn=44039180_cpr&fenlei=mv6quAkxTZn0IZRqIHckPjm4nH00T1dBuA7BnyF9ny7BPWT1rjmv0ZwV5Hcvrjm3rH6sPfKWUMw85HfYnjn4nH6sgvPsT6KdThsqpZwYTjCEQLGCpyw9Uz4Bmy-bIi4WUvYETgN-TLwGUv3EnHb3rjmkrjfsrjnLP1TzPjmvPs" target="_blank" class="baidu-highlight">css3</a>.htc);
+  	behavior: url("border-radius.htc");
     display: none;
     margin: -37% 34% 6%;
     position: absolute;
@@ -516,7 +517,7 @@ input.invalid {
 }
 
 #verifiCode{
-	height: 29px;
+	height:30px;
     width: 36%;
     background-color: #fae077;
     border-radius: 5px;
