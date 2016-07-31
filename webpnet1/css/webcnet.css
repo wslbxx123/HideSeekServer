@@ -126,6 +126,8 @@ input.invalid {
     background: white;
     border: 2px solid dimgrey;
     border-radius: 5px;
+    -moz-border-radius: 5px; /* Firefox */
+  	-webkit-border-radius: 5px; /* Safari 和 Chrome */
     display: none;
     margin: -37% 32% 6%;
     position: absolute;
@@ -140,6 +142,8 @@ input.invalid {
     background: white;
     border: 2px solid dimgrey;
     border-radius: 5px;
+    -moz-border-radius: 5px; /* Firefox */
+  	-webkit-border-radius: 5px; /* Safari 和 Chrome */
     display: none;
     margin: -37% 34% 6%;
     position: absolute;
@@ -154,6 +158,8 @@ input.invalid {
     background: white;
     border: 2px solid dimgrey;
     border-radius: 5px;
+    -moz-border-radius: 5px; /* Firefox */
+  	-webkit-border-radius: 5px; /* Safari 和 Chrome */
     display: none;
     margin: -37% 36% 6%;
     position: absolute;
@@ -167,6 +173,8 @@ input.invalid {
     height: 600px;
     background: white;
     border-radius: 5px;
+    -moz-border-radius: 5px; /* Firefox */
+  	-webkit-border-radius: 5px; /* Safari 和 Chrome */
     display: none;
     margin: -44% 33%;
     position: absolute;
@@ -180,6 +188,8 @@ input.invalid {
     height: 600px;
     background: white;
     border-radius: 5px;
+    -moz-border-radius: 5px; /* Firefox */
+  	-webkit-border-radius: 5px; /* Safari 和 Chrome */
     display: none;
     margin: -44% 33%;
     position: absolute;
@@ -194,6 +204,8 @@ input.invalid {
     background: white;
     border: 2px solid dimgrey;
     border-radius: 5px;
+    -moz-border-radius: 5px; /* Firefox */
+  	-webkit-border-radius: 5px; /* Safari 和 Chrome */
     display: none;
     margin: 15% auto auto 6%;
     position:absolute;
@@ -209,6 +221,8 @@ input.invalid {
     font-size: 15px;
     background-color:#fae077;
     border-radius:5px;
+    -moz-border-radius: 5px; /* Firefox */
+  	-webkit-border-radius: 5px; /* Safari 和 Chrome */
     cursor: pointer; 
     -webkit-appearance: none;
     width: 80%;
@@ -221,6 +235,8 @@ input.invalid {
     font-size: 15px;
     background-color:#fae077;
     border-radius:5px;
+    -moz-border-radius: 5px; /* Firefox */
+  	-webkit-border-radius: 5px; /* Safari 和 Chrome */
     cursor: pointer; 
     -webkit-appearance: none; 
     width: 80%;
@@ -235,6 +251,8 @@ input.invalid {
     padding: 2px;
     background:#fae077;
     border-radius:2px;
+    -moz-border-radius: 2px; /* Firefox */
+  	-webkit-border-radius: 2px; /* Safari 和 Chrome */
     border:1px solid cornflowerblue;
 }
 
@@ -268,6 +286,8 @@ input.invalid {
     line-height: 33px;
     text-align: center;
     border-radius: 5px;
+    -moz-border-radius: 5px; /* Firefox */
+  	-webkit-border-radius: 5px; /* Safari 和 Chrome */
     margin: 0px auto;
     position: relative;
     display: none;
@@ -335,6 +355,8 @@ input.invalid {
     margin-left: 15px;
     margin-top: 27px;
     border-radius: 10px;
+    -moz-border-radius: 10px; /* Firefox */
+  	-webkit-border-radius: 10px; /* Safari 和 Chrome */
     color: white;
     text-align: center;
     line-height: 78px;
@@ -496,6 +518,8 @@ input.invalid {
     width: 36%;
     background-color: #fae077;
     border-radius: 5px;
+    -moz-border-radius: 5px; /* Firefox */
+  	-webkit-border-radius: 5px; /* Safari 和 Chrome */
     cursor: pointer; 
     -webkit-appearance: none; 
 }
@@ -521,6 +545,8 @@ input.invalid {
     display: inline-block;
     background: url("../img/mycamera.png") no-repeat center;
     border-radius: 4px;
+    -moz-border-radius: 4px; /* Firefox */
+  	-webkit-border-radius: 4px; /* Safari 和 Chrome */
     padding: 4px 12px;
     overflow: hidden;
     text-decoration: none;
@@ -556,6 +582,7 @@ input.invalid {
 #mypicture{
 	margin-top: -20%;
     border-radius: 63px;
+    
     width: 111px;
     height: 111px;
     background: url("../img/mypicture.png") no-repeat center;
