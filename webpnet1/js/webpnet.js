@@ -10,7 +10,7 @@ function myStart(){
 			dataType: "json",
 			success: function(result, status) {
 				z = result.result.products.length;
-			
+				alert(JSON.stringify(result));
 				for(var i = 0;i < result.result.products.length;i++){	
 					//创建商品橱窗框
 					var purArea = document.getElementById("purArea");

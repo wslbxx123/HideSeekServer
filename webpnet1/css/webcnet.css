@@ -606,12 +606,20 @@ input.invalid {
 #mypicture{
 	margin-top: -20%;
     border-radius: 63px;
-    
+    left: 35%;
     width: 111px;
     height: 111px;
     background: url("../img/mypicture.png") no-repeat center;
     background-size: cover;
-    background-color: grey;
+}
+
+#photo{
+	margin-top: -20%;
+    border-radius: 63px;
+    left: 36%;
+    width: 111px;
+    height: 111px;
+    position: absolute;
 }
 
 #bgColor{
