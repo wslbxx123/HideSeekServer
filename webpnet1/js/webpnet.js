@@ -90,7 +90,7 @@ function myStart(){
 	
 	document.getElementById("purchase").onclick = function(){
 		alert(z);
-		var t = Math.floor(z/2)*1200+"px";
+		var t = Math.floor(z/2)*1000+"px";
 		alert(t);
 		document.getElementById("purchase").className = "selected";
 		document.getElementById("exchange").className ="";

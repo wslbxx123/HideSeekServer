@@ -462,6 +462,7 @@ input.invalid {
     background-color:  white;
     z-index: 44;
     display: none;
+    height: 400px;
     width: 96%;
     margin-left: 2%;
     margin-top: 38px;
