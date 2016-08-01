@@ -45,7 +45,7 @@ class AccountManager {
         $account["session_token"] = md5(session_id());
         $account["version"] = $version;
         
-        insertOptionalInfo($role, $sex, $region, $photoUrl, $smallPhotoUrl);
+        self::insertOptionalInfo($role, $sex, $region, $photoUrl, $smallPhotoUrl);
         
         return $Dao->add($account);
     }
