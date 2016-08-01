@@ -53,10 +53,19 @@ class UserController extends Controller {
         }
         
         $_SESSION['pk_id'] = $accountId;
-        $account["session_id"] = session_id();
         $account = AccountManager::getAccount($accountId);
+        $account["session_id"] = session_id();
         
         BaseUtil::echoJson(CodeParam::SUCCESS, $account); 
+    }
+    
+    public function test() {
+        $photo_url = filter_input(INPUT_POST, 'photo_url');
+        $image = base64_decode($photo_url);
+        file_put_contents('test.jpg', $image);
+        
+        $array = array ('code' => $image);
+        echo json_encode($array);
     }
     
     public function setRegisterUserInfo($phone, $password, $nickname, $role, 
