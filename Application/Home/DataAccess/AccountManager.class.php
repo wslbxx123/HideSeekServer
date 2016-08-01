@@ -45,13 +45,14 @@ class AccountManager {
         $account["session_token"] = md5(session_id());
         $account["version"] = $version;
         
-        self::insertOptionalInfo($role, $sex, $region, $photoUrl, $smallPhotoUrl);
+        self::insertOptionalInfo($role, $sex, $region, $photoUrl, 
+                $smallPhotoUrl, $account);
         
         return $Dao->add($account);
     }
     
     private function insertOptionalInfo($role, $sex, $region, $photoUrl, 
-            $smallPhotoUrl) {
+            $smallPhotoUrl, $account) {
         if(isset($role)) {
             $account["role"] = $role;
         }
