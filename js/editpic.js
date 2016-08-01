@@ -29,7 +29,7 @@ document.getElementById("matchId").onclick = function(){
 		dataType: "json",
 		data: data,
 		jsonp: 'callback',
-		async: false, 
+		jsonpCallback:"success_jsonpCallback",
 		success: function(result, status) {
 			alert(JSON.stringify(result));
 			switch(result["code"]){

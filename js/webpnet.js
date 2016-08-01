@@ -9,7 +9,7 @@ function myStart(){
 			dataType: "json",
 			data: "version=0&product_min_id=0",
 			jsonp: 'callback',
-			async: false, 
+			jsonpCallback:"success_jsonpCallback",
 			success: function(result, status) {
 				alert(JSON.stringify(result));
 				z = result.result.products.length;
@@ -305,7 +305,7 @@ function myStart(){
 				dataType: "jsonp",
 				data: $("#loginForm").serialize(),
 				jsonp: 'callback',
-				async: false, 
+				jsonpCallback:"success_jsonpCallback",
 				success: function(result, status) {
 					switch(result["code"]){
 						case "10000":
