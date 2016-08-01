@@ -1,5 +1,5 @@
 window.onload = myStart;
-
+var z;
 function myStart(){
 	// 加载商城信息
 	var exStore = {
@@ -8,9 +8,10 @@ function myStart(){
 			type: 'POST',
 			dataType: "json",
 			success: function(result, status) {
+				z = result.result.products.length;
 				for(var i = 0;i < result.result.products.length;i++){	
 					//创建商品橱窗框
-					var exArea = document.getElementById("exArea");
+					var purArea = document.getElementById("purArea");
 				  	var newDiv = document.createElement('div');
 				  	if(i%2 == 0){
 				  		newDiv.className = "N2";
@@ -18,7 +19,7 @@ function myStart(){
 				  	else{
 				  		newDiv.className = "N1";
 				  	}
-				  	exArea.appendChild(newDiv);
+				  	purArea.appendChild(newDiv);
 				  	
 				  	//创建商品名称
 				  	var nameSpan = document.createElement('span');
@@ -84,11 +85,13 @@ function myStart(){
 	$.ajax(exStore);
 	
 	// 实现内部导航的切换
+	var t = Math.floor(z/2)*1000+"px";
 	document.getElementById("purchase").onclick = function(){
 		document.getElementById("purchase").className = "selected";
 		document.getElementById("exchange").className ="";
 		document.getElementById("appdownload").className ="";
 		$("#purArea").fadeIn(); 
+		$("body").css("height",t);
 		$("#exArea").fadeOut(); 
 		$("#downArea").fadeOut(); 
 	}
@@ -98,6 +101,7 @@ function myStart(){
 		document.getElementById("purchase").className ="";
 		document.getElementById("appdownload").className ="";
 		$("#exArea").fadeIn(); 
+		$("body").css("height","800px");
 		$("#purArea").fadeOut(); 
 		$("#downArea").fadeOut(); 
 	}
