@@ -12,10 +12,15 @@ class BaseUtil {
      * @param type $code 数据获得情况代码
      * @param type $result  数据结果
      */
-    public function echoJson($code, $result) {
+    public function echoJson($code, $result, $callback) {
         $message = MessageFactory::get($code);
         $array = array ('code' => $code, 'message' => $message, 
             'result' => $result);
-        echo json_encode($array);
+        
+        if($callback == '') {
+            echo json_encode($array);
+        } else {
+            echo $callback . '(' . json_encode($array) .')';
+        }
     }
 }
