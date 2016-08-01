@@ -27,12 +27,11 @@ img {
 }
 
 #mushroom  {
- 	width: 24%;
-    height: 35%;
+ 	width: 297px;
+    height: 285px;
     background: url(../img/mushroom.png) no-repeat;
-    background-size:cover;
     position: absolute;
-    margin-top: -26%;
+    top: 182px;
     margin-left: 24%;
     z-index: 20;
 }
