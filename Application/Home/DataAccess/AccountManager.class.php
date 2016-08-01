@@ -44,19 +44,16 @@ class AccountManager {
         $account["register_date"] = date('y-m-d H:i:s',time());
         $account["session_token"] = md5(session_id());
         $account["version"] = $version;
+        $account["role"] = $role;
         
-        $account = self::insertOptionalInfo($role, $sex, $region, $photoUrl, 
+        $account = self::insertOptionalInfo($sex, $region, $photoUrl, 
                 $smallPhotoUrl, $account);
         
         return $Dao->add($account);
     }
     
-    private function insertOptionalInfo($role, $sex, $region, $photoUrl, 
+    private function insertOptionalInfo($sex, $region, $photoUrl, 
             $smallPhotoUrl, $account) {
-        if(isset($role)) {
-            $account["role"] = $role;
-        }
-        
         if(isset($sex)) {
             $account["sex"] = $sex;
         }
@@ -67,6 +64,10 @@ class AccountManager {
         
         if(isset($photoUrl)) {
             $account["photo_url"] = $photoUrl;
+        }
+        
+        if(isset($smallPhotoUrl)) {
+            $account["small_photo_url"] = $smallPhotoUrl;
         }
         
         return $account;
