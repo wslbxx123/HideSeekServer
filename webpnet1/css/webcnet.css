@@ -432,10 +432,10 @@ input.invalid {
 .purGet{
 	margin-top: 6px;
     width: 100%;
-    height: 50px;
+    height: 30px;
     background: #FFCC00;
     text-align: center;
-    line-height:50px;
+    line-height:30px;
 }
 
 .productName{
