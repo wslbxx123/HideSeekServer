@@ -6,7 +6,7 @@ function myStart(){
 	var exStore = {
 			url: "http://120.25.252.252/index.php/home/store/refreshProducts",
 			type: 'POST',
-			dataType: "json",
+			dataType: "jsonp",
 			data: "version=0&product_min_id=0",
 			jsonp: 'callback',
 			jsonpCallback:"success_jsonpCallback",
