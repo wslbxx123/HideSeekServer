@@ -2,15 +2,18 @@ window.onload = myStart;
 
 function myStart(){
 	// 加载商城信息
+	var z;
 	var exStore = {
 			url: "http://120.25.252.252/index.php/home/store/refreshProducts",
 			data: "version=0&product_min_id=0",
 			type: 'POST',
 			dataType: "json",
 			success: function(result, status) {
+				z = result.result.products.length;
+				alert(z);
 				for(var i = 0;i < result.result.products.length;i++){	
 					//创建商品橱窗框
-					var exArea = document.getElementById("exArea");
+					var purArea = document.getElementById("purArea");
 				  	var newDiv = document.createElement('div');
 				  	if(i%2 == 0){
 				  		newDiv.className = "N2";
@@ -18,7 +21,7 @@ function myStart(){
 				  	else{
 				  		newDiv.className = "N1";
 				  	}
-				  	exArea.appendChild(newDiv);
+				  	purArea.appendChild(newDiv);
 				  	
 				  	//创建商品名称
 				  	var nameSpan = document.createElement('span');
@@ -70,7 +73,7 @@ function myStart(){
 				    
 				    //创建商品购买按钮
 				    var getDiv = document.createElement('div');
-				    getDiv.className = "exGet";
+				    getDiv.className = "purGet";
 				    getDiv.id = "c"+i;
 					getDiv.innerHTML= "购买";
 				    newDiv.appendChild(getDiv);   
@@ -84,11 +87,16 @@ function myStart(){
 	$.ajax(exStore);
 	
 	// 实现内部导航的切换
+	
 	document.getElementById("purchase").onclick = function(){
+		alert(z);
+		var t = Math.floor(z/2)*830+"px";
+		alert(t);
 		document.getElementById("purchase").className = "selected";
 		document.getElementById("exchange").className ="";
 		document.getElementById("appdownload").className ="";
 		$("#purArea").fadeIn(); 
+		$("body").css("height",t);
 		$("#exArea").fadeOut(); 
 		$("#downArea").fadeOut(); 
 	}
@@ -98,6 +106,7 @@ function myStart(){
 		document.getElementById("purchase").className ="";
 		document.getElementById("appdownload").className ="";
 		$("#exArea").fadeIn(); 
+		$("body").css("height","800px");
 		$("#purArea").fadeOut(); 
 		$("#downArea").fadeOut(); 
 	}

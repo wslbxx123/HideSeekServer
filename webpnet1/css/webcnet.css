@@ -1,3 +1,5 @@
+@charset "GB2312";
+
 *{margin:0;padding:0;       
 }
 
@@ -25,14 +27,13 @@ img {
 }
 
 #mushroom  {
- 	width: 289px;
-    height: 278px;
+ 	width: 297px;
+    height: 285px;
     background: url(../img/mushroom.png) no-repeat;
     position: absolute;
-    top: 192px;
+    top: 182px;
     margin-left: 24%;
     z-index: 20;
-    background-size: cover;
 }
 
 #test_title{
@@ -125,6 +126,9 @@ input.invalid {
     background: white;
     border: 2px solid dimgrey;
     border-radius: 5px;
+    -moz-border-radius: 5px; /* Firefox */
+  	-webkit-border-radius: 5px; /* Safari 和 Chrome */
+  	behavior: url(ie-<a href="https://www.baidu.com/s?wd=css3&tn=44039180_cpr&fenlei=mv6quAkxTZn0IZRqIHckPjm4nH00T1dBuA7BnyF9ny7BPWT1rjmv0ZwV5Hcvrjm3rH6sPfKWUMw85HfYnjn4nH6sgvPsT6KdThsqpZwYTjCEQLGCpyw9Uz4Bmy-bIi4WUvYETgN-TLwGUv3EnHb3rjmkrjfsrjnLP1TzPjmvPs" target="_blank" class="baidu-highlight">css3</a>.htc);
     display: none;
     margin: -37% 32% 6%;
     position: absolute;
@@ -139,6 +143,9 @@ input.invalid {
     background: white;
     border: 2px solid dimgrey;
     border-radius: 5px;
+    -moz-border-radius: 5px; /* Firefox */
+  	-webkit-border-radius: 5px; /* Safari 和 Chrome */
+  	behavior: url("border-radius.htc");
     display: none;
     margin: -37% 34% 6%;
     position: absolute;
@@ -153,6 +160,8 @@ input.invalid {
     background: white;
     border: 2px solid dimgrey;
     border-radius: 5px;
+    -moz-border-radius: 5px; /* Firefox */
+  	-webkit-border-radius: 5px; /* Safari 和 Chrome */
     display: none;
     margin: -37% 36% 6%;
     position: absolute;
@@ -166,6 +175,8 @@ input.invalid {
     height: 600px;
     background: white;
     border-radius: 5px;
+    -moz-border-radius: 5px; /* Firefox */
+  	-webkit-border-radius: 5px; /* Safari 和 Chrome */
     display: none;
     margin: -44% 33%;
     position: absolute;
@@ -179,6 +190,8 @@ input.invalid {
     height: 600px;
     background: white;
     border-radius: 5px;
+    -moz-border-radius: 5px; /* Firefox */
+  	-webkit-border-radius: 5px; /* Safari 和 Chrome */
     display: none;
     margin: -44% 33%;
     position: absolute;
@@ -193,6 +206,8 @@ input.invalid {
     background: white;
     border: 2px solid dimgrey;
     border-radius: 5px;
+    -moz-border-radius: 5px; /* Firefox */
+  	-webkit-border-radius: 5px; /* Safari 和 Chrome */
     display: none;
     margin: 15% auto auto 6%;
     position:absolute;
@@ -208,6 +223,8 @@ input.invalid {
     font-size: 15px;
     background-color:#fae077;
     border-radius:5px;
+    -moz-border-radius: 5px; /* Firefox */
+  	-webkit-border-radius: 5px; /* Safari 和 Chrome */
     cursor: pointer; 
     -webkit-appearance: none;
     width: 80%;
@@ -220,13 +237,15 @@ input.invalid {
     font-size: 15px;
     background-color:#fae077;
     border-radius:5px;
+    -moz-border-radius: 5px; /* Firefox */
+  	-webkit-border-radius: 5px; /* Safari 和 Chrome */
     cursor: pointer; 
     -webkit-appearance: none; 
     width: 80%;
 }
 
 #myprofile{
-	left: 80%;
+	left: 95%;
     top: 1%;
     position: absolute;
     display: none;
@@ -234,6 +253,8 @@ input.invalid {
     padding: 2px;
     background:#fae077;
     border-radius:2px;
+    -moz-border-radius: 2px; /* Firefox */
+  	-webkit-border-radius: 2px; /* Safari 和 Chrome */
     border:1px solid cornflowerblue;
 }
 
@@ -267,6 +288,8 @@ input.invalid {
     line-height: 33px;
     text-align: center;
     border-radius: 5px;
+    -moz-border-radius: 5px; /* Firefox */
+  	-webkit-border-radius: 5px; /* Safari 和 Chrome */
     margin: 0px auto;
     position: relative;
     display: none;
@@ -334,6 +357,8 @@ input.invalid {
     margin-left: 15px;
     margin-top: 27px;
     border-radius: 10px;
+    -moz-border-radius: 10px; /* Firefox */
+  	-webkit-border-radius: 10px; /* Safari 和 Chrome */
     color: white;
     text-align: center;
     line-height: 78px;
@@ -362,7 +387,7 @@ input.invalid {
 .productImg{
 	width: 118px;
     height: 98px;
-    margin: 9px auto 0 14px;
+    margin: 9% auto 0 auto;
 }
 
 .scoreImg{
@@ -404,12 +429,13 @@ input.invalid {
     text-align: center;
 }
 
-.exGet{
+.purGet{
 	margin-top: 6px;
     width: 100%;
-    height: 11%;
+    height: 30px;
     background: #FFCC00;
     text-align: center;
+    line-height:30px;
 }
 
 .productName{
@@ -422,8 +448,8 @@ input.invalid {
     margin-right: 5px;
     margin-left: 5px;
     width: 99%;
-    height:47px;
-    font-size: 12px;
+    height:25px;
+    font-size: 14px;
 }
 
 .selected{
@@ -434,15 +460,17 @@ input.invalid {
 
 #purArea{
 	position: absolute;
-    background-color: white;
+    background-color:  white;
     z-index: 44;
-    display: block;
+    display: none;
+    height: 260px;
     width: 96%;
     margin-left: 2%;
     margin-top: 38px;
     border-top-right-radius: 10px;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
+    border: 2px solid #b81d25;
 }
 
 #downArea{
@@ -464,13 +492,14 @@ input.invalid {
 	position: absolute;
     background-color: white;
     z-index: 44;
-    display: block;
+    display: none;
     width: 96%;
     margin-left: 2%;
     margin-top: 38px;
     border-top-right-radius: 10px;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
+    border: 2px solid #b81d25;
 }
 
 .icon{
@@ -491,10 +520,12 @@ input.invalid {
 }
 
 #verifiCode{
-	height: 29px;
+	height:30px;
     width: 36%;
     background-color: #fae077;
     border-radius: 5px;
+    -moz-border-radius: 5px; /* Firefox */
+  	-webkit-border-radius: 5px; /* Safari 和 Chrome */
     cursor: pointer; 
     -webkit-appearance: none; 
 }
@@ -520,6 +551,8 @@ input.invalid {
     display: inline-block;
     background: url("../img/mycamera.png") no-repeat center;
     border-radius: 4px;
+    -moz-border-radius: 4px; /* Firefox */
+  	-webkit-border-radius: 4px; /* Safari 和 Chrome */
     padding: 4px 12px;
     overflow: hidden;
     text-decoration: none;
@@ -555,6 +588,7 @@ input.invalid {
 #mypicture{
 	margin-top: -20%;
     border-radius: 63px;
+    
     width: 111px;
     height: 111px;
     background: url("../img/mypicture.png") no-repeat center;

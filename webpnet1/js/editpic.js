@@ -20,7 +20,7 @@ document.getElementById("matchId").onclick = function(){
 				+ "&sex="+ document.getElementById("sex").options[index].text
 				+ "&region=" + document.getElementById("citySelect").value
 				+ "&role=" + myId
-				+ "&photo=" + document.getElementById("photo").src;
+				+ "&photo_url=" + document.getElementById("photo").src;
 				alert(data);
 	var mymessages = {
 		url: "http://120.25.252.252/index.php/home/user/register",
@@ -74,7 +74,9 @@ document.getElementById("matchId").onclick = function(){
 				
 				
 				document.getElementById("entrance").onclick = function(){
-					alert("注册成功!")
+					alert("注册成功!");
+					$(".inner_menu").fadeOut(); 
+					$("#myprofile").fadeIn(); 
 					document.getElementById("nickname").innerHTML = document.getElementById("userName").value;
 					document.getElementById("scoreNum").innerHTML = Num;
 					$("#newWin4").fadeOut(); 
