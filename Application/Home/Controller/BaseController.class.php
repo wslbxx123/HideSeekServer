@@ -5,10 +5,9 @@ use Think\Controller;
 class BaseController extends Controller {
     public function setHeader() {
         header("Content-Type:text/html; charset=utf-8");
-        $tempCallback = filter_input(INPUT_POST, 'callback');
-        $callback = isset($tempCallback) ? trim($tempCallback) : '';
-        
-        return $callback;
+        header('Access-Control-Allow-Origin: www.hideseek.cn');
+        header('Access-Control-Allow-Methods: POST');
+        header('Access-Control-Max-Age: 1000');
     }
     
     public function getPkIdFromToken($sessionId){
