@@ -19,7 +19,7 @@ class FileUtil {
             
             if(move_uploaded_file($photo['tmp_name'], "./".$realPhotoPath)) {
                 return (is_ssl()? 'https://':'http://')
-                        ."www.hideseek.cn".$realPhotoPath;    
+                        ."www.hideseek.cn/".$realPhotoPath;    
             }
         }
         
@@ -30,7 +30,7 @@ class FileUtil {
             file_put_contents($fileName, $image);
             $realPhotoPath = self::REAL_IMAGE_DIR.$fileName;
             return (is_ssl()? 'https://':'http://')
-                        ."www.hideseek.cn".$realPhotoPath;
+                        ."www.hideseek.cn/".$realPhotoPath;
         }
         
         return null;
