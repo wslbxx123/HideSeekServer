@@ -10,7 +10,7 @@ function myStart(){
 			dataType: "json",
 			success: function(result, status) {
 				z = result.result.products.length;
-				alert(z);
+			
 				for(var i = 0;i < result.result.products.length;i++){	
 					//创建商品橱窗框
 					var purArea = document.getElementById("purArea");
@@ -89,9 +89,7 @@ function myStart(){
 	// 实现内部导航的切换
 	
 	document.getElementById("purchase").onclick = function(){
-		alert(z);
 		var t = Math.floor(z/2)*830+"px";
-		alert(t);
 		document.getElementById("purchase").className = "selected";
 		document.getElementById("exchange").className ="";
 		document.getElementById("appdownload").className ="";
@@ -99,6 +97,9 @@ function myStart(){
 		$("body").css("height",t);
 		$("#exArea").fadeOut(); 
 		$("#downArea").fadeOut(); 
+		$(".purGet").click(function(){
+			$("#confirmpurchase").fadeIn(); 
+		});
 	}
 	
 	document.getElementById("exchange").onclick = function(){
