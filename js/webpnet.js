@@ -5,11 +5,12 @@ function myStart(){
 	var z;
 	var exStore = {
 			url: "http://120.25.252.252/index.php/home/store/refreshProducts",
-			data: "version=0&product_min_id=0",
 			type: 'POST',
-			dataType: "jsonp",
+			dataType: "json",
+			data: "version=0&product_min_id=0",
 			jsonp: 'callback',
 			success: function(result, status) {
+				alert(JSON.stringify(result));
 				z = result.result.products.length;
 				alert(JSON.stringify(result));
 				for(var i = 0;i < result.result.products.length;i++){	
@@ -299,9 +300,9 @@ function myStart(){
 		if(allGood) {			
 			var options = {
 				url: "http://120.25.252.252/index.php/home/user/login",
-				data: $("#loginForm").serialize(),
 				type: 'POST',
 				dataType: "jsonp",
+				data: $("#loginForm").serialize(),
 				jsonp: 'callback',
 				success: function(result, status) {
 					switch(result["code"]){

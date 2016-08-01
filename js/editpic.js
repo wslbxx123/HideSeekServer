@@ -24,11 +24,11 @@ document.getElementById("matchId").onclick = function(){
 				
 	var mymessages = {
 		url: "http://120.25.252.252/index.php/home/user/register",
-		data: data,
-		type: 'POST',
-		dataType: "jsonp",
-		jsonp: 'callback',
 		
+		type: 'POST',
+		dataType: "json",
+		data: data,
+		jsonp: 'callback',
 		success: function(result, status) {
 			alert(JSON.stringify(result));
 			switch(result["code"]){
