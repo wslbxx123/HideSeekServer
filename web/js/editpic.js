@@ -21,7 +21,7 @@ document.getElementById("matchId").onclick = function(){
 				+ "&region=" + document.getElementById("citySelect").value
 				+ "&role=" + myId
 				+ "&photo_url=" + document.getElementById("photo").src;
-				alert(data);
+				
 	var mymessages = {
 		url: "http://120.25.252.252/index.php/home/user/register",
 		data: data,
@@ -242,9 +242,7 @@ function getPath(obj,fileQuery,transImg){
 		
 		
 		confirmedit.onclick = function(){
-			var images = new Image();
-			images.src = fileimg.src;
-			images.onload = function(){
+			
 				if(n>0){
 					cover.drawImage(fileimg,0.1*n*(x-1)*y,0,coverpic.height*y,coverpic.height*y,0,0,200,200);
 					$("#newWin3").fadeOut(); 
@@ -253,8 +251,10 @@ function getPath(obj,fileQuery,transImg){
 					cover.drawImage(fileimg,0,0.1*(-n)*(x-1)*y,coverpic.width*y,coverpic.width*y,0,0,200,200);
 					$("#newWin3").fadeOut(); 
 				}
-			}
-			mypicture.getElementsByTagName('img')[0].src = mypicture.toDataURL("image/png");
+			
+			var images = new Image();
+			images.src = mypicture.toDataURL("image/jpg");
+			document.getElementById("photo").src = images.src;
 		}			
 	});
 
