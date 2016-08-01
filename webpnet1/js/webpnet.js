@@ -1,7 +1,8 @@
 window.onload = myStart;
-var z;
+
 function myStart(){
 	// 加载商城信息
+	var z;
 	var exStore = {
 			url: "http://120.25.252.252/index.php/home/store/refreshProducts",
 			data: "version=0&product_min_id=0",
