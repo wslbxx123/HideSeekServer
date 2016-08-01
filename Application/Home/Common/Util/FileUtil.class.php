@@ -7,20 +7,30 @@ namespace Home\Common\Util;
  * @author apple
  */
 class FileUtil {
-    const REAL_IMAGE_DIR = "/Public/Image/Photo/Real/";
+    const REAL_IMAGE_DIR = "Public/Image/Photo/Real/";
     const SMALL_IMAGE_DIR = "Public/Image/Photo/Small/";
     
-    public function saveRealPhoto($photo, $tempFileName) {
+    public function saveRealPhoto($photo, $photoDataUrl, $tempFileName) {
         if(isset($photo)) {
             $name = explode(".",$photo['name']); 
             $name[0] = $tempFileName;
             $fileName = implode(".", $name);
             $realPhotoPath = self::REAL_IMAGE_DIR.$fileName;
             
-            if(move_uploaded_file($photo['tmp_name'], ".".$realPhotoPath)) {
+            if(move_uploaded_file($photo['tmp_name'], "./".$realPhotoPath)) {
                 return (is_ssl()? 'https://':'http://')
-                        ."www.hideseek.cn".$realPhotoPath;    
+                        ."www.hideseek.cn/".$realPhotoPath;    
             }
+        }
+        
+        if(isset($photoDataUrl)) {
+            $fileName = $tempFileName.".jpg";
+            $photoData = implode(",", $photoDataUrl);
+            $image = base64_decode($photoData[1]);
+            file_put_contents($fileName, $image);
+            $realPhotoPath = self::REAL_IMAGE_DIR.$fileName;
+            return (is_ssl()? 'https://':'http://')
+                        ."www.hideseek.cn/".$realPhotoPath;
         }
         
         return null;

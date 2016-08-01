@@ -44,35 +44,30 @@ class UserController extends Controller {
         $sex = filter_input(INPUT_POST, 'sex');
         $region = filter_input(INPUT_POST, 'region');
         $photo = $_FILES['photo'];
+        $photoDataUrl = filter_input(INPUT_POST, 'photo_url');
         
         $accountId = self::setRegisterUserInfo($phone, $password, $nickname,
-                $role, $sex, $region, $photo);
+                $role, $sex, $region, $photo, $photoDataUrl);
         
         if(!isset($accountId)) {
             return;
         }
         
         $_SESSION['pk_id'] = $accountId;
-        $account["session_id"] = session_id();
         $account = AccountManager::getAccount($accountId);
+        $account["session_id"] = session_id();
         
         BaseUtil::echoJson(CodeParam::SUCCESS, $account); 
     }
     
     public function setRegisterUserInfo($phone, $password, $nickname, $role, 
-            $sex, $region, $photo) {
-        if(!isset($phone) || !isset($password)) {
-            BaseUtil::echoJson(CodeParam::PHONE_OR_PASSWORD_EMPTY, null);
-            return null;
-        }
-        
-        if(!isset($nickname)) {
-            BaseUtil::echoJson(CodeParam::NICKNAME_EMPTY, null);
+            $sex, $region, $photo, $photoDataUrl) {
+        if(!self::checkUserBaseInfo($phone, $password, $nickname)) {
             return null;
         }
         
         $tempFileName = "Upload_".session_id()."_".strtotime("now");
-        $photoUrl = FileUtil::saveRealPhoto($photo, $tempFileName);
+        $photoUrl = FileUtil::saveRealPhoto($photo, $photoDataUrl, $tempFileName);
         
         if(isset($photo) && !isset($photoUrl)) {
             BaseUtil::echoJson(CodeParam::FAIL_UPLOAD_PHOTO, null);
@@ -86,6 +81,25 @@ class UserController extends Controller {
                 $photoUrl, $smallPhotoUrl);
         
         return $accountId;
+    }
+    
+    public function checkUserBaseInfo($phone, $password, $nickname) {
+        if(!isset($phone) || !isset($password)) {
+            BaseUtil::echoJson(CodeParam::PHONE_OR_PASSWORD_EMPTY, null);
+            return false;
+        }
+        
+        if(!isset($nickname)) {
+            BaseUtil::echoJson(CodeParam::NICKNAME_EMPTY, null);
+            return false;
+        }
+        
+        if(AccountManager::getAccountFromPhone($phone)) {
+            BaseUtil::echoJson(CodeParam::USER_ALREADY_EXIST, null);
+            return false;
+        }
+        
+        return true;
     }
     
     public function getVerificationCode() {
