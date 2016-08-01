@@ -25,7 +25,7 @@ document.getElementById("matchId").onclick = function(){
 	var mymessages = {
 		url: "http://120.25.252.252/index.php/home/user/register",
 		
-		type: 'POST',
+		type: 'GET',
 		dataType: "json",
 		data: data,
 		jsonp: 'callback',
