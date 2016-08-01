@@ -45,7 +45,7 @@ class AccountManager {
         $account["session_token"] = md5(session_id());
         $account["version"] = $version;
         
-        self::insertOptionalInfo($role, $sex, $region, $photoUrl, 
+        $account = self::insertOptionalInfo($role, $sex, $region, $photoUrl, 
                 $smallPhotoUrl, $account);
         
         return $Dao->add($account);
@@ -68,5 +68,7 @@ class AccountManager {
         if(isset($photoUrl)) {
             $account["photo_url"] = $photoUrl;
         }
+        
+        return $account;
     }
 }
