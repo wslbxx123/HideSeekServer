@@ -31,6 +31,8 @@ class MessageFactory {
                 return MessageParam::NICKNAME_EMPTY;
             case CodeParam::FAIL_UPLOAD_PHOTO:
                 return MessageParam::FAIL_UPLOAD_PHOTO;
+            case CodeParam::USER_ALREADY_EXIST:
+                return MessageParam::USER_ALREADY_EXIST;
             default:
                 return null;
         }

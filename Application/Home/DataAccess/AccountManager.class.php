@@ -28,6 +28,13 @@ class AccountManager {
         return $account;
     }
     
+    public function getAccountFromPhone($phone) {
+        $Dao = M("account");
+        $condition['phone'] = $phone;
+        $account = $Dao->where($condition)->find();
+        return $account;
+    }
+    
     public function insertAccount($phone, $password, $nickname, $version, $role, 
             $sex, $region, $photoUrl, $smallPhotoUrl) {
         $Dao = M("account");
@@ -37,9 +44,14 @@ class AccountManager {
         $account["register_date"] = date('y-m-d H:i:s',time());
         $account["session_token"] = md5(session_id());
         $account["version"] = $version;
-        $account["photo_url"] = $photoUrl;  
-        $account["small_photo_url"] = $smallPhotoUrl; 
         
+        insertOptionalInfo($role, $sex, $region, $photoUrl, $smallPhotoUrl);
+        
+        return $Dao->add($account);
+    }
+    
+    private function insertOptionalInfo($role, $sex, $region, $photoUrl, 
+            $smallPhotoUrl) {
         if(isset($role)) {
             $account["role"] = $role;
         }
@@ -55,7 +67,5 @@ class AccountManager {
         if(isset($photoUrl)) {
             $account["photo_url"] = $photoUrl;
         }
-        
-        return $Dao->add($account);
     }
 }

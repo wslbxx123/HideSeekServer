@@ -61,13 +61,7 @@ class UserController extends Controller {
     
     public function setRegisterUserInfo($phone, $password, $nickname, $role, 
             $sex, $region, $photo) {
-        if(!isset($phone) || !isset($password)) {
-            BaseUtil::echoJson(CodeParam::PHONE_OR_PASSWORD_EMPTY, null);
-            return null;
-        }
-        
-        if(!isset($nickname)) {
-            BaseUtil::echoJson(CodeParam::NICKNAME_EMPTY, null);
+        if(!self::checkUserBaseInfo()) {
             return null;
         }
         
@@ -86,6 +80,25 @@ class UserController extends Controller {
                 $photoUrl, $smallPhotoUrl);
         
         return $accountId;
+    }
+    
+    public function checkUserBaseInfo($phone, $password, $nickname) {
+        if(!isset($phone) || !isset($password)) {
+            BaseUtil::echoJson(CodeParam::PHONE_OR_PASSWORD_EMPTY, null);
+            return false;
+        }
+        
+        if(!isset($nickname)) {
+            BaseUtil::echoJson(CodeParam::NICKNAME_EMPTY, null);
+            return false;
+        }
+        
+        if(AccountManager::getAccountFromPhone != null) {
+            BaseUtil::echoJson(CodeParam::USER_ALREADY_EXIST, null);
+            return false;
+        }
+        
+        return true;
     }
     
     public function getVerificationCode() {
