@@ -3,6 +3,14 @@ namespace Home\Controller;
 use Think\Controller;
 
 class BaseController extends Controller {
+    public function setHeader() {
+        header("Content-Type:text/html; charset=utf-8");
+        $tempCallback = filter_input(INPUT_POST, 'callback');
+        $callback = isset($tempCallback) ? trim($tempCallback) : '';
+        
+        return $callback;
+    }
+    
     public function getPkIdFromToken($sessionId){
         $account = $this->getAccountFromToken($sessionId);
         
