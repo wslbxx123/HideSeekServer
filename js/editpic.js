@@ -26,7 +26,8 @@ document.getElementById("matchId").onclick = function(){
 		url: "http://120.25.252.252/index.php/home/user/register",
 		data: data,
 		type: 'POST',
-		dataType: "json",
+		dataType: "jsonp",
+		jsonp: 'callback',
 		
 		success: function(result, status) {
 			alert(JSON.stringify(result));
