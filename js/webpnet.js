@@ -5,7 +5,7 @@ function myStart(){
 	var z;
 	var exStore = {
 			url: "http://120.25.252.252/index.php/home/store/refreshProducts",
-			type: 'GET',
+			type: 'POST',
 			dataType: "json",
 			data: "version=0&product_min_id=0",
 			jsonp: 'callback',
@@ -301,7 +301,7 @@ function myStart(){
 		if(allGood) {			
 			var options = {
 				url: "http://120.25.252.252/index.php/home/user/login",
-				type: 'GET',
+				type: 'POST',
 				dataType: "jsonp",
 				data: $("#loginForm").serialize(),
 				jsonp: 'callback',
