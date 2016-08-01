@@ -26,10 +26,10 @@ document.getElementById("matchId").onclick = function(){
 		url: "http://120.25.252.252/index.php/home/user/register",
 		
 		type: 'POST',
-		dataType: "json",
+		dataType: "jsonp",
 		data: data,
-//		jsonp: 'callback',
-//		jsonpCallback:"success_jsonpCallback",
+		jsonp: 'callback',
+		jsonpCallback:"success_jsonpCallback",
 		success: function(result, status) {
 			alert(JSON.stringify(result));
 			switch(result["code"]){
