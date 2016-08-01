@@ -1,100 +1,91 @@
 <?php
 namespace Home\Controller;
 use Think\Controller;
-use Resources;
+use Home\Common\Util\FileUtil;
+use Home\Common\Util\BaseUtil;
+use Home\Common\Param\CodeParam;
+use Home\DataAccess\AccountManager;
+use Home\DataAccess\PullVersionManager;
 
 class UserController extends Controller {
     public function login(){
-        session_start();
-        session(array('name'=>'pk_id','expire'=>3600));
-        $code = "10000";
-        
-        if(isset($_POST['phone']) && isset($_POST['password'])) {
-            $Dao = M("account");
-            $condition['phone'] = $_POST['phone'];
-            $condition['password'] = md5($_POST['password']);
-            $account = $Dao->where($condition)->find();
-            
-            if($account == null) {
-                $code = "10001";
-                $message = "用户名密码错误";
-            } else {
-                $Dao->where($condition)->setField('session_token', md5(session_id()));
-                $message = "登录成功！";
-                $_SESSION['pk_id'] = $account["pk_id"];
-                $account["session_id"] = session_id();
-            }
-        } else{
-            $code = "10002";
-            $message = "用户名密码不能为空";
-        }
-        
-        $array = array ('code' => $code, 'message' => $message,
-            'result' => $account);
-        echo json_encode($array);
-    }
-    
-    public function register() {
-        define('ROOT', dirname(__FILE__).'/');
         header("Content-Type:text/html; charset=utf-8");
         session_start();
         session(array('name'=>'pk_id','expire'=>3600));
-        $code = "10000";
-        $message = "注册成功！";
+        $phone = filter_input(INPUT_POST, 'phone');
+        $password = filter_input(INPUT_POST, 'password');
         
-        if(isset($_POST['phone']) && isset($_POST['password'])
-            && isset($_POST['nickname'])) {
-            $Dao = M("account");
-
-            $account["phone"] = $_POST['phone'];
-            $account["password"] = md5($_POST["password"]);
-            $account["nickname"] = $_POST["nickname"];
-            $account["register_date"] = date('y-m-d H:i:s',time());
-            $account["session_token"] = md5(session_id());
-            
-            $versionDao = M("pull_version");
-            $version = $versionDao->find();
-            $account["version"] = $version['friend_version'];
-            
-            if(isset($_POST['role'])) {
-                $account["role"] = $_POST['role'];
-            }
-
-            if(isset($_POST['sex'])) {
-                $account["sex"] = $_POST['sex'];
-            }
-
-            if(isset($_POST['region'])) {
-                $account["region"] = $_POST['region'];
-            }
-            
-            if(isset($_FILES['photo'])) {
-                $file = $_FILES['photo'];
-                $filePath = ROOT."/Public/Image/Photo/".$file['name'];
-                $fileName = "./Public/Image/Photo/".$file['name'];
-            
-                if(move_uploaded_file($file['tmp_name'], $fileName)) {
-                    $account["photo_url"] = (is_ssl()? 'https://':'http://')
-                            ."www.hideseek.cn".$fileName;
-                } else {
-                    $code = "10004";
-                    $message = "上传图片失败";
-                }
-            }
-            
-            $lastInsId = $Dao->add($account);
-            $_SESSION['pk_id'] = $lastInsId;
-            $condition['pk_id'] = $lastInsId;
-            $account = $Dao->where($condition)->find();
-            $account["session_id"] = session_id();
-        } else{
-            $code = "10003";
-            $message = "手机号、密码和昵称不能为空";
+        if(!isset($phone) || !isset($password)) {
+            BaseUtil::echoJson(CodeParam::PHONE_OR_PASSWORD_EMPTY, null);
+            return;
+        }       
+        $account = AccountManager::getAccountFromPhonePassword($phone, $password);
+        if(!isset($account)) {
+            BaseUtil::echoJson(CodeParam::PHONE_OR_PASSWORD_WRONG, null);
+            return;
         }
         
-        $array = array ('code' => $code, 'message' => $message,
-            'result' => $account);
-        echo json_encode($array);   
+        AccountManager::updateSessionToken($phone, $password);
+        $_SESSION['pk_id'] = $account["pk_id"];
+        $account["session_id"] = session_id();
+        
+        BaseUtil::echoJson(CodeParam::SUCCESS, $account);
+    }
+    
+    public function register() {
+        header("Content-Type:text/html; charset=utf-8");
+        session_start();
+        session(array('name'=>'pk_id','expire'=>3600));
+        
+        $phone = filter_input(INPUT_POST, 'phone');
+        $password = filter_input(INPUT_POST, 'password');
+        $nickname = filter_input(INPUT_POST, 'nickname');
+        $role = filter_input(INPUT_POST, 'role');
+        $sex = filter_input(INPUT_POST, 'sex');
+        $region = filter_input(INPUT_POST, 'region');
+        $photo = $_FILES['photo'];
+        
+        $accountId = self::setRegisterUserInfo($phone, $password, $nickname,
+                $role, $sex, $region, $photo);
+        
+        if(!isset($accountId)) {
+            return;
+        }
+        
+        $_SESSION['pk_id'] = $accountId;
+        $account["session_id"] = session_id();
+        $account = AccountManager::getAccount($accountId);
+        
+        BaseUtil::echoJson(CodeParam::SUCCESS, $account); 
+    }
+    
+    public function setRegisterUserInfo($phone, $password, $nickname, $role, 
+            $sex, $region, $photo) {
+        if(!isset($phone) || !isset($password)) {
+            BaseUtil::echoJson(CodeParam::PHONE_OR_PASSWORD_EMPTY, null);
+            return null;
+        }
+        
+        if(!isset($nickname)) {
+            BaseUtil::echoJson(CodeParam::NICKNAME_EMPTY, null);
+            return null;
+        }
+        
+        $tempFileName = "Upload_".session_id()."_".strtotime("now");
+        $photoUrl = FileUtil::saveRealPhoto($photo, $tempFileName);
+        
+        if(isset($photo) && !isset($photoUrl)) {
+            BaseUtil::echoJson(CodeParam::FAIL_UPLOAD_PHOTO, null);
+            return null;
+        }
+        
+        $smallPhotoUrl = FileUtil::saveSmallPhoto($photo, $photoUrl, 
+                $tempFileName, 200, 200);
+        $accountId = AccountManager::insertAccount($phone, $password, $nickname, 
+                PullVersionManager::getFriendVersion(), $role, $sex, $region, 
+                $photoUrl, $smallPhotoUrl);
+        
+        return $accountId;
     }
     
     public function getVerificationCode() {
