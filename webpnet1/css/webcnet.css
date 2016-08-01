@@ -245,7 +245,7 @@ input.invalid {
 }
 
 #myprofile{
-	left: 80%;
+	left: 95%;
     top: 1%;
     position: absolute;
     display: none;
@@ -387,7 +387,7 @@ input.invalid {
 .productImg{
 	width: 118px;
     height: 98px;
-    margin: 9px auto 0 14px;
+    margin: 20% auto 0 14px;
 }
 
 .scoreImg{
@@ -432,7 +432,7 @@ input.invalid {
 .exGet{
 	margin-top: 6px;
     width: 100%;
-    height: 11%;
+    height: 20%;
     background: #FFCC00;
     text-align: center;
 }
@@ -448,7 +448,7 @@ input.invalid {
     margin-left: 5px;
     width: 99%;
     height:47px;
-    font-size: 12px;
+    font-size: 14px;
 }
 
 .selected{
