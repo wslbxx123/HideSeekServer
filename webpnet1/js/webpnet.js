@@ -86,6 +86,7 @@ function myStart(){
 	
 	// 实现内部导航的切换
 	var t = Math.floor(z/2)*1200+"px";
+	alert(t);
 	document.getElementById("purchase").onclick = function(){
 		document.getElementById("purchase").className = "selected";
 		document.getElementById("exchange").className ="";
