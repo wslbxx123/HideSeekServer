@@ -44,9 +44,10 @@ class UserController extends Controller {
         $sex = filter_input(INPUT_POST, 'sex');
         $region = filter_input(INPUT_POST, 'region');
         $photo = $_FILES['photo'];
+        $photoDataUrl = filter_input(INPUT_POST, 'photo_url');
         
         $accountId = self::setRegisterUserInfo($phone, $password, $nickname,
-                $role, $sex, $region, $photo);
+                $role, $sex, $region, $photo, $photoDataUrl);
         
         if(!isset($accountId)) {
             return;
@@ -59,23 +60,14 @@ class UserController extends Controller {
         BaseUtil::echoJson(CodeParam::SUCCESS, $account); 
     }
     
-    public function test() {
-        $photo_url = filter_input(INPUT_POST, 'photo_url');
-        $image = base64_decode($photo_url);
-        file_put_contents('test.jpg', $image);
-        
-        $array = array ('code' => $image);
-        echo json_encode($array);
-    }
-    
     public function setRegisterUserInfo($phone, $password, $nickname, $role, 
-            $sex, $region, $photo) {
+            $sex, $region, $photo, $photoDataUrl) {
         if(!self::checkUserBaseInfo($phone, $password, $nickname)) {
             return null;
         }
         
         $tempFileName = "Upload_".session_id()."_".strtotime("now");
-        $photoUrl = FileUtil::saveRealPhoto($photo, $tempFileName);
+        $photoUrl = FileUtil::saveRealPhoto($photo, $photoDataUrl, $tempFileName);
         
         if(isset($photo) && !isset($photoUrl)) {
             BaseUtil::echoJson(CodeParam::FAIL_UPLOAD_PHOTO, null);
