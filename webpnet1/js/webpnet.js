@@ -71,7 +71,7 @@ function myStart(){
 				    
 				    //创建商品购买按钮
 				    var getDiv = document.createElement('div');
-				    getDiv.className = "exGet";
+				    getDiv.className = "purGet";
 				    getDiv.id = "c"+i;
 					getDiv.innerHTML= "购买";
 				    newDiv.appendChild(getDiv);   
