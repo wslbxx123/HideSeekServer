@@ -7,7 +7,8 @@ function myStart(){
 			url: "http://120.25.252.252/index.php/home/store/refreshProducts",
 			data: "version=0&product_min_id=0",
 			type: 'POST',
-			dataType: "json",
+			dataType: "jsonp",
+			jsonp: 'callback',
 			success: function(result, status) {
 				z = result.result.products.length;
 				alert(JSON.stringify(result));
@@ -300,7 +301,8 @@ function myStart(){
 				url: "http://120.25.252.252/index.php/home/user/login",
 				data: $("#loginForm").serialize(),
 				type: 'POST',
-				dataType: "json",
+				dataType: "jsonp",
+				jsonp: 'callback',
 				success: function(result, status) {
 					switch(result["code"]){
 						case "10000":
