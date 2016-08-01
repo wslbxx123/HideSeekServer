@@ -28,8 +28,8 @@ document.getElementById("matchId").onclick = function(){
 		type: 'POST',
 		dataType: "json",
 		data: data,
-		jsonp: 'callback',
-		jsonpCallback:"success_jsonpCallback",
+//		jsonp: 'callback',
+//		jsonpCallback:"success_jsonpCallback",
 		success: function(result, status) {
 			alert(JSON.stringify(result));
 			switch(result["code"]){
