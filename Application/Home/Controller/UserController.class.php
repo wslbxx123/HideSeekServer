@@ -70,7 +70,7 @@ class UserController extends Controller {
     
     public function setRegisterUserInfo($phone, $password, $nickname, $role, 
             $sex, $region, $photo) {
-        if(!self::checkUserBaseInfo()) {
+        if(!self::checkUserBaseInfo($phone, $password, $nickname)) {
             return null;
         }
         
