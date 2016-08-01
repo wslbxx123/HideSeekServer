@@ -6,7 +6,7 @@ function myStart(){
 	var exStore = {
 			url: "http://120.25.252.252/index.php/home/store/refreshProducts",
 			type: 'POST',
-			crossDomain:true,
+//			crossDomain:true,
 			data: "version=0&product_min_id=0",
 			dataType: "json",
 			
@@ -311,6 +311,7 @@ function myStart(){
 //				jsonp: 'callback',
 //				jsonpCallback:"success_jsonpCallback",
 				success: function(result, status) {
+					alert(JSON.stringify(result));
 					switch(result["code"]){
 						case "10000":
 							Num = result["result"]["record"];
