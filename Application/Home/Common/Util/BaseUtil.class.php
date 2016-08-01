@@ -16,6 +16,7 @@ class BaseUtil {
         $message = MessageFactory::get($code);
         $array = array ('code' => $code, 'message' => $message, 
             'result' => $result);
+        
         echo json_encode($array);
     }
 }

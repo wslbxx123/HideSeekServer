@@ -11,17 +11,16 @@ class UserController extends BaseController {
     public function login(){
         session_start();
         session(array('name'=>'pk_id','expire'=>3600));
-        $callback = self::setHeader();
         $phone = filter_input(INPUT_POST, 'phone');
         $password = filter_input(INPUT_POST, 'password');
         
         if(!isset($phone) || !isset($password)) {
-            BaseUtil::echoJson(CodeParam::PHONE_OR_PASSWORD_EMPTY, null, $callback);
+            BaseUtil::echoJson(CodeParam::PHONE_OR_PASSWORD_EMPTY, null);
             return;
         }       
         $account = AccountManager::getAccountFromPhonePassword($phone, $password);
         if(!isset($account)) {
-            BaseUtil::echoJson(CodeParam::PHONE_OR_PASSWORD_WRONG, null, $callback);
+            BaseUtil::echoJson(CodeParam::PHONE_OR_PASSWORD_WRONG, null);
             return;
         }
         
@@ -29,13 +28,12 @@ class UserController extends BaseController {
         $_SESSION['pk_id'] = $account["pk_id"];
         $account["session_id"] = session_id();
         
-        BaseUtil::echoJson(CodeParam::SUCCESS, $account, $callback);
+        BaseUtil::echoJson(CodeParam::SUCCESS, $account);
     }
     
     public function register() {
         session_start();
         session(array('name'=>'pk_id','expire'=>3600));
-        $callback = self::setHeader();
         
         $phone = filter_input(INPUT_POST, 'phone');
         $password = filter_input(INPUT_POST, 'password');
@@ -47,7 +45,7 @@ class UserController extends BaseController {
         $photoDataUrl = filter_input(INPUT_POST, 'photo_url');
         
         $accountId = self::setRegisterUserInfo($phone, $password, $nickname,
-                $role, $sex, $region, $photo, $photoDataUrl, $callback);
+                $role, $sex, $region, $photo, $photoDataUrl);
         
         if(!isset($accountId)) {
             return;
@@ -57,11 +55,11 @@ class UserController extends BaseController {
         $account = AccountManager::getAccount($accountId);
         $account["session_id"] = session_id();
         
-        BaseUtil::echoJson(CodeParam::SUCCESS, $account, $callback); 
+        BaseUtil::echoJson(CodeParam::SUCCESS, $account); 
     }
     
     public function setRegisterUserInfo($phone, $password, $nickname, $role, 
-            $sex, $region, $photo, $photoDataUrl, $callback) {
+            $sex, $region, $photo, $photoDataUrl) {
         if(!self::checkUserBaseInfo($phone, $password, $nickname)) {
             return null;
         }
@@ -70,7 +68,7 @@ class UserController extends BaseController {
         $photoUrl = FileUtil::saveRealPhoto($photo, $photoDataUrl, $tempFileName);
         
         if(isset($photo) && !isset($photoUrl)) {
-            BaseUtil::echoJson(CodeParam::FAIL_UPLOAD_PHOTO, null, $callback);
+            BaseUtil::echoJson(CodeParam::FAIL_UPLOAD_PHOTO, null);
             return null;
         }
         
@@ -85,17 +83,17 @@ class UserController extends BaseController {
     
     public function checkUserBaseInfo($phone, $password, $nickname) {
         if(!isset($phone) || !isset($password)) {
-            BaseUtil::echoJson(CodeParam::PHONE_OR_PASSWORD_EMPTY, null, $callback);
+            BaseUtil::echoJson(CodeParam::PHONE_OR_PASSWORD_EMPTY, null);
             return false;
         }
         
         if(!isset($nickname)) {
-            BaseUtil::echoJson(CodeParam::NICKNAME_EMPTY, null, $callback);
+            BaseUtil::echoJson(CodeParam::NICKNAME_EMPTY, null);
             return false;
         }
         
         if(AccountManager::getAccountFromPhone($phone)) {
-            BaseUtil::echoJson(CodeParam::USER_ALREADY_EXIST, null, $callback);
+            BaseUtil::echoJson(CodeParam::USER_ALREADY_EXIST, null);
             return false;
         }
         
