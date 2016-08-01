@@ -102,7 +102,7 @@ class UserController extends Controller {
             return false;
         }
         
-        if(AccountManager::getAccountFromPhone != null) {
+        if(AccountManager::getAccountFromPhone() != null) {
             BaseUtil::echoJson(CodeParam::USER_ALREADY_EXIST, null);
             return false;
         }
