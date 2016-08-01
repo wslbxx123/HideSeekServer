@@ -85,7 +85,7 @@ function myStart(){
 	$.ajax(exStore);
 	
 	// 实现内部导航的切换
-	var t = Math.floor(z/2)*1000+"px";
+	var t = Math.floor(z/2)*1200+"px";
 	document.getElementById("purchase").onclick = function(){
 		document.getElementById("purchase").className = "selected";
 		document.getElementById("exchange").className ="";
