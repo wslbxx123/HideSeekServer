@@ -26,7 +26,7 @@ document.getElementById("matchId").onclick = function(){
 		url: "http://120.25.252.252/index.php/home/user/register",
 		
 		type: 'POST',
-		crossDomain: true,
+
 		data: data,
 		dataType: "json",
 		

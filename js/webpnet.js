@@ -8,7 +8,7 @@ function myStart(){
 			url: "http://120.25.252.252/index.php/home/store/refreshProducts",
 			type: 'POST',
 			data: "version=0&product_min_id=0",
-			dataType: "jsonp",
+			dataType: "json",
 			
 //			jsonp: 'callback',
 //			jsonpCallback:"success_jsonpCallback",
@@ -304,7 +304,7 @@ function myStart(){
 			var options = {
 				url: "http://120.25.252.252/index.php/home/user/login",
 				type: 'POST',
-				crossDomain:true,
+//				crossDomain:true,
 				data: $("#loginForm").serialize(),
 				dataType: "json",
 				
