@@ -1,7 +1,7 @@
 window.onload = myStart;
 
 function myStart(){
-	document.domain="www.hideseek.cn"
+	document.domain="www.hideseek.cn";
 	// 加载商城信息
 	var z;
 	var exStore = {
@@ -128,6 +128,7 @@ function myStart(){
 	// 登录按钮
 	$("#test1").click(function(){
 		if($("#newWin").css("display")=='none'){
+			$("#storecover").css("height","800px");
 			$("#storecover").fadeIn(); 
 			$("#newWin").fadeIn(); 
 			$("#newWin1").fadeOut(); 

@@ -112,7 +112,6 @@ input.invalid {
 	position:absolute;
 	width:100%;
 	top:58px;
-	height:1942px;
 	background-color:#000000;
 	z-index:30;
 	filter:alpha(opacity=50); 
