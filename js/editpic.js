@@ -1,5 +1,6 @@
 $('input[type=file]').change(function(){
 	$("#newWin3").fadeIn(); 
+	$("#newWin2").fadeOut(); 
 	var fileimg = document.getElementById("fileimg");
 	var mycamera = document.getElementById('mycamera');
 
@@ -245,7 +246,7 @@ function getPath(obj,fileQuery,transImg){
 		
 		
 		confirmedit.onclick = function(){
-			
+			$("#newWin2").fadeIn(); 
 				if(n>0){
 					cover.drawImage(fileimg,0.1*n*(x-1)*y,0,coverpic.height*y,coverpic.height*y,0,0,200,200);
 					$("#newWin3").fadeOut(); 
