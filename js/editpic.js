@@ -1,5 +1,6 @@
 $('input[type=file]').change(function(){
 	$("#newWin3").fadeIn(); 
+	$("#newWin2").fadeOut(); 
 	var fileimg = document.getElementById("fileimg");
 	var mycamera = document.getElementById('mycamera');
 
@@ -23,10 +24,10 @@ document.getElementById("matchId").onclick = function(){
 				+ "&photo_url=" + document.getElementById("photo").src;
 				
 	var mymessages = {
-		url: "http://120.25.252.252/index.php/home/user/register",
 		
+		url: "/index.php/home/user/register",	
 		type: 'POST',
-		crossDomain: true,
+
 		data: data,
 		dataType: "json",
 		
@@ -246,7 +247,7 @@ function getPath(obj,fileQuery,transImg){
 		
 		
 		confirmedit.onclick = function(){
-			
+			$("#newWin2").fadeIn(); 
 				if(n>0){
 					cover.drawImage(fileimg,0.1*n*(x-1)*y,0,coverpic.height*y,coverpic.height*y,0,0,200,200);
 					$("#newWin3").fadeOut(); 

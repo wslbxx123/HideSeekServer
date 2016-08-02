@@ -1,21 +1,19 @@
 window.onload = myStart;
 
 function myStart(){
+	document.domain="www.hideseek.cn";
 	// 加载商城信息
 	var z;
 	var exStore = {
-			url: "http://120.25.252.252/index.php/home/store/refreshProducts",
+			url: "/index.php/home/store/refreshProducts",
 			type: 'POST',
-			crossDomain:true,
 			data: "version=0&product_min_id=0",
 			dataType: "json",
 			
 //			jsonp: 'callback',
 //			jsonpCallback:"success_jsonpCallback",
 			success: function(result, status) {
-				alert(JSON.stringify(result));
 				z = result.result.products.length;
-				alert(JSON.stringify(result));
 				for(var i = 0;i < result.result.products.length;i++){	
 					//创建商品橱窗框
 					var purArea = document.getElementById("purArea");
@@ -130,6 +128,7 @@ function myStart(){
 	// 登录按钮
 	$("#test1").click(function(){
 		if($("#newWin").css("display")=='none'){
+			$("#storecover").css("height","800px");
 			$("#storecover").fadeIn(); 
 			$("#newWin").fadeIn(); 
 			$("#newWin1").fadeOut(); 
@@ -302,15 +301,16 @@ function myStart(){
 		//	实现登录界面和服务器的交互
 		if(allGood) {			
 			var options = {
-				url: "http://120.25.252.252/index.php/home/user/login",
+				url: "/index.php/home/user/login",
 				type: 'POST',
-				crossDomain:true,
+//				crossDomain:true,
 				data: $("#loginForm").serialize(),
 				dataType: "json",
 				
 //				jsonp: 'callback',
 //				jsonpCallback:"success_jsonpCallback",
 				success: function(result, status) {
+					alert(JSON.stringify(result));
 					switch(result["code"]){
 						case "10000":
 							Num = result["result"]["record"];
