@@ -138,7 +138,7 @@ function myStart(){
 				  	
 				  	//商品兑换信息框：商品积分图标
 				  	var messageImg = document.createElement('img');
-				  	messageImg.src = "img/score.png";
+				  	messageImg.src = "img/score1.png";
 				  	messageImg.className = "scoreImg";
 				  	messageDiv.appendChild(messageImg);
 				  	
