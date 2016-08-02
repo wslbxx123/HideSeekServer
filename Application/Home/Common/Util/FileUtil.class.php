@@ -11,12 +11,10 @@ class FileUtil {
     const SMALL_IMAGE_DIR = "Public/Image/Photo/Small/";
     
     public function saveRealPhoto($photo, $photoDataUrl, $tempFileName) {
+        $fileName = $tempFileName.".jpg";
+        $realPhotoPath = self::REAL_IMAGE_DIR.$fileName;
+        
         if(isset($photo)) {
-            $name = explode(".",$photo['name']); 
-            $name[0] = $tempFileName;
-            $fileName = implode(".", $name);
-            $realPhotoPath = self::REAL_IMAGE_DIR.$fileName;
-            
             if(move_uploaded_file($photo['tmp_name'], "./".$realPhotoPath)) {
                 return (is_ssl()? 'https://':'http://')
                         ."www.hideseek.cn/".$realPhotoPath;    
@@ -24,11 +22,9 @@ class FileUtil {
         }
         
         if(isset($photoDataUrl)) {
-            $fileName = $tempFileName.".jpg";
-            $photoData = implode(",", $photoDataUrl);
+            $photoData = explode(",", $photoDataUrl);
             $image = base64_decode($photoData[1]);
             file_put_contents($fileName, $image);
-            $realPhotoPath = self::REAL_IMAGE_DIR.$fileName;
             return (is_ssl()? 'https://':'http://')
                         ."www.hideseek.cn/".$realPhotoPath;
         }
