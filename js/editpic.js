@@ -23,8 +23,7 @@ document.getElementById("matchId").onclick = function(){
 				+ "&photo_url=" + document.getElementById("photo").src;
 				
 	var mymessages = {
-		url: "http://120.25.252.252/index.php/home/user/register",
-		
+		url: "/index.php/home/user/register",	
 		type: 'POST',
 
 		data: data,

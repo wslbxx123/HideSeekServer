@@ -302,7 +302,7 @@ function myStart(){
 		//	实现登录界面和服务器的交互
 		if(allGood) {			
 			var options = {
-				url: "http://120.25.252.252/index.php/home/user/login",
+				url: "/index.php/home/user/login",
 				type: 'POST',
 //				crossDomain:true,
 				data: $("#loginForm").serialize(),
