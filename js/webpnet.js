@@ -20,9 +20,13 @@ function myStart(){
 				  	var newDiv = document.createElement('div');
 				  	if(i%2 == 0){
 				  		newDiv.className = "N2";
+				  	    var newImg = document.createElement('img');
+				  		newImg.className = "productImg1";
 				  	}
 				  	else{
 				  		newDiv.className = "N1";
+				  		var newImg = document.createElement('img');
+				  		newImg.className = "productImg";
 				  	}
 				  	purArea.appendChild(newDiv);
 				  	
@@ -34,8 +38,8 @@ function myStart(){
 				  	newDiv.appendChild(nameSpan);
 				  	
 				  	//创建商品图片
-				  	var newImg = document.createElement('img');
-				  	newImg.className = "productImg";
+//				  	var newImg = document.createElement('img');
+//				  	newImg.className = "productImg";
 				  	newImg.src = result.result.products[i].product_image_url;
 				  	newDiv.appendChild(newImg);
 			  	
@@ -107,9 +111,13 @@ function myStart(){
 				  	var newDiv = document.createElement('div');
 				  	if(i%2 == 0){
 				  		newDiv.className = "N2";
+				  	    var newImg = document.createElement('img');
+				  		newImg.className = "productImg1";
 				  	}
 				  	else{
 				  		newDiv.className = "N1";
+				  		var newImg = document.createElement('img');
+				  		newImg.className = "productImg";
 				  	}
 				  	exArea.appendChild(newDiv);
 				  	
@@ -121,8 +129,6 @@ function myStart(){
 				  	newDiv.appendChild(nameSpan);
 				  	
 				  	//创建商品图片
-				  	var newImg = document.createElement('img');
-				  	newImg.className = "productImg";
 				  	newImg.src = result.result.reward[i].reward_image_url;
 				  	newDiv.appendChild(newImg);
 			  	

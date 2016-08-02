@@ -406,7 +406,17 @@ input.invalid {
 .productImg{
 	width: 118px;
     height: 98px;
-    margin: 9% auto 0 20%;
+    margin-top: 4%;
+    left: 16%;
+    position: absolute;
+}
+
+.productImg1{
+	width: 118px;
+    height: 98px;
+    margin-top: 4%;
+    right: 19%;
+    position: absolute;
 }
 
 .scoreImg{
@@ -414,6 +424,7 @@ input.invalid {
     height: 17px;
     position: absolute;
     margin-left: 3px;
+    margin-top: 123px;
 }
 
 .pointNum{
@@ -422,6 +433,7 @@ input.invalid {
     margin-left: 21px;
     line-height: 17px;
     color: #d30b06;
+    margin-top: 123px;
 }
 
 .peopleImg{
@@ -430,6 +442,7 @@ input.invalid {
     height: 14px;
     margin-top: 1px;
     position: absolute;
+    margin-top: 124px;
 }
 
 .peopleNum{
@@ -438,6 +451,7 @@ input.invalid {
     margin-left: 58px;
     line-height: 17px;
     color:#d30b06;
+    margin-top: 123px;
 }
 
 .get1{
@@ -478,6 +492,7 @@ input.invalid {
     width: 99%;
     height:25px;
     font-size: 14px;
+    margin-top: 142px;
 }
 
 .selected{
