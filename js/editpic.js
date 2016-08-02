@@ -249,11 +249,11 @@ function getPath(obj,fileQuery,transImg){
 		confirmedit.onclick = function(){
 			$("#newWin2").fadeIn(); 
 				if(n>0){
-					cover.drawImage(fileimg,0.1*n*(x-1)*y,0,coverpic.height*y,coverpic.height*y,0,0,200,200);
+					cover.drawImage(fileimg,0.1*n*(x-1)*y,0,coverpic.height*y,coverpic.height*y,0,0,500,500);
 					$("#newWin3").fadeOut(); 
 				}
 				else{
-					cover.drawImage(fileimg,0,0.1*(-n)*(x-1)*y,coverpic.width*y,coverpic.width*y,0,0,200,200);
+					cover.drawImage(fileimg,0,0.1*(-n)*(x-1)*y,coverpic.width*y,coverpic.width*y,0,0,500,500);
 					$("#newWin3").fadeOut(); 
 				}
 			

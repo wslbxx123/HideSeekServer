@@ -1,10 +1,10 @@
 window.onload = myStart;
 
 function myStart(){
-	document.domain="www.hideseek.cn";
+//	document.domain="www.hideseek.cn";
 	// 加载商城信息
 	var z;
-	var exStore = {
+	var purStore = {
 			url: "/index.php/home/store/refreshProducts",
 			type: 'POST',
 			data: "version=0&product_min_id=0",
@@ -78,6 +78,92 @@ function myStart(){
 				    var getDiv = document.createElement('div');
 				    getDiv.className = "purGet";
 				    getDiv.id = "c"+i;
+					getDiv.innerHTML= "购买";
+				    newDiv.appendChild(getDiv);   
+				    
+				} 		
+			},
+			error: function(XMLHttpRequest, textStatus, errorThrown) {
+				alert("网络出现问题！");
+			}
+	};
+	$.ajax(purStore);
+	
+	
+	var exStore = {
+			url: "/index.php/home/store/refreshReward",
+			type: 'POST',
+			data: "version=0&product_min_id=0",
+			dataType: "json",
+			
+//			jsonp: 'callback',
+//			jsonpCallback:"success_jsonpCallback",
+			success: function(result, status) {
+				z = result.result.reward.length;
+				for(var i = 0;i < result.result.reward.length;i++){	
+					//创建商品橱窗框
+					var exArea = document.getElementById("exArea");
+				  	var newDiv = document.createElement('div');
+				  	if(i%2 == 0){
+				  		newDiv.className = "N2";
+				  	}
+				  	else{
+				  		newDiv.className = "N1";
+				  	}
+				  	exArea.appendChild(newDiv);
+				  	
+				  	//创建商品名称
+				  	var nameSpan = document.createElement('span');
+				  
+				  	nameSpan.className = "productName";
+				  	nameSpan.innerHTML = result.result.reward[i].reward_name;
+				  	newDiv.appendChild(nameSpan);
+				  	
+				  	//创建商品图片
+				  	var newImg = document.createElement('img');
+				  	newImg.className = "productImg";
+				  	newImg.src = result.result.reward[i].reward_image_url;
+				  	newDiv.appendChild(newImg);
+			  	
+				  	//创建商品兑换信息框
+				  	var messageDiv = document.createElement('div');
+				  	newDiv.appendChild(messageDiv);
+				  	
+				  	//商品兑换信息框：商品积分图标
+				  	var messageImg = document.createElement('img');
+				  	messageImg.src = "img/score.png";
+				  	messageImg.className = "scoreImg";
+				  	messageDiv.appendChild(messageImg);
+				  	
+				  	//商品兑换信息框：商品积分数字
+				  	var pointNum = document.createElement('span');
+				  	pointNum.className = "pointNum";
+				  	pointNum.id = "pointNumb"+i;
+				  	pointNum.innerHTML = result.result.reward[i].price;
+				  	messageDiv.appendChild(pointNum);
+				  
+				  	//商品兑换信息框：商品人物图标
+				  	var peopleImg = document.createElement('img');
+				  	peopleImg.src = "img/people.png";
+				  	peopleImg.className = "peopleImg";
+				  	messageDiv.appendChild(peopleImg);
+				  	
+				  	//商品兑换信息框：商品购买人数
+				  	var peopleNum = document.createElement('span');
+				  	peopleNum.className = "peopleNum";
+				  	peopleNum.innerHTML = result.result.reward[i].exchange_count+"人购买";
+				  	messageDiv.appendChild(peopleNum);
+
+                    //创建商品介绍信息
+				  	var introDiv = document.createElement('div');
+					introDiv.id = "intro";
+				  	introDiv.innerHTML = result.result.reward[i].introduction;
+				    newDiv.appendChild(introDiv);
+				    
+				    //创建商品购买按钮
+				    var getDiv = document.createElement('div');
+				    getDiv.className = "exGet";
+				    getDiv.id = "d"+i;
 					getDiv.innerHTML= "购买";
 				    newDiv.appendChild(getDiv);   
 				    
