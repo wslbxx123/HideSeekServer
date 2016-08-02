@@ -93,7 +93,7 @@ function myStart(){
 	var exStore = {
 			url: "/index.php/home/store/refreshReward",
 			type: 'POST',
-			data: "version=0&product_min_id=0",
+			data: "version=0&reward_min_id=0",
 			dataType: "json",
 			
 //			jsonp: 'callback',
