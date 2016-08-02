@@ -21,12 +21,12 @@ function myStart(){
 				  	if(i%2 == 0){
 				  		newDiv.className = "N2";
 				  	    var newImg = document.createElement('img');
-				  		newImg.className = "productImg1";
+				  		newImg.className = "productImg";
 				  	}
 				  	else{
 				  		newDiv.className = "N1";
 				  		var newImg = document.createElement('img');
-				  		newImg.className = "productImg";
+				  		newImg.className = "productImg1";
 				  	}
 				  	purArea.appendChild(newDiv);
 				  	
@@ -112,12 +112,12 @@ function myStart(){
 				  	if(i%2 == 0){
 				  		newDiv.className = "N2";
 				  	    var newImg = document.createElement('img');
-				  		newImg.className = "productImg1";
+				  		newImg.className = "productImg";
 				  	}
 				  	else{
 				  		newDiv.className = "N1";
 				  		var newImg = document.createElement('img');
-				  		newImg.className = "productImg";
+				  		newImg.className = "productImg1";
 				  	}
 				  	exArea.appendChild(newDiv);
 				  	
