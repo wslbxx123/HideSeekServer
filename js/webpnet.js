@@ -100,7 +100,7 @@ function myStart(){
 //			jsonpCallback:"success_jsonpCallback",
 			success: function(result, status) {
 				alert(JSON.stringify(result));
-				z = result.result.reward.length;
+				f = result.result.reward.length;
 				for(var i = 0;i < result.result.reward.length;i++){	
 					//创建商品橱窗框
 					var exArea = document.getElementById("exArea");
@@ -193,6 +193,7 @@ function myStart(){
 	}
 	
 	document.getElementById("exchange").onclick = function(){
+		var s = Math.floor(f/2)*830+"px";
 		document.getElementById("exchange").className = "selected";
 		document.getElementById("purchase").className ="";
 		document.getElementById("appdownload").className ="";
