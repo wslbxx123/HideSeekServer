@@ -406,7 +406,7 @@ input.invalid {
 .productImg{
 	width: 118px;
     height: 98px;
-    margin: 9% auto 0 auto;
+    margin: 9% auto 0 20%;
 }
 
 .scoreImg{
