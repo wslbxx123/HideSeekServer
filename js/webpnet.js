@@ -99,6 +99,7 @@ function myStart(){
 //			jsonp: 'callback',
 //			jsonpCallback:"success_jsonpCallback",
 			success: function(result, status) {
+				alert(JSON.stringify(result));
 				z = result.result.reward.length;
 				for(var i = 0;i < result.result.reward.length;i++){	
 					//创建商品橱窗框
@@ -139,7 +140,7 @@ function myStart(){
 				  	var pointNum = document.createElement('span');
 				  	pointNum.className = "pointNum";
 				  	pointNum.id = "pointNumc"+i;
-				  	pointNum.innerHTML = result.result.reward[i].price;
+				  	pointNum.innerHTML = result.result.reward[i].record;
 				  	messageDiv.appendChild(pointNum);
 				  
 				  	//商品兑换信息框：商品人物图标
