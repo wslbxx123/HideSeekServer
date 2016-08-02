@@ -77,7 +77,7 @@ function myStart(){
 				    //创建商品购买按钮
 				    var getDiv = document.createElement('div');
 				    getDiv.className = "purGet";
-				    getDiv.id = "c"+i;
+				    getDiv.id = "b"+i;
 					getDiv.innerHTML= "购买";
 				    newDiv.appendChild(getDiv);   
 				    
@@ -138,7 +138,7 @@ function myStart(){
 				  	//商品兑换信息框：商品积分数字
 				  	var pointNum = document.createElement('span');
 				  	pointNum.className = "pointNum";
-				  	pointNum.id = "pointNumb"+i;
+				  	pointNum.id = "pointNumc"+i;
 				  	pointNum.innerHTML = result.result.reward[i].price;
 				  	messageDiv.appendChild(pointNum);
 				  
@@ -163,7 +163,7 @@ function myStart(){
 				    //创建商品购买按钮
 				    var getDiv = document.createElement('div');
 				    getDiv.className = "exGet";
-				    getDiv.id = "d"+i;
+				    getDiv.id = "c"+i;
 					getDiv.innerHTML= "购买";
 				    newDiv.appendChild(getDiv);   
 				    
