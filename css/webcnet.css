@@ -187,13 +187,14 @@ input.invalid {
 
 #newWin4{
 	width: 30%;
-    height: 600px;
+    height: 427px;
     background: white;
+    border: 2px solid dimgrey;
     border-radius: 5px;
-    -moz-border-radius: 5px; /* Firefox */
-  	-webkit-border-radius: 5px; /* Safari 和 Chrome */
-    display: none;
-    margin: -44% 33%;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    display: block;
+    margin: -36% 33%;
     position: absolute;
     z-index: 38;
     font-size: 15px;
