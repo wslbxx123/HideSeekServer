@@ -24,6 +24,7 @@ document.getElementById("matchId").onclick = function(){
 				+ "&photo_url=" + document.getElementById("photo").src;
 				
 	var mymessages = {
+		
 		url: "/index.php/home/user/register",	
 		type: 'POST',
 

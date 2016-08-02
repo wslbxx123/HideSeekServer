@@ -869,19 +869,19 @@ p.tip{
 #roleimages{
 	height: 278px;
     width: 200px;
-    margin-top: 10px;
+    margin-top: 22px;
 }
 
 #rolenames{
 	height: 27px;
-    width: 80%;
+    width: 56%;
     position: relative;
-    margin:-4px auto 0 auto;
+    margin: -4px auto 0 auto;
     color: white;
     font-size: 13px;
     background-color: saddlebrown;
-    line-height:27px;
-    border:2px solid sandybrown;
+    line-height: 27px;
+    border: 2px solid sandybrown;
 }
 
 #entrance{
