@@ -158,7 +158,7 @@ function myStart(){
 				  	//商品兑换信息框：商品购买人数
 				  	var peopleNum = document.createElement('span');
 				  	peopleNum.className = "peopleNum";
-				  	peopleNum.innerHTML = result.result.reward[i].exchange_count+"人购买";
+				  	peopleNum.innerHTML = result.result.reward[i].exchange_count+"人兑换";
 				  	messageDiv.appendChild(peopleNum);
 
                     //创建商品介绍信息
@@ -171,7 +171,7 @@ function myStart(){
 				    var getDiv = document.createElement('div');
 				    getDiv.className = "exGet";
 				    getDiv.id = "c"+i;
-					getDiv.innerHTML= "购买";
+					getDiv.innerHTML= "兑换";
 				    newDiv.appendChild(getDiv);   
 				    
 				} 		
