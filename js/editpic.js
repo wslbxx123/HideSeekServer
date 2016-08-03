@@ -29,7 +29,6 @@ document.getElementById("matchId").onclick = function(){
 		
 		url: "/index.php/home/user/register",	
 		type: 'POST',
-
 		data: data,
 		dataType: "json",
 		
@@ -99,7 +98,7 @@ document.getElementById("matchId").onclick = function(){
 
 document.getElementById("myorder").onclick = function(){
 		var orderArea = {
-			url: "/index.php/home/store/getOrder",
+			url: "/index.php/home/store/getOrders",
 			type: 'POST',
 			data: "session" + sessionid,
 			dataType: "json",
