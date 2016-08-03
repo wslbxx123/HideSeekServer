@@ -257,6 +257,7 @@ function myStart(){
 		$("#newWin3").fadeOut();
 		$("#newWin4").fadeOut();
 		$("#confirmpurchase").fadeOut();
+		$("#orderArea").fadeOut();
 	});
 	
 	//	检验注册界面填写框
