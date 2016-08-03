@@ -950,6 +950,7 @@ p.tip{
     text-align: center;
     line-height: 30px;
     border-radius: 5px;
+    display:none;
 }
 
 #orderArea{

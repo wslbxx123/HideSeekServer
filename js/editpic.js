@@ -40,7 +40,7 @@ document.getElementById("matchId").onclick = function(){
 					Num = result["result"]["record"];
 			        rolechange();
 			        sessionid = result["result"]["session_id"];
-			        alert(result["result"]["session_id"]);
+			        $("#myorder").fadeIn(); 
 					break;
 			  	case "10003":
 			  		alert("填写信息失败！")

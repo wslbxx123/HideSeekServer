@@ -267,7 +267,7 @@ function myStart(){
 		var allTags = document.getElementById("newWin1").getElementsByTagName("*");
 		for (var i=0; i<allTags.length; i++) {
 			if (!validTag(allTags[i])) {
-				allGood = false;
+ 				allGood = false;
 		    }
 		}
 		
@@ -430,6 +430,7 @@ function myStart(){
 					  		$("#myimg").fadeIn(); 
 					  		$("#newWin").fadeOut(); 
 					  		$("#storecover").fadeOut(); 
+					  		$("#myorder").fadeIn(); 
 					  		checkBox();
 					  		break;
 					  	case "10001":
