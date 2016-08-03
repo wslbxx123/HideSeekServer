@@ -58,7 +58,7 @@ function myStart(){
 				  	var pointNum = document.createElement('span');
 				  	pointNum.className = "pointNum";
 				  	pointNum.id = "pointNumb"+i;
-				  	pointNum.innerHTML = result.result.products[i].price;
+				  	pointNum.innerHTML = result.result.products[i].price+"元";
 				  	messageDiv.appendChild(pointNum);
 				  
 				  	//商品兑换信息框：商品人物图标
@@ -146,7 +146,7 @@ function myStart(){
 				  	var pointNum = document.createElement('span');
 				  	pointNum.className = "pointNum";
 				  	pointNum.id = "pointNumc"+i;
-				  	pointNum.innerHTML = result.result.reward[i].record;
+				  	pointNum.innerHTML = result.result.reward[i].record+"积分";
 				  	messageDiv.appendChild(pointNum);
 				  
 				  	//商品兑换信息框：商品人物图标
