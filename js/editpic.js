@@ -98,6 +98,8 @@ document.getElementById("matchId").onclick = function(){
 
 
 document.getElementById("myorder").onclick = function(){
+	var clickaction = true;
+	if (clickaction){
 		var orderArea = {
 			url: "/index.php/home/store/getOrders",
 			type: 'POST',
@@ -114,6 +116,7 @@ document.getElementById("myorder").onclick = function(){
 			  	titleDiv.id = "ordertitle";
 			  	titleDiv.innerHTML = "我的订单";
 			  	orderArea.appendChild(titleDiv);
+			  	clickaction = false;
 				for(var i = 0;i < result.result.length;i++){	
 					//创建商品橱窗框
 					var listDiv = document.createElement('div');
@@ -158,6 +161,7 @@ document.getElementById("myorder").onclick = function(){
 			}
 		};
 		$.ajax(orderArea);
+	}
 }
 
 			
