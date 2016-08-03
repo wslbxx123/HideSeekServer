@@ -1,11 +1,12 @@
 var sessionid;
+
 $('input[type=file]').change(function(){
 	$("#newWin3").fadeIn(); 
 	$("#newWin2").fadeOut(); 
 	var fileimg = document.getElementById("fileimg");
 	var mycamera = document.getElementById('mycamera');
 
-	getPath(fileimg,mycamera,fileimg) ;
+	getPath(fileimg,mycamera,fileimg);
 });
 
 document.getElementById("matchId").onclick = function(){
@@ -107,14 +108,14 @@ document.getElementById("myorder").onclick = function(){
 //			jsonpCallback:"success_jsonpCallback",
 			success: function(result, status) {
 				alert(JSON.stringify(result));
+				$("#myorder").click(function(){
+			  		$("#orderArea").fadeIn();
+			  	});
 				var orderArea = document.getElementById("orderArea");
 			  	var titleDiv = document.createElement('div');
 			  	titleDiv.id = "ordertitle";
 			  	titleDiv.innerHTML = "我的订单";
 			  	orderArea.appendChild(titleDiv);
-			  	$("#myorder").click(function(){
-			  		$("#orderArea").fadeIn();
-			  	});
 				for(var i = 0;i < result.result.length;i++){	
 					//创建商品橱窗框
 					var listDiv = document.createElement('div');
