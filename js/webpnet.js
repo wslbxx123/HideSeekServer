@@ -258,6 +258,7 @@ function myStart(){
 		$("#newWin4").fadeOut();
 		$("#confirmpurchase").fadeOut();
 		$("#orderArea").fadeOut();
+		$("#storecover").fadeOut();
 	});
 	
 	//	检验注册界面填写框
