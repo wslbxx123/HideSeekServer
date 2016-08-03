@@ -35,7 +35,6 @@ document.getElementById("matchId").onclick = function(){
 //		jsonp: 'callback',
 //		jsonpCallback:"success_jsonpCallback",
 		success: function(result, status) {
-			alert(JSON.stringify(result));
 			switch(result["code"]){
 				case "10000":
 					Num = result["result"]["record"];
@@ -111,7 +110,6 @@ document.getElementById("myorder").onclick = function(){
 //			jsonpCallback:"success_jsonpCallback",	
 			success: function(result, status) {
 				$("#orderArea").fadeIn();
-				alert(JSON.stringify(result));
 				var orderArea = document.getElementById("orderArea");
 			  	var titleDiv = document.createElement('div');
 			  	titleDiv.id = "ordertitle";

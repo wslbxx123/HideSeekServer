@@ -418,7 +418,6 @@ function myStart(){
 					switch(result["code"]){
 						case "10000":
 							sessionid = result["result"]["session_id"];
-							alert(sessionid);
 							Num = result["result"]["record"];
 							document.getElementById("scoreNum").innerHTML = Num;
 							Num1 = result["result"]["nickname"];
