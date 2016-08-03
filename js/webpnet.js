@@ -187,7 +187,7 @@ function myStart(){
 	
 	
 	document.getElementById("purchase").onclick = function(){
-		var t = Math.ceil(z/2)*830+"px";
+		var t = 590 + Math.ceil(z/2)*240+"px";
 		document.getElementById("purchase").className = "selected";
 		document.getElementById("exchange").className ="";
 		document.getElementById("appdownload").className ="";
@@ -201,7 +201,7 @@ function myStart(){
 	}
 	
 	document.getElementById("exchange").onclick = function(){
-		var s = Math.ceil(f/2)*830+"px";
+		var s = 590 + Math.ceil(f/2)*240+"px";
 		document.getElementById("exchange").className = "selected";
 		document.getElementById("purchase").className ="";
 		document.getElementById("appdownload").className ="";
