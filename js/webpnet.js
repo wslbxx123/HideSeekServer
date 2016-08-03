@@ -4,6 +4,7 @@ function myStart(){
 //	document.domain="www.hideseek.cn";
 	// 加载商城信息
 	var z;
+	var sessionid;
 	var purStore = {
 			url: "/index.php/home/store/refreshProducts",
 			type: 'POST',
@@ -409,6 +410,7 @@ function myStart(){
 					alert(JSON.stringify(result));
 					switch(result["code"]){
 						case "10000":
+							sessionid = result.result.session_id;
 							Num = result["result"]["record"];
 							document.getElementById("scoreNum").innerHTML = Num;
 							Num1 = result["result"]["nickname"];

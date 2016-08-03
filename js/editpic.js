@@ -1,5 +1,3 @@
-var sessionid;
-
 $('input[type=file]').change(function(){
 	$("#newWin3").fadeIn(); 
 	$("#newWin2").fadeOut(); 
@@ -100,7 +98,7 @@ document.getElementById("myorder").onclick = function(){
 		var orderArea = {
 			url: "/index.php/home/store/getOrders",
 			type: 'POST',
-			data: "session" + sessionid,
+			data: "session_id" + sessionid,
 			dataType: "json",
 			
 //			jsonp: 'callback',
