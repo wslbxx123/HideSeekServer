@@ -105,12 +105,10 @@ document.getElementById("myorder").onclick = function(){
 			dataType: "json",
 			
 //			jsonp: 'callback',
-//			jsonpCallback:"success_jsonpCallback",
+//			jsonpCallback:"success_jsonpCallback",	
 			success: function(result, status) {
+				$("#orderArea").fadeIn();
 				alert(JSON.stringify(result));
-				$("#myorder").click(function(){
-			  		$("#orderArea").fadeIn();
-			  	});
 				var orderArea = document.getElementById("orderArea");
 			  	var titleDiv = document.createElement('div');
 			  	titleDiv.id = "ordertitle";
