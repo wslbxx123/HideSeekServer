@@ -422,7 +422,7 @@ function myStart(){
 							document.getElementById("scoreNum").innerHTML = Num;
 							Num1 = result["result"]["nickname"];
 							document.getElementById("nickname").innerHTML = Num1;
-							document.getElementById("nickname").src = result["result"]["photo_url"];
+							document.getElementById("myimg").src = result["result"]["photo_url"];
 					  		$(".inner_menu").fadeOut();  
 					  		$("#myprofile").fadeIn(); 
 					  		$("#myimg").fadeIn(); 
