@@ -104,7 +104,6 @@ function myStart(){
 //			jsonp: 'callback',
 //			jsonpCallback:"success_jsonpCallback",
 			success: function(result, status) {
-				alert(JSON.stringify(result));
 				f = result.result.reward.length;
 				for(var i = 0;i < result.result.reward.length;i++){	
 					//创建商品橱窗框
