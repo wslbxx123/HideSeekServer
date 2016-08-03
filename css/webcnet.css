@@ -506,7 +506,6 @@ input.invalid {
     background-color:  white;
     z-index: 44;
     display: none;
-    height: 260px;
     width: 96%;
     margin-left: 2%;
     margin-top: 38px;
@@ -514,6 +513,8 @@ input.invalid {
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     border: 2px solid #b81d25;
+    padding-bottom: 29px;
+    
 }
 
 #downArea{
@@ -544,6 +545,7 @@ input.invalid {
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     border: 2px solid #b81d25;
+    padding-bottom: 29px;
 }
 
 .icon{
