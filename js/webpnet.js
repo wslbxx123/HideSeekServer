@@ -409,7 +409,7 @@ function myStart(){
 					alert(JSON.stringify(result));
 					switch(result["code"]){
 						case "10000":
-							sessionid = result.result.session_id;
+							sessionid = result["result"]["session_id"];
 							Num = result["result"]["record"];
 							document.getElementById("scoreNum").innerHTML = Num;
 							Num1 = result["result"]["nickname"];

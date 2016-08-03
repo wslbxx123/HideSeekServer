@@ -34,11 +34,11 @@ document.getElementById("matchId").onclick = function(){
 //		jsonpCallback:"success_jsonpCallback",
 		success: function(result, status) {
 			alert(JSON.stringify(result));
-			sessionid = result.result.session_id;
 			switch(result["code"]){
 				case "10000":
 					Num = result["result"]["record"];
 			        rolechange();
+			        sessionid = result["result"]["session_id"];
 					break;
 			  	case "10003":
 			  		alert("填写信息失败！")
@@ -148,15 +148,14 @@ document.getElementById("myorder").onclick = function(){
 					    statusDiv.innerHTML = "交易成功";
 					    listDiv.appendChild(statusDiv);
 				    }
+				    $("#orderArea").fadeIn();
 				} 		
 			},
 			error: function(XMLHttpRequest, textStatus, errorThrown) {
 				alert("网络出现问题！");
 			}
 		};
-	$.ajax(orderArea);
-	
-	$("#orderArea").fadeIn();
+		$.ajax(orderArea);
 }
 
 			
