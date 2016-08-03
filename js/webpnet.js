@@ -406,11 +406,10 @@ function myStart(){
 //				jsonp: 'callback',
 //				jsonpCallback:"success_jsonpCallback",
 				success: function(result, status) {
-					alert(JSON.stringify(result));
 					switch(result["code"]){
 						case "10000":
 							sessionid = result["result"]["session_id"];
-							alert(result["result"]["session_id"]);
+							alert(sessionid);
 							Num = result["result"]["record"];
 							document.getElementById("scoreNum").innerHTML = Num;
 							Num1 = result["result"]["nickname"];
