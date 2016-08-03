@@ -100,14 +100,13 @@ document.getElementById("myorder").onclick = function(){
 		var orderArea = {
 			url: "/index.php/home/store/getOrders",
 			type: 'POST',
-			data: "session_id" + sessionid,
+			data: "session_id=" + sessionid,
 			dataType: "json",
 			
 //			jsonp: 'callback',
 //			jsonpCallback:"success_jsonpCallback",
 			success: function(result, status) {
 				alert(JSON.stringify(result));
-				f = result.result.length;
 				var orderArea = document.getElementById("orderArea");
 			  	var titleDiv = document.createElement('div');
 			  	titleDiv.id = "ordertitle";
