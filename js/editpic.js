@@ -112,7 +112,9 @@ document.getElementById("myorder").onclick = function(){
 			  	titleDiv.id = "ordertitle";
 			  	titleDiv.innerHTML = "我的订单";
 			  	orderArea.appendChild(titleDiv);
-			  	
+			  	$("#myorder").click(function(){
+			  		$("#orderArea").fadeIn();
+			  	});
 				for(var i = 0;i < result.result.length;i++){	
 					//创建商品橱窗框
 					var listDiv = document.createElement('div');
@@ -149,7 +151,7 @@ document.getElementById("myorder").onclick = function(){
 					    statusDiv.innerHTML = "交易成功";
 					    listDiv.appendChild(statusDiv);
 				    }
-				    $("#orderArea").fadeIn();
+				    
 				} 		
 			},
 			error: function(XMLHttpRequest, textStatus, errorThrown) {
