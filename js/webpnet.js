@@ -187,7 +187,7 @@ function myStart(){
 	
 	
 	document.getElementById("purchase").onclick = function(){
-		var t = Math.floor(z/2)*830+"px";
+		var t = Math.ceil(z/2)*830+"px";
 		document.getElementById("purchase").className = "selected";
 		document.getElementById("exchange").className ="";
 		document.getElementById("appdownload").className ="";
@@ -201,12 +201,12 @@ function myStart(){
 	}
 	
 	document.getElementById("exchange").onclick = function(){
-		var s = Math.floor(f/2)*830+"px";
+		var s = Math.ceil(f/2)*830+"px";
 		document.getElementById("exchange").className = "selected";
 		document.getElementById("purchase").className ="";
 		document.getElementById("appdownload").className ="";
 		$("#exArea").fadeIn(); 
-		$("body").css("height","800px");
+		$("body").css("height",s);
 		$("#purArea").fadeOut(); 
 		$("#downArea").fadeOut(); 
 	}
