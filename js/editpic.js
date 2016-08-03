@@ -85,6 +85,7 @@ document.getElementById("matchId").onclick = function(){
 					alert("注册成功!");
 					$(".inner_menu").fadeOut(); 
 					$("#myprofile").fadeIn(); 
+					$("#myimg").fadeIn(); 
 					document.getElementById("nickname").innerHTML = document.getElementById("userName").value;
 					document.getElementById("scoreNum").innerHTML = Num;
 					$("#newWin4").fadeOut(); 

@@ -317,13 +317,13 @@ input.invalid {
 #loginForm{
     position: relative;
     text-align: center;
-    margin-top: 15%;
+    margin-top: 14%;
 }
 
 #registerForm{
     position: relative;
     text-align: center;
-    margin-top: 15%;
+    margin-top: 14%;
 }
 
 #guide{
@@ -935,6 +935,7 @@ p.tip{
     width: 31px;
     margin-top: 1%;
     margin-left: 78%;
+    display:none;
 }
 
 #myorder{
@@ -1020,4 +1021,14 @@ p.tip{
     font-size: 12px;
     margin-top: -26px;
     margin-left: 65px;
+}
+
+.closeBox{
+	background: url("../img/closeBox.png") no-repeat center;
+    background-size: cover;
+    height: 19px;
+    width: 19px;
+    margin-left: 93%;
+    margin-top: 2%;
+    position: absolute;
 }

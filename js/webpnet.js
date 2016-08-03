@@ -250,6 +250,15 @@ function myStart(){
 		}
 	});
 	
+	$(".closeBox").click(function(){
+		$("#newWin").fadeOut(); 
+		$("#newWin1").fadeOut(); 
+		$("#newWin2").fadeOut(); 
+		$("#newWin3").fadeOut();
+		$("#newWin4").fadeOut();
+		$("#confirmpurchase").fadeOut();
+	});
+	
 	//	检验注册界面填写框
 	$("#register").click(function(){
 		var allGood = true;
@@ -417,6 +426,7 @@ function myStart(){
 							document.getElementById("nickname").src = result["result"]["photo_url"];
 					  		$(".inner_menu").fadeOut();  
 					  		$("#myprofile").fadeIn(); 
+					  		$("#myimg").fadeIn(); 
 					  		$("#newWin").fadeOut(); 
 					  		$("#storecover").fadeOut(); 
 					  		checkBox();
