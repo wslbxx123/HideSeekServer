@@ -184,6 +184,8 @@ function myStart(){
 	
 	// 实现内部导航的切换
 	
+	
+	
 	document.getElementById("purchase").onclick = function(){
 		var t = Math.floor(z/2)*830+"px";
 		document.getElementById("purchase").className = "selected";
@@ -411,9 +413,11 @@ function myStart(){
 							document.getElementById("scoreNum").innerHTML = Num;
 							Num1 = result["result"]["nickname"];
 							document.getElementById("nickname").innerHTML = Num1;
+							document.getElementById("nickname").src = result["result"]["photo_url"];
 					  		$(".inner_menu").fadeOut();  
 					  		$("#myprofile").fadeIn(); 
 					  		$("#newWin").fadeOut(); 
+					  		$("#storecover").fadeOut(); 
 					  		checkBox();
 					  		break;
 					  	case "10001":
