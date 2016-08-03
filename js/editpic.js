@@ -96,9 +96,9 @@ document.getElementById("matchId").onclick = function(){
 	}
 }
 
-
+var clickaction = true;
 document.getElementById("myorder").onclick = function(){
-	var clickaction = true;
+	
 	if (clickaction){
 		var orderArea = {
 			url: "/index.php/home/store/getOrders",
