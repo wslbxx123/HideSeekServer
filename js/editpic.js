@@ -1,3 +1,4 @@
+var sessionid;
 $('input[type=file]').change(function(){
 	$("#newWin3").fadeIn(); 
 	$("#newWin2").fadeOut(); 
@@ -87,7 +88,7 @@ document.getElementById("matchId").onclick = function(){
 					document.getElementById("scoreNum").innerHTML = Num;
 					$("#newWin4").fadeOut(); 
 					$("#storecover").fadeOut(); 
-					checkBox();
+//					checkBox();
 				}
 			}
 		}
