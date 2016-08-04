@@ -250,6 +250,25 @@ function myStart(){
 		}
 	});
 	
+	var getClick = false;
+	$(".purGet").click(function(){
+	 	if(!getClick){
+			alert("请先登录！")
+		}
+	 	else{
+	 		$("#confirmpurchase").fadeIn();
+	 	}	
+	});
+	
+	$(".exGet").click(function(){
+	 	if(!getClick){
+			alert("请先登录！")
+		}
+	 	else{
+	 		$("#confirmpurchase").fadeIn();
+	 	}	
+	});
+	
 	$(".closeBox").click(function(){
 		$("#newWin").fadeOut(); 
 		$("#newWin1").fadeOut(); 
@@ -431,9 +450,7 @@ function myStart(){
 					  		$("#newWin").fadeOut(); 
 					  		$("#storecover").fadeOut(); 
 					  		$("#myorder").fadeIn(); 
-					  		$(".purGet").click(function(){
-								$("#confirmpurchase").fadeIn(); 
-							});
+					  		getClick = true;
 					  		checkBox();
 					  		break;
 					  	case "10001":

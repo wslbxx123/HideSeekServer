@@ -217,12 +217,12 @@ input.invalid {
     font-size:15px;
 }
 
-#goodsName{
+.goodsName{
     margin-left: 33px;
     position: absolute;
 }   
 
-#goodsNum{
+.goodsNum{
 	height: 25px;
     width: 35px;
     float: right;
@@ -230,7 +230,7 @@ input.invalid {
     margin-top: 15px;
 }   
 
-#goodsBack{
+.goodsBack{
 	background-color: #f0f0f0;
     height: 56px;
     width: 87%;
@@ -1038,7 +1038,7 @@ p.tip{
     position: absolute;
 }
 
-#enterAlipay{
+.enterAlipay{
 	width: 87%;
     height: 38px;
     margin-top: 100px;
@@ -1047,7 +1047,7 @@ p.tip{
     line-height: 38px;
 }
 
-#goodsSum{
+.goodsSum{
 	height: 29px;
     width: 100px;
     position: absolute;
@@ -1056,8 +1056,8 @@ p.tip{
     line-height: 29px;
 }
 
-#goodsNum{
+.goodsprice{
 	position: absolute;
-    margin-top: 0;
-    margin-left: -15%;
+    margin-top: 16px;
+    margin-left: 31%;
 }
