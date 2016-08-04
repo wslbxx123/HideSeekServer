@@ -11,4 +11,23 @@ class PullVersionManager {
         $version = $Dao->find();
         return $version['friend_version'];
     }
+    
+    public function getStoreVersion() {
+        $Dao = M("pull_version");
+        $version = $Dao->find();
+        return $version['store_version'];
+    }
+    
+    public function getRewardVersion() {
+        $Dao = M("pull_version");
+        $version = $Dao->find();
+        return $version['reward_version'];
+    }
+    
+    public function updateStoreVersion() {
+        $Dao = M("pull_version");
+        $version = $Dao->find();
+        $version['store_version'] = $version['store_version'] + 1;
+        $Dao->where('1=1')->save($version);
+    }
 }
