@@ -63,11 +63,24 @@ class ApiManager {
         $params["partner"] = KeyParam::ALIPAY_PARTNER;
         $params["_input_charset"] = "utf-8";
         $params["notify_url"] = "http://notify.msp.hk/notify.htm";
-        $params["out_trade_no"] = "0819145412-6177";
+        $params["out_trade_no"] = self::generateTradeNo(15);
         $params["subject"] = $productName;
         $params["payment_type"] = "1";
         $params["seller_id"] = "wslbxx@hotmail.com";
         $params["total_fee"] = $amount;
         return $client->rsaSign($params);
+    }
+    
+    public function generateTradeNo($length) {
+        $randomStr = null;
+        $sourceStr = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        $max = strlen($sourceStr) - 1;
+        
+        for ($i = 0; $i < $length; $i++)
+	{
+            $randomStr .= $sourceStr[rand(0, $max)];
+	}
+        
+        return $randomStr;
     }
 }
