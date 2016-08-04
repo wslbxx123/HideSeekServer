@@ -222,7 +222,7 @@ function myStart(){
 	var getClick = false;
 	$(".purGet").click(function(){
 	 	if(!getClick){
-			alert("请先登录！")
+			alert("请先登录！");
 		}
 	 	else{
 	 		$("#confirmpurchase").fadeIn();
