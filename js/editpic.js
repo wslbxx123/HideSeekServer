@@ -41,9 +41,7 @@ document.getElementById("matchId").onclick = function(){
 			        rolechange();
 			        sessionid = result["result"]["session_id"];
 			        $("#myorder").fadeIn(); 
-			        $(".purGet").click(function(){
-						$("#confirmpurchase").fadeIn(); 
-					});
+			       
 					break;
 			  	case "10003":
 			  		alert("填写信息失败！")
