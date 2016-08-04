@@ -174,6 +174,9 @@ function myStart(){
 					getDiv.innerHTML= "兑换";
 				    newDiv.appendChild(getDiv);   
 				    
+				    $(".purGet").click(function(){
+				    	$("#confirmpurchase").fadeIn();
+				    });	
 				} 		
 			},
 			error: function(XMLHttpRequest, textStatus, errorThrown) {
@@ -185,15 +188,15 @@ function myStart(){
 	// 实现内部导航的切换
 //	var getClick = false;
 //	alert(1);
-	document.getElementById("purGet").onclick = function(){
-	 	alert(2);
+//	document.getElementById("purGet").onclick = function(){
+//	 	alert(2);
 //	 	if(!getClick){
 //			alert("请先登录！");
 //		}
 //	 	else{
-	 		$("#confirmpurchase").fadeIn();
+//	 		$("#confirmpurchase").fadeIn();
 //	 	}	
-	}
+//	}
 	
 	
 	document.getElementById("purchase").onclick = function(){
