@@ -248,6 +248,7 @@ function myStart(){
 	});
 	
 	var getClick = false;
+	alert(1);
 	 $(".purGet").click(function(){
 	 	alert(1);
 //	 	if(!getClick){
