@@ -196,7 +196,7 @@ function myStart(){
 		$("#exArea").fadeOut(); 
 		$("#downArea").fadeOut(); 
 		$(".purGet").click(function(){
-			$("#confirmpurchase").fadeIn(); 
+			alert("请先登录！")
 		});
 	}
 	
@@ -431,6 +431,9 @@ function myStart(){
 					  		$("#newWin").fadeOut(); 
 					  		$("#storecover").fadeOut(); 
 					  		$("#myorder").fadeIn(); 
+					  		$(".purGet").click(function(){
+								$("#confirmpurchase").fadeIn(); 
+							});
 					  		checkBox();
 					  		break;
 					  	case "10001":

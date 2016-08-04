@@ -1048,9 +1048,16 @@ p.tip{
 }
 
 #goodsSum{
-	height: 26px;
+	height: 29px;
     width: 100px;
     position: absolute;
     margin-top: 64px;
-    margin-left: 67%;
+    margin-left: 65%;
+    line-height: 29px;
+}
+
+#goodsNum{
+	position: absolute;
+    margin-top: 0;
+    margin-left: -15%;
 }
