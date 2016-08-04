@@ -250,12 +250,12 @@ function myStart(){
 	var getClick = false;
 	 $(".purGet").click(function(){
 	 	alert(1);
-	 	if(!getClick){
-			alert("请先登录！");
-		}
-	 	else{
-	 		$("#confirmpurchase").fadeIn();
-	 	}	
+//	 	if(!getClick){
+//			alert("请先登录！");
+//		}
+//	 	else{
+//	 		$("#confirmpurchase").fadeIn();
+//	 	}	
 	});
 	
 	$(".closeBox").click(function(){
