@@ -183,7 +183,17 @@ function myStart(){
 	$.ajax(exStore);
 	
 	// 实现内部导航的切换
-	
+	var getClick = false;
+	alert(1);
+	 $(".purGet").click(function(){
+	 	alert(2);
+//	 	if(!getClick){
+//			alert("请先登录！");
+//		}
+//	 	else{
+//	 		$("#confirmpurchase").fadeIn();
+//	 	}	
+	});
 	
 	
 	document.getElementById("purchase").onclick = function(){
@@ -247,17 +257,7 @@ function myStart(){
 		}
 	});
 	
-	var getClick = false;
-	alert(1);
-	 $(".purGet").click(function(){
-	 	alert(1);
-//	 	if(!getClick){
-//			alert("请先登录！");
-//		}
-//	 	else{
-//	 		$("#confirmpurchase").fadeIn();
-//	 	}	
-	});
+	
 	
 	$(".closeBox").click(function(){
 		$("#newWin").fadeOut(); 
