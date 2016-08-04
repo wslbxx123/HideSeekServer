@@ -2,9 +2,9 @@
 
 namespace Home\Common\Util;
 /**
- * Description of ImageUtil
+ * 文件操作类
  *
- * @author apple
+ * @author Two
  */
 class FileUtil {
     const REAL_IMAGE_DIR = "Public/Image/Photo/Real/";
@@ -68,5 +68,23 @@ class FileUtil {
         
         imagejpeg($image, $fileName, 100);
         imagedestroy($imageResult);
+    }
+    
+    public function getAlipayKey($keyPath) {
+        $tempFileData = file_get_contents($keyPath);
+        $fileData = iconv("gb2312", "utf-8//IGNORE", $tempFileData);
+        $data = explode("\n", $fileData);
+        $data[0] = ""; 
+        
+        $index = 1;
+        $tempLine = "";
+        do {
+            $tempLine = $data[count($data) - $index];
+            $data[count($data) - $index] = "";
+            $index++;
+        } while(trim($tempLine) == "");
+        $privaryKey = implode("", $data);
+        
+        return $privaryKey;
     }
 }

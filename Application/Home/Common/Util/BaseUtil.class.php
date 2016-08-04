@@ -19,4 +19,14 @@ class BaseUtil {
         
         echo json_encode($array);
     }
+    
+    /**
+     * 生成随机数
+     * @param type $from 随机数最小值
+     * @param type $to  随机数最大值
+     * @return type 随机数
+     */
+    public function getRandomNum($from, $to) {
+        return rand($from, $to);
+    }
 }

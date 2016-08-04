@@ -4,11 +4,14 @@ use Home\Controller\BaseController;
 use Home\Common\Util\FileUtil;
 use Home\Common\Util\BaseUtil;
 use Home\Common\Param\CodeParam;
+use Home\Common\Param\KeyParam;
 use Home\DataAccess\AccountManager;
 use Home\DataAccess\PullVersionManager;
+use Home\BusinessLogic\Network\ApiManager;
 
 class UserController extends BaseController {
     public function login(){
+        self::setHeader();
         session_start();
         session(array('name'=>'pk_id','expire'=>3600));
         $phone = filter_input(INPUT_POST, 'phone');
@@ -32,6 +35,7 @@ class UserController extends BaseController {
     }
     
     public function register() {
+        self::setHeader();
         session_start();
         session(array('name'=>'pk_id','expire'=>3600));
         
@@ -100,13 +104,26 @@ class UserController extends BaseController {
         return true;
     }
     
-    public function getVerificationCode() {
-        $options['accountsid']='63160b32bb938243508e2d11cb8f3a1d';
-        $options['token']='d10ac1aec1d6f79fb8422ab9a7cb67be';
+    public function sendVerificationCode() {
+        self::setHeader();
         
-        $ucpass = new Ucpaas($options);
-        $appId = "aecc47a2c56c4638a0253da64649a137";
-        $to = "15673247044";
+        $phone = filter_input(INPUT_POST, 'phone');
+        $sendUrl = 'http://v.juhe.cn/sms/send';
+        $code = BaseUtil::getRandomNum(1000, 9999);
+        $smsConf = array(
+            'key'   => KeyParam::SMS_KEY, //您申请的APPKEY
+            'mobile'    => $phone, //接受短信的用户手机号码
+            'tpl_id'    => '18004', //您申请的短信模板ID，根据实际情况修改
+            'tpl_value' => urlencode('#code#='.$code) //您设置的模板变量，根据实际情况修改
+        );
+        $content = ApiManager::juhecurl($sendUrl, $smsConf, 0);
+        if($content){
+            $result = $content;
+        }else{
+            $result =  "请求发送短信失败";
+        }
+        
+        echo $result;
     }
 }
 
