@@ -195,6 +195,9 @@ function myStart(){
 		$("body").css("height",t);
 		$("#exArea").fadeOut(); 
 		$("#downArea").fadeOut(); 
+		$(".purGet").click(function(){
+			alert("请先登录！")
+		});
 	}
 	
 	document.getElementById("exchange").onclick = function(){
@@ -217,17 +220,6 @@ function myStart(){
 		$("#exArea").fadeOut(); 
 		$("#purArea").fadeOut(); 
 	}
-	
-	
-	var getClick = false;
-	$(".purGet").click(function(){
-	 	if(!getClick){
-			alert("请先登录！");
-		}
-	 	else{
-	 		$("#confirmpurchase").fadeIn();
-	 	}	
-	});
 	
 	// 登录按钮
 	$("#test1").click(function(){
@@ -258,7 +250,15 @@ function myStart(){
 		}
 	});
 	
-	
+	var getClick = false;
+	 $(".purGet").click(function(){
+	 	if(!getClick){
+			alert("请先登录！")
+		}
+	 	else{
+	 		$("#confirmpurchase").fadeIn();
+	 	}	
+	});
 	
 	$(".closeBox").click(function(){
 		$("#newWin").fadeOut(); 
