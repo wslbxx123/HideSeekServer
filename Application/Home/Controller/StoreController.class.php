@@ -133,10 +133,9 @@ class StoreController extends BaseController {
         $rsaSign = ApiManager::rsaSign($product['name'], 
                 $product['price'] * $product['count'], $tradeNo);
         
-        $orderId = OrderManager::insertOrder($storeId, $accountId, 
-                $count, $tradeNo);
+        $orderId = OrderManager::insertOrder($storeId, $accountId, $count, $tradeNo);
         
-        $result = Array("orderId" => $orderId, "sign" => $rsaSign);
+        $result = Array("order_id" => $orderId, "sign" => $rsaSign, "trade_no" => $tradeNo);
         echo BaseUtil::echoJson(CodeParam::SUCCESS, $result); 
     }
     
