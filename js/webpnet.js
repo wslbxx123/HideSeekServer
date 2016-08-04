@@ -87,6 +87,12 @@ function myStart(){
 					getDiv.innerHTML= "购买";
 				    newDiv.appendChild(getDiv);   
 				    
+				     $(".purGet").click(function(){
+				  
+					 		$("#confirmpurchase").fadeIn();
+					 		
+				    });	
+				    
 				} 		
 			},
 			error: function(XMLHttpRequest, textStatus, errorThrown) {
@@ -175,12 +181,6 @@ function myStart(){
 					getDiv.innerHTML= "兑换";
 				    newDiv.appendChild(getDiv);   
 				    
-				    
-				    $(".purGet").click(function(){
-				  
-					 		$("#confirmpurchase").fadeIn();
-					 		
-				    });	
 				} 		
 			},
 			error: function(XMLHttpRequest, textStatus, errorThrown) {
