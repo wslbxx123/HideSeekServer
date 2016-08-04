@@ -5,6 +5,7 @@ function myStart(){
 	// 加载商城信息
 	var z;
 	var sessionid;
+	var getClick = false;
 	var purStore = {
 			url: "/index.php/home/store/refreshProducts",
 			type: 'POST',
@@ -85,6 +86,12 @@ function myStart(){
 				    getDiv.id = "b"+i;
 					getDiv.innerHTML= "购买";
 				    newDiv.appendChild(getDiv);   
+				    
+				     $(".purGet").click(function(){
+				  
+					 		$("#confirmpurchase").fadeIn();
+					 		
+				    });	
 				    
 				} 		
 			},
@@ -185,15 +192,15 @@ function myStart(){
 	// 实现内部导航的切换
 //	var getClick = false;
 //	alert(1);
-	document.getElementById("purGet").onclick = function(){
-	 	alert(2);
+//	document.getElementById("purGet").onclick = function(){
+//	 	alert(2);
 //	 	if(!getClick){
 //			alert("请先登录！");
 //		}
 //	 	else{
-	 		$("#confirmpurchase").fadeIn();
+//	 		$("#confirmpurchase").fadeIn();
 //	 	}	
-	}
+//	}
 	
 	
 	document.getElementById("purchase").onclick = function(){
