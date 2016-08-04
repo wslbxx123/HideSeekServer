@@ -118,12 +118,13 @@ class UserController extends BaseController {
         );
         $content = ApiManager::juhecurl($sendUrl, $smsConf, 0);
         if($content){
-            $result = $content;
+            $resultContent = $content;
         }else{
-            $result =  "请求发送短信失败";
+            $resultContent =  "请求发送短信失败";
         }
         
-        echo $result;
+        $result = Array("sms_code" => $code, "content" => $resultContent);
+        BaseUtil::echoJson(CodeParam::PHONE_OR_PASSWORD_EMPTY, $result);
     }
 }
 
