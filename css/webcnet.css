@@ -223,8 +223,11 @@ input.invalid {
 }   
 
 #goodsNum{
-	float:right;
+	height: 25px;
+    width: 35px;
+    float: right;
     margin-right: 33px;
+    margin-top: 15px;
 }   
 
 #goodsBack{
