@@ -1044,4 +1044,13 @@ p.tip{
     margin-top: 100px;
     background-color: #ffcc00;
     position: absolute;
+    line-height: 38px;
+}
+
+#goodsSum{
+	height: 26px;
+    width: 100px;
+    position: absolute;
+    margin-top: 64px;
+    margin-left: 67%;
 }
