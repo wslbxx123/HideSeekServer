@@ -5,6 +5,7 @@ function myStart(){
 	// 加载商城信息
 	var z;
 	var sessionid;
+	var getClick = false;
 	var purStore = {
 			url: "/index.php/home/store/refreshProducts",
 			type: 'POST',
@@ -174,8 +175,14 @@ function myStart(){
 					getDiv.innerHTML= "兑换";
 				    newDiv.appendChild(getDiv);   
 				    
+				    
 				    $(".purGet").click(function(){
-				    	$("#confirmpurchase").fadeIn();
+				    	if(!getClick){
+							alert("请先登录！");
+						}
+					 	else{
+					 		$("#confirmpurchase").fadeIn();
+					 	}	
 				    });	
 				} 		
 			},
