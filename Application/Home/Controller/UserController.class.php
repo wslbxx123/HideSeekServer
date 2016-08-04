@@ -116,7 +116,7 @@ class UserController extends BaseController {
             'tpl_id'    => '18004', //您申请的短信模板ID，根据实际情况修改
             'tpl_value' => urlencode('#code#='.$code) //您设置的模板变量，根据实际情况修改
         );
-        $content = ApiManager::juhecurl($sendUrl, $smsConf, 0);
+        $content = ApiManager::getHttpResponse($sendUrl, $smsConf, 0);
         if($content){
             $resultContent = $content;
         }else{

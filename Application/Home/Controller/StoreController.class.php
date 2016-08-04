@@ -129,10 +129,12 @@ class StoreController extends BaseController {
         }
        
         $product = StoreManager::getProduct($storeId);
+        $tradeNo = ApiManager::generateTradeNo(5);
         $rsaSign = ApiManager::rsaSign($product['name'], 
-                $product['price'] * $product['count']);
+                $product['price'] * $product['count'], $tradeNo);
         
-        $orderId = OrderManager::insertOrder($storeId, $accountId, $count);
+        $orderId = OrderManager::insertOrder($storeId, $accountId, 
+                $count, $tradeNo);
         
         $result = Array("orderId" => $orderId, "sign" => $rsaSign);
         echo BaseUtil::echoJson(CodeParam::SUCCESS, $result); 
@@ -196,5 +198,19 @@ class StoreController extends BaseController {
         $orderList = OrderManager::refreshOrders();
         
         echo BaseUtil::echoJson(CodeParam::SUCCESS, $orderList); 
+    }
+    
+    public function notifyUrl() {
+        $param = filter_input(INPUT_POST);
+        $sign = filter_input(INPUT_POST, 'sign');
+        $notifyId = filter_input(INPUT_POST, 'notify_id');
+        $tradeStatus = filter_input(INPUT_POST, 'trade_status');
+        $tradeNo = filter_input(INPUT_POST, 'trade_no');
+        
+        $verifyResult = ApiManager::verifyNotify($param, $sign, $notifyId);
+        
+        if($verifyResult) {
+            OrderManager::updateOrderVerifyStatus($tradeNo, $tradeStatus);
+        }
     }
 }

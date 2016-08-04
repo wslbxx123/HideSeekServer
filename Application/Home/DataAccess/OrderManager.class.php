@@ -6,7 +6,7 @@ namespace Home\DataAccess;
  * @author apple
  */
 class OrderManager {
-    public function insertOrder($storeId, $accountId, $count) {
+    public function insertOrder($storeId, $accountId, $count, $tradeNo) {
         $Dao = M("order");
         $order["store_id"] = $storeId;
         $order['status'] = 0;
@@ -14,6 +14,7 @@ class OrderManager {
         $order['create_time'] = date('y-m-d H:i:s',time());
         $order['update_time'] = date('y-m-d H:i:s',time());
         $order['count'] = $count;
+        $order['trade_no'] = $tradeNo;
         return $Dao->add($order);
     }
     
@@ -25,6 +26,13 @@ class OrderManager {
         $Dao->where($condition)->save($order);
         
         return getOrder($orderId);
+    }
+    
+    public function updateOrderVerifyStatus($tradeNo, $verifyStatus) {
+        $Dao = M("order");
+        $condition["trade_no"] = $tradeNo;
+        $order["verify_status"] = $verifyStatus;
+        $Dao->where($condition)->save($order);
     }
     
     public function getOrder($orderId) {

@@ -29,4 +29,30 @@ class BaseUtil {
     public function getRandomNum($from, $to) {
         return rand($from, $to);
     }
+    
+    /**
+    * 除去数组中的空值和签名参数
+    * @param $param 签名参数组
+    * return 去掉空值与签名参数后的新签名参数组
+    */
+    public function paramFilter($param) {
+	$param_filter = array();
+	while (list ($key, $val) = each($param)) {
+            if($key != "sign" && $key != "sign_type" && $val != "") {
+                $param_filter[$key] = $param[$key];
+            }	
+	}
+	return $param_filter;
+    }
+    
+    /**
+    * 对数组排序
+    * @param $param 排序前的数组
+    * return 排序后的数组
+    */
+    public function paramSort($param) {
+        ksort($param);
+        reset($param);
+        return $param;
+    }
 }
