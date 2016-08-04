@@ -124,7 +124,7 @@ class UserController extends BaseController {
         }
         
         $result = Array("sms_code" => $code, "content" => $resultContent);
-        BaseUtil::echoJson(CodeParam::PHONE_OR_PASSWORD_EMPTY, $result);
+        BaseUtil::echoJson(CodeParam::SUCCESS, $result);
     }
 }
 
