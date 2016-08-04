@@ -217,17 +217,20 @@ input.invalid {
     font-size:15px;
 }
 
-#goodsName{
+.goodsName{
     margin-left: 33px;
     position: absolute;
 }   
 
-#goodsNum{
-	float:right;
+.goodsNum{
+	height: 25px;
+    width: 35px;
+    float: right;
     margin-right: 33px;
+    margin-top: 15px;
 }   
 
-#goodsBack{
+.goodsBack{
 	background-color: #f0f0f0;
     height: 56px;
     width: 87%;
@@ -317,13 +320,13 @@ input.invalid {
 #loginForm{
     position: relative;
     text-align: center;
-    margin-top: 15%;
+    margin-top: 14%;
 }
 
 #registerForm{
     position: relative;
     text-align: center;
-    margin-top: 15%;
+    margin-top: 14%;
 }
 
 #guide{
@@ -406,7 +409,17 @@ input.invalid {
 .productImg{
 	width: 118px;
     height: 98px;
-    margin: 9% auto 0 auto;
+    margin-top: 4%;
+    left: 16%;
+    position: absolute;
+}
+
+.productImg1{
+	width: 118px;
+    height: 98px;
+    margin-top: 4%;
+    right: 19%;
+    position: absolute;
 }
 
 .scoreImg{
@@ -414,6 +427,7 @@ input.invalid {
     height: 17px;
     position: absolute;
     margin-left: 3px;
+    margin-top: 123px;
 }
 
 .pointNum{
@@ -422,22 +436,24 @@ input.invalid {
     margin-left: 21px;
     line-height: 17px;
     color: #d30b06;
+    margin-top: 123px;
 }
 
 .peopleImg{
-	margin-left: 41px;
+	margin-left: 66px;
     width: 14px;
     height: 14px;
-    margin-top: 1px;
     position: absolute;
+    margin-top: 124px;
 }
 
 .peopleNum{
 	font-size: 8px;
     position: absolute;
-    margin-left: 58px;
+    margin-left: 83px;
     line-height: 17px;
     color:#d30b06;
+    margin-top: 123px;
 }
 
 .get1{
@@ -449,6 +465,15 @@ input.invalid {
 }
 
 .purGet{
+	margin-top: 6px;
+    width: 100%;
+    height: 30px;
+    background: #FFCC00;
+    text-align: center;
+    line-height:30px;
+}
+
+.exGet{
 	margin-top: 6px;
     width: 100%;
     height: 30px;
@@ -469,6 +494,7 @@ input.invalid {
     width: 99%;
     height:25px;
     font-size: 14px;
+    margin-top: 142px;
 }
 
 .selected{
@@ -482,7 +508,6 @@ input.invalid {
     background-color:  white;
     z-index: 44;
     display: none;
-    height: 260px;
     width: 96%;
     margin-left: 2%;
     margin-top: 38px;
@@ -490,6 +515,8 @@ input.invalid {
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     border: 2px solid #b81d25;
+    padding-bottom: 29px;
+    
 }
 
 #downArea{
@@ -520,6 +547,7 @@ input.invalid {
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     border: 2px solid #b81d25;
+    padding-bottom: 29px;
 }
 
 .icon{
@@ -903,4 +931,133 @@ p.tip{
     margin: 3% auto;
     background-color: white;
     border-radius: 10px;
+}
+
+
+#myimg{
+	height: 31px;
+    width: 31px;
+    margin-top: 1%;
+    margin-left: 78%;
+    display:none;
+}
+
+#myorder{
+	height: 30px;
+    width: 8%;
+    position: absolute;
+    margin-top: -5px;
+    margin-left: 88%;
+    font-size: 14px;
+    color: white;
+    background-color: #b81d25;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 5px;
+    display:none;
+}
+
+#orderArea{
+	background: #F0F0F0;
+    height: 420px;
+    border: 2px solid grey;
+    width: 40%;
+    margin-top: -10%;
+    margin-left: 29%;
+    position: absolute;
+    z-index: 50;
+    display:none;
+}
+
+#ordertitle{
+	width: 100%;
+    height: 46px;
+    background-color: lightyellow;
+    text-align: center;
+    line-height: 46px;
+}
+
+#orderArea .orderlist{
+	background-color: white;
+	height: 55px;
+    width: 93%;
+    margin: 9px auto;
+}
+
+.orderprodct{
+	height: 51px;
+    width: 60px;
+    margin-left: 5px;
+    margin-top: 5px;
+}
+
+.ordername{
+	position: absolute;
+    margin-top: -47px;
+    margin-left: 13%;
+    font-size: 14px;
+}
+
+.orderstatus{
+	margin-top: -41px;
+    margin-left: 84%;
+    font-size: 13px;
+}
+
+.orderpay{
+	margin-left: 83%;
+    font-size: 12px;
+    width: 59px;
+    height: 18px;
+    background-color: #ffcc00;
+    text-align: center;
+    line-height: 18px;
+    border-radius: 2px;
+}
+
+.orderstatus1{
+    margin-top: -49px;
+    margin-left: 84%;
+    font-size: 13px;
+}
+
+.ordersum{
+	position: absolute;
+    font-size: 12px;
+    margin-top: -26px;
+    margin-left: 65px;
+}
+
+.closeBox{
+	background: url("../img/closeBox.png") no-repeat center;
+    background-size: cover;
+    height: 19px;
+    width: 19px;
+    right: 2%;
+    margin-top: 2%;
+    position: absolute;
+}
+
+.enterAlipay{
+	width: 87%;
+    height: 38px;
+    margin-top: 100px;
+    background-color: #ffcc00;
+    position: absolute;
+    line-height: 38px;
+}
+
+.goodsSum{
+	height: 29px;
+    width: 100px;
+    position: absolute;
+    margin-top: 64px;
+    margin-left: 65%;
+    line-height: 29px;
+}
+
+.goodsprice{
+	position: absolute;
+    margin-top: 16px;
+    margin-left: 31%;
 }

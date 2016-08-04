@@ -1,10 +1,11 @@
 window.onload = myStart;
 
 function myStart(){
-	document.domain="www.hideseek.cn";
+//	document.domain="www.hideseek.cn";
 	// 加载商城信息
 	var z;
-	var exStore = {
+	var sessionid;
+	var purStore = {
 			url: "/index.php/home/store/refreshProducts",
 			type: 'POST',
 			data: "version=0&product_min_id=0",
@@ -20,9 +21,13 @@ function myStart(){
 				  	var newDiv = document.createElement('div');
 				  	if(i%2 == 0){
 				  		newDiv.className = "N2";
+				  	    var newImg = document.createElement('img');
+				  		newImg.className = "productImg";
 				  	}
 				  	else{
 				  		newDiv.className = "N1";
+				  		var newImg = document.createElement('img');
+				  		newImg.className = "productImg1";
 				  	}
 				  	purArea.appendChild(newDiv);
 				  	
@@ -34,8 +39,8 @@ function myStart(){
 				  	newDiv.appendChild(nameSpan);
 				  	
 				  	//创建商品图片
-				  	var newImg = document.createElement('img');
-				  	newImg.className = "productImg";
+//				  	var newImg = document.createElement('img');
+//				  	newImg.className = "productImg";
 				  	newImg.src = result.result.products[i].product_image_url;
 				  	newDiv.appendChild(newImg);
 			  	
@@ -53,7 +58,7 @@ function myStart(){
 				  	var pointNum = document.createElement('span');
 				  	pointNum.className = "pointNum";
 				  	pointNum.id = "pointNumb"+i;
-				  	pointNum.innerHTML = result.result.products[i].price;
+				  	pointNum.innerHTML = result.result.products[i].price+"元";
 				  	messageDiv.appendChild(pointNum);
 				  
 				  	//商品兑换信息框：商品人物图标
@@ -77,8 +82,96 @@ function myStart(){
 				    //创建商品购买按钮
 				    var getDiv = document.createElement('div');
 				    getDiv.className = "purGet";
-				    getDiv.id = "c"+i;
+				    getDiv.id = "b"+i;
 					getDiv.innerHTML= "购买";
+				    newDiv.appendChild(getDiv);   
+				    
+				} 		
+			},
+			error: function(XMLHttpRequest, textStatus, errorThrown) {
+				alert("网络出现问题！");
+			}
+	};
+	$.ajax(purStore);
+	
+	
+	var exStore = {
+			url: "/index.php/home/store/refreshReward",
+			type: 'POST',
+			data: "version=0&reward_min_id=0",
+			dataType: "json",
+			
+//			jsonp: 'callback',
+//			jsonpCallback:"success_jsonpCallback",
+			success: function(result, status) {
+				f = result.result.reward.length;
+				for(var i = 0;i < result.result.reward.length;i++){	
+					//创建商品橱窗框
+					var exArea = document.getElementById("exArea");
+				  	var newDiv = document.createElement('div');
+				  	if(i%2 == 0){
+				  		newDiv.className = "N2";
+				  	    var newImg = document.createElement('img');
+				  		newImg.className = "productImg";
+				  	}
+				  	else{
+				  		newDiv.className = "N1";
+				  		var newImg = document.createElement('img');
+				  		newImg.className = "productImg1";
+				  	}
+				  	exArea.appendChild(newDiv);
+				  	
+				  	//创建商品名称
+				  	var nameSpan = document.createElement('span');
+				  
+				  	nameSpan.className = "productName";
+				  	nameSpan.innerHTML = result.result.reward[i].reward_name;
+				  	newDiv.appendChild(nameSpan);
+				  	
+				  	//创建商品图片
+				  	newImg.src = result.result.reward[i].reward_image_url;
+				  	newDiv.appendChild(newImg);
+			  	
+				  	//创建商品兑换信息框
+				  	var messageDiv = document.createElement('div');
+				  	newDiv.appendChild(messageDiv);
+				  	
+				  	//商品兑换信息框：商品积分图标
+				  	var messageImg = document.createElement('img');
+				  	messageImg.src = "img/score1.png";
+				  	messageImg.className = "scoreImg";
+				  	messageDiv.appendChild(messageImg);
+				  	
+				  	//商品兑换信息框：商品积分数字
+				  	var pointNum = document.createElement('span');
+				  	pointNum.className = "pointNum";
+				  	pointNum.id = "pointNumc"+i;
+				  	pointNum.innerHTML = result.result.reward[i].record+"积分";
+				  	messageDiv.appendChild(pointNum);
+				  
+				  	//商品兑换信息框：商品人物图标
+				  	var peopleImg = document.createElement('img');
+				  	peopleImg.src = "img/people.png";
+				  	peopleImg.className = "peopleImg";
+				  	messageDiv.appendChild(peopleImg);
+				  	
+				  	//商品兑换信息框：商品购买人数
+				  	var peopleNum = document.createElement('span');
+				  	peopleNum.className = "peopleNum";
+				  	peopleNum.innerHTML = result.result.reward[i].exchange_count+"人兑换";
+				  	messageDiv.appendChild(peopleNum);
+
+                    //创建商品介绍信息
+				  	var introDiv = document.createElement('div');
+					introDiv.id = "intro";
+				  	introDiv.innerHTML = result.result.reward[i].introduction;
+				    newDiv.appendChild(introDiv);
+				    
+				    //创建商品购买按钮
+				    var getDiv = document.createElement('div');
+				    getDiv.className = "exGet";
+				    getDiv.id = "c"+i;
+					getDiv.innerHTML= "兑换";
 				    newDiv.appendChild(getDiv);   
 				    
 				} 		
@@ -91,8 +184,10 @@ function myStart(){
 	
 	// 实现内部导航的切换
 	
+	
+	
 	document.getElementById("purchase").onclick = function(){
-		var t = Math.floor(z/2)*830+"px";
+		var t = 590 + Math.ceil(z/2)*240+"px";
 		document.getElementById("purchase").className = "selected";
 		document.getElementById("exchange").className ="";
 		document.getElementById("appdownload").className ="";
@@ -100,17 +195,15 @@ function myStart(){
 		$("body").css("height",t);
 		$("#exArea").fadeOut(); 
 		$("#downArea").fadeOut(); 
-		$(".purGet").click(function(){
-			$("#confirmpurchase").fadeIn(); 
-		});
 	}
 	
 	document.getElementById("exchange").onclick = function(){
+		var s = 590 + Math.ceil(f/2)*240+"px";
 		document.getElementById("exchange").className = "selected";
 		document.getElementById("purchase").className ="";
 		document.getElementById("appdownload").className ="";
 		$("#exArea").fadeIn(); 
-		$("body").css("height","800px");
+		$("body").css("height",s);
 		$("#purArea").fadeOut(); 
 		$("#downArea").fadeOut(); 
 	}
@@ -154,13 +247,43 @@ function myStart(){
 		}
 	});
 	
+	var getClick = false;
+	$(".purGet").click(function(){
+	 	if(!getClick){
+			alert("请先登录！");
+		}
+	 	else{
+	 		$("#confirmpurchase").fadeIn();
+	 	}	
+	});
+	
+	$(".exGet").click(function(){
+	 	if(!getClick){
+			alert("请先登录！");
+		}
+	 	else{
+	 		$("#confirmpurchase").fadeIn();
+	 	}	
+	});
+	
+	$(".closeBox").click(function(){
+		$("#newWin").fadeOut(); 
+		$("#newWin1").fadeOut(); 
+		$("#newWin2").fadeOut(); 
+		$("#newWin3").fadeOut();
+		$("#newWin4").fadeOut();
+		$("#confirmpurchase").fadeOut();
+		$("#orderArea").fadeOut();
+		$("#storecover").fadeOut();
+	});
+	
 	//	检验注册界面填写框
 	$("#register").click(function(){
 		var allGood = true;
 		var allTags = document.getElementById("newWin1").getElementsByTagName("*");
 		for (var i=0; i<allTags.length; i++) {
 			if (!validTag(allTags[i])) {
-				allGood = false;
+ 				allGood = false;
 		    }
 		}
 		
@@ -310,16 +433,21 @@ function myStart(){
 //				jsonp: 'callback',
 //				jsonpCallback:"success_jsonpCallback",
 				success: function(result, status) {
-					alert(JSON.stringify(result));
 					switch(result["code"]){
 						case "10000":
+							sessionid = result["result"]["session_id"];
 							Num = result["result"]["record"];
 							document.getElementById("scoreNum").innerHTML = Num;
 							Num1 = result["result"]["nickname"];
 							document.getElementById("nickname").innerHTML = Num1;
+							document.getElementById("myimg").src = result["result"]["photo_url"];
 					  		$(".inner_menu").fadeOut();  
 					  		$("#myprofile").fadeIn(); 
+					  		$("#myimg").fadeIn(); 
 					  		$("#newWin").fadeOut(); 
+					  		$("#storecover").fadeOut(); 
+					  		$("#myorder").fadeIn(); 
+					  		getClick = true;
 					  		checkBox();
 					  		break;
 					  	case "10001":
