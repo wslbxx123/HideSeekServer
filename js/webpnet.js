@@ -218,6 +218,17 @@ function myStart(){
 		$("#purArea").fadeOut(); 
 	}
 	
+	
+	var getClick = false;
+	$(".purGet").click(function(){
+	 	if(!getClick){
+			alert("请先登录！")
+		}
+	 	else{
+	 		$("#confirmpurchase").fadeIn();
+	 	}	
+	});
+	
 	// 登录按钮
 	$("#test1").click(function(){
 		if($("#newWin").css("display")=='none'){
@@ -247,24 +258,7 @@ function myStart(){
 		}
 	});
 	
-	var getClick = false;
-	$(".purGet").click(function(){
-	 	if(!getClick){
-			alert("请先登录！");
-		}
-	 	else{
-	 		$("#confirmpurchase").fadeIn();
-	 	}	
-	});
 	
-	$(".exGet").click(function(){
-	 	if(!getClick){
-			alert("请先登录！");
-		}
-	 	else{
-	 		$("#confirmpurchase").fadeIn();
-	 	}	
-	});
 	
 	$(".closeBox").click(function(){
 		$("#newWin").fadeOut(); 
