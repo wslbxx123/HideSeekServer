@@ -177,12 +177,9 @@ function myStart(){
 				    
 				    
 				    $(".purGet").click(function(){
-				    	if(!getClick){
-							alert("请先登录！");
-						}
-					 	else{
+				  
 					 		$("#confirmpurchase").fadeIn();
-					 	}	
+					 		
 				    });	
 				} 		
 			},
