@@ -1037,3 +1037,11 @@ p.tip{
     margin-top: 2%;
     position: absolute;
 }
+
+#enterAlipay{
+	width: 87%;
+    height: 38px;
+    margin-top: 100px;
+    background-color: #ffcc00;
+    position: absolute;
+}
