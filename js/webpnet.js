@@ -189,16 +189,6 @@ function myStart(){
 	});
 	
 	
-	$("#purArea").click(function(){
-	 	alert(2);
-//	 	if(!getClick){
-//			alert("请先登录！");
-//		}
-//	 	else{
-//	 		$("#confirmpurchase").fadeIn();
-//	 	}	
-	});
-	
 	// 实现内部导航的切换
 	document.getElementById("purchase").onclick = function(){
 		var t = 590 + Math.ceil(z/2)*240+"px";
@@ -446,11 +436,6 @@ function myStart(){
 					  		$("#myorder").fadeIn(); 
 					  		getClick = true;
 					  		checkBox();
-					  		 $(".purGet").click(function(){
-				  
-						 		$("#confirmpurchase").fadeIn();
-						 		
-					   		 });	
 					  		break;
 					  	case "10001":
 					  		$("#fault").fadeIn();
