@@ -119,6 +119,7 @@ class StoreController extends BaseController {
         $sessionId = filter_input(INPUT_POST, 'session_id');
         $storeId = filter_input(INPUT_POST, 'store_id');
         $count = filter_input(INPUT_POST, 'count');
+        
         $accountId = $this->getPkIdFromToken($sessionId);
         
         if(!isset($sessionId) || $accountId == 0) {
@@ -132,12 +133,13 @@ class StoreController extends BaseController {
        
         $product = StoreManager::getProduct($storeId);
         $tradeNo = ApiManager::generateTradeNo(5);
-        $rsaSign = ApiManager::rsaSign($product['name'], $product['introduction'],
-                $product['price'] * $product['count'], $tradeNo);
+        $rsaSign = ApiManager::rsaSign($product['product_name'], $product['introduction'],
+                floatval($product['price']) * $count, $tradeNo);
         
         $orderId = OrderManager::insertOrder($storeId, $accountId, $count, $tradeNo);
         
-        $result = Array("order_id" => $orderId, "sign" => $rsaSign, "trade_no" => $tradeNo);
+        $result = Array("order_id" => $orderId, "sign" => $rsaSign, 
+            "trade_no" => $tradeNo);
         echo BaseUtil::echoJson(CodeParam::SUCCESS, $result); 
     }
     
@@ -217,7 +219,7 @@ class StoreController extends BaseController {
     
     public function test() {
         $rsaSign = ApiManager::rsaSign("怪兽图鉴", "可获得怪兽信息，并包含拿下怪兽的规则。",
-                2.0, "V4OV21462636800");
+                2.0, "YKMHR1462636800");
         echo $rsaSign;
     }
 }
