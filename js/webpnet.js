@@ -405,7 +405,7 @@ function myStart(){
 		 	}
   		}
 		
-		
+		alert(codeNumber);
 		if(allGood&&codeNumber) {
 			//	跳转到第二注册界面
 			$("#newWin2").fadeIn(); 
