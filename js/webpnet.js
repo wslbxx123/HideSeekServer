@@ -89,14 +89,14 @@ function myStart(){
 				    newDiv.appendChild(getDiv);   
 				        
 				} 		
-				 $(".exGet").click(function(){
+				 $(".purGet").click(function(){
 					   if (!getClick){
 					   		alert("请先登录！");
 					   }
 					   else{
 					   		t = $(this).id;
-					   		$(".goodsName").html(result.result.reward[t].reward_name);
-					   		$(".goodsprice").html($(".goodsNum").val*result.rsesult.reward[t].record);
+					   		$(".goodsName").html(result.result.products[t].product_name);
+					   		$(".goodsprice").html($(".goodsNum").val*result.rsesult.products[t].price);
 					   		$("#confirmpurchase").fadeIn();
 					   }
 				});
