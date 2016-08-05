@@ -87,9 +87,16 @@ function myStart(){
 				    getDiv.id = "b"+i;
 					getDiv.innerHTML= "购买";
 				    newDiv.appendChild(getDiv);   
-				    
-				    
+				        
 				} 		
+				$(".purGet").click(function(){
+				   if (!getClick){
+				   		alert("请先登录！");
+				   }
+				   else{
+				   		$("#confirmpurchase").fadeIn();
+				   }
+				});
 			},
 			error: function(XMLHttpRequest, textStatus, errorThrown) {
 				alert("网络出现问题！");
@@ -177,12 +184,12 @@ function myStart(){
 					getDiv.innerHTML= "兑换";
 				    newDiv.appendChild(getDiv);   
 				}
-				$(".purGet").click(function(){
+				$(".exGet").click(function(){
 				   if (!getClick){
-				   		alert(2);
+				   		alert("请先登录！");
 				   }
 				   else{
-				   		alert(3);
+				   		$("#confirmexchange").fadeIn();
 				   }
 				});
 			},
