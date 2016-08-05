@@ -84,19 +84,19 @@ function myStart(){
 				    //创建商品购买按钮
 				    var getDiv = document.createElement('div');
 				    getDiv.className = "purGet";
-				    getDiv.id = "b"+i;
+				    getDiv.id = i;
 					getDiv.innerHTML= "购买";
 				    newDiv.appendChild(getDiv);   
 				        
 				} 		
-				 $("#bi").click(function(){
+				 $(".exGet").click(function(){
 					   if (!getClick){
 					   		alert("请先登录！");
 					   }
 					   else{
-//					   		t = $(this).index()
-					   		$(".goodsName").html(result.result.reward[i].reward_name);
-					   		$(".goodsprice").html($(".goodsNum").val*result.rsesult.reward[i].record);
+					   		t = $(this).id;
+					   		$(".goodsName").html(result.result.reward[t].reward_name);
+					   		$(".goodsprice").html($(".goodsNum").val*result.rsesult.reward[t].record);
 					   		$("#confirmpurchase").fadeIn();
 					   }
 				});
