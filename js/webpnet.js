@@ -97,11 +97,7 @@ function myStart(){
 					   		t = $(this).attr("id");
 					   		alert(t);
 					   		$(".goodsName").html(result.result.products[t].product_name);
-					   		alert(result.result.products[t].product_name);
 					   		$(".goodsprice").html($(".goodsNum").val()*result.result.products[t].price+"元");
-					   		alert($(".goodsNum").val());
-					   		alert(result.result.products[t].price);
-					   		alert($(".goodsNum").val*result.result.products[t].price+"元");
 					   		$("#confirmpurchase").fadeIn();
 					   }
 				});
@@ -188,23 +184,23 @@ function myStart(){
 				    //创建商品购买按钮
 				    var getDiv = document.createElement('div');
 				    getDiv.className = "exGet";
-				    getDiv.id = "c"+i;
+				    getDiv.id = i;
 					getDiv.innerHTML= "兑换";
 				    newDiv.appendChild(getDiv);   
 				    
-				    $("#ci").click(function(){
+				}
+				 $(".exGet").click(function(){
 					   if (!getClick){
 					   		alert("请先登录！");
 					   }
 					   else{
-//					   		t = $(this).index()
-					   		$(".goodsName").html(result.result.reward[i].reward_name);
-					   		$(".goodsprice").html($(".goodsNum").val*result.rsesult.reward[i].record);
+					   		t = $(this).attr("id");
+					   		alert(t);
+					   		$(".goodsName").html(result.result.reward[t].reward_name);
+					   		$(".goodsprice").html($(".goodsNum").val()*result.result.reward[t].record+"积分");
 					   		$("#confirmexchange").fadeIn();
 					   }
-					});
-				}
-				
+				});
 			},
 			error: function(XMLHttpRequest, textStatus, errorThrown) {
 				alert("网络出现问题！");
@@ -287,6 +283,45 @@ function myStart(){
 		$("#orderArea").fadeOut();
 		$("#storecover").fadeOut();
 	});
+	
+	var codeNumber;
+//发送和检验验证码
+	document.getElementById("verifiCode").onclick = function(){
+		var verificode = {
+			url: "/index.php/home/user/sendVerificationCode",
+			type: 'POST',
+			data: "phone=" + $("#userphone").val(),
+			dataType: "json",
+			
+			success: function(result, status) {
+				alert(JSON.stringify(result));
+				switch(result["code"]){
+					case "10000":
+						if(result["result"]["error_code"] == 0){
+							$("#login").click(function() {
+								if($("#codeNum").val() == result["result"]["sms_code"]){
+								   codeNumber = true;
+								}
+								else{
+									alert("验证码错误！");
+								}
+							});
+						}			
+				  		break;
+				  	case "10001":
+				  		$("#fault").fadeIn();
+				  		break;
+				}
+				
+			},
+			error: function(XMLHttpRequest, textStatus, errorThrown) {
+				alert("发送验证码失败！");
+			}
+		};
+		$.ajax(verificode);
+	}
+	
+
 	
 	//	检验注册界面填写框
 	$("#register").click(function(){
@@ -371,7 +406,7 @@ function myStart(){
   		}
 		
 		
-		if(allGood) {
+		if(allGood&codeNumber) {
 			//	跳转到第二注册界面
 			$("#newWin2").fadeIn(); 
 			$("#newWin1").fadeOut(); 
