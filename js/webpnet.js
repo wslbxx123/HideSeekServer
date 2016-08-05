@@ -294,6 +294,7 @@ function myStart(){
 			dataType: "json",
 			
 			success: function(result, status) {
+				alert(JSON.stringify(result));
 				switch(result["code"]){
 					case "10000":
 						if(result["result"]["error_code"] == 0){
