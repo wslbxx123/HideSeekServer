@@ -214,4 +214,10 @@ class StoreController extends BaseController {
             OrderManager::updateOrderVerifyStatus($tradeNo, $tradeStatus);
         }
     }
+    
+    public function test() {
+        $rsaSign = ApiManager::rsaSign("怪兽图鉴", "可获得怪兽信息，并包含拿下怪兽的规则。",
+                2.0, "V4OV21462636800");
+        echo $rsaSign;
+    }
 }
