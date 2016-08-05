@@ -191,7 +191,7 @@ function myStart(){
 					   else{
 					   		t = $(this).index()
 					   		$(".goodsName").html(result.result.reward[i].reward_name);
-					   		$(".goodsprice").html($(".goodsNum").val*result.result.reward[i].record);
+					   		$(".goodsprice").html($(".goodsNum").val*result.rsesult.reward[i].record);
 					   		$("#confirmexchange").fadeIn();
 					   }
 					});
