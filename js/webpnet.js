@@ -183,7 +183,11 @@ function myStart(){
 	};
 	$.ajax(exStore);
 	
-	
+	$('.purGet').each(function(){
+		$(this).click(function){
+			alert(1);
+		};
+	});
 	
 	
 	$("#purArea").click(function(){
