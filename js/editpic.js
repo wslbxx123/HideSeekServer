@@ -1,4 +1,40 @@
 var sessionid;
+var codeNumber;
+//发送和检验验证码
+document.getElementById("verifiCode").onclick = function(){
+	var verificode = {
+		url: "/index.php/home/user/sendVerificationCode",
+		type: 'POST',
+		data: $("#userphone").val(),
+		dataType: "json",
+		
+		success: function(result, status) {
+			switch(result["code"]){
+				case "10000":
+					if(result["result"]["error_code"] == 0){
+						$("#login").click(function() {
+							if($("#codeNum").val() == result["result"]["sms_code"]){
+							   codeNumber = true;
+							}
+						});
+					}			
+			  		break;
+			  	case "10001":
+			  		$("#fault").fadeIn();
+			  		break;
+			}
+			
+		},
+		error: function(XMLHttpRequest, textStatus, errorThrown) {
+			alert("网络出现问题！");
+		}
+	};
+	$.ajax(verificode);
+}
+
+
+
+
 
 $('input[type=file]').change(function(){
 	$("#newWin3").fadeIn(); 
@@ -8,6 +44,7 @@ $('input[type=file]').change(function(){
 
 	getPath(fileimg,mycamera,fileimg);
 });
+
 
 document.getElementById("matchId").onclick = function(){
 	
