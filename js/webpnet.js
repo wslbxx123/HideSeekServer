@@ -406,7 +406,7 @@ function myStart(){
   		}
 		
 		
-		if(allGood&codeNumber) {
+		if(allGood&&codeNumber) {
 			//	跳转到第二注册界面
 			$("#newWin2").fadeIn(); 
 			$("#newWin1").fadeOut(); 
