@@ -87,11 +87,6 @@ function myStart(){
 					getDiv.innerHTML= "购买";
 				    newDiv.appendChild(getDiv);   
 				    
-				     $(".purGet").click(function(){
-				  
-					 		$("#confirmpurchase").fadeIn();
-					 		
-				    });	
 				    
 				} 		
 			},
@@ -180,7 +175,7 @@ function myStart(){
 				    getDiv.id = "c"+i;
 					getDiv.innerHTML= "兑换";
 				    newDiv.appendChild(getDiv);   
-				    
+				    var getClick = false;
 				} 		
 			},
 			error: function(XMLHttpRequest, textStatus, errorThrown) {
@@ -189,6 +184,8 @@ function myStart(){
 	};
 	$.ajax(exStore);
 	
+	
+	alert(getClick);
 	// 实现内部导航的切换
 //	var getClick = false;
 //	alert(1);
@@ -449,6 +446,11 @@ function myStart(){
 					  		$("#myorder").fadeIn(); 
 					  		getClick = true;
 					  		checkBox();
+					  		 $(".purGet").click(function(){
+				  
+						 		$("#confirmpurchase").fadeIn();
+						 		
+					   		 });	
 					  		break;
 					  	case "10001":
 					  		$("#fault").fadeIn();
