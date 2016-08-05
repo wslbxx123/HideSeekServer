@@ -87,9 +87,16 @@ function myStart(){
 				    getDiv.id = "b"+i;
 					getDiv.innerHTML= "购买";
 				    newDiv.appendChild(getDiv);   
-				    
-				    
+				        
 				} 		
+				$(".purGet").click(function(){
+				   if (!getClick){
+				   		alert("请先登录！");
+				   }
+				   else{
+				   		$("#confirmpurchase").fadeIn();
+				   }
+				});
 			},
 			error: function(XMLHttpRequest, textStatus, errorThrown) {
 				alert("网络出现问题！");
@@ -176,15 +183,19 @@ function myStart(){
 				    getDiv.id = "c"+i;
 					getDiv.innerHTML= "兑换";
 				    newDiv.appendChild(getDiv);   
+				    
+				    $(".exGet").click(function(){
+					   if (!getClick){
+					   		alert("请先登录！");
+					   }
+					   else{
+					   		$(".goodsName").html(result.result.reward[i].reward_name);
+					   		$(".goodsprice").html($(".goodsNum").val*result.result.reward[i].record);
+					   		$("#confirmexchange").fadeIn();
+					   }
+					});
 				}
-				$(".purGet").click(function(){
-				   if (!getClick){
-				   		alert(2);
-				   }
-				   else{
-				   		alert(3);
-				   }
-				});
+				
 			},
 			error: function(XMLHttpRequest, textStatus, errorThrown) {
 				alert("网络出现问题！");
@@ -439,7 +450,6 @@ function myStart(){
 					  		$("#storecover").fadeOut(); 
 					  		$("#myorder").fadeIn(); 
 					  		getClick = true;
-					  		checkBox();
 					  		break;
 					  	case "10001":
 					  		$("#fault").fadeIn();
@@ -454,22 +464,6 @@ function myStart(){
 			$.ajax(options);
 		}		
 	});
-	
-	//	弹出兑换确认框
-	function checkBox() {
-	    var mydd = $('.exGet');
-	    mydd.each(function(i){
-            $(this).click(function(){
-             	if (confirm("是否确认兑换?")) {
-             	   var thisId =mydd.eq(i).attr("id");
-                   var pointNumId = "pointNum"+thisId;
-				   var n = document.getElementById(moneyId).innerHTML;
-				   var Num = document.getElementById("scoreNum").innerHTML;
-				   var a = Num - n;
-				   document.getElementById("scoreNum").innerHTML= a;
-				}
-            });			
- 		});
-	} 	 
+
 }
 
