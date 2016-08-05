@@ -184,10 +184,9 @@ function myStart(){
 	};
 	$.ajax(exStore);
 	
-	$('#purArea.N1.purGet').click(function(){
-		alert(3);
+	$(".N1").click(function(){
+	   alert(2);
 	});
-	
 	
 	// 实现内部导航的切换
 	document.getElementById("purchase").onclick = function(){
