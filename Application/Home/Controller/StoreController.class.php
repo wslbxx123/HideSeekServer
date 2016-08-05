@@ -221,6 +221,7 @@ class StoreController extends BaseController {
     public function test() {
         $rsaSign = ApiManager::rsaSign("怪兽图鉴", "可获得怪兽信息，并包含拿下怪兽的规则。",
                 2.0, "YKMHR1462636800");
+        echo "怪兽图鉴";
         echo $rsaSign;
     }
 }
