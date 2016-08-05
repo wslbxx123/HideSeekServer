@@ -298,14 +298,12 @@ function myStart(){
 				switch(result["code"]){
 					case "10000":
 						if(result["result"]["error_code"] == 0){
-							$("#login").click(function() {
-								if($("#codeNum").val() == result["result"]["sms_code"]){
-								   codeNumber = true;
-								}
-								else{
-									alert("验证码错误！");
-								}
-							});
+							if($("#codeNum").val() == result["result"]["sms_code"]){
+							   codeNumber = true;
+							}
+							else{
+								alert("验证码错误！");
+							}
 						}			
 				  		break;
 				  	case "10001":
