@@ -186,7 +186,7 @@ function myStart(){
 	
 	
 	
-	$(".purGet").click(function(){
+	$("#purArea").click(function(){
 	 	alert(2);
 //	 	if(!getClick){
 //			alert("请先登录！");
