@@ -4,6 +4,7 @@ function myStart(){
 //	document.domain="www.hideseek.cn";
 	// 加载商城信息
 	var z;
+	var f;
 	var sessionid;
 	var getClick = false;
 	var purStore = {
@@ -183,10 +184,8 @@ function myStart(){
 	};
 	$.ajax(exStore);
 	
-	$('.purGet').each(function(){
-		$(this).click(function){
-			alert(1);
-		};
+	$('.N1.purGet').click(function(){
+		alert(3);
 	});
 	
 	
