@@ -4,6 +4,7 @@ function myStart(){
 //	document.domain="www.hideseek.cn";
 	// 加载商城信息
 	var z;
+	var f;
 	var sessionid;
 	var getClick = false;
 	var purStore = {
@@ -87,11 +88,6 @@ function myStart(){
 					getDiv.innerHTML= "购买";
 				    newDiv.appendChild(getDiv);   
 				    
-				     $(".purGet").click(function(){
-				  
-					 		$("#confirmpurchase").fadeIn();
-					 		
-				    });	
 				    
 				} 		
 			},
@@ -180,7 +176,6 @@ function myStart(){
 				    getDiv.id = "c"+i;
 					getDiv.innerHTML= "兑换";
 				    newDiv.appendChild(getDiv);   
-				    
 				} 		
 			},
 			error: function(XMLHttpRequest, textStatus, errorThrown) {
@@ -189,20 +184,11 @@ function myStart(){
 	};
 	$.ajax(exStore);
 	
+	$(".N1").click(function(){
+	   alert(2);
+	});
+	
 	// 实现内部导航的切换
-//	var getClick = false;
-//	alert(1);
-//	document.getElementById("purGet").onclick = function(){
-//	 	alert(2);
-//	 	if(!getClick){
-//			alert("请先登录！");
-//		}
-//	 	else{
-//	 		$("#confirmpurchase").fadeIn();
-//	 	}	
-//	}
-	
-	
 	document.getElementById("purchase").onclick = function(){
 		var t = 590 + Math.ceil(z/2)*240+"px";
 		document.getElementById("purchase").className = "selected";
