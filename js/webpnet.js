@@ -297,15 +297,16 @@ function myStart(){
 				alert(JSON.stringify(result));
 				switch(result["code"]){
 					case "10000":
-						if(result["result"]["error_code"] == 0){
-							$("#login").click(function() {
-								if($("#codeNum").val() == result["result"]["sms_code"]){
-								   codeNumber = true;
-								}
-								else{
-									alert("验证码错误！");
-								}
-							});
+						if(result["result"]["content"]["error_code"] == "0"){
+						alert(1);
+							alert($("#codeNum").val());
+							alert(result["result"]["sms_code"]);
+							if($("#codeNum").val() == result["result"]["sms_code"]){
+							   codeNumber = true;
+							}
+							else{
+								alert("验证码错误！");
+							}
 						}			
 				  		break;
 				  	case "10001":
@@ -405,7 +406,7 @@ function myStart(){
 		 	}
   		}
 		
-		
+		alert(codeNumber);
 		if(allGood&&codeNumber) {
 			//	跳转到第二注册界面
 			$("#newWin2").fadeIn(); 
