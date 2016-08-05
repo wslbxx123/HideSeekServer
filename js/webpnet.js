@@ -98,7 +98,10 @@ function myStart(){
 					   		alert(t);
 					   		$(".goodsName").html(result.result.products[t].product_name);
 					   		alert(result.result.products[t].product_name);
-					   		$(".goodsprice").html($(".goodsNum").val*result.result.products[t].price);
+					   		$(".goodsprice").html($(".goodsNum").val()*result.result.products[t].price+"元");
+					   		alert($(".goodsNum").val());
+					   		alert(result.result.products[t].price);
+					   		alert($(".goodsNum").val*result.result.products[t].price+"元");
 					   		$("#confirmpurchase").fadeIn();
 					   }
 				});
