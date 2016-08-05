@@ -175,7 +175,7 @@ function myStart(){
 				    getDiv.id = "c"+i;
 					getDiv.innerHTML= "兑换";
 				    newDiv.appendChild(getDiv);   
-				    var getClick = false;
+				    alert(getClick);
 				} 		
 			},
 			error: function(XMLHttpRequest, textStatus, errorThrown) {
@@ -185,7 +185,7 @@ function myStart(){
 	$.ajax(exStore);
 	
 	
-	alert(getClick);
+	
 	// 实现内部导航的切换
 //	var getClick = false;
 //	alert(1);
