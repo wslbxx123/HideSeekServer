@@ -8,7 +8,7 @@ namespace Home\Common\Param;
  */
 class KeyParam {
     const ALIPAY_PARTNER = "2088421519055042";
-    const ALIPAY_PRIVATE_KEY_PATH = "Application/Resources/key/rsa_private_key_pkcs8.pem";
+    const ALIPAY_PRIVATE_KEY_PATH = "Application/Resources/key/rsa_private_key.pem";
     const ALIPAY_PUBLIC_KEY_PATH = "Application/Resources/key/rsa_public_key.pem";
     const ALIPAY_CACERT_PATH = "Application/Resources/key/cacert.pem";
     
