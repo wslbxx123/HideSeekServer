@@ -3,7 +3,6 @@
 namespace Home\Controller;
 use Home\Common\Util\BaseUtil;
 use Home\Common\Param\CodeParam;
-use Home\Common\Param\KeyParam;
 use Home\DataAccess\StoreManager;
 use Home\DataAccess\PullVersionManager;
 use Home\DataAccess\OrderManager;
@@ -120,6 +119,8 @@ class StoreController extends BaseController {
         $storeId = filter_input(INPUT_POST, 'store_id');
         $count = filter_input(INPUT_POST, 'count');
         
+        $tradeNo = filter_input(INPUT_POST, 'trade_no');
+        
         $accountId = $this->getPkIdFromToken($sessionId);
         
         if(!isset($sessionId) || $accountId == 0) {
@@ -132,7 +133,7 @@ class StoreController extends BaseController {
         }
        
         $product = StoreManager::getProduct($storeId);
-        $tradeNo = ApiManager::generateTradeNo(5);
+//        $tradeNo = ApiManager::generateTradeNo(5);
         $rsaSign = ApiManager::rsaSign($product['product_name'], $product['introduction'],
                 floatval($product['price']) * $count, $tradeNo);
         
