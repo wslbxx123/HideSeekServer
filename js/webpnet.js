@@ -192,6 +192,7 @@ function myStart(){
 				   }
 				   else{
 				   		t = $(this).index()
+				   		alert(t);
 				   		$(".goodsName").html(result.result.reward[t].reward_name);
 				   		$(".goodsprice").html($(".goodsNum").val*result.result.reward[t].record);
 				   		$("#confirmexchange").fadeIn();
