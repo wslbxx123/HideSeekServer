@@ -175,7 +175,6 @@ function myStart(){
 				    getDiv.id = "c"+i;
 					getDiv.innerHTML= "兑换";
 				    newDiv.appendChild(getDiv);   
-				    alert(getClick);
 				} 		
 			},
 			error: function(XMLHttpRequest, textStatus, errorThrown) {
@@ -186,20 +185,18 @@ function myStart(){
 	
 	
 	
-	// 实现内部导航的切换
-//	var getClick = false;
-//	alert(1);
-//	document.getElementById("purGet").onclick = function(){
-//	 	alert(2);
+	
+	$(".purGet").click(function(){
+	 	alert(2);
 //	 	if(!getClick){
 //			alert("请先登录！");
 //		}
 //	 	else{
 //	 		$("#confirmpurchase").fadeIn();
 //	 	}	
-//	}
+	});
 	
-	
+	// 实现内部导航的切换
 	document.getElementById("purchase").onclick = function(){
 		var t = 590 + Math.ceil(z/2)*240+"px";
 		document.getElementById("purchase").className = "selected";
