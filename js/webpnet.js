@@ -89,13 +89,16 @@ function myStart(){
 				    newDiv.appendChild(getDiv);   
 				        
 				} 		
-				$(".purGet").click(function(){
-				   if (!getClick){
-				   		alert("请先登录！");
-				   }
-				   else{
-				   		$("#confirmpurchase").fadeIn();
-				   }
+				 $("#bi").click(function(){
+					   if (!getClick){
+					   		alert("请先登录！");
+					   }
+					   else{
+//					   		t = $(this).index()
+					   		$(".goodsName").html(result.result.reward[i].reward_name);
+					   		$(".goodsprice").html($(".goodsNum").val*result.rsesult.reward[i].record);
+					   		$("#confirmpurchase").fadeIn();
+					   }
 				});
 			},
 			error: function(XMLHttpRequest, textStatus, errorThrown) {
@@ -184,12 +187,12 @@ function myStart(){
 					getDiv.innerHTML= "兑换";
 				    newDiv.appendChild(getDiv);   
 				    
-				    $("#bi").click(function(){
+				    $("#ci").click(function(){
 					   if (!getClick){
 					   		alert("请先登录！");
 					   }
 					   else{
-					   		t = $(this).index()
+//					   		t = $(this).index()
 					   		$(".goodsName").html(result.result.reward[i].reward_name);
 					   		$(".goodsprice").html($(".goodsNum").val*result.rsesult.reward[i].record);
 					   		$("#confirmexchange").fadeIn();
