@@ -98,7 +98,7 @@ function myStart(){
 					   		alert(t);
 					   		$(".goodsName").html(result.result.products[t].product_name);
 					   		alert(result.result.products[t].product_name);
-					   		$(".goodsprice").html($(".goodsNum").val*result.rsesult.products[t].price);
+					   		$(".goodsprice").html($(".goodsNum").val*result.result.products[t].price);
 					   		$("#confirmpurchase").fadeIn();
 					   }
 				});
