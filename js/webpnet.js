@@ -95,7 +95,9 @@ function myStart(){
 					   }
 					   else{
 					   		t = $(this).id;
+					   		alert(t);
 					   		$(".goodsName").html(result.result.products[t].product_name);
+					   		alert(result.result.products[t].product_name);
 					   		$(".goodsprice").html($(".goodsNum").val*result.rsesult.products[t].price);
 					   		$("#confirmpurchase").fadeIn();
 					   }
