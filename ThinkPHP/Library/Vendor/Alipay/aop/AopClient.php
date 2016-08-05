@@ -58,7 +58,7 @@ class AopClient {
 	}
 
 	public function getSignContent($params) {
-		ksort($params);
+//		ksort($params);
   
 		$stringToBeSigned = "";
 		$i = 0;
