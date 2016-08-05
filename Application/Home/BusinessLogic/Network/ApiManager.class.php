@@ -70,7 +70,7 @@ class ApiManager {
         $params["subject"] = "\"".$productName."\"";
         $params["payment_type"] = "\""."1"."\"";
         $params["seller_id"] = "\""."wslbxx@hotmail.com"."\"";
-        $params["total_fee"] = "\"".$amount."\"";
+        $params["total_fee"] = "\"".sprintf("%.2f", $amount)."\"";
         $params["body"] = "\"".$introduction."\"";
         $params["it_b_pay"] = "\""."30m"."\"";
         $params["show_url"] = "\""."m.alipay.com"."\"";
