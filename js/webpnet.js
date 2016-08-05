@@ -184,7 +184,7 @@ function myStart(){
 	};
 	$.ajax(exStore);
 	
-	$('.N1.purGet').click(function(){
+	$('#purArea.N1.purGet').click(function(){
 		alert(3);
 	});
 	
