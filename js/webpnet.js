@@ -94,7 +94,7 @@ function myStart(){
 					   		alert("请先登录！");
 					   }
 					   else{
-					   		t = $(this).id;
+					   		t = $(this).attr("id");
 					   		alert(t);
 					   		$(".goodsName").html(result.result.products[t].product_name);
 					   		alert(result.result.products[t].product_name);
