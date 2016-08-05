@@ -176,7 +176,15 @@ function myStart(){
 				    getDiv.id = "c"+i;
 					getDiv.innerHTML= "兑换";
 				    newDiv.appendChild(getDiv);   
-				} 		
+				}
+				$(".purGet").click(function(){
+				   if (!getClick){
+				   		alert(2);
+				   }
+				   else{
+				   		alert(3);
+				   }
+				});
 			},
 			error: function(XMLHttpRequest, textStatus, errorThrown) {
 				alert("网络出现问题！");
@@ -184,9 +192,6 @@ function myStart(){
 	};
 	$.ajax(exStore);
 	
-	$(".N1").click(function(){
-	   alert(2);
-	});
 	
 	// 实现内部导航的切换
 	document.getElementById("purchase").onclick = function(){
