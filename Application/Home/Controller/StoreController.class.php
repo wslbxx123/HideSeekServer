@@ -3,10 +3,12 @@
 namespace Home\Controller;
 use Home\Common\Util\BaseUtil;
 use Home\Common\Param\CodeParam;
+use Home\Common\Param\KeyParam;
 use Home\DataAccess\StoreManager;
 use Home\DataAccess\PullVersionManager;
 use Home\DataAccess\OrderManager;
 use Home\BusinessLogic\Network\ApiManager;
+vendor("Alipay.aop.AopClient");
 
 class StoreController extends BaseController {
     public function refreshProducts() {
@@ -130,7 +132,7 @@ class StoreController extends BaseController {
        
         $product = StoreManager::getProduct($storeId);
         $tradeNo = ApiManager::generateTradeNo(5);
-        $rsaSign = ApiManager::rsaSign($product['name'], 
+        $rsaSign = ApiManager::rsaSign($product['name'], $product['introduction'],
                 $product['price'] * $product['count'], $tradeNo);
         
         $orderId = OrderManager::insertOrder($storeId, $accountId, $count, $tradeNo);

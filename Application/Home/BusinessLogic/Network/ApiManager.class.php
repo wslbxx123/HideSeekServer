@@ -53,7 +53,7 @@ class ApiManager {
         return $curl;
     }
     
-    public function rsaSign($productName, $amount, $tradeNo) {
+    public function rsaSign($productName, $introduction, $amount, $tradeNo) {
         $client = new \AopClient();
         $client->gatewayUrl = "https://openapi.alipay.com/gateway.do";
         $client->appId = KeyParam::ALIPAY_PARTNER;
@@ -70,10 +70,12 @@ class ApiManager {
         $params["subject"] = $productName;
         $params["payment_type"] = "1";
         $params["seller_id"] = "wslbxx@hotmail.com";
-        $params["total_fee"] = "\"".$amount."\"";
-        $params["body"] = "body";
+        $params["total_fee"] = $amount;
+        $params["body"] = $introduction;
+        $params["it_b_pay"] = "30m";
         $params["show_url"] = "m.alipay.com";
-        return urlencode($client->rsaSign($params));
+        
+        return $client->rsaSign($params);
     }
     
     public function generateTradeNo($length) {

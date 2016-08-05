@@ -57,9 +57,9 @@ class AopClient {
 		return $this->sign($this->getSignContent($params), $signType);
 	}
 
-	protected function getSignContent($params) {
+	public function getSignContent($params) {
 		ksort($params);
-
+  
 		$stringToBeSigned = "";
 		$i = 0;
 		foreach ($params as $k => $v) {
