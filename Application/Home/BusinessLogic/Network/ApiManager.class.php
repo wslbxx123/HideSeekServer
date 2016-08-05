@@ -75,7 +75,7 @@ class ApiManager {
         $params["it_b_pay"] = "30m";
         $params["show_url"] = "m.alipay.com";
         
-        return $client->rsaSign($params);
+        return urlencode($client->rsaSign($params));
     }
     
     public function generateTradeNo($length) {
