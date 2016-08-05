@@ -70,8 +70,10 @@ class ApiManager {
         $params["subject"] = $productName;
         $params["payment_type"] = "1";
         $params["seller_id"] = "wslbxx@hotmail.com";
-        $params["total_fee"] = $amount;
-        return $client->rsaSign($params);
+        $params["total_fee"] = "\"".$amount."\"";
+        $params["body"] = "body";
+        $params["show_url"] = "m.alipay.com";
+        return urlencode($client->rsaSign($params));
     }
     
     public function generateTradeNo($length) {
