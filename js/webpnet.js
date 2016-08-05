@@ -290,7 +290,7 @@ function myStart(){
 		var verificode = {
 			url: "/index.php/home/user/sendVerificationCode",
 			type: 'POST',
-			data: $("#userphone").val(),
+			data: "phone=" + $("#userphone").val(),
 			dataType: "json",
 			
 			success: function(result, status) {
