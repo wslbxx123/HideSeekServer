@@ -298,6 +298,8 @@ function myStart(){
 				switch(result["code"]){
 					case "10000":
 						if(result["result"]["error_code"] == 0){
+							alert($("#codeNum").val());
+							alert(result["result"]["sms_code"]);
 							if($("#codeNum").val() == result["result"]["sms_code"]){
 							   codeNumber = true;
 							}
