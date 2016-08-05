@@ -62,18 +62,18 @@ class ApiManager {
         $client->charset = "utf-8";
         $client->alipayPublicKey = FileUtil::getAlipayKey(KeyParam::ALIPAY_PUBLIC_KEY_PATH);
         
-        $params["service"] = "mobile.securitypay.pay";
-        $params["partner"] = KeyParam::ALIPAY_PARTNER;
-        $params["_input_charset"] = "utf-8";
-        $params["notify_url"] = "http://www.hideseek.cn/index.php/home/store/notifyUrl";
-        $params["out_trade_no"] = $tradeNo;
-        $params["subject"] = $productName;
-        $params["payment_type"] = "1";
-        $params["seller_id"] = "wslbxx@hotmail.com";
-        $params["total_fee"] = $amount;
-        $params["body"] = $introduction;
-        $params["it_b_pay"] = "30m";
-        $params["show_url"] = "m.alipay.com";
+        $params["service"] = "\""."mobile.securitypay.pay"."\"";
+        $params["partner"] = "\"".KeyParam::ALIPAY_PARTNER."\"";
+        $params["_input_charset"] = "\""."utf-8"."\"";
+        $params["notify_url"] = "\""."http://www.hideseek.cn/index.php/home/store/notifyUrl"."\"";
+        $params["out_trade_no"] = "\"".$tradeNo."\"";
+        $params["subject"] = "\"".$productName."\"";
+        $params["payment_type"] = "\""."1"."\"";
+        $params["seller_id"] = "\""."wslbxx@hotmail.com"."\"";
+        $params["total_fee"] = "\"".$amount."\"";
+        $params["body"] = "\"".$introduction."\"";
+        $params["it_b_pay"] = "\""."30m"."\"";
+        $params["show_url"] = "\""."m.alipay.com"."\"";
         
         return urlencode($client->rsaSign($params));
     }
