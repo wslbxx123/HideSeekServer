@@ -502,6 +502,7 @@ function myStart(){
 					  		$("#myorder").fadeIn(); 
 					  		getClick = true;
 					  		//存储登录数据
+					  		alert($("#myimg").src);
 					  		localStorage.setItem("nickname", $("#nickname").html());
 							localStorage.setItem("record", $("#scoreNum").html());
 							localStorage.setItem("myimgpath", $("#myimg").src);
