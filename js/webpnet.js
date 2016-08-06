@@ -296,7 +296,7 @@ function myStart(){
 				switch(result["code"]){
 					case "10000":
 						codeNumber = result["result"]["sms_code"];
-						if(result["result"]["content"]["error_code"]>0){
+						if(result["result"]["content"]["error_code"]==0){
 						 	alert("发送验证码成功！")
 						}	
 						break;
