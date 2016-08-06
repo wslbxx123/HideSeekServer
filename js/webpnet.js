@@ -294,20 +294,24 @@ function myStart(){
 			data: "phone=" + $("#userphone").val(),
 			dataType: "json",
 			
-			success: function(result, status) {
+			success: function(result, status){
 				alert(JSON.stringify(result));
 				switch(result["code"]){
 					case "10000":
-						if(result["result"]["content"]["error_code"]>0){
-							alert(1);
-							if($("#codeNum").val() == result["result"]["sms_code"]){
-							   codeNumber = true;
-							   alert(1);
-							}
-							else{
-								alert("验证码错误！");
-							}
-						}		
+					    setTimeout(setTime,3600);
+					    function setTime{
+							if(result["result"]["content"]["error_code"]>0){
+								$("#register").click(function(){
+									if($("#codeNum").val() == result["result"]["sms_code"]){
+									   codeNumber = true;
+									   alert(1);
+									}
+									else{
+										alert("验证码错误！");
+									}
+								});
+							}	
+						}
 				  		break;
 				  	case "10001":
 				  		$("#fault").fadeIn();
