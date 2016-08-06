@@ -400,12 +400,12 @@ function myStart(){
   		}
 		
 		if($("#codeNum").val() == result["result"]["sms_code"]){
-			   codeNumber = true;
-			}
-			else{
-				alert("验证码错误！");
-			}		
+		   codeNumber = true;
 		}
+		else{
+			alert("验证码错误！");
+		}		
+
 	
 		if(allGood&&codeNumber) {
 			//	跳转到第二注册界面
