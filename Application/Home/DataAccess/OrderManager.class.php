@@ -43,9 +43,16 @@ class OrderManager {
         return $order;
     }
     
-    public function refreshOrders($accountId) {
+    public function refreshOrders($accountId, $version, $orderMinId) {
         $Dao = M("order");
-        $sql = "call admin_get_orders($accountId)";
+        $sql = "call admin_refresh_orders($accountId, $version, $orderMinId)";
+        $orderList = $Dao->query($sql);
+        return $orderList;
+    }
+    
+    public function getOrders($accountId, $version, $orderMinId) {
+        $Dao = M("order");
+        $sql = "call admin_get_orders($accountId, $version, $orderMinId)";
         $orderList = $Dao->query($sql);
         return $orderList;
     }

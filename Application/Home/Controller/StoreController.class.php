@@ -186,10 +186,12 @@ class StoreController extends BaseController {
         echo BaseUtil::echoJson(CodeParam::SUCCESS, $orderId); 
     }
     
-    public function getOrders() {
+    public function refreshOrders() {
         self::setHeader();
         
         $sessionId = filter_input(INPUT_POST, 'session_id');
+        $version = filter_input(INPUT_POST, 'version');
+        $orderMinId = filter_input(INPUT_POST, 'order_min_id');
         $accountId = $this->getPkIdFromToken($sessionId);
         
         if(!isset($sessionId) || $accountId == 0) {
@@ -197,7 +199,35 @@ class StoreController extends BaseController {
             return;
         }
         
-        $orderList = OrderManager::refreshOrders();
+        if(!isset($version) || !isset($orderMinId)) {
+            BaseUtil::echoJson(CodeParam::VERSION_OR_MIN_ID_EMPTY, null);
+            return;
+        }
+        
+        $orderList = OrderManager::refreshOrders($accountId, $version, $orderMinId);
+        
+        echo BaseUtil::echoJson(CodeParam::SUCCESS, $orderList); 
+    }
+    
+    public function getOrders() {
+        self::setHeader();
+        
+        $sessionId = filter_input(INPUT_POST, 'session_id');
+        $version = filter_input(INPUT_POST, 'version');
+        $orderMinId = filter_input(INPUT_POST, 'order_min_id');
+        $accountId = $this->getPkIdFromToken($sessionId);
+        
+        if(!isset($sessionId) || $accountId == 0) {
+            BaseUtil::echoJson(CodeParam::NOT_LOGIN, null);
+            return;
+        }
+        
+        if(!isset($version) || !isset($orderMinId)) {
+            BaseUtil::echoJson(CodeParam::VERSION_OR_MIN_ID_EMPTY, null);
+            return;
+        }
+        
+        $orderList = OrderManager::getOrders($accountId, $version, $orderMinId);
         
         echo BaseUtil::echoJson(CodeParam::SUCCESS, $orderList); 
     }
