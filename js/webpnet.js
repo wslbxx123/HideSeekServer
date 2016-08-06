@@ -7,6 +7,7 @@ function myStart(){
 	var f;
 	var sessionid;
 	var getClick = false;
+	var codeNumber;
 	var purStore = {
 			url: "/index.php/home/store/refreshProducts",
 			type: 'POST',
@@ -284,7 +285,7 @@ function myStart(){
 		$("#storecover").fadeOut();
 	});
 	
-	var codeNumber;
+	
 //发送和检验验证码
 	document.getElementById("verifiCode").onclick = function(){
 		var verificode = {
@@ -298,6 +299,7 @@ function myStart(){
 				switch(result["code"]){
 					case "10000":
 						if(result["result"]["content"]["error_code"]>0){
+							alert(1);
 							if($("#codeNum").val() == result["result"]["sms_code"]){
 							   codeNumber = true;
 							}
