@@ -95,6 +95,7 @@ function myStart(){
 					   		alert("请先登录！");
 					   }
 					   else{
+					   		$(".goodsNum").val("1");
 					   		t = $(this).attr("id");
 					   		$(".goodsName").html(result.result.products[t].product_name);
 					   		$(".goodsprice").html($(".goodsNum").val()*result.result.products[t].price+"元");
