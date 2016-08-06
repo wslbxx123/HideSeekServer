@@ -299,15 +299,7 @@ function myStart(){
 				switch(result["code"]){
 					case "10000":
 						if(result["result"]["content"]["error_code"]>0){
-				   			setTimeout(setTime,8000);
-					   	}
-					    function setTime(){	
-							if($("#codeNum").val() == result["result"]["sms_code"]){
-							   codeNumber = true;
-							}
-							else{
-								alert("验证码错误！");
-							}		
+						 	alert("验证码发送成功！")
 						}	
 						break;
 				  	case "10001":
@@ -407,7 +399,14 @@ function myStart(){
 		 	}
   		}
 		
-		alert(codeNumber);
+		if($("#codeNum").val() == result["result"]["sms_code"]){
+			   codeNumber = true;
+			}
+			else{
+				alert("验证码错误！");
+			}		
+		}
+	
 		if(allGood&&codeNumber) {
 			//	跳转到第二注册界面
 			$("#newWin2").fadeIn(); 
