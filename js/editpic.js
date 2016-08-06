@@ -341,8 +341,9 @@ function getPath(obj,fileQuery,transImg){
 			document.getElementById("photo").src = images.src;
 		}			
 	});
+}			
 
-	if(window.localStorage){
+if(window.localStorage){
 		 	// 获取缓存里面的数据
 		nickname = localStorage.getItem("nickname");
 		record = localStorage.getItem("record");
@@ -360,5 +361,3 @@ function getPath(obj,fileQuery,transImg){
 	else{
 		alert('对不起，您的浏览器不支持HTML5本地存储');
 	}
-}			
-
