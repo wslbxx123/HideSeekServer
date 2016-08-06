@@ -96,7 +96,6 @@ function myStart(){
 					   }
 					   else{
 					   		t = $(this).attr("id");
-					   		alert(t);
 					   		$(".goodsName").html(result.result.products[t].product_name);
 					   		$(".goodsprice").html($(".goodsNum").val()*result.result.products[t].price+"元");
 					   		$("#confirmpurchase").fadeIn();
@@ -196,7 +195,6 @@ function myStart(){
 					   }
 					   else{
 					   		t = $(this).attr("id");
-					   		alert(t);
 					   		$(".goodsName").html(result.result.reward[t].reward_name);
 					   		$(".goodsprice").html($(".goodsNum").val()*result.result.reward[t].record+"积分");
 					   		$("#confirmexchange").fadeIn();
@@ -295,12 +293,11 @@ function myStart(){
 			dataType: "json",
 			
 			success: function(result, status){
-				alert(JSON.stringify(result));
 				switch(result["code"]){
 					case "10000":
 						codeNumber = result["result"]["sms_code"];
 						if(result["result"]["content"]["error_code"]>0){
-						 	alert("验证码发送成功！")
+						 	alert("发送验证码成功！")
 						}	
 						break;
 				  	case "10001":
