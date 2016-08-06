@@ -7,9 +7,12 @@ function myStart(){
 	var f;
 	var sessionid;
 	var getClick = false;
-	var codeNumber;
+//	var codeNumber;
 	
-	
+	// 获取缓存里面的数据
+	nickname = localStorage.getItem("nickname");
+	record = localStorage.getItem("record");
+	myimgpath = localStorage.getItem("myimgpath");
 	
 	var purStore = {
 			url: "/index.php/home/store/refreshProducts",
@@ -94,7 +97,7 @@ function myStart(){
 				        
 				} 		
 				 $(".purGet").click(function(){
-					   if (!getClick){
+					   if (!getClick&&nickname!=null&&record!=null){
 					   		alert("请先登录！");
 					   }
 					   else{
