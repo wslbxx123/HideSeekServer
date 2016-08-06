@@ -98,6 +98,9 @@ function myStart(){
 					   		t = $(this).attr("id");
 					   		$(".goodsName").html(result.result.products[t].product_name);
 					   		$(".goodsprice").html($(".goodsNum").val()*result.result.products[t].price+"元");
+					   		$('input[type=number]').change(function(){
+					   			$(".goodsprice").html($(".goodsNum").val()*result.result.products[t].price+"元");
+					   		});
 					   		$("#confirmpurchase").fadeIn();
 					   }
 				});
