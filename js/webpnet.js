@@ -302,6 +302,7 @@ function myStart(){
 							alert(1);
 							if($("#codeNum").val() == result["result"]["sms_code"]){
 							   codeNumber = true;
+							   alert(1);
 							}
 							else{
 								alert("验证码错误！");
