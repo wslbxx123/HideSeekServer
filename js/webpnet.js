@@ -97,7 +97,7 @@ function myStart(){
 				        
 				} 		
 				 $(".purGet").click(function(){
-					   if (!getClick&&nickname!=null&&record!=null){
+					   if (!getClick&&nickname==null&&record==null){
 					   		alert("请先登录！");
 					   }
 					   else{
