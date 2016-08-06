@@ -347,11 +347,13 @@ if(window.localStorage){
 		 	// 获取缓存里面的数据
 		nickname = localStorage.getItem("nickname");
 		record = localStorage.getItem("record");
-		myimgpath = localStorage.getItem("myimg");
+		myimgpath = localStorage.getItem("myimgpath");
 		$("#nickname").html(nickname);
 		$("#scoreNum").html(record);
 		$("#myimg").attr('src',myimgpath); 
-		$("inner_menu").fadeOut();
+		$(".inner_menu").fadeOut();
+		$("#myimg").fadeIn();
+		$("#myprofile").fadeIn();
 //		// 清除缓存
 //		$(".reset").click(function(){
 //			localStorage.clear();
