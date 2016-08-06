@@ -351,7 +351,7 @@ if(window.localStorage){
 		$("#nickname").html(nickname);
 		$("#scoreNum").html(record);
 		$("#myimg").attr('src',myimgpath); 
-
+		$("inner_menu").fadeOut();
 //		// 清除缓存
 //		$(".reset").click(function(){
 //			localStorage.clear();
