@@ -118,7 +118,7 @@ class UserController extends BaseController {
         );
         $content = ApiManager::getHttpResponse($sendUrl, $smsConf, 0);
         if($content){
-            $resultContent = $content;
+            $resultContent = json_decode($content);
         }else{
             $resultContent =  "请求发送短信失败";
         }
