@@ -1,5 +1,5 @@
 var sessionid;
-alert(getClick);
+
 $('input[type=file]').change(function(){
 	$("#newWin3").fadeIn(); 
 	$("#newWin2").fadeOut(); 
