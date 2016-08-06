@@ -8,7 +8,6 @@ function myStart(){
 	var sessionid;
 	var getClick = false;
 	var codeNumber;
-	var 
 	var purStore = {
 			url: "/index.php/home/store/refreshProducts",
 			type: 'POST',
