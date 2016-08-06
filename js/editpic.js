@@ -348,12 +348,14 @@ if(window.localStorage){
 		nickname = localStorage.getItem("nickname");
 		record = localStorage.getItem("record");
 		myimgpath = localStorage.getItem("myimgpath");
-		$("#nickname").html(nickname);
-		$("#scoreNum").html(record);
-		$("#myimg").attr('src',myimgpath); 
-		$(".inner_menu").fadeOut();
-		$("#myimg").fadeIn();
-		$("#myprofile").fadeIn();
+		if(nickname!=null&&record!=null){  
+			$("#nickname").html(nickname);
+			$("#scoreNum").html(record);
+			$("#myimg").attr('src',myimgpath); 
+			$(".inner_menu").fadeOut();
+			$("#myimg").fadeIn();
+			$("#myprofile").fadeIn();
+		}
 //		// 清除缓存
 //		$(".reset").click(function(){
 //			localStorage.clear();
