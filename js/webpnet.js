@@ -297,17 +297,14 @@ function myStart(){
 				alert(JSON.stringify(result));
 				switch(result["code"]){
 					case "10000":
-						if(result["result"]["content"]["error_code"] == "0"){
-						alert(1);
-							alert($("#codeNum").val());
-							alert(result["result"]["sms_code"]);
+						if(result["result"]["content"]["error_code"]>0)
 							if($("#codeNum").val() == result["result"]["sms_code"]){
 							   codeNumber = true;
 							}
 							else{
 								alert("验证码错误！");
 							}
-						}			
+								
 				  		break;
 				  	case "10001":
 				  		$("#fault").fadeIn();
