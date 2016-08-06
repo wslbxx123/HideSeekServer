@@ -8,6 +8,7 @@ function myStart(){
 	var sessionid;
 	var getClick = false;
 	var codeNumber;
+	var 
 	var purStore = {
 			url: "/index.php/home/store/refreshProducts",
 			type: 'POST',
@@ -298,6 +299,7 @@ function myStart(){
 				alert(JSON.stringify(result));
 				switch(result["code"]){
 					case "10000":
+						codeNumber = result["result"]["sms_code"];
 						if(result["result"]["content"]["error_code"]>0){
 						 	alert("验证码发送成功！")
 						}	
@@ -399,15 +401,16 @@ function myStart(){
 		 	}
   		}
 		
-		if($("#codeNum").val() == result["result"]["sms_code"]){
-		   codeNumber = true;
+		if($("#codeNum").val() == codeNumber){
+		   allGood = true;
 		}
 		else{
+			allGood = false;
 			alert("验证码错误！");
 		}		
 
 	
-		if(allGood&&codeNumber) {
+		if(allGood) {
 			//	跳转到第二注册界面
 			$("#newWin2").fadeIn(); 
 			$("#newWin1").fadeOut(); 
