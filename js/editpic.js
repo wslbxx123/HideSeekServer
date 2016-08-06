@@ -44,6 +44,10 @@ document.getElementById("matchId").onclick = function(){
 			        sessionid = result["result"]["session_id"];
 			        $("#myorder").fadeIn(); 
 			        getClick = true;
+			        //存储注册数据
+			  		localStorage.setItem("nickname", $("#nickname").html(nickname));
+					localStorage.setItem("record", $("#scoreNum").html(record));
+					localStorage.setItem("myimgpath", $("#myimg").src);
 					break;
 			  	case "10003":
 			  		alert("填写信息失败！")

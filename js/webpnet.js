@@ -8,6 +8,9 @@ function myStart(){
 	var sessionid;
 	var getClick = false;
 	var codeNumber;
+	
+	
+	
 	var purStore = {
 			url: "/index.php/home/store/refreshProducts",
 			type: 'POST',
@@ -210,6 +213,24 @@ function myStart(){
 			}
 	};
 	$.ajax(exStore);
+	
+	if(window.localStorage){
+		 	// 获取缓存里面的数据
+		nickname = localStorage.getItem("nickname");
+		record = localStorage.getItem("record");
+		myimgpath = localStorage.getItem("myimg");
+		$("#nickname").html(nickname);
+		$("#scoreNum").html(record);
+		$("#myimg").attr('src',myimgpath); 
+
+//		// 清除缓存
+//		$(".reset").click(function(){
+//			localStorage.clear();
+//		})
+
+	}else{
+		alert('对不起，您的浏览器不支持HTML5本地存储');
+	}
 	
 	
 	// 实现内部导航的切换
@@ -498,6 +519,10 @@ function myStart(){
 					  		$("#storecover").fadeOut(); 
 					  		$("#myorder").fadeIn(); 
 					  		getClick = true;
+					  		//存储登录数据
+					  		localStorage.setItem("nickname", $("#nickname").html(nickname));
+							localStorage.setItem("record", $("#scoreNum").html(record));
+							localStorage.setItem("myimgpath", $("#myimg").src);
 					  		break;
 					  	case "10001":
 					  		$("#fault").fadeIn();
