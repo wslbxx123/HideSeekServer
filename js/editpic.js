@@ -45,8 +45,8 @@ document.getElementById("matchId").onclick = function(){
 			        $("#myorder").fadeIn(); 
 			        getClick = true;
 			        //存储注册数据
-			  		localStorage.setItem("nickname", $("#nickname").html(document.getElementById("userName").value));
-					localStorage.setItem("record", $("#scoreNum").html(result["result"]["record"]));
+			  		localStorage.setItem("nickname", $("#nickname").html());
+					localStorage.setItem("record", $("#scoreNum").html());
 					localStorage.setItem("myimgpath", $("#myimg").src);
 					break;
 			  	case "10003":

@@ -502,8 +502,8 @@ function myStart(){
 					  		$("#myorder").fadeIn(); 
 					  		getClick = true;
 					  		//存储登录数据
-					  		localStorage.setItem("nickname", $("#nickname").html(Num1));
-							localStorage.setItem("record", $("#scoreNum").html(Num));
+					  		localStorage.setItem("nickname", $("#nickname").html());
+							localStorage.setItem("record", $("#scoreNum").html());
 							localStorage.setItem("myimgpath", $("#myimg").src);
 					  		break;
 					  	case "10001":
