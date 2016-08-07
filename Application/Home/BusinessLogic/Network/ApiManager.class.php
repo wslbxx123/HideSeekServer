@@ -60,7 +60,10 @@ class ApiManager {
         $client->rsaPrivateKeyFilePath = KeyParam::ALIPAY_PRIVATE_KEY_PATH;
         $client->format = "json";
         $client->charset = "utf-8";
-        $client->alipayPublicKey = FileUtil::getAlipayKey(KeyParam::ALIPAY_PUBLIC_KEY_PATH);
+        $client->alipayPublicKey = FileUtil::getAlipayKey
+                (KeyParam::ALIPAY_PUBLIC_KEY_PATH);
+        
+        return $client;
     }
     
     public function rsaSign($productName, $introduction, $amount, $tradeNo) {

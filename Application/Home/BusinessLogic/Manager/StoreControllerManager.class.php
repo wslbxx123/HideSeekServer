@@ -2,13 +2,17 @@
 namespace Home\BusinessLogic\Manager;
 use Home\DataAccess\PullVersionManager;
 use Home\DataAccess\StoreManager;
+use Home\DataAccess\OrderManager;
 use Home\BusinessLogic\Network\ApiManager;
 /**
  * 处理商城控制器的逻辑类
  *
  * @author Two
  */
-class StoreControllerManager {    
+class StoreControllerManager {
+    const ALIPAY_GATEWAY_NEW = 'https://mapi.alipay.com/gateway.do?';
+    const SIGN_TYPE = "RSA";
+    
     public function getSignResult($storeId, $count, $accountId, $isFromWeb) {
         $orderVersion = PullVersionManager::updateOrderVersion();
         $product = StoreManager::getProduct($storeId);

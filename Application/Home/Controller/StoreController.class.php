@@ -12,9 +12,7 @@ use Home\BusinessLogic\Manager\StoreControllerManager;
 vendor("Alipay.aop.AopClient");
 
 class StoreController extends BaseController {
-    const ALIPAY_GATEWAY_NEW = 'https://mapi.alipay.com/gateway.do?';
-    const SIGN_TYPE = "RSA";
-    
+   
     public function refreshProducts() {
         self::setHeader();
         
