@@ -36,6 +36,7 @@ document.getElementById("matchId").onclick = function(){
 //		jsonp: 'callback',
 //		jsonpCallback:"success_jsonpCallback",
 		success: function(result, status) {
+			alert(JSON.stringify(result));
 			switch(result["code"]){
 				case "10000":
 					Num = result["result"]["record"];
@@ -43,6 +44,10 @@ document.getElementById("matchId").onclick = function(){
 			        sessionid = result["result"]["session_id"];
 			        $("#myorder").fadeIn(); 
 			        getClick = true;
+			        //存储注册数据
+			  		localStorage.setItem("nickname", $("#nickname").html());
+					localStorage.setItem("record", $("#scoreNum").html());
+					localStorage.setItem("myimgpath", $("#myimg").src);
 					break;
 			  	case "10003":
 			  		alert("填写信息失败！")
@@ -336,7 +341,28 @@ function getPath(obj,fileQuery,transImg){
 			document.getElementById("photo").src = images.src;
 		}			
 	});
-
-	
 }			
 
+if(window.localStorage){
+		 	// 获取缓存里面的数据
+		nickname = localStorage.getItem("nickname");
+		record = localStorage.getItem("record");
+		myimgpath = localStorage.getItem("myimgpath");
+		if(nickname!=null&&record!=null){  
+			$("#nickname").html(nickname);
+			$("#scoreNum").html(record);
+			$("#myimg").attr('src',myimgpath); 
+			$(".inner_menu").fadeOut();
+			$("#myimg").fadeIn();
+			$("#myprofile").fadeIn();
+			getClick = true;
+		}
+//		// 清除缓存
+//		$(".reset").click(function(){
+//			localStorage.clear();
+//		})
+
+	}
+	else{
+		alert('对不起，您的浏览器不支持HTML5本地存储');
+	}

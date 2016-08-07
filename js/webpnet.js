@@ -7,6 +7,13 @@ function myStart(){
 	var f;
 	var sessionid;
 	var getClick = false;
+//	var codeNumber;
+	
+	// 获取缓存里面的数据
+	nickname = localStorage.getItem("nickname");
+	record = localStorage.getItem("record");
+	myimgpath = localStorage.getItem("myimgpath");
+	
 	var purStore = {
 			url: "/index.php/home/store/refreshProducts",
 			type: 'POST',
@@ -90,14 +97,17 @@ function myStart(){
 				        
 				} 		
 				 $(".purGet").click(function(){
-					   if (!getClick){
+					   if (!getClick&&nickname==null&&record==null){
 					   		alert("请先登录！");
 					   }
 					   else{
+					   		$(".goodsNum").val("1");
 					   		t = $(this).attr("id");
-					   		alert(t);
 					   		$(".goodsName").html(result.result.products[t].product_name);
 					   		$(".goodsprice").html($(".goodsNum").val()*result.result.products[t].price+"元");
+					   		$('input[type=number]').change(function(){
+					   			$(".goodsprice").html($(".goodsNum").val()*result.result.products[t].price+"元");
+					   		});
 					   		$("#confirmpurchase").fadeIn();
 					   }
 				});
@@ -195,7 +205,6 @@ function myStart(){
 					   }
 					   else{
 					   		t = $(this).attr("id");
-					   		alert(t);
 					   		$(".goodsName").html(result.result.reward[t].reward_name);
 					   		$(".goodsprice").html($(".goodsNum").val()*result.result.reward[t].record+"积分");
 					   		$("#confirmexchange").fadeIn();
@@ -284,7 +293,7 @@ function myStart(){
 		$("#storecover").fadeOut();
 	});
 	
-	var codeNumber;
+	
 //发送和检验验证码
 	document.getElementById("verifiCode").onclick = function(){
 		var verificode = {
@@ -293,22 +302,14 @@ function myStart(){
 			data: "phone=" + $("#userphone").val(),
 			dataType: "json",
 			
-			success: function(result, status) {
-				alert(JSON.stringify(result));
+			success: function(result, status){
 				switch(result["code"]){
 					case "10000":
-						if(result["result"]["content"]["error_code"] == "0"){
-						alert(1);
-							alert($("#codeNum").val());
-							alert(result["result"]["sms_code"]);
-							if($("#codeNum").val() == result["result"]["sms_code"]){
-							   codeNumber = true;
-							}
-							else{
-								alert("验证码错误！");
-							}
-						}			
-				  		break;
+						codeNumber = result["result"]["sms_code"];
+						if(result["result"]["content"]["error_code"]==0){
+						 	alert("发送验证码成功！")
+						}	
+						break;
 				  	case "10001":
 				  		$("#fault").fadeIn();
 				  		break;
@@ -406,8 +407,16 @@ function myStart(){
 		 	}
   		}
 		
-		alert(codeNumber);
-		if(allGood&&codeNumber) {
+		if($("#codeNum").val() == codeNumber){
+		   allGood = true;
+		}
+		else{
+			allGood = false;
+			alert("验证码错误！");
+		}		
+
+	
+		if(allGood) {
 			//	跳转到第二注册界面
 			$("#newWin2").fadeIn(); 
 			$("#newWin1").fadeOut(); 
@@ -495,6 +504,10 @@ function myStart(){
 					  		$("#storecover").fadeOut(); 
 					  		$("#myorder").fadeIn(); 
 					  		getClick = true;
+					  		//存储登录数据
+					  		localStorage.setItem("nickname", $("#nickname").html());
+							localStorage.setItem("record", $("#scoreNum").html());
+							localStorage.setItem("myimgpath", result["result"]["photo_url"]);
 					  		break;
 					  	case "10001":
 					  		$("#fault").fadeIn();
