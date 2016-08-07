@@ -4,6 +4,7 @@ namespace Home\Controller;
 use Home\Common\Util\BaseUtil;
 use Home\Common\Param\CodeParam;
 use Home\DataAccess\StoreManager;
+use Home\DataAccess\RewardManager;
 use Home\DataAccess\PullVersionManager;
 use Home\DataAccess\OrderManager;
 use Home\BusinessLogic\Network\ApiManager;
