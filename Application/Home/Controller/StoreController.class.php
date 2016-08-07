@@ -67,20 +67,12 @@ class StoreController extends BaseController {
             return;
         }
         
-        $rewardList = RewardManager::refreshRewards($version, $rewardMinId);
-        
-        if($rewardList != null && count($rewardList) > 0) {
-            $tempRewardMinId = end($rewardList)['pk_id'];
-            
-            if($tempRewardMinId < $rewardMinId) {
-                $rewardMinId = $tempRewardMinId;
-            }
-        }
+        $rewardResult = RewardManager::refreshRewards($version, $rewardMinId);
         
         $result = array (
-                'version' => $rewardVersion,
-                'reward_min_id' => $rewardMinId,
-                'reward' => $rewardList);
+                'version' => $version,
+                'reward_min_id' => $rewardResult["reward_min_id"],
+                'reward' => $rewardResult["rewards"]);
         
         echo BaseUtil::echoJson(CodeParam::SUCCESS, $result); 
     }
@@ -96,12 +88,12 @@ class StoreController extends BaseController {
             return;
         }
         
-        $rewardList = RewardManager::getRewards($version, $rewardMinId);
+        $rewardResult = RewardManager::getRewards($version, $rewardMinId);
         
         $result = array (
                 'version' => $version,
-                'reward_min_id' => $rewardMinId,
-                'reward' => $rewardList);
+                'reward_min_id' => $rewardResult["reward_min_id"],
+                'reward' => $rewardResult["rewards"]);
         echo BaseUtil::echoJson(CodeParam::SUCCESS, $result); 
     }
     
