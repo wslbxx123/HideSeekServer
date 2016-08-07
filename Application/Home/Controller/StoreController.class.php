@@ -16,7 +16,7 @@ class StoreController extends BaseController {
         $version = filter_input(INPUT_POST, 'version');
         $productMinId = filter_input(INPUT_POST, 'product_min_id');
         
-        $store_version = PullVersionManager::getStoreVersion();
+        $storeVersion = PullVersionManager::getStoreVersion();
         
         if(!isset($version) || !isset($productMinId)) {
             BaseUtil::echoJson(CodeParam::VERSION_OR_MIN_ID_EMPTY, null);
@@ -26,7 +26,7 @@ class StoreController extends BaseController {
         $productResult = StoreManager::refreshProducts($version, $productMinId);
         
         $result = array (
-                'version' => $store_version,
+                'version' => $storeVersion,
                 'product_min_id' => $productResult["product_min_id"],
                 'products' => $productResult["products"]);
         
@@ -59,7 +59,7 @@ class StoreController extends BaseController {
         $version = filter_input(INPUT_POST, 'version');
         $rewardMinId = filter_input(INPUT_POST, 'reward_min_id');
         
-        $reward_version = PullVersionManager::getRewardVersion();
+        $rewardVersion = PullVersionManager::getRewardVersion();
         
         if(!isset($version) || !isset($rewardMinId)) {
             BaseUtil::echoJson(CodeParam::VERSION_OR_MIN_ID_EMPTY, null);
@@ -77,7 +77,7 @@ class StoreController extends BaseController {
         }
         
         $result = array (
-                'version' => $reward_version,
+                'version' => $rewardVersion,
                 'reward_min_id' => $rewardMinId,
                 'reward' => $rewardList);
         
@@ -122,12 +122,15 @@ class StoreController extends BaseController {
             return;
         }
        
+        $orderVersion = PullVersionManager::getOrderVersion();
         $product = StoreManager::getProduct($storeId);
         $tradeNo = ApiManager::generateTradeNo(5);
-        $rsaSign = ApiManager::rsaSign($product['product_name'], $product['introduction'],
+        $rsaSign = ApiManager::rsaSign($product['product_name'], 
+                $product['introduction'],
                 floatval($product['price']) * $count, $tradeNo);
         
-        $orderId = OrderManager::insertOrder($storeId, $accountId, $count, $tradeNo);
+        $orderId = OrderManager::insertOrder($storeId, $accountId, $count, 
+                $tradeNo, $orderVersion + 1);
         
         $result = Array("order_id" => $orderId, "sign" => $rsaSign, 
             "trade_no" => $tradeNo);
@@ -186,7 +189,7 @@ class StoreController extends BaseController {
         $orderMinId = filter_input(INPUT_POST, 'order_min_id');
         $accountId = $this->getPkIdFromToken($sessionId);
         
-        $order_version = PullVersionManager::getOrderVersion();
+        $orderVersion = PullVersionManager::getOrderVersion();
         
         if(!isset($sessionId) || $accountId == 0) {
             BaseUtil::echoJson(CodeParam::NOT_LOGIN, null);
@@ -200,7 +203,7 @@ class StoreController extends BaseController {
         
         $orderResult = OrderManager::refreshOrders($accountId, $version, $orderMinId);
         
-        $result = array ('version' => $order_version, 
+        $result = array ('version' => $orderVersion, 
             'order_min_id' => $orderResult["order_min_id"],
             'orders' => $orderResult["orders"]);
         
