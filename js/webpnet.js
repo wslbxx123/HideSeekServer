@@ -548,7 +548,8 @@ function enterAlipay(){
 			
 			dataType: "json",
 			success: function(result, status) {
-						document.getElementById("alipaypage").innerHTML = result;
+				        alert(JSON.stringify(result));
+						document.getElementById("alipaypage").innerHTML = JSON.stringify(result);
 						document.getElementById("alipaysubmit").submit();
 			},
 				
