@@ -5,6 +5,7 @@ function myStart(){
 	// 加载商城信息
 	var z;
 	var f;
+	var t;
 	var sessionid;
 	var getClick = false;
 //	var codeNumber;
@@ -109,7 +110,7 @@ function myStart(){
 					   			$(".goodsprice").html($(".goodsNum").val()*result.result.products[t].price+"元");
 					   		});
 					   		$("#confirmpurchase").fadeIn();
-					   		enterAlipay();
+					   		
 					   }
 				});
 			},
@@ -209,7 +210,7 @@ function myStart(){
 					   		$(".goodsName").html(result.result.reward[t].reward_name);
 					   		$(".goodsprice").html($(".goodsNum").val()*result.result.reward[t].record+"积分");
 					   		$("#confirmexchange").fadeIn();
-					   		enterAlipay();
+					   		
 					   }
 				});
 			},
@@ -222,12 +223,12 @@ function myStart(){
 	
 	// 实现内部导航的切换
 	document.getElementById("purchase").onclick = function(){
-		var t = 590 + Math.ceil(z/2)*240+"px";
+		var r = 590 + Math.ceil(z/2)*240+"px";
 		document.getElementById("purchase").className = "selected";
 		document.getElementById("exchange").className ="";
 		document.getElementById("appdownload").className ="";
 		$("#purArea").fadeIn(); 
-		$("body").css("height",t);
+		$("body").css("height",r);
 		$("#exArea").fadeOut(); 
 		$("#downArea").fadeOut(); 
 	}
@@ -537,29 +538,6 @@ function hideSubMenu() {
 	subMenu.style.display = "none";
 }
 
-function enterAlipay(){
-	alert(t);
-	alert(sessionid);
-	alert($(".goodsNum").val());
-	$(".enterAlipay").click(function(){
-		var data = "session_id=" + sessionid
-				  + "&store_id=" + (t+1)
-				  + "&count=" + $(".goodsNum").val();
-		var enteralipay = {
-			url: "/index.php/home/store/createOrderFromWeb",
-			type: 'POST',
-			data:data,	
-			dataType: "json",
-			success: function(result, status) {
-				        alert(JSON.stringify(result));
-						document.getElementById("alipaypage").innerHTML = JSON.stringify(result);
-						document.getElementById("alipaysubmit").submit();
-			},
-				
-			error: function(XMLHttpRequest, textStatus, errorThrown) {
-				alert("网络出现问题！");
-			}
-		};
-		$.ajax(enteralipay);
-	});
-}
+
+
+

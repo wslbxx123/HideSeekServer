@@ -373,3 +373,30 @@ if(window.sessionStorage){
 		alert('对不起，您的浏览器不支持HTML5本地存储');
 	}
 
+enterAlipay();
+function enterAlipay(){
+	alert(t);
+	alert(sessionid);
+	alert($(".goodsNum").val());
+	$(".enterAlipay").click(function(){
+		var data = "session_id=" + sessionid
+				  + "&store_id=" + (t+1)
+				  + "&count=" + $(".goodsNum").val();
+		var enteralipay = {
+			url: "/index.php/home/store/createOrderFromWeb",
+			type: 'POST',
+			data:data,	
+			dataType: "json",
+			success: function(result, status) {
+		        alert(JSON.stringify(result));
+				document.getElementById("alipaypage").innerHTML = JSON.stringify(result);
+				document.getElementById("alipaysubmit").submit();
+			},
+				
+			error: function(XMLHttpRequest, textStatus, errorThrown) {
+				alert("网络出现问题！");
+			}
+		};
+		$.ajax(enteralipay);
+	});
+}
