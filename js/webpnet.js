@@ -525,12 +525,12 @@ function myStart(){
 
 }
 
-function displaySubMenu(){
-	var subMenu = document.getElementById("headline").getElementsByTagName("ul")[0];
+document.getElementById("myprofile").onmouseover = function() {
+	var subMenu = document.getElementsByTagName("ul")[0];
 	subMenu.style.display = "block";
 }
 
-function hideSubMenu() {
-	var subMenu = document.getElementById("headline").getElementsByTagName("ul")[0];
+document.getElementById("myprofile").onmouseout = function() {
+	var subMenu = document.getElementsByTagName("ul")[0];
 	subMenu.style.display = "none";
 }
