@@ -540,13 +540,13 @@ function hideSubMenu() {
 function enterAlipay(){
 	alert(t);
 	$(".enterAlipay").click(function(){
+		var data = "session_id=" + sessionid
+				  + "&store_id=" + (t+1)
+				  + "&count=" + $(".goodsNum").val();
 		var enteralipay = {
 			url: "/index.php/home/store/createOrderFromWeb",
 			type: 'POST',
-			data: "session_id=" + sessionid
-				  + "&store_id=" + (t+1)
-				  + "&count=" + $(".goodsNum").val(),
-			
+			data:data,	
 			dataType: "json",
 			success: function(result, status) {
 				        alert(JSON.stringify(result));
