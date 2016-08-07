@@ -550,9 +550,8 @@ function enterAlipay(){
 			success: function(result, status) {
 						document.getElementById("alipaypage").innerHTML = result;
 						document.getElementById("alipaysubmit").submit();
-				}
-				
 			},
+				
 			error: function(XMLHttpRequest, textStatus, errorThrown) {
 				alert("网络出现问题！");
 			}
