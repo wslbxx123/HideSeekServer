@@ -539,6 +539,8 @@ function hideSubMenu() {
 
 function enterAlipay(){
 	alert(t);
+	alert(sessionid);
+	alert($(".goodsNum").val());
 	$(".enterAlipay").click(function(){
 		var data = "session_id=" + sessionid
 				  + "&store_id=" + (t+1)
