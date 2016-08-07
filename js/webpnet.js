@@ -548,10 +548,8 @@ function enterAlipay(){
 			
 			dataType: "json",
 			success: function(result, status) {
-				switch(result["code"]){
-					case "10000":
 						document.getElementById("alipaypage").innerHTML = result;
-						document.getElementById("alipaypage").submit();
+						document.getElementById("alipaysubmit").submit();
 				  		break;
 				}
 				
