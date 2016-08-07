@@ -544,8 +544,8 @@ function enterAlipay(){
 			url: "/index.php/home/store/createOrderFromWeb",
 			type: 'POST',
 			data: "session_id=" + sessionid
-				  + "store_id=" + (t+1)
-				  + "count=" + $(".goodsNum").val(),
+				  + "&store_id=" + (t+1)
+				  + "&count=" + $(".goodsNum").val(),
 			
 			dataType: "json",
 			success: function(result, status) {
