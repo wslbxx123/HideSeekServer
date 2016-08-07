@@ -538,6 +538,7 @@ function hideSubMenu() {
 }
 
 function enterAlipay(){
+	alert(t);
 	$(".enterAlipay").click(function(){
 		var enteralipay = {
 			url: "/index.php/home/store/createOrderFromWeb",
