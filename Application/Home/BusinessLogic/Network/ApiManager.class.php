@@ -53,7 +53,7 @@ class ApiManager {
         return $curl;
     }
     
-    public function rsaSign($productName, $introduction, $amount, $tradeNo) {
+    public function getAopClient() {
         $client = new \AopClient();
         $client->gatewayUrl = "https://openapi.alipay.com/gateway.do";
         $client->appId = KeyParam::ALIPAY_PARTNER;
@@ -61,6 +61,10 @@ class ApiManager {
         $client->format = "json";
         $client->charset = "utf-8";
         $client->alipayPublicKey = FileUtil::getAlipayKey(KeyParam::ALIPAY_PUBLIC_KEY_PATH);
+    }
+    
+    public function rsaSign($productName, $introduction, $amount, $tradeNo) {
+        $client = self::getAopClient();
         
         $params["service"] = "\""."mobile.securitypay.pay"."\"";
         $params["partner"] = "\"".KeyParam::ALIPAY_PARTNER."\"";
@@ -75,7 +79,30 @@ class ApiManager {
         $params["it_b_pay"] = "\""."30m"."\"";
         $params["show_url"] = "\""."m.alipay.com"."\"";
         
-        return urlencode($client->rsaSign($params));
+        return Array(
+            "sign" => urlencode($client->rsaSign($params)), 
+            "params" => $params);
+    }
+    
+    public function rsaWebSign($productName, $introduction, $amount, $tradeNo) {
+        $client = self::getAopClient();
+        
+        $params["service"] = "mobile.securitypay.pay";
+        $params["partner"] = KeyParam::ALIPAY_PARTNER;
+        $params["_input_charset"] = "utf-8";
+        $params["notify_url"] = "http://www.hideseek.cn/index.php/home/store/notifyUrl";
+        $params["out_trade_no"] = $tradeNo;
+        $params["subject"] = $productName;
+        $params["payment_type"] = "1";
+        $params["seller_id"] = "wslbxx@hotmail.com";
+        $params["total_fee"] = sprintf("%.2f", $amount);
+        $params["body"] = $introduction;
+        $params["it_b_pay"] = "30m";
+        $params["show_url"] = "m.alipay.com";
+        
+        return Array(
+            "sign" => urlencode($client->rsaSign($params)), 
+            "params" => $params);
     }
     
     public function generateTradeNo($length) {

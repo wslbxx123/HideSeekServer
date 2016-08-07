@@ -8,9 +8,13 @@ use Home\DataAccess\RewardManager;
 use Home\DataAccess\PullVersionManager;
 use Home\DataAccess\OrderManager;
 use Home\BusinessLogic\Network\ApiManager;
+use Home\BusinessLogic\Manager\StoreControllerManager;
 vendor("Alipay.aop.AopClient");
 
 class StoreController extends BaseController {
+    const ALIPAY_GATEWAY_NEW = 'https://mapi.alipay.com/gateway.do?';
+    const SIGN_TYPE = "RSA";
+    
     public function refreshProducts() {
         self::setHeader();
         
@@ -70,7 +74,7 @@ class StoreController extends BaseController {
         $rewardResult = RewardManager::refreshRewards($version, $rewardMinId);
         
         $result = array (
-                'version' => $version,
+                'version' => $rewardVersion,
                 'reward_min_id' => $rewardResult["reward_min_id"],
                 'reward' => $rewardResult["rewards"]);
         
@@ -114,23 +118,37 @@ class StoreController extends BaseController {
         if(!self::checkOrderInfo($storeId, $count)) {
             return;
         }
-       
-        $orderVersion = PullVersionManager::updateOrderVersion();
-        $product = StoreManager::getProduct($storeId);
-        $tradeNo = ApiManager::generateTradeNo(5);
-        $rsaSign = ApiManager::rsaSign($product['product_name'], 
-                $product['introduction'],
-                floatval($product['price']) * $count, $tradeNo);
         
-        $orderId = OrderManager::insertOrder($storeId, $accountId, $count, 
-                $tradeNo, $orderVersion);
-        
-        $result = Array("order_id" => $orderId, "sign" => $rsaSign, 
-            "trade_no" => $tradeNo);
+        $storeManager = new StoreControllerManager();
+        $result = $storeManager->getSignResult($storeId, $count, $accountId, false);
         echo BaseUtil::echoJson(CodeParam::SUCCESS, $result); 
     }
     
-    public function checkOrderInfo($storeId, $count) {    
+    public function createOrderFromWeb() {
+        self::setHeader();
+        
+        $sessionId = filter_input(INPUT_POST, 'session_id');
+        $storeId = filter_input(INPUT_POST, 'store_id');
+        $count = filter_input(INPUT_POST, 'count');
+        
+        $accountId = $this->getPkIdFromToken($sessionId);
+        
+        if(!isset($sessionId) || $accountId == 0) {
+            BaseUtil::echoJson(CodeParam::NOT_LOGIN, null);
+            return;
+        }
+        
+        if(!self::checkOrderInfo($storeId, $count)) {
+            return;
+        }
+        
+        $storeManager = new StoreControllerManager();
+        $result = $storeManager->getSignResult($storeId, $count, $accountId, true);
+        $html = $storeManager->createAlipayFormHtml($result);
+        echo $html;
+    }
+    
+    public function checkOrderInfo($storeId, $count) {   
         if(!isset($storeId)) {
             BaseUtil::echoJson(CodeParam::STORE_ID_EMPTY, null);
             return false;
