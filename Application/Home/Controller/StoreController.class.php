@@ -130,7 +130,7 @@ class StoreController extends BaseController {
                 floatval($product['price']) * $count, $tradeNo);
         
         $orderId = OrderManager::insertOrder($storeId, $accountId, $count, 
-                $tradeNo, $orderVersion + 1);
+                $tradeNo, $orderVersion);
         
         $result = Array("order_id" => $orderId, "sign" => $rsaSign, 
             "trade_no" => $tradeNo);
