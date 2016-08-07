@@ -361,6 +361,11 @@ if(window.sessionStorage){
 	// 清除缓存
 		$("#exit").click(function(){
 			sessionStorage.clear();
+			$(".inner_menu").fadeIn();
+			$("#myimg").fadeOut();
+			$("#myprofile" ).fadeOut();
+			$("#myorder").fadeOut();
+			
 		})
 
 	}

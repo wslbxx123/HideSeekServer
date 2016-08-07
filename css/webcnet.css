@@ -269,7 +269,7 @@ input.invalid {
 }
 
 #register{
-    height: 35px;
+    height: 35px;s
     margin-top: 10px;
     font-family: "Microsoft Yahei";
     font-size: 15px;
@@ -1085,18 +1085,17 @@ p.tip{
 }
 
 #exit{
-	display: none;
-    width: 115px;
+	width: 115px;
     height: 28px;
     position: absolute;
     right: 9px;
-    margin-top: 47px;
+    margin-top: 4px;
     font-size: 12px;
     background-color: #fae077;
     border-radius: 2px;
     border: 1px solid cornflowerblue;
     text-align: center;
     line-height: 28px;
-    text-decoration:none;
-    cursor:pointer;
+    text-decoration: none;
+    cursor: pointer;
 }
