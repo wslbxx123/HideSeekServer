@@ -23,20 +23,12 @@ class StoreController extends BaseController {
             return;
         }
         
-        $productList = StoreManager::refreshProducts($version, $productMinId);
-        
-        if($productList != null && count($productList) > 0) {
-            $tempProductMinId = end($productList)['pk_id'];
-            
-            if($tempProductMinId < $productMinId) {
-                $productMinId = $tempProductMinId;
-            }
-        }
+        $productResult = StoreManager::refreshProducts($version, $productMinId);
         
         $result = array (
                 'version' => $store_version,
-                'product_min_id' => $productMinId,
-                'products' => $productList);
+                'product_min_id' => $productResult["product_min_id"],
+                'products' => $productResult["products"]);
         
         BaseUtil::echoJson(CodeParam::SUCCESS, $result);
     }
@@ -52,12 +44,12 @@ class StoreController extends BaseController {
             return;
         }
         
-        $productList = StoreManager::getProducts($version, $productMinId);
+        $productResult = StoreManager::getProducts($version, $productMinId);
         
         $result = array (
                 'version' => $version,
-                'product_min_id' => $productMinId,
-                'products' => $productList);
+                'product_min_id' => $productResult["product_min_id"],
+                'products' => $productResult["products"]);
         BaseUtil::echoJson(CodeParam::SUCCESS, $result);
     }
     
@@ -74,7 +66,7 @@ class StoreController extends BaseController {
             return;
         }
         
-        $rewardList = StoreManager::refreshRewards($version, $rewardMinId);
+        $rewardList = RewardManager::refreshRewards($version, $rewardMinId);
         
         if($rewardList != null && count($rewardList) > 0) {
             $tempRewardMinId = end($rewardList)['pk_id'];
@@ -103,7 +95,7 @@ class StoreController extends BaseController {
             return;
         }
         
-        $rewardList = StoreManager::getRewards($version, $rewardMinId);
+        $rewardList = RewardManager::getRewards($version, $rewardMinId);
         
         $result = array (
                 'version' => $version,
@@ -194,6 +186,8 @@ class StoreController extends BaseController {
         $orderMinId = filter_input(INPUT_POST, 'order_min_id');
         $accountId = $this->getPkIdFromToken($sessionId);
         
+        $order_version = PullVersionManager::getOrderVersion();
+        
         if(!isset($sessionId) || $accountId == 0) {
             BaseUtil::echoJson(CodeParam::NOT_LOGIN, null);
             return;
@@ -204,9 +198,13 @@ class StoreController extends BaseController {
             return;
         }
         
-        $orderList = OrderManager::refreshOrders($accountId, $version, $orderMinId);
+        $orderResult = OrderManager::refreshOrders($accountId, $version, $orderMinId);
         
-        echo BaseUtil::echoJson(CodeParam::SUCCESS, $orderList); 
+        $result = array ('version' => $order_version, 
+            'order_min_id' => $orderResult["order_min_id"],
+            'orders' => $orderResult["orders"]);
+        
+        echo BaseUtil::echoJson(CodeParam::SUCCESS, $result); 
     }
     
     public function getOrders() {
@@ -227,9 +225,13 @@ class StoreController extends BaseController {
             return;
         }
         
-        $orderList = OrderManager::getOrders($accountId, $version, $orderMinId);
+        $orderResult = OrderManager::getOrders($accountId, $version, $orderMinId);
         
-        echo BaseUtil::echoJson(CodeParam::SUCCESS, $orderList); 
+        $result = array ('version' => $version, 
+            'order_min_id' => $orderResult["order_min_id"],
+            'orders' => $orderResult["orders"]);
+        
+        echo BaseUtil::echoJson(CodeParam::SUCCESS, $result); 
     }
     
     public function notifyUrl() {

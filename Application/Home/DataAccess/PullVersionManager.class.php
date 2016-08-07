@@ -24,6 +24,12 @@ class PullVersionManager {
         return $version['reward_version'];
     }
     
+    public function getOrderVersion() {
+        $Dao = M("pull_version");
+        $version = $Dao->find();
+        return $version['order_version'];
+    }
+    
     public function updateStoreVersion() {
         $Dao = M("pull_version");
         $version = $Dao->find();

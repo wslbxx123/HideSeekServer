@@ -47,13 +47,37 @@ class OrderManager {
         $Dao = M("order");
         $sql = "call admin_refresh_orders($accountId, $version, $orderMinId)";
         $orderList = $Dao->query($sql);
-        return $orderList;
+        
+        if($orderList != null && count($orderList) > 0) {
+            $tempOrderMinId = end($orderList)['pk_id'];
+            
+            if($tempOrderMinId < $orderMinId) {
+                $orderMinId = $tempOrderMinId;
+            }
+        }
+        
+        return Array(
+            "order_min_id" => $orderMinId,
+            "orders" => $orderList
+        );
     }
     
     public function getOrders($accountId, $version, $orderMinId) {
         $Dao = M("order");
         $sql = "call admin_get_orders($accountId, $version, $orderMinId)";
         $orderList = $Dao->query($sql);
-        return $orderList;
+        
+        if($orderList != null && count($orderList) > 0) {
+            $tempOrderMinId = end($orderList)['pk_id'];
+            
+            if($tempOrderMinId < $orderMinId) {
+                $orderMinId = $tempOrderMinId;
+            }
+        }
+        
+        return Array(
+            "order_min_id" => $orderMinId,
+            "orders" => $orderList
+        );
     }
 }
