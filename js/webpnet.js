@@ -10,9 +10,9 @@ function myStart(){
 //	var codeNumber;
 	
 	// 获取缓存里面的数据
-	nickname = localStorage.getItem("nickname");
-	record = localStorage.getItem("record");
-	myimgpath = localStorage.getItem("myimgpath");
+	nickname = sessionStorage.getItem("nickname");
+	record = sessionStorage.getItem("record");
+	myimgpath = sessionStorage.getItem("myimgpath");
 	
 	var purStore = {
 			url: "/index.php/home/store/refreshProducts",
@@ -200,7 +200,7 @@ function myStart(){
 				    
 				}
 				 $(".exGet").click(function(){
-					   if (!getClick){
+					   if (!getClick&&nickname==null&&record==null){
 					   		alert("请先登录！");
 					   }
 					   else{
@@ -505,9 +505,9 @@ function myStart(){
 					  		$("#myorder").fadeIn(); 
 					  		getClick = true;
 					  		//存储登录数据
-					  		localStorage.setItem("nickname", $("#nickname").html());
-							localStorage.setItem("record", $("#scoreNum").html());
-							localStorage.setItem("myimgpath", result["result"]["photo_url"]);
+					  		sessionStorage.setItem("nickname", $("#nickname").html());
+							sessionStorage.setItem("record", $("#scoreNum").html());
+							sessionStorage.setItem("myimgpath", result["result"]["photo_url"]);
 					  		break;
 					  	case "10001":
 					  		$("#fault").fadeIn();
@@ -525,3 +525,12 @@ function myStart(){
 
 }
 
+document.getElementById("myprofile").onmouseover = function() {
+	var subMenu = document.getElementsByTagName("ul")[0];
+	subMenu.style.display = "block";
+}
+
+document.getElementById("myprofile").onmouseout = function() {
+	var subMenu = document.getElementsByTagName("ul")[0];
+	subMenu.style.display = "none";
+}

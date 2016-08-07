@@ -1078,3 +1078,19 @@ p.tip{
     margin-top: 0px;
     margin-left: -1%;
 }
+
+ul{
+	display: none;
+    width: 115px;
+    height: 28px;
+    position: absolute;
+    right: 9px;
+    margin-top: 47px;
+    font-size: 12px;
+    background-color: #fae077;
+    border-radius: 2px;
+    border: 1px solid cornflowerblue;
+    text-align: center;
+    line-height: 28px;
+    text-decoration:none;
+}
