@@ -526,11 +526,11 @@ function myStart(){
 }
 
 function displaySubMenu(){
-	var subMenu = this.getElementsByTagName("ul")[0];
+	var subMenu = document.getElementById("headline").getElementsByTagName("ul")[0];
 	subMenu.style.display = "block";
 }
 
 function hideSubMenu() {
-	var subMenu = this.getElementsByTagName("ul")[0];
+	var subMenu = document.getElementById("headline").getElementsByTagName("ul")[0];
 	subMenu.style.display = "none";
 }
