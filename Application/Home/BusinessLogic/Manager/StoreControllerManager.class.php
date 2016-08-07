@@ -1,6 +1,8 @@
 <?php
 namespace Home\BusinessLogic\Manager;
-
+use Home\DataAccess\PullVersionManager;
+use Home\DataAccess\StoreManager;
+use Home\BusinessLogic\Network\ApiManager;
 /**
  * 处理商城控制器的逻辑类
  *
