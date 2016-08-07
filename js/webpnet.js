@@ -109,6 +109,7 @@ function myStart(){
 					   			$(".goodsprice").html($(".goodsNum").val()*result.result.products[t].price+"元");
 					   		});
 					   		$("#confirmpurchase").fadeIn();
+					   		enterAlipay();
 					   }
 				});
 			},
@@ -208,6 +209,7 @@ function myStart(){
 					   		$(".goodsName").html(result.result.reward[t].reward_name);
 					   		$(".goodsprice").html($(".goodsNum").val()*result.result.reward[t].record+"积分");
 					   		$("#confirmexchange").fadeIn();
+					   		enterAlipay();
 					   }
 				});
 			},
@@ -533,4 +535,31 @@ function displaySubMenu() {
 function hideSubMenu() {
 	var subMenu = document.getElementById("exit");
 	subMenu.style.display = "none";
+}
+
+function enterAlipay(){
+	$(".enterAlipay").click(function(){
+		var enteralipay = {
+			url: "/index.php/home/store/createOrderFromWeb",
+			type: 'POST',
+			data: "session_id=" + sessionid
+				  + "store_id=" + (t+1)
+				  + "count=" + $(".goodsNum").val(),
+			
+			dataType: "json",
+			success: function(result, status) {
+				switch(result["code"]){
+					case "10000":
+						document.getElementById("alipaypage").innerHTML = result;
+						document.getElementById("alipaypage").submit();
+				  		break;
+				}
+				
+			},
+			error: function(XMLHttpRequest, textStatus, errorThrown) {
+				alert("网络出现问题！");
+			}
+		};
+		$.ajax(enteralipay);
+	});
 }

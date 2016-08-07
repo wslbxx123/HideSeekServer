@@ -366,9 +366,10 @@ if(window.sessionStorage){
 			$("#myprofile" ).fadeOut();
 			$("#myorder").fadeOut();
 			
-		})
+		});
 
 	}
 	else{
 		alert('对不起，您的浏览器不支持HTML5本地存储');
 	}
+

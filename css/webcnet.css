@@ -1066,6 +1066,8 @@ p.tip{
     background-color: #ffcc00;
     position: absolute;
     line-height: 38px;
+    cursor:pointer;
+    
 }
 
 .goodsSum{
@@ -1098,4 +1100,5 @@ p.tip{
     line-height: 28px;
     text-decoration: none;
     cursor: pointer;
+    display:none ;
 }
