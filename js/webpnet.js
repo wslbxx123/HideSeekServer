@@ -10,9 +10,9 @@ function myStart(){
 //	var codeNumber;
 	
 	// 获取缓存里面的数据
-	nickname = localStorage.getItem("nickname");
-	record = localStorage.getItem("record");
-	myimgpath = localStorage.getItem("myimgpath");
+	nickname = sessionStorage.getItem("nickname");
+	record = sessionStorage.getItem("record");
+	myimgpath = sessionStorage.getItem("myimgpath");
 	
 	var purStore = {
 			url: "/index.php/home/store/refreshProducts",
@@ -505,9 +505,9 @@ function myStart(){
 					  		$("#myorder").fadeIn(); 
 					  		getClick = true;
 					  		//存储登录数据
-					  		localStorage.setItem("nickname", $("#nickname").html());
-							localStorage.setItem("record", $("#scoreNum").html());
-							localStorage.setItem("myimgpath", result["result"]["photo_url"]);
+					  		sessionStorage.setItem("nickname", $("#nickname").html());
+							sessionStorage.setItem("record", $("#scoreNum").html());
+							sessionStorage.setItem("myimgpath", result["result"]["photo_url"]);
 					  		break;
 					  	case "10001":
 					  		$("#fault").fadeIn();
