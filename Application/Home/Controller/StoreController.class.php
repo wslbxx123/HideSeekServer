@@ -122,7 +122,7 @@ class StoreController extends BaseController {
             return;
         }
        
-        $orderVersion = PullVersionManager::getOrderVersion();
+        $orderVersion = PullVersionManager::updateOrderVersion();
         $product = StoreManager::getProduct($storeId);
         $tradeNo = ApiManager::generateTradeNo(5);
         $rsaSign = ApiManager::rsaSign($product['product_name'], 

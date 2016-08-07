@@ -36,4 +36,13 @@ class PullVersionManager {
         $version['store_version'] = $version['store_version'] + 1;
         $Dao->where('1=1')->save($version);
     }
+    
+    public function updateOrderVersion() {
+        $Dao = M("pull_version");
+        $version = $Dao->find();
+        $version['order_version'] = $version['order_version'] + 1;
+        $Dao->where('1=1')->save($version);
+        
+        return $version['order_version'];
+    }
 }
