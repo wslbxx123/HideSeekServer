@@ -294,6 +294,7 @@ input.invalid {
     -moz-border-radius: 2px; /* Firefox */
   	-webkit-border-radius: 2px; /* Safari 和 Chrome */
     border:1px solid cornflowerblue;
+    cursor:pointer;
 }
 
 
@@ -304,6 +305,7 @@ input.invalid {
     -webkit-appearance: none;
     height: 35px;
     width: 73px;
+    cursor:pointer;
 }
 
 #test2{
@@ -313,6 +315,7 @@ input.invalid {
     -webkit-appearance:none;
     height: 35px;
     width: 73px;
+    cursor:pointer;
 }
 
 
@@ -357,6 +360,7 @@ input.invalid {
     z-index: 30;
     position: absolute;
     border: 2px solid #b81d25;
+    cursor:pointer;
 }
 
 #appdownload{
@@ -400,6 +404,7 @@ input.invalid {
     color: white;
     text-align: center;
     line-height: 5;
+    cursor:pointer;
 }
 
 .N2{
@@ -1079,7 +1084,7 @@ p.tip{
     margin-left: -1%;
 }
 
-ul{
+#exit{
 	display: none;
     width: 115px;
     height: 28px;
@@ -1093,4 +1098,5 @@ ul{
     text-align: center;
     line-height: 28px;
     text-decoration:none;
+    cursor:pointer;
 }

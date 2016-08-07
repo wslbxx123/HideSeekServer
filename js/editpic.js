@@ -358,10 +358,10 @@ if(window.sessionStorage){
 			$("#myorder").fadeIn();
 			getClick = true;
 		}
-//		// 清除缓存
-//		$(".reset").click(function(){
-//			localStorage.clear();
-//		})
+	// 清除缓存
+		$("#exit").click(function(){
+			sessionStorage.clear();
+		})
 
 	}
 	else{

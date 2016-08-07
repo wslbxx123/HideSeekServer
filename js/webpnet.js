@@ -525,12 +525,12 @@ function myStart(){
 
 }
 
-document.getElementById("myprofile").onmouseover = function() {
-	var subMenu = document.getElementsByTagName("ul")[0];
+function displaySubMenu() {
+	var subMenu = document.getElementById("exit");
 	subMenu.style.display = "block";
 }
 
-document.getElementById("myprofile").onmouseout = function() {
-	var subMenu = document.getElementsByTagName("ul")[0];
+function hideSubMenu() {
+	var subMenu = document.getElementById("exit");
 	subMenu.style.display = "none";
 }
