@@ -12,7 +12,19 @@ class StoreManager {
         $condition['pk_id'] = array('egt',$productMinId);
         $productList = $Dao->where($condition)->order('pk_id desc')
                 ->limit(20)->select();
-        return $productList;
+        
+        if($productList != null && count($productList) > 0) {
+            $tempProductMinId = end($productList)['pk_id'];
+            
+            if($tempProductMinId < $productMinId) {
+                $productMinId = $tempProductMinId;
+            }
+        }
+        
+        return Array(
+            "product_min_id" => $productMinId,
+            "products" => $productList
+        );
     }
     
     public function getProducts($version, $productMinId) {
@@ -21,25 +33,19 @@ class StoreManager {
         $condition['pk_id'] = array('lt',$productMinId);
         $productList = $Dao->where($condition)->order('pk_id desc')
                 ->limit(20)->select();
-        return $productList;
-    }
-    
-    public function refreshRewards($version, $rewardMinId) {
-        $Dao = M("reward");
-        $condition['version'] = array('gt',$version);
-        $condition['pk_id'] = array('egt',$rewardMinId);
-        $rewardList = $Dao->where($condition)->order('pk_id desc')
-                ->limit(20)->select();
-        return $rewardList;
-    }
-    
-    public function getRewards($version, $rewardMinId) {
-        $Dao = M("reward");
-        $condition['version'] = array('elt',$version);
-        $condition['pk_id'] = array('lt',$rewardMinId);
-        $rewardList = $Dao->where($condition)->order('pk_id desc')
-                ->limit(20)->select();
-        return $rewardList;
+        
+        if($productList != null && count($productList) > 0) {
+            $tempProductMinId = end($productList)['pk_id'];
+            
+            if($tempProductMinId < $productMinId) {
+                $productMinId = $tempProductMinId;
+            }
+        }
+        
+        return Array(
+            "product_min_id" => $productMinId,
+            "products" => $productList
+        );
     }
     
     public function updatePurchaseCount($storeId) {

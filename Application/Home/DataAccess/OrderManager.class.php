@@ -6,7 +6,7 @@ namespace Home\DataAccess;
  * @author apple
  */
 class OrderManager {
-    public function insertOrder($storeId, $accountId, $count, $tradeNo) {
+    public function insertOrder($storeId, $accountId, $count, $tradeNo, $version) {
         $Dao = M("order");
         $order["store_id"] = $storeId;
         $order['status'] = 0;
@@ -15,6 +15,7 @@ class OrderManager {
         $order['update_time'] = date('y-m-d H:i:s',time());
         $order['count'] = $count;
         $order['trade_no'] = $tradeNo;
+        $order['version'] = $version;
         return $Dao->add($order);
     }
     
@@ -43,10 +44,41 @@ class OrderManager {
         return $order;
     }
     
-    public function refreshOrders($accountId) {
+    public function refreshOrders($accountId, $version, $orderMinId) {
         $Dao = M("order");
-        $sql = "call admin_get_orders($accountId)";
+        $sql = "call admin_refresh_orders($accountId, $version, $orderMinId)";
         $orderList = $Dao->query($sql);
-        return $orderList;
+        
+        if($orderList != null && count($orderList) > 0) {
+            $tempOrderMinId = end($orderList)['pk_id'];
+            
+            if($tempOrderMinId < $orderMinId) {
+                $orderMinId = $tempOrderMinId;
+            }
+        }
+        
+        return Array(
+            "order_min_id" => $orderMinId,
+            "orders" => $orderList
+        );
+    }
+    
+    public function getOrders($accountId, $version, $orderMinId) {
+        $Dao = M("order");
+        $sql = "call admin_get_orders($accountId, $version, $orderMinId)";
+        $orderList = $Dao->query($sql);
+        
+        if($orderList != null && count($orderList) > 0) {
+            $tempOrderMinId = end($orderList)['pk_id'];
+            
+            if($tempOrderMinId < $orderMinId) {
+                $orderMinId = $tempOrderMinId;
+            }
+        }
+        
+        return Array(
+            "order_min_id" => $orderMinId,
+            "orders" => $orderList
+        );
     }
 }
