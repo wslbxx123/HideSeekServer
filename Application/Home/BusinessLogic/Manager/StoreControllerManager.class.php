@@ -13,7 +13,7 @@ class StoreControllerManager {
         
     }
     
-    public function getSignResult($storeId, $count, $accountId, $isFromWeb) {
+    protected function getSignResult($storeId, $count, $accountId, $isFromWeb) {
         $orderVersion = PullVersionManager::updateOrderVersion();
         $product = StoreManager::getProduct($storeId);
         $tradeNo = ApiManager::generateTradeNo(5);
