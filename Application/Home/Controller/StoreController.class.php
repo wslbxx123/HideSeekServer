@@ -119,8 +119,7 @@ class StoreController extends BaseController {
             return;
         }
         
-        $storeManager = new StoreControllerManager();
-        $result = $storeManager->getSignResult($storeId, $count, $accountId, false);
+        $result = StoreControllerManager::getSignResult($storeId, $count, $accountId, false);
         echo BaseUtil::echoJson(CodeParam::SUCCESS, $result); 
     }
     
@@ -142,9 +141,8 @@ class StoreController extends BaseController {
             return;
         }
         
-        $storeManager = new StoreControllerManager();
-        $result = $storeManager->getSignResult($storeId, $count, $accountId, true);
-        $html = $storeManager->createAlipayFormHtml($result);
+        $result = StoreControllerManager::getSignResult($storeId, $count, $accountId, true);
+        $html = StoreControllerManager::createAlipayFormHtml($result);
         echo $html;
     }
     

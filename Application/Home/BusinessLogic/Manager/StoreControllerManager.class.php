@@ -8,12 +8,8 @@ use Home\BusinessLogic\Network\ApiManager;
  *
  * @author Two
  */
-class StoreControllerManager {
-    public function __construct() {
-        
-    }
-    
-    protected function getSignResult($storeId, $count, $accountId, $isFromWeb) {
+class StoreControllerManager {    
+    public function getSignResult($storeId, $count, $accountId, $isFromWeb) {
         $orderVersion = PullVersionManager::updateOrderVersion();
         $product = StoreManager::getProduct($storeId);
         $tradeNo = ApiManager::generateTradeNo(5);
