@@ -354,7 +354,8 @@ if(window.localStorage){
 			$("#myimg").attr('src',myimgpath); 
 			$(".inner_menu").fadeOut();
 			$("#myimg").fadeIn();
-			$("#myprofile").fadeIn();
+			$("#myprofile" ).fadeIn();
+			$("#myorder").fadeIn();
 			getClick = true;
 		}
 //		// 清除缓存

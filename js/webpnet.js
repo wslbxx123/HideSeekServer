@@ -200,7 +200,7 @@ function myStart(){
 				    
 				}
 				 $(".exGet").click(function(){
-					   if (!getClick){
+					   if (!getClick&&nickname==null&&record==null){
 					   		alert("请先登录！");
 					   }
 					   else{
