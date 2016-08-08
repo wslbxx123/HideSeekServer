@@ -374,6 +374,8 @@ if(window.sessionStorage){
 	}
 
 $(".enterAlipay").click(function(){
+	alert(sessionid);
+	alert($(".goodsNum").val());
 	var data = "session_id=" + sessionid
 			  + "&store_id=" + (t+1)
 			  + "&count=" + $(".goodsNum").val();
