@@ -538,6 +538,28 @@ function hideSubMenu() {
 	subMenu.style.display = "none";
 }
 
-
+$(".enterAlipay").click(function(){
+	alert(sessionid);
+	alert($(".goodsNum").val());
+	var data = "session_id=" + sessionid
+			  + "&store_id=" + (t+1)
+			  + "&count=" + $(".goodsNum").val();
+	var enteralipay = {
+		url: "/index.php/home/store/createOrderFromWeb",
+		type: 'POST',
+		data:data,	
+		dataType: "json",
+		success: function(result, status) {
+	        alert(JSON.stringify(result));
+			document.getElementById("alipaypage").innerHTML = JSON.stringify(result);
+			document.getElementById("alipaysubmit").submit();
+		},
+			
+		error: function(XMLHttpRequest, textStatus, errorThrown) {
+			alert("网络出现问题！");
+		}
+	};
+	$.ajax(enteralipay);
+});
 
 
