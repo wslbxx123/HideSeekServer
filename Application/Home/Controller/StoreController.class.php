@@ -6,7 +6,8 @@ use Home\Common\Param\CodeParam;
 use Home\DataAccess\StoreManager;
 use Home\DataAccess\RewardManager;
 use Home\DataAccess\PullVersionManager;
-use Home\DataAccess\OrderManager;
+use Home\DataAccess\PurchaseOrderManager;
+use Home\DataAccess\ExchangeOrderManager;
 use Home\BusinessLogic\Network\ApiManager;
 use Home\BusinessLogic\Manager\StoreControllerManager;
 vendor("Alipay.aop.AopClient");
@@ -208,7 +209,7 @@ class StoreController extends BaseController {
             return;
         }
         
-        $orderResult = OrderManager::refreshOrders($accountId, $version, $orderMinId);
+        $orderResult = PurchaseOrderManager::refreshOrders($accountId, $version, $orderMinId);
         
         $result = array ('version' => $orderVersion, 
             'order_min_id' => $orderResult["order_min_id"],
@@ -235,7 +236,7 @@ class StoreController extends BaseController {
             return;
         }
         
-        $orderResult = OrderManager::getOrders($accountId, $version, $orderMinId);
+        $orderResult = PurchaseOrderManager::getOrders($accountId, $version, $orderMinId);
         
         $result = array ('version' => $version, 
             'order_min_id' => $orderResult["order_min_id"],
@@ -244,7 +245,7 @@ class StoreController extends BaseController {
         echo BaseUtil::echoJson(CodeParam::SUCCESS, $result); 
     }
     
-    public function refreshRewardOrders() {
+    public function refreshExchangeOrders() {
         self::setHeader();
         
         $sessionId = filter_input(INPUT_POST, 'session_id');
@@ -264,9 +265,36 @@ class StoreController extends BaseController {
             return;
         }
         
-        $orderResult = OrderManager::refreshOrders($accountId, $version, $orderMinId);
+        $orderResult = ExchangeOrderManager::refreshOrders($accountId, $version, $orderMinId);
         
         $result = array ('version' => $orderVersion, 
+            'order_min_id' => $orderResult["order_min_id"],
+            'orders' => $orderResult["orders"]);
+        
+        echo BaseUtil::echoJson(CodeParam::SUCCESS, $result); 
+    }
+    
+    public function getExchangeOrders() {
+        self::setHeader();
+        
+        $sessionId = filter_input(INPUT_POST, 'session_id');
+        $version = filter_input(INPUT_POST, 'version');
+        $orderMinId = filter_input(INPUT_POST, 'order_min_id');
+        $accountId = $this->getPkIdFromToken($sessionId);
+        
+        if(!isset($sessionId) || $accountId == 0) {
+            BaseUtil::echoJson(CodeParam::NOT_LOGIN, null);
+            return;
+        }
+        
+        if(!isset($version) || !isset($orderMinId)) {
+            BaseUtil::echoJson(CodeParam::VERSION_OR_MIN_ID_EMPTY, null);
+            return;
+        }
+        
+        $orderResult = ExchangeOrderManager::getOrders($accountId, $version, $orderMinId);
+        
+        $result = array ('version' => $version, 
             'order_min_id' => $orderResult["order_min_id"],
             'orders' => $orderResult["orders"]);
         
