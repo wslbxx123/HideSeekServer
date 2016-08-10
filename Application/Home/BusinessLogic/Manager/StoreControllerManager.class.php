@@ -1,8 +1,8 @@
 <?php
 namespace Home\BusinessLogic\Manager;
 use Home\DataAccess\PullVersionManager;
-use Home\DataAccess\StoreManager;
-use Home\DataAccess\OrderManager;
+use Home\DataAccess\ProductManager;
+use Home\DataAccess\PurchaseOrderManager;
 use Home\BusinessLogic\Network\ApiManager;
 /**
  * 处理商城控制器的逻辑类
@@ -15,7 +15,7 @@ class StoreControllerManager {
     
     public function getSignResult($storeId, $count, $accountId, $isFromWeb) {
         $orderVersion = PullVersionManager::updateProductOrderVersion();
-        $product = StoreManager::getProduct($storeId);
+        $product = ProductManager::getProduct($storeId);
         $tradeNo = ApiManager::generateTradeNo(5);
         
         if($isFromWeb) {
@@ -28,7 +28,7 @@ class StoreControllerManager {
                 floatval($product['price']) * $count, $tradeNo);
         }
         
-        $orderId = OrderManager::insertOrder($storeId, $accountId, $count, 
+        $orderId = PurchaseOrderManager::insertOrder($storeId, $accountId, $count, 
                 $tradeNo, $orderVersion);
         
         $result = Array("order_id" => $orderId, "sign" => $signResult["sign"], 
