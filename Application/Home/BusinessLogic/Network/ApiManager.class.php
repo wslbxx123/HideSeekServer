@@ -90,22 +90,23 @@ class ApiManager {
     public function rsaWebSign($productName, $introduction, $amount, $tradeNo) {
         $client = self::getAopClient();
         
-        $params["service"] = "mobile.securitypay.pay";
+        $params["service"] = "create_direct_pay_by_user";
         $params["partner"] = KeyParam::ALIPAY_PARTNER;
         $params["_input_charset"] = "utf-8";
         $params["notify_url"] = "http://www.hideseek.cn/index.php/home/store/notifyUrl";
         $params["out_trade_no"] = $tradeNo;
         $params["subject"] = $productName;
         $params["payment_type"] = "1";
-        $params["seller_id"] = "wslbxx@hotmail.com";
+        $params["seller_id"] = KeyParam::ALIPAY_PARTNER;
         $params["total_fee"] = sprintf("%.2f", $amount);
         $params["body"] = $introduction;
         $params["it_b_pay"] = "30m";
         $params["show_url"] = "m.alipay.com";
+        $sortParams = BaseUtil::paramSort($params);
         
         return Array(
-            "sign" => $client->rsaSign($params), 
-            "params" => $params);
+            "sign" => $client->rsaSign($sortParams), 
+            "params" => $sortParams);
     }
     
     public function generateTradeNo($length) {
