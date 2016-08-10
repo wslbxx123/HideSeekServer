@@ -113,7 +113,7 @@ function myStart(){
 					   		$("#enterAlipay").click(function(){
 								alert(sessionid);
 								alert($(".goodsNum").val());
-								alert((t+1));
+								alert(parseInt(t)+1);
 								sessionid = sessionStorage.getItem("sessionid");
 								var data = "session_id=" + sessionid
 										  + "&store_id=" + (t+1)
