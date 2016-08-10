@@ -44,7 +44,7 @@ class StoreControllerManager {
         
         $html = "<form id='alipaysubmit' name='alipaysubmit' "
                 . "action='".self::ALIPAY_GATEWAY_NEW
-                ."_input_charset=utf-8 method='get'>";
+                ."_input_charset=utf-8' method='get'>";
         
         while (list ($key, $val) = each($param)) {
             $html .= "<input type='hidden' name='".$key."' value='".$val."'/>";
