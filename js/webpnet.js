@@ -92,7 +92,7 @@ function myStart(){
 				    //创建商品购买按钮
 				    var getDiv = document.createElement('div');
 				    getDiv.className = "purGet";
-				    getDiv.id = i;
+				    getDiv.id = result["result"]["products"]["pk_id"];
 					getDiv.innerHTML= "购买";
 				    newDiv.appendChild(getDiv);   
 				        
