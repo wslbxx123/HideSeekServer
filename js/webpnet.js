@@ -93,7 +93,7 @@ function myStart(){
 				    var getDiv = document.createElement('div');
 				    getDiv.className = "purGet";
 				    getDiv.id = result.result.products[i].pk_id;
-//				    alert(result["result"]["products"]["pk_id"]);
+				    alert(result.result.products[i].pk_id);
 					getDiv.innerHTML= "购买";
 				    newDiv.appendChild(getDiv);   
 				        
