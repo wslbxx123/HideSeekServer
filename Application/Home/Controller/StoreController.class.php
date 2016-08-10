@@ -3,7 +3,7 @@
 namespace Home\Controller;
 use Home\Common\Util\BaseUtil;
 use Home\Common\Param\CodeParam;
-use Home\DataAccess\StoreManager;
+use Home\DataAccess\ProductManager;
 use Home\DataAccess\RewardManager;
 use Home\DataAccess\PullVersionManager;
 use Home\DataAccess\PurchaseOrderManager;
@@ -27,7 +27,7 @@ class StoreController extends BaseController {
             return;
         }
         
-        $productResult = StoreManager::refreshProducts($version, $productMinId);
+        $productResult = ProductManager::refreshProducts($version, $productMinId);
         
         $result = array (
                 'version' => $storeVersion,
@@ -48,7 +48,7 @@ class StoreController extends BaseController {
             return;
         }
         
-        $productResult = StoreManager::getProducts($version, $productMinId);
+        $productResult = ProductManager::getProducts($version, $productMinId);
         
         $result = array (
                 'version' => $version,
@@ -183,7 +183,7 @@ class StoreController extends BaseController {
             return;
         }
               
-        StoreManager::updatePurchaseCount($order['store_id']);
+        ProductManager::updatePurchaseCount($order['store_id']);
         PullVersionManager::updateStoreVersion();
         
         echo BaseUtil::echoJson(CodeParam::SUCCESS, $orderId); 

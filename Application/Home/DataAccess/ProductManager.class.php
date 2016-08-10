@@ -7,7 +7,7 @@ namespace Home\DataAccess;
  */
 class StoreManager {
     public function refreshProducts($version, $productMinId) {
-        $Dao = M("store");
+        $Dao = M("product");
         $condition['version'] = array('gt',$version);
         $condition['pk_id'] = array('egt',$productMinId);
         $productList = $Dao->where($condition)->order('pk_id desc')
@@ -28,7 +28,7 @@ class StoreManager {
     }
     
     public function getProducts($version, $productMinId) {
-        $Dao = M("store");
+        $Dao = M("product");
         $condition['version'] = array('elt',$version);
         $condition['pk_id'] = array('lt',$productMinId);
         $productList = $Dao->where($condition)->order('pk_id desc')
@@ -49,7 +49,7 @@ class StoreManager {
     }
     
     public function updatePurchaseCount($storeId) {
-        $Dao = M("store");
+        $Dao = M("product");
         $condition["pk_id"] = $storeId;
         $store = $Dao->where($condition)->find();
         $store['purchase_count'] = $store['purchase_count'] + 1;
@@ -57,7 +57,7 @@ class StoreManager {
     }
     
     public function getProduct($storeId) {
-        $Dao = M("store");
+        $Dao = M("product");
         $condition["pk_id"] = $storeId;
         $store = $Dao->where($condition)->find();
         return $store;
