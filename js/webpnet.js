@@ -105,6 +105,7 @@ function myStart(){
 					   else{
 					   		$(".goodsNum").val("1");
 					   		t = $(this).attr("id");
+					   		alert(t);
 					   		$(".goodsName").html(result.result.products[t].product_name);
 					   		$(".goodsprice").html($(".goodsNum").val()*result.result.products[t].price+"元");
 					   		$('input[type=number]').change(function(){
