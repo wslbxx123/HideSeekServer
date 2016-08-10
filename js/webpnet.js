@@ -119,8 +119,7 @@ function myStart(){
 							var enteralipay = {
 								url: "/index.php/home/store/createOrderFromWeb",
 								type: 'POST',
-								data:data,	
-								dataType: "json",
+								data:data,
 								success: function(result, status) {
 							        alert(JSON.stringify(result));
 									document.getElementById("alipaypage").innerHTML = JSON.stringify(result);
