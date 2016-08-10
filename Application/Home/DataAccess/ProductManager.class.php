@@ -5,7 +5,7 @@ namespace Home\DataAccess;
  *
  * @author Two
  */
-class StoreManager {
+class ProductManager {
     public function refreshProducts($version, $productMinId) {
         $Dao = M("product");
         $condition['version'] = array('gt',$version);
