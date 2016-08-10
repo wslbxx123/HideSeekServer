@@ -124,7 +124,7 @@ function myStart(){
 									data:data,
 									success: function(result, status) {
 								        alert(JSON.stringify(result));
-										document.getElementById("alipaypage").innerHTML = JSON.stringify(result);
+										document.getElementById("alipaypage").innerHTML = result;
 										document.getElementById("alipaysubmit").submit();
 									},
 										
