@@ -92,8 +92,7 @@ function myStart(){
 				    //创建商品购买按钮
 				    var getDiv = document.createElement('div');
 				    getDiv.className = "purGet";
-				    getDiv.id = result.result.products[i].pk_id;
-				    alert(result.result.products[i].pk_id);
+				    getDiv.id = i;
 					getDiv.innerHTML= "购买";
 				    newDiv.appendChild(getDiv);   
 				        
@@ -105,7 +104,6 @@ function myStart(){
 					   else{
 					   		$(".goodsNum").val("1");
 					   		t = $(this).attr("id");
-					   		alert(t);
 					   		$(".goodsName").html(result.result.products[t].product_name);
 					   		$(".goodsprice").html($(".goodsNum").val()*result.result.products[t].price+"元");
 					   		$('input[type=number]').change(function(){
@@ -114,10 +112,11 @@ function myStart(){
 					   		$("#confirmpurchase").fadeIn();
 					   		$("#enterAlipay").click(function(){
 								alert($(".goodsNum").val());
+								alert(2-parseInt(t));
 								sessionid = sessionStorage.getItem("sessionid");
 								alert(sessionid);
 								var data = "session_id=" + sessionid
-										  + "&store_id=" + t
+										  + "&store_id=" + (2-parseInt(t))
 										  + "&count=" + $(".goodsNum").val();
 								var enteralipay = {
 									url: "/index.php/home/store/createOrderFromWeb",
