@@ -111,7 +111,6 @@ function myStart(){
 					   		});
 					   		$("#confirmpurchase").fadeIn();
 					   		$("#enterAlipay").click(function(){
-								alert(sessionid);
 								alert($(".goodsNum").val());
 								alert(parseInt(t)+1);
 								sessionid = sessionStorage.getItem("sessionid");

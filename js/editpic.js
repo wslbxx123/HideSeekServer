@@ -108,7 +108,7 @@ document.getElementById("myorder").onclick = function(){
 	
 	if (clickaction){
 		var orderArea = {
-			url: "/index.php/home/store/getOrders",
+			url: "/index.php/home/store/refreshPurchaseOrders",
 			type: 'POST',
 			data: "session_id=" + sessionid,
 			dataType: "json",
