@@ -114,11 +114,10 @@ function myStart(){
 					   		$("#confirmpurchase").fadeIn();
 					   		$("#enterAlipay").click(function(){
 								alert($(".goodsNum").val());
-								alert(parseInt(t)+1);
 								sessionid = sessionStorage.getItem("sessionid");
 								alert(sessionid);
 								var data = "session_id=" + sessionid
-										  + "&store_id=" + (t+1)
+										  + "&store_id=" + t
 										  + "&count=" + $(".goodsNum").val();
 								var enteralipay = {
 									url: "/index.php/home/store/createOrderFromWeb",
