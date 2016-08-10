@@ -269,7 +269,7 @@ input.invalid {
 }
 
 #register{
-    height: 35px;
+    height: 35px;s
     margin-top: 10px;
     font-family: "Microsoft Yahei";
     font-size: 15px;
@@ -294,6 +294,7 @@ input.invalid {
     -moz-border-radius: 2px; /* Firefox */
   	-webkit-border-radius: 2px; /* Safari 和 Chrome */
     border:1px solid cornflowerblue;
+    cursor:pointer;
 }
 
 
@@ -304,6 +305,7 @@ input.invalid {
     -webkit-appearance: none;
     height: 35px;
     width: 73px;
+    cursor:pointer;
 }
 
 #test2{
@@ -313,6 +315,7 @@ input.invalid {
     -webkit-appearance:none;
     height: 35px;
     width: 73px;
+    cursor:pointer;
 }
 
 
@@ -357,6 +360,7 @@ input.invalid {
     z-index: 30;
     position: absolute;
     border: 2px solid #b81d25;
+    
 }
 
 #appdownload{
@@ -400,6 +404,7 @@ input.invalid {
     color: white;
     text-align: center;
     line-height: 5;
+    cursor:pointer;
 }
 
 .N2{
@@ -1054,13 +1059,15 @@ p.tip{
     position: absolute;
 }
 
-.enterAlipay{
+#enterAlipay{
 	width: 87%;
     height: 38px;
     margin-top: 100px;
     background-color: #ffcc00;
     position: absolute;
     line-height: 38px;
+    cursor:pointer;
+    
 }
 
 .goodsSum{
@@ -1079,18 +1086,19 @@ p.tip{
     margin-left: -1%;
 }
 
-ul{
-	display: none;
-    width: 115px;
+#exit{
+	width: 115px;
     height: 28px;
     position: absolute;
     right: 9px;
-    margin-top: 47px;
+    margin-top: 4px;
     font-size: 12px;
     background-color: #fae077;
     border-radius: 2px;
     border: 1px solid cornflowerblue;
     text-align: center;
     line-height: 28px;
-    text-decoration:none;
+    text-decoration: none;
+    cursor: pointer;
+    display:none ;
 }
