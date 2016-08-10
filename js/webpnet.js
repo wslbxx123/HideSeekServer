@@ -1,6 +1,6 @@
-//window.onload = myStart;
-//
-//function myStart(){
+myStart();
+
+function myStart(){
 //	document.domain="www.hideseek.cn";
 	// 加载商城信息
 	var z;
@@ -550,7 +550,7 @@
 		}		
 	});
 
-//}
+}
 
 function displaySubMenu() {
 	var subMenu = document.getElementById("exit");
