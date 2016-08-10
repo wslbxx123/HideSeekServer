@@ -550,7 +550,7 @@ $(function(){
 		}		
 	});
 
-}
+});
 
 function displaySubMenu() {
 	var subMenu = document.getElementById("exit");
