@@ -111,28 +111,30 @@ function myStart(){
 					   		});
 					   		$("#confirmpurchase").fadeIn();
 					   		$("#enterAlipay").click(function(){
-							alert(sessionid);
-							alert($(".goodsNum").val());
-							var data = "session_id=" + sessionid
-									  + "&store_id=" + (t+1)
-									  + "&count=" + $(".goodsNum").val();
-							var enteralipay = {
-								url: "/index.php/home/store/createOrderFromWeb",
-								type: 'POST',
-								data:data,
-								success: function(result, status) {
-							        alert(JSON.stringify(result));
-									document.getElementById("alipaypage").innerHTML = JSON.stringify(result);
-									document.getElementById("alipaysubmit").submit();
-								},
-									
-								error: function(XMLHttpRequest, textStatus, errorThrown) {
-									alert("网络出现问题！");
-								}
-							};
-							$.ajax(enteralipay);
+								alert(sessionid);
+								alert($(".goodsNum").val());
+								alert((t+1));
+								sessionid = sessionStorage.getItem("sessionid");
+								var data = "session_id=" + sessionid
+										  + "&store_id=" + (t+1)
+										  + "&count=" + $(".goodsNum").val();
+								var enteralipay = {
+									url: "/index.php/home/store/createOrderFromWeb",
+									type: 'POST',
+									data:data,
+									success: function(result, status) {
+								        alert(JSON.stringify(result));
+										document.getElementById("alipaypage").innerHTML = JSON.stringify(result);
+										document.getElementById("alipaysubmit").submit();
+									},
+										
+									error: function(XMLHttpRequest, textStatus, errorThrown) {
+										alert("网络出现问题！");
+									}
+								};
+								$.ajax(enteralipay);
 						});
-					   	}
+					}
 				});
 			},
 			error: function(XMLHttpRequest, textStatus, errorThrown) {
@@ -532,6 +534,7 @@ function myStart(){
 					  		sessionStorage.setItem("nickname", $("#nickname").html());
 							sessionStorage.setItem("record", $("#scoreNum").html());
 							sessionStorage.setItem("myimgpath", result["result"]["photo_url"]);
+							sessionStorage.setItem("sessionid", result["result"]["session_id"]);
 					  		break;
 					  	case "10001":
 					  		$("#fault").fadeIn();
