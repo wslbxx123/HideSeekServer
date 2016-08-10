@@ -115,6 +115,7 @@ function myStart(){
 								alert($(".goodsNum").val());
 								alert(parseInt(t)+1);
 								sessionid = sessionStorage.getItem("sessionid");
+								alert(sessionid);
 								var data = "session_id=" + sessionid
 										  + "&store_id=" + (t+1)
 										  + "&count=" + $(".goodsNum").val();
