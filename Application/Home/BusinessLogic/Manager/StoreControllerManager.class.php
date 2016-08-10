@@ -14,7 +14,7 @@ class StoreControllerManager {
     const SIGN_TYPE = "RSA";
     
     public function getSignResult($storeId, $count, $accountId, $isFromWeb) {
-        $orderVersion = PullVersionManager::updateOrderVersion();
+        $orderVersion = PullVersionManager::updateProductOrderVersion();
         $product = StoreManager::getProduct($storeId);
         $tradeNo = ApiManager::generateTradeNo(5);
         

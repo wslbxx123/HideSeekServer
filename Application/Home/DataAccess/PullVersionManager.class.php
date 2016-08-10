@@ -24,10 +24,16 @@ class PullVersionManager {
         return $version['reward_version'];
     }
     
-    public function getOrderVersion() {
+    public function getProductOrderVersion() {
         $Dao = M("pull_version");
         $version = $Dao->find();
-        return $version['order_version'];
+        return $version['product_order_version'];
+    }
+    
+    public function getRewardOrderVersion() {
+        $Dao = M("pull_version");
+        $version = $Dao->find();
+        return $version['reward_order_version'];
     }
     
     public function updateStoreVersion() {
@@ -37,12 +43,12 @@ class PullVersionManager {
         $Dao->where('1=1')->save($version);
     }
     
-    public function updateOrderVersion() {
+    public function updateProductOrderVersion() {
         $Dao = M("pull_version");
         $version = $Dao->find();
-        $version['order_version'] = $version['order_version'] + 1;
+        $version['product_order_version'] = $version['product_order_version'] + 1;
         $Dao->where('1=1')->save($version);
         
-        return $version['order_version'];
+        return $version['product_order_version'];
     }
 }

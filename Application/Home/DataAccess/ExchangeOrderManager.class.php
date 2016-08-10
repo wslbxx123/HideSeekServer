@@ -5,7 +5,7 @@ namespace Home\DataAccess;
  *
  * @author apple
  */
-class RewardOrderManager {
+class ExchangeOrderManager {
     public function insertOrder($storeId, $accountId, $count, $tradeNo, $version) {
         $Dao = M("reward_order");
         $order["store_id"] = $storeId;
