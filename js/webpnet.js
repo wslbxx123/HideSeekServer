@@ -1,6 +1,6 @@
-myStart();
-
-function myStart(){
+//window.onload = myStart;
+//
+$(function(){
 //	document.domain="www.hideseek.cn";
 	// 加载商城信息
 	var z;
