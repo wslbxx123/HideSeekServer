@@ -104,7 +104,7 @@ class ApiManager {
         $params["show_url"] = "m.alipay.com";
         
         return Array(
-            "sign" => urlencode($client->rsaSign($params)), 
+            "sign" => $client->rsaSign($params), 
             "params" => $params);
     }
     
