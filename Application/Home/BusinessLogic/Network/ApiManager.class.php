@@ -102,10 +102,11 @@ class ApiManager {
         $params["body"] = $introduction;
         $params["it_b_pay"] = "30m";
         $params["show_url"] = "m.alipay.com";
+        $sortParams = BaseUtil::paramSort($params);
         
         return Array(
-            "sign" => $client->rsaSign($params), 
-            "params" => $params);
+            "sign" => $client->rsaSign($sortParams), 
+            "params" => $sortParams);
     }
     
     public function generateTradeNo($length) {
