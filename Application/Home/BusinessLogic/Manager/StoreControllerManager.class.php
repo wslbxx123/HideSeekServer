@@ -39,6 +39,27 @@ class StoreControllerManager {
         return $result;
     }
     
+    public function getSignResultWithoutCreateOrder($storeId, $count, 
+            $isFromWeb, $orderId) {
+        $product = ProductManager::getProduct($storeId);
+        $tradeNo = ApiManager::generateTradeNo(5);
+        
+        if($isFromWeb) {
+            $signResult = ApiManager::rsaWebSign($product['product_name'], 
+                $product['introduction'],
+                floatval($product['price']) * $count, $tradeNo);
+        } else {
+            $signResult = ApiManager::rsaSign($product['product_name'], 
+                $product['introduction'],
+                floatval($product['price']) * $count, $tradeNo);
+        }
+        
+        $result = Array("order_id" => $orderId, "sign" => $signResult["sign"], 
+            "trade_no" => $tradeNo, "params" => $signResult["params"]);
+        
+        return $result;
+    }
+    
     public function createAlipayFormHtml($result) {
         $param = $result["params"];
         $param['sign'] = $result["sign"];
