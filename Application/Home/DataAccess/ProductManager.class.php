@@ -16,7 +16,7 @@ class ProductManager {
         if($productList != null && count($productList) > 0) {
             $tempProductMinId = end($productList)['pk_id'];
             
-            if($tempProductMinId < $productMinId) {
+            if($productMinId == 0 || $tempProductMinId < $productMinId) {
                 $productMinId = $tempProductMinId;
             }
         }
@@ -37,7 +37,7 @@ class ProductManager {
         if($productList != null && count($productList) > 0) {
             $tempProductMinId = end($productList)['pk_id'];
             
-            if($tempProductMinId < $productMinId) {
+            if($productMinId == 0 || $tempProductMinId < $productMinId) {
                 $productMinId = $tempProductMinId;
             }
         }

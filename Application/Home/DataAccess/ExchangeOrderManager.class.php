@@ -6,21 +6,21 @@ namespace Home\DataAccess;
  * @author apple
  */
 class ExchangeOrderManager {
-    public function insertOrder($storeId, $accountId, $count, $tradeNo, $version) {
-        $Dao = M("reward_order");
-        $order["store_id"] = $storeId;
+    public function insertOrder($rewardId, $accountId, $count, $version) {
+        $Dao = M("exchange_order");
+        $order["reward_id"] = $rewardId;
         $order['status'] = 0;
         $order['create_by'] = $accountId;
         $order['create_time'] = date('y-m-d H:i:s',time());
         $order['update_time'] = date('y-m-d H:i:s',time());
         $order['count'] = $count;
-        $order['trade_no'] = $tradeNo;
         $order['version'] = $version;
+        
         return $Dao->add($order);
     }
     
     public function updateOrder($orderId, $status) {
-        $Dao = M("reward_order");
+        $Dao = M("exchange_order");
         $condition["pk_id"] = $orderId;
         $order["status"] = $status;
         $order['update_time'] = date('y-m-d H:i:s',time());
@@ -30,14 +30,14 @@ class ExchangeOrderManager {
     }
     
     public function updateOrderVerifyStatus($tradeNo, $verifyStatus) {
-        $Dao = M("reward_order");
+        $Dao = M("exchange_order");
         $condition["trade_no"] = $tradeNo;
         $order["verify_status"] = $verifyStatus;
         $Dao->where($condition)->save($order);
     }
     
     public function getOrder($orderId) {
-        $Dao = M("reward_order");
+        $Dao = M("exchange_order");
         $condition['pk_id'] = $orderId;
         $order = $Dao->where($condition)->find();
         
@@ -45,14 +45,14 @@ class ExchangeOrderManager {
     }
     
     public function refreshOrders($accountId, $version, $orderMinId) {
-        $Dao = M("reward_order");
-        $sql = "call admin_refresh_reward_orders($accountId, $version, $orderMinId)";
+        $Dao = M("exchange_order");
+        $sql = "call admin_refresh_exchange_orders($accountId, $version, $orderMinId)";
         $orderList = $Dao->query($sql);
         
         if($orderList != null && count($orderList) > 0) {
             $tempOrderMinId = end($orderList)['pk_id'];
             
-            if($tempOrderMinId < $orderMinId) {
+            if($orderMinId == 0 || $tempOrderMinId < $orderMinId) {
                 $orderMinId = $tempOrderMinId;
             }
         }
@@ -64,14 +64,14 @@ class ExchangeOrderManager {
     }
     
     public function getOrders($accountId, $version, $orderMinId) {
-        $Dao = M("reward_order");
-        $sql = "call admin_get_reward_orders($accountId, $version, $orderMinId)";
+        $Dao = M("exchange_order");
+        $sql = "call admin_get_exchange_orders($accountId, $version, $orderMinId)";
         $orderList = $Dao->query($sql);
         
         if($orderList != null && count($orderList) > 0) {
             $tempOrderMinId = end($orderList)['pk_id'];
             
-            if($tempOrderMinId < $orderMinId) {
+            if($orderMinId == 0 || $tempOrderMinId < $orderMinId) {
                 $orderMinId = $tempOrderMinId;
             }
         }

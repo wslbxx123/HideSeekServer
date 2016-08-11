@@ -16,7 +16,7 @@ class RewardManager {
         if($rewardList != null && count($rewardList) > 0) {
             $tempRewardMinId = end($rewardList)['pk_id'];
             
-            if($tempRewardMinId < $rewardMinId) {
+            if($rewardMinId == 0 || $tempRewardMinId < $rewardMinId) {
                 $rewardMinId = $tempRewardMinId;
             }
         }
@@ -36,7 +36,7 @@ class RewardManager {
         if($rewardList != null && count($rewardList) > 0) {
             $tempRewardMinId = end($rewardList)['pk_id'];
             
-            if($tempRewardMinId < $rewardMinId) {
+            if($rewardMinId == 0 || $tempRewardMinId < $rewardMinId) {
                 $rewardMinId = $tempRewardMinId;
             }
         }
@@ -44,6 +44,13 @@ class RewardManager {
             "reward_min_id" => $rewardMinId,
             "rewards" => $rewardList
         );
+    }
+    
+    public function getReward($rewardId) {
+        $Dao = M("reward");
+        $condition["pk_id"] = $rewardId;
+        $reward = $Dao->where($condition)->find();
+        return $reward;
     }
 }
 
