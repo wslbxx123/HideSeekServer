@@ -16,7 +16,7 @@ class RewardManager {
         if($rewardList != null && count($rewardList) > 0) {
             $tempRewardMinId = end($rewardList)['pk_id'];
             
-            if($tempRewardMinId < $rewardMinId) {
+            if($rewardMinId == 0 || $tempRewardMinId < $rewardMinId) {
                 $rewardMinId = $tempRewardMinId;
             }
         }
@@ -36,7 +36,7 @@ class RewardManager {
         if($rewardList != null && count($rewardList) > 0) {
             $tempRewardMinId = end($rewardList)['pk_id'];
             
-            if($tempRewardMinId < $rewardMinId) {
+            if($rewardMinId == 0 || $tempRewardMinId < $rewardMinId) {
                 $rewardMinId = $tempRewardMinId;
             }
         }

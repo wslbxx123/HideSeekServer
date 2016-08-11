@@ -52,7 +52,7 @@ class PurchaseOrderManager {
         if($orderList != null && count($orderList) > 0) {
             $tempOrderMinId = end($orderList)['pk_id'];
             
-            if($tempOrderMinId < $orderMinId) {
+            if($orderMinId == 0 || $tempOrderMinId < $orderMinId) {
                 $orderMinId = $tempOrderMinId;
             }
         }
