@@ -6,16 +6,16 @@ namespace Home\DataAccess;
  * @author apple
  */
 class ExchangeOrderManager {
-    public function insertOrder($storeId, $accountId, $count, $tradeNo, $version) {
+    public function insertOrder($rewardId, $accountId, $count, $version) {
         $Dao = M("exchange_order");
-        $order["store_id"] = $storeId;
+        $order["reward_id"] = $rewardId;
         $order['status'] = 0;
         $order['create_by'] = $accountId;
         $order['create_time'] = date('y-m-d H:i:s',time());
         $order['update_time'] = date('y-m-d H:i:s',time());
         $order['count'] = $count;
-        $order['trade_no'] = $tradeNo;
         $order['version'] = $version;
+        
         return $Dao->add($order);
     }
     
@@ -71,7 +71,7 @@ class ExchangeOrderManager {
         if($orderList != null && count($orderList) > 0) {
             $tempOrderMinId = end($orderList)['pk_id'];
             
-            if($tempOrderMinId < $orderMinId) {
+            if($orderMinId == 0 || $tempOrderMinId < $orderMinId) {
                 $orderMinId = $tempOrderMinId;
             }
         }

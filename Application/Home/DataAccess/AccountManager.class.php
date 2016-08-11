@@ -72,4 +72,15 @@ class AccountManager {
         
         return $account;
     }
+    
+    public function updateRecord($record, $count, $accountId) {
+        $Dao = M("account");
+        $condition["pk_id"] = $accountId;
+        $account = $Dao->where($condition)->find();
+        $record = $account["record"] - $record * $count;
+        $Dao->where($condition)->setField('record', 
+                $record);
+        
+        return $record;
+    }
 }

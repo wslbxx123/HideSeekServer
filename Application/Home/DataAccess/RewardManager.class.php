@@ -45,5 +45,12 @@ class RewardManager {
             "rewards" => $rewardList
         );
     }
+    
+    public function getReward($rewardId) {
+        $Dao = M("reward");
+        $condition["pk_id"] = $rewardId;
+        $reward = $Dao->where($condition)->find();
+        return $reward;
+    }
 }
 

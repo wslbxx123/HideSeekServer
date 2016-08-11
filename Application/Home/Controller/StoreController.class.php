@@ -8,6 +8,7 @@ use Home\DataAccess\RewardManager;
 use Home\DataAccess\PullVersionManager;
 use Home\DataAccess\PurchaseOrderManager;
 use Home\DataAccess\ExchangeOrderManager;
+use Home\DataAccess\AccountManager;
 use Home\BusinessLogic\Network\ApiManager;
 use Home\BusinessLogic\Manager\StoreControllerManager;
 vendor("Alipay.aop.AopClient");
@@ -114,7 +115,7 @@ class StoreController extends BaseController {
             return;
         }
         
-        if(!self::checkOrderInfo($storeId, $count)) {
+        if(!StoreControllerManager::checkPurchaseOrderInfo($storeId, $count)) {
             return;
         }
         
@@ -136,27 +137,13 @@ class StoreController extends BaseController {
             return;
         }
         
-        if(!self::checkOrderInfo($storeId, $count)) {
+        if(!StoreControllerManager::checkPurchaseOrderInfo($storeId, $count)) {
             return;
         }
         
         $result = StoreControllerManager::getSignResult($storeId, $count, $accountId, true);
         $html = StoreControllerManager::createAlipayFormHtml($result);
         echo $html;
-    }
-    
-    public function checkOrderInfo($storeId, $count) {   
-        if(!isset($storeId)) {
-            BaseUtil::echoJson(CodeParam::STORE_ID_EMPTY, null);
-            return false;
-        }
-        
-        if(!isset($count)) {
-            BaseUtil::echoJson(CodeParam::COUNT_EMPTY, null);
-            return false;
-        }
-        
-        return true;
     }
     
     public function purchase() {
@@ -313,6 +300,32 @@ class StoreController extends BaseController {
         if($verifyResult) {
             OrderManager::updateOrderVerifyStatus($tradeNo, $tradeStatus);
         }
+    }
+    
+    public function createExchangeOrder() {
+        self::setHeader();
+        
+        $sessionId = filter_input(INPUT_POST, 'session_id');
+        $rewardId = filter_input(INPUT_POST, 'reward_id');
+        $count = filter_input(INPUT_POST, 'count');
+        
+        $accountId = $this->getPkIdFromToken($sessionId);
+        
+        if(!isset($sessionId) || $accountId == 0) {
+            BaseUtil::echoJson(CodeParam::NOT_LOGIN, null);
+            return;
+        }
+        
+        if(!StoreControllerManager::checkExchangeOrderInfo($rewardId, $count)) {
+            return;
+        }
+        
+        $orderVersion = PullVersionManager::updateRewardOrderVersion();
+        ExchangeOrderManager::insertOrder($rewardId, $accountId, $count, 
+                $orderVersion);
+        $reward = RewardManager::getReward($rewardId);
+        $record = AccountManager::updateRecord(floatval($reward['record']), $count, $accountId);
+        echo BaseUtil::echoJson(CodeParam::SUCCESS, $record); 
     }
     
     public function test() {

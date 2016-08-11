@@ -4,6 +4,7 @@ use Home\DataAccess\PullVersionManager;
 use Home\DataAccess\ProductManager;
 use Home\DataAccess\PurchaseOrderManager;
 use Home\BusinessLogic\Network\ApiManager;
+use Home\Common\Param\CodeParam;
 /**
  * 处理商城控制器的逻辑类
  *
@@ -53,5 +54,33 @@ class StoreControllerManager {
         $html = $html."<input type='submit' value='confirm' style='display:none;'></form>";
         
         return $html;
+    }
+    
+    public function checkPurchaseOrderInfo($storeId, $count) {   
+        if(!isset($storeId)) {
+            BaseUtil::echoJson(CodeParam::STORE_ID_EMPTY, null);
+            return false;
+        }
+        
+        if(!isset($count)) {
+            BaseUtil::echoJson(CodeParam::COUNT_EMPTY, null);
+            return false;
+        }
+        
+        return true;
+    }
+    
+    public function checkPurchaseOrderInfo($rewardId, $count) {   
+        if(!isset($rewardId)) {
+            BaseUtil::echoJson(CodeParam::REWARD_ID_EMPTY, null);
+            return false;
+        }
+        
+        if(!isset($count)) {
+            BaseUtil::echoJson(CodeParam::COUNT_EMPTY, null);
+            return false;
+        }
+        
+        return true;
     }
 }

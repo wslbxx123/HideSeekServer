@@ -51,4 +51,13 @@ class PullVersionManager {
         
         return $version['product_order_version'];
     }
+    
+    public function updateRewardOrderVersion() {
+        $Dao = M("pull_version");
+        $version = $Dao->find();
+        $version['reward_order_version'] = $version['reward_order_version'] + 1;
+        $Dao->where('1=1')->save($version);
+        
+        return $version['reward_order_version'];
+    }
 }

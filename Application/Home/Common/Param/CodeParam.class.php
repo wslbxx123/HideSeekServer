@@ -23,5 +23,6 @@ class CodeParam {
     const COUNT_EMPTY = "10008";
     const ORDER_ID_EMPTY = "10009";
     const ORDER_ID_WRONG = "10010";
+    const REWARD_ID_EMPTY = "10011";
     #endregion
 }

@@ -23,5 +23,6 @@ class MessageParam {
     const COUNT_EMPTY = "商品数量为空";
     const ORDER_ID_EMPTY = "订单ID值为空";
     const ORDER_ID_WRONG = "订单编号错误";
+    const REWARD_ID_EMPTY = "奖品ID值为空";
     #endregion
 }
