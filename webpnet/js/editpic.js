@@ -110,7 +110,8 @@ document.getElementById("myorder").onclick = function(){
 		var orderArea = {
 			url: "/index.php/home/store/refreshPurchaseOrders",
 			type: 'POST',
-			data: "session_id=" + sessionid,
+			data: "version=0&order_min_id=0"+
+			"&session_id=" + sessionid,
 			dataType: "json",
 			
 //			jsonp: 'callback',
