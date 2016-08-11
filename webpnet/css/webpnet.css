@@ -976,12 +976,12 @@ p.tip{
 	background: #F0F0F0;
     height: 420px;
     border: 2px solid grey;
-    width: 40%;
+    width: 94%;
     margin-top: -10%;
-    margin-left: 29%;
+    margin-left: 3%;
     position: absolute;
     z-index: 50;
-    display:none;
+    display: none;
 }
 
 #ordertitle{
@@ -1009,7 +1009,7 @@ p.tip{
 .ordername{
 	position: absolute;
     margin-top: -47px;
-    margin-left: 13%;
+    margin-left: 21%;
     font-size: 14px;
 }
 
@@ -1020,7 +1020,7 @@ p.tip{
 }
 
 .orderpay{
-	margin-left: 83%;
+	margin-left: 77%;
     font-size: 12px;
     width: 59px;
     height: 18px;
@@ -1032,7 +1032,7 @@ p.tip{
 
 .orderstatus1{
     margin-top: -49px;
-    margin-left: 84%;
+    margin-left: 81%;
     font-size: 13px;
 }
 

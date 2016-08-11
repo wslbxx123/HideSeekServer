@@ -144,7 +144,7 @@ document.getElementById("myorder").onclick = function(){
 				    listDiv.appendChild(sumDiv);
 				    var numSpan = document.createElement('span');
 				    numSpan.className = "orderNum";
-				    numSpan.innerHTML = "总计:"+result.result.orders[i].purchase_count+"(个数)×"+result.result.orders[i].price+"(单价)="+result.result.orders[i].purchase_count*result.result.orders[i].price+"元"; 
+				    numSpan.innerHTML = result.result.orders[i].purchase_count+"(个数)×"+result.result.orders[i].price+"(单价)="+result.result.orders[i].purchase_count*result.result.orders[i].price+"元"; 
 				    sumDiv.appendChild(numSpan);
 				    var statusDiv = document.createElement('div');
 				    if(result.result.orders[i].status=="0"){
@@ -156,13 +156,14 @@ document.getElementById("myorder").onclick = function(){
 					    payDiv.innerHTML = "点我付款";
 					    listDiv.appendChild(payDiv);
 				    }
-				    else{o
+				    else{
 				    	statusDiv.className = "orderstatus";
 					    statusDiv.innerHTML = "交易成功";
 					    listDiv.appendChild(statusDiv);
 				    }
 				    
-				} 		
+				}
+				$("orderArea").css("height",result.result.orders.length*281+303+"px");
 			},
 			error: function(XMLHttpRequest, textStatus, errorThrown) {
 				alert("网络出现问题！");
