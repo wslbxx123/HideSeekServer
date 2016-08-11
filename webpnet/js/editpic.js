@@ -1,10 +1,14 @@
+var sessionid;
+
 $('input[type=file]').change(function(){
 	$("#newWin3").fadeIn(); 
+	$("#newWin2").fadeOut(); 
 	var fileimg = document.getElementById("fileimg");
 	var mycamera = document.getElementById('mycamera');
 
-	getPath(fileimg,mycamera,fileimg) ;
+	getPath(fileimg,mycamera,fileimg);
 });
+
 
 document.getElementById("matchId").onclick = function(){
 	
@@ -20,20 +24,30 @@ document.getElementById("matchId").onclick = function(){
 				+ "&sex="+ document.getElementById("sex").options[index].text
 				+ "&region=" + document.getElementById("citySelect").value
 				+ "&role=" + myId
-				+ "&photo=" + document.getElementById("photo").src;
-				alert(data);
+				+ "&photo_url=" + document.getElementById("photo").src;
+				
 	var mymessages = {
-		url: "http://120.25.252.252/index.php/home/user/register",
-		data: data,
+		
+		url: "/index.php/home/user/register",	
 		type: 'POST',
+		data: data,
 		dataType: "json",
 		
+//		jsonp: 'callback',
+//		jsonpCallback:"success_jsonpCallback",
 		success: function(result, status) {
 			alert(JSON.stringify(result));
 			switch(result["code"]){
 				case "10000":
 					Num = result["result"]["record"];
 			        rolechange();
+			        sessionid = result["result"]["session_id"];
+			        $("#myorder").fadeIn(); 
+			        getClick = true;
+			        //存储注册数据
+			  		sessionStorage.setItem("nickname", $("#nickname").html());
+					sessionStorage.setItem("record", $("#scoreNum").html());
+					sessionStorage.setItem("myimgpath", $("#myimg").src);
 					break;
 			  	case "10003":
 			  		alert("填写信息失败！")
@@ -74,16 +88,88 @@ document.getElementById("matchId").onclick = function(){
 				
 				
 				document.getElementById("entrance").onclick = function(){
-					alert("注册成功!")
+					alert("注册成功!");
+					$(".inner_menu").fadeOut(); 
+					$("#myprofile").fadeIn(); 
+					$("#myimg").fadeIn(); 
 					document.getElementById("nickname").innerHTML = document.getElementById("userName").value;
 					document.getElementById("scoreNum").innerHTML = Num;
 					$("#newWin4").fadeOut(); 
-					checkBox();
+					$("#storecover").fadeOut(); 
+//					checkBox();
 				}
 			}
 		}
 	}
 }
+
+var clickaction = true;
+document.getElementById("myorder").onclick = function(){
+	
+	if (clickaction){
+		var orderArea = {
+			url: "/index.php/home/store/refreshPurchaseOrders",
+			type: 'POST',
+			data: "session_id=" + sessionid,
+			dataType: "json",
+			
+//			jsonp: 'callback',
+//			jsonpCallback:"success_jsonpCallback",	
+			success: function(result, status) {
+				$("#orderArea").fadeIn();
+				var orderArea = document.getElementById("orderArea");
+			  	var titleDiv = document.createElement('div');
+			  	titleDiv.id = "ordertitle";
+			  	titleDiv.innerHTML = "我的订单";
+			  	orderArea.appendChild(titleDiv);
+			  	clickaction = false;
+				for(var i = 0;i < result.result.length;i++){	
+					//创建商品橱窗框
+					var listDiv = document.createElement('div');
+					listDiv.className = "orderlist";
+				  	orderArea.appendChild(listDiv);
+				    var listImg = document.createElement('img');
+				    listImg.className = "orderprodct";
+				    listImg.src = result.result[i].product_image_url;
+				    listDiv.appendChild(listImg);
+				    var nameDiv = document.createElement('div');
+				    nameDiv.className = "ordername";
+				    nameDiv.innerHTML = result.result[i].product_name;
+				    listDiv.appendChild(nameDiv);
+				    var sumDiv = document.createElement('div');
+				    sumDiv.className = "ordersum";
+				    sumDiv.innerHTML = "总计：";
+				    listDiv.appendChild(sumDiv);
+				    var numSpan = document.createElement('span');
+				    numSpan.className = "orderNum";
+				    numSpan.innerHTML = "总计:"+result.result[i].purchase_count+"(个数)×"+result.result[i].price+"(单价)="+result.result[i].purchase_count*result.result[i].price+"元"; 
+				    sumDiv.appendChild(numSpan);
+				    var statusDiv = document.createElement('div');
+				    if(result.result[i].status=="0"){
+				    	statusDiv.className = "orderstatus1";
+					    statusDiv.innerHTML = "未付款";
+					    listDiv.appendChild(statusDiv);
+					    var payDiv = document.createElement('div');
+					    payDiv.className = "orderpay";
+					    payDiv.innerHTML = "点我付款";
+					    listDiv.appendChild(payDiv);
+				    }
+				    else{
+				    	statusDiv.className = "orderstatus";
+					    statusDiv.innerHTML = "交易成功";
+					    listDiv.appendChild(statusDiv);
+				    }
+				    
+				} 		
+			},
+			error: function(XMLHttpRequest, textStatus, errorThrown) {
+				alert("网络出现问题！");
+			}
+		};
+		$.ajax(orderArea);
+	}
+}
+
 			
 function getPath(obj,fileQuery,transImg){
 	var imgSrc = '', imgArr = [], strSrc = '' ;
@@ -172,13 +258,13 @@ function getPath(obj,fileQuery,transImg){
 		
 
 	    
-		if(width>document.body.clientWidth*0.8){
-	    	height = (height*document.body.clientWidth*0.8)/width;
-	    	width = document.body.clientWidth*0.8;
+		if(width>document.body.clientWidth*0.3){
+	    	height = (height*document.body.clientWidth*0.3)/width;
+	    	width = document.body.clientWidth*0.3;
 		}
-		if(height>document.body.clientWidth*0.8){
-			width = (width*document.body.clientWidth*0.8)/height;
-			height = document.body.clientWidth*0.8;
+		if(height>document.body.clientWidth*0.3){
+			width = (width*document.body.clientWidth*0.3)/height;
+			height = document.body.clientWidth*0.3;
 		}
 		fileimg.width = width;
 		fileimg.height = height;
@@ -218,8 +304,8 @@ function getPath(obj,fileQuery,transImg){
 			if(width>height){
 				n = width-height;
 				ctx.clearRect (0.1*n*(x-1),0,coverpic.height,coverpic.height);
-				upframe.style.left = document.body.clientWidth*0.8*0.1+0.1*n*(x-1)+"px";
-				downframe.style.left = height+document.body.clientWidth*0.8*0.1-20+0.1*n*(x-1)+"px";
+				upframe.style.left = document.body.clientWidth*0.3*0.1+0.1*n*(x-1)+"px";
+				downframe.style.left = height+document.body.clientWidth*0.3*0.1-20+0.1*n*(x-1)+"px";
 			}
 			else{
 				n = width-height;
@@ -233,29 +319,58 @@ function getPath(obj,fileQuery,transImg){
 
 		function setFrame(Num){
 			upframe.style.marginTop = 50+"px";
-			upframe.style.left = document.body.clientWidth*0.8*0.1+"px";
+			upframe.style.left = document.body.clientWidth*0.3*0.1+"px";
 			downframe.style.marginTop = Num+30+"px";
-			downframe.style.left = Num+document.body.clientWidth*0.8*0.1-20+"px";
+			downframe.style.left = Num+document.body.clientWidth*0.3*0.1-20+"px";
 		}
 		
 		
 		confirmedit.onclick = function(){
-			var images = new Image();
-			images.src = fileimg.src;
-			images.onload = function(){
+			$("#newWin2").fadeIn(); 
 				if(n>0){
-					cover.drawImage(fileimg,0.1*n*(x-1)*y,0,coverpic.height*y,coverpic.height*y,0,0,200,200);
+					cover.drawImage(fileimg,0.1*n*(x-1)*y,0,coverpic.height*y,coverpic.height*y,0,0,500,500);
 					$("#newWin3").fadeOut(); 
 				}
 				else{
-					cover.drawImage(fileimg,0,0.1*(-n)*(x-1)*y,coverpic.width*y,coverpic.width*y,0,0,200,200);
+					cover.drawImage(fileimg,0,0.1*(-n)*(x-1)*y,coverpic.width*y,coverpic.width*y,0,0,500,500);
 					$("#newWin3").fadeOut(); 
 				}
-			}
-			mypicture.getElementsByTagName('img')[0].src = mypicture.toDataURL("image/png");
+			
+			var images = new Image();
+			images.src = mypicture.toDataURL("image/jpg");
+			document.getElementById("photo").src = images.src;
 		}			
 	});
-
-	
 }			
+
+if(window.sessionStorage){
+		 	// 获取缓存里面的数据
+		nickname = sessionStorage.getItem("nickname");
+		record = sessionStorage.getItem("record");
+		myimgpath = sessionStorage.getItem("myimgpath");
+		if(nickname!=null&&record!=null){  
+			$("#nickname").html(nickname);
+			$("#scoreNum").html(record);
+			$("#myimg").attr('src',myimgpath); 
+			$(".inner_menu").fadeOut();
+			$("#myimg").fadeIn();
+			$("#myprofile" ).fadeIn();
+			$("#myorder").fadeIn();
+			getClick = true;
+		}
+	// 清除缓存
+		$("#exit").click(function(){
+			sessionStorage.clear();
+			$(".inner_menu").fadeIn();
+			$("#myimg").fadeOut();
+			$("#myprofile" ).fadeOut();
+			$("#myorder").fadeOut();
+			
+		});
+
+	}
+	else{
+		alert('对不起，您的浏览器不支持HTML5本地存储');
+	}
+
 

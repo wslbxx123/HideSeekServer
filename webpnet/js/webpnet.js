@@ -1,24 +1,45 @@
-window.onload = myStart;
-
-function myStart(){
+//window.onload = myStart;
+//
+$(function(){
+//	document.domain="www.hideseek.cn";
 	// 加载商城信息
-	var exStore = {
-			url: "http://120.25.252.252/index.php/home/store/refreshProducts",
-			data: "version=0&product_min_id=0",
+	var z;
+	var f;
+	var t;
+	var sessionid;
+	var getClick = false;
+//	var codeNumber;
+	
+	// 获取缓存里面的数据
+	nickname = sessionStorage.getItem("nickname");
+	record = sessionStorage.getItem("record");
+	myimgpath = sessionStorage.getItem("myimgpath");
+	
+	var purStore = {
+			url: "/index.php/home/store/refreshProducts",
 			type: 'POST',
+			data: "version=0&product_min_id=0",
 			dataType: "json",
+			
+//			jsonp: 'callback',
+//			jsonpCallback:"success_jsonpCallback",
 			success: function(result, status) {
+				z = result.result.products.length;
 				for(var i = 0;i < result.result.products.length;i++){	
 					//创建商品橱窗框
-					var exArea = document.getElementById("exArea");
+					var purArea = document.getElementById("purArea");
 				  	var newDiv = document.createElement('div');
 				  	if(i%2 == 0){
 				  		newDiv.className = "N2";
+				  	    var newImg = document.createElement('img');
+				  		newImg.className = "productImg";
 				  	}
 				  	else{
 				  		newDiv.className = "N1";
+				  		var newImg = document.createElement('img');
+				  		newImg.className = "productImg1";
 				  	}
-				  	exArea.appendChild(newDiv);
+				  	purArea.appendChild(newDiv);
 				  	
 				  	//创建商品名称
 				  	var nameSpan = document.createElement('span');
@@ -28,8 +49,8 @@ function myStart(){
 				  	newDiv.appendChild(nameSpan);
 				  	
 				  	//创建商品图片
-				  	var newImg = document.createElement('img');
-				  	newImg.className = "productImg";
+//				  	var newImg = document.createElement('img');
+//				  	newImg.className = "productImg";
 				  	newImg.src = result.result.products[i].product_image_url;
 				  	newDiv.appendChild(newImg);
 			  	
@@ -47,7 +68,7 @@ function myStart(){
 				  	var pointNum = document.createElement('span');
 				  	pointNum.className = "pointNum";
 				  	pointNum.id = "pointNumb"+i;
-				  	pointNum.innerHTML = result.result.products[i].price;
+				  	pointNum.innerHTML = result.result.products[i].price+"元";
 				  	messageDiv.appendChild(pointNum);
 				  
 				  	//商品兑换信息框：商品人物图标
@@ -70,12 +91,151 @@ function myStart(){
 				    
 				    //创建商品购买按钮
 				    var getDiv = document.createElement('div');
-				    getDiv.className = "exGet";
-				    getDiv.id = "c"+i;
+				    getDiv.className = "purGet";
+				    getDiv.id = i;
 					getDiv.innerHTML= "购买";
 				    newDiv.appendChild(getDiv);   
-				    
+				        
 				} 		
+				 $(".purGet").click(function(){
+					   if (!getClick&&nickname==null&&record==null){
+					   		alert("请先登录！");
+					   }
+					   else{
+					   		$(".goodsNum").val("1");
+					   		t = $(this).attr("id");
+					   		$(".goodsName").html(result.result.products[t].product_name);
+					   		$(".goodsprice").html($(".goodsNum").val()*result.result.products[t].price+"元");
+					   		$('input[type=number]').change(function(){
+					   			$(".goodsprice").html($(".goodsNum").val()*result.result.products[t].price+"元");
+					   		});
+					   		$("#confirmpurchase").fadeIn();
+					   		$("#enterAlipay").click(function(){
+								alert($(".goodsNum").val());
+								alert(2-parseInt(t));
+								sessionid = sessionStorage.getItem("sessionid");
+								alert(sessionid);
+								var data = "session_id=" + sessionid
+										  + "&store_id=" + (2-parseInt(t))
+										  + "&count=" + $(".goodsNum").val();
+								var enteralipay = {
+									url: "/index.php/home/store/createOrderFromWeb",
+									type: 'POST',
+									data:data,
+									success: function(result, status) {
+								        alert(JSON.stringify(result));
+										document.getElementById("alipaypage").innerHTML = result;
+										document.getElementById("alipaysubmit").submit();
+									},
+										
+									error: function(XMLHttpRequest, textStatus, errorThrown) {
+										alert("网络出现问题！");
+									}
+								};
+								$.ajax(enteralipay);
+						});
+					}
+				});
+			},
+			error: function(XMLHttpRequest, textStatus, errorThrown) {
+				alert("网络出现问题！");
+			}
+	};
+	$.ajax(purStore);
+	
+	
+	var exStore = {
+			url: "/index.php/home/store/refreshReward",
+			type: 'POST',
+			data: "version=0&reward_min_id=0",
+			dataType: "json",
+			
+//			jsonp: 'callback',
+//			jsonpCallback:"success_jsonpCallback",
+			success: function(result, status) {
+				f = result.result.reward.length;
+				for(var i = 0;i < result.result.reward.length;i++){	
+					//创建商品橱窗框
+					var exArea = document.getElementById("exArea");
+				  	var newDiv = document.createElement('div');
+				  	if(i%2 == 0){
+				  		newDiv.className = "N2";
+				  	    var newImg = document.createElement('img');
+				  		newImg.className = "productImg";
+				  	}
+				  	else{
+				  		newDiv.className = "N1";
+				  		var newImg = document.createElement('img');
+				  		newImg.className = "productImg1";
+				  	}
+				  	exArea.appendChild(newDiv);
+				  	
+				  	//创建商品名称
+				  	var nameSpan = document.createElement('span');
+				  
+				  	nameSpan.className = "productName";
+				  	nameSpan.innerHTML = result.result.reward[i].reward_name;
+				  	newDiv.appendChild(nameSpan);
+				  	
+				  	//创建商品图片
+				  	newImg.src = result.result.reward[i].reward_image_url;
+				  	newDiv.appendChild(newImg);
+			  	
+				  	//创建商品兑换信息框
+				  	var messageDiv = document.createElement('div');
+				  	newDiv.appendChild(messageDiv);
+				  	
+				  	//商品兑换信息框：商品积分图标
+				  	var messageImg = document.createElement('img');
+				  	messageImg.src = "img/score1.png";
+				  	messageImg.className = "scoreImg";
+				  	messageDiv.appendChild(messageImg);
+				  	
+				  	//商品兑换信息框：商品积分数字
+				  	var pointNum = document.createElement('span');
+				  	pointNum.className = "pointNum";
+				  	pointNum.id = "pointNumc"+i;
+				  	pointNum.innerHTML = result.result.reward[i].record+"积分";
+				  	messageDiv.appendChild(pointNum);
+				  
+				  	//商品兑换信息框：商品人物图标
+				  	var peopleImg = document.createElement('img');
+				  	peopleImg.src = "img/people.png";
+				  	peopleImg.className = "peopleImg";
+				  	messageDiv.appendChild(peopleImg);
+				  	
+				  	//商品兑换信息框：商品购买人数
+				  	var peopleNum = document.createElement('span');
+				  	peopleNum.className = "peopleNum";
+				  	peopleNum.innerHTML = result.result.reward[i].exchange_count+"人兑换";
+				  	messageDiv.appendChild(peopleNum);
+
+                    //创建商品介绍信息
+				  	var introDiv = document.createElement('div');
+					introDiv.id = "intro";
+				  	introDiv.innerHTML = result.result.reward[i].introduction;
+				    newDiv.appendChild(introDiv);
+				    
+				    //创建商品购买按钮
+				    var getDiv = document.createElement('div');
+				    getDiv.className = "exGet";
+				    getDiv.id = i;
+					getDiv.innerHTML= "兑换";
+				    newDiv.appendChild(getDiv);   
+				    
+				}
+				 $(".exGet").click(function(){
+					   if (!getClick&&nickname==null&&record==null){
+					   		alert("请先登录！");
+					   }
+					   else{
+					   		t = $(this).attr("id");
+					   		$(".goodsName").html(result.result.reward[t].reward_name);
+					   		$(".goodsprice").html($(".goodsNum").val()*result.result.reward[t].record+"积分");
+					   		$("#confirmexchange").fadeIn();
+					   		
+					   }
+				});
 			},
 			error: function(XMLHttpRequest, textStatus, errorThrown) {
 				alert("网络出现问题！");
@@ -83,44 +243,113 @@ function myStart(){
 	};
 	$.ajax(exStore);
 	
+	
 	// 实现内部导航的切换
 	document.getElementById("purchase").onclick = function(){
+		var r = 590 + Math.ceil(z/2)*240+"px";
 		document.getElementById("purchase").className = "selected";
 		document.getElementById("exchange").className ="";
+		document.getElementById("appdownload").className ="";
 		$("#purArea").fadeIn(); 
+		$("body").css("height",r);
 		$("#exArea").fadeOut(); 
+		$("#downArea").fadeOut(); 
 	}
 	
 	document.getElementById("exchange").onclick = function(){
+		var s = 590 + Math.ceil(f/2)*240+"px";
 		document.getElementById("exchange").className = "selected";
 		document.getElementById("purchase").className ="";
+		document.getElementById("appdownload").className ="";
 		$("#exArea").fadeIn(); 
+		$("body").css("height",s);
+		$("#purArea").fadeOut(); 
+		$("#downArea").fadeOut(); 
+	}
+	
+	document.getElementById("appdownload").onclick = function(){
+		document.getElementById("purchase").className = "";
+		document.getElementById("exchange").className ="";
+		document.getElementById("appdownload").className ="selected";
+		$("#downArea").fadeIn(); 
+		$("body").css("height","800px");
+		$("#exArea").fadeOut(); 
 		$("#purArea").fadeOut(); 
 	}
 	
 	// 登录按钮
 	$("#test1").click(function(){
 		if($("#newWin").css("display")=='none'){
+			$("#storecover").css("height","800px");
+			$("#storecover").fadeIn(); 
 			$("#newWin").fadeIn(); 
 			$("#newWin1").fadeOut(); 
 			
 		}
 		else{
 			$("#newWin").fadeOut(); 
+			$("#storecover").fadeOut(); 
 		}
 	});
 	
 	//	注册按钮
 	$("#test2").click(function(){
 		if($("#newWin1").css("display")=='none'){
+			$("#storecover").fadeIn(); 
 			$("#newWin1").fadeIn(); 
 			$("#newWin").fadeOut(); 
 			
 		}
 		else{
 			$("#newWin1").fadeOut(); 
+			$("#storecover").fadeOut(); 
 		}
 	});
+	
+	
+	
+	$(".closeBox").click(function(){
+		$("#newWin").fadeOut(); 
+		$("#newWin1").fadeOut(); 
+		$("#newWin2").fadeOut(); 
+		$("#newWin3").fadeOut();
+		$("#newWin4").fadeOut();
+		$("#confirmpurchase").fadeOut();
+		$("#orderArea").fadeOut();
+		$("#storecover").fadeOut();
+	});
+	
+	
+//发送和检验验证码
+	document.getElementById("verifiCode").onclick = function(){
+		var verificode = {
+			url: "/index.php/home/user/sendVerificationCode",
+			type: 'POST',
+			data: "phone=" + $("#userphone").val(),
+			dataType: "json",
+			
+			success: function(result, status){
+				switch(result["code"]){
+					case "10000":
+						codeNumber = result["result"]["sms_code"];
+						if(result["result"]["content"]["error_code"]==0){
+						 	alert("发送验证码成功！")
+						}	
+						break;
+				  	case "10001":
+				  		$("#fault").fadeIn();
+				  		break;
+				}
+				
+			},
+			error: function(XMLHttpRequest, textStatus, errorThrown) {
+				alert("发送验证码失败！");
+			}
+		};
+		$.ajax(verificode);
+	}
+	
+
 	
 	//	检验注册界面填写框
 	$("#register").click(function(){
@@ -128,7 +357,7 @@ function myStart(){
 		var allTags = document.getElementById("newWin1").getElementsByTagName("*");
 		for (var i=0; i<allTags.length; i++) {
 			if (!validTag(allTags[i])) {
-				allGood = false;
+ 				allGood = false;
 		    }
 		}
 		
@@ -204,11 +433,19 @@ function myStart(){
 		 	}
   		}
 		
-		
+		if($("#codeNum").val() == codeNumber){
+		   allGood = true;
+		}
+		else{
+			allGood = false;
+			alert("验证码错误！");
+		}		
+
+	
 		if(allGood) {
 			//	跳转到第二注册界面
 			$("#newWin2").fadeIn(); 
-			
+			$("#newWin1").fadeOut(); 
 		}		
 	});
 	
@@ -269,21 +506,35 @@ function myStart(){
 		//	实现登录界面和服务器的交互
 		if(allGood) {			
 			var options = {
-				url: "http://120.25.252.252/index.php/home/user/login",
-				data: $("#loginForm").serialize(),
+				url: "/index.php/home/user/login",
 				type: 'POST',
+//				crossDomain:true,
+				data: $("#loginForm").serialize(),
 				dataType: "json",
+				
+//				jsonp: 'callback',
+//				jsonpCallback:"success_jsonpCallback",
 				success: function(result, status) {
 					switch(result["code"]){
 						case "10000":
+							sessionid = result["result"]["session_id"];
 							Num = result["result"]["record"];
 							document.getElementById("scoreNum").innerHTML = Num;
 							Num1 = result["result"]["nickname"];
 							document.getElementById("nickname").innerHTML = Num1;
+							document.getElementById("myimg").src = result["result"]["photo_url"];
 					  		$(".inner_menu").fadeOut();  
 					  		$("#myprofile").fadeIn(); 
+					  		$("#myimg").fadeIn(); 
 					  		$("#newWin").fadeOut(); 
-					  		checkBox();
+					  		$("#storecover").fadeOut(); 
+					  		$("#myorder").fadeIn(); 
+					  		getClick = true;
+					  		//存储登录数据
+					  		sessionStorage.setItem("nickname", $("#nickname").html());
+							sessionStorage.setItem("record", $("#scoreNum").html());
+							sessionStorage.setItem("myimgpath", result["result"]["photo_url"]);
+							sessionStorage.setItem("sessionid", result["result"]["session_id"]);
 					  		break;
 					  	case "10001":
 					  		$("#fault").fadeIn();
@@ -298,22 +549,19 @@ function myStart(){
 			$.ajax(options);
 		}		
 	});
-	
-	//	弹出兑换确认框
-	function checkBox() {
-	    var mydd = $('.exGet');
-	    mydd.each(function(i){
-            $(this).click(function(){
-             	if (confirm("是否确认兑换?")) {
-             	   var thisId =mydd.eq(i).attr("id");
-                   var pointNumId = "pointNum"+thisId;
-				   var n = document.getElementById(moneyId).innerHTML;
-				   var Num = document.getElementById("scoreNum").innerHTML;
-				   var a = Num - n;
-				   document.getElementById("scoreNum").innerHTML= a;
-				}
-            });			
- 		});
-	} 	 
+
+});
+
+function displaySubMenu() {
+	var subMenu = document.getElementById("exit");
+	subMenu.style.display = "block";
 }
+
+function hideSubMenu() {
+	var subMenu = document.getElementById("exit");
+	subMenu.style.display = "none";
+}
+
+
+
 
