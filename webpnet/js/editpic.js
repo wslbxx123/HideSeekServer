@@ -116,6 +116,7 @@ document.getElementById("myorder").onclick = function(){
 //			jsonp: 'callback',
 //			jsonpCallback:"success_jsonpCallback",	
 			success: function(result, status) {
+				alert(JSON.stringify(result));
 				$("#orderArea").fadeIn();
 				var orderArea = document.getElementById("orderArea");
 			  	var titleDiv = document.createElement('div');
@@ -154,7 +155,7 @@ document.getElementById("myorder").onclick = function(){
 					    payDiv.innerHTML = "点我付款";
 					    listDiv.appendChild(payDiv);
 				    }
-				    else{
+				    else{o
 				    	statusDiv.className = "orderstatus";
 					    statusDiv.innerHTML = "交易成功";
 					    listDiv.appendChild(statusDiv);
