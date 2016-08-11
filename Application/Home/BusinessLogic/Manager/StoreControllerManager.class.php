@@ -70,7 +70,7 @@ class StoreControllerManager {
         return true;
     }
     
-    public function checkPurchaseOrderInfo($rewardId, $count) {   
+    public function checkExchangeOrderInfo($rewardId, $count) {   
         if(!isset($rewardId)) {
             BaseUtil::echoJson(CodeParam::REWARD_ID_EMPTY, null);
             return false;
