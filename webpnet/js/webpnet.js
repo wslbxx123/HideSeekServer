@@ -272,7 +272,7 @@ $(function(){
 		document.getElementById("exchange").className ="";
 		document.getElementById("appdownload").className ="selected";
 		$("#downArea").fadeIn(); 
-		$("body").css("height","800px");
+		$("body").css("height","635px");
 		$("#exArea").fadeOut(); 
 		$("#purArea").fadeOut(); 
 	}
