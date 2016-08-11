@@ -431,8 +431,8 @@ input.invalid {
 .productImg{
 	width: 118px;
     height: 98px;
-    margin-top: 4%;
-    left: 16%;
+    margin-top: 9%;
+    left: 7%;
     position: absolute;
 }
 
@@ -449,7 +449,7 @@ input.invalid {
     height: 17px;
     position: absolute;
     margin-left: 3px;
-    margin-top: 123px;
+    margin-top: 105px;
 }
 
 .pointNum{
@@ -458,7 +458,7 @@ input.invalid {
     margin-left: 21px;
     line-height: 17px;
     color: #d30b06;
-    margin-top: 123px;
+    margin-top: 105px;
 }
 
 .peopleImg{
@@ -466,7 +466,7 @@ input.invalid {
     width: 14px;
     height: 14px;
     position: absolute;
-    margin-top: 124px;
+    margin-top: 106px;
 }
 
 .peopleNum{
@@ -475,7 +475,7 @@ input.invalid {
     margin-left: 83px;
     line-height: 17px;
     color:#d30b06;
-    margin-top: 123px;
+    margin-top: 105px;
 }
 
 .get1{
