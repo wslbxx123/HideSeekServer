@@ -123,18 +123,18 @@ document.getElementById("myorder").onclick = function(){
 			  	titleDiv.innerHTML = "我的订单";
 			  	orderArea.appendChild(titleDiv);
 			  	clickaction = false;
-				for(var i = 0;i < result.result.length;i++){	
+				for(var i = 0;i < result.result.orders.length;i++){	
 					//创建商品橱窗框
 					var listDiv = document.createElement('div');
 					listDiv.className = "orderlist";
 				  	orderArea.appendChild(listDiv);
 				    var listImg = document.createElement('img');
 				    listImg.className = "orderprodct";
-				    listImg.src = result.result[i].product_image_url;
+				    listImg.src = result.result.orders[i].product_image_url;
 				    listDiv.appendChild(listImg);
 				    var nameDiv = document.createElement('div');
 				    nameDiv.className = "ordername";
-				    nameDiv.innerHTML = result.result[i].product_name;
+				    nameDiv.innerHTML = result.result.orders[i].product_name;
 				    listDiv.appendChild(nameDiv);
 				    var sumDiv = document.createElement('div');
 				    sumDiv.className = "ordersum";
@@ -142,10 +142,10 @@ document.getElementById("myorder").onclick = function(){
 				    listDiv.appendChild(sumDiv);
 				    var numSpan = document.createElement('span');
 				    numSpan.className = "orderNum";
-				    numSpan.innerHTML = "总计:"+result.result[i].purchase_count+"(个数)×"+result.result[i].price+"(单价)="+result.result[i].purchase_count*result.result[i].price+"元"; 
+				    numSpan.innerHTML = "总计:"+result.result.orders[i].purchase_count+"(个数)×"+result.result.orders[i].price+"(单价)="+result.result.orders[i].purchase_count*result.result.orders[i].price+"元"; 
 				    sumDiv.appendChild(numSpan);
 				    var statusDiv = document.createElement('div');
-				    if(result.result[i].status=="0"){
+				    if(result.result.orders[i].status=="0"){
 				    	statusDiv.className = "orderstatus1";
 					    statusDiv.innerHTML = "未付款";
 					    listDiv.appendChild(statusDiv);
