@@ -1,22 +1,54 @@
+@charset "GB2312";
+
 *{margin:0;padding:0;       
 }
 
 
 body{
-	background:#f5f5f5;
+	background:lightyellow;
 	width:100%;
-	height:100%;
+	height: 635px;
 	position:absolute;
 	font-family:"Microsoft Yahei"; 
 	-webkit-overflow-scrolling: touch; 
 	overflow-scrolling: touch; 
 	}
 	
-#headline{
-	background:lightgoldenrodyellow;
-	width: 100%;
-    height: 9%;
+img {
+	border: 0 none; 
+	width: auto\9; 
+	vertical-align: top; 
+	-ms-interpolation-mode: bicubic; 
 }
+ 
+#headline{
+    width: 100%;
+    height: 58px;
+}
+
+#mushroom  {
+ 	height: 39%;
+    width: 25%;
+    background: url(../img/mushroom.png) no-repeat;
+    background-size: 77% auto;
+    position: absolute;
+    margin-top: -25%;
+    margin-left: 13%;
+    z-index: 20;
+}
+
+#test_title{
+	margin-left: 25%;
+    margin-top: -33%;
+    height: 34%;
+    width: 63%;
+}
+
+/*#gamebutton{
+	height: 150px;
+    width: 150px;
+    margin: -78px 43%;
+}*/
 
 input{
 	width: 62%;
@@ -31,18 +63,16 @@ input{
 }
 
 select{
-	width: 58%;citySelect
-    height: 30px;
+	width: 58%;
     margin-left: 4px;
     font-size: 14px;
     font-family: "Microsoft Yahei";
-    padding-left: 1px;
     margin-bottom: 14px;
     border-color: dimgrey;
     border-width: 0px;
     background-color: white;
-  	-webkit-appearance:none;
-  	background: url("../img/arrow.png") no-repeat scroll right center transparent;
+    -webkit-appearance: none;
+    background: url("../img/arrow.png") no-repeat scroll right center transparent;
 }
 
 input:-webkit-autofill { 
@@ -55,11 +85,11 @@ input.invalid {
 }
 
 
-.logo{
-	float: left;
-    width: 160px;
-    margin-top: 10px;
-    margin-left: 10px;
+#headline .logo{
+	float: left; 
+	width:160px; 
+	padding-top: 10px;
+	padding-left:10px;
 	}
 	
 .prompt{
@@ -71,94 +101,157 @@ input.invalid {
 }
 
 .inner_menu{
-	left: 63%;
-    top: 15px;
+	right: 1%;
+    top: 12px;
     display: block;
     position: absolute;
 }
 
+
+#storecover{
+	position:absolute;
+	width:100%;
+	top:58px;
+	background-color:#000000;
+	z-index:45;
+	filter:alpha(opacity=50); 
+	-moz-opacity:0.5; 
+	opacity:0.5;
+	display:none;
+}
+
 #newWin{
-	width: 88%;
+	width: 90%;
     height: 234px;
     background: white;
     border: 2px solid dimgrey;
     border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    behavior: url(ie-<a href="https://www.baidu.com/s?wd=css3&tn=44039180_cpr&fenlei=mv6quAkx…mkrjfsrjnLP1TzPjmvPs" target="_blank" class="baidu-highlight">css3</a>.htc);
     display: none;
-    margin: 20% auto auto 6%;
+    margin: -14% 5% 6%;
     position: absolute;
-    z-index: 10;
+    z-index: 56;
     text-align: center;
     font-size: 15px;
 }
 
 #newWin1{
-	width: 88%;
-    height: 350px;
+	width: 91%;
+    height: 351px;
     background: white;
     border: 2px solid dimgrey;
     border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    behavior: url("border-radius.htc");
     display: none;
-    margin: 10% auto auto 6%;
-    position:absolute;
-    z-index:10;
-    text-align:center;
-    font-size:15px;
+    margin: -25% 4% 6%;
+    position: absolute;
+    z-index: 45;
+    text-align: center;
+    font-size: 15px;
 }
 
 #newWin2{
-	width: 88%;
-    height: 350px;
+	width: 28%;
+    height: 351px;
     background: white;
     border: 2px solid dimgrey;
     border-radius: 5px;
+    -moz-border-radius: 5px; /* Firefox */
+  	-webkit-border-radius: 5px; /* Safari 和 Chrome */
     display: none;
-    margin: 10% auto auto 6%;
-    position:absolute;
-    z-index:10;
-    text-align:center;
-    font-size:15px;
+    margin: -37% 36% 6%;
+    position: absolute;
+    z-index: 30;
+    text-align: center;
+    font-size: 15px;
 }
 
 #newWin3{
-	width: 100%;
+	width: 30%;
     height: 600px;
     background: white;
     border-radius: 5px;
+    -moz-border-radius: 5px; /* Firefox */
+  	-webkit-border-radius: 5px; /* Safari 和 Chrome */
     display: none;
-    margin: 0 auto;
+    margin: -44% 33%;
     position: absolute;
-    z-index: 10;
+    z-index: 38;
     font-size: 15px;
-    text-align:center;
-
+    text-align: center;
 }
 
 #newWin4{
-	width: 88%;
-    height: 450px;
-    background: #fae077;
+	width: 30%;
+    height: 427px;
+    background: white;
     border: 2px solid dimgrey;
     border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
     display: none;
-    margin: 10% auto auto 6%;
-    position:absolute;
-    z-index:10;
-    text-align:center;
-    font-size:15px;
+    margin: -36% 33%;
+    position: absolute;
+    z-index: 38;
+    font-size: 15px;
+    text-align: center;
 }
 
 #confirmpurchase{
-	width: 88%;
+	width: 40%;
     height: 200px;
     background: white;
     border: 2px solid dimgrey;
     border-radius: 5px;
+    -moz-border-radius: 5px; /* Firefox */
+  	-webkit-border-radius: 5px; /* Safari 和 Chrome */
     display: none;
-    margin: 15% auto auto 6%;
+    margin: 2% 25% auto;
     position:absolute;
-    z-index:10;
+    z-index:56;
     text-align:center;
     font-size:15px;
+}
+
+#confirmexchange{
+	width: 40%;
+    height: 200px;
+    background: white;
+    border: 2px solid dimgrey;
+    border-radius: 5px;
+    -moz-border-radius: 5px; /* Firefox */
+  	-webkit-border-radius: 5px; /* Safari 和 Chrome */
+    display: none;
+    margin: 2% 25% auto;
+    position:absolute;
+    z-index:56;
+    text-align:center;
+    font-size:15px;
+}
+
+.goodsName{
+    margin-left: 33px;
+    position: absolute;
+}   
+
+.goodsNum{
+	height: 25px;
+    width: 35px;
+    float: right;
+    margin-right: 33px;
+    margin-top: 15px;
+}   
+
+.goodsBack{
+	background-color: #f0f0f0;
+    height: 56px;
+    width: 87%;
+    margin: 7% auto;
+    line-height: 56px;
 }
 
 #login{
@@ -168,44 +261,61 @@ input.invalid {
     font-size: 15px;
     background-color:#fae077;
     border-radius:5px;
+    -moz-border-radius: 5px; /* Firefox */
+  	-webkit-border-radius: 5px; /* Safari 和 Chrome */
     cursor: pointer; 
     -webkit-appearance: none;
     width: 80%;
 }
 
 #register{
-    height: 35px;
+    height: 35px;s
     margin-top: 10px;
     font-family: "Microsoft Yahei";
     font-size: 15px;
     background-color:#fae077;
     border-radius:5px;
+    -moz-border-radius: 5px; /* Firefox */
+  	-webkit-border-radius: 5px; /* Safari 和 Chrome */
     cursor: pointer; 
     -webkit-appearance: none; 
     width: 80%;
 }
 
 #myprofile{
-	left: 80%;
+	left: 81%;
     top: 1%;
     position: absolute;
     display: none;
     font-size: 12px;
     padding: 2px;
-    background:#fae077;
-    border-radius:2px;
-    border:1px solid cornflowerblue;
+    background: #fae077;
+    border-radius: 2px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border: 1px solid cornflowerblue;
+    cursor: pointer;
 }
 
 
 #test1{
 	float: left;
-	background:#fae077;
+    background: #fedf75;
+    color: black;
+    -webkit-appearance: none;
+    height: 32px;
+    width: 57px;
+    cursor: pointer;
 }
 
 #test2{
 	float: left;
-	background:#fae077;
+    background: #fedf75;
+    color: black;
+    -webkit-appearance: none;
+    height: 32px;
+    width: 57px;
+    cursor: pointer;
 }
 
 
@@ -219,6 +329,8 @@ input.invalid {
     line-height: 33px;
     text-align: center;
     border-radius: 5px;
+    -moz-border-radius: 5px; /* Firefox */
+  	-webkit-border-radius: 5px; /* Safari 和 Chrome */
     margin: 0px auto;
     position: relative;
     display: none;
@@ -227,43 +339,73 @@ input.invalid {
 #loginForm{
     position: relative;
     text-align: center;
-    margin-top: 15%;
+    margin-top: 21%;
 }
 
 #registerForm{
     position: relative;
     text-align: center;
-    margin-top: 15%;
+    margin-top: 14%;
 }
 
 #guide{
-	height: 40px;
-    width: 163px;
+	height: 34px;
+    width: 191px;
     border-radius: 8px;
-    margin: 0 auto;
-    margin-top: 10px;
-	background:white;
-	font-size:14px;
+    margin-top: -9px;
+    margin-left: 2%;
+    background: white;
+    font-size: 13px;
+    z-index: 30;
+    position: absolute;
+    border: 1px solid darkgrey;
+    
+}
+
+#appdownload{
+	float: left;
+    height: 34px;
+    width: 67px;
+    text-align: center;
+    line-height: 34px;
+    border-top-left-radius: 7px;
+    border-bottom-left-radius: 7px;
 }
 
 #purchase{
 	float: left;
-    height: 40px;
-    width: 79px;
+    height: 34px;
+    width: 62px;
     text-align: center;
-    line-height: 40px;
-    border-bottom-left-radius: 8px;
-    border-top-left-radius: 8px;
+    line-height: 34px;
+    border-left: 1px solid #fedf75;
 }
 
 #exchange{
 	float: right;
-    height: 40px;
-    width: 79px;
+    height: 34px;
+    width: 60px;
     text-align: center;
-    line-height: 40px;
-    border-bottom-right-radius: 8px;
-    border-top-right-radius: 8px;
+    line-height: 34px;
+    border-top-right-radius: 7px;
+    border-bottom-right-radius: 7px;
+    border-left: 1px solid #fedf75;
+}
+
+.apparea{
+	background-color: #fedf75;
+    width: 44%;
+    height: 34%;
+    float: left;
+    margin-left: 4%;
+    margin-top: 27px;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    color: black;
+    text-align: center;
+    line-height: 4;
+    cursor:pointer;
 }
 
 .N2{
@@ -289,7 +431,17 @@ input.invalid {
 .productImg{
 	width: 118px;
     height: 98px;
-    margin: 9px auto 0 14px;
+    margin-top: 4%;
+    left: 16%;
+    position: absolute;
+}
+
+.productImg1{
+	width: 118px;
+    height: 98px;
+    margin-top: 4%;
+    right: 19%;
+    position: absolute;
 }
 
 .scoreImg{
@@ -297,6 +449,7 @@ input.invalid {
     height: 17px;
     position: absolute;
     margin-left: 3px;
+    margin-top: 123px;
 }
 
 .pointNum{
@@ -305,22 +458,24 @@ input.invalid {
     margin-left: 21px;
     line-height: 17px;
     color: #d30b06;
+    margin-top: 123px;
 }
 
 .peopleImg{
-	margin-left: 41px;
+	margin-left: 66px;
     width: 14px;
     height: 14px;
-    margin-top: 1px;
     position: absolute;
+    margin-top: 124px;
 }
 
 .peopleNum{
 	font-size: 8px;
     position: absolute;
-    margin-left: 58px;
+    margin-left: 83px;
     line-height: 17px;
     color:#d30b06;
+    margin-top: 123px;
 }
 
 .get1{
@@ -331,12 +486,22 @@ input.invalid {
     text-align: center;
 }
 
+.purGet{
+	margin-top: 6px;
+    width: 100%;
+    height: 30px;
+    background: #FFCC00;
+    text-align: center;
+    line-height:30px;
+}
+
 .exGet{
 	margin-top: 6px;
     width: 100%;
-    height: 11%;
+    height: 30px;
     background: #FFCC00;
     text-align: center;
+    line-height:30px;
 }
 
 .productName{
@@ -349,24 +514,56 @@ input.invalid {
     margin-right: 5px;
     margin-left: 5px;
     width: 99%;
-    height:47px;
-    font-size: 12px;
+    height:25px;
+    font-size: 14px;
+    margin-top: 142px;
 }
 
 .selected{
-	background:#FFCC00;
+	background:#fedf75;
+	color:black;
 }
 
 
 #purArea{
-	position:absolute;
-	z-index:5;
+	position: absolute;
+    background-color:  white;
+    z-index: 44;
+    display: none;
+    width: 96%;
+    margin-left: 2%;
+    margin-top: 38px;
+    border-radius: 10px;
+    border: 1px solid darkgrey;
+    padding-bottom: 29px;
+    
+}
+
+#downArea{
+	position: absolute;
+    background-color: white;
+    z-index: 44;
+    display: block;
+    width: 96%;
+    height: 347px;
+    margin-left: 2%;
+    margin-top: 38px;
+    border-radius: 10px;
+    border: 1px solid darkgrey;
+    font-size: 13px;
 }
 
 #exArea{
-	position:absolute;
-	z-index:5;
-	display:none;
+	position: absolute;
+    background-color: white;
+    z-index: 44;
+    display: none;
+    width: 96%;
+    margin-left: 2%;
+    margin-top: 38px;
+    border-radius: 10px;
+    border: 1px solid darkgrey;
+    padding-bottom: 29px;
 }
 
 .icon{
@@ -382,13 +579,28 @@ input.invalid {
     margin-right:auto;
 }
 
+.line1{
+	margin-top: 13px;
+}
+
 #verifiCode{
-	height: 29px;
+	height:30px;
     width: 36%;
     background-color: #fae077;
     border-radius: 5px;
+    -moz-border-radius: 5px; /* Firefox */
+  	-webkit-border-radius: 5px; /* Safari 和 Chrome */
     cursor: pointer; 
     -webkit-appearance: none; 
+}
+
+.APPfile{
+	height: 162px;
+    width: 96%;
+    background-color: lightyellow;
+    margin-top: 6px;
+    margin-left: 2%;
+    float: left;
 }
 
 
@@ -403,6 +615,8 @@ input.invalid {
     display: inline-block;
     background: url("../img/mycamera.png") no-repeat center;
     border-radius: 4px;
+    -moz-border-radius: 4px; /* Firefox */
+  	-webkit-border-radius: 4px; /* Safari 和 Chrome */
     padding: 4px 12px;
     overflow: hidden;
     text-decoration: none;
@@ -410,10 +624,23 @@ input.invalid {
     line-height: 20px;
     height: 23px;
     width: 20px;
-    background-size: contain;
+    background-size: contain; 
     margin-left: -16%;
 }	
 
+.paragraph{
+	margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 5px;
+    font-size: 13px;
+}
+
+.title1{
+	margin-top: 13px;
+    margin-left: 9px;
+    height: 10px;
+    width: 77px;
+}
 
 #mycamera{
 	position: absolute;
@@ -426,11 +653,20 @@ input.invalid {
 #mypicture{
 	margin-top: -20%;
     border-radius: 63px;
+    left: 35%;
     width: 111px;
     height: 111px;
     background: url("../img/mypicture.png") no-repeat center;
     background-size: cover;
-    background-color: grey;
+}
+
+#photo{
+	margin-top: -20%;
+    border-radius: 63px;
+    left: 36%;
+    width: 111px;
+    height: 111px;
+    position: absolute;
 }
 
 #bgColor{
@@ -587,11 +823,11 @@ p.tip{
 }
 
 .cityinput{
-	width: 58%;
+	width: 57%;
     height: 30px;
     line-height: 24px;
-    margin-left: 4px;
-    font-size:14px;
+    padding-left: 3px;
+    font-size: 14px;
     background: url(../img/arrow.png) no-repeat scroll right center transparent;
 }
 
@@ -638,7 +874,7 @@ p.tip{
 
 #downframe{
 	position: absolute;
-	left: 8%;
+	left: 10%;
 	margin-top: 50px;
     width: 20px;
     height: 20px;
@@ -659,7 +895,7 @@ p.tip{
 }
 
 #rangeDiv{
-	margin-top: 70%;
+	margin-top: 91%;
 }
 
 #rangeHint{
@@ -678,19 +914,19 @@ p.tip{
 #roleimages{
 	height: 278px;
     width: 200px;
-    margin-top: 10px;
+    margin-top: 22px;
 }
 
 #rolenames{
 	height: 27px;
-    width: 80%;
+    width: 56%;
     position: relative;
-    margin:-4px auto 0 auto;
+    margin: -4px auto 0 auto;
     color: white;
     font-size: 13px;
     background-color: saddlebrown;
-    line-height:27px;
-    border:2px solid sandybrown;
+    line-height: 27px;
+    border: 2px solid sandybrown;
 }
 
 #entrance{
@@ -704,9 +940,161 @@ p.tip{
 }
 
 
-#goodsNum{
-	background-color: #f0f0f0;
-    height: 56px;
-    width: 87%;
-    margin: 7% auto;
+
+
+#backgroundpic{
+	width: 97%;
+    height: 800px;
+    margin: 3% auto;
+    background-color: white;
+    border-radius: 10px;
+}
+
+
+#myimg{
+	height: 31px;
+    width: 31px;
+    margin-top: -11%;
+    margin-left: 68%;
+    display: none;
+}
+
+#myorder{
+	height: 30px;
+    width: 22%;
+    position: absolute;
+    margin-top: -5px;
+    margin-left: 76%;
+    font-size: 13px;
+    color: black;
+    background-color: #fedf75;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 5px;
+    display: none;
+}
+
+#orderArea{
+	background: #F0F0F0;
+    height: 420px;
+    border: 2px solid grey;
+    width: 40%;
+    margin-top: -10%;
+    margin-left: 29%;
+    position: absolute;
+    z-index: 50;
+    display:none;
+}
+
+#ordertitle{
+	width: 100%;
+    height: 46px;
+    background-color: lightyellow;
+    text-align: center;
+    line-height: 46px;
+}
+
+#orderArea .orderlist{
+	background-color: white;
+	height: 55px;
+    width: 93%;
+    margin: 9px auto;
+}
+
+.orderprodct{
+	height: 51px;
+    width: 60px;
+    margin-left: 5px;
+    margin-top: 5px;
+}
+
+.ordername{
+	position: absolute;
+    margin-top: -47px;
+    margin-left: 13%;
+    font-size: 14px;
+}
+
+.orderstatus{
+	margin-top: -41px;
+    margin-left: 84%;
+    font-size: 13px;
+}
+
+.orderpay{
+	margin-left: 83%;
+    font-size: 12px;
+    width: 59px;
+    height: 18px;
+    background-color: #ffcc00;
+    text-align: center;
+    line-height: 18px;
+    border-radius: 2px;
+}
+
+.orderstatus1{
+    margin-top: -49px;
+    margin-left: 84%;
+    font-size: 13px;
+}
+
+.ordersum{
+	position: absolute;
+    font-size: 12px;
+    margin-top: -26px;
+    margin-left: 65px;
+}
+
+.closeBox{
+	background: url("../img/closeBox.png") no-repeat center;
+    background-size: cover;
+    height: 19px;
+    width: 19px;
+    right: 2%;
+    margin-top: 2%;
+    position: absolute;
+}
+
+#enterAlipay{
+	width: 87%;
+    height: 38px;
+    margin-top: 100px;
+    background-color: #ffcc00;
+    position: absolute;
+    line-height: 38px;
+    cursor:pointer;
+    
+}
+
+.goodsSum{
+	height: 29px;
+    width: 100px;
+    position: absolute;
+    margin-top: 64px;
+    margin-left: 65%;
+    line-height: 29px;
+}
+
+.goodsprice{
+	position: absolute;
+    width: 24px;
+    margin-top: 0px;
+    margin-left: -1%;
+}
+
+#exit{
+	width: 115px;
+    height: 28px;
+    position: absolute;
+    right: 9px;
+    margin-top: 4px;
+    font-size: 12px;
+    background-color: #fae077;
+    border-radius: 2px;
+    border: 1px solid cornflowerblue;
+    text-align: center;
+    line-height: 28px;
+    text-decoration: none;
+    cursor: pointer;
+    display:none ;
 }
