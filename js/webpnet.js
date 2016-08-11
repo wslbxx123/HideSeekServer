@@ -1,6 +1,6 @@
-window.onload = myStart;
-
-function myStart(){
+//window.onload = myStart;
+//
+$(function(){
 //	document.domain="www.hideseek.cn";
 	// 加载商城信息
 	var z;
@@ -111,13 +111,12 @@ function myStart(){
 					   		});
 					   		$("#confirmpurchase").fadeIn();
 					   		$("#enterAlipay").click(function(){
-								alert(sessionid);
 								alert($(".goodsNum").val());
-								alert(parseInt(t)+1);
+								alert(2-parseInt(t));
 								sessionid = sessionStorage.getItem("sessionid");
 								alert(sessionid);
 								var data = "session_id=" + sessionid
-										  + "&store_id=" + (t+1)
+										  + "&store_id=" + (2-parseInt(t))
 										  + "&count=" + $(".goodsNum").val();
 								var enteralipay = {
 									url: "/index.php/home/store/createOrderFromWeb",
@@ -551,7 +550,7 @@ function myStart(){
 		}		
 	});
 
-}
+});
 
 function displaySubMenu() {
 	var subMenu = document.getElementById("exit");
