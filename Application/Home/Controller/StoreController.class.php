@@ -123,6 +123,35 @@ class StoreController extends BaseController {
         echo BaseUtil::echoJson(CodeParam::SUCCESS, $result); 
     }
     
+    public function getPurchaseOrder() {
+        self::setHeader();
+        
+        $sessionId = filter_input(INPUT_POST, 'session_id');
+        $orderId = filter_input(INPUT_POST, 'order_id');
+        $storeId = filter_input(INPUT_POST, 'store_id');
+        $count = filter_input(INPUT_POST, 'count');
+        
+        $accountId = $this->getPkIdFromToken($sessionId);
+        
+        if(!isset($sessionId) || $accountId == 0) {
+            BaseUtil::echoJson(CodeParam::NOT_LOGIN, null);
+            return;
+        }
+        
+        if(!isset($orderId)) {
+            BaseUtil::echoJson(CodeParam::ORDER_ID_EMPTY, null);
+            return;
+        }
+        
+        if(!StoreControllerManager::checkPurchaseOrderInfo($storeId, $count)) {
+            return;
+        }
+        
+        $result = StoreControllerManager::getSignResultWithoutCreateOrder(
+                $storeId, $count, false, $orderId);
+        echo BaseUtil::echoJson(CodeParam::SUCCESS, $result); 
+    }
+    
     public function createOrderFromWeb() {
         self::setHeader();
         
