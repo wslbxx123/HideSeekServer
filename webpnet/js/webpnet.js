@@ -561,7 +561,3 @@ function hideSubMenu() {
 	var subMenu = document.getElementById("exit");
 	subMenu.style.display = "none";
 }
-
-
-
-
