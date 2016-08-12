@@ -1,5 +1,11 @@
 <?php
 namespace Home\Controller;
+use Home\Common\Util\BaseUtil;
+use Home\Common\Param\CodeParam;
+use Home\DataAccess\GoalManager;
+use Home\DataAccess\PullVersionManager;
+use Home\DataAccess\RecordManager;
+use Home\DataAccess\AccountManager;
 
 class MapController extends BaseController {
     public function refresh(){
@@ -41,51 +47,24 @@ class MapController extends BaseController {
     }
     
     public function getGoal() {
-        $code = "10000";
-        $message = "获得目标成功";
-        $sessionId = $_POST['session_id'];
+        self::setHeader();
+        
+        $sessionId = filter_input(INPUT_POST, 'session_id');
+        $goalId = filter_input(INPUT_POST, 'goal_id');
+        $goalType = filter_input(INPUT_POST, 'goal_type');
         $account = $this->getAccountFromToken($sessionId);
         
-        $goal_id = $_POST['goal_id'];
-        $goal_type = $_POST['goal_type'];
-        if(isset($goal_id) && isset($goal_type)) {
-            $Dao = M("goal");
-            $data['valid'] = 0;
-            $data['update_time'] = date('y-m-d H:i:s',time());
-            $Dao->where("pk_id=$goal_id")->save($data);
-            
-            $versionDao = M("pull_version");
-            $version = $versionDao->find();
-            $version['race_group_version'] = $version['race_group_version'] + 1;
-            
-            $recordDao = M("record");
-            $record['goal_id'] = $goal_id;
-            $record['goal_type'] = $goal_type;
-            $record['account_id'] = $account['pk_id'];
-            if($goal_type == 1) {
-                $record['score'] = 1;
-            } else {
-                $record['score'] = -1;
-            }   
-            $record['time'] = date('y-m-d H:i:s',time());
-            $condition['account_id'] = $account['pk_id'];
-            $record['score_sum'] = $recordDao->where($condition)->sum('score')
-                    + $record['score'];
-            $record['version'] = $version['race_group_version'];
-            $recordDao->add($record);
-            
-            $versionDao->where('1=1')->save($version);
-            $accountDao = M("account");
-            $account['record'] = $record['score_sum'];
-            $accountDao->where($condition)->save($account);
-        } else{
-            $code = "10006";
-            $message = "目标ID或目标类型为空";
+        if(!isset($goalId) || !isset($goalType)) {
+            BaseUtil::echoJson(CodeParam::GOAL_ID_OR_TYPE_EMPTY, null);
+            return;
         }
+       
+        GoalManager::updateGoal(0, $goalId);
+        $version = PullVersionManager::updateRaceGroupVersion();
+        $scoreSum = RecordManager::insertRecord($goalId, $goalType, $account['pk_id'], $version);
+        AccountManager::updateScoreSum($account['pk_id'], $scoreSum);
         
-        $array = array ('code' => $code, 'message' => $message, 
-            'result' => $record);
-        echo json_encode($array);
+        BaseUtil::echoJson(CodeParam::SUCCESS, $record);
     }
     
     public function hitMonster() {

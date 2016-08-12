@@ -25,4 +25,8 @@ class MessageParam {
     const ORDER_ID_WRONG = "订单编号错误";
     const REWARD_ID_EMPTY = "奖品ID值为空";
     #endregion
+    
+    #region 地图信息
+    const GOAL_ID_OR_TYPE_EMPTY = "目标ID或目标类型为空";
+    #endregion
 }

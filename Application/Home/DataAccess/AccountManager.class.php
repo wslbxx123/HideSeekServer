@@ -21,6 +21,13 @@ class AccountManager {
         $Dao->where($condition)->setField('session_token', md5(session_id()));
     }
     
+    public function updateScoreSum($accountId, $scoreSum) {
+        $Dao = M("account");
+        $account['record'] = $scoreSum;
+        $condition['pk_id'] = $accountId;
+        $Dao->where($condition)->save($account);
+    }
+    
     public function getAccount($accountId) {
         $Dao = M("account");
         $condition['pk_id'] = $accountId;
