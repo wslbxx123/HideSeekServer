@@ -970,6 +970,7 @@ p.tip{
     line-height: 30px;
     border-radius: 5px;
     display: none;
+    -webkit-appearance: none;
 }
 
 #orderArea{
@@ -1101,4 +1102,8 @@ p.tip{
 
 #sex{
 	margin-top:20%;
+}
+
+#allorder{
+	
 }
