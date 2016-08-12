@@ -202,19 +202,19 @@ input.invalid {
 }
 
 #confirmpurchase{
-	width: 40%;
+	width: 95%;
     height: 200px;
     background: white;
     border: 2px solid dimgrey;
     border-radius: 5px;
-    -moz-border-radius: 5px; /* Firefox */
-  	-webkit-border-radius: 5px; /* Safari 和 Chrome */
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
     display: none;
-    margin: 2% 25% auto;
-    position:absolute;
-    z-index:56;
-    text-align:center;
-    font-size:15px;
+    margin: 2% 2% auto;
+    position: absolute;
+    z-index: 56;
+    text-align: center;
+    font-size: 15px;
 }
 
 #confirmexchange{
@@ -1070,7 +1070,7 @@ p.tip{
     width: 100px;
     position: absolute;
     margin-top: 64px;
-    margin-left: 65%;
+    margin-left: 52%;
     line-height: 29px;
 }
 
@@ -1086,7 +1086,7 @@ p.tip{
     height: 28px;
     position: absolute;
     right: 9px;
-    margin-top: 4px;
+    margin-top: -24px;
     font-size: 12px;
     background-color: #fae077;
     border-radius: 2px;
