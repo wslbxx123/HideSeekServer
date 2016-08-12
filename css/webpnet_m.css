@@ -983,7 +983,6 @@ p.tip{
     position: absolute;
     z-index: 50;
     display: none;
-    overflow:auto; 
 }
 
 #ordertitle{
@@ -1105,5 +1104,5 @@ p.tip{
 }
 
 #allorder{
-	
+	overflow:auto; 
 }
