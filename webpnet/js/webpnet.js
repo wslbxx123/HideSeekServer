@@ -280,7 +280,7 @@ $(function(){
 	// 登录按钮
 	$("#test1").click(function(){
 		if($("#newWin").css("display")=='none'){
-			$("#storecover").css("height","800px");
+			$("#storecover").css("height","635px");
 			$("#storecover").fadeIn(); 
 			$("#newWin").fadeIn(); 
 			$("#newWin1").fadeOut(); 
@@ -295,6 +295,7 @@ $(function(){
 	//	注册按钮
 	$("#test2").click(function(){
 		if($("#newWin1").css("display")=='none'){
+			$("#storecover").css("height","635px");
 			$("#storecover").fadeIn(); 
 			$("#newWin1").fadeIn(); 
 			$("#newWin").fadeOut(); 
