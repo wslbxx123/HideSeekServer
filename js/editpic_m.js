@@ -47,7 +47,7 @@ document.getElementById("matchId").onclick = function(){
 			        //存储注册数据
 			  		sessionStorage.setItem("nickname", $("#nickname").html());
 					sessionStorage.setItem("record", $("#scoreNum").html());
-					sessionStorage.setItem("myimgpath", $("#myimg").src);
+					sessionStorage.setItem("myimgpath", $("#photo").attr("src"));
 					break;
 			  	case "10003":
 			  		alert("填写信息失败！")
