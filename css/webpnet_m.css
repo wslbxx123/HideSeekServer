@@ -345,7 +345,7 @@ input.invalid {
 #registerForm{
     position: relative;
     text-align: center;
-    margin-top: 14%;
+    margin-top: 46px;
 }
 
 #guide{
@@ -431,16 +431,16 @@ input.invalid {
 .productImg{
 	width: 118px;
     height: 98px;
-    margin-top: 9%;
-    left: 7%;
+    margin-top: 22px;
+    margin-left: 4%;
     position: absolute;
 }
 
 .productImg1{
 	width: 118px;
     height: 98px;
-    margin-top: 9%;
-    right: 5%;
+    margin-top: 22px;
+    margin-left: 4%;
     position: absolute;
 }
 
