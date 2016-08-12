@@ -186,17 +186,17 @@ input.invalid {
 }
 
 #newWin4{
-	width: 30%;
+	width: 92%;
     height: 427px;
     background: white;
     border: 2px solid dimgrey;
     border-radius: 5px;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
-    display: none;
-    margin: -36% 33%;
+    display: block;
+    margin: -36% 4%;
     position: absolute;
-    z-index: 38;
+    z-index: 55;
     font-size: 15px;
     text-align: center;
 }
@@ -609,21 +609,21 @@ input.invalid {
 	
 	
 .file {
-    position: relative;
+    position: absolute;
     display: inline-block;
     background: url("../img/mycamera.png") no-repeat center;
     border-radius: 4px;
-    -moz-border-radius: 4px; /* Firefox */
-  	-webkit-border-radius: 4px; /* Safari 和 Chrome */
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
     padding: 4px 12px;
     overflow: hidden;
     text-decoration: none;
     text-indent: 0;
-    line-height: 20px;
     height: 23px;
     width: 20px;
-    background-size: contain; 
-    margin-left: -16%;
+    background-size: contain;
+    margin-left: 10%;
+    margin-top: 4%;
 }	
 
 .paragraph{
@@ -654,6 +654,7 @@ input.invalid {
     left: 35%;
     width: 111px;
     height: 111px;
+    position:absolute ;
 }
 
 #photo{
@@ -916,7 +917,7 @@ p.tip{
 
 #rolenames{
 	height: 27px;
-    width: 56%;
+    width: 63%;
     position: relative;
     margin: -4px auto 0 auto;
     color: white;
@@ -1096,4 +1097,8 @@ p.tip{
     text-decoration: none;
     cursor: pointer;
     display:none ;
+}
+
+#sex{
+	margin-top:20%;
 }
