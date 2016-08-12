@@ -283,7 +283,7 @@ input.invalid {
 }
 
 #myprofile{
-	left: 81%;
+	right: 36px;
     top: 1%;
     position: absolute;
     display: none;
@@ -339,13 +339,13 @@ input.invalid {
 #loginForm{
     position: relative;
     text-align: center;
-    margin-top: 21%;
+    margin-top: 40px;
 }
 
 #registerForm{
     position: relative;
     text-align: center;
-    margin-top: 14%;
+    margin-top: 46px;
 }
 
 #guide{
@@ -431,16 +431,16 @@ input.invalid {
 .productImg{
 	width: 118px;
     height: 98px;
-    margin-top: 9%;
-    left: 7%;
+    margin-top: 22px;
+    margin-left: 4%;
     position: absolute;
 }
 
 .productImg1{
 	width: 118px;
     height: 98px;
-    margin-top: 9%;
-    right: 5%;
+    margin-top: 22px;
+    margin-left: 4%;
     position: absolute;
 }
 
@@ -952,8 +952,9 @@ p.tip{
 #myimg{
 	height: 31px;
     width: 31px;
-    margin-top: -11%;
-    margin-left: 68%;
+    margin-top: 1%;
+    right: 106px;
+    position: absolute;
     display: none;
 }
 
@@ -970,6 +971,7 @@ p.tip{
     line-height: 30px;
     border-radius: 5px;
     display: none;
+    -webkit-appearance: none;
 }
 
 #orderArea{
@@ -982,7 +984,6 @@ p.tip{
     position: absolute;
     z-index: 50;
     display: none;
-    overflow:auto; 
 }
 
 #ordertitle{
@@ -1101,4 +1102,10 @@ p.tip{
 
 #sex{
 	margin-top:20%;
+}
+
+#allorder{
+	height: 380px;
+    width: 100%;
+	overflow:auto; 
 }

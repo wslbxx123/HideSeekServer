@@ -124,12 +124,15 @@ document.getElementById("myorder").onclick = function(){
 			  	titleDiv.id = "ordertitle";
 			  	titleDiv.innerHTML = "我的订单";
 			  	orderArea.appendChild(titleDiv);
+			  	var allDiv = document.createElement('div');
+			  	allDiv.id = "allorder";
+			  	orderArea.appendChild(allDiv);
 			  	clickaction = false;
 				for(var i = 0;i < result.result.orders.length;i++){	
 					//创建商品橱窗框
 					var listDiv = document.createElement('div');
 					listDiv.className = "orderlist";
-				  	orderArea.appendChild(listDiv);
+				  	allDiv.appendChild(listDiv);
 				    var listImg = document.createElement('img');
 				    listImg.className = "orderprodct";
 				    listImg.src = result.result.orders[i].product_image_url;
