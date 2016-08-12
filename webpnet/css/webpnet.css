@@ -155,32 +155,32 @@ input.invalid {
 }
 
 #newWin2{
-	width: 28%;
+	width: 92%;
     height: 351px;
     background: white;
     border: 2px solid dimgrey;
     border-radius: 5px;
-    -moz-border-radius: 5px; /* Firefox */
-  	-webkit-border-radius: 5px; /* Safari 和 Chrome */
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
     display: none;
-    margin: -37% 36% 6%;
+    margin: -37% 4% 6%;
     position: absolute;
-    z-index: 30;
+    z-index: 54;
     text-align: center;
     font-size: 15px;
 }
 
 #newWin3{
-	width: 30%;
+	width: 95%;
     height: 600px;
     background: white;
     border-radius: 5px;
-    -moz-border-radius: 5px; /* Firefox */
-  	-webkit-border-radius: 5px; /* Safari 和 Chrome */
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
     display: none;
-    margin: -44% 33%;
+    margin: -42% 3%;
     position: absolute;
-    z-index: 38;
+    z-index: 55;
     font-size: 15px;
     text-align: center;
 }
@@ -654,8 +654,6 @@ input.invalid {
     left: 35%;
     width: 111px;
     height: 111px;
-    background: url("../img/mypicture.png") no-repeat center;
-    background-size: cover;
 }
 
 #photo{
@@ -665,6 +663,8 @@ input.invalid {
     width: 111px;
     height: 111px;
     position: absolute;
+    background: url("../img/mypicture.png") no-repeat center;
+    background-size: cover;
 }
 
 #bgColor{
@@ -883,7 +883,6 @@ p.tip{
 
 #title{
 	position: absolute;
-    margin-top: 10px;
     background-color: #ffcc00;
     font-size: 14px;
     height: 29px;
@@ -1047,11 +1046,12 @@ p.tip{
 .closeBox{
 	background: url("../img/closeBox.png") no-repeat center;
     background-size: cover;
-    height: 19px;
-    width: 19px;
+    height: 17px;
+    width: 17px;
     right: 2%;
     margin-top: 2%;
     position: absolute;
+    z-index: 40;
 }
 
 #enterAlipay{
