@@ -283,7 +283,7 @@ input.invalid {
 }
 
 #myprofile{
-	left: 81%;
+	right: 36px;
     top: 1%;
     position: absolute;
     display: none;
@@ -339,7 +339,7 @@ input.invalid {
 #loginForm{
     position: relative;
     text-align: center;
-    margin-top: 21%;
+    margin-top: 40px;
 }
 
 #registerForm{
@@ -952,8 +952,9 @@ p.tip{
 #myimg{
 	height: 31px;
     width: 31px;
-    margin-top: -11%;
-    margin-left: 68%;
+    margin-top: 1%;
+    right: 106px;
+    position: absolute;
     display: none;
 }
 
