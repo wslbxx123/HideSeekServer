@@ -1104,5 +1104,7 @@ p.tip{
 }
 
 #allorder{
+	height: 380px;
+    width: 100%;
 	overflow:auto; 
 }
