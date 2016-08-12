@@ -204,7 +204,7 @@ var Vcity = {};
 	        div.className = 'citySelector';
 	        div.style.position = 'relative';
 	        div.style.margin = "0 auto";
-	        div.style.top = '47%';
+	        div.style.top = '22%';
 	        div.style.zIndex = 999999;
 	
 	        // 判断是否IE6，如果是IE6需要添加iframe才能遮住SELECT框

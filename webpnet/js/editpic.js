@@ -144,7 +144,7 @@ document.getElementById("myorder").onclick = function(){
 				    listDiv.appendChild(sumDiv);
 				    var numSpan = document.createElement('span');
 				    numSpan.className = "orderNum";
-				    numSpan.innerHTML = "总计:"+result.result.orders[i].purchase_count+"(个数)×"+result.result.orders[i].price+"(单价)="+result.result.orders[i].purchase_count*result.result.orders[i].price+"元"; 
+				    numSpan.innerHTML = result.result.orders[i].purchase_count+"(个数)×"+result.result.orders[i].price+"(单价)="+result.result.orders[i].purchase_count*result.result.orders[i].price+"元"; 
 				    sumDiv.appendChild(numSpan);
 				    var statusDiv = document.createElement('div');
 				    if(result.result.orders[i].status=="0"){
@@ -156,13 +156,14 @@ document.getElementById("myorder").onclick = function(){
 					    payDiv.innerHTML = "点我付款";
 					    listDiv.appendChild(payDiv);
 				    }
-				    else{o
+				    else{
 				    	statusDiv.className = "orderstatus";
 					    statusDiv.innerHTML = "交易成功";
 					    listDiv.appendChild(statusDiv);
 				    }
 				    
-				} 		
+				}
+				$("orderArea").css("height",result.result.orders.length*281+303+"px");
 			},
 			error: function(XMLHttpRequest, textStatus, errorThrown) {
 				alert("网络出现问题！");
@@ -260,13 +261,13 @@ function getPath(obj,fileQuery,transImg){
 		
 
 	    
-		if(width>document.body.clientWidth*0.3){
-	    	height = (height*document.body.clientWidth*0.3)/width;
-	    	width = document.body.clientWidth*0.3;
+		if(width>document.body.clientWidth*0.9){
+	    	height = (height*document.body.clientWidth*0.9)/width;
+	    	width = document.body.clientWidth*0.9;
 		}
-		if(height>document.body.clientWidth*0.3){
-			width = (width*document.body.clientWidth*0.3)/height;
-			height = document.body.clientWidth*0.3;
+		if(height>document.body.clientWidth*0.9){
+			width = (width*document.body.clientWidth*0.9)/height;
+			height = document.body.clientWidth*0.9;
 		}
 		fileimg.width = width;
 		fileimg.height = height;
@@ -306,8 +307,8 @@ function getPath(obj,fileQuery,transImg){
 			if(width>height){
 				n = width-height;
 				ctx.clearRect (0.1*n*(x-1),0,coverpic.height,coverpic.height);
-				upframe.style.left = document.body.clientWidth*0.3*0.1+0.1*n*(x-1)+"px";
-				downframe.style.left = height+document.body.clientWidth*0.3*0.1-20+0.1*n*(x-1)+"px";
+				upframe.style.left = document.body.clientWidth*0.9*0.1+0.1*n*(x-1)+"px";
+				downframe.style.left = height+document.body.clientWidth*0.9*0.1-20+0.1*n*(x-1)+"px";
 			}
 			else{
 				n = width-height;
@@ -321,9 +322,9 @@ function getPath(obj,fileQuery,transImg){
 
 		function setFrame(Num){
 			upframe.style.marginTop = 50+"px";
-			upframe.style.left = document.body.clientWidth*0.3*0.1+"px";
+			upframe.style.left = document.body.clientWidth*0.9*0.1+"px";
 			downframe.style.marginTop = Num+30+"px";
-			downframe.style.left = Num+document.body.clientWidth*0.3*0.1-20+"px";
+			downframe.style.left = Num+document.body.clientWidth*0.9*0.1-20+"px";
 		}
 		
 		

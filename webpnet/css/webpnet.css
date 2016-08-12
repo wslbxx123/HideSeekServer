@@ -155,38 +155,38 @@ input.invalid {
 }
 
 #newWin2{
-	width: 28%;
+	width: 92%;
     height: 351px;
     background: white;
     border: 2px solid dimgrey;
     border-radius: 5px;
-    -moz-border-radius: 5px; /* Firefox */
-  	-webkit-border-radius: 5px; /* Safari 和 Chrome */
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
     display: none;
-    margin: -37% 36% 6%;
+    margin: -37% 4% 6%;
     position: absolute;
-    z-index: 30;
+    z-index: 54;
     text-align: center;
     font-size: 15px;
 }
 
 #newWin3{
-	width: 30%;
+	width: 95%;
     height: 600px;
     background: white;
     border-radius: 5px;
-    -moz-border-radius: 5px; /* Firefox */
-  	-webkit-border-radius: 5px; /* Safari 和 Chrome */
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
     display: none;
-    margin: -44% 33%;
+    margin: -42% 3%;
     position: absolute;
-    z-index: 38;
+    z-index: 55;
     font-size: 15px;
     text-align: center;
 }
 
 #newWin4{
-	width: 30%;
+	width: 92%;
     height: 427px;
     background: white;
     border: 2px solid dimgrey;
@@ -194,27 +194,27 @@ input.invalid {
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
     display: none;
-    margin: -36% 33%;
+    margin: -36% 4%;
     position: absolute;
-    z-index: 38;
+    z-index: 55;
     font-size: 15px;
     text-align: center;
 }
 
 #confirmpurchase{
-	width: 40%;
+	width: 95%;
     height: 200px;
     background: white;
     border: 2px solid dimgrey;
     border-radius: 5px;
-    -moz-border-radius: 5px; /* Firefox */
-  	-webkit-border-radius: 5px; /* Safari 和 Chrome */
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
     display: none;
-    margin: 2% 25% auto;
-    position:absolute;
-    z-index:56;
-    text-align:center;
-    font-size:15px;
+    margin: 2% 2% auto;
+    position: absolute;
+    z-index: 56;
+    text-align: center;
+    font-size: 15px;
 }
 
 #confirmexchange{
@@ -609,21 +609,21 @@ input.invalid {
 	
 	
 .file {
-    position: relative;
+    position: absolute;
     display: inline-block;
     background: url("../img/mycamera.png") no-repeat center;
     border-radius: 4px;
-    -moz-border-radius: 4px; /* Firefox */
-  	-webkit-border-radius: 4px; /* Safari 和 Chrome */
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
     padding: 4px 12px;
     overflow: hidden;
     text-decoration: none;
     text-indent: 0;
-    line-height: 20px;
     height: 23px;
     width: 20px;
-    background-size: contain; 
-    margin-left: -16%;
+    background-size: contain;
+    margin-left: 10%;
+    margin-top: 4%;
 }	
 
 .paragraph{
@@ -654,8 +654,7 @@ input.invalid {
     left: 35%;
     width: 111px;
     height: 111px;
-    background: url("../img/mypicture.png") no-repeat center;
-    background-size: cover;
+    position:absolute ;
 }
 
 #photo{
@@ -665,6 +664,8 @@ input.invalid {
     width: 111px;
     height: 111px;
     position: absolute;
+    background: url("../img/mypicture.png") no-repeat center;
+    background-size: cover;
 }
 
 #bgColor{
@@ -883,7 +884,6 @@ p.tip{
 
 #title{
 	position: absolute;
-    margin-top: 10px;
     background-color: #ffcc00;
     font-size: 14px;
     height: 29px;
@@ -917,7 +917,7 @@ p.tip{
 
 #rolenames{
 	height: 27px;
-    width: 56%;
+    width: 63%;
     position: relative;
     margin: -4px auto 0 auto;
     color: white;
@@ -976,12 +976,13 @@ p.tip{
 	background: #F0F0F0;
     height: 420px;
     border: 2px solid grey;
-    width: 40%;
+    width: 94%;
     margin-top: -10%;
-    margin-left: 29%;
+    margin-left: 3%;
     position: absolute;
     z-index: 50;
-    display:none;
+    display: none;
+    overflow:auto; 
 }
 
 #ordertitle{
@@ -1009,7 +1010,7 @@ p.tip{
 .ordername{
 	position: absolute;
     margin-top: -47px;
-    margin-left: 13%;
+    margin-left: 21%;
     font-size: 14px;
 }
 
@@ -1020,7 +1021,7 @@ p.tip{
 }
 
 .orderpay{
-	margin-left: 83%;
+	margin-left: 77%;
     font-size: 12px;
     width: 59px;
     height: 18px;
@@ -1032,7 +1033,7 @@ p.tip{
 
 .orderstatus1{
     margin-top: -49px;
-    margin-left: 84%;
+    margin-left: 81%;
     font-size: 13px;
 }
 
@@ -1046,11 +1047,12 @@ p.tip{
 .closeBox{
 	background: url("../img/closeBox.png") no-repeat center;
     background-size: cover;
-    height: 19px;
-    width: 19px;
+    height: 17px;
+    width: 17px;
     right: 2%;
     margin-top: 2%;
     position: absolute;
+    z-index: 40;
 }
 
 #enterAlipay{
@@ -1069,7 +1071,7 @@ p.tip{
     width: 100px;
     position: absolute;
     margin-top: 64px;
-    margin-left: 65%;
+    margin-left: 52%;
     line-height: 29px;
 }
 
@@ -1085,7 +1087,7 @@ p.tip{
     height: 28px;
     position: absolute;
     right: 9px;
-    margin-top: 4px;
+    margin-top: -24px;
     font-size: 12px;
     background-color: #fae077;
     border-radius: 2px;
@@ -1095,4 +1097,8 @@ p.tip{
     text-decoration: none;
     cursor: pointer;
     display:none ;
+}
+
+#sex{
+	margin-top:20%;
 }
