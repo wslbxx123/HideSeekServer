@@ -49,6 +49,7 @@ document.getElementById("matchId").onclick = function(){
 					sessionStorage.setItem("record", $("#scoreNum").html());
 					sessionStorage.setItem("myimgpath", $("#photo").attr("src"));
 					sessionStorage.setItem("sessionid", result["result"]["session_id"]);
+					
 					break;
 			  	case "10003":
 			  		alert("填写信息失败！")
