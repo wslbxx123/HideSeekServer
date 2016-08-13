@@ -319,34 +319,64 @@ $(function(){
 		$("#storecover").fadeOut();
 	});
 	
-	
+	var time = true;
+	var time1 = true;
 //发送和检验验证码
 	document.getElementById("verifiCode").onclick = function(){
-		var verificode = {
-			url: "/index.php/home/user/sendVerificationCode",
-			type: 'POST',
-			data: "phone=" + $("#userphone").val(),
-			dataType: "json",
-			
-			success: function(result, status){
-				switch(result["code"]){
-					case "10000":
-						codeNumber = result["result"]["sms_code"];
-						if(result["result"]["content"]["error_code"]==0){
-						 	alert("发送验证码成功！")
-						}	
-						break;
-				  	case "10001":
-				  		$("#fault").fadeIn();
-				  		break;
-				}
+	   	if(time1){    
+			var verificode = {
+				url: "/index.php/home/user/sendVerificationCode",
+				type: 'POST',
+				data: "phone=" + $("#userphone").val(),
+				dataType: "json",
 				
-			},
-			error: function(XMLHttpRequest, textStatus, errorThrown) {
-				alert("发送验证码失败！");
+				success: function(result, status){   
+					switch(result["code"]){
+						case "10000":
+							codeNumber = result["result"]["sms_code"];
+							if(result["result"]["content"]["error_code"]==0){
+							 	
+								time = true;
+								time1 = false;
+								var tim = 59;
+								$("#verifiCode").val("发送成功!");
+								$("#verifiCode").css("background-color","darkgrey"); 
+								
+								setTimeout(function(){
+									round();
+									
+								},1000);
+								
+								
+							 	function round(){
+							    	$("#verifiCode").val(tim+"秒");
+							    	tim--;
+							    	if(tim == 0){
+							    		time = false;
+							    		time1 = true;
+							        	$("#verifiCode").css("background-color","#FFCC00"); 
+							        	$("#verifiCode").val("发送验证码");
+							        }
+							        if(time){
+							        	setTimeout(function(){
+											round();
+										},1000);
+							        }
+								}
+							}	
+							break;
+					  	case "10001":
+					  		$("#fault").fadeIn();
+					  		break;
+					}
+					
+				},
+				error: function(XMLHttpRequest, textStatus, errorThrown) {
+					alert("发送验证码失败！");
 			}
 		};
 		$.ajax(verificode);
+		}
 	}
 	
 
