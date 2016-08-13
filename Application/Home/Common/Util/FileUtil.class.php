@@ -24,7 +24,7 @@ class FileUtil {
         if(isset($photoDataUrl)) {
             $photoData = explode(",", $photoDataUrl);
             $image = base64_decode($photoData[1]);
-            file_put_contents($fileName, $image);
+            file_put_contents($realPhotoPath, $image);
             return (is_ssl()? 'https://':'http://')
                         ."www.hideseek.cn/".$realPhotoPath;
         }
