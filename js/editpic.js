@@ -33,7 +33,7 @@ document.getElementById("matchId").onclick = function(){
 	function rolechange(){	
 		setTimeout(function(){
 			rotate();
-		}, 100);
+		}, 10000);
 		
 		function rotate(){
 			
@@ -48,7 +48,7 @@ document.getElementById("matchId").onclick = function(){
 				document.getElementById("rolenames").innerHTML = roleNames[thisId];
 				setTimeout(function(){
 					rotate();
-				}, 100);
+				}, 10000);
 			}
 			else{
 				document.getElementById("roleimages").src = roleImages[myId];
