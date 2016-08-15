@@ -46,11 +46,11 @@ document.getElementById("matchId").onclick = function(){
 			        $("#myorder").fadeIn(); 
 			        getClick = true;
 			        //存储注册数据
-			  		sessionStorage.setItem("nickname", $("#userName").html());
+			  		sessionStorage.setItem("nickname", $("#userName").val());
 					sessionStorage.setItem("record", Num);
 					sessionStorage.setItem("myimgpath", $("#photo").attr("src"));
 					sessionStorage.setItem("sessionid", result["result"]["session_id"]);
-					$("#nickname").html($("#userName").html());
+					$("#nickname").html($("#userName").val());
 					$("#scoreNum").html(Num);
 					$("#myimg").attr('src',$("#photo").attr("src")); 
 					break;
