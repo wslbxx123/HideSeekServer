@@ -463,13 +463,13 @@ $(function(){
 		 	}
   		}
 		
-//		if($("#codeNum").val() == codeNumber){
-//		   allGood = true;
-//		}
-		else{
-			allGood = false;
-			alert("验证码错误！");
-		}		
+////		if($("#codeNum").val() == codeNumber){
+////		   allGood = true;
+////		}
+//		else{
+//			allGood = false;
+//			alert("验证码错误！");
+//		}		
 
 	
 		if(allGood) {
