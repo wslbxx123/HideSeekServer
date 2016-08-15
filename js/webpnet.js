@@ -463,9 +463,9 @@ $(function(){
 		 	}
   		}
 		
-		if($("#codeNum").val() == codeNumber){
-		   allGood = true;
-		}
+//		if($("#codeNum").val() == codeNumber){
+//		   allGood = true;
+//		}
 		else{
 			allGood = false;
 			alert("验证码错误！");
