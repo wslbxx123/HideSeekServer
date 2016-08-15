@@ -442,3 +442,9 @@ INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
 INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
 ERR: 无法加载模块:[object HTMLImageElement]
 
+[ 2016-08-15T15:25:12+08:00 ] ::1 /hideseek/img/role1.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.025002s ]
+ERR: 无法加载模块:Img
+
