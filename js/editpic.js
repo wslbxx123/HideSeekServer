@@ -9,11 +9,10 @@ $('input[type=file]').change(function(){
 	getPath(fileimg,mycamera,fileimg);
 });
 
-var Imgs = new Array(5);
-var roleImages = new Array("img/grassfairy.png","img/watermagician.png","img/fireknight.png","img/stonemonster.png","img/lightninggiant.png");
+var roleImages = new Array(5);
 var roleNames = new Array("草魅精灵","水影巫师","火光骑士","岩石兽族","闪电巨人");
 var myId = Math.floor ((Math.random() * roleImages.length));
-var ImgLoaded =0;
+var ImgLoaded = 0;
 
 document.getElementById("matchId").onclick = function(){
 	var m = 0;
@@ -24,18 +23,15 @@ document.getElementById("matchId").onclick = function(){
 	$("#newWin2").fadeOut(); 
 	
 	
-	for(var i=0;i<roleImages.length;i++){
-		roleImages[i].onLoad = validateImages(i);
+	for(var i=0;i<5;i++){
+		roleImages[i] = new Image();
+		var imageIndex = i+1;
+		alert("img/role"+imageIndex+".png");
+		roleImages[i].src = "img/role"+imageIndex+".png";
+		roleImages[i].onLoad;
 	}
 	
-	function validateImages(i){
-        ImgLoaded++
-        if(ImgLoaded == 5){
-            rolechange();
-        }
-	}
-	
-
+	rolechange();
 	
 	function rolechange(){	
 		setTimeout(function(){
