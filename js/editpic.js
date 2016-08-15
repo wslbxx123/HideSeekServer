@@ -18,7 +18,7 @@ var ImgLoaded =0;
 document.getElementById("matchId").onclick = function(){
 	var m = 0;
 	var thisId = 0;
-	document.getElementById("roleimages").src = roleImages[thisId];
+//	document.getElementById("roleimages").src = roleImages[thisId];
 	document.getElementById("rolenames").innerHTML = roleNames[thisId];
 	$("#newWin4").fadeIn(); 
 	$("#newWin2").fadeOut(); 
