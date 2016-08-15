@@ -46,11 +46,13 @@ document.getElementById("matchId").onclick = function(){
 			        $("#myorder").fadeIn(); 
 			        getClick = true;
 			        //存储注册数据
-			  		sessionStorage.setItem("nickname", $("#nickname").html());
-					sessionStorage.setItem("record", $("#scoreNum").html());
+			  		sessionStorage.setItem("nickname", $("#userName").html());
+					sessionStorage.setItem("record", Num);
 					sessionStorage.setItem("myimgpath", $("#photo").attr("src"));
 					sessionStorage.setItem("sessionid", result["result"]["session_id"]);
-					
+					$("#nickname").html($("#userName").html());
+					$("#scoreNum").html(Num);
+					$("#myimg").attr('src',$("#photo").attr("src")); 
 					break;
 			  	case "10003":
 			  		alert("填写信息失败！")
