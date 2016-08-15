@@ -25,29 +25,14 @@ document.getElementById("matchId").onclick = function(){
 	
 	
 	for(var i=0;i<roleImages.length;i++){
-		Imgs[i]=new Image();
-		downloadImage(i);
-	}
-	
-	
-	function downloadImage(i){
-	    Imgs[i].src = roleImages[i];
-	    Imgs[i].onLoad=validateImages(i);
+		roleImages[i].onLoad = validateImages(i);
 	}
 	
 	function validateImages(i){
-	if (!Imgs[i].complete){
-	     	window.setTimeout('downloadImage('+i+')',200);    
-	    }
-	else if (typeof Imgs[i].naturalWidth != "undefined" && Imgs[i].naturalWidth == 0){
-			window.setTimeout('downloadImage('+i+')',200);
-	    }
-	    else{
-	        ImgLoaded++
-	        if(ImgLoaded == 5){
-	            rolechange();
-	        }
-	    }
+        ImgLoaded++
+        if(ImgLoaded == 5){
+            rolechange();
+        }
 	}
 	
 
@@ -67,7 +52,6 @@ document.getElementById("matchId").onclick = function(){
 					thisId = 0;
 				}
 				document.getElementById("roleimages").src = roleImages[thisId];
-				alert(roleImages[thisId]);
 				document.getElementById("rolenames").innerHTML = roleNames[thisId];
 				setTimeout(function(){
 					rotate();
