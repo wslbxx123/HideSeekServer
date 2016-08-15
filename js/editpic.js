@@ -36,6 +36,7 @@ document.getElementById("matchId").onclick = function(){
 //		jsonp: 'callback',
 //		jsonpCallback:"success_jsonpCallback",
 		success: function(result, status) {
+			alert(document.getElementById("photo").src);
 			alert(JSON.stringify(result));
 			switch(result["code"]){
 				case "10000":
