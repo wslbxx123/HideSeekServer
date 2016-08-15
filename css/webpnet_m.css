@@ -1111,3 +1111,7 @@ p.tip{
     width: 100%;
 	overflow:auto; 
 }
+
+#nickname{
+	text-align: center;
+}
