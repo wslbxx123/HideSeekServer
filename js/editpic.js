@@ -9,7 +9,6 @@ $('input[type=file]').change(function(){
 	getPath(fileimg,mycamera,fileimg);
 });
 
-var Imgs = new Array(5);
 var roleImages = new Array("img/grassfairy.png","img/watermagician.png","img/fireknight.png","img/stonemonster.png","img/lightninggiant.png");
 var roleNames = new Array("草魅精灵","水影巫师","火光骑士","岩石兽族","闪电巨人");
 var myId = Math.floor ((Math.random() * roleImages.length));
@@ -25,7 +24,9 @@ document.getElementById("matchId").onclick = function(){
 	
 	
 	for(var i=0;i<roleImages.length;i++){
-		roleImages[i].onLoad;
+		roleImages[i].onload = function(){ 
+			alert("chenggong"); 
+		};
 	}
 	
 	rolechange();
@@ -41,7 +42,7 @@ document.getElementById("matchId").onclick = function(){
 				m++;
 				thisId++;
 				if (thisId == roleImages.length) {
-					thisId = 0;
+					thisId  = 0;
 				}
 				document.getElementById("roleimages").src = roleImages[thisId];
 				document.getElementById("rolenames").innerHTML = roleNames[thisId];
