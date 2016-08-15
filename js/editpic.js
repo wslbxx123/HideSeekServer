@@ -24,7 +24,7 @@ document.getElementById("matchId").onclick = function(){
 				+ "&sex="+ document.getElementById("sex").options[index].text
 				+ "&region=" + document.getElementById("citySelect").value
 				+ "&role=" + myId
-				+ "&photo_url=" + document.getElementById("photo").src;
+				+ "&photo_url=" + encodeURIComponent(document.getElementById("photo").src);
 				
 	var mymessages = {
 		
