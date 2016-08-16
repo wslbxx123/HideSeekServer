@@ -224,12 +224,12 @@ document.getElementById("myorder").onclick = function(){
 						alert(JSON.stringify(result));
 						$("#listArea1").fadeIn();
 						var orderArea = document.getElementById("orderArea");
-						var listArea = document.getElementById("listArea");
+						var listArea1 = document.getElementById("listArea1");
 						for(var i = 0;i < result.result.orders.length;i++){	
 							//创建商品橱窗框
 							var listDiv = document.createElement('div');
 							listDiv.className = "orderlist";
-						  	listArea.appendChild(listDiv);
+						  	listArea1.appendChild(listDiv);
 						    var listImg = document.createElement('img');
 						    listImg.className = "orderprodct";
 						    listImg.src = result.result.orders[i].product_image_url;
