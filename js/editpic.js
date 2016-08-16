@@ -467,6 +467,7 @@ if(window.sessionStorage){
 			$("#myprofile" ).fadeOut();
 			$("#myorder").fadeOut();
 			$("#orderArea").fadeOut();
+			getClick = false;
 		});
 
 	}
