@@ -163,6 +163,7 @@ document.getElementById("myorder").onclick = function(){
 	//			jsonpCallback:"success_jsonpCallback",	
 				success: function(result, status) {
 						alert(JSON.stringify(result));
+						$("#listArea").fadeIn();
 						var orderArea = document.getElementById("orderArea");
 						for(var i = 0;i < result.result.orders.length;i++){	
 							//创建商品橱窗框
