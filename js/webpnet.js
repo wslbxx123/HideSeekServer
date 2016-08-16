@@ -98,6 +98,7 @@ $(function(){
 				        
 				} 		
 				 $(".purGet").click(function(){
+				 	alert(getClick);
 					   if (!getClick&&sessionStorage.getItem("nickname")==null){
 					   		alert("请先登录！");
 					   }
@@ -225,6 +226,7 @@ $(function(){
 				    
 				}
 				 $(".exGet").click(function(){
+				 		alert(getClick);
 					   if (!getClick&&sessionStorage.getItem("nickname")==null){
 					   		alert("请先登录！");
 					   }
