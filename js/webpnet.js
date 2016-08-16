@@ -15,6 +15,18 @@ $(function(){
 	record = sessionStorage.getItem("record");
 	myimgpath = sessionStorage.getItem("myimgpath");
 	
+	// 清除缓存
+	$("#exit").click(function(){
+		sessionStorage.clear();
+		$(".inner_menu").fadeIn();
+		$("#myimg").fadeOut();
+		$("#myprofile" ).fadeOut();
+		$("#myorder").fadeOut();
+		$("#orderArea").fadeOut();
+		getClick = false;
+	});
+	
+	
 	var purStore = {
 			url: "/index.php/home/store/refreshProducts",
 			type: 'POST',
