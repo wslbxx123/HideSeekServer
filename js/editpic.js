@@ -162,7 +162,7 @@ document.getElementById("myorder").onclick = function(){
 	//			jsonp: 'callback',
 	//			jsonpCallback:"success_jsonpCallback",	
 				success: function(result, status) {
-					
+						alert(JSON.stringify(result));
 						var orderArea = document.getElementById("orderArea");
 						for(var i = 0;i < result.result.orders.length;i++){	
 							//创建商品橱窗框
@@ -219,6 +219,7 @@ document.getElementById("myorder").onclick = function(){
 	//			jsonp: 'callback',
 	//			jsonpCallback:"success_jsonpCallback",	
 				success: function(result, status) {
+						alert(JSON.stringify(result));
 						var orderArea = document.getElementById("orderArea");
 						for(var i = 0;i < result.result.orders.length;i++){	
 							//创建商品橱窗框
