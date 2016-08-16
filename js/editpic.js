@@ -459,21 +459,22 @@ if(window.sessionStorage){
 			$("#myorder").fadeIn();
 			getClick = true;
 		}
-	// 清除缓存
-		$("#exit").click(function(){
-			sessionStorage.clear();
-			$(".inner_menu").fadeIn();
-			$("#myimg").fadeOut();
-			$("#myprofile" ).fadeOut();
-			$("#myorder").fadeOut();
-			$("#orderArea").fadeOut();
-			getClick = false;
-		});
-
 	}
 	else{
 		alert('对不起，您的浏览器不支持HTML5本地存储');
 	}
+
+// 清除缓存
+$("#exit").click(function(){
+	sessionStorage.clear();
+	$(".inner_menu").fadeIn();
+	$("#myimg").fadeOut();
+	$("#myprofile" ).fadeOut();
+	$("#myorder").fadeOut();
+	$("#orderArea").fadeOut();
+	getClick = false;
+});
+
 
 
 $("#purOrder").click(function(){
