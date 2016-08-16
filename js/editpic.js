@@ -212,9 +212,9 @@ document.getElementById("myorder").onclick = function(){
 			error: function(XMLHttpRequest, textStatus, errorThrown) {
 				alert("网络出现问题！");
 			}
-		};
-		$.ajax(orderArea);
-	}
+	};
+	$.ajax(orderArea);
+
 }
 
 			
