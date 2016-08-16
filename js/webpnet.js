@@ -110,7 +110,7 @@ $(function(){
 				        
 				} 		
 				 $(".purGet").click(function(){
-				 	alert(getClick);
+				 	
 					   if (!getClick&&sessionStorage.getItem("nickname")==null){
 					   		alert("请先登录！");
 					   }
@@ -238,7 +238,7 @@ $(function(){
 				    
 				}
 				 $(".exGet").click(function(){
-				 		alert(getClick);
+			
 					   if (!getClick&&sessionStorage.getItem("nickname")==null){
 					   		alert("请先登录！");
 					   }
@@ -573,7 +573,7 @@ $(function(){
 //				jsonp: 'callback',
 //				jsonpCallback:"success_jsonpCallback",
 				success: function(result, status) {
-					alert(JSON.stringify(result));
+//					alert(JSON.stringify(result));
 					switch(result["code"]){
 						case "10000":
 							sessionid = result["result"]["session_id"];

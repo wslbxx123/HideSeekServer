@@ -162,7 +162,7 @@ document.getElementById("myorder").onclick = function(){
 	//			jsonp: 'callback',
 	//			jsonpCallback:"success_jsonpCallback",	
 				success: function(result, status) {
-						alert(JSON.stringify(result));
+//						alert(JSON.stringify(result));
 						$("#listArea").fadeIn();
 						var orderArea = document.getElementById("orderArea");
 						var listArea = document.getElementById("listArea");
@@ -221,7 +221,6 @@ document.getElementById("myorder").onclick = function(){
 	//			jsonp: 'callback',
 	//			jsonpCallback:"success_jsonpCallback",	
 				success: function(result, status) {
-						alert(JSON.stringify(result));
 						$("#listArea1").fadeIn();
 						var orderArea = document.getElementById("orderArea");
 						var listArea1 = document.getElementById("listArea1");
@@ -463,17 +462,6 @@ if(window.sessionStorage){
 	else{
 		alert('对不起，您的浏览器不支持HTML5本地存储');
 	}
-
-// 清除缓存
-$("#exit").click(function(){
-	sessionStorage.clear();
-	$(".inner_menu").fadeIn();
-	$("#myimg").fadeOut();
-	$("#myprofile" ).fadeOut();
-	$("#myorder").fadeOut();
-	$("#orderArea").fadeOut();
-	getClick = false;
-});
 
 
 
