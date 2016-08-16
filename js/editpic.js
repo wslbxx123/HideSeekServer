@@ -185,7 +185,7 @@ document.getElementById("myorder").onclick = function(){
 						    listDiv.appendChild(sumDiv);
 						    var numSpan = document.createElement('span');
 						    numSpan.className = "orderNum";
-						    numSpan.innerHTML = "总计:"+result.result.orders[i].purchase_count+"(个数)×"+result.result.orders[i].price+"(单价)="+result.result.orders[i].purchase_count*result.result.orders[i].price+"元"; 
+						    numSpan.innerHTML = "总计:"+result.result.orders[i].count+"(个数)×"+result.result.orders[i].price+"(单价)="+result.result.orders[i].purchase_count*result.result.orders[i].price+"元"; 
 						    sumDiv.appendChild(numSpan);
 						    var statusDiv = document.createElement('div');
 						    if(result.result.orders[i].status=="0"){
@@ -232,11 +232,11 @@ document.getElementById("myorder").onclick = function(){
 						  	listArea1.appendChild(listDiv);
 						    var listImg = document.createElement('img');
 						    listImg.className = "orderprodct";
-						    listImg.src = result.result.orders[i].product_image_url;
+						    listImg.src = result.result.orders[i].reward_image_url;
 						    listDiv.appendChild(listImg);
 						    var nameDiv = document.createElement('div');
 						    nameDiv.className = "ordername";
-						    nameDiv.innerHTML = result.result.orders[i].product_name;
+						    nameDiv.innerHTML = result.result.orders[i].reward_name;
 						    listDiv.appendChild(nameDiv);
 						    var sumDiv = document.createElement('div');
 						    sumDiv.className = "ordersum";
@@ -244,7 +244,7 @@ document.getElementById("myorder").onclick = function(){
 						    listDiv.appendChild(sumDiv);
 						    var numSpan = document.createElement('span');
 						    numSpan.className = "orderNum";
-						    numSpan.innerHTML = "总计:"+result.result.orders[i].purchase_count+"(个数)×"+result.result.orders[i].price+"(单价)="+result.result.orders[i].purchase_count*result.result.orders[i].price+"元"; 
+						    numSpan.innerHTML = "总计:"+result.result.orders[i].count+"(个数)×"+result.result.orders[i].record+"(单价)="+result.result.orders[i].count*result.result.orders[i].record+"元"; 
 						    sumDiv.appendChild(numSpan);
 						    var statusDiv = document.createElement('div');
 						    if(result.result.orders[i].status=="0"){
