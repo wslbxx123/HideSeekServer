@@ -1165,7 +1165,7 @@ p.tip{
 }
 
 #listArea{
-	height: 340px;
+	height: 320px;
     width: 100%;
     overflow: auto;
     margin-top: 8px;
@@ -1174,10 +1174,9 @@ p.tip{
 }
 
 #listArea1{
-	height: 340px;
+	height: 320px;
     width: 100%;
     overflow: auto;
     margin-top: 8px;
     position: absolute;
-    display:none;
 }

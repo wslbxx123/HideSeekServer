@@ -222,6 +222,7 @@ document.getElementById("myorder").onclick = function(){
 	//			jsonpCallback:"success_jsonpCallback",	
 				success: function(result, status) {
 						alert(JSON.stringify(result));
+						$("#listArea1").fadeIn();
 						var orderArea = document.getElementById("orderArea");
 						var listArea = document.getElementById("listArea");
 						for(var i = 0;i < result.result.orders.length;i++){	
@@ -261,7 +262,7 @@ document.getElementById("myorder").onclick = function(){
 							    listDiv.appendChild(statusDiv);
 						    }    
 						}
-						clickaction = false;
+						$("#listArea1").fadeOut();
 				},
 				error: function(XMLHttpRequest, textStatus, errorThrown) {
 					("网络出现问题！");
