@@ -185,7 +185,7 @@ document.getElementById("myorder").onclick = function(){
 						    listDiv.appendChild(sumDiv);
 						    var numSpan = document.createElement('span');
 						    numSpan.className = "orderNum";
-						    numSpan.innerHTML = "总计:"+result.result.orders[i].count+"(个数)×"+result.result.orders[i].price+"(单价)="+result.result.orders[i].purchase_count*result.result.orders[i].price+"元"; 
+						    numSpan.innerHTML = result.result.orders[i].count+"(个数)×"+result.result.orders[i].price+"(单价)="+result.result.orders[i].purchase_count*result.result.orders[i].price+"元"; 
 						    sumDiv.appendChild(numSpan);
 						    var statusDiv = document.createElement('div');
 						    if(result.result.orders[i].status=="0"){
@@ -244,7 +244,7 @@ document.getElementById("myorder").onclick = function(){
 						    listDiv.appendChild(sumDiv);
 						    var numSpan = document.createElement('span');
 						    numSpan.className = "orderNum";
-						    numSpan.innerHTML = "总计:"+result.result.orders[i].count+"(个数)×"+result.result.orders[i].record+"(单价)="+result.result.orders[i].count*result.result.orders[i].record+"元"; 
+						    numSpan.innerHTML = result.result.orders[i].count+"(个数)×"+result.result.orders[i].record+"(单价)="+result.result.orders[i].count*result.result.orders[i].record+"元"; 
 						    sumDiv.appendChild(numSpan);
 						    var statusDiv = document.createElement('div');
 						    if(result.result.orders[i].status=="0"){
@@ -466,7 +466,7 @@ if(window.sessionStorage){
 			$("#myimg").fadeOut();
 			$("#myprofile" ).fadeOut();
 			$("#myorder").fadeOut();
-			
+			$("#orderArea").fadeOut();
 		});
 
 	}
