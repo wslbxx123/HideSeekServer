@@ -355,7 +355,7 @@ function getPath(obj,fileQuery,transImg){
 		var endy;
 		var x;
 		var n;
-		
+		 
 
 	    
 		if(width>document.body.clientWidth*0.3){
