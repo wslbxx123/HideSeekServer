@@ -212,7 +212,7 @@ document.getElementById("myorder").onclick = function(){
 		$.ajax(orderArea1);
 	
 		var orderArea2 = {
-				url: "/index.php/home/store/refreshPurchaseOrders",
+				url: "/index.php/home/store/refreshExchangeOrders",
 				type: 'POST',
 				data: "version=0&order_min_id=0"+
 				"&session_id=" + sessionStorage.getItem("sessionid"),
