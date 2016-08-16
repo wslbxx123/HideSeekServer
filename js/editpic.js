@@ -161,6 +161,7 @@ document.getElementById("myorder").onclick = function(){
 //			jsonp: 'callback',
 //			jsonpCallback:"success_jsonpCallback",	
 			success: function(result, status) {
+				alert(sessionid);
 				alert(JSON.stringify(result));
 				$("#orderArea").fadeIn();
 				if (clickaction){
