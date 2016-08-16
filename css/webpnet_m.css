@@ -286,8 +286,8 @@ input.invalid {
 }
 
 #myprofile{
-	right: 24px;
-    top: 1%;
+	right: 17px;
+    top: 8px;
     position: absolute;
     display: none;
     font-size: 12px;
@@ -954,7 +954,7 @@ p.tip{
 	height: 31px;
     width: 31px;
     margin-top: 12px;
-    right: 86px;
+    right: 78px;
     position: absolute;
     display: none;
 }
