@@ -14,7 +14,7 @@ use Home\Common\Param\CodeParam;
 class MapControllerManager {
     public function checkUserInAccountArray($accountArray, $accountId, $goalId) {
         $flag = true;
-        if(count($accountArray) > 0 && !isset($accountArray[0]["null"])) {
+        if(count($accountArray) > 0 && !isset($accountArray[0]['result'])) {
             $flag = false;
             $version = PullVersionManager::updateRaceGroupVersion();
             foreach ($accountArray as $accountResult){ 

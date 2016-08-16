@@ -81,11 +81,11 @@ class MapController extends BaseController {
                 $account['pk_id'], $goalId);
                 
         if(!$result['flag']) {
-            BaseUtil::echoJson(CodeParam::GOAL_DISAPPEAR, $accountArray);
+            BaseUtil::echoJson(CodeParam::GOAL_DISAPPEAR, $result);
             return;
         }
         
-        BaseUtil::echoJson(CodeParam::SUCCESS, $result['score_sum']);
+        BaseUtil::echoJson(CodeParam::SUCCESS, $result);
     }
     
     public function setBomb() {
