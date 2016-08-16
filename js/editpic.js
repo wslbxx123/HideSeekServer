@@ -481,6 +481,7 @@ $("#purOrder").click(function(){
 	$("#listArea").fadeIn();
 	$("#listArea1").fadeOut();
 });
+
 $("#exOrder").click(function(){
 	$("#exOrder").attr("class", "selected");
 	$("#purOrder").attr("class", "");
