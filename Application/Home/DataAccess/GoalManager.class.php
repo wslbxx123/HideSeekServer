@@ -19,7 +19,13 @@ class GoalManager {
                     . "$accountRole, \"$updateTime\")";
         $goals = $Dao->query($sql);
         $pos = array_search(max($goals['update_time']), $goals);
-        $updateTimestamp = $goals[$pos]['update_time'];
+        
+        if(count($goals) > 0) {
+            $updateTimestamp = $goals[$pos]['update_time'];
+        } else {
+            $updateTimestamp = $updateTime;
+        }
+        
         return array (
                 'update_time' => $updateTimestamp,
                 'goals' => $goals);
