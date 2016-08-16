@@ -76,6 +76,7 @@ document.getElementById("matchId").onclick = function(){
 					rotate();
 				}, 100);
 			}
+			
 			else{
 				document.getElementById("roleimages").src = roleImages[myId];
 				document.getElementById("rolenames").innerHTML = roleNames[myId];
@@ -87,7 +88,7 @@ document.getElementById("matchId").onclick = function(){
 					$("#myprofile").fadeIn(); 
 					$("#myimg").fadeIn(); 
 					document.getElementById("nickname").innerHTML = document.getElementById("userName").value;
-					document.getElementById("scoreNum").innerHTML = Num;
+					document.getElementById("scoreNum").innerHTML = "0";
 					$("#newWin4").fadeOut(); 
 					$("#storecover").fadeOut(); 
 //					checkBox();
@@ -117,8 +118,8 @@ document.getElementById("matchId").onclick = function(){
 //		jsonp: 'callback',
 //		jsonpCallback:"success_jsonpCallback",
 		success: function(result, status) {
-			alert(document.getElementById("photo").src);
-			alert(JSON.stringify(result));
+//			alert(document.getElementById("photo").src);
+//			alert(JSON.stringify(result));
 			switch(result["code"]){
 				case "10000":
 					Num = result["result"]["record"];
@@ -132,7 +133,8 @@ document.getElementById("matchId").onclick = function(){
 					sessionStorage.setItem("sessionid", result["result"]["session_id"]);
 					$("#nickname").html($("#userName").val());
 					$("#scoreNum").html(Num);
-					$("#myimg").attr('src',$("#photo").attr("src")); 
+					$("#myimg").attr('src',$("#photo").attr("src"));
+					$("myorder").fadeIn();
 					break;
 			  	case "10003":
 			  		alert("填写信息失败！")
@@ -149,70 +151,123 @@ document.getElementById("matchId").onclick = function(){
 
 var clickaction = true;
 document.getElementById("myorder").onclick = function(){
-	
-	if (clickaction){
-		var orderArea = {
-			url: "/index.php/home/store/refreshPurchaseOrders",
-			type: 'POST',
-			data: "version=0&order_min_id=0"+
-			"&session_id=" + sessionid,
-			dataType: "json",
-			
-//			jsonp: 'callback',
-//			jsonpCallback:"success_jsonpCallback",	
-			success: function(result, status) {
-				$("#orderArea").fadeIn();
-				var orderArea = document.getElementById("orderArea");
-			  	var titleDiv = document.createElement('div');
-			  	titleDiv.id = "ordertitle";
-			  	titleDiv.innerHTML = "我的订单";
-			  	orderArea.appendChild(titleDiv);
-			  	clickaction = false;
-				for(var i = 0;i < result.result.orders.length;i++){	
-					//创建商品橱窗框
-					var listDiv = document.createElement('div');
-					listDiv.className = "orderlist";
-				  	orderArea.appendChild(listDiv);
-				    var listImg = document.createElement('img');
-				    listImg.className = "orderprodct";
-				    listImg.src = result.result.orders[i].product_image_url;
-				    listDiv.appendChild(listImg);
-				    var nameDiv = document.createElement('div');
-				    nameDiv.className = "ordername";
-				    nameDiv.innerHTML = result.result.orders[i].product_name;
-				    listDiv.appendChild(nameDiv);
-				    var sumDiv = document.createElement('div');
-				    sumDiv.className = "ordersum";
-				    sumDiv.innerHTML = "总计：";
-				    listDiv.appendChild(sumDiv);
-				    var numSpan = document.createElement('span');
-				    numSpan.className = "orderNum";
-				    numSpan.innerHTML = "总计:"+result.result.orders[i].purchase_count+"(个数)×"+result.result.orders[i].price+"(单价)="+result.result.orders[i].purchase_count*result.result.orders[i].price+"元"; 
-				    sumDiv.appendChild(numSpan);
-				    var statusDiv = document.createElement('div');
-				    if(result.result.orders[i].status=="0"){
-				    	statusDiv.className = "orderstatus1";
-					    statusDiv.innerHTML = "未付款";
-					    listDiv.appendChild(statusDiv);
-					    var payDiv = document.createElement('div');
-					    payDiv.className = "orderpay";
-					    payDiv.innerHTML = "点我付款";
-					    listDiv.appendChild(payDiv);
-				    }
-				    else{
-				    	statusDiv.className = "orderstatus";
-					    statusDiv.innerHTML = "交易成功";
-					    listDiv.appendChild(statusDiv);
-				    }
-				    
-				} 		
-			},
-			error: function(XMLHttpRequest, textStatus, errorThrown) {
-				alert("网络出现问题！");
-			}
+	$("#orderArea").fadeIn();
+		var orderArea1 = {
+				url: "/index.php/home/store/refreshPurchaseOrders",
+				type: 'POST',
+				data: "version=0&order_min_id=0"+
+				"&session_id=" + sessionStorage.getItem("sessionid"),
+				dataType: "json",
+				
+	//			jsonp: 'callback',
+	//			jsonpCallback:"success_jsonpCallback",	
+				success: function(result, status) {
+//						alert(JSON.stringify(result));
+						$("#listArea").fadeIn();
+						var orderArea = document.getElementById("orderArea");
+						var listArea = document.getElementById("listArea");
+						for(var i = 0;i < result.result.orders.length;i++){	
+							//创建商品橱窗框
+							var listDiv = document.createElement('div');
+							listDiv.className = "orderlist";
+						  	listArea.appendChild(listDiv);
+						    var listImg = document.createElement('img');
+						    listImg.className = "orderprodct";
+						    listImg.src = result.result.orders[i].product_image_url;
+						    listDiv.appendChild(listImg);
+						    var nameDiv = document.createElement('div');
+						    nameDiv.className = "ordername";
+						    nameDiv.innerHTML = result.result.orders[i].product_name;
+						    listDiv.appendChild(nameDiv);
+						    var sumDiv = document.createElement('div');
+						    sumDiv.className = "ordersum";
+						    sumDiv.innerHTML = "总计：";
+						    listDiv.appendChild(sumDiv);
+						    var numSpan = document.createElement('span');
+						    numSpan.className = "orderNum";
+						    numSpan.innerHTML = result.result.orders[i].count+"(个数)×"+result.result.orders[i].price+"(单价)="+result.result.orders[i].purchase_count*result.result.orders[i].price+"元"; 
+						    sumDiv.appendChild(numSpan);
+						    var statusDiv = document.createElement('div');
+						    if(result.result.orders[i].status=="0"){
+						    	statusDiv.className = "orderstatus1";
+							    statusDiv.innerHTML = "未付款";
+							    listDiv.appendChild(statusDiv);
+							    var payDiv = document.createElement('div');
+							    payDiv.className = "orderpay";
+							    payDiv.innerHTML = "点我付款";
+							    listDiv.appendChild(payDiv);
+						    }
+						    else{
+						    	statusDiv.className = "orderstatus";
+							    statusDiv.innerHTML = "交易成功";
+							    listDiv.appendChild(statusDiv);
+						    }    
+						}
+						clickaction = false;	
+				},
+				error: function(XMLHttpRequest, textStatus, errorThrown) {
+					alert("网络出现问题！");
+				}
 		};
-		$.ajax(orderArea);
-	}
+		$.ajax(orderArea1);
+	
+		var orderArea2 = {
+				url: "/index.php/home/store/refreshExchangeOrders",
+				type: 'POST',
+				data: "version=0&order_min_id=0"+
+				"&session_id=" + sessionStorage.getItem("sessionid"),
+				dataType: "json",
+				
+	//			jsonp: 'callback',
+	//			jsonpCallback:"success_jsonpCallback",	
+				success: function(result, status) {
+						$("#listArea1").fadeIn();
+						var orderArea = document.getElementById("orderArea");
+						var listArea1 = document.getElementById("listArea1");
+						for(var i = 0;i < result.result.orders.length;i++){	
+							//创建商品橱窗框
+							var listDiv = document.createElement('div');
+							listDiv.className = "orderlist";
+						  	listArea1.appendChild(listDiv);
+						    var listImg = document.createElement('img');
+						    listImg.className = "orderprodct";
+						    listImg.src = result.result.orders[i].reward_image_url;
+						    listDiv.appendChild(listImg);
+						    var nameDiv = document.createElement('div');
+						    nameDiv.className = "ordername";
+						    nameDiv.innerHTML = result.result.orders[i].reward_name;
+						    listDiv.appendChild(nameDiv);
+						    var sumDiv = document.createElement('div');
+						    sumDiv.className = "ordersum";
+						    sumDiv.innerHTML = "总计：";
+						    listDiv.appendChild(sumDiv);
+						    var numSpan = document.createElement('span');
+						    numSpan.className = "orderNum";
+						    numSpan.innerHTML = result.result.orders[i].count+"(个数)×"+result.result.orders[i].record+"(单价)="+result.result.orders[i].count*result.result.orders[i].record+"元"; 
+						    sumDiv.appendChild(numSpan);
+						    var statusDiv = document.createElement('div');
+						    if(result.result.orders[i].status=="0"){
+						    	statusDiv.className = "orderstatus1";
+							    statusDiv.innerHTML = "未付款";
+							    listDiv.appendChild(statusDiv);
+							    var payDiv = document.createElement('div');
+							    payDiv.className = "orderpay";
+							    payDiv.innerHTML = "点我付款";
+							    listDiv.appendChild(payDiv);
+						    }
+						    else{
+						    	statusDiv.className = "orderstatus";
+							    statusDiv.innerHTML = "交易成功";
+							    listDiv.appendChild(statusDiv);
+						    }    
+						}
+						$("#listArea1").fadeOut();
+				},
+				error: function(XMLHttpRequest, textStatus, errorThrown) {
+					("网络出现问题！");
+				}
+		};
+		$.ajax(orderArea2);
 }
 
 			
@@ -300,7 +355,7 @@ function getPath(obj,fileQuery,transImg){
 		var endy;
 		var x;
 		var n;
-		
+		 
 
 	    
 		if(width>document.body.clientWidth*0.3){
@@ -403,19 +458,23 @@ if(window.sessionStorage){
 			$("#myorder").fadeIn();
 			getClick = true;
 		}
-	// 清除缓存
-		$("#exit").click(function(){
-			sessionStorage.clear();
-			$(".inner_menu").fadeIn();
-			$("#myimg").fadeOut();
-			$("#myprofile" ).fadeOut();
-			$("#myorder").fadeOut();
-			
-		});
-
 	}
 	else{
 		alert('对不起，您的浏览器不支持HTML5本地存储');
 	}
 
 
+
+$("#purOrder").click(function(){
+	$("#purOrder").attr("class", "selected");
+	$("#exOrder").attr("class", "");
+	$("#listArea").fadeIn();
+	$("#listArea1").fadeOut();
+});
+
+$("#exOrder").click(function(){
+	$("#exOrder").attr("class", "selected");
+	$("#purOrder").attr("class", "");
+	$("#listArea1").fadeIn();
+	$("#listArea").fadeOut();
+});

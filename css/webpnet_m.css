@@ -286,7 +286,7 @@ input.invalid {
 }
 
 #myprofile{
-	right: 36px;
+	right: 24px;
     top: 1%;
     position: absolute;
     display: none;
@@ -435,7 +435,7 @@ input.invalid {
 	width: 118px;
     height: 98px;
     margin-top: 22px;
-    margin-left: 4%;
+    left: 9%;
     position: absolute;
 }
 
@@ -443,7 +443,7 @@ input.invalid {
 	width: 118px;
     height: 98px;
     margin-top: 22px;
-    margin-left: 4%;
+    left: 63%;
     position: absolute;
 }
 
@@ -953,8 +953,8 @@ p.tip{
 #myimg{
 	height: 31px;
     width: 31px;
-    margin-top: 1%;
-    right: 106px;
+    margin-top: 12px;
+    right: 86px;
     position: absolute;
     display: none;
 }
@@ -1114,4 +1114,50 @@ p.tip{
 
 #nickname{
 	text-align: center;
+}
+
+#guideOrder{
+	margin-left: 38%;
+    width: 135px;
+    height: 29px;
+    margin-top: 5px;
+    background-color: white;
+    border-radius: 5px;
+}
+
+#purOrder{
+	height: 29px;
+    width: 67px;
+    float: left;
+    text-align: center;
+    line-height: 29px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+#exOrder{
+	height: 29px;
+    width: 67px;
+    float: right;
+    text-align: center;
+    line-height: 29px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+#listArea{
+	height: 320px;
+    width: 100%;
+    overflow: auto;
+    margin-top: 8px;
+    position: absolute;
+    
+}
+
+#listArea1{
+	height: 320px;
+    width: 100%;
+    overflow: auto;
+    margin-top: 8px;
+    position: absolute;
 }

@@ -1,0 +1,18 @@
+[ 2016-08-16T17:29:20+08:00 ] ::1 /hideseek/webpnet/screen.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.081005s ]
+ERR: 无法加载模块:Webpnet
+
+[ 2016-08-16T17:31:14+08:00 ] ::1 /hideseek/img/grassfairy.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+ERR: 无法加载模块:Img
+
+[ 2016-08-16T17:31:18+08:00 ] ::1 /hideseek/img/grassfairy.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+ERR: 无法加载模块:Img
+

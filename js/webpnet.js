@@ -15,6 +15,18 @@ $(function(){
 	record = sessionStorage.getItem("record");
 	myimgpath = sessionStorage.getItem("myimgpath");
 	
+	// 清除缓存
+	$("#exit").click(function(){
+		sessionStorage.clear();
+		$(".inner_menu").fadeIn();
+		$("#myimg").fadeOut();
+		$("#myprofile" ).fadeOut();
+		$("#myorder").fadeOut();
+		$("#orderArea").fadeOut();
+		getClick = false;
+	});
+	
+	
 	var purStore = {
 			url: "/index.php/home/store/refreshProducts",
 			type: 'POST',
@@ -98,7 +110,8 @@ $(function(){
 				        
 				} 		
 				 $(".purGet").click(function(){
-					   if (!getClick&&nickname==null&&record==null){
+				 	
+					   if (!getClick&&sessionStorage.getItem("nickname")==null){
 					   		alert("请先登录！");
 					   }
 					   else{
@@ -111,10 +124,10 @@ $(function(){
 					   		});
 					   		$("#confirmpurchase").fadeIn();
 					   		$("#enterAlipay").click(function(){
-								alert($(".goodsNum").val());
-								alert(2-parseInt(t));
+//								alert($(".goodsNum").val());
+//								alert(2-parseInt(t));
 								sessionid = sessionStorage.getItem("sessionid");
-								alert(sessionid);
+//								alert(sessionid);
 								var data = "session_id=" + sessionid
 										  + "&store_id=" + (2-parseInt(t))
 										  + "&count=" + $(".goodsNum").val();
@@ -123,7 +136,7 @@ $(function(){
 									type: 'POST',
 									data:data,
 									success: function(result, status) {
-								        alert(JSON.stringify(result));
+//								        alert(JSON.stringify(result));
 										document.getElementById("alipaypage").innerHTML = result;
 										document.getElementById("alipaysubmit").submit();
 									},
@@ -225,15 +238,28 @@ $(function(){
 				    
 				}
 				 $(".exGet").click(function(){
-					   if (!getClick&&nickname==null&&record==null){
+			
+					   if (!getClick&&sessionStorage.getItem("nickname")==null){
 					   		alert("请先登录！");
 					   }
 					   else{
 					   		t = $(this).attr("id");
-					   		$(".goodsName").html(result.result.reward[t].reward_name);
-					   		$(".goodsprice").html($(".goodsNum").val()*result.result.reward[t].record+"积分");
-					   		$("#confirmexchange").fadeIn();
+					   		var gNum = $(".goodsNum1").val()*result.result.reward[t].record+"积分"
 					   		
+					   		$(".goodsName").html(result.result.reward[t].reward_name);
+					   		$(".goodsprice1").html(gNum);
+					   		$('input[type=number]').change(function(){
+					   			$(".goodsprice1").html($(".goodsNum1").val()*result.result.reward[t].record+"元");
+					   		});
+					   		$("#confirmexchange").fadeIn();
+					   		$("#confirmpay").click(function(){
+					   			if($("#scoreNum").html()>=gNum){
+					   				$("#scoreNum").html($("#scoreNum").html()-gNum);
+					   			}
+					   			else{
+					   				alert("亲，积分不足！")
+					   			}
+					   		});	
 					   }
 				});
 			},
@@ -317,67 +343,69 @@ $(function(){
 		$("#confirmpurchase").fadeOut();
 		$("#orderArea").fadeOut();
 		$("#storecover").fadeOut();
+		$("#confirmexchange").fadeOut();
+		$("#listarea .orderlist").remove();
 	});
 	
 	var time = true;
 	var time1 = true;
 //发送和检验验证码
-//	document.getElementById("verifiCode").onclick = function(){
-//	   	if(time1){    
-//			var verificode = {
-//				url: "/index.php/home/user/sendVerificationCode",
-//				type: 'POST',
-//				data: "phone=" + $("#userphone").val(),
-//				dataType: "json",
-//				
-//				success: function(result, status){   
-//					switch(result["code"]){
-//						case "10000":
-//							codeNumber = result["result"]["sms_code"];
-//							if(result["result"]["content"]["error_code"]==0){
-//							 	
-//								time = true;
-//								time1 = false;
-//								var tim = 59;
-//								$("#verifiCode").val("发送成功!");
-//								$("#verifiCode").css("background-color","darkgrey"); 
-//								
-//								setTimeout(function(){
-//									round();
-//									
-//								},1000);
-//								
-//								
-//							 	function round(){
-//							    	$("#verifiCode").val(tim+"秒");
-//							    	tim--;
-//							    	if(tim == 0){
-//							    		time = false;
-//							    		time1 = true;
-//							        	$("#verifiCode").css("background-color","#FFCC00"); 
-//							        	$("#verifiCode").val("发送验证码");
-//							        }
-//							        if(time){
-//							        	setTimeout(function(){
-//											round();
-//										},1000);
-//							        }
-//								}
-//							}	
-//							break;
-//					  	case "10001":
-//					  		$("#fault").fadeIn();
-//					  		break;
-//					}
-//					
-//				},
-//				error: function(XMLHttpRequest, textStatus, errorThrown) {
-//					alert("发送验证码失败！");
-//				}
-//			};
-//			$.ajax(verificode);
-//		}
-//	}
+	document.getElementById("verifiCode").onclick = function(){
+	   	if(time1){    
+			var verificode = {
+				url: "/index.php/home/user/sendVerificationCode",
+				type: 'POST',
+				data: "phone=" + $("#userphone").val(),
+				dataType: "json",
+				
+				success: function(result, status){   
+					switch(result["code"]){
+						case "10000":
+							codeNumber = result["result"]["sms_code"];
+							if(result["result"]["content"]["error_code"]==0){
+							 	
+								time = true;
+								time1 = false;
+								var tim = 59;
+								$("#verifiCode").val("发送成功!");
+								$("#verifiCode").css("background-color","darkgrey"); 
+								
+								setTimeout(function(){
+									round();
+									
+								},1000);
+								
+								
+							 	function round(){
+							    	$("#verifiCode").val(tim+"秒");
+							    	tim--;
+							    	if(tim == 0){
+							    		time = false;
+							    		time1 = true;
+							        	$("#verifiCode").css("background-color","#FFCC00"); 
+							        	$("#verifiCode").val("发送验证码");
+							        }
+							        if(time){
+							        	setTimeout(function(){
+											round();
+										},1000);
+							        }
+								}
+							}	
+							break;
+					  	case "10001":
+					  		$("#fault").fadeIn();
+					  		break;
+					}
+					
+				},
+				error: function(XMLHttpRequest, textStatus, errorThrown) {
+					alert("发送验证码失败！");
+				}
+			};
+			$.ajax(verificode);
+		}
+	}
 	
 
 	
@@ -463,13 +491,13 @@ $(function(){
 		 	}
   		}
 		
-////		if($("#codeNum").val() == codeNumber){
-////		   allGood = true;
-////		}
-//		else{
-//			allGood = false;
-//			alert("验证码错误！");
-//		}		
+		if($("#codeNum").val() == codeNumber){
+		   allGood = true;
+		}
+		else{
+			allGood = false;
+			alert("验证码错误！");
+		}		
 
 	
 		if(allGood) {
@@ -545,6 +573,7 @@ $(function(){
 //				jsonp: 'callback',
 //				jsonpCallback:"success_jsonpCallback",
 				success: function(result, status) {
+//					alert(JSON.stringify(result));
 					switch(result["code"]){
 						case "10000":
 							sessionid = result["result"]["session_id"];
