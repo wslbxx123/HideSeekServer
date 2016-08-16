@@ -27,6 +27,11 @@ class MessageFactory {
         if($storeMessage != null) {
             return $storeMessage;
         }
+        
+        $mapMessage = self::getMapMessage($code);
+        if($mapMessage != null) {
+            return $mapMessage;
+        }
     }
     
     public function getUserMessage($code) {
@@ -60,6 +65,17 @@ class MessageFactory {
                 return MessageParam::ORDER_ID_WRONG;
             case CodeParam::REWARD_ID_EMPTY:
                 return MessageParam::REWARD_ID_EMPTY;
+            default:
+                return null;
+        }
+    }
+    
+    public function getMapMessage($code) {
+        switch($code) {
+            case CodeParam::GOAL_ID_OR_TYPE_EMPTY:
+                return MessageParam::GOAL_ID_OR_TYPE_EMPTY;
+            case CodeParam::LATITUDE_OR_LONGITUDE_EMPTY:
+                return MessageParam::LATITUDE_OR_LONGITUDE_EMPTY;
             default:
                 return null;
         }

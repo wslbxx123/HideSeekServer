@@ -9,41 +9,32 @@ use Home\DataAccess\AccountManager;
 
 class MapController extends BaseController {
     public function refresh(){
-        $code = "10000";
-        $message = "地图刷新成功";
+        self::setHeader();
         
-        if(isset($_POST['latitude']) && isset($_POST['longitude'])) {
-            $goalDao = M("goal");
-            $latitude = $_POST['latitude'];
-            $longitude = $_POST['longitude'];
-            $account_role = $_POST['account_role'];
-            $update_timestamp = $_POST['update_time'];
-            
-            if(!isset($account_role)) {
-                $account_role = 0;
-            }
-            
-            if(!isset($update_timestamp)) {
-                $update_timestamp = "null";
-            }
-            
-            settype($latitude, "double");
-            settype($longitude, "double");
-            $sql = "call admin_monster_role_p($latitude, $longitude, "
-                    . "$account_role, \"$update_timestamp\")";
-            $goals = $goalDao->query($sql);
-        } else{
-            $code = "10005";
-            $message = "经纬度不能为空";
+        $latitude = filter_input(INPUT_POST, 'latitude');
+        $longitude = filter_input(INPUT_POST, 'longitude');
+        $accountRole = filter_input(INPUT_POST, 'account_role');
+        $updateTime = filter_input(INPUT_POST, 'update_time');
+        
+        if(!isset($latitude) || !isset($longitude)) {
+            BaseUtil::echoJson(CodeParam::LATITUDE_OR_LONGITUDE_EMPTY, null);
+            return;
         }
         
-        $update_timestamp = $goalDao->max('update_time');
+        if(!isset($accountRole)) {
+            $accountRole = 0;
+        }
+
+        if(!isset($updateTime)) {
+            $updateTime = "null";
+        }
         
-        $array = array ('code' => $code, 'message' => $message, 
-            'result' => array (
-                'update_time' => $update_timestamp,
-                'goals' => $goals));
-        echo json_encode($array);
+        settype($latitude, "double");
+        settype($longitude, "double");
+        
+        $result = GoalManager::getGoalInfo($latitude, $longitude, 
+                $accountRole, $updateTime);
+        BaseUtil::echoJson(CodeParam::SUCCESS, $result);
     }
     
     public function getGoal() {

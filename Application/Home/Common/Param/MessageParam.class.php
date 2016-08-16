@@ -28,5 +28,6 @@ class MessageParam {
     
     #region 地图信息
     const GOAL_ID_OR_TYPE_EMPTY = "目标ID或目标类型为空";
+    const LATITUDE_OR_LONGITUDE_EMPTY = "经纬度不能为空";
     #endregion
 }
