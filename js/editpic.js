@@ -151,6 +151,7 @@ document.getElementById("matchId").onclick = function(){
 
 var clickaction = true;
 document.getElementById("myorder").onclick = function(){
+	alert(clickaction);
 	var orderArea = {
 			url: "/index.php/home/store/refreshPurchaseOrders",
 			type: 'POST',
@@ -204,9 +205,9 @@ document.getElementById("myorder").onclick = function(){
 					    	statusDiv.className = "orderstatus";
 						    statusDiv.innerHTML = "交易成功";
 						    listDiv.appendChild(statusDiv);
-					    }
-					    clickaction = false;
-					} 	
+					    }    
+					}
+					clickaction = false;
 				}	
 			},
 			error: function(XMLHttpRequest, textStatus, errorThrown) {
