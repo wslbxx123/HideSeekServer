@@ -246,6 +246,14 @@ input.invalid {
     margin-top: 15px;
 }   
 
+.goodsNum1{
+	height: 25px;
+    width: 35px;
+    float: right;
+    margin-right: 33px;
+    margin-top: 15px;
+}  
+
 .goodsBack{
 	background-color: #f0f0f0;
     height: 56px;
@@ -1070,18 +1078,37 @@ p.tip{
     
 }
 
+
+#confirmpay{
+	width: 87%;
+    height: 38px;
+    margin-top: 100px;
+    background-color: #ffcc00;
+    position: absolute;
+    line-height: 38px;
+    cursor:pointer;
+}
+
 .goodsSum{
 	height: 29px;
     width: 100px;
     position: absolute;
     margin-top: 64px;
-    margin-left: 65%;
+    margin-left: 62%;
     line-height: 29px;
+    font-size:14px;
 }
 
 .goodsprice{
 	position: absolute;
-    width: 24px;
+    width: 50px;
+    margin-top: 0px;
+    margin-left: -1%;
+}
+
+.goodsprice1{
+	position: absolute;
+    width: 50px;
     margin-top: 0px;
     margin-left: -1%;
 }

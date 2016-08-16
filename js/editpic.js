@@ -87,7 +87,7 @@ document.getElementById("matchId").onclick = function(){
 					$("#myprofile").fadeIn(); 
 					$("#myimg").fadeIn(); 
 					document.getElementById("nickname").innerHTML = document.getElementById("userName").value;
-					document.getElementById("scoreNum").innerHTML = Num;
+					document.getElementById("scoreNum").innerHTML = "0";
 					$("#newWin4").fadeOut(); 
 					$("#storecover").fadeOut(); 
 //					checkBox();
@@ -117,8 +117,8 @@ document.getElementById("matchId").onclick = function(){
 //		jsonp: 'callback',
 //		jsonpCallback:"success_jsonpCallback",
 		success: function(result, status) {
-			alert(document.getElementById("photo").src);
-			alert(JSON.stringify(result));
+//			alert(document.getElementById("photo").src);
+//			alert(JSON.stringify(result));
 			switch(result["code"]){
 				case "10000":
 					Num = result["result"]["record"];
@@ -132,7 +132,8 @@ document.getElementById("matchId").onclick = function(){
 					sessionStorage.setItem("sessionid", result["result"]["session_id"]);
 					$("#nickname").html($("#userName").val());
 					$("#scoreNum").html(Num);
-					$("#myimg").attr('src',$("#photo").attr("src")); 
+					$("#myimg").attr('src',$("#photo").attr("src"));
+					$("myorder").fadeIn();
 					break;
 			  	case "10003":
 			  		alert("填写信息失败！")

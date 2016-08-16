@@ -111,10 +111,10 @@ $(function(){
 					   		});
 					   		$("#confirmpurchase").fadeIn();
 					   		$("#enterAlipay").click(function(){
-								alert($(".goodsNum").val());
-								alert(2-parseInt(t));
+//								alert($(".goodsNum").val());
+//								alert(2-parseInt(t));
 								sessionid = sessionStorage.getItem("sessionid");
-								alert(sessionid);
+//								alert(sessionid);
 								var data = "session_id=" + sessionid
 										  + "&store_id=" + (2-parseInt(t))
 										  + "&count=" + $(".goodsNum").val();
@@ -123,7 +123,7 @@ $(function(){
 									type: 'POST',
 									data:data,
 									success: function(result, status) {
-								        alert(JSON.stringify(result));
+//								        alert(JSON.stringify(result));
 										document.getElementById("alipaypage").innerHTML = result;
 										document.getElementById("alipaysubmit").submit();
 									},
@@ -230,10 +230,18 @@ $(function(){
 					   }
 					   else{
 					   		t = $(this).attr("id");
+					   		var gNum = $(".goodsNum1").val()*result.result.reward[t].record+"积分"
 					   		$(".goodsName").html(result.result.reward[t].reward_name);
-					   		$(".goodsprice").html($(".goodsNum").val()*result.result.reward[t].record+"积分");
+					   		$(".goodsprice1").html(gNum);
 					   		$("#confirmexchange").fadeIn();
-					   		
+					   		$("#confirmpay").click(function(){
+					   			if($("#scoreNum").html()>=gNum){
+					   				$("#scoreNum").html($("#scoreNum").html()-gNum);
+					   			}
+					   			else{
+					   				alert("亲，积分不足！")
+					   			}
+					   		});	
 					   }
 				});
 			},
@@ -317,6 +325,7 @@ $(function(){
 		$("#confirmpurchase").fadeOut();
 		$("#orderArea").fadeOut();
 		$("#storecover").fadeOut();
+		$("#confirmexchange").fadeOut();
 	});
 	
 	var time = true;
