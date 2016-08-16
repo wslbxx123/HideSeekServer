@@ -1115,3 +1115,49 @@ p.tip{
 #nickname{
 	text-align: center;
 }
+
+#guideOrder{
+	margin-left: 38%;
+    width: 135px;
+    height: 29px;
+    margin-top: 5px;
+    background-color: white;
+    border-radius: 5px;
+}
+
+#purOrder{
+	height: 29px;
+    width: 67px;
+    float: left;
+    text-align: center;
+    line-height: 29px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+#exOrder{
+	height: 29px;
+    width: 67px;
+    float: right;
+    text-align: center;
+    line-height: 29px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+#listArea{
+	height: 320px;
+    width: 100%;
+    overflow: auto;
+    margin-top: 8px;
+    position: absolute;
+    
+}
+
+#listArea1{
+	height: 320px;
+    width: 100%;
+    overflow: auto;
+    margin-top: 8px;
+    position: absolute;
+}
