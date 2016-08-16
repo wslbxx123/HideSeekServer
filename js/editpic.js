@@ -165,6 +165,7 @@ document.getElementById("myorder").onclick = function(){
 						alert(JSON.stringify(result));
 						$("#listArea").fadeIn();
 						var orderArea = document.getElementById("orderArea");
+						var listArea = document.getElementById("listArea");
 						for(var i = 0;i < result.result.orders.length;i++){	
 							//创建商品橱窗框
 							var listDiv = document.createElement('div');
@@ -222,6 +223,7 @@ document.getElementById("myorder").onclick = function(){
 				success: function(result, status) {
 						alert(JSON.stringify(result));
 						var orderArea = document.getElementById("orderArea");
+						var listArea = document.getElementById("listArea");
 						for(var i = 0;i < result.result.orders.length;i++){	
 							//创建商品橱窗框
 							var listDiv = document.createElement('div');
