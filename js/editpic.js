@@ -9,66 +9,57 @@ $('input[type=file]').change(function(){
 	getPath(fileimg,mycamera,fileimg);
 });
 
+var roleImages = new Array("img/grassfairy.jpg","img/watermagician.jpg","img/fireknight.jpg","img/stonemonster.jpg","img/lightninggiant.jpg");
+var roleNames = new Array("草魅精灵","水影巫师","火光骑士","岩石兽族","闪电巨人");
+var myId = Math.floor ((Math.random() * roleImages.length));
+var ImgLoaded =0;
 
 document.getElementById("matchId").onclick = function(){
-	
 	var m = 0;
-	var roleImages = new Array("img/grassfairy.png","img/watermagician.png","img/fireknight.png","img/stonemonster.png","img/lightninggiant.png");
-	var roleNames = new Array("草魅精灵","水影巫师","火光骑士","岩石兽族","闪电巨人");
-	var myId = Math.floor ((Math.random() * roleImages.length));
+	var thisId = 0;
+//	document.getElementById("roleimages").src = roleImages[thisId];
+	document.getElementById("rolenames").innerHTML = roleNames[thisId];
+	$("#newWin4").fadeIn(); 
+	$("#newWin2").fadeOut(); 
 	
-	var index=document.getElementById("sex").selectedIndex;
-	var data = "phone=" + document.getElementById("userphone").value 
-				+ "&nickname="+ document.getElementById("userName").value
-				+ "&password="+ document.getElementById("passwd1").value
-				+ "&sex="+ document.getElementById("sex").options[index].text
-				+ "&region=" + document.getElementById("citySelect").value
-				+ "&role=" + myId
-				+ "&photo_url=" + document.getElementById("photo").src;
-				
-	var mymessages = {
-		
-		url: "/index.php/home/user/register",	
-		type: 'POST',
-		data: data,
-		dataType: "json",
-		
-//		jsonp: 'callback',
-//		jsonpCallback:"success_jsonpCallback",
-		success: function(result, status) {
-			alert(JSON.stringify(result));
-			switch(result["code"]){
-				case "10000":
-					Num = result["result"]["record"];
-			        rolechange();
-			        sessionid = result["result"]["session_id"];
-			        $("#myorder").fadeIn(); 
-			        getClick = true;
-			        //存储注册数据
-			  		sessionStorage.setItem("nickname", $("#nickname").html());
-					sessionStorage.setItem("record", $("#scoreNum").html());
-					sessionStorage.setItem("myimgpath", $("#photo").attr("src"));
-					sessionStorage.setItem("sessionid", result["result"]["session_id"]);
-					break;
-			  	case "10003":
-			  		alert("填写信息失败！")
-			  		break;
-			}	
-		},
-		error: function(XMLHttpRequest, textStatus, errorThrown) {
-			alert("网络出现问题！");
-		}
-	};
-	$.ajax(mymessages);		
-				
+	
+	preloadimages(roleImages).done(function(){
+	  rolechange();
+	})
+	
+	
+	function preloadimages(arr){   
+	    var newimages=[], loadedimages=0
+	    var postaction=function(){}  //此处增加了一个postaction函数
+	    var arr=(typeof arr!="object")? [arr] : arr
+	    function imageloadpost(){
+	        loadedimages++
+	        if (loadedimages==arr.length){
+	            postaction(newimages) //加载完成用我们调用postaction函数并将newimages数组做为参数传递进去
+	        }
+	    }
+	    for (var i=0; i<arr.length; i++){
+	        newimages[i]=new Image()
+	        newimages[i].src=arr[i]
+	        newimages[i].onload=function(){
+	            imageloadpost()
+	        }
+	        newimages[i].onerror=function(){
+	            imageloadpost()
+	        }
+	    }
+	    return { //此处返回一个空白对象的done方法
+	        done:function(f){
+	            postaction=f || postaction
+	        }
+	    }
+	}
+	
+	
 	function rolechange(){	
-		$("#newWin4").fadeIn(); 
-		$("#newWin2").fadeOut(); 
-		
-		var thisId = 0
-		document.getElementById("roleimages").src = roleImages[thisId];
-		document.getElementById("rolenames").innerHTML = roleNames[thisId];
-		rotate();
+		setTimeout(function(){
+			rotate();
+		}, 100);
 		
 		function rotate(){
 			
@@ -77,11 +68,13 @@ document.getElementById("matchId").onclick = function(){
 				m++;
 				thisId++;
 				if (thisId == roleImages.length) {
-					thisId = 0;
+					thisId  = 0;
 				}
 				document.getElementById("roleimages").src = roleImages[thisId];
 				document.getElementById("rolenames").innerHTML = roleNames[thisId];
-				setTimeout(rotate, 100);
+				setTimeout(function(){
+					rotate();
+				}, 100);
 			}
 			else{
 				document.getElementById("roleimages").src = roleImages[myId];
@@ -102,6 +95,56 @@ document.getElementById("matchId").onclick = function(){
 			}
 		}
 	}
+	
+	
+	
+//	var index=document.getElementById("sex").selectedIndex;
+//	var data = "phone=" + document.getElementById("userphone").value 
+//				+ "&nickname="+ document.getElementById("userName").value
+//				+ "&password="+ document.getElementById("passwd1").value
+//				+ "&sex="+ document.getElementById("sex").options[index].text
+//				+ "&region=" + document.getElementById("citySelect").value
+//				+ "&role=" + myId
+//				+ "&photo_url=" + encodeURIComponent(document.getElementById("photo").src);
+//				
+//	var mymessages = {
+//		
+//		url: "/index.php/home/user/register",	
+//		type: 'POST',
+//		data: data,
+//		dataType: "json",
+//		
+////		jsonp: 'callback',
+////		jsonpCallback:"success_jsonpCallback",
+//		success: function(result, status) {
+//			alert(document.getElementById("photo").src);
+//			alert(JSON.stringify(result));
+//			switch(result["code"]){
+//				case "10000":
+//					Num = result["result"]["record"];
+//			        sessionid = result["result"]["session_id"];
+//			        $("#myorder").fadeIn(); 
+//			        getClick = true;
+//			        //存储注册数据
+//			  		sessionStorage.setItem("nickname", $("#userName").val());
+//					sessionStorage.setItem("record", Num);
+//					sessionStorage.setItem("myimgpath", $("#photo").attr("src"));
+//					sessionStorage.setItem("sessionid", result["result"]["session_id"]);
+//					$("#nickname").html($("#userName").val());
+//					$("#scoreNum").html(Num);
+//					$("#myimg").attr('src',$("#photo").attr("src")); 
+//					break;
+//			  	case "10003":
+//			  		alert("填写信息失败！")
+//			  		break;
+//			}	
+//		},
+//		error: function(XMLHttpRequest, textStatus, errorThrown) {
+//			alert("网络出现问题！");
+//		}
+//	};
+//	$.ajax(mymessages);		
+	
 }
 
 var clickaction = true;

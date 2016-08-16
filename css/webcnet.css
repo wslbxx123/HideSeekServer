@@ -1102,3 +1102,7 @@ p.tip{
     cursor: pointer;
     display:none ;
 }
+
+#nickname{
+	text-align: center;
+}
