@@ -155,13 +155,12 @@ document.getElementById("myorder").onclick = function(){
 			url: "/index.php/home/store/refreshPurchaseOrders",
 			type: 'POST',
 			data: "version=0&order_min_id=0"+
-			"&session_id=" + sessionid,
+			"&session_id=" + sessionStorage.getItem("sessionid"),
 			dataType: "json",
 			
 //			jsonp: 'callback',
 //			jsonpCallback:"success_jsonpCallback",	
 			success: function(result, status) {
-				alert(sessionid);
 				alert(JSON.stringify(result));
 				$("#orderArea").fadeIn();
 				if (clickaction){
