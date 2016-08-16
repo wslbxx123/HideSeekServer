@@ -330,6 +330,7 @@ $(function(){
 		$("#orderArea").fadeOut();
 		$("#storecover").fadeOut();
 		$("#confirmexchange").fadeOut();
+		$("#listarea .orderlist").remove();
 	});
 	
 	var time = true;

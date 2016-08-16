@@ -1168,4 +1168,16 @@ p.tip{
 	height: 340px;
     width: 100%;
     overflow: auto;
+    margin-top: 8px;
+    position: absolute;
+    
+}
+
+#listArea1{
+	height: 340px;
+    width: 100%;
+    overflow: auto;
+    margin-top: 8px;
+    position: absolute;
+    display:none;
 }
