@@ -1011,7 +1011,7 @@ p.tip{
 	height: 55px;
     width: 93%;
     margin: 9px auto;
-    display:none;
+    display:block;
 }
 
 .orderprodct{
