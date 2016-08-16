@@ -231,8 +231,12 @@ $(function(){
 					   else{
 					   		t = $(this).attr("id");
 					   		var gNum = $(".goodsNum1").val()*result.result.reward[t].record+"积分"
+					   		
 					   		$(".goodsName").html(result.result.reward[t].reward_name);
 					   		$(".goodsprice1").html(gNum);
+					   		$('input[type=number]').change(function(){
+					   			$(".goodsprice1").html($(".goodsNum1").val()*result.result.reward[t].record+"元");
+					   		});
 					   		$("#confirmexchange").fadeIn();
 					   		$("#confirmpay").click(function(){
 					   			if($("#scoreNum").html()>=gNum){
