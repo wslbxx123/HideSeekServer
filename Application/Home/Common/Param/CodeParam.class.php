@@ -29,5 +29,7 @@ class CodeParam {
     #region 地图信息
     const GOAL_ID_OR_TYPE_EMPTY = "10012";
     const LATITUDE_OR_LONGITUDE_EMPTY = "10013";
+    const GOAL_ID_OR_ROLE_EMPTY = "10014";
+    const GOAL_DISAPPEAR = "10015";
     #endregion
 }

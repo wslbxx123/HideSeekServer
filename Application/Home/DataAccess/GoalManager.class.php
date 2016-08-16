@@ -30,4 +30,11 @@ class GoalManager {
                 'update_time' => $updateTimestamp,
                 'goals' => $goals);
     }
+    
+    public function getGoal($goalId) {
+        $Dao = M("goal");
+        $condition['pk_id'] = $goalId;
+        $goal = $Dao->where($condition)->find();
+        return $goal;
+    }
 }
