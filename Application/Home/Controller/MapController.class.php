@@ -6,6 +6,8 @@ use Home\DataAccess\GoalManager;
 use Home\DataAccess\PullVersionManager;
 use Home\DataAccess\RecordManager;
 use Home\DataAccess\AccountManager;
+use Home\DataAccess\MonsterTempHitManager;
+use Home\BusinessLogic\Manager\MapControllerManager;
 
 class MapController extends BaseController {
     public function refresh(){
@@ -52,71 +54,38 @@ class MapController extends BaseController {
        
         GoalManager::updateGoal(0, $goalId);
         $version = PullVersionManager::updateRaceGroupVersion();
-        $scoreSum = RecordManager::insertRecord($goalId, $goalType, $account['pk_id'], $version);
+        $scoreSum = RecordManager::insertRecord($goalId, $goalType, 
+                $account['pk_id'], $version);
         AccountManager::updateScoreSum($account['pk_id'], $scoreSum);
         
-        BaseUtil::echoJson(CodeParam::SUCCESS, $record);
+        BaseUtil::echoJson(CodeParam::SUCCESS, $scoreSum);
     }
     
     public function hitMonster() {
-        $code = "10000";
-        $message = "打怪兽成功";
+        self::setHeader();
         
-        $sessionId = $_POST['session_id'];
+        $sessionId = filter_input(INPUT_POST, 'session_id');
+        $goalId = filter_input(INPUT_POST, 'goal_id');
+        $accountRole = filter_input(INPUT_POST, 'account_role');
         $account = $this->getAccountFromToken($sessionId);
-        $goal_id = $_POST['goal_id'];
-        $account_role = $_POST['account_role'];
-        if(isset($goal_id) && isset($account_role)) {
-            $Dao = M("monster_temp_hit");
-            $data['goal_id'] = $goal_id;
-            $data['account_id'] = $account['pk_id'];
-            $data['account_role'] = $account_role;
-            $data['hit_time'] = date('y-m-d H:i:s',time());
-            $Dao->add($data);
-            
-            $sql = "call admin_get_temp_hit($goal_id)";
-            $accountArray = $Dao->query($sql);
-            
-            $versionDao = M("pull_version");
-            $version = $versionDao->find();
-            $version['race_group_version'] = $version['race_group_version'] + 1;
-            
-            $flag = false;
-            foreach ($accountArray as $accountResult){ 
-                if($accountResult['account_id'] == $account['pk_id']) {
-                    $recordDao = M("record");
-                    $record['goal_id'] = $goal_id;
-                    $record['goal_type'] = 2;
-                    $record['account_id'] = $account['pk_id'];
-                    $record['score'] = 1;
-                    $record['time'] = date('y-m-d H:i:s',time());
-                    $condition['account_id'] = $account['pk_id'];
-                    $record['score_sum'] = $recordDao->where($condition)->sum('score')
-                            + $record['score'];
-                    $record['version'] = $version['race_group_version'];
-                    $recordDao->add($record);
-                    $flag = true;
-                    
-                    $accountDao = M("account");
-                    $account['record'] = $record['score_sum'];
-                    $accountDao->where($condition)->save($account);
-                }
-            }
-            
-            $versionDao->where('1=1')->save($version);
+        
+        if(!MapControllerManager::checkHitMonsterInfo($sessionId, $account['pk_id'], 
+                $goalId, $accountRole)) {
+            return;
+        }    
+
+        $accountArray = MonsterTempHitManager::insertMonsterTempHit($goalId, 
+                $account['pk_id'], $accountRole);
+        
+        $result = MapControllerManager::checkUserInAccountArray($accountArray, 
+                $account['pk_id'], $goalId);
                 
-            if(!$flag) {
-                $code = "10007";
-                $message = "目标已经消失";
-            }
-        } else{
-            $code = "10009";
-            $message = "目标ID或用户角色为空";
+        if(!$result['flag']) {
+            BaseUtil::echoJson(CodeParam::GOAL_DISAPPEAR, $accountArray);
+            return;
         }
         
-        $array = array ('code' => $code, 'message' => $message,
-            'result' => $account_array);
-        echo json_encode($array);
+        BaseUtil::echoJson(CodeParam::SUCCESS, $result['score_sum']);
     }
     
     public function setBomb() {

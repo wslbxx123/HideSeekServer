@@ -76,6 +76,10 @@ class MessageFactory {
                 return MessageParam::GOAL_ID_OR_TYPE_EMPTY;
             case CodeParam::LATITUDE_OR_LONGITUDE_EMPTY:
                 return MessageParam::LATITUDE_OR_LONGITUDE_EMPTY;
+            case CodeParam::GOAL_ID_OR_ROLE_EMPTY:
+                return MessageParam::GOAL_ID_OR_ROLE_EMPTY;
+            case CodeParam::GOAL_DISAPPEAR:
+                return MessageParam::GOAL_DISAPPEAR;
             default:
                 return null;
         }
