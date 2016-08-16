@@ -151,7 +151,6 @@ document.getElementById("matchId").onclick = function(){
 
 var clickaction = true;
 document.getElementById("myorder").onclick = function(){
-	alert(clickaction);
 	var orderArea = {
 			url: "/index.php/home/store/refreshPurchaseOrders",
 			type: 'POST',
@@ -166,15 +165,11 @@ document.getElementById("myorder").onclick = function(){
 				$("#orderArea").fadeIn();
 				if (clickaction){
 					var orderArea = document.getElementById("orderArea");
-				  	var titleDiv = document.createElement('div');
-				  	titleDiv.id = "ordertitle";
-				  	titleDiv.innerHTML = "我的订单";
-				  	orderArea.appendChild(titleDiv);
 					for(var i = 0;i < result.result.orders.length;i++){	
 						//创建商品橱窗框
 						var listDiv = document.createElement('div');
 						listDiv.className = "orderlist";
-					  	orderArea.appendChild(listDiv);
+					  	listArea.appendChild(listDiv);
 					    var listImg = document.createElement('img');
 					    listImg.className = "orderprodct";
 					    listImg.src = result.result.orders[i].product_image_url;
