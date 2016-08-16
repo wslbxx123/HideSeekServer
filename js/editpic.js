@@ -151,9 +151,7 @@ document.getElementById("matchId").onclick = function(){
 
 var clickaction = true;
 document.getElementById("myorder").onclick = function(){
-	
-	if (clickaction){
-		var orderArea = {
+	var orderArea = {
 			url: "/index.php/home/store/refreshPurchaseOrders",
 			type: 'POST',
 			data: "version=0&order_min_id=0"+
@@ -163,50 +161,53 @@ document.getElementById("myorder").onclick = function(){
 //			jsonp: 'callback',
 //			jsonpCallback:"success_jsonpCallback",	
 			success: function(result, status) {
+				alert(JSON.stringify(result));
 				$("#orderArea").fadeIn();
-				var orderArea = document.getElementById("orderArea");
-			  	var titleDiv = document.createElement('div');
-			  	titleDiv.id = "ordertitle";
-			  	titleDiv.innerHTML = "我的订单";
-			  	orderArea.appendChild(titleDiv);
-				for(var i = 0;i < result.result.orders.length;i++){	
-					//创建商品橱窗框
-					var listDiv = document.createElement('div');
-					listDiv.className = "orderlist";
-				  	orderArea.appendChild(listDiv);
-				    var listImg = document.createElement('img');
-				    listImg.className = "orderprodct";
-				    listImg.src = result.result.orders[i].product_image_url;
-				    listDiv.appendChild(listImg);
-				    var nameDiv = document.createElement('div');
-				    nameDiv.className = "ordername";
-				    nameDiv.innerHTML = result.result.orders[i].product_name;
-				    listDiv.appendChild(nameDiv);
-				    var sumDiv = document.createElement('div');
-				    sumDiv.className = "ordersum";
-				    sumDiv.innerHTML = "总计：";
-				    listDiv.appendChild(sumDiv);
-				    var numSpan = document.createElement('span');
-				    numSpan.className = "orderNum";
-				    numSpan.innerHTML = "总计:"+result.result.orders[i].purchase_count+"(个数)×"+result.result.orders[i].price+"(单价)="+result.result.orders[i].purchase_count*result.result.orders[i].price+"元"; 
-				    sumDiv.appendChild(numSpan);
-				    var statusDiv = document.createElement('div');
-				    if(result.result.orders[i].status=="0"){
-				    	statusDiv.className = "orderstatus1";
-					    statusDiv.innerHTML = "未付款";
-					    listDiv.appendChild(statusDiv);
-					    var payDiv = document.createElement('div');
-					    payDiv.className = "orderpay";
-					    payDiv.innerHTML = "点我付款";
-					    listDiv.appendChild(payDiv);
-				    }
-				    else{
-				    	statusDiv.className = "orderstatus";
-					    statusDiv.innerHTML = "交易成功";
-					    listDiv.appendChild(statusDiv);
-				    }
-				    
-				} 		
+				if (clickaction){
+					var orderArea = document.getElementById("orderArea");
+				  	var titleDiv = document.createElement('div');
+				  	titleDiv.id = "ordertitle";
+				  	titleDiv.innerHTML = "我的订单";
+				  	orderArea.appendChild(titleDiv);
+					for(var i = 0;i < result.result.orders.length;i++){	
+						//创建商品橱窗框
+						var listDiv = document.createElement('div');
+						listDiv.className = "orderlist";
+					  	orderArea.appendChild(listDiv);
+					    var listImg = document.createElement('img');
+					    listImg.className = "orderprodct";
+					    listImg.src = result.result.orders[i].product_image_url;
+					    listDiv.appendChild(listImg);
+					    var nameDiv = document.createElement('div');
+					    nameDiv.className = "ordername";
+					    nameDiv.innerHTML = result.result.orders[i].product_name;
+					    listDiv.appendChild(nameDiv);
+					    var sumDiv = document.createElement('div');
+					    sumDiv.className = "ordersum";
+					    sumDiv.innerHTML = "总计：";
+					    listDiv.appendChild(sumDiv);
+					    var numSpan = document.createElement('span');
+					    numSpan.className = "orderNum";
+					    numSpan.innerHTML = "总计:"+result.result.orders[i].purchase_count+"(个数)×"+result.result.orders[i].price+"(单价)="+result.result.orders[i].purchase_count*result.result.orders[i].price+"元"; 
+					    sumDiv.appendChild(numSpan);
+					    var statusDiv = document.createElement('div');
+					    if(result.result.orders[i].status=="0"){
+					    	statusDiv.className = "orderstatus1";
+						    statusDiv.innerHTML = "未付款";
+						    listDiv.appendChild(statusDiv);
+						    var payDiv = document.createElement('div');
+						    payDiv.className = "orderpay";
+						    payDiv.innerHTML = "点我付款";
+						    listDiv.appendChild(payDiv);
+					    }
+					    else{
+					    	statusDiv.className = "orderstatus";
+						    statusDiv.innerHTML = "交易成功";
+						    listDiv.appendChild(statusDiv);
+					    }
+					    clickaction = false;
+					} 	
+				}	
 			},
 			error: function(XMLHttpRequest, textStatus, errorThrown) {
 				alert("网络出现问题！");
