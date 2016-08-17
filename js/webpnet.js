@@ -129,7 +129,8 @@ $(function(){
 				} 
 				
 				//点击购买后是否有用户名存在判断
-				 $(".purGet").click(function(){		 
+				 $(".purGet").click(function(){	
+				 		alert(2);
 					   if (nickname==null){
 					   		alert("请先登录！");
 					   }
@@ -256,28 +257,29 @@ $(function(){
 				}
 				//点击兑换后是否有用户名存在判断
 				$(".exGet").click(function(){
-					   if (nickname==null){
-					   		alert("请先登录！");
-					   }
-					   
-					   else{
-					   		getId = $(this).attr("id");
-					   		var gNum = $(".goodsNum1").val()*result.result.reward[getId].record+"积分";
-					   		$(".goodsName").html(result.result.reward[getId].reward_name);
-					   		$(".goodsprice1").html(gNum);
-					   		$('input[type=number]').change(function(){
-					   			$(".goodsprice1").html($(".goodsNum1").val()*result.result.reward[getId].record+"元");
-					   		});
-					   		$("#confirmexchange").fadeIn();
-					   		$("#confirmpay").click(function(){
-					   			if($("#scoreNum").html()>=gNum){
-					   				$("#scoreNum").html($("#scoreNum").html()-gNum);
-					   			}
-					   			else{
-					   				alert("亲，积分不足！")
-					   			}
-					   		});	
-					   }
+					alert(1);
+				    if (nickname==null){
+				   		alert("请先登录！");
+				    }
+				   
+				    else{
+				   		getId = $(this).attr("id");
+				   		var gNum = $(".goodsNum1").val()*result.result.reward[getId].record+"积分";
+				   		$(".goodsName").html(result.result.reward[getId].reward_name);
+				   		$(".goodsprice1").html(gNum);
+				   		$('input[type=number]').change(function(){
+				   			$(".goodsprice1").html($(".goodsNum1").val()*result.result.reward[getId].record+"元");
+				   		});
+				   		$("#confirmexchange").fadeIn();
+				   		$("#confirmpay").click(function(){
+				   			if($("#scoreNum").html()>=gNum){
+				   				$("#scoreNum").html($("#scoreNum").html()-gNum);
+				   			}
+				   			else{
+				   				alert("亲，积分不足！")
+				   			}
+				   		});	
+				    }
 				});
 			},
 			error: function(XMLHttpRequest, textStatus, errorThrown) {
