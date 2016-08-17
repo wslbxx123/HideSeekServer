@@ -41,7 +41,7 @@ class FileUtil {
         $image = imagecreatefromjpeg($photoUrl);
         self::ResizeImage($image, $photoUrl, $width, $height, $smallImagePath);
         return (is_ssl()? 'https://':'http://')
-                        ."www.hideseek.cn".$smallImagePath;
+                        ."www.hideseek.cn/".$smallImagePath;
     }
     
     function getFileExtension($filename) 
