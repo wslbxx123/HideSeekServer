@@ -1,5 +1,5 @@
 var sessionid;
-
+//头像上传处理
 $('input[type=file]').change(function(){
 	$("#newWin3").fadeIn(); 
 	$("#newWin2").fadeOut(); 
@@ -84,15 +84,20 @@ document.getElementById("matchId").onclick = function(){
 				
 				
 				document.getElementById("entrance").onclick = function(){
-					alert("注册成功!");
-					$(".inner_menu").fadeOut(); 
-					$("#myprofile").fadeIn(); 
-					$("#myimg").fadeIn(); 
-					document.getElementById("nickname").innerHTML = document.getElementById("userName").value;
-					document.getElementById("scoreNum").innerHTML = "0";
-					$("#newWin4").fadeOut(); 
-					$("#storecover").fadeOut(); 
-//					checkBox();
+					if(login){
+						alert("注册成功!");
+						$(".inner_menu").fadeOut(); 
+						$("#myprofile").fadeIn(); 
+						$("#myimg").fadeIn(); 
+						document.getElementById("nickname").innerHTML = document.getElementById("userName").value;
+						document.getElementById("scoreNum").innerHTML = "0";
+						$("#newWin4").fadeOut(); 
+						$("#storecover").fadeOut(); 
+	//					checkBox();
+					}
+					else{
+						alert("该用户名已存在！")
+					}
 				}
 			}
 		}
