@@ -62,7 +62,7 @@ class UserController extends BaseController {
         BaseUtil::echoJson(CodeParam::SUCCESS, $account); 
     }
     
-    public function checkUserIfExist() {
+    public function checkIfUserExist() {
         self::setHeader();
         $phone = filter_input(INPUT_POST, 'phone');
         
