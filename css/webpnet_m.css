@@ -286,8 +286,8 @@ input.invalid {
 }
 
 #myprofile{
-	right: 24px;
-    top: 1%;
+	right: 17px;
+    top: 8px;
     position: absolute;
     display: none;
     font-size: 12px;
@@ -954,7 +954,7 @@ p.tip{
 	height: 31px;
     width: 31px;
     margin-top: 12px;
-    right: 86px;
+    right: 69px;
     position: absolute;
     display: none;
 }
@@ -1089,7 +1089,7 @@ p.tip{
     height: 28px;
     position: absolute;
     right: 9px;
-    margin-top: -24px;
+    margin-top: 46px;
     font-size: 12px;
     background-color: #fae077;
     border-radius: 2px;
@@ -1098,7 +1098,8 @@ p.tip{
     line-height: 28px;
     text-decoration: none;
     cursor: pointer;
-    display:none ;
+    display: none;
+    list-style:none;
 }
 
 #sex{
