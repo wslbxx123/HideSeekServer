@@ -62,6 +62,18 @@ class UserController extends BaseController {
         BaseUtil::echoJson(CodeParam::SUCCESS, $account); 
     }
     
+    public function checkUserIfExist() {
+        self::setHeader();
+        $phone = filter_input(INPUT_POST, 'phone');
+        
+        if(AccountManager::getAccountFromPhone($phone)) {
+            BaseUtil::echoJson(CodeParam::USER_ALREADY_EXIST, null);
+            return false;
+        }
+        
+        BaseUtil::echoJson(CodeParam::SUCCESS, null);
+    }
+    
     public function setRegisterUserInfo($phone, $password, $nickname, $role, 
             $sex, $region, $photo, $photoDataUrl) {
         if(!self::checkUserBaseInfo($phone, $password, $nickname)) {
