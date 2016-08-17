@@ -62,6 +62,18 @@ class UserController extends BaseController {
         BaseUtil::echoJson(CodeParam::SUCCESS, $account); 
     }
     
+    public function checkIfUserExist() {
+        self::setHeader();
+        $phone = filter_input(INPUT_POST, 'phone');
+        
+        if(AccountManager::getAccountFromPhone($phone)) {
+            BaseUtil::echoJson(CodeParam::USER_ALREADY_EXIST, null);
+            return false;
+        }
+        
+        BaseUtil::echoJson(CodeParam::SUCCESS, null);
+    }
+    
     public function setRegisterUserInfo($phone, $password, $nickname, $role, 
             $sex, $region, $photo, $photoDataUrl) {
         if(!self::checkUserBaseInfo($phone, $password, $nickname)) {
@@ -76,7 +88,7 @@ class UserController extends BaseController {
             return null;
         }
         
-        $smallPhotoUrl = FileUtil::saveSmallPhoto($photo, $photoUrl, 
+        $smallPhotoUrl = FileUtil::saveSmallPhoto($photoUrl, 
                 $tempFileName, 200, 200);
         $accountId = AccountManager::insertAccount($phone, $password, $nickname, 
                 PullVersionManager::getFriendVersion(), $role, $sex, $region, 
