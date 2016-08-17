@@ -1,5 +1,5 @@
 var sessionid;
-
+//头像上传处理
 $('input[type=file]').change(function(){
 	$("#newWin3").fadeIn(); 
 	$("#newWin2").fadeOut(); 
@@ -94,6 +94,9 @@ document.getElementById("matchId").onclick = function(){
 						$("#newWin4").fadeOut(); 
 						$("#storecover").fadeOut(); 
 	//					checkBox();
+					}
+					else{
+						alert("该用户名已存在！")
 					}
 				}
 			}
