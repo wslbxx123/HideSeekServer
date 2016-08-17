@@ -437,7 +437,7 @@ function getPath(obj,fileQuery,transImg){
 	});
 }			
 
-
+//订单页实现导航切换
 $("#purOrder").click(function(){
 	$("#purOrder").attr("class", "selected");
 	$("#exOrder").attr("class", "");

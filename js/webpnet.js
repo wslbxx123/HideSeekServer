@@ -5,29 +5,23 @@ $(function(){
 	var exNum;	//兑换区的产品数；
 	var getId;	//兑换或者购买按钮的对应ID值；
 	var sessionid;	//session_id变量；
-	var nickname; //nickname变量；
-	var record; //record变量；
-	var imgpath; //imgpath变量；
+
 	
 	// 重新刷新页面获取缓存的数据
-	if(window.sessionStorage){
-		nickname = sessionStorage.getItem("nickname");
-		record = sessionStorage.getItem("record");
-		myimgpath = sessionStorage.getItem("myimgpath");
-		sessionid = sessionStorage.getItem("myimgpath");
-		if(nickname!=null){  
-			$("#nickname").html(nickname);
-			$("#scoreNum").html(record);
-			$("#myimg").attr('src',myimgpath); 
-			$(".inner_menu").fadeOut();
-			$("#myimg").fadeIn();
-			$("#myprofile" ).fadeIn();
-			$("#myorder").fadeIn();
-		}
+	nickname = sessionStorage.getItem("nickname");
+	record = sessionStorage.getItem("record");
+	myimgpath = sessionStorage.getItem("myimgpath");
+	sessionid = sessionStorage.getItem("myimgpath");
+	if(nickname!=null){  
+		$("#nickname").html(nickname);
+		$("#scoreNum").html(record);
+		$("#myimg").attr('src',myimgpath); 
+		$(".inner_menu").fadeOut();
+		$("#myimg").fadeIn();
+		$("#myprofile" ).fadeIn();
+		$("#myorder").fadeIn();
 	}
-	else{
-		alert('亲，您的浏览器不支持HTML5本地存储！');
-	}
+	
 	
 	// 清除缓存
 	$("#exit").click(function(){
