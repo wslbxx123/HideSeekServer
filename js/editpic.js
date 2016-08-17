@@ -13,6 +13,7 @@ var roleImages = new Array("img/grassfairy.jpg","img/watermagician.jpg","img/fir
 var roleNames = new Array("草魅精灵","水影巫师","火光骑士","岩石兽族","闪电巨人");
 var myId = Math.floor ((Math.random() * roleImages.length));
 var ImgLoaded =0;
+var login = false;
 
 document.getElementById("matchId").onclick = function(){
 	var m = 0;
@@ -119,13 +120,14 @@ document.getElementById("matchId").onclick = function(){
 //		jsonpCallback:"success_jsonpCallback",
 		success: function(result, status) {
 //			alert(document.getElementById("photo").src);
-//			alert(JSON.stringify(result));
+			alert(JSON.stringify(result));
 			switch(result["code"]){
 				case "10000":
 					Num = result["result"]["record"];
 			        sessionid = result["result"]["session_id"];
 			        $("#myorder").fadeIn(); 
 			        getClick = true;
+			        login = true;
 			        //存储注册数据
 			  		sessionStorage.setItem("nickname", $("#userName").val());
 					sessionStorage.setItem("record", Num);
@@ -437,7 +439,7 @@ function getPath(obj,fileQuery,transImg){
 				}
 			
 			var images = new Image();
-			images.src = mypicture.toDataURL("image/jpg");
+			images.src = mypicture.toDataURL("image/jpeg");
 			document.getElementById("photo").src = images.src;
 		}			
 	});
