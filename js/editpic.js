@@ -4,11 +4,6 @@ var roleNames = new Array("草魅精灵","水影巫师","火光骑士","岩石�
 var myId = Math.floor ((Math.random() * roleImages.length));
 var logIn = false;
 
-nickname = sessionStorage.getItem("nickname");
-record = sessionStorage.getItem("record");
-myimgpath = sessionStorage.getItem("myimgpath");
-sessionid = sessionStorage.getItem("myimgpath");
-
 //头像上传处理
 $('input[type=file]').change(function(){
 	$("#newWin3").fadeIn(); 
@@ -131,6 +126,10 @@ document.getElementById("matchId").onclick = function(){
 					sessionStorage.setItem("record", Num);
 					sessionStorage.setItem("myimgpath", $("#photo").attr("src"));
 					sessionStorage.setItem("sessionid", result["result"]["session_id"]);
+					nickname = sessionStorage.getItem("nickname");
+					record = sessionStorage.getItem("record");
+					myimgpath = sessionStorage.getItem("myimgpath");
+					sessionid = sessionStorage.getItem("myimgpath");
 					$("#nickname").html($("#userName").val());
 					$("#scoreNum").html(Num);
 					$("#myimg").attr('src',$("#photo").attr("src"));

@@ -435,6 +435,10 @@ $(function(){
 							sessionStorage.setItem("record", $("#scoreNum").html());
 							sessionStorage.setItem("myimgpath", result["result"]["photo_url"]);
 							sessionStorage.setItem("sessionid", result["result"]["session_id"]);
+							nickname = sessionStorage.getItem("nickname");
+							record = sessionStorage.getItem("record");
+							myimgpath = sessionStorage.getItem("myimgpath");
+							sessionid = sessionStorage.getItem("myimgpath");
 					  		break;
 					  	case "10001":
 					  		$("#fault").fadeIn();
