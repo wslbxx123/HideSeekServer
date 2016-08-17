@@ -76,7 +76,7 @@ class UserController extends BaseController {
             return null;
         }
         
-        $smallPhotoUrl = FileUtil::saveSmallPhoto($photo, $photoUrl, 
+        $smallPhotoUrl = FileUtil::saveSmallPhoto($photoUrl, 
                 $tempFileName, 200, 200);
         $accountId = AccountManager::insertAccount($phone, $password, $nickname, 
                 PullVersionManager::getFriendVersion(), $role, $sex, $region, 

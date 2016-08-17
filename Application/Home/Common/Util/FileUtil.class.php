@@ -32,10 +32,8 @@ class FileUtil {
         return null;
     }
     
-    public function saveSmallPhoto($photo, $photoUrl, $tempFileName, $width, $height) {
-        $name = explode(".",$photo['name']); 
-        $name[0] = $tempFileName;
-        $fileName = implode(".", $name);
+    public function saveSmallPhoto($photoUrl, $tempFileName, $width, $height) {
+        $fileName = $tempFileName.".jpg";
         $smallImagePath = self::SMALL_IMAGE_DIR.$fileName;
         
         $image = imagecreatefromjpeg($photoUrl);
