@@ -130,8 +130,6 @@ $(function(){
 				
 				//点击购买后是否有用户名存在判断
 				 $(".purGet").click(function(){	
-				 		alert(2);
-				 		alert(nickname);
 					   if (nickname==null){
 					   		alert("请先登录！");
 					   }
@@ -482,7 +480,7 @@ $(function(){
 			dataType: "json",
 			
 			success: function(result, status) {
-				alert(JSON.stringify(result));
+//				alert(JSON.stringify(result));
 				switch(result["code"]){
 					case "10000":
 						phoneregistered = false;
