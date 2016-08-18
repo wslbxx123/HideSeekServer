@@ -135,6 +135,7 @@ $(function(){
 				   }
 				   
 				   else{
+				   		$("#storecover").fadeIn();
 				   		$(".goodsNum").val("1");
 				   		getId = $(this).attr("id");
 				   		$(".goodsName").html(result.result.products[getId].product_name);
@@ -262,6 +263,7 @@ $(function(){
 				    }
 				   
 				    else{
+				    	$("#storecover").fadeIn();
 				   		getId = $(this).attr("id");
 				   		var gNum = $(".goodsNum1").val()*result.result.reward[getId].record+"积分";
 				   		$(".goodsName").html(result.result.reward[getId].reward_name);

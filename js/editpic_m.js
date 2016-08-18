@@ -149,6 +149,7 @@ document.getElementById("matchId").onclick = function(){
 
 
 document.getElementById("myorder").onclick = function(){
+	$("#storecover").fadeIn();
 	$("#orderArea").fadeIn();
 	var orderArea1 = {
 			url: "/index.php/home/store/refreshPurchaseOrders",
