@@ -177,6 +177,30 @@ body{
     z-index: 3;
     position: absolute;
     display:none;
+    animation:mymove 5s infinite;
+	-moz-animation:mymove 5s infinite; /* Firefox */
+	-webkit-animation:mymove 5s infinite; /* Safari and Chrome */
+	-o-animation:mymove 5s infinite; /* Opera */
+}
+
+@keyframes mymove{
+	0% {top:0px;}
+	to {top:200px;}
+}
+
+@-moz-keyframes mymove{ /* Firefox */
+	from {top:0px;}
+	to {top:200px;}
+}
+
+@-webkit-keyframes mymove{ /* Safari and Chrome */
+	from {top:0px;}
+	to {top:200px;}
+}
+
+@-o-keyframes mymove{ /* Opera */
+	from {top:0px;}
+	to {top:200px;}
 }
 
 #box{

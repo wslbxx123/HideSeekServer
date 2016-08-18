@@ -5,7 +5,12 @@ var myId = Math.floor ((Math.random() * roleImages.length));
 var logIn = false;
 
 //头像上传处理
-$('input[type=file]').change(function(){
+$('input[type=file]').change(function(e){
+	
+    EXIF.getData(e.target.files[0], function() {
+        alert(EXIF.pretty(this));
+    });
+
 	$("#newWin3").fadeIn(); 
 	$("#newWin2").fadeOut(); 
 	var fileimg = document.getElementById("fileimg");
