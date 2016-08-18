@@ -80,6 +80,10 @@ class MessageFactory {
                 return MessageParam::GOAL_ID_OR_ROLE_EMPTY;
             case CodeParam::GOAL_DISAPPEAR:
                 return MessageParam::GOAL_DISAPPEAR;
+            case CodeParam::VERSION_EMPTY:
+                return MessageParam::VERSION_EMPTY;
+            case CodeParam::ORIENTATION_EMPTY:
+                return MessageParam::ORIENTATION_EMPTY;
             default:
                 return null;
         }

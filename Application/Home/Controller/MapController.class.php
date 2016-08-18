@@ -16,27 +16,22 @@ class MapController extends BaseController {
         $latitude = filter_input(INPUT_POST, 'latitude');
         $longitude = filter_input(INPUT_POST, 'longitude');
         $accountRole = filter_input(INPUT_POST, 'account_role');
-        $updateTime = filter_input(INPUT_POST, 'update_time');
-        $newUpdateTime = date('y-m-d H:i:s',time());
+        $version = filter_input(INPUT_POST, 'version');
         
-        if(!isset($latitude) || !isset($longitude)) {
-            BaseUtil::echoJson(CodeParam::LATITUDE_OR_LONGITUDE_EMPTY, null);
+        if(!MapControllerManager::checkRefreshMapInfo($latitude, $longitude, 
+                $version)) {
             return;
         }
         
         if(!isset($accountRole)) {
             $accountRole = 0;
         }
-
-        if(!isset($updateTime)) {
-            $updateTime = "null";
-        }
         
         settype($latitude, "double");
         settype($longitude, "double");
         
-        $result = GoalManager::getGoalInfo($latitude, $longitude, 
-                $accountRole, $newUpdateTime);
+        $result = GoalManager::getGoalInfo($latitude, $longitude, $accountRole, 
+                $version);
         BaseUtil::echoJson(CodeParam::SUCCESS, $result);
     }
     
@@ -53,10 +48,11 @@ class MapController extends BaseController {
             return;
         }
        
-        GoalManager::updateGoal(0, $goalId);
-        $version = PullVersionManager::updateRaceGroupVersion();
+        $goalVersion = PullVersionManager::updateGoalVersion();
+        GoalManager::updateGoal(0, $goalId, $goalVersion);
+        $raceGroupversion = PullVersionManager::updateRaceGroupVersion();
         $scoreSum = RecordManager::insertRecord($goalId, $goalType, 
-                $account['pk_id'], $version);
+                $account['pk_id'], $raceGroupversion);
         AccountManager::updateScoreSum($account['pk_id'], $scoreSum);
         
         BaseUtil::echoJson(CodeParam::SUCCESS, $scoreSum);
@@ -90,47 +86,31 @@ class MapController extends BaseController {
     }
     
     public function setBomb() {
-        $code = "10000";
-        $message = "设置炸弹成功";
-        $sessionId = $_POST['session_id'];
+        self::setHeader();
+        
+        $sessionId = filter_input(INPUT_POST, 'session_id');
+        $latitude = filter_input(INPUT_POST, 'latitude');
+        $longitude = filter_input(INPUT_POST, 'longitude');
+        $orientation = filter_input(INPUT_POST, 'orientation');
         $account = $this->getAccountFromToken($sessionId);
         
-        if(isset($sessionId) && $sessionId != "") {
-            $pkId = $account['pk_id'];
-            if(isset($_POST['latitude']) && isset($_POST['longitude'])) {
-                $latitude = $_POST['latitude'];
-                $longitude = $_POST['longitude'];
-                if(isset($_POST['orientation'])) {
-                    $orientation = $_POST['orientation'];
-                    $dao = M("goal");
-                    $data['latitude'] = $latitude;
-                    $data['longitude'] = $longitude;
-                    $data['orientation'] = $orientation;
-                    $data['create_by'] = $pkId;
-                    $data['update_time'] = date('y-m-d H:i:s',time());
-                    $data['valid'] = 1;
-                    $data['type'] = 3;
-                    $dao->add($data);
-                    
-                    $tempAccount['bomb_num'] = $account['bomb_num'] - 1;
-                    $accountDao = M("account");
-                    $accountDao->where("pk_id=$pkId")->save($tempAccount);
-                } else {
-                    $code = "10011";
-                    $message = "方向值不能为空";
-                }
-            } else{
-                $code = "10005";
-                $message = "经纬度不能为空";
-            }
-        } else {
-            $code = "10010";
-            $message = "用户未登录";
+        if(!isset($sessionId) || $account['pk_id'] == 0) {
+            BaseUtil::echoJson(CodeParam::NOT_LOGIN, null);
+            return false;
         }
         
-        $array = array ('code' => $code, 'message' => $message,
-            'result' => $tempAccount['bomb_num']);
-        echo json_encode($array);
+        if(!isset($orientation)) {
+            BaseUtil::echoJson(CodeParam::ORIENTATION_EMPTY, null);
+            return false;
+        }
+        
+        $version = PullVersionManager::updateGoalVersion();
+        GoalManager::insertGoal($latitude, $longitude, $orientation, 
+                $account['pk_id'], $version);
+        AccountManager::updateBombNum($account['pk_id'], 
+                $account['bomb_num'] - 1);
+        
+        BaseUtil::echoJson(CodeParam::SUCCESS, $account['bomb_num'] - 1);
     }
 }
 

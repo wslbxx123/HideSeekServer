@@ -30,6 +30,20 @@ class MapControllerManager {
         return Array("flag" => $flag, "score_sum" => $scoreSum);
     }
     
+    public function checkRefreshMapInfo($latitude, $longitude, $version) {
+        if(!isset($latitude) || !isset($longitude)) {
+            BaseUtil::echoJson(CodeParam::LATITUDE_OR_LONGITUDE_EMPTY, null);
+            return false;
+        }
+        
+        if(!isset($version)) {
+            BaseUtil::echoJson(CodeParam::VERSION_EMPTY, null);
+            return false;
+        }
+        
+        return true;
+    }
+    
     public function checkHitMonsterInfo($sessionId, $accountId, $goalId, $accountRole) {
         if(!isset($sessionId) || $accountId == 0) {
             BaseUtil::echoJson(CodeParam::NOT_LOGIN, null);
