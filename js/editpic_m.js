@@ -3,14 +3,16 @@ var roleImages = new Array("img/grassfairy.jpg","img/watermagician.jpg","img/fir
 var roleNames = new Array("草魅精灵","水影巫师","火光骑士","岩石兽族","闪电巨人");
 var myId = Math.floor ((Math.random() * roleImages.length));
 var logIn = false;
+var Orientation;//图片角度
 
 //头像上传处理
 $('input[type=file]').change(function(e){
 	
     EXIF.getData(e.target.files[0], function() {
-        alert(EXIF.pretty(this));
+        EXIF.getAllTags(this); 
+        Orientation = EXIF.getTag(this, 'Orientation');  
     });
-
+	
 	$("#newWin3").fadeIn(); 
 	$("#newWin2").fadeOut(); 
 	var fileimg = document.getElementById("fileimg");
@@ -456,6 +458,28 @@ function getPath(obj,fileQuery,transImg){
 					cover.drawImage(fileimg,0,0.1*(-n)*(x-1)*y,coverpic.width*y,coverpic.width*y,0,0,500,500);
 					$("#newWin3").fadeOut(); 
 				}
+				
+			if (navigator.userAgent.match(/iphone/i)) {  
+		        console.log('iphone');  
+		        //如果方向角不为1，都需要进行旋转 added by lzk  
+		        if(Orientation != "" && Orientation != 1){
+		        	switch(Orientation){
+		        		case 6://需要顺时针（向左）90度旋转  
+		                    alert('需要顺时针（向左）90度旋转');  
+		                    rotateImg(fileimg,'left',canvas);  
+		                    break;  
+		        	}
+		        	function rotateImg(img,direction,canvas) {
+		        		var min_step = 0;    
+        				var max_step = 3;    
+		        		if (direction == 'left') {
+		        			var degree = 90 * Math.PI / 180;
+		        			img.rotate(degree);  
+		        			cover.drawImage(fileimg,0.1*n*(x-1)*y,0,coverpic.height*y,coverpic.height*y,0,0,500,500);
+		        		}
+		        	}
+		        }
+		    }
 			
 			var images = new Image();
 			images.src = mypicture.toDataURL("image/jpeg");
