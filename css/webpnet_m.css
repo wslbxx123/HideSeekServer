@@ -221,19 +221,19 @@ input.invalid {
 }
 
 #confirmexchange{
-	width: 40%;
+	width: 95%;
     height: 200px;
     background: white;
     border: 2px solid dimgrey;
     border-radius: 5px;
-    -moz-border-radius: 5px; /* Firefox */
-  	-webkit-border-radius: 5px; /* Safari 和 Chrome */
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
     display: none;
-    margin: 2% 25% auto;
-    position:absolute;
-    z-index:56;
-    text-align:center;
-    font-size:15px;
+    margin: 2% 2% auto;
+    position: absolute;
+    z-index: 56;
+    text-align: center;
+    font-size: 15px;
 }
 
 .goodsName{
@@ -248,6 +248,14 @@ input.invalid {
     margin-right: 33px;
     margin-top: 15px;
 }   
+
+.goodsNum1{
+	height: 25px;
+    width: 35px;
+    float: right;
+    margin-right: 33px;
+    margin-top: 15px;
+}  
 
 .goodsBack{
 	background-color: #f0f0f0;
@@ -1058,6 +1066,17 @@ p.tip{
 }
 
 #enterAlipay{
+	width: 87%;
+    height: 38px;
+    margin-top: 100px;
+    background-color: #ffcc00;
+    position: absolute;
+    line-height: 38px;
+    cursor:pointer;
+    
+}
+
+#confirmpay{
 	width: 87%;
     height: 38px;
     margin-top: 100px;
