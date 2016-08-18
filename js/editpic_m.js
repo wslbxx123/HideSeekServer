@@ -10,7 +10,8 @@ $('input[type=file]').change(function(e){
 	
     EXIF.getData(e.target.files[0], function() {
         EXIF.getAllTags(this); 
-        Orientation = EXIF.getTag(this, 'Orientation');  
+        Orientation = EXIF.getTag(this,'Orientation');  
+        alert(Orientation);
     });
 	
 	$("#newWin3").fadeIn(); 
@@ -367,10 +368,10 @@ function getPath(obj,fileQuery,transImg){
 		var newWin3 = document.getElementById("newWin3");
 		var confirmedit = document.getElementById("confirmedit");
 		var mypicture = document.getElementById("mypicture");
+		var mypicture1 = document.getElementById("mypicture1");
 		var title = document.getElementById("title");
 		var ctx = coverpic.getContext('2d');
 		var cover = mypicture.getContext('2d');
-		
 		var isMove;
 		var startx;
 		var starty;
@@ -457,37 +458,45 @@ function getPath(obj,fileQuery,transImg){
 				else{
 					cover.drawImage(fileimg,0,0.1*(-n)*(x-1)*y,coverpic.width*y,coverpic.width*y,0,0,500,500);
 					$("#newWin3").fadeOut(); 
-				}
+				}		
 				
-			if (navigator.userAgent.match(/iphone/i)) {  
-		        console.log('iphone');  
+			var images = new Image();
+			images.src = mypicture.toDataURL("image/jpeg");
+			document.getElementById("photo").src = images.src;
+			
+//			if (navigator.userAgent.match(/iphone/i)) {  
+//		        console.log('iphone');  
 		        //如果方向角不为1，都需要进行旋转 added by lzk  
 		        if(Orientation != "" && Orientation != 1){
 		        	switch(Orientation){
 		        		case 6://需要顺时针（向左）90度旋转  
 		                    alert('需要顺时针（向左）90度旋转');  
-		                    rotateImg(fileimg,'left',canvas);  
+		                    rotateImg(mypicture,'left');  
 		                    break;  
 		        	}
-		        	function rotateImg(img,direction,canvas) {
-		        		var min_step = 0;    
-        				var max_step = 3;    
-		        		if (direction == 'left') {
-		        			var degree = 90 * Math.PI / 180;
-		        			img.rotate(degree);  
-		        			cover.drawImage(img,0.1*n*(x-1)*y,0,coverpic.height*y,coverpic.height*y,0,0,500,500);
-		        			cover.rotate(90 * Math.PI/180);
-		        		}
-		        	}
 		        }
-		    }
+//		    }
 			
-			var images = new Image();
-			images.src = mypicture.toDataURL("image/jpeg");
-			document.getElementById("photo").src = images.src;
+			var images1 = new Image();
+			images1.src = mypicture1.toDataURL("image/jpeg");
+			document.getElementById("photo1").src = images1.src;
 		}			
 	});
 }			
+
+
+function rotateImg(img,direction) {    
+	alert(1);
+	if (direction == 'left') {
+		alert(2);
+		var degree = 90 * Math.PI / 180; 	
+		var cover1 = mypicture1.getContext('2d');
+		cover1.translate(250,250);
+		cover1.rotate(degree);
+		cover1.drawImage(img,-250,-250,500,500);
+	}
+}
+
 
 //订单页实现导航切换
 $("#purOrder").click(function(){
