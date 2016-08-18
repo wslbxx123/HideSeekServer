@@ -31,5 +31,7 @@ class CodeParam {
     const LATITUDE_OR_LONGITUDE_EMPTY = "10013";
     const GOAL_ID_OR_ROLE_EMPTY = "10014";
     const GOAL_DISAPPEAR = "10015";
+    const VERSION_EMPTY = "10016";
+    const ORIENTATION_EMPTY = "10017";
     #endregion
 }

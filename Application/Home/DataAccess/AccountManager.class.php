@@ -84,10 +84,17 @@ class AccountManager {
         $Dao = M("account");
         $condition["pk_id"] = $accountId;
         $account = $Dao->where($condition)->find();
-        $record = $account["record"] - $record * $count;
+        $newRecord = $account["record"] - $record * $count;
         $Dao->where($condition)->setField('record', 
-                $record);
+                $newRecord);
         
-        return $record;
+        return $newRecord;
+    }
+    
+    public function updateBombNum($accountId, $bombNum) {
+        $Dao = M("account");
+        $condition["pk_id"] = $accountId;
+        $account['bomb_num'] = $bombNum;
+        $Dao->where($condition)->save($account);
     }
 }

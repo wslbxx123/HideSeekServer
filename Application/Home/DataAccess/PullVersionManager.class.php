@@ -69,4 +69,13 @@ class PullVersionManager {
         
         return $version['race_group_version'];
     }
+    
+    public function updateGoalVersion() {
+        $Dao = M("pull_version");
+        $version = $Dao->find();
+        $version['goal_version'] = $version['goal_version'] + 1;
+        $Dao->where('1=1')->save($version);
+        
+        return $version['goal_version'];
+    }
 }
