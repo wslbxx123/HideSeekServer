@@ -475,7 +475,8 @@ function getPath(obj,fileQuery,transImg){
 		        		if (direction == 'left') {
 		        			var degree = 90 * Math.PI / 180;
 		        			img.rotate(degree);  
-		        			cover.drawImage(fileimg,0.1*n*(x-1)*y,0,coverpic.height*y,coverpic.height*y,0,0,500,500);
+		        			cover.drawImage(img,0.1*n*(x-1)*y,0,coverpic.height*y,coverpic.height*y,0,0,500,500);
+		        			cover.rotate(90 * Math.PI/180);
 		        		}
 		        	}
 		        }
