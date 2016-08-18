@@ -208,7 +208,7 @@ document.getElementById("myorder").onclick = function(){
 						  + "&store_id=" + result.result.orders[getId1].store_id
 						  + "&count=" + result.result.orders[getId1].count; 
 			    	var enteralipay = {
-						url: "/index.php/home/store/createOrderFromH5",
+						url: "/index.php/home/store/createOrderFromWeb",
 						type: 'POST',
 						data:data,
 						success: function(result, status) {
