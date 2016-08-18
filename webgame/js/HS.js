@@ -68,167 +68,167 @@ function moveMush(){
 	if(randomNum==0){
 		n++;
 		if(n>0&&(52-n)>=40){
-		    	if(n%2==0){
-		    		document.getElementById("boy").src = "img/boyup.gif";
-		    	}
-		    	else{
-		    		document.getElementById("boy").src = "img/boyup1.gif";
-		    	}
-		    	document.getElementById("boy").style.top =(52-n)+"%";	
+	    	if(n%2==0){
+	    		document.getElementById("boy").src = "img/boyup.gif";
+	    	}
+	    	else{
+	    		document.getElementById("boy").src = "img/boyup1.gif";
+	    	}
+	    	document.getElementById("boy").style.top =(52-n)+"%";	
 		}
 		if((52-n)<40&&(37+n-12)<=65){
-		    	if(n%2==0){
-		    		document.getElementById("boy").src = "img/boyright.gif";
-		    	}
-		    	else{
-		    		document.getElementById("boy").src = "img/boyright1.gif";
-		    	}
-			    document.getElementById("boy").style.left =(37+n-12)+"%";
-		 	}
+	    	if(n%2==0){
+	    		document.getElementById("boy").src = "img/boyright.gif";
+	    	}
+	    	else{
+	    		document.getElementById("boy").src = "img/boyright1.gif";
+	    	}
+		    document.getElementById("boy").style.left =(37+n-12)+"%";
+		}
 		if((37+n-12)>65&&(40+n-40)<=64){
-		    	if(n%2==0){
-		    		document.getElementById("boy").src = "img/boydown.gif";
-		    	}
-		    	else{
-		    		document.getElementById("boy").src = "img/boydown1.gif";
-		    	}
-			    document.getElementById("boy").style.top =(40+n-40)+"%";
-		 	}
+	    	if(n%2==0){
+	    		document.getElementById("boy").src = "img/boydown.gif";
+	    	}
+	    	else{
+	    		document.getElementById("boy").src = "img/boydown1.gif";
+	    	}
+		    document.getElementById("boy").style.top =(40+n-40)+"%";
+	 	}
 		if((40+n-40)>64&&(65+n-64)<=71){
-		    	if(n%2==0){
-		    		document.getElementById("boy").src = "img/boydown.gif";
-		    	}
-		    	else{
-		    		document.getElementById("boy").src = "img/boydown1.gif";
-		    	}
-			    document.getElementById("boy").style.top =(65+n-64)+"%";
-		 	}
+	    	if(n%2==0){
+	    		document.getElementById("boy").src = "img/boydown.gif";
+	    	}
+	    	else{
+	    		document.getElementById("boy").src = "img/boydown1.gif";
+	    	}
+		    document.getElementById("boy").style.top =(65+n-64)+"%";
+	 	}
 		if((65+n-64)>71&&(64+n-70)<=71){
-		    	if(n%2==0){
-		    		document.getElementById("boy").src = "img/boyright.gif";
-		    	}
-		    	else{
-		    		document.getElementById("boy").src = "img/boyright1.gif";
-		    	}
-			    document.getElementById("boy").style.left =(64+n-70)+"%";
-		 	}
+	    	if(n%2==0){
+	    		document.getElementById("boy").src = "img/boyright.gif";
+	    	}
+	    	else{
+	    		document.getElementById("boy").src = "img/boyright1.gif";
+	    	}
+		    document.getElementById("boy").style.left =(64+n-70)+"%";
+	 	}
 		if((64+n-70)>71&&(71+n-77)<=84){
-		    	if(n%2==0){
-		    		document.getElementById("boy").src = "img/boydown.gif";
-		    	}
-		    	else{
-		    		document.getElementById("boy").src = "img/boydown1.gif";
-		    	}
-			    document.getElementById("boy").style.top =(71+n-77)+"%";
-		 	}
+	    	if(n%2==0){
+	    		document.getElementById("boy").src = "img/boydown.gif";
+	    	}
+	    	else{
+	    		document.getElementById("boy").src = "img/boydown1.gif";
+	    	}
+		    document.getElementById("boy").style.top =(71+n-77)+"%";
+	 	}
 		if((71+n-77)>84&&(71-n+90)>69){
-		    	if(n%2==0){
-		    		document.getElementById("boy").src = "img/boydown.gif";
-		    	}
-		    	else{
-		    		document.getElementById("boy").src = "img/boydown1.gif";
-		    	}
-			    document.getElementById("boy").style.left =(71-n+90)+"%";
-		 	}
+	    	if(n%2==0){
+	    		document.getElementById("boy").src = "img/boydown.gif";
+	    	}
+	    	else{
+	    		document.getElementById("boy").src = "img/boydown1.gif";
+	    	}
+		    document.getElementById("boy").style.left =(71-n+90)+"%";
+	 	}
 		if((71-n+90)==69){
-		    	count();
-		 	}
-		   }
+		    count();
+		}
+	}
 	
 	if(randomNum==1){
 		n++;
 		if(n>0&&(69+n)<=71){
-		    	if(n%2==0){
-		    		document.getElementById("boy").src = "img/boyright.gif";
-		    	}
-		    	else{
-		    		document.getElementById("boy").src = "img/boyright1.gif";
-		    	}
-		    	document.getElementById("boy").style.left =(69+n)+"%";	
-			}
+	    	if(n%2==0){
+	    		document.getElementById("boy").src = "img/boyright.gif";
+	    	}
+	    	else{
+	    		document.getElementById("boy").src = "img/boyright1.gif";
+	    	}
+	    	document.getElementById("boy").style.left =(69+n)+"%";	
+		}
 		if((69+n)>71&&(84-n+2)>=53){
-		    	if(n%2==0){
-		    		document.getElementById("boy").src = "img/boyup.gif";
-		    	}
-		    	else{
-		    		document.getElementById("boy").src = "img/boyup1.gif";
-		    	}
-		    	document.getElementById("boy").style.top =(84-n+2)+"%";	
-			}
+	    	if(n%2==0){
+	    		document.getElementById("boy").src = "img/boyup.gif";
+	    	}
+	    	else{
+	    		document.getElementById("boy").src = "img/boyup1.gif";
+	    	}
+	    	document.getElementById("boy").style.top =(84-n+2)+"%";	
+		}
 		if((84-n+2)<53&&(71-n+33)>65){
-		    	if(n%2==0){
-		    		document.getElementById("boy").src = "img/boyleft.gif";
-		    	}
-		    	else{
-		    		document.getElementById("boy").src = "img/boyleft1.gif";
-		    	}
-		    	document.getElementById("boy").style.left =(71-n+33)+"%";	
-			}
+	    	if(n%2==0){
+	    		document.getElementById("boy").src = "img/boyleft.gif";
+	    	}
+	    	else{
+	    		document.getElementById("boy").src = "img/boyleft1.gif";
+	    	}
+	    	document.getElementById("boy").style.left =(71-n+33)+"%";	
+		}
 		if((71-n+33)==65){
-		    	count();
-			}
-		 }
+	    	count();
+		}
+	}
 	
 	if(randomNum==2){
-			n++;
-		    if(n>0&&(53-n)>=27){
-		    	if(n%2==0){
-		    		document.getElementById("boy").src = "img/boyup.gif";
-		    	}
-		    	else{
-		    		document.getElementById("boy").src = "img/boyup1.gif";
-		    	}
-		    	document.getElementById("boy").style.top =(53-n)+"%";
-			}
-		    if((53-n)<27&&(65+n-26)<=67){
-		    	if(n%2==0){
-		    		document.getElementById("boy").src = "img/boyright.gif";
-		    	}
-		    	else{
-		    		document.getElementById("boy").src = "img/boyright1.gif";
-		    	}
-			    document.getElementById("boy").style.left =(65+n-26)+"%";
-		 	}
-		    if((65+n-26)==67){
-		    	count();
-		    	
-		    } 
-		 }
+		n++;
+	    if(n>0&&(53-n)>=27){
+	    	if(n%2==0){
+	    		document.getElementById("boy").src = "img/boyup.gif";
+	    	}
+	    	else{
+	    		document.getElementById("boy").src = "img/boyup1.gif";
+	    	}
+	    	document.getElementById("boy").style.top =(53-n)+"%";
+		}
+	    if((53-n)<27&&(65+n-26)<=67){
+	    	if(n%2==0){
+	    		document.getElementById("boy").src = "img/boyright.gif";
+	    	}
+	    	else{
+	    		document.getElementById("boy").src = "img/boyright1.gif";
+	    	}
+		    document.getElementById("boy").style.left =(65+n-26)+"%";
+	 	}
+	    if((65+n-26)==67){
+	    	count();
+	    	
+	    } 
+	}
 	
 	if(randomNum==3){
-			n++;
-		 	if(n>0&&(27+n)<=40){
-		 		if(n%2==0){
-		    		document.getElementById("boy").src = "img/boydown.gif";
-		    	}
-		    	else{
-		    		document.getElementById("boy").src = "img/boydown1.gif";
-		    	}
-		    	document.getElementById("boy").style.top =(27+n)+"%";
-			}
-		    if((27+n)>40&&(67-n+13)>37){
-		    	if(n%2==0){
-		    		document.getElementById("boy").src = "img/boyleft.gif";
-		    	}
-		    	else{
-		    		document.getElementById("boy").src = "img/boyleft1.gif";
-		    	}
-			    document.getElementById("boy").style.left =(67-n+13)+"%";
-		 	}
-	        if((67-n+13)<=37&&(41+n-42)<52){
-	        	if(n%2==0){
-		    		document.getElementById("boy").src = "img/boydown.gif";
-		    	}
-		    	else{
-		    		document.getElementById("boy").src = "img/boydown1.gif";
-		    	}
-			    document.getElementById("boy").style.top =(41+n-42)+"%";
-	        }
-		    if((41+n-42)>=52){		   
-		    	count();
-		 	}
-		}	
- 	}
+		n++;
+	 	if(n>0&&(27+n)<=40){
+	 		if(n%2==0){
+	    		document.getElementById("boy").src = "img/boydown.gif";
+	    	}
+	    	else{
+	    		document.getElementById("boy").src = "img/boydown1.gif";
+	    	}
+	    	document.getElementById("boy").style.top =(27+n)+"%";
+		}
+	    if((27+n)>40&&(67-n+13)>37){
+	    	if(n%2==0){
+	    		document.getElementById("boy").src = "img/boyleft.gif";
+	    	}
+	    	else{
+	    		document.getElementById("boy").src = "img/boyleft1.gif";
+	    	}
+		    document.getElementById("boy").style.left =(67-n+13)+"%";
+	 	}
+        if((67-n+13)<=37&&(41+n-42)<52){
+        	if(n%2==0){
+	    		document.getElementById("boy").src = "img/boydown.gif";
+	    	}
+	    	else{
+	    		document.getElementById("boy").src = "img/boydown1.gif";
+	    	}
+		    document.getElementById("boy").style.top =(41+n-42)+"%";
+        }
+	    if((41+n-42)>=52){		   
+	    	count();
+	 	}
+	}	
+}
 
 function count(){
 	flag = false;

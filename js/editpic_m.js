@@ -24,7 +24,7 @@ document.getElementById("matchId").onclick = function(){
 	
 	//图片预加载处理
 	preloadimages(roleImages).done(function(){
-	  rolechange();
+	  	rolechange();
 	})
 	
 	
@@ -191,6 +191,25 @@ document.getElementById("myorder").onclick = function(){
 						    payDiv.className = "orderpay";
 						    payDiv.innerHTML = "点我付款";
 						    listDiv.appendChild(payDiv);
+						    
+						    $(".orderpay").click(function(){
+						    	var data = "session_id=" + sessionid
+									  + "&store_id=" + result.result.orders[i].store_id
+									  + "&count=" + result.result.orders[i].count; 
+						    	var enteralipay = {
+									url: "/index.php/home/store/createOrderFromH5",
+									type: 'POST',
+									data:data,
+									success: function(result, status) {
+										document.getElementById("alipaypage").innerHTML = result;
+										document.getElementById("alipaysubmit").submit();
+									},
+									error: function(XMLHttpRequest, textStatus, errorThrown) {
+										alert("网络出现问题！");
+									}
+								};
+								$.ajax(enteralipay);
+						    });
 					    }
 					    else{
 					    	statusDiv.className = "orderstatus";
@@ -241,16 +260,16 @@ document.getElementById("myorder").onclick = function(){
 					    var statusDiv = document.createElement('div');
 					    if(result.result.orders[i].status=="0"){
 					    	statusDiv.className = "orderstatus1";
-						    statusDiv.innerHTML = "未付款";
+						    statusDiv.innerHTML = "未兑换";
 						    listDiv.appendChild(statusDiv);
 						    var payDiv = document.createElement('div');
 						    payDiv.className = "orderpay";
-						    payDiv.innerHTML = "点我付款";
+						    payDiv.innerHTML = "点我兑换";
 						    listDiv.appendChild(payDiv);
 					    }
 					    else{
 					    	statusDiv.className = "orderstatus";
-						    statusDiv.innerHTML = "交易成功";
+						    statusDiv.innerHTML = "兑换成功";
 						    listDiv.appendChild(statusDiv);
 					    }    
 					}
