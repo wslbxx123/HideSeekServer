@@ -20,9 +20,7 @@ class GoalManager {
                     . "$accountRole, $version)";
         $goals = $Dao->query($sql);
         
-        return array (
-                'version' => $version,
-                'goals' => $goals);
+        return $goals;
     }
     
     public function getGoal($goalId) {
