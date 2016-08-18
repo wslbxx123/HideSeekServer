@@ -16,14 +16,11 @@ class GoalManager {
     
     public function getGoalInfo($latitude, $longitude, $accountRole, $version) {
         $Dao = M("goal");
-        $updateTimestamp = date('y-m-d H:i:s',time());
         $sql = "call admin_get_goals($latitude, $longitude, "
                     . "$accountRole, $version)";
         $goals = $Dao->query($sql);
         
-        return array (
-                'update_time' => $updateTimestamp,
-                'goals' => $goals);
+        return $goals;
     }
     
     public function getGoal($goalId) {

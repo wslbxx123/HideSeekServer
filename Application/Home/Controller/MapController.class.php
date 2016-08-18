@@ -30,8 +30,10 @@ class MapController extends BaseController {
         settype($latitude, "double");
         settype($longitude, "double");
         
-        $result = GoalManager::getGoalInfo($latitude, $longitude, $accountRole, 
+        $goals = GoalManager::getGoalInfo($latitude, $longitude, $accountRole, 
                 $version);
+        $newVersion = PullVersionManager::getGoalVersion();
+        $result = array ('version' => $newVersion, 'goals' => $goals);
         BaseUtil::echoJson(CodeParam::SUCCESS, $result);
     }
     
