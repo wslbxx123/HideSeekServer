@@ -130,39 +130,40 @@ $(function(){
 				
 				//点击购买后是否有用户名存在判断
 				 $(".purGet").click(function(){	
-					   if (nickname==null){
-					   		alert("请先登录！");
-					   }
-					   
-					   else{
-					   		$(".goodsNum").val("1");
-					   		getId = $(this).attr("id");
-					   		$(".goodsName").html(result.result.products[getId].product_name);
-					   		$(".goodsprice").html($(".goodsNum").val()*result.result.products[getId].price+"元");
-					   		
-					   		$('input[type=number]').change(function(){
-					   			$(".goodsprice").html($(".goodsNum").val()*result.result.products[getId].price+"元");
-					   		});
-					   		
-					   		//进入购买支付确认界面
-					   		$("#confirmpurchase").fadeIn();
-					   		
-					   		//进入支付宝界面
-					   		$("#enterAlipay").click(function(){
-								var data = "session_id=" + sessionid
-										  + "&store_id=" + result.result.products[getId].pk_id
-										  + "&count=" + $(".goodsNum").val(); 
-								var enteralipay = {
-									url: "/index.php/home/store/createOrderFromWeb",
-									type: 'POST',
-									data:data,
-									success: function(result, status) {
-										document.getElementById("alipaypage").innerHTML = result;
-										document.getElementById("alipaysubmit").submit();
-									},
-									error: function(XMLHttpRequest, textStatus, errorThrown) {
-										alert("网络出现问题！");
-									}
+				   if (nickname==null){
+				   		alert("请先登录！");
+				   }
+				   
+				   else{
+				   		$("#storecover").fadeIn();
+				   		$(".goodsNum").val("1");
+				   		getId = $(this).attr("id");
+				   		$(".goodsName").html(result.result.products[getId].product_name);
+				   		$(".goodsprice").html($(".goodsNum").val()*result.result.products[getId].price+"元");
+				   		
+				   		$('input[type=number]').change(function(){
+				   			$(".goodsprice").html($(".goodsNum").val()*result.result.products[getId].price+"元");
+				   		});
+				   		
+				   		//进入购买支付确认界面
+				   		$("#confirmpurchase").fadeIn();
+				   		
+				   		//进入支付宝界面
+				   		$("#enterAlipay").click(function(){
+							var data = "session_id=" + sessionid
+									  + "&store_id=" + result.result.products[getId].pk_id
+									  + "&count=" + $(".goodsNum").val(); 
+							var enteralipay = {
+								url: "/index.php/home/store/createOrderFromH5",
+								type: 'POST',
+								data:data,
+								success: function(result, status) {
+									document.getElementById("alipaypage").innerHTML = result;
+									document.getElementById("alipaysubmit").submit();
+								},
+								error: function(XMLHttpRequest, textStatus, errorThrown) {
+									alert("网络出现问题！");
+								}
 							};
 							$.ajax(enteralipay);
 						});
@@ -262,6 +263,7 @@ $(function(){
 				    }
 				   
 				    else{
+				    	$("#storecover").fadeIn();
 				   		getId = $(this).attr("id");
 				   		var gNum = $(".goodsNum1").val()*result.result.reward[getId].record+"积分";
 				   		$(".goodsName").html(result.result.reward[getId].reward_name);

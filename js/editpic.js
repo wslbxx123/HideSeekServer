@@ -149,6 +149,7 @@ document.getElementById("matchId").onclick = function(){
 
 
 document.getElementById("myorder").onclick = function(){
+	$("#storecover").fadeIn();
 	$("#orderArea").fadeIn();
 	var orderArea1 = {
 			url: "/index.php/home/store/refreshPurchaseOrders",
@@ -190,6 +191,7 @@ document.getElementById("myorder").onclick = function(){
 						    var payDiv = document.createElement('div');
 						    payDiv.className = "orderpay";
 						    payDiv.innerHTML = "点我付款";
+						    payDiv.id = i;
 						    listDiv.appendChild(payDiv);
 					    }
 					    else{
@@ -199,6 +201,26 @@ document.getElementById("myorder").onclick = function(){
 					    }    
 					}
 					clickaction = false;	
+					
+					$(".orderpay").click(function(){
+					getId1 = $(this).attr("id");
+			    	var data = "session_id=" + sessionid
+						  + "&store_id=" + result.result.orders[getId1].store_id
+						  + "&count=" + result.result.orders[getId1].count; 
+			    	var enteralipay = {
+						url: "/index.php/home/store/createOrderFromWeb",
+						type: 'POST',
+						data:data,
+						success: function(result, status) {
+							document.getElementById("alipaypage").innerHTML = result;
+							document.getElementById("alipaysubmit").submit();
+						},
+						error: function(XMLHttpRequest, textStatus, errorThrown) {
+							alert("网络出现问题！");
+						}
+					};
+					$.ajax(enteralipay);
+			    });
 			},
 			error: function(XMLHttpRequest, textStatus, errorThrown) {
 				alert("网络出现问题！");
