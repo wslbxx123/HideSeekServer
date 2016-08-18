@@ -119,7 +119,8 @@ class StoreController extends BaseController {
             return;
         }
         
-        $result = StoreControllerManager::getSignResult($storeId, $count, $accountId, false);
+        $result = StoreControllerManager::getSignResult($storeId, $count, 
+                $accountId, 0);
         echo BaseUtil::echoJson(CodeParam::SUCCESS, $result); 
     }
     
@@ -170,7 +171,32 @@ class StoreController extends BaseController {
             return;
         }
         
-        $result = StoreControllerManager::getSignResult($storeId, $count, $accountId, true);
+        $result = StoreControllerManager::getSignResult($storeId, $count, 
+                $accountId, 1);
+        $html = StoreControllerManager::createAlipayFormHtml($result);
+        echo $html;
+    }
+    
+    public function createOrderFromH5() {
+        self::setHeader();
+        
+        $sessionId = filter_input(INPUT_POST, 'session_id');
+        $storeId = filter_input(INPUT_POST, 'store_id');
+        $count = filter_input(INPUT_POST, 'count');
+        
+        $accountId = $this->getPkIdFromToken($sessionId);
+        
+        if(!isset($sessionId) || $accountId == 0) {
+            BaseUtil::echoJson(CodeParam::NOT_LOGIN, null);
+            return;
+        }
+        
+        if(!StoreControllerManager::checkPurchaseOrderInfo($storeId, $count)) {
+            return;
+        }
+        
+        $result = StoreControllerManager::getSignResult($storeId, $count, 
+                $accountId, 2);
         $html = StoreControllerManager::createAlipayFormHtml($result);
         echo $html;
     }
