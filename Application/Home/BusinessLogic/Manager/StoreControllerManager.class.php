@@ -15,20 +15,33 @@ class StoreControllerManager {
     const ALIPAY_GATEWAY_NEW = 'https://mapi.alipay.com/gateway.do?';
     const SIGN_TYPE = "RSA";
     
-    public function getSignResult($storeId, $count, $accountId, $isFromWeb) {
+    public function getSignResultFromType($type, $product, $count, $tradeNo) {
+        switch($type) {
+            case 0:
+                $signResult = ApiManager::rsaSign($product['product_name'], 
+                $product['introduction'],
+                floatval($product['price']) * $count, $tradeNo);
+                break;
+            case 1:
+                $signResult = ApiManager::rsaWebSign($product['product_name'], 
+                $product['introduction'],
+                floatval($product['price']) * $count, $tradeNo);
+                break;
+            case 2:
+                $signResult = ApiManager::rsaH5WebSign($product['product_name'], 
+                $product['introduction'],
+                floatval($product['price']) * $count, $tradeNo);
+                break;
+        }
+        return $signResult;
+    }
+    
+    public function getSignResult($storeId, $count, $accountId, $type) {
         $orderVersion = PullVersionManager::updateProductOrderVersion();
         $product = ProductManager::getProduct($storeId);
         $tradeNo = ApiManager::generateTradeNo(5);
         
-        if($isFromWeb) {
-            $signResult = ApiManager::rsaWebSign($product['product_name'], 
-                $product['introduction'],
-                floatval($product['price']) * $count, $tradeNo);
-        } else {
-            $signResult = ApiManager::rsaSign($product['product_name'], 
-                $product['introduction'],
-                floatval($product['price']) * $count, $tradeNo);
-        }
+        $signResult = self::getSignResultFromType($type, $product, $count, $tradeNo);
         
         $orderId = PurchaseOrderManager::insertOrder($storeId, $accountId, $count, 
                 $tradeNo, $orderVersion);
@@ -40,19 +53,11 @@ class StoreControllerManager {
     }
     
     public function getSignResultWithoutCreateOrder($storeId, $count, 
-            $isFromWeb, $orderId) {
+            $type, $orderId) {
         $product = ProductManager::getProduct($storeId);
         $tradeNo = ApiManager::generateTradeNo(5);
         
-        if($isFromWeb) {
-            $signResult = ApiManager::rsaWebSign($product['product_name'], 
-                $product['introduction'],
-                floatval($product['price']) * $count, $tradeNo);
-        } else {
-            $signResult = ApiManager::rsaSign($product['product_name'], 
-                $product['introduction'],
-                floatval($product['price']) * $count, $tradeNo);
-        }
+        $signResult = getSignResultFromType($type, $product, $count, $tradeNo);
         
         $result = Array("order_id" => $orderId, "sign" => $signResult["sign"], 
             "trade_no" => $tradeNo, "params" => $signResult["params"]);
