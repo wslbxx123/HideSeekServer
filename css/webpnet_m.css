@@ -1103,6 +1103,13 @@ p.tip{
     margin-left: -1%;
 }
 
+.goodsprice1{
+	position: absolute;
+    width: 50px;
+    margin-top: 0px;
+    margin-left: -1%;
+}
+
 #exit{
 	width: 115px;
     height: 28px;
