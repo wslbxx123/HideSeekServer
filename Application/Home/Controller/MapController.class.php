@@ -17,7 +17,6 @@ class MapController extends BaseController {
         $longitude = filter_input(INPUT_POST, 'longitude');
         $accountRole = filter_input(INPUT_POST, 'account_role');
         $updateTime = filter_input(INPUT_POST, 'update_time');
-        $newUpdateTime = date('y-m-d H:i:s',time());
         
         if(!isset($latitude) || !isset($longitude)) {
             BaseUtil::echoJson(CodeParam::LATITUDE_OR_LONGITUDE_EMPTY, null);
@@ -35,8 +34,8 @@ class MapController extends BaseController {
         settype($latitude, "double");
         settype($longitude, "double");
         
-        $result = GoalManager::getGoalInfo($latitude, $longitude, 
-                $accountRole, $newUpdateTime);
+        $result = GoalManager::getGoalInfo($latitude, $longitude, $accountRole, 
+                $updateTime);
         BaseUtil::echoJson(CodeParam::SUCCESS, $result);
     }
     

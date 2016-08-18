@@ -15,16 +15,10 @@ class GoalManager {
     
     public function getGoalInfo($latitude, $longitude, $accountRole, $updateTime) {
         $Dao = M("goal");
+        $updateTimestamp = date('y-m-d H:i:s',time());
         $sql = "call admin_monster_role_p($latitude, $longitude, "
                     . "$accountRole, \"$updateTime\")";
         $goals = $Dao->query($sql);
-        $pos = array_search(max($goals['update_time']), $goals);
-        
-        if(count($goals) > 0) {
-            $updateTimestamp = $goals[$pos]['update_time'];
-        } else {
-            $updateTimestamp = $updateTime;
-        }
         
         return array (
                 'update_time' => $updateTimestamp,
