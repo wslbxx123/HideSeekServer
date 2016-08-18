@@ -158,66 +158,69 @@ document.getElementById("myorder").onclick = function(){
 			dataType: "json",
 			
 			success: function(result, status) {
-					$("#listArea").fadeIn();
-					var orderArea = document.getElementById("orderArea");
-					var listArea = document.getElementById("listArea");
-					for(var i = 0;i < result.result.orders.length;i++){	
-						//创建商品橱窗框
-						var listDiv = document.createElement('div');
-						listDiv.className = "orderlist";
-					  	listArea.appendChild(listDiv);
-					    var listImg = document.createElement('img');
-					    listImg.className = "orderprodct";
-					    listImg.src = result.result.orders[i].product_image_url;
-					    listDiv.appendChild(listImg);
-					    var nameDiv = document.createElement('div');
-					    nameDiv.className = "ordername";
-					    nameDiv.innerHTML = result.result.orders[i].product_name;
-					    listDiv.appendChild(nameDiv);
-					    var sumDiv = document.createElement('div');
-					    sumDiv.className = "ordersum";
-					    sumDiv.innerHTML = "总计：";
-					    listDiv.appendChild(sumDiv);
-					    var numSpan = document.createElement('span');
-					    numSpan.className = "orderNum";
-					    numSpan.innerHTML = result.result.orders[i].count+"(个数)×"+result.result.orders[i].price+"(单价)="+result.result.orders[i].purchase_count*result.result.orders[i].price+"元"; 
-					    sumDiv.appendChild(numSpan);
-					    var statusDiv = document.createElement('div');
-					    if(result.result.orders[i].status=="0"){
-					    	statusDiv.className = "orderstatus1";
-						    statusDiv.innerHTML = "未付款";
-						    listDiv.appendChild(statusDiv);
-						    var payDiv = document.createElement('div');
-						    payDiv.className = "orderpay";
-						    payDiv.innerHTML = "点我付款";
-						    listDiv.appendChild(payDiv);
-						    
-						    $(".orderpay").click(function(){
-						    	var data = "session_id=" + sessionid
-									  + "&store_id=" + result.result.orders[i].store_id
-									  + "&count=" + result.result.orders[i].count; 
-						    	var enteralipay = {
-									url: "/index.php/home/store/createOrderFromH5",
-									type: 'POST',
-									data:data,
-									success: function(result, status) {
-										document.getElementById("alipaypage").innerHTML = result;
-										document.getElementById("alipaysubmit").submit();
-									},
-									error: function(XMLHttpRequest, textStatus, errorThrown) {
-										alert("网络出现问题！");
-									}
-								};
-								$.ajax(enteralipay);
-						    });
-					    }
-					    else{
-					    	statusDiv.className = "orderstatus";
-						    statusDiv.innerHTML = "交易成功";
-						    listDiv.appendChild(statusDiv);
-					    }    
-					}
-					clickaction = false;	
+				$("#listArea").fadeIn();
+				var orderArea = document.getElementById("orderArea");
+				var listArea = document.getElementById("listArea");
+				for(var i = 0;i < result.result.orders.length;i++){	
+					//创建商品橱窗框
+					var listDiv = document.createElement('div');
+					listDiv.className = "orderlist";
+				  	listArea.appendChild(listDiv);
+				    var listImg = document.createElement('img');
+				    listImg.className = "orderprodct";
+				    listImg.src = result.result.orders[i].product_image_url;
+				    listDiv.appendChild(listImg);
+				    var nameDiv = document.createElement('div');
+				    nameDiv.className = "ordername";
+				    nameDiv.innerHTML = result.result.orders[i].product_name;
+				    listDiv.appendChild(nameDiv);
+				    var sumDiv = document.createElement('div');
+				    sumDiv.className = "ordersum";
+				    sumDiv.innerHTML = "总计：";
+				    listDiv.appendChild(sumDiv);
+				    var numSpan = document.createElement('span');
+				    numSpan.className = "orderNum";
+				    numSpan.innerHTML = result.result.orders[i].count+"(个数)×"+result.result.orders[i].price+"(单价)="+result.result.orders[i].purchase_count*result.result.orders[i].price+"元"; 
+				    sumDiv.appendChild(numSpan);
+				    var statusDiv = document.createElement('div');
+				    if(result.result.orders[i].status=="0"){
+				    	statusDiv.className = "orderstatus1";
+					    statusDiv.innerHTML = "未付款";
+					    listDiv.appendChild(statusDiv);
+					    var payDiv = document.createElement('div');
+					    payDiv.className = "orderpay";
+					    payDiv.innerHTML = "点我付款";
+					    payDiv.id = i;
+					    listDiv.appendChild(payDiv);
+				    }
+				    else{
+				    	statusDiv.className = "orderstatus";
+					    statusDiv.innerHTML = "交易成功";
+					    listDiv.appendChild(statusDiv);
+				    }    
+				}
+				clickaction = false;
+				
+				$(".orderpay").click(function(){
+					getId1 = $(this).attr("id");
+			    	var data = "session_id=" + sessionid
+						  + "&store_id=" + result.result.orders[getId1].store_id
+						  + "&count=" + result.result.orders[getId1].count; 
+			    	var enteralipay = {
+						url: "/index.php/home/store/createOrderFromH5",
+						type: 'POST',
+						data:data,
+						success: function(result, status) {
+							document.getElementById("alipaypage").innerHTML = result;
+							document.getElementById("alipaysubmit").submit();
+						},
+						error: function(XMLHttpRequest, textStatus, errorThrown) {
+							alert("网络出现问题！");
+						}
+					};
+					$.ajax(enteralipay);
+			    });
+					
 			},
 			error: function(XMLHttpRequest, textStatus, errorThrown) {
 				alert("网络出现问题！");
