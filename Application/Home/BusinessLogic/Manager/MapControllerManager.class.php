@@ -4,6 +4,7 @@ use Home\DataAccess\PullVersionManager;
 use Home\DataAccess\AccountManager;
 use Home\DataAccess\RecordManager;
 use Home\DataAccess\GoalManager;
+use Home\DataAccess\MonsterTypeManager;
 use Home\Common\Util\BaseUtil;
 use Home\Common\Param\CodeParam;
 /**
@@ -13,13 +14,15 @@ use Home\Common\Param\CodeParam;
  */
 class MapControllerManager {
     public function checkUserInAccountArray($accountArray, $accountId, $goalId) {
+        $goal = GoalManager::getGoal($goalId);
         $flag = true;
         if(count($accountArray) > 0 && !isset($accountArray[0]['result'])) {
             $flag = false;
             $version = PullVersionManager::updateRaceGroupVersion();
             foreach ($accountArray as $accountResult){ 
                 if($accountResult['account_id'] == $accountId) {
-                    $scoreSum = RecordManager::insertRecord($goalId, 2, 
+                    $score = MonsterTypeManager::getScore($goal['monster_type']);
+                    $scoreSum = RecordManager::insertRecord($goalId, 2, $score,
                             $accountId, $version);         
                     AccountManager::updateScoreSum($accountId, $scoreSum);
                     $flag = true;

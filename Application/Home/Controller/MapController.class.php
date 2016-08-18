@@ -7,6 +7,7 @@ use Home\DataAccess\PullVersionManager;
 use Home\DataAccess\RecordManager;
 use Home\DataAccess\AccountManager;
 use Home\DataAccess\MonsterTempHitManager;
+use Home\DataAccess\GoalTypeManager;
 use Home\BusinessLogic\Manager\MapControllerManager;
 
 class MapController extends BaseController {
@@ -53,7 +54,8 @@ class MapController extends BaseController {
         $goalVersion = PullVersionManager::updateGoalVersion();
         GoalManager::updateGoal(0, $goalId, $goalVersion);
         $raceGroupversion = PullVersionManager::updateRaceGroupVersion();
-        $scoreSum = RecordManager::insertRecord($goalId, $goalType, 
+        $score = GoalTypeManager::getScore($goalType);
+        $scoreSum = RecordManager::insertRecord($goalId, $goalType, $score, 
                 $account['pk_id'], $raceGroupversion);
         AccountManager::updateScoreSum($account['pk_id'], $scoreSum);
         
