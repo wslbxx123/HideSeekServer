@@ -462,108 +462,108 @@ $(function(){
 	var codeNumber; //发送的手机验证码；
 	
 	//发送和检验验证码
-//	document.getElementById("verifiCode").onclick = function(){
-//	
-//		//验证用户填写手机格式是否正确
-//		var tel = document.getElementById("userphone").value;
-//	 	if(/^1\d{10}$/g.test(tel)){      
-//			phoneFormat = true;
-//		}
-//		else{
-//			alert("手机格式不正确！")
-//			phoneFormat = false;
-//		}
-//	
-//		//验证注册界面用户手机号码是否被注册
-//		var myphone = {
-//			url: "/index.php/home/user/checkIfUserExist",	
-//			type: 'POST',
-//			data: "phone=" + $("#userphone").val(),
-//			dataType: "json",
-//			
-//			success: function(result, status) {
-////				alert(JSON.stringify(result));
-//				switch(result["code"]){
-//					case "10000":
-//						phoneregistered = false;
-//						break;
-//				  	case "10015":
-//				  		phoneregistered = true;
-//				  		break;
-//				}	
-//			},
-//			error: function(XMLHttpRequest, textStatus, errorThrown) {
-//				alert("网络出现问题！");
-//				phoneregistered = true;
-//			}
-//		};
-//		$.ajax(myphone);	
-//
-//		//检验是否可以发送验证码
-//		if(phoneFormat&&!phoneregistered){
-//			verifiClick = true;
-//			document.getElementById("userphone").className = "reqd";
-//		}
-//		else{
-//			verifiClick = false;
-//			document.getElementById("userphone").className += " invalid";
-//		}
-//	
-//		//开始发送验证码
-//	   	if(verifiClick){    
-//			var verificode = {
-//				url: "/index.php/home/user/sendVerificationCode",
-//				type: 'POST',
-//				data: "phone=" + $("#userphone").val(),
-//				dataType: "json",
-//				
-//				success: function(result, status){   
-//					switch(result["code"]){
-//						case "10000":
-//							codeNumber = result["result"]["sms_code"];
-//							if(result["result"]["content"]["error_code"]==0){ 	
-//								timeKeeper = true;
-//								verifiClick = false;
-//								var tim = 59;
-//								$("#verifiCode").val("发送成功!");
-//								$("#verifiCode").css("background-color","darkgrey"); 
-//								
-//								setTimeout(function(){
-//									round();
-//									
-//								},1000);
-//								
-//								
-//							 	function round(){
-//							    	$("#verifiCode").val(tim+"秒");
-//							    	tim--;
-//							    	if(tim == 0){
-//							    		timeKeeper = false;
-//							    		verifiClick = true;
-//							        	$("#verifiCode").css("background-color","#FFCC00"); 
-//							        	$("#verifiCode").val("发送验证码");
-//							        }
-//							        if(timeKeeper){
-//							        	setTimeout(function(){
-//											round();
-//										},1000);
-//							        }
-//								}
-//							}	
-//							break;
-//					  	case "10001":
-//					  		$("#fault").fadeIn();
-//					  		break;
-//					}
-//					
-//				},
-//				error: function(XMLHttpRequest, textStatus, errorThrown) {
-//					alert("发送验证码失败！");
-//				}
-//			};
-//			$.ajax(verificode);
-//		}
-//	}
+	document.getElementById("verifiCode").onclick = function(){
+	
+		//验证用户填写手机格式是否正确
+		var tel = document.getElementById("userphone").value;
+	 	if(/^1\d{10}$/g.test(tel)){      
+			phoneFormat = true;
+		}
+		else{
+			alert("手机格式不正确！")
+			phoneFormat = false;
+		}
+	
+		//验证注册界面用户手机号码是否被注册
+		var myphone = {
+			url: "/index.php/home/user/checkIfUserExist",	
+			type: 'POST',
+			data: "phone=" + $("#userphone").val(),
+			dataType: "json",
+			
+			success: function(result, status) {
+//				alert(JSON.stringify(result));
+				switch(result["code"]){
+					case "10000":
+						phoneregistered = false;
+						break;
+				  	case "10015":
+				  		phoneregistered = true;
+				  		break;
+				}	
+			},
+			error: function(XMLHttpRequest, textStatus, errorThrown) {
+				alert("网络出现问题！");
+				phoneregistered = true;
+			}
+		};
+		$.ajax(myphone);	
+
+		//检验是否可以发送验证码
+		if(phoneFormat&&!phoneregistered){
+			verifiClick = true;
+			document.getElementById("userphone").className = "reqd";
+		}
+		else{
+			verifiClick = false;
+			document.getElementById("userphone").className += " invalid";
+		}
+	
+		//开始发送验证码
+	   	if(verifiClick){    
+			var verificode = {
+				url: "/index.php/home/user/sendVerificationCode",
+				type: 'POST',
+				data: "phone=" + $("#userphone").val(),
+				dataType: "json",
+				
+				success: function(result, status){   
+					switch(result["code"]){
+						case "10000":
+							codeNumber = result["result"]["sms_code"];
+							if(result["result"]["content"]["error_code"]==0){ 	
+								timeKeeper = true;
+								verifiClick = false;
+								var tim = 59;
+								$("#verifiCode").val("发送成功!");
+								$("#verifiCode").css("background-color","darkgrey"); 
+								
+								setTimeout(function(){
+									round();
+									
+								},1000);
+								
+								
+							 	function round(){
+							    	$("#verifiCode").val(tim+"秒");
+							    	tim--;
+							    	if(tim == 0){
+							    		timeKeeper = false;
+							    		verifiClick = true;
+							        	$("#verifiCode").css("background-color","#FFCC00"); 
+							        	$("#verifiCode").val("发送验证码");
+							        }
+							        if(timeKeeper){
+							        	setTimeout(function(){
+											round();
+										},1000);
+							        }
+								}
+							}	
+							break;
+					  	case "10001":
+					  		$("#fault").fadeIn();
+					  		break;
+					}
+					
+				},
+				error: function(XMLHttpRequest, textStatus, errorThrown) {
+					alert("发送验证码失败！");
+				}
+			};
+			$.ajax(verificode);
+		}
+	}
 		
 	//	检验注册界面填写框
 	$("#register").click(function(){
