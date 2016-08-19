@@ -97,4 +97,12 @@ class AccountManager {
         $account['bomb_num'] = $bombNum;
         $Dao->where($condition)->save($account);
     }
+    
+    public function updatePhoto($accountId, $photoUrl, $smallPhotoUrl) {
+        $Dao = M("account");
+        $condition["pk_id"] = $accountId;
+        $account['photo_url'] = $photoUrl;
+        $account['small_photo_url'] = $smallPhotoUrl;
+        $Dao->where($condition)->save($account);
+    }
 }
