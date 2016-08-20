@@ -13,6 +13,8 @@ $(function(){
 	myimgpath = sessionStorage.getItem("myimgpath");
 	sessionid = sessionStorage.getItem("myimgpath");
 	sex = sessionStorage.getItem("sex");
+	region = sessionStorage.getItem("region");
+	
 	if(nickname!=null){  
 		$("#nickname").html(nickname);
 		$("#scoreNum").html(record);
@@ -440,11 +442,13 @@ $(function(){
 							sessionStorage.setItem("myimgpath", result["result"]["photo_url"]);
 							sessionStorage.setItem("sessionid", result["result"]["session_id"]);
 							sessionStorage.setItem("sex", result["result"]["sex"]);
+							sessionStorage.setItem("region", result["result"]["region"]);
 							nickname = sessionStorage.getItem("nickname");
 							record = sessionStorage.getItem("record");
 							myimgpath = sessionStorage.getItem("myimgpath");
 							sessionid = sessionStorage.getItem("myimgpath");
 							sex = sessionStorage.getItem("sex");
+							region = sessionStorage.getItem("region");
 					  		break;
 					  	case "10001":
 					  		$("#fault").fadeIn();

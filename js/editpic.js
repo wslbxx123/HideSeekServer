@@ -17,8 +17,19 @@ $('#mycamera').change(function(){
 $("#mydata").click(function(){
 	$("#dataArea").fadeIn();
 	$("#userName1").val($("#nickname").html());
-	$("#sex1").val($("#sex").val());
-	$(".cityinput").val();
+	switch(sessionStorage.getItem("sex")){
+		case"0":
+		sex = "未设置";
+		case"1":
+		sex = "女";
+		case"2":
+		sex = "男";
+		case"3":
+		sex = "保密";
+	}
+	$("#sex1").val(sex);
+	$(".cityinput").val(sessionStorage.getItem("region"));
+	$(".photo").attr('src',myimgpath); 
 });
 
 $('#mycamera1').change(function(){
@@ -140,10 +151,12 @@ document.getElementById("matchId").onclick = function(){
 					sessionStorage.setItem("myimgpath", $("#.photo").attr("src"));
 					sessionStorage.setItem("sessionid", result["result"]["session_id"]);
 					sessionStorage.setItem("sex", result["result"]["sex"]);
+					sessionStorage.setItem("region", result["result"]["region"]);
 					nickname = sessionStorage.getItem("nickname");
 					record = sessionStorage.getItem("record");
 					myimgpath = sessionStorage.getItem("myimgpath");
 					sex = sessionStorage.getItem("sex");
+					region = sessionStorage.getItem("region");
 					$("#nickname").html($("#userName").val());
 					$("#scoreNum").html(Num);
 					$("#myimg").attr('src',$(".photo").attr("src"));
