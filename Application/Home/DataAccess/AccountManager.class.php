@@ -119,4 +119,11 @@ class AccountManager {
         $account['sex'] = $sex;
         $Dao->where($condition)->save($account);
     }
+    
+    public function updateRegion($accountId, $region) {
+        $Dao = M("account");
+        $condition["pk_id"] = $accountId;
+        $account['region'] = $region;
+        $Dao->where($condition)->save($account);
+    }
 }

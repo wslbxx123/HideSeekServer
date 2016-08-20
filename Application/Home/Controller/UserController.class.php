@@ -211,7 +211,30 @@ class UserController extends BaseController {
         
         AccountManager::updateSex($accountId, $sex);
         
-        $result = Array("nickname" => $sex);
+        $result = Array("sex" => $sex);
+        BaseUtil::echoJson(CodeParam::SUCCESS, $result);
+    }
+    
+    public function updateRegion() {
+        self::setHeader();
+        
+        $sessionId = filter_input(INPUT_POST, 'session_id');
+        $region = filter_input(INPUT_POST, 'region');
+        $accountId = $this->getPkIdFromToken($sessionId);
+        
+        if(!isset($sessionId) || $accountId == 0) {
+            BaseUtil::echoJson(CodeParam::NOT_LOGIN, null);
+            return;
+        }
+        
+        if(!isset($region)) {
+            BaseUtil::echoJson(CodeParam::SEX_EMPTY, null);
+            return null;
+        }
+        
+        AccountManager::updateRegion($accountId, $region);
+        
+        $result = Array("region" => $region);
         BaseUtil::echoJson(CodeParam::SUCCESS, $result);
     }
 }
