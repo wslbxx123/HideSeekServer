@@ -138,5 +138,35 @@ class UserController extends BaseController {
         $result = Array("sms_code" => $code, "content" => $resultContent);
         BaseUtil::echoJson(CodeParam::SUCCESS, $result);
     }
+    
+    public function updatePhotoUrl() {
+        self::setHeader();
+        
+        $sessionId = filter_input(INPUT_POST, 'session_id');
+        $photo = $_FILES['photo'];
+        $photoDataUrl = filter_input(INPUT_POST, 'photo_url');
+        $accountId = $this->getPkIdFromToken($sessionId);
+        
+        if(!isset($sessionId) || $accountId == 0) {
+            BaseUtil::echoJson(CodeParam::NOT_LOGIN, null);
+            return;
+        }
+        
+        $tempFileName = "Upload_".session_id()."_".strtotime("now");
+        $photoUrl = FileUtil::saveRealPhoto($photo, $photoDataUrl, $tempFileName);
+        
+        if(isset($photo) && !isset($photoUrl)) {
+            BaseUtil::echoJson(CodeParam::FAIL_UPLOAD_PHOTO, null);
+            return null;
+        }
+        
+        $smallPhotoUrl = FileUtil::saveSmallPhoto($photoUrl, 
+                $tempFileName, 200, 200);
+        
+        AccountManager::updatePhoto($accountId, $photoUrl, $smallPhotoUrl);
+        
+        $result = Array("photo_url" => $photoUrl, "small_photo_url" => $smallPhotoUrl);
+        BaseUtil::echoJson(CodeParam::SUCCESS, $result);
+    }
 }
 
