@@ -168,5 +168,51 @@ class UserController extends BaseController {
         $result = Array("photo_url" => $photoUrl, "small_photo_url" => $smallPhotoUrl);
         BaseUtil::echoJson(CodeParam::SUCCESS, $result);
     }
+    
+    public function updateNickname() {
+        self::setHeader();
+        
+        $sessionId = filter_input(INPUT_POST, 'session_id');
+        $nickname = filter_input(INPUT_POST, 'nickname');
+        $accountId = $this->getPkIdFromToken($sessionId);
+        
+        if(!isset($sessionId) || $accountId == 0) {
+            BaseUtil::echoJson(CodeParam::NOT_LOGIN, null);
+            return;
+        }
+        
+        if(!isset($nickname)) {
+            BaseUtil::echoJson(CodeParam::NICKNAME_EMPTY, null);
+            return null;
+        }
+        
+        AccountManager::updateNickname($accountId, $nickname);
+        
+        $result = Array("nickname" => $nickname);
+        BaseUtil::echoJson(CodeParam::SUCCESS, $result);
+    }
+    
+    public function updateSex() {
+        self::setHeader();
+        
+        $sessionId = filter_input(INPUT_POST, 'session_id');
+        $sex = filter_input(INPUT_POST, 'sex');
+        $accountId = $this->getPkIdFromToken($sessionId);
+        
+        if(!isset($sessionId) || $accountId == 0) {
+            BaseUtil::echoJson(CodeParam::NOT_LOGIN, null);
+            return;
+        }
+        
+        if(!isset($sex)) {
+            BaseUtil::echoJson(CodeParam::SEX_EMPTY, null);
+            return null;
+        }
+        
+        AccountManager::updateSex($accountId, $sex);
+        
+        $result = Array("nickname" => $sex);
+        BaseUtil::echoJson(CodeParam::SUCCESS, $result);
+    }
 }
 
