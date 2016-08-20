@@ -46,6 +46,8 @@ class MessageFactory {
                 return MessageParam::FAIL_UPLOAD_PHOTO;
             case CodeParam::USER_ALREADY_EXIST:
                 return MessageParam::USER_ALREADY_EXIST;
+            case CodeParam::SEX_EMPTY:
+                return MessageParam::SEX_EMPTY;
             default:
                 return null;
         }

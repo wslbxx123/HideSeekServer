@@ -105,4 +105,25 @@ class AccountManager {
         $account['small_photo_url'] = $smallPhotoUrl;
         $Dao->where($condition)->save($account);
     }
+    
+    public function updateNickname($accountId, $nickname) {
+        $Dao = M("account");
+        $condition["pk_id"] = $accountId;
+        $account['nickname'] = $nickname;
+        $Dao->where($condition)->save($account);
+    }
+    
+    public function updateSex($accountId, $sex) {
+        $Dao = M("account");
+        $condition["pk_id"] = $accountId;
+        $account['sex'] = $sex;
+        $Dao->where($condition)->save($account);
+    }
+    
+    public function updateRegion($accountId, $region) {
+        $Dao = M("account");
+        $condition["pk_id"] = $accountId;
+        $account['region'] = $region;
+        $Dao->where($condition)->save($account);
+    }
 }

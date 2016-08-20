@@ -15,6 +15,7 @@ class MessageParam {
     const NICKNAME_EMPTY = "昵称为空";
     const FAIL_UPLOAD_PHOTO = "上传照片失败";
     const USER_ALREADY_EXIST = "用户已经存在";
+    const SEX_EMPTY = "性别为空";
     #endregion
     
     #region 商场信息

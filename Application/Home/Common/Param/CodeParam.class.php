@@ -15,6 +15,7 @@ class CodeParam {
     const NICKNAME_EMPTY = "10003";
     const FAIL_UPLOAD_PHOTO = "10004";
     const USER_ALREADY_EXIST = "10005";
+    const SEX_EMPTY = "10018";
     #endregion
     
     #region 商场信息
