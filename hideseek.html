@@ -71,13 +71,12 @@
            		<div id= "nickname"></div>
            		<div id= "score">&nbsp;<span id="scoreNum"></span>积分</div>       		
            	</div>
-           	<ul id ="exit" onmouseover="displaySubMenu();" onmouseout="hideSubMenu();">
-           		<li>个人资料</li>
-				<li>退出登录</li>
+           	<ul id = "flipframe" onmouseover="displaySubMenu();" onmouseout="hideSubMenu();">
+           		<li id ="mydata">个人资料</li>
+				<li id ="exit" >退出登录</li>
 			</ul>
     	</div>
     	
-    	  
     	<!-- banner图 -->
 	    <div class="banner">
 		    <img src="img/road.gif" style="width:100%;">
@@ -153,6 +152,40 @@
 	    	</div>
     	</div>
     	
+    	
+    	<!-- 个人资料修改区 -->
+    	<div id = "dataArea">
+    		<div class="closeBox"></div>
+    		<div class="bgColor"></div>
+    		<img class = "photo" />
+    		<canvas id="mypicture1" width="500px" height="500px"></canvas>
+    		<a class="file">
+            	<input type="file" accept="image/*;capture=camera" id="mycamera1">
+        	</a>
+        	<p>	<label for="userName">昵称
+	    			<input type="text" size="30" id="userName1" class="reqd" value="上官宛伊"/>
+	    		</label> 
+	    	</p>
+	    	<div style='height:1px;width:75%;background-color:grey;line-height:1px;clear:both;display:block;overflow:hidden' class="line"> </div>
+    		<p> <label for="sex">性别
+					<select id="sex1" class="reqd">
+					<option value="" selected>未设置</option>
+					<option value="man">男</option>
+					<option value="woman">女</option>
+					</select>
+				</label>
+    		</p>
+			<div style='height:1px;width:75%;background-color:grey;line-height:1px;clear:both;display:block;overflow:hidden' class="line"> </div>	
+			<p> <div class="demo">
+					<label for="district">地区	
+					<input type="text" class="cityinput" id="citySelect" value="未设置"/>
+					<script type="text/javascript" src="js/querycity.js"></script>	
+				</div>	
+    		</p>
+			<div style='height:1px;width:75%;background-color:grey;line-height:1px;clear:both;display:block;overflow:hidden' class="line"> </div>	
+			<p><input type="button" value="确认修改" id="refreshdata"></p>
+    	</div>  
+    	
     	<!--弹出登录页面-->
     	<div id="newWin">
     		<div class="closeBox"></div>
@@ -213,9 +246,9 @@
     	
     	<!--弹出注册页面2-->
     	<div id="newWin2">
-    		<div class="closeBox"></div>
-    		<div id="bgColor"></div>
-    		<img id = "photo" />
+    		<div class ="closeBox"></div>
+    		<div class ="bgColor"></div>
+    		<img class = "photo" />
     		<canvas id="mypicture" width="500px" height="500px"></canvas>
     		<a class="file">
             	<input type="file" accept="image/*;capture=camera" id="mycamera">

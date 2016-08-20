@@ -5,13 +5,26 @@ var myId = Math.floor ((Math.random() * roleImages.length));
 var logIn = false;
 
 //头像上传处理
-$('input[type=file]').change(function(){
+$('#mycamera').change(function(){
 	$("#newWin3").fadeIn(); 
 	$("#newWin2").fadeOut(); 
 	var fileimg = document.getElementById("fileimg");
 	var mycamera = document.getElementById('mycamera');
 	getPath(fileimg,mycamera,fileimg);
 });
+
+//个人资料更改区
+$("#mydata").click(function(){
+	$("#mydataArea").fadeIn();
+	$("#userName1").val($("#nickname").html());
+	$("#sex1").val($("#sex").val());
+	$(".cityinput").val();
+});
+
+$('#mycamera1').change(function(){
+	
+});
+
 
 
 //头像上传处理
@@ -105,7 +118,7 @@ document.getElementById("matchId").onclick = function(){
 				+ "&sex="+ document.getElementById("sex").options[index].text
 				+ "&region=" + document.getElementById("citySelect").value
 				+ "&role=" + myId
-				+ "&photo_url=" + encodeURIComponent(document.getElementById("photo").src);
+				+ "&photo_url=" + encodeURIComponent($(".photo").attr("src"));
 				
 	var mymessages = {
 		url: "/index.php/home/user/register",	
@@ -124,7 +137,7 @@ document.getElementById("matchId").onclick = function(){
 			        //存储注册数据
 			  		sessionStorage.setItem("nickname", $("#userName").val());
 					sessionStorage.setItem("record", Num);
-					sessionStorage.setItem("myimgpath", $("#photo").attr("src"));
+					sessionStorage.setItem("myimgpath", $("#.photo").attr("src"));
 					sessionStorage.setItem("sessionid", result["result"]["session_id"]);
 					nickname = sessionStorage.getItem("nickname");
 					record = sessionStorage.getItem("record");
@@ -132,7 +145,7 @@ document.getElementById("matchId").onclick = function(){
 					sessionid = sessionStorage.getItem("myimgpath");
 					$("#nickname").html($("#userName").val());
 					$("#scoreNum").html(Num);
-					$("#myimg").attr('src',$("#photo").attr("src"));
+					$("#myimg").attr('src',$(".photo").attr("src"));
 					$("myorder").fadeIn();
 					break;
 			  	case "10003":
@@ -453,7 +466,7 @@ function getPath(obj,fileQuery,transImg){
 			
 			var images = new Image();
 			images.src = mypicture.toDataURL("image/jpeg");
-			document.getElementById("photo").src = images.src;
+			$(".photo").attr("src","images.src");
 		}			
 	});
 }			

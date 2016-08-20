@@ -34,6 +34,8 @@ $(function(){
 		getClick = false;
 	});
 	
+	
+	
 	//点击右上角叉号删除页面
 	$(".closeBox").click(function(){
 		$("#newWin").fadeOut(); 
@@ -651,13 +653,13 @@ $(function(){
 
 //	右上角菜单列的显示
 function displaySubMenu() {
-	var subMenu = document.getElementById("exit");
+	var subMenu = document.getElementById("flipframe");
 	subMenu.style.display = "block";
 }
 
 //	右上角菜单列的隐藏
 function hideSubMenu() {
-	var subMenu = document.getElementById("exit");
+	var subMenu = document.getElementById("flipframe");
 	subMenu.style.display = "none";
 }
 

@@ -63,7 +63,7 @@ input{
 }
 
 select{
-	width: 58%;
+	width: 62%;
     margin-left: 4px;
     font-size: 14px;
     font-family: "Microsoft Yahei";
@@ -291,18 +291,18 @@ input.invalid {
 }
 
 #myprofile{
-	left: 95%;
+	right: 9px;
     top: 1%;
     position: absolute;
     display: none;
     font-size: 12px;
     padding: 2px;
-    background:#fae077;
-    border-radius:2px;
-    -moz-border-radius: 2px; /* Firefox */
-  	-webkit-border-radius: 2px; /* Safari 和 Chrome */
-    border:1px solid cornflowerblue;
-    cursor:pointer;
+    background: #fae077;
+    border-radius: 2px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border: 1px solid cornflowerblue;
+    cursor: pointer;
 }
 
 
@@ -662,7 +662,25 @@ input.invalid {
     opacity: 0;
 }
 
+#mycamera1{
+	position: absolute;
+    font-size: 100px;
+    right: 0;
+    top: 0;
+    opacity: 0;
+}
+
 #mypicture{
+	margin-top: -20%;
+    border-radius: 63px;
+    left: 35%;
+    width: 111px;
+    height: 111px;
+    background: url("../img/mypicture.png") no-repeat center;
+    background-size: cover;
+}
+
+#mypicture1{
 	margin-top: -20%;
     border-radius: 63px;
     left: 35%;
@@ -682,7 +700,7 @@ input.invalid {
 }
 
 
-#bgColor{
+.bgColor{
 	background-color: #fae077;
     width: 100%;
     height: 36%;
@@ -836,7 +854,7 @@ p.tip{
 }
 
 .cityinput{
-	width: 57%;
+	width: 61%;
     height: 30px;
     line-height: 24px;
     padding-left: 3px;
@@ -968,8 +986,9 @@ p.tip{
 	height: 31px;
     width: 31px;
     margin-top: 1%;
-    margin-left: 78%;
-    display:none;
+    right: 57px;
+    display: none;
+    position: absolute;
 }
 
 #myorder{
@@ -1115,12 +1134,12 @@ p.tip{
     margin-left: -1%;
 }
 
-#exit{
+#flipframe{
 	width: 115px;
-    height: 48px;
+    height: 56px;
     position: absolute;
     right: 9px;
-    margin-top: 4px;
+    margin-top: 48px;
     font-size: 12px;
     background-color: #fae077;
     border-radius: 2px;
@@ -1129,7 +1148,7 @@ p.tip{
     line-height: 28px;
     text-decoration: none;
     cursor: pointer;
-    display:none ;
+    display: none;
 }
 
 #nickname{
@@ -1181,4 +1200,20 @@ p.tip{
     overflow: auto;
     margin-top: 8px;
     position: absolute;
+}
+
+#dataArea{
+	width: 28%;
+    height: 351px;
+    background: white;
+    border: 2px solid dimgrey;
+    border-radius: 5px;
+    -moz-border-radius: 5px; /* Firefox */
+  	-webkit-border-radius: 5px; /* Safari 和 Chrome */
+    display: none;
+    margin: -37% 34% 6%;
+    position: absolute;
+    z-index: 30;
+    text-align: center;
+    font-size: 15px;
 }
