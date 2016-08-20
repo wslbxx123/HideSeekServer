@@ -15,7 +15,7 @@ $('#mycamera').change(function(){
 
 //个人资料更改区
 $("#mydata").click(function(){
-	$("#mydataArea").fadeIn();
+	$("#dataArea").fadeIn();
 	$("#userName1").val($("#nickname").html());
 	$("#sex1").val($("#sex").val());
 	$(".cityinput").val();
