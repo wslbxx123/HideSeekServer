@@ -51,7 +51,7 @@ img {
 }*/
 
 input{
-	width: 60%;
+	width: 61%;
     height: 30px;
     margin-left: 4px;
     font-size: 14px;
@@ -86,7 +86,7 @@ input.invalid {
 
 
 #userName1{
-	padding-left: 7px;
+	padding-left: 3px;
 }
 
 

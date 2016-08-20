@@ -12,6 +12,7 @@ $(function(){
 	record = sessionStorage.getItem("record");
 	myimgpath = sessionStorage.getItem("myimgpath");
 	sessionid = sessionStorage.getItem("myimgpath");
+	sex = sessionStorage.getItem("sex");
 	if(nickname!=null){  
 		$("#nickname").html(nickname);
 		$("#scoreNum").html(record);
@@ -417,6 +418,7 @@ $(function(){
 				dataType: "json",
 				
 				success: function(result, status) {
+					alert(JSON.stringify(result));
 					switch(result["code"]){
 						case "10000":
 							sessionid = result["result"]["session_id"];
@@ -437,10 +439,12 @@ $(function(){
 							sessionStorage.setItem("record", $("#scoreNum").html());
 							sessionStorage.setItem("myimgpath", result["result"]["photo_url"]);
 							sessionStorage.setItem("sessionid", result["result"]["session_id"]);
+							sessionStorage.setItem("sex", result["result"]["sex"]);
 							nickname = sessionStorage.getItem("nickname");
 							record = sessionStorage.getItem("record");
 							myimgpath = sessionStorage.getItem("myimgpath");
 							sessionid = sessionStorage.getItem("myimgpath");
+							sex = sessionStorage.getItem("sex");
 					  		break;
 					  	case "10001":
 					  		$("#fault").fadeIn();

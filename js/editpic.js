@@ -17,7 +17,7 @@ $('#mycamera').change(function(){
 $("#mydata").click(function(){
 	$("#dataArea").fadeIn();
 	$("#userName1").val($("#nickname").html());
-//	$("#sex1").val($("#sex").val());
+	$("#sex1").val($("#sex").val());
 	$(".cityinput").val();
 });
 
@@ -139,10 +139,11 @@ document.getElementById("matchId").onclick = function(){
 					sessionStorage.setItem("record", Num);
 					sessionStorage.setItem("myimgpath", $("#.photo").attr("src"));
 					sessionStorage.setItem("sessionid", result["result"]["session_id"]);
+					sessionStorage.setItem("sex", result["result"]["sex"]);
 					nickname = sessionStorage.getItem("nickname");
 					record = sessionStorage.getItem("record");
 					myimgpath = sessionStorage.getItem("myimgpath");
-					sessionid = sessionStorage.getItem("myimgpath");
+					sex = sessionStorage.getItem("sex");
 					$("#nickname").html($("#userName").val());
 					$("#scoreNum").html(Num);
 					$("#myimg").attr('src',$(".photo").attr("src"));
