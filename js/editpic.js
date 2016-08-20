@@ -27,6 +27,7 @@ $("#mydata").click(function(){
 		case"3":
 		sex = "保密";
 	}
+	alert(sex);
 	$("#sex1").val(sex);
 	$(".cityinput").val(sessionStorage.getItem("region"));
 	$(".photo").attr('src',myimgpath); 

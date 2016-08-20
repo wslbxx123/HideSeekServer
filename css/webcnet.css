@@ -695,7 +695,7 @@ input.invalid {
     background-size: cover;
 }
 
-#photo{
+.photo{
 	margin-top: -20%;
     border-radius: 63px;
     left: 36%;
