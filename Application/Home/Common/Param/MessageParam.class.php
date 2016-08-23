@@ -32,6 +32,7 @@ class MessageParam {
     const LATITUDE_OR_LONGITUDE_EMPTY = "经纬度不能为空";
     const GOAL_ID_OR_ROLE_EMPTY = "目标ID或用户角色为空";
     const GOAL_DISAPPEAR = "目标已经消失";
+    const VERSION_EMPTY = "版本号为空";
     const ORIENTATION_EMPTY = "方向值不能为空";
     #endregion
 }
