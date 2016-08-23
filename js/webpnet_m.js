@@ -150,7 +150,7 @@ $(function(){
 				   		
 				   		//进入支付宝界面
 				   		$("#enterAlipay").click(function(){
-							var data = "session_id=" + sessionid
+							var data = "session_id=" + sessionStorage.getItem("sessionid")
 									  + "&store_id=" + result.result.products[getId].pk_id
 									  + "&count=" + $(".goodsNum").val(); 
 							var enteralipay = {
@@ -438,7 +438,7 @@ $(function(){
 							nickname = sessionStorage.getItem("nickname");
 							record = sessionStorage.getItem("record");
 							myimgpath = sessionStorage.getItem("myimgpath");
-							sessionid = sessionStorage.getItem("myimgpath");
+							sessionid = sessionStorage.getItem("sessionid");
 					  		break;
 					  	case "10001":
 					  		$("#fault").fadeIn();

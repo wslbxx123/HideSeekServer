@@ -879,6 +879,18 @@ p.tip{
     width: 80%;
 }
 
+#refreshData{
+	height: 35px;
+    margin-top: 10px;
+    font-family: "Microsoft Yahei";
+    font-size: 15px;
+    background-color:#fae077;
+    border-radius:5px;
+    cursor: pointer; 
+    -webkit-appearance: none; 
+    width: 80%;
+}
+
 #picWin{
 	position:relative;
 	margin:0 auto;

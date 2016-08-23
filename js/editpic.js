@@ -1,8 +1,10 @@
-var sessionid;
+//var sessionid;
 var roleImages = new Array("img/grassfairy.jpg","img/watermagician.jpg","img/fireknight.jpg","img/stonemonster.jpg","img/lightninggiant.jpg");
 var roleNames = new Array("草魅精灵","水影巫师","火光骑士","岩石兽族","闪电巨人");
 var myId = Math.floor ((Math.random() * roleImages.length));
 var logIn = false;
+var changepic = false;
+var changename = false;
 
 //头像上传处理
 $('#mycamera').change(function(){
@@ -17,26 +19,128 @@ $('#mycamera').change(function(){
 $("#mydata").click(function(){
 	$("#dataArea").fadeIn();
 	$("#userName1").val($("#nickname").html());
-	switch(sessionStorage.getItem("sex")){
-		case"0":
-		sex = "未设置";
-		case"1":
-		sex = "女";
-		case"2":
-		sex = "男";
-		case"3":
-		sex = "保密";
-	}
-	alert(sex);
-	$("#sex1").val(sex);
+	$("#sex1").val(sessionStorage.getItem("sex"));
 	$(".cityinput").val(sessionStorage.getItem("region"));
 	$(".photo").attr('src',myimgpath); 
 });
 
 $('#mycamera1').change(function(){
-	
+	changepic = true;
+	$("#newWin3").fadeIn(); 
+	$("#dataArea").fadeIn(); 
+	var fileimg = document.getElementById("fileimg");
+	var mycamera = document.getElementById('mycamera1');
+	getPath(fileimg,mycamera,fileimg);
 });
 
+
+$("#refreshData").click(function(){
+	if(changepic = true){
+		var updatePhotoUrl = {
+			url: "/index.php/home/user/updatePhotoUrl",	
+			type: 'POST',
+			data: "session_id=" + sessionStorage.getItem("sessionid") 
+					+ "&photo_url="+ $(".photo").attr("src"),
+			dataType: "json",
+			
+			success: function(result, status) {
+	//			alert(JSON.stringify(result));
+				switch(result["code"]){
+					case "10000":
+						sessionStorage["myimgpath"] = result["result"]["small_photo_url"]);
+						$("#myimg").attr("src",sessionStorage.getItem("sessionid")),
+						break;
+				  	case "10003":
+				  		alert("发送信息失败！")
+				  		break;
+				}	
+			},
+			error: function(XMLHttpRequest, textStatus, errorThrown) {
+				alert("网络出现问题！");
+			}
+		};
+		$.ajax(updatePhotoUrl);			
+	}
+	
+	if($("#userName1").val() != sessionStorage.getItem("nickname")){
+		var updateNickname = {
+			url: "/index.php/home/user/updateNickname",	
+			type: 'POST',
+			data: "session_id=" + sessionStorage.getItem("sessionid") 
+					+ "&nickname="+ $("#userName1").val(),
+			dataType: "json",
+			
+			success: function(result, status) {
+	//			alert(JSON.stringify(result));
+				switch(result["code"]){
+					case "10000":
+						sessionStorage["nickname"] = $("#userName1").val());
+						$("#nickname").html(sessionStorage.getItem("nickname")),
+						break;
+				  	case "10003":
+				  		alert("发送信息失败！")
+				  		break;
+				}	
+			},
+			error: function(XMLHttpRequest, textStatus, errorThrown) {
+				alert("网络出现问题！");
+			}
+		};
+		$.ajax(updateNickname);		
+	}
+	
+	if($("#sex1").val() != sessionStorage.getItem("sex")){
+		var updateSex = {
+			url: "/index.php/home/user/updateSex",	
+			type: 'POST',
+			data: "session_id=" + sessionStorage.getItem("sessionid") 
+					+ "&sex="+ $("#sex1").val(),
+			dataType: "json",
+			
+			success: function(result, status) {
+	//			alert(JSON.stringify(result));
+				switch(result["code"]){
+					case "10000":
+						sessionStorage["sex"] = $("#sex1").val());
+						break;
+				  	case "10003":
+				  		alert("发送信息失败！")
+				  		break;
+				}	
+			},
+			error: function(XMLHttpRequest, textStatus, errorThrown) {
+				alert("网络出现问题！");
+			}
+		};
+		$.ajax(updateSex);		
+	}
+	
+	if($(".cityinput").val() != sessionStorage.getItem("region")){
+		var updateSex = {
+			url: "/index.php/home/user/updateSex",	
+			type: 'POST',
+			data: "session_id=" + sessionStorage.getItem("sessionid") 
+					+ "&region="+ $(".cityinput").val(),
+			dataType: "json",
+			
+			success: function(result, status) {
+	//			alert(JSON.stringify(result));
+				switch(result["code"]){
+					case "10000":
+						sessionStorage["region"] =  $(".cityinput").val());
+						break;
+				  	case "10003":
+				  		alert("发送信息失败！")
+				  		break;
+				}	
+			},
+			error: function(XMLHttpRequest, textStatus, errorThrown) {
+				alert("网络出现问题！");
+			}
+		};
+		$.ajax(updateSex);		
+	}
+});
 
 
 //头像上传处理
@@ -149,7 +253,7 @@ document.getElementById("matchId").onclick = function(){
 			        //存储注册数据
 			  		sessionStorage.setItem("nickname", $("#userName").val());
 					sessionStorage.setItem("record", Num);
-					sessionStorage.setItem("myimgpath", $("#.photo").attr("src"));
+					sessionStorage.setItem("myimgpath", result["result"]["small_photo_url"]);
 					sessionStorage.setItem("sessionid", result["result"]["session_id"]);
 					sessionStorage.setItem("sex", result["result"]["sex"]);
 					sessionStorage.setItem("region", result["result"]["region"]);
@@ -183,7 +287,7 @@ document.getElementById("myorder").onclick = function(){
 			url: "/index.php/home/store/refreshPurchaseOrders",
 			type: 'POST',
 			data: "version=0&order_min_id=0"+
-			"&session_id=" + sessionid,
+			"&session_id=" + sessionStorage.getItem("sessionid"),
 			dataType: "json",
 			
 			success: function(result, status) {
@@ -232,7 +336,7 @@ document.getElementById("myorder").onclick = function(){
 					
 					$(".orderpay").click(function(){
 					getId1 = $(this).attr("id");
-			    	var data = "session_id=" + sessionid
+			    	var data = "session_id=" + sessionStorage.getItem("sessionid")
 						  + "&store_id=" + result.result.orders[getId1].store_id
 						  + "&count=" + result.result.orders[getId1].count; 
 			    	var enteralipay = {
@@ -260,7 +364,7 @@ document.getElementById("myorder").onclick = function(){
 			url: "/index.php/home/store/refreshExchangeOrders",
 			type: 'POST',
 			data: "version=0&order_min_id=0"+
-			"&session_id=" + sessionid,
+			"&session_id=" + sessionStorage.getItem("sessionid"),
 			dataType: "json",
 			
 			success: function(result, status) {

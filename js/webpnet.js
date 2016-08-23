@@ -11,7 +11,7 @@ $(function(){
 	nickname = sessionStorage.getItem("nickname");
 	record = sessionStorage.getItem("record");
 	myimgpath = sessionStorage.getItem("myimgpath");
-	sessionid = sessionStorage.getItem("myimgpath");
+	sessionid = sessionStorage.getItem("sessionid");
 	sex = sessionStorage.getItem("sex");
 	region = sessionStorage.getItem("region");
 	
@@ -135,7 +135,7 @@ $(function(){
 				
 				//点击购买后是否有用户名存在判断
 				 $(".purGet").click(function(){	
-					   if (nickname==null){
+					   if (sessionStorage.getItem("nickname")==null){
 					   		alert("请先登录！");
 					   }
 					   
@@ -155,7 +155,7 @@ $(function(){
 					   		
 					   		//进入支付宝界面
 					   		$("#enterAlipay").click(function(){
-								var data = "session_id=" + sessionid
+								var data = "session_id=" + sessionStorage.getItem("sessionid");
 										  + "&store_id=" + result.result.products[getId].pk_id
 										  + "&count=" + $(".goodsNum").val(); 
 								var enteralipay = {
@@ -263,7 +263,7 @@ $(function(){
 				//点击兑换后是否有用户名存在判断
 				$(".exGet").click(function(){
 					alert(1);
-				    if (nickname==null){
+				    if (sessionStorage.getItem("nickname")==null){
 				   		alert("请先登录！");
 				    }
 				   
@@ -443,12 +443,12 @@ $(function(){
 							sessionStorage.setItem("sessionid", result["result"]["session_id"]);
 							sessionStorage.setItem("sex", result["result"]["sex"]);
 							sessionStorage.setItem("region", result["result"]["region"]);
-							nickname = sessionStorage.getItem("nickname");
-							record = sessionStorage.getItem("record");
-							myimgpath = sessionStorage.getItem("myimgpath");
-							sessionid = sessionStorage.getItem("myimgpath");
-							sex = sessionStorage.getItem("sex");
-							region = sessionStorage.getItem("region");
+//							nickname = sessionStorage.getItem("nickname");
+//							record = sessionStorage.getItem("record");
+//							myimgpath = sessionStorage.getItem("myimgpath");
+//							sessionid = sessionStorage.getItem("sessionid");
+//							sex = sessionStorage.getItem("sex");
+//							region = sessionStorage.getItem("region");
 					  		break;
 					  	case "10001":
 					  		$("#fault").fadeIn();
