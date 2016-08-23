@@ -585,7 +585,7 @@ function getPath(obj,fileQuery,transImg){
 			
 			var images = new Image();
 			images.src = mypicture.toDataURL("image/jpeg");
-			$(".photo").attr("src","images.src");
+			$(".photo").attr("src",images.src);
 		}			
 	});
 }			
