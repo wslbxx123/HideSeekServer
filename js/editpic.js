@@ -35,7 +35,8 @@ $('#mycamera1').change(function(){
 
 
 $("#refreshData").click(function(){
-	if(changepic = true){
+	if(changepic){
+		alert(10);
 		var updatePhotoUrl = {
 			url: "/index.php/home/user/updatePhotoUrl",	
 			type: 'POST',
@@ -47,6 +48,7 @@ $("#refreshData").click(function(){
 				alert(JSON.stringify(result));
 				switch(result["code"]){
 					case "10000":
+						alert(result["result"]["small_photo_url"]);
 						sessionStorage["myimgpath"] = result["result"]["small_photo_url"];
 						$("#myimg").attr("src",sessionStorage.getItem("myimgpath"));
 						break;
