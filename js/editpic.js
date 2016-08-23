@@ -88,7 +88,7 @@ $("#refreshData").click(function(){
 		};
 		$.ajax(updateNickname);		
 	}
-	
+	alert($("#sex1").val());
 	if($("#sex1").val() != sessionStorage.getItem("sex")){
 		var updateSex = {
 			url: "/index.php/home/user/updateSex",	
