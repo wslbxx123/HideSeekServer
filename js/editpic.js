@@ -1,16 +1,149 @@
-var sessionid;
+//var sessionid;
 var roleImages = new Array("img/grassfairy.jpg","img/watermagician.jpg","img/fireknight.jpg","img/stonemonster.jpg","img/lightninggiant.jpg");
 var roleNames = new Array("草魅精灵","水影巫师","火光骑士","岩石兽族","闪电巨人");
 var myId = Math.floor ((Math.random() * roleImages.length));
 var logIn = false;
+var changepic = false;
+var changename = false;
 
 //头像上传处理
-$('input[type=file]').change(function(){
+$('#mycamera').change(function(){
 	$("#newWin3").fadeIn(); 
 	$("#newWin2").fadeOut(); 
 	var fileimg = document.getElementById("fileimg");
 	var mycamera = document.getElementById('mycamera');
 	getPath(fileimg,mycamera,fileimg);
+});
+
+//个人资料更改区
+$("#mydata").click(function(){
+	$("#dataArea").fadeIn();
+	$("#userName1").val($("#nickname").html());
+	$("#sex1").val(sessionStorage.getItem("sex"));
+	$(".cityinput").val(sessionStorage.getItem("region"));
+	$(".photo").attr('src',sessionStorage.getItem("myimgpath")); 
+});
+
+$('#mycamera1').change(function(){
+	changepic = true;
+	$("#newWin3").fadeIn(); 
+	$("#dataArea").fadeIn(); 
+	var fileimg = document.getElementById("fileimg");
+	var mycamera1 = document.getElementById('mycamera1');
+	getPath(fileimg,mycamera1,fileimg);
+});
+
+
+$("#refreshData").click(function(){
+	if(changepic){
+		alert(10);
+		var updatePhotoUrl = {
+			url: "/index.php/home/user/updatePhotoUrl",	
+			type: 'POST',
+			data: "session_id=" + sessionStorage.getItem("sessionid") 
+					+ "&photo_url="+ encodeURIComponent($(".photo").attr("src")),
+			dataType: "json",
+			
+			success: function(result, status) {
+				alert(JSON.stringify(result));
+				switch(result["code"]){
+					case "10000":
+						alert(result["result"]["small_photo_url"]);
+						sessionStorage["myimgpath"] = result["result"]["small_photo_url"];
+						$("#myimg").attr("src",sessionStorage.getItem("myimgpath"));
+						break;
+				  	case "10003":
+				  		alert("发送信息失败！")
+				  		break;
+				}	
+			},
+			error: function(XMLHttpRequest, textStatus, errorThrown) {
+				alert("网络出现问题！");
+			}
+		};
+		$.ajax(updatePhotoUrl);			
+	}
+	
+	if($("#userName1").val() != sessionStorage.getItem("nickname")){
+		var updateNickname = {
+			url: "/index.php/home/user/updateNickname",	
+			type: 'POST',
+			data: "session_id=" + sessionStorage.getItem("sessionid") 
+					+ "&nickname="+ $("#userName1").val(),
+			dataType: "json",
+			
+			success: function(result, status) {
+	//			alert(JSON.stringify(result));
+				switch(result["code"]){
+					case "10000":
+						sessionStorage["nickname"] = $("#userName1").val();
+						$("#nickname").html(sessionStorage.getItem("nickname"));
+						break;
+				  	case "10003":
+				  		alert("发送信息失败！")
+				  		break;
+				}	
+			},
+			error: function(XMLHttpRequest, textStatus, errorThrown) {
+				alert("网络出现问题！");
+			}
+		};
+		$.ajax(updateNickname);		
+	}
+	alert($("#sex1").val());
+	if($("#sex1").val() != sessionStorage.getItem("sex")){
+		var updateSex = {
+			url: "/index.php/home/user/updateSex",	
+			type: 'POST',
+			data: "session_id=" + sessionStorage.getItem("sessionid") 
+					+ "&sex="+ $("#sex1").val(),
+			dataType: "json",
+			
+			success: function(result, status) {
+	//			alert(JSON.stringify(result));
+				switch(result["code"]){
+					case "10000":
+						sessionStorage["sex"] = $("#sex1").val();
+						break;
+				  	case "10003":
+				  		alert("发送信息失败！")
+				  		break;
+				}	
+			},
+			error: function(XMLHttpRequest, textStatus, errorThrown) {
+				alert("网络出现问题！");
+			}
+		};
+		$.ajax(updateSex);		
+	}
+	alert($(".cityinput").val());
+	if($(".cityinput").val() != sessionStorage.getItem("region")){
+		var updateSex = {
+			url: "/index.php/home/user/updateSex",	
+			type: 'POST',
+			data: "session_id=" + sessionStorage.getItem("sessionid") 
+					+ "&region="+ $(".cityinput").val(),
+			dataType: "json",
+			
+			success: function(result, status) {
+	//			alert(JSON.stringify(result));
+				switch(result["code"]){
+					case "10000":
+						sessionStorage["region"] =  $(".cityinput").val();
+						break;
+				  	case "10003":
+				  		alert("发送信息失败！")
+				  		break;
+				}	
+			},
+			error: function(XMLHttpRequest, textStatus, errorThrown) {
+				alert("网络出现问题！");
+			}
+		};
+		$.ajax(updateSex);		
+	}
+	
+	$("#dataArea").fadeOut(); 
 });
 
 
@@ -105,7 +238,7 @@ document.getElementById("matchId").onclick = function(){
 				+ "&sex="+ document.getElementById("sex").options[index].text
 				+ "&region=" + document.getElementById("citySelect").value
 				+ "&role=" + myId
-				+ "&photo_url=" + encodeURIComponent(document.getElementById("photo").src);
+				+ "&photo_url=" + encodeURIComponent($(".photo").attr("src"));
 				
 	var mymessages = {
 		url: "/index.php/home/user/register",	
@@ -124,15 +257,18 @@ document.getElementById("matchId").onclick = function(){
 			        //存储注册数据
 			  		sessionStorage.setItem("nickname", $("#userName").val());
 					sessionStorage.setItem("record", Num);
-					sessionStorage.setItem("myimgpath", $("#photo").attr("src"));
+					sessionStorage.setItem("myimgpath", result["result"]["small_photo_url"]);
 					sessionStorage.setItem("sessionid", result["result"]["session_id"]);
+					sessionStorage.setItem("sex", result["result"]["sex"]);
+					sessionStorage.setItem("region", result["result"]["region"]);
 					nickname = sessionStorage.getItem("nickname");
 					record = sessionStorage.getItem("record");
 					myimgpath = sessionStorage.getItem("myimgpath");
-					sessionid = sessionStorage.getItem("myimgpath");
+					sex = sessionStorage.getItem("sex");
+					region = sessionStorage.getItem("region");
 					$("#nickname").html($("#userName").val());
 					$("#scoreNum").html(Num);
-					$("#myimg").attr('src',$("#photo").attr("src"));
+					$("#myimg").attr('src',$(".photo").attr("src"));
 					$("myorder").fadeIn();
 					break;
 			  	case "10003":
@@ -155,7 +291,7 @@ document.getElementById("myorder").onclick = function(){
 			url: "/index.php/home/store/refreshPurchaseOrders",
 			type: 'POST',
 			data: "version=0&order_min_id=0"+
-			"&session_id=" + sessionid,
+			"&session_id=" + sessionStorage.getItem("sessionid"),
 			dataType: "json",
 			
 			success: function(result, status) {
@@ -204,7 +340,7 @@ document.getElementById("myorder").onclick = function(){
 					
 					$(".orderpay").click(function(){
 					getId1 = $(this).attr("id");
-			    	var data = "session_id=" + sessionid
+			    	var data = "session_id=" + sessionStorage.getItem("sessionid")
 						  + "&store_id=" + result.result.orders[getId1].store_id
 						  + "&count=" + result.result.orders[getId1].count; 
 			    	var enteralipay = {
@@ -232,7 +368,7 @@ document.getElementById("myorder").onclick = function(){
 			url: "/index.php/home/store/refreshExchangeOrders",
 			type: 'POST',
 			data: "version=0&order_min_id=0"+
-			"&session_id=" + sessionid,
+			"&session_id=" + sessionStorage.getItem("sessionid"),
 			dataType: "json",
 			
 			success: function(result, status) {
@@ -359,6 +495,7 @@ function getPath(obj,fileQuery,transImg){
 		var newWin3 = document.getElementById("newWin3");
 		var confirmedit = document.getElementById("confirmedit");
 		var mypicture = document.getElementById("mypicture");
+		var mypicture1 = document.getElementById("mypicture1");
 		var title = document.getElementById("title");
 		var ctx = coverpic.getContext('2d');
 		var cover = mypicture.getContext('2d');
@@ -441,7 +578,23 @@ function getPath(obj,fileQuery,transImg){
 		
 		
 		confirmedit.onclick = function(){
-			$("#newWin2").fadeIn(); 
+			if(sessionStorage.getItem("nickname")==null){
+				$("#newWin2").fadeIn(); 
+				if(n>0){
+					cover.drawImage(fileimg,0.1*n*(x-1)*y,0,coverpic.height*y,coverpic.height*y,0,0,500,500);
+					$("#newWin3").fadeOut(); 
+				}
+				else{
+					cover.drawImage(fileimg,0,0.1*(-n)*(x-1)*y,coverpic.width*y,coverpic.width*y,0,0,500,500);
+					$("#newWin3").fadeOut(); 
+				}
+				
+				var images = new Image();
+				images.src = mypicture.toDataURL("image/jpeg");
+				$(".photo").attr("src",images.src);
+			}
+			else{
+				$("#dataArea").fadeIn(); 
 				if(n>0){
 					cover.drawImage(fileimg,0.1*n*(x-1)*y,0,coverpic.height*y,coverpic.height*y,0,0,500,500);
 					$("#newWin3").fadeOut(); 
@@ -451,10 +604,11 @@ function getPath(obj,fileQuery,transImg){
 					$("#newWin3").fadeOut(); 
 				}
 			
-			var images = new Image();
-			images.src = mypicture.toDataURL("image/jpeg");
-			document.getElementById("photo").src = images.src;
-		}			
+				var images = new Image();
+				images.src = mypicture.toDataURL("image/jpeg");
+				$(".photo").attr("src",images.src);
+			}
+		}	
 	});
 }			
 

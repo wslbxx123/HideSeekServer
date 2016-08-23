@@ -11,7 +11,10 @@ $(function(){
 	nickname = sessionStorage.getItem("nickname");
 	record = sessionStorage.getItem("record");
 	myimgpath = sessionStorage.getItem("myimgpath");
-	sessionid = sessionStorage.getItem("myimgpath");
+	sessionid = sessionStorage.getItem("sessionid");
+	sex = sessionStorage.getItem("sex");
+	region = sessionStorage.getItem("region");
+	
 	if(nickname!=null){  
 		$("#nickname").html(nickname);
 		$("#scoreNum").html(record);
@@ -34,6 +37,8 @@ $(function(){
 		getClick = false;
 	});
 	
+	
+	
 	//点击右上角叉号删除页面
 	$(".closeBox").click(function(){
 		$("#newWin").fadeOut(); 
@@ -45,7 +50,8 @@ $(function(){
 		$("#orderArea").fadeOut();
 		$("#storecover").fadeOut();
 		$("#confirmexchange").fadeOut();
-		$("#listarea .orderlist").remove();
+		$("#dataArea").fadeOut();
+		$("#listarea .orderlist").remove();	
 	});
 	
 	//获取购买商场信息
@@ -130,7 +136,7 @@ $(function(){
 				
 				//点击购买后是否有用户名存在判断
 				 $(".purGet").click(function(){	
-					   if (nickname==null){
+					   if (sessionStorage.getItem("nickname")==null){
 					   		alert("请先登录！");
 					   }
 					   
@@ -150,7 +156,7 @@ $(function(){
 					   		
 					   		//进入支付宝界面
 					   		$("#enterAlipay").click(function(){
-								var data = "session_id=" + sessionid
+								var data = "session_id=" + sessionStorage.getItem("sessionid");
 										  + "&store_id=" + result.result.products[getId].pk_id
 										  + "&count=" + $(".goodsNum").val(); 
 								var enteralipay = {
@@ -258,7 +264,7 @@ $(function(){
 				//点击兑换后是否有用户名存在判断
 				$(".exGet").click(function(){
 					alert(1);
-				    if (nickname==null){
+				    if (sessionStorage.getItem("nickname")==null){
 				   		alert("请先登录！");
 				    }
 				   
@@ -415,6 +421,7 @@ $(function(){
 				dataType: "json",
 				
 				success: function(result, status) {
+					alert(JSON.stringify(result));
 					switch(result["code"]){
 						case "10000":
 							sessionid = result["result"]["session_id"];
@@ -422,7 +429,7 @@ $(function(){
 							document.getElementById("scoreNum").innerHTML = Num;
 							Num1 = result["result"]["nickname"];
 							document.getElementById("nickname").innerHTML = Num1;
-							document.getElementById("myimg").src = result["result"]["photo_url"];
+							document.getElementById("myimg").src = result["result"]["small_photo_url"];
 					  		$(".inner_menu").fadeOut();  
 					  		$("#myprofile").fadeIn(); 
 					  		$("#myimg").fadeIn(); 
@@ -433,12 +440,16 @@ $(function(){
 					  		//存储登录数据
 					  		sessionStorage.setItem("nickname", $("#nickname").html());
 							sessionStorage.setItem("record", $("#scoreNum").html());
-							sessionStorage.setItem("myimgpath", result["result"]["photo_url"]);
+							sessionStorage.setItem("myimgpath", result["result"]["small_photo_url"]);
 							sessionStorage.setItem("sessionid", result["result"]["session_id"]);
-							nickname = sessionStorage.getItem("nickname");
-							record = sessionStorage.getItem("record");
-							myimgpath = sessionStorage.getItem("myimgpath");
-							sessionid = sessionStorage.getItem("myimgpath");
+							sessionStorage.setItem("sex", result["result"]["sex"]);
+							sessionStorage.setItem("region", result["result"]["region"]);
+//							nickname = sessionStorage.getItem("nickname");
+//							record = sessionStorage.getItem("record");
+//							myimgpath = sessionStorage.getItem("myimgpath");
+//							sessionid = sessionStorage.getItem("sessionid");
+//							sex = sessionStorage.getItem("sex");
+//							region = sessionStorage.getItem("region");
 					  		break;
 					  	case "10001":
 					  		$("#fault").fadeIn();
@@ -462,108 +473,108 @@ $(function(){
 	var codeNumber; //发送的手机验证码；
 	
 	//发送和检验验证码
-	document.getElementById("verifiCode").onclick = function(){
-	
-		//验证用户填写手机格式是否正确
-		var tel = document.getElementById("userphone").value;
-	 	if(/^1\d{10}$/g.test(tel)){      
-			phoneFormat = true;
-		}
-		else{
-			alert("手机格式不正确！")
-			phoneFormat = false;
-		}
-	
-		//验证注册界面用户手机号码是否被注册
-		var myphone = {
-			url: "/index.php/home/user/checkIfUserExist",	
-			type: 'POST',
-			data: "phone=" + $("#userphone").val(),
-			dataType: "json",
-			
-			success: function(result, status) {
-//				alert(JSON.stringify(result));
-				switch(result["code"]){
-					case "10000":
-						phoneregistered = false;
-						break;
-				  	case "10015":
-				  		phoneregistered = true;
-				  		break;
-				}	
-			},
-			error: function(XMLHttpRequest, textStatus, errorThrown) {
-				alert("网络出现问题！");
-				phoneregistered = true;
-			}
-		};
-		$.ajax(myphone);	
-
-		//检验是否可以发送验证码
-		if(phoneFormat&&!phoneregistered){
-			verifiClick = true;
-			document.getElementById("userphone").className = "reqd";
-		}
-		else{
-			verifiClick = false;
-			document.getElementById("userphone").className += " invalid";
-		}
-	
-		//开始发送验证码
-	   	if(verifiClick){    
-			var verificode = {
-				url: "/index.php/home/user/sendVerificationCode",
-				type: 'POST',
-				data: "phone=" + $("#userphone").val(),
-				dataType: "json",
-				
-				success: function(result, status){   
-					switch(result["code"]){
-						case "10000":
-							codeNumber = result["result"]["sms_code"];
-							if(result["result"]["content"]["error_code"]==0){ 	
-								timeKeeper = true;
-								verifiClick = false;
-								var tim = 59;
-								$("#verifiCode").val("发送成功!");
-								$("#verifiCode").css("background-color","darkgrey"); 
-								
-								setTimeout(function(){
-									round();
-									
-								},1000);
-								
-								
-							 	function round(){
-							    	$("#verifiCode").val(tim+"秒");
-							    	tim--;
-							    	if(tim == 0){
-							    		timeKeeper = false;
-							    		verifiClick = true;
-							        	$("#verifiCode").css("background-color","#FFCC00"); 
-							        	$("#verifiCode").val("发送验证码");
-							        }
-							        if(timeKeeper){
-							        	setTimeout(function(){
-											round();
-										},1000);
-							        }
-								}
-							}	
-							break;
-					  	case "10001":
-					  		$("#fault").fadeIn();
-					  		break;
-					}
-					
-				},
-				error: function(XMLHttpRequest, textStatus, errorThrown) {
-					alert("发送验证码失败！");
-				}
-			};
-			$.ajax(verificode);
-		}
-	}
+//	document.getElementById("verifiCode").onclick = function(){
+//	
+//		//验证用户填写手机格式是否正确
+//		var tel = document.getElementById("userphone").value;
+//	 	if(/^1\d{10}$/g.test(tel)){      
+//			phoneFormat = true;
+//		}
+//		else{
+//			alert("手机格式不正确！")
+//			phoneFormat = false;
+//		}
+//	
+//		//验证注册界面用户手机号码是否被注册
+//		var myphone = {
+//			url: "/index.php/home/user/checkIfUserExist",	
+//			type: 'POST',
+//			data: "phone=" + $("#userphone").val(),
+//			dataType: "json",
+//			
+//			success: function(result, status) {
+////				alert(JSON.stringify(result));
+//				switch(result["code"]){
+//					case "10000":
+//						phoneregistered = false;
+//						break;
+//				  	case "10015":
+//				  		phoneregistered = true;
+//				  		break;
+//				}	
+//			},
+//			error: function(XMLHttpRequest, textStatus, errorThrown) {
+//				alert("网络出现问题！");
+//				phoneregistered = true;
+//			}
+//		};
+//		$.ajax(myphone);	
+//
+//		//检验是否可以发送验证码
+//		if(phoneFormat&&!phoneregistered){
+//			verifiClick = true;
+//			document.getElementById("userphone").className = "reqd";
+//		}
+//		else{
+//			verifiClick = false;
+//			document.getElementById("userphone").className += " invalid";
+//		}
+//	
+//		//开始发送验证码
+//	   	if(verifiClick){    
+//			var verificode = {
+//				url: "/index.php/home/user/sendVerificationCode",
+//				type: 'POST',
+//				data: "phone=" + $("#userphone").val(),
+//				dataType: "json",
+//				
+//				success: function(result, status){   
+//					switch(result["code"]){
+//						case "10000":
+//							codeNumber = result["result"]["sms_code"];
+//							if(result["result"]["content"]["error_code"]==0){ 	
+//								timeKeeper = true;
+//								verifiClick = false;
+//								var tim = 59;
+//								$("#verifiCode").val("发送成功!");
+//								$("#verifiCode").css("background-color","darkgrey"); 
+//								
+//								setTimeout(function(){
+//									round();
+//									
+//								},1000);
+//								
+//								
+//							 	function round(){
+//							    	$("#verifiCode").val(tim+"秒");
+//							    	tim--;
+//							    	if(tim == 0){
+//							    		timeKeeper = false;
+//							    		verifiClick = true;
+//							        	$("#verifiCode").css("background-color","#FFCC00"); 
+//							        	$("#verifiCode").val("发送验证码");
+//							        }
+//							        if(timeKeeper){
+//							        	setTimeout(function(){
+//											round();
+//										},1000);
+//							        }
+//								}
+//							}	
+//							break;
+//					  	case "10001":
+//					  		$("#fault").fadeIn();
+//					  		break;
+//					}
+//					
+//				},
+//				error: function(XMLHttpRequest, textStatus, errorThrown) {
+//					alert("发送验证码失败！");
+//				}
+//			};
+//			$.ajax(verificode);
+//		}
+//	}
 		
 	//	检验注册界面填写框
 	$("#register").click(function(){
@@ -617,12 +628,12 @@ $(function(){
 						}
 						classBack += thisClass;
 						break;
-					case "reqc":
-						if (allGood && $("#codeNum").val() != codeNumber) {
-								classBack = "invalid ";
-						}
-						classBack += thisClass;
-						break;
+//					case "reqc":
+//						if (allGood && $("#codeNum").val() != codeNumber) {
+//								classBack = "invalid ";
+//						}
+//						classBack += thisClass;
+//						break;
 					default:
 				}
 				return classBack;
@@ -651,13 +662,13 @@ $(function(){
 
 //	右上角菜单列的显示
 function displaySubMenu() {
-	var subMenu = document.getElementById("exit");
+	var subMenu = document.getElementById("flipframe");
 	subMenu.style.display = "block";
 }
 
 //	右上角菜单列的隐藏
 function hideSubMenu() {
-	var subMenu = document.getElementById("exit");
+	var subMenu = document.getElementById("flipframe");
 	subMenu.style.display = "none";
 }
 
