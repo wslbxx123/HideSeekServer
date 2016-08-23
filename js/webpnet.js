@@ -627,12 +627,12 @@ $(function(){
 						}
 						classBack += thisClass;
 						break;
-					case "reqc":
-						if (allGood && $("#codeNum").val() != codeNumber) {
-								classBack = "invalid ";
-						}
-						classBack += thisClass;
-						break;
+//					case "reqc":
+//						if (allGood && $("#codeNum").val() != codeNumber) {
+//								classBack = "invalid ";
+//						}
+//						classBack += thisClass;
+//						break;
 					default:
 				}
 				return classBack;
