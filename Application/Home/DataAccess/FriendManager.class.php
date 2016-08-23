@@ -8,7 +8,7 @@ namespace Home\DataAccess;
 class FriendManager {
     public function getFriends($accountId, $version) {
         $Dao = M("friend");
-        $sql = "call admin_get_friend($accountId, $version)";
+        $sql = "call admin_get_friends($accountId, $version)";
         $friends = $Dao->query($sql);
         return $friends;
     }
