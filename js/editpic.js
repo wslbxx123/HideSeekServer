@@ -114,7 +114,7 @@ $("#refreshData").click(function(){
 		};
 		$.ajax(updateSex);		
 	}
-	
+	alert($(".cityinput").val());
 	if($(".cityinput").val() != sessionStorage.getItem("region")){
 		var updateSex = {
 			url: "/index.php/home/user/updateSex",	
