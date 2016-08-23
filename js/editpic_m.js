@@ -1,23 +1,146 @@
-var sessionid;
+//var sessionid;
 var roleImages = new Array("img/grassfairy.jpg","img/watermagician.jpg","img/fireknight.jpg","img/stonemonster.jpg","img/lightninggiant.jpg");
 var roleNames = new Array("草魅精灵","水影巫师","火光骑士","岩石兽族","闪电巨人");
 var myId = Math.floor ((Math.random() * roleImages.length));
 var logIn = false;
-var Orientation;//图片角度
+var changepic = false;
+var changename = false;
 
 //头像上传处理
-$('input[type=file]').change(function(e){
-	
-    EXIF.getData(e.target.files[0], function() {
-        EXIF.getAllTags(this); 
-        Orientation = EXIF.getTag(this,'Orientation');  
-    });
-	
+$('#mycamera').change(function(){
 	$("#newWin3").fadeIn(); 
 	$("#newWin2").fadeOut(); 
 	var fileimg = document.getElementById("fileimg");
 	var mycamera = document.getElementById('mycamera');
 	getPath(fileimg,mycamera,fileimg);
+});
+
+//个人资料更改区
+$("#mydata").click(function(){
+	$("#dataArea").fadeIn();
+	$("#userName1").val($("#nickname").html());
+	$("#sex1").val(sessionStorage.getItem("sex"));
+	$(".cityinput").val(sessionStorage.getItem("region"));
+	$(".photo").attr('src',sessionStorage.getItem("myimgpath")); 
+});
+
+$('#mycamera1').change(function(){
+	changepic = true;
+	$("#newWin3").fadeIn(); 
+	$("#dataArea").fadeIn(); 
+	var fileimg = document.getElementById("fileimg");
+	var mycamera1 = document.getElementById('mycamera1');
+	getPath(fileimg,mycamera1,fileimg);
+});
+
+
+$("#refreshData").click(function(){
+	if(changepic){
+//		alert(10);
+		var updatePhotoUrl = {
+			url: "/index.php/home/user/updatePhotoUrl",	
+			type: 'POST',
+			data: "session_id=" + sessionStorage.getItem("sessionid") 
+					+ "&photo_url="+ encodeURIComponent($(".photo").attr("src")),
+			dataType: "json",
+			
+			success: function(result, status) {
+//				alert(JSON.stringify(result));
+				switch(result["code"]){
+					case "10000":
+						sessionStorage["myimgpath"] = result["result"]["small_photo_url"];
+						$("#myimg").attr("src",sessionStorage.getItem("myimgpath"));
+						break;
+				  	case "10003":
+				  		alert("发送信息失败！")
+				  		break;
+				}	
+			},
+			error: function(XMLHttpRequest, textStatus, errorThrown) {
+				alert("网络出现问题！");
+			}
+		};
+		$.ajax(updatePhotoUrl);			
+	}
+	
+	if($("#userName1").val() != sessionStorage.getItem("nickname")){
+		var updateNickname = {
+			url: "/index.php/home/user/updateNickname",	
+			type: 'POST',
+			data: "session_id=" + sessionStorage.getItem("sessionid") 
+					+ "&nickname="+ $("#userName1").val(),
+			dataType: "json",
+			
+			success: function(result, status) {
+	//			alert(JSON.stringify(result));
+				switch(result["code"]){
+					case "10000":
+						sessionStorage["nickname"] = $("#userName1").val();
+						$("#nickname").html(sessionStorage.getItem("nickname"));
+						break;
+				  	case "10003":
+				  		alert("发送信息失败！")
+				  		break;
+				}	
+			},
+			error: function(XMLHttpRequest, textStatus, errorThrown) {
+				alert("网络出现问题！");
+			}
+		};
+		$.ajax(updateNickname);		
+	}
+
+	if($("#sex1").val() != sessionStorage.getItem("sex")){
+		var updateSex = {
+			url: "/index.php/home/user/updateSex",	
+			type: 'POST',
+			data: "session_id=" + sessionStorage.getItem("sessionid") 
+					+ "&sex="+ $("#sex1").val(),
+			dataType: "json",
+			
+			success: function(result, status) {
+				switch(result["code"]){
+					case "10000":
+						sessionStorage["sex"] = $("#sex1").val();
+						break;
+				  	case "10003":
+				  		alert("发送信息失败！")
+				  		break;
+				}	
+			},
+			error: function(XMLHttpRequest, textStatus, errorThrown) {
+				alert("网络出现问题！");
+			}
+		};
+		$.ajax(updateSex);		
+	}
+
+	if($(".cityinput").val() != sessionStorage.getItem("region")){
+		var updateSex = {
+			url: "/index.php/home/user/updateSex",	
+			type: 'POST',
+			data: "session_id=" + sessionStorage.getItem("sessionid") 
+					+ "&region="+ $(".cityinput").val(),
+			dataType: "json",
+			
+			success: function(result, status) {
+				switch(result["code"]){
+					case "10000":
+						sessionStorage["region"] =  $(".cityinput").val();
+						break;
+				  	case "10003":
+				  		alert("发送信息失败！")
+				  		break;
+				}	
+			},
+			error: function(XMLHttpRequest, textStatus, errorThrown) {
+				alert("网络出现问题！");
+			}
+		};
+		$.ajax(updateSex);		
+	}
+	
+	$("#dataArea").fadeOut(); 
 });
 
 
@@ -31,7 +154,7 @@ document.getElementById("matchId").onclick = function(){
 	
 	//图片预加载处理
 	preloadimages(roleImages).done(function(){
-	  	rolechange();
+	  rolechange();
 	})
 	
 	
@@ -112,7 +235,7 @@ document.getElementById("matchId").onclick = function(){
 				+ "&sex="+ document.getElementById("sex").options[index].text
 				+ "&region=" + document.getElementById("citySelect").value
 				+ "&role=" + myId
-				+ "&photo_url=" + encodeURIComponent(document.getElementById("photo").src);
+				+ "&photo_url=" + encodeURIComponent($(".photo").attr("src"));
 				
 	var mymessages = {
 		url: "/index.php/home/user/register",	
@@ -131,15 +254,18 @@ document.getElementById("matchId").onclick = function(){
 			        //存储注册数据
 			  		sessionStorage.setItem("nickname", $("#userName").val());
 					sessionStorage.setItem("record", Num);
-					sessionStorage.setItem("myimgpath", $("#photo").attr("src"));
+					sessionStorage.setItem("myimgpath", result["result"]["small_photo_url"]);
 					sessionStorage.setItem("sessionid", result["result"]["session_id"]);
+					sessionStorage.setItem("sex", result["result"]["sex"]);
+					sessionStorage.setItem("region", result["result"]["region"]);
 					nickname = sessionStorage.getItem("nickname");
 					record = sessionStorage.getItem("record");
 					myimgpath = sessionStorage.getItem("myimgpath");
-					sessionid = sessionStorage.getItem("myimgpath");
+					sex = sessionStorage.getItem("sex");
+					region = sessionStorage.getItem("region");
 					$("#nickname").html($("#userName").val());
 					$("#scoreNum").html(Num);
-					$("#myimg").attr('src',$("#photo").attr("src"));
+					$("#myimg").attr('src',$(".photo").attr("src"));
 					$("myorder").fadeIn();
 					break;
 			  	case "10003":
@@ -162,60 +288,60 @@ document.getElementById("myorder").onclick = function(){
 			url: "/index.php/home/store/refreshPurchaseOrders",
 			type: 'POST',
 			data: "version=0&order_min_id=0"+
-			"&session_id=" + sessionid,
+			"&session_id=" + sessionStorage.getItem("sessionid"),
 			dataType: "json",
 			
 			success: function(result, status) {
-				$("#listArea").fadeIn();
-				var orderArea = document.getElementById("orderArea");
-				var listArea = document.getElementById("listArea");
-				for(var i = 0;i < result.result.orders.length;i++){	
-					//创建商品橱窗框
-					var listDiv = document.createElement('div');
-					listDiv.className = "orderlist";
-				  	listArea.appendChild(listDiv);
-				    var listImg = document.createElement('img');
-				    listImg.className = "orderprodct";
-				    listImg.src = result.result.orders[i].product_image_url;
-				    listDiv.appendChild(listImg);
-				    var nameDiv = document.createElement('div');
-				    nameDiv.className = "ordername";
-				    nameDiv.innerHTML = result.result.orders[i].product_name;
-				    listDiv.appendChild(nameDiv);
-				    var sumDiv = document.createElement('div');
-				    sumDiv.className = "ordersum";
-				    sumDiv.innerHTML = "总计：";
-				    listDiv.appendChild(sumDiv);
-				    var numSpan = document.createElement('span');
-				    numSpan.className = "orderNum";
-				    numSpan.innerHTML = result.result.orders[i].count+"(个数)×"+result.result.orders[i].price+"(单价)="+result.result.orders[i].purchase_count*result.result.orders[i].price+"元"; 
-				    sumDiv.appendChild(numSpan);
-				    var statusDiv = document.createElement('div');
-				    if(result.result.orders[i].status=="0"){
-				    	statusDiv.className = "orderstatus1";
-					    statusDiv.innerHTML = "未付款";
-					    listDiv.appendChild(statusDiv);
-					    var payDiv = document.createElement('div');
-					    payDiv.className = "orderpay";
-					    payDiv.innerHTML = "点我付款";
-					    payDiv.id = i;
-					    listDiv.appendChild(payDiv);
-				    }
-				    else{
-				    	statusDiv.className = "orderstatus";
-					    statusDiv.innerHTML = "交易成功";
-					    listDiv.appendChild(statusDiv);
-				    }    
-				}
-				clickaction = false;
-				
-				$(".orderpay").click(function(){
+					$("#listArea").fadeIn();
+					var orderArea = document.getElementById("orderArea");
+					var listArea = document.getElementById("listArea");
+					for(var i = 0;i < result.result.orders.length;i++){	
+						//创建商品橱窗框
+						var listDiv = document.createElement('div');
+						listDiv.className = "orderlist";
+					  	listArea.appendChild(listDiv);
+					    var listImg = document.createElement('img');
+					    listImg.className = "orderprodct";
+					    listImg.src = result.result.orders[i].product_image_url;
+					    listDiv.appendChild(listImg);
+					    var nameDiv = document.createElement('div');
+					    nameDiv.className = "ordername";
+					    nameDiv.innerHTML = result.result.orders[i].product_name;
+					    listDiv.appendChild(nameDiv);
+					    var sumDiv = document.createElement('div');
+					    sumDiv.className = "ordersum";
+					    sumDiv.innerHTML = "总计：";
+					    listDiv.appendChild(sumDiv);
+					    var numSpan = document.createElement('span');
+					    numSpan.className = "orderNum";
+					    numSpan.innerHTML = result.result.orders[i].count+"(个数)×"+result.result.orders[i].price+"(单价)="+result.result.orders[i].purchase_count*result.result.orders[i].price+"元"; 
+					    sumDiv.appendChild(numSpan);
+					    var statusDiv = document.createElement('div');
+					    if(result.result.orders[i].status=="0"){
+					    	statusDiv.className = "orderstatus1";
+						    statusDiv.innerHTML = "未付款";
+						    listDiv.appendChild(statusDiv);
+						    var payDiv = document.createElement('div');
+						    payDiv.className = "orderpay";
+						    payDiv.innerHTML = "点我付款";
+						    payDiv.id = i;
+						    listDiv.appendChild(payDiv);
+					    }
+					    else{
+					    	statusDiv.className = "orderstatus";
+						    statusDiv.innerHTML = "交易成功";
+						    listDiv.appendChild(statusDiv);
+					    }    
+					}
+					clickaction = false;	
+					
+					$(".orderpay").click(function(){
 					getId1 = $(this).attr("id");
-			    	var data = "session_id=" + sessionid
+			    	var data = "session_id=" + sessionStorage.getItem("sessionid")
 						  + "&store_id=" + result.result.orders[getId1].store_id
 						  + "&count=" + result.result.orders[getId1].count; 
 			    	var enteralipay = {
-						url: "/index.php/home/store/createOrderFromH5",
+						url: "/index.php/home/store/createOrderFromWeb",
 						type: 'POST',
 						data:data,
 						success: function(result, status) {
@@ -228,7 +354,6 @@ document.getElementById("myorder").onclick = function(){
 					};
 					$.ajax(enteralipay);
 			    });
-					
 			},
 			error: function(XMLHttpRequest, textStatus, errorThrown) {
 				alert("网络出现问题！");
@@ -240,7 +365,7 @@ document.getElementById("myorder").onclick = function(){
 			url: "/index.php/home/store/refreshExchangeOrders",
 			type: 'POST',
 			data: "version=0&order_min_id=0"+
-			"&session_id=" + sessionid,
+			"&session_id=" + sessionStorage.getItem("sessionid"),
 			dataType: "json",
 			
 			success: function(result, status) {
@@ -271,16 +396,16 @@ document.getElementById("myorder").onclick = function(){
 					    var statusDiv = document.createElement('div');
 					    if(result.result.orders[i].status=="0"){
 					    	statusDiv.className = "orderstatus1";
-						    statusDiv.innerHTML = "未兑换";
+						    statusDiv.innerHTML = "未付款";
 						    listDiv.appendChild(statusDiv);
 						    var payDiv = document.createElement('div');
 						    payDiv.className = "orderpay";
-						    payDiv.innerHTML = "点我兑换";
+						    payDiv.innerHTML = "点我付款";
 						    listDiv.appendChild(payDiv);
 					    }
 					    else{
 					    	statusDiv.className = "orderstatus";
-						    statusDiv.innerHTML = "兑换成功";
+						    statusDiv.innerHTML = "交易成功";
 						    listDiv.appendChild(statusDiv);
 					    }    
 					}
@@ -367,9 +492,11 @@ function getPath(obj,fileQuery,transImg){
 		var newWin3 = document.getElementById("newWin3");
 		var confirmedit = document.getElementById("confirmedit");
 		var mypicture = document.getElementById("mypicture");
+		var mypicture1 = document.getElementById("mypicture1");
 		var title = document.getElementById("title");
 		var ctx = coverpic.getContext('2d');
 		var cover = mypicture.getContext('2d');
+		
 		var isMove;
 		var startx;
 		var starty;
@@ -448,58 +575,39 @@ function getPath(obj,fileQuery,transImg){
 		
 		
 		confirmedit.onclick = function(){
-			$("#newWin2").fadeIn(); 
-			if(n>0){
-				cover.drawImage(fileimg,0.1*n*(x-1)*y,0,coverpic.height*y,coverpic.height*y,0,0,500,500);
-				$("#newWin3").fadeOut(); 
+			if(sessionStorage.getItem("nickname")==null){
+				$("#newWin2").fadeIn(); 
+				if(n>0){
+					cover.drawImage(fileimg,0.1*n*(x-1)*y,0,coverpic.height*y,coverpic.height*y,0,0,500,500);
+					$("#newWin3").fadeOut(); 
+				}
+				else{
+					cover.drawImage(fileimg,0,0.1*(-n)*(x-1)*y,coverpic.width*y,coverpic.width*y,0,0,500,500);
+					$("#newWin3").fadeOut(); 
+				}
+				
+				var images = new Image();
+				images.src = mypicture.toDataURL("image/jpeg");
+				$(".photo").attr("src",images.src);
 			}
 			else{
-				cover.drawImage(fileimg,0,0.1*(-n)*(x-1)*y,coverpic.width*y,coverpic.width*y,0,0,500,500);
-				$("#newWin3").fadeOut(); 
-			}		
-			
-			var images = new Image();
-			images.src = mypicture.toDataURL("image/jpeg");
-			document.getElementById("photo").src = images.src;
-		
-//			if (navigator.userAgent.match(/iphone/i)) {  
-//		        console.log('iphone');  
-	        //如果方向角不为1，都需要进行旋转 added by lzk  
-		        if(Orientation != "" && Orientation != 1){
-		        	switch(Orientation){
-		        		case 6://需要顺时针（向左）90度旋转  
-//		                    alert('需要顺时针（向左）90度旋转');  
-		                    rotateImg(mypicture,'left');  
-		                    break;  
-		        	}
-		        }
-//		    }
-			function rotateImg(img,direction) {    
-				if (direction == 'left') {
-					var degree = 90 * Math.PI / 180; 	
-					cover.translate(250,250);
-					cover.rotate(degree);
-					cover.drawImage(img,-250,-250,500,500);
+				$("#dataArea").fadeIn(); 
+				if(n>0){
+					cover.drawImage(fileimg,0.1*n*(x-1)*y,0,coverpic.height*y,coverpic.height*y,0,0,500,500);
+					$("#newWin3").fadeOut(); 
 				}
-			}
+				else{
+					cover.drawImage(fileimg,0,0.1*(-n)*(x-1)*y,coverpic.width*y,coverpic.width*y,0,0,500,500);
+					$("#newWin3").fadeOut(); 
+				}
 			
-			var images1 = new Image();
-			images1.src = mypicture.toDataURL("image/jpeg");
-			document.getElementById("photo").src = images1.src;
-		}			
+				var images = new Image();
+				images.src = mypicture.toDataURL("image/jpeg");
+				$(".photo").attr("src",images.src);
+			}
+		}	
 	});
 }			
-
-
-function rotateImg(img,direction) {    
-	if (direction == 'left') {
-		var degree = 90 * Math.PI / 180; 	
-		cover.translate(250,250);
-		cover.rotate(degree);
-		cover.drawImage(img,-250,-250,500,500);
-	}
-}
-
 
 //订单页实现导航切换
 $("#purOrder").click(function(){

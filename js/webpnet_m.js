@@ -433,12 +433,14 @@ $(function(){
 					  		//存储登录数据
 					  		sessionStorage.setItem("nickname", $("#nickname").html());
 							sessionStorage.setItem("record", $("#scoreNum").html());
-							sessionStorage.setItem("myimgpath", result["result"]["photo_url"]);
+							sessionStorage.setItem("myimgpath", result["result"]["small_photo_url"]);
 							sessionStorage.setItem("sessionid", result["result"]["session_id"]);
-							nickname = sessionStorage.getItem("nickname");
-							record = sessionStorage.getItem("record");
-							myimgpath = sessionStorage.getItem("myimgpath");
-							sessionid = sessionStorage.getItem("sessionid");
+							sessionStorage.setItem("sex", result["result"]["sex"]);
+							sessionStorage.setItem("region", result["result"]["region"]);
+//							nickname = sessionStorage.getItem("nickname");
+//							record = sessionStorage.getItem("record");
+//							myimgpath = sessionStorage.getItem("myimgpath");
+//							sessionid = sessionStorage.getItem("sessionid");
 					  		break;
 					  	case "10001":
 					  		$("#fault").fadeIn();

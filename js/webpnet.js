@@ -263,7 +263,7 @@ $(function(){
 				}
 				//点击兑换后是否有用户名存在判断
 				$(".exGet").click(function(){
-					alert(1);
+//					alert(1);
 				    if (sessionStorage.getItem("nickname")==null){
 				   		alert("请先登录！");
 				    }
@@ -421,7 +421,7 @@ $(function(){
 				dataType: "json",
 				
 				success: function(result, status) {
-					alert(JSON.stringify(result));
+//					alert(JSON.stringify(result));
 					switch(result["code"]){
 						case "10000":
 							sessionid = result["result"]["session_id"];

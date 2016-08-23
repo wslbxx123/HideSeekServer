@@ -25,13 +25,15 @@
            		 <button type="button" class="prompt" id="test1">登录</button>
            		 <button type="button" class="prompt" id="test2">注册</button>
            	</div>
-           	<img id="myimg" src="img/account.png"/>
+           	
            	<div id="myprofile" onclick="displaySubMenu();">
+           		<img id="myimg" src="img/account.png"/>
            		<div id= "nickname">上官宛儿</div>
            		<div id= "score">&nbsp;<span id="scoreNum">2</span>积分</div>       		
            	</div>
-           	<ul id ="exit" onclick="hideSubMenu();">
-				<li>退出登录</li>
+           	<ul id = "flipframe" onmouseover="displaySubMenu();" onmouseout="hideSubMenu();">
+           		<li id ="mydata">个人资料</li>
+				<li id ="exit" >退出登录</li>
 			</ul>
     	</div>
     	
@@ -109,6 +111,39 @@
 	    		<div class="apparea">下载iOS版本</div>
 	    	</div>
     	</div>
+    	
+		<!-- 个人资料修改区 -->
+    	<div id = "dataArea">
+    		<div class="closeBox"></div>
+    		<div class="bgColor"></div>
+    		<img class = "photo" src = "img/mypicture.png"/>
+    		<canvas id="mypicture1" width="500px" height="500px"></canvas>
+    		<a class="file">
+            	<input type="file" accept="image/*;capture=camera" id="mycamera1">
+        	</a>
+        	<p>	<label for="userName">昵称
+	    			<input type="text" size="30" id="userName1" class="reqd" value="上官宛伊"/>
+	    		</label> 
+	    	</p>
+	    	<div style='height:1px;width:75%;background-color:grey;line-height:1px;clear:both;display:block;overflow:hidden' class="line"> </div>
+    		<p> <label for="sex1">性别
+					<select id="sex1" class="reqd">
+					<option value="0" selected="selected">未设置</option>
+					<option value="1">女</option>
+					<option value="2">男</option>
+					<option value="3">保密</option>
+					</select>
+				</label>
+    		</p>
+			<div style='height:1px;width:75%;background-color:grey;line-height:1px;clear:both;display:block;overflow:hidden' class="line"> </div>	
+			<p> <div class="demo">
+					<label for="district">地区	
+					<input type="text" class="cityinput" id="citySelect" value="未设置"/>
+				</div>	
+    		</p>
+			<div style='height:1px;width:75%;background-color:grey;line-height:1px;clear:both;display:block;overflow:hidden' class="line"> </div>	
+			<p><input type="button" value="确认修改" id="refreshData"></p>
+    	</div>      	
     	
     	<!--弹出登录页面-->
     	<div id="newWin">
@@ -188,14 +223,13 @@
 			<div style='height:1px;width:70%;background-color:grey;line-height:1px;clear:both;display:block;overflow:hidden' class="line"> </div>	
 			<p> <div class="demo">
 					<label for="district">地区&nbsp	
-					<input type="text" class="cityinput" id="citySelect" value="未设置"/>
+					<input type="text" class="cityinput" id="citySelect1" value="未设置"/>
 					<script type="text/javascript" src="js/querycity.js"></script>	
 				</div>
 			
     		</p>
 			<div style='height:1px;width:70%;background-color:grey;line-height:1px;clear:both;display:block;overflow:hidden' class="line"> </div>	
 			<p><input type="button" value="匹配我的身份" id="matchId"></p>
-			
     	</div>
     	
     	<!--弹出注册页面3-->
