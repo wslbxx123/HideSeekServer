@@ -44,11 +44,11 @@ $("#refreshData").click(function(){
 			dataType: "json",
 			
 			success: function(result, status) {
-	//			alert(JSON.stringify(result));
+				alert(JSON.stringify(result));
 				switch(result["code"]){
 					case "10000":
-						sessionStorage["myimgpath"] = result["result"]["small_photo_url"]);
-						$("#myimg").attr("src",sessionStorage.getItem("sessionid")),
+						sessionStorage["myimgpath"] = result["result"]["small_photo_url"];
+						$("#myimg").attr("src",sessionStorage.getItem("myimgpath"));
 						break;
 				  	case "10003":
 				  		alert("发送信息失败！")
@@ -74,8 +74,8 @@ $("#refreshData").click(function(){
 	//			alert(JSON.stringify(result));
 				switch(result["code"]){
 					case "10000":
-						sessionStorage["nickname"] = $("#userName1").val());
-						$("#nickname").html(sessionStorage.getItem("nickname")),
+						sessionStorage["nickname"] = $("#userName1").val();
+						$("#nickname").html(sessionStorage.getItem("nickname"));
 						break;
 				  	case "10003":
 				  		alert("发送信息失败！")
@@ -101,7 +101,7 @@ $("#refreshData").click(function(){
 	//			alert(JSON.stringify(result));
 				switch(result["code"]){
 					case "10000":
-						sessionStorage["sex"] = $("#sex1").val());
+						sessionStorage["sex"] = $("#sex1").val();
 						break;
 				  	case "10003":
 				  		alert("发送信息失败！")
@@ -127,7 +127,7 @@ $("#refreshData").click(function(){
 	//			alert(JSON.stringify(result));
 				switch(result["code"]){
 					case "10000":
-						sessionStorage["region"] =  $(".cityinput").val());
+						sessionStorage["region"] =  $(".cityinput").val();
 						break;
 				  	case "10003":
 				  		alert("发送信息失败！")
