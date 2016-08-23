@@ -464,6 +464,14 @@ input.invalid {
     margin-top: 123px;
 }
 
+
+#score{
+	width: 44px;
+    margin-top: 17px;
+    right: 0px;
+    position: absolute;
+}
+
 .pointNum{
 	font-size: 8px;
     position: absolute;
@@ -1170,6 +1178,7 @@ p.tip{
 #nickname{
 	float: right;
     margin-top: 1%;
+    margin-right: 14px;
 }
 
 #purOrder{
