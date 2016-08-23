@@ -41,7 +41,7 @@ $("#refreshData").click(function(){
 			url: "/index.php/home/user/updatePhotoUrl",	
 			type: 'POST',
 			data: "session_id=" + sessionStorage.getItem("sessionid") 
-					+ "&photo_url="+ $(".photo").attr("src"),
+					+ "&photo_url="+ encodeURIComponent($(".photo").attr("src")),
 			dataType: "json",
 			
 			success: function(result, status) {
