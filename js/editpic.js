@@ -142,6 +142,8 @@ $("#refreshData").click(function(){
 		};
 		$.ajax(updateSex);		
 	}
+	
+	$("#dataArea").fadeOut(); 
 });
 
 
