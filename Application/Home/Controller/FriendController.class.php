@@ -1,104 +1,86 @@
 <?php
 namespace Home\Controller;
+use Home\Common\Util\BaseUtil;
+use Home\DataAccess\FriendManager;
+use Home\DataAccess\PullVersionManager;
+use Home\Common\Param\CodeParam;
 
 class FriendController extends BaseController {
-    public function getFriend(){
-        $code = "10000";
-        $message = "获得朋友成功";
-        $sessionId = $_POST['session_id'];
-        $account_id = $this->getPkIdFromToken($sessionId);
+    public function getFriends(){
+        self::setHeader();
         
-        if(isset($sessionId) && $sessionId != "") {
-            $Dao = M("friend");
-            $sql = "call admin_get_friend($account_id)";
-            $friends = $Dao->query($sql);
-        } else {
-            $code = "10010";
-            $message = "用户未登录";
+        $sessionId = filter_input(INPUT_POST, 'session_id');
+        $version = filter_input(INPUT_POST, 'version');
+        $accountId = $this->getPkIdFromToken($sessionId);
+        
+        if(!isset($sessionId) || $accountId == 0) {
+            BaseUtil::echoJson(CodeParam::NOT_LOGIN, null);
+            return;
         }
         
-        if($friends != null && count($friends) > 0) {
-            $version = end($friends)['version'];
+        if(!isset($version)) {
+            BaseUtil::echoJson(CodeParam::VERSION_EMPTY, null);
+            return;
         }
         
-        $array = array ('code' => $code, 'message' => $message,
-            'result' => array (
-                'version' => $version,
-                'friends' => $friends));
+        $friends = FriendManager::getFriends($accountId, $version);
+        $newVersion = PullVersionManager::getFriendVersion();
         
-        echo json_encode($array);
+        $result = array ('version' => $newVersion, 'friends' => $friends);
+        
+        BaseUtil::echoJson(CodeParam::SUCCESS, $result);
     }
     
     public function refreshRaceGroup() {
-        $code = "10000";
-        $message = "获得部落圈成功";
-        $sessionId = $_POST['session_id'];
-        $version = $_POST['version'];
-        $recordMinId = $_POST['record_min_id'];
+        self::setHeader();
+        
+        $sessionId = filter_input(INPUT_POST, 'session_id');
+        $version = filter_input(INPUT_POST, 'version');
+        $recordMinId = filter_input(INPUT_POST, 'record_min_id');
         $accountId = $this->getPkIdFromToken($sessionId);
         
-        $versionDao = M("pull_version");
-        $pullVersion = $versionDao->find();
-        
-        if(isset($sessionId) && $sessionId != "") {
-            if(isset($version) && isset($recordMinId)) {
-                $Dao = M("friend");
-                $sql = "call admin_refresh_friend_record($accountId, $version, "
-                        . "$recordMinId)";
-                $raceGroupArray = $Dao->query($sql);
-            } else {
-                $code = "10008";
-                $message = "版本号或者记录最小ID值为空";
-            }
-        } else {
-            $code = "10010";
-            $message = "用户未登录";
-        }  
-        
-        if($raceGroupArray != null && count($raceGroupArray) > 0) {
-            $recordMinId = end($raceGroupArray)['pk_id'];
+        if(!isset($sessionId) || $accountId == 0) {
+            BaseUtil::echoJson(CodeParam::NOT_LOGIN, null);
+            return;
         }
         
-        $array = array ('code' => $code, 'message' => $message, 
-            'result' => array (
-                'version' => $pullVersion['race_group_version'],
-                'record_min_id' => $recordMinId,
-                'race_group' => $raceGroupArray));
+        if(!isset($version) || !isset($recordMinId)) {
+            BaseUtil::echoJson(CodeParam::VERSION_OR_MIN_ID_EMPTY, null);
+            return;
+        }
         
-        echo json_encode($array);
+        $raceGroupVersion = PullVersionManager::getRaceGroupVersion();
+        $raceGroupResult = FriendManager::refreshRaceGroup($accountId, $version,
+                $recordMinId); 
+        
+        $result = array ('version' => $raceGroupVersion,
+                'record_min_id' => $raceGroupResult["record_min_id"],
+                'race_group' => $raceGroupResult["race_group"]);
+        BaseUtil::echoJson(CodeParam::SUCCESS, $result);
     }
     
     public function getRaceGroup() {
-        $code = "10000";
-        $message = "获得部落圈成功";
-        $sessionId = $_POST['session_id'];
-        $version = $_POST['version'];
-        $recordMinId = $_POST['record_min_id'];
+        self::setHeader();
+        
+        $sessionId = filter_input(INPUT_POST, 'session_id');
+        $version = filter_input(INPUT_POST, 'version');
+        $recordMinId = filter_input(INPUT_POST, 'record_min_id');
         $accountId = $this->getPkIdFromToken($sessionId);
         
-        if(isset($version) && isset($recordMinId)) {
-            $Dao = M("friend");
-            $sql = "call admin_get_friend_record($accountId, $version, $recordMinId)";
-            $raceGroupArray = $Dao->query($sql);
-        } else {
-            $code = "10008";
-            $message = "版本号或者记录最小ID值为空";
-        } 
-        
-        if($raceGroupArray != null && count($raceGroupArray) > 0) {
-            $tempRecordMinId = end($raceGroupArray)['pk_id'];
-            
-            if($tempRecordMinId < $recordMinId) {
-                $recordMinId = $tempRecordMinId;
-            }
+        if(!isset($sessionId) || $accountId == 0) {
+            BaseUtil::echoJson(CodeParam::NOT_LOGIN, null);
+            return;
         }
         
-        $array = array ('code' => $code, 'message' => $message, 
-            'result' => array (
-                'record_min_id' => $recordMinId,
-                'race_group' => $raceGroupArray));
+        if(!isset($version) || !isset($recordMinId)) {
+            BaseUtil::echoJson(CodeParam::VERSION_OR_MIN_ID_EMPTY, null);
+            return;
+        }
         
-        echo json_encode($array);
+        $raceGroupResult = FriendManager::getRaceGroup($accountId, $version, 
+                $recordMinId);
+
+        BaseUtil::echoJson(CodeParam::SUCCESS, $raceGroupResult);
     }
 }
 
