@@ -573,7 +573,23 @@ function getPath(obj,fileQuery,transImg){
 		
 		
 		confirmedit.onclick = function(){
-			$("#newWin2").fadeIn(); 
+			if(sessionStorage.getItem("nickname")==null){
+				$("#newWin2").fadeIn(); 
+				if(n>0){
+					cover.drawImage(fileimg,0.1*n*(x-1)*y,0,coverpic.height*y,coverpic.height*y,0,0,500,500);
+					$("#newWin3").fadeOut(); 
+				}
+				else{
+					cover.drawImage(fileimg,0,0.1*(-n)*(x-1)*y,coverpic.width*y,coverpic.width*y,0,0,500,500);
+					$("#newWin3").fadeOut(); 
+				}
+				
+				var images = new Image();
+				images.src = mypicture.toDataURL("image/jpeg");
+				$(".photo").attr("src",images.src);
+			}
+			else{
+				$("#dataArea").fadeIn(); 
 				if(n>0){
 					cover.drawImage(fileimg,0.1*n*(x-1)*y,0,coverpic.height*y,coverpic.height*y,0,0,500,500);
 					$("#newWin3").fadeOut(); 
@@ -583,25 +599,11 @@ function getPath(obj,fileQuery,transImg){
 					$("#newWin3").fadeOut(); 
 				}
 			
-			var images = new Image();
-			images.src = mypicture.toDataURL("image/jpeg");
-			$(".photo").attr("src",images.src);
+				var images = new Image();
+				images.src = mypicture.toDataURL("image/jpeg");
+				$(".photo").attr("src",images.src);
+			}
 		}	
-		
-		refreshData.onclick = function(){
-				if(n>0){
-					cover.drawImage(fileimg,0.1*n*(x-1)*y,0,coverpic.height*y,coverpic.height*y,0,0,500,500);
-					$("#newWin3").fadeOut(); 
-				}
-				else{
-					cover.drawImage(fileimg,0,0.1*(-n)*(x-1)*y,coverpic.width*y,coverpic.width*y,0,0,500,500);
-					$("#newWin3").fadeOut(); 
-				}
-			
-			var images = new Image();
-			images.src = mypicture.toDataURL("image/jpeg");
-			$(".photo").attr("src",images.src);
-		}		
 	});
 }			
 
