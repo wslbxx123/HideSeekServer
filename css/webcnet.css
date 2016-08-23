@@ -1003,9 +1003,8 @@ p.tip{
 	height: 31px;
     width: 31px;
     margin-top: 1%;
-    right: 69px;
-    display: none;
-    position: absolute;
+    float: left;
+    margin-right: 6px;
 }
 
 #myorder{
@@ -1169,7 +1168,8 @@ p.tip{
 }
 
 #nickname{
-	text-align: center;
+	float: right;
+    margin-top: 1%;
 }
 
 #purOrder{

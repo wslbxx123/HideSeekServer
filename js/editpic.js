@@ -36,7 +36,7 @@ $('#mycamera1').change(function(){
 
 $("#refreshData").click(function(){
 	if(changepic){
-		alert(10);
+//		alert(10);
 		var updatePhotoUrl = {
 			url: "/index.php/home/user/updatePhotoUrl",	
 			type: 'POST',
@@ -45,10 +45,9 @@ $("#refreshData").click(function(){
 			dataType: "json",
 			
 			success: function(result, status) {
-				alert(JSON.stringify(result));
+//				alert(JSON.stringify(result));
 				switch(result["code"]){
 					case "10000":
-						alert(result["result"]["small_photo_url"]);
 						sessionStorage["myimgpath"] = result["result"]["small_photo_url"];
 						$("#myimg").attr("src",sessionStorage.getItem("myimgpath"));
 						break;
@@ -90,7 +89,7 @@ $("#refreshData").click(function(){
 		};
 		$.ajax(updateNickname);		
 	}
-	alert($("#sex1").val());
+
 	if($("#sex1").val() != sessionStorage.getItem("sex")){
 		var updateSex = {
 			url: "/index.php/home/user/updateSex",	
@@ -100,7 +99,6 @@ $("#refreshData").click(function(){
 			dataType: "json",
 			
 			success: function(result, status) {
-	//			alert(JSON.stringify(result));
 				switch(result["code"]){
 					case "10000":
 						sessionStorage["sex"] = $("#sex1").val();
@@ -116,7 +114,7 @@ $("#refreshData").click(function(){
 		};
 		$.ajax(updateSex);		
 	}
-	alert($(".cityinput").val());
+
 	if($(".cityinput").val() != sessionStorage.getItem("region")){
 		var updateSex = {
 			url: "/index.php/home/user/updateSex",	
@@ -126,7 +124,6 @@ $("#refreshData").click(function(){
 			dataType: "json",
 			
 			success: function(result, status) {
-	//			alert(JSON.stringify(result));
 				switch(result["code"]){
 					case "10000":
 						sessionStorage["region"] =  $(".cityinput").val();
