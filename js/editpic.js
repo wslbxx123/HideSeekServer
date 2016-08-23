@@ -21,7 +21,7 @@ $("#mydata").click(function(){
 	$("#userName1").val($("#nickname").html());
 	$("#sex1").val(sessionStorage.getItem("sex"));
 	$(".cityinput").val(sessionStorage.getItem("region"));
-	$(".photo").attr('src',myimgpath); 
+	$(".photo").attr('src',sessionStorage.getItem("myimgpath")); 
 });
 
 $('#mycamera1').change(function(){
