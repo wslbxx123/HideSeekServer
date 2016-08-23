@@ -491,6 +491,7 @@ function getPath(obj,fileQuery,transImg){
 		var newWin3 = document.getElementById("newWin3");
 		var confirmedit = document.getElementById("confirmedit");
 		var mypicture = document.getElementById("mypicture");
+		var mypicture1 = document.getElementById("mypicture1");
 		var title = document.getElementById("title");
 		var ctx = coverpic.getContext('2d');
 		var cover = mypicture.getContext('2d');
