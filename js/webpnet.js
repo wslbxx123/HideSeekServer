@@ -428,7 +428,7 @@ $(function(){
 							document.getElementById("scoreNum").innerHTML = Num;
 							Num1 = result["result"]["nickname"];
 							document.getElementById("nickname").innerHTML = Num1;
-							document.getElementById("myimg").src = result["result"]["photo_url"];
+							document.getElementById("myimg").src = result["result"]["small_photo_url"];
 					  		$(".inner_menu").fadeOut();  
 					  		$("#myprofile").fadeIn(); 
 					  		$("#myimg").fadeIn(); 
@@ -439,7 +439,7 @@ $(function(){
 					  		//存储登录数据
 					  		sessionStorage.setItem("nickname", $("#nickname").html());
 							sessionStorage.setItem("record", $("#scoreNum").html());
-							sessionStorage.setItem("myimgpath", result["result"]["photo_url"]);
+							sessionStorage.setItem("myimgpath", result["result"]["small_photo_url"]);
 							sessionStorage.setItem("sessionid", result["result"]["session_id"]);
 							sessionStorage.setItem("sex", result["result"]["sex"]);
 							sessionStorage.setItem("region", result["result"]["region"]);
