@@ -183,7 +183,7 @@ input.invalid {
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
     display: none;
-    margin: -44% 33%;
+    margin: -38% 33%;
     position: absolute;
     z-index: 45;
     font-size: 15px;
