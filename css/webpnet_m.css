@@ -1036,7 +1036,7 @@ p.tip{
     width: 31px;
     margin-top: 1%;
     float: left;
-    margin-right: 17px;
+    margin-right: 11px;
 }
 
 #myorder{
@@ -1201,6 +1201,7 @@ p.tip{
 #nickname{
 	float: left;
     margin-top: 1%;
+    margin-right: 5px;
 }
 
 #guideOrder{

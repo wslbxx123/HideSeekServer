@@ -188,6 +188,7 @@ input.invalid {
     z-index: 38;
     font-size: 15px;
     text-align: center;
+    overflow: auto;
 }
 
 #newWin4{
