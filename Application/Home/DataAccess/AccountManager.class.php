@@ -126,4 +126,12 @@ class AccountManager {
         $account['region'] = $region;
         $Dao->where($condition)->save($account);
     }
+    
+    public function searchAccounts($searchWord) {
+        $Dao = M("account");
+        $condition["nickname"] = array('like', $searchWord);
+        $condition["phone"] = array('like', $searchWord);
+        $condition['_logic'] = 'OR';
+        return $Dao->where($condition)->select();
+    }
 }

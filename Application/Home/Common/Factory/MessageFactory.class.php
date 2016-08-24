@@ -32,6 +32,11 @@ class MessageFactory {
         if($mapMessage != null) {
             return $mapMessage;
         }
+        
+        $friendMessage = self::getFriendMessage($code);
+        if($friendMessage != null) {
+            return $friendMessage;
+        }
     }
     
     public function getUserMessage($code) {
@@ -86,6 +91,15 @@ class MessageFactory {
                 return MessageParam::VERSION_EMPTY;
             case CodeParam::ORIENTATION_EMPTY:
                 return MessageParam::ORIENTATION_EMPTY;
+            default:
+                return null;
+        }
+    }
+    
+    public function getFriendMessage($code) {
+        switch($code) {
+            case CodeParam::SEARCH_WORD_EMPTY:
+                return MessageParam::SEARCH_WORD_EMPTY;
             default:
                 return null;
         }

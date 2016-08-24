@@ -2,6 +2,7 @@
 namespace Home\Controller;
 use Home\Common\Util\BaseUtil;
 use Home\DataAccess\FriendManager;
+use Home\DataAccess\AccountManager;
 use Home\DataAccess\PullVersionManager;
 use Home\Common\Param\CodeParam;
 
@@ -81,6 +82,28 @@ class FriendController extends BaseController {
                 $recordMinId);
 
         BaseUtil::echoJson(CodeParam::SUCCESS, $raceGroupResult);
+    }
+    
+    public function searchFriends() {
+        self::setHeader();
+        
+        $sessionId = filter_input(INPUT_POST, 'session_id');
+        $searchWord = filter_input(INPUT_POST, 'search_word');
+        $accountId = $this->getPkIdFromToken($sessionId);
+        
+        if(!isset($sessionId) || $accountId == 0) {
+            BaseUtil::echoJson(CodeParam::NOT_LOGIN, null);
+            return;
+        }
+        
+        if(!isset($searchWord)) {
+            BaseUtil::echoJson(CodeParam::SEARCH_WORD_EMPTY, null);
+            return;
+        }
+        
+        $accountList = AccountManager::searchAccounts($searchWord);
+        
+        BaseUtil::echoJson(CodeParam::SUCCESS, $accountList);
     }
 }
 

@@ -35,4 +35,8 @@ class MessageParam {
     const VERSION_EMPTY = "版本号为空";
     const ORIENTATION_EMPTY = "方向值不能为空";
     #endregion
+    
+    #region 朋友信息
+    const SEARCH_WORD_EMPTY = "查询字符串为空";
+    #endregion
 }

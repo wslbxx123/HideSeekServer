@@ -35,4 +35,8 @@ class CodeParam {
     const VERSION_EMPTY = "10016";
     const ORIENTATION_EMPTY = "10017";
     #endregion
+    
+    #region 朋友信息
+    const SEARCH_WORD_EMPTY = "10018";
+    #endregion
 }
