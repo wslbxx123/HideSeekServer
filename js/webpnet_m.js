@@ -45,7 +45,8 @@ $(function(){
 		$("#orderArea").fadeOut();
 		$("#storecover").fadeOut();
 		$("#confirmexchange").fadeOut();
-		$("#listarea .orderlist").remove();
+		$("#dataArea").fadeOut();
+		$("#listarea .orderlist").remove();	
 	});
 	
 	//获取购买商场信息
@@ -433,12 +434,14 @@ $(function(){
 					  		//存储登录数据
 					  		sessionStorage.setItem("nickname", $("#nickname").html());
 							sessionStorage.setItem("record", $("#scoreNum").html());
-							sessionStorage.setItem("myimgpath", result["result"]["photo_url"]);
+							sessionStorage.setItem("myimgpath", result["result"]["small_photo_url"]);
 							sessionStorage.setItem("sessionid", result["result"]["session_id"]);
-							nickname = sessionStorage.getItem("nickname");
-							record = sessionStorage.getItem("record");
-							myimgpath = sessionStorage.getItem("myimgpath");
-							sessionid = sessionStorage.getItem("sessionid");
+							sessionStorage.setItem("sex", result["result"]["sex"]);
+							sessionStorage.setItem("region", result["result"]["region"]);
+//							nickname = sessionStorage.getItem("nickname");
+//							record = sessionStorage.getItem("record");
+//							myimgpath = sessionStorage.getItem("myimgpath");
+//							sessionid = sessionStorage.getItem("sessionid");
 					  		break;
 					  	case "10001":
 					  		$("#fault").fadeIn();
@@ -651,12 +654,12 @@ $(function(){
 
 //	右上角菜单列的显示
 function displaySubMenu() {
-	var subMenu = document.getElementById("exit");
+	var subMenu = document.getElementById("flipframe");
 	subMenu.style.display = "block";
 }
 
 //	右上角菜单列的隐藏
 function hideSubMenu() {
-	var subMenu = document.getElementById("exit");
+	var subMenu = document.getElementById("flipframe");
 	subMenu.style.display = "none";
 }
