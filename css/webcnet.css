@@ -180,15 +180,16 @@ input.invalid {
     height: 600px;
     background: white;
     border-radius: 5px;
-    -moz-border-radius: 5px; /* Firefox */
-  	-webkit-border-radius: 5px; /* Safari 和 Chrome */
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
     display: none;
     margin: -44% 33%;
     position: absolute;
-    z-index: 38;
+    z-index: 45;
     font-size: 15px;
     text-align: center;
     overflow: auto;
+    border: 2px solid dimgrey;
 }
 
 #newWin4{
