@@ -51,7 +51,7 @@ img {
 }*/
 
 input{
-	width: 62%;
+	width: 58%;
     height: 30px;
     margin-left: 4px;
     font-size: 14px;
@@ -120,6 +120,35 @@ input.invalid {
 	display:none;
 }
 
+#refreshData{
+	height: 35px;
+    margin-top: 10px;
+    font-family: "Microsoft Yahei";
+    font-size: 15px;
+    background-color:#fae077;
+    border-radius:5px;
+    cursor: pointer; 
+    -webkit-appearance: none; 
+    width: 80%;
+}
+
+
+#dataArea{
+	width: 90%;
+    height: 404px;
+    background: white;
+    border: 2px solid dimgrey;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    display: block;
+    margin: -36% 5% 6%;
+    position: absolute;
+    z-index: 30;
+    text-align: center;
+    font-size: 15px;
+}    
+    
 #newWin{
 	width: 90%;
     height: 234px;
@@ -627,21 +656,21 @@ input.invalid {
 	
 	
 .file {
-    position: absolute;
+    position: relative;
     display: inline-block;
     background: url("../img/mycamera.png") no-repeat center;
     border-radius: 4px;
-    -moz-border-radius: 4px;
-    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px; /* Firefox */
+  	-webkit-border-radius: 4px; /* Safari 和 Chrome */
     padding: 4px 12px;
     overflow: hidden;
     text-decoration: none;
     text-indent: 0;
+    line-height: 20px;
     height: 23px;
     width: 20px;
-    background-size: contain;
-    margin-left: 10%;
-    margin-top: 9px;
+    background-size: contain; 
+    margin-left: -10%;
 }	
 
 .paragraph{
@@ -659,6 +688,14 @@ input.invalid {
 }
 
 #mycamera{
+	position: absolute;
+    font-size: 100px;
+    right: 0;
+    top: 0;
+    opacity: 0;
+}
+
+#mycamera1{
 	position: absolute;
     font-size: 100px;
     right: 0;
@@ -684,7 +721,7 @@ input.invalid {
     position: absolute;
 }
 
-#photo{
+.photo{
 	margin-top: -62px;
     border-radius: 63px;
     left: 36%;
@@ -695,8 +732,12 @@ input.invalid {
     position: absolute;
 }
 
+#userName1{
+	padding-left: 3px;
+	margin-top: 15px;
+}
 
-#bgColor{
+.bgColor{
 	background-color: #fae077;
     width: 100%;
     height: 36%;
@@ -1148,7 +1189,6 @@ p.tip{
 }
 
 #sex1{
-	margin-top: 58px;
 	margin-left: 5px;
 }
 

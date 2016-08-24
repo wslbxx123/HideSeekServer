@@ -45,7 +45,8 @@ $(function(){
 		$("#orderArea").fadeOut();
 		$("#storecover").fadeOut();
 		$("#confirmexchange").fadeOut();
-		$("#listarea .orderlist").remove();
+		$("#dataArea").fadeOut();
+		$("#listarea .orderlist").remove();	
 	});
 	
 	//获取购买商场信息
