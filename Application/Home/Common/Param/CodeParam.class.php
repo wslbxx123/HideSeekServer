@@ -38,5 +38,6 @@ class CodeParam {
     
     #region 朋友信息
     const SEARCH_WORD_EMPTY = "10018";
+    const FRIEND_ID_EMPTY = "10019";
     #endregion
 }

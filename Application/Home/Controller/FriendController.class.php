@@ -101,9 +101,32 @@ class FriendController extends BaseController {
             return;
         }
         
-        $accountList = AccountManager::searchAccounts($searchWord);
+        $accountList = AccountManager::searchAccounts($accountId, $searchWord);
         
         BaseUtil::echoJson(CodeParam::SUCCESS, $accountList);
+    }
+    
+    public function addFriend() {
+        self::setHeader();
+        
+        $sessionId = filter_input(INPUT_POST, 'session_id');
+        $friendId = filter_input(INPUT_POST, 'friend_id');
+        $accountId = $this->getPkIdFromToken($sessionId);
+        
+        if(!isset($sessionId) || $accountId == 0) {
+            BaseUtil::echoJson(CodeParam::NOT_LOGIN, null);
+            return;
+        }
+        
+        if(!isset($friendId)) {
+            BaseUtil::echoJson(CodeParam::FRIEND_ID_EMPTY, null);
+            return;
+        }
+        
+        FriendManager::addFriend($accountId, $friendId);
+        $account = AccountManager::getAccount($friendId);
+        
+        BaseUtil::echoJson(CodeParam::SUCCESS, $account);
     }
 }
 

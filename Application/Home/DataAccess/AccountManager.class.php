@@ -127,11 +127,10 @@ class AccountManager {
         $Dao->where($condition)->save($account);
     }
     
-    public function searchAccounts($searchWord) {
+    public function searchAccounts($accountId, $searchWord) {
         $Dao = M("account");
-        $condition["nickname"] = array('like', $searchWord);
-        $condition["phone"] = array('like', $searchWord);
-        $condition['_logic'] = 'OR';
-        return $Dao->where($condition)->select();
+        $sql = "call admin_search_accounts($accountId, $searchWord)";
+        $accountList = $Dao->query($sql);
+        return $accountList;
     }
 }

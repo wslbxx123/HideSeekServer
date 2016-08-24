@@ -38,5 +38,6 @@ class MessageParam {
     
     #region 朋友信息
     const SEARCH_WORD_EMPTY = "查询字符串为空";
+    const FRIEND_ID_EMPTY = "朋友ID为空";
     #endregion
 }

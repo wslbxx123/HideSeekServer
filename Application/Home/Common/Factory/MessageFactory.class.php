@@ -100,6 +100,8 @@ class MessageFactory {
         switch($code) {
             case CodeParam::SEARCH_WORD_EMPTY:
                 return MessageParam::SEARCH_WORD_EMPTY;
+            case CodeParam::FRIEND_ID_EMPTY:
+                return MessageParam::FRIEND_ID_EMPTY;
             default:
                 return null;
         }
