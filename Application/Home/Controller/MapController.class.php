@@ -142,6 +142,21 @@ class MapController extends BaseController {
         
         BaseUtil::echoJson(CodeParam::SUCCESS, $tempSeeId);
     }
+    
+    public function getDangerWarnings() {
+        self::setHeader();
+        
+        $sessionId = filter_input(INPUT_POST, 'session_id');
+        $accountId = $this->getPkIdFromToken($sessionId);
+        
+        if(!isset($sessionId) || $accountId == 0) {
+            BaseUtil::echoJson(CodeParam::NOT_LOGIN, null);
+            return false;
+        }
+        
+        $warnings = MonsterTempSeeManager::getDangerWarnings($accountId);    
+        BaseUtil::echoJson(CodeParam::SUCCESS, $warnings);
+    }
 }
 
 

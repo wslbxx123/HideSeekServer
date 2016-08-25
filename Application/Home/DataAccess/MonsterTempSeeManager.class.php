@@ -20,4 +20,11 @@ class MonsterTempSeeManager {
         $condition["goal_id"] = $goalId;
         return $Dao->where($condition)->find();
     }
+    
+    public function getDangerWarnings($accountId) {
+        $Dao = M("monster_temp_see");
+        $sql = "call admin_get_danger_warnings($accountId)";
+        $warnings = $Dao->query($sql);
+        return $warnings;
+    }
 }
