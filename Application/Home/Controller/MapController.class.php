@@ -123,7 +123,7 @@ class MapController extends BaseController {
         
         $sessionId = filter_input(INPUT_POST, 'session_id');
         $goalId = filter_input(INPUT_POST, 'goal_id');
-        $accountId = $this->getAccountFromToken($sessionId);
+        $accountId = $this->getPkIdFromToken($sessionId);
         
         if(!isset($sessionId) || $accountId == 0) {
             BaseUtil::echoJson(CodeParam::NOT_LOGIN, null);
@@ -135,8 +135,9 @@ class MapController extends BaseController {
             return false;
         }
         
-        if(MonsterTempSeeManager::getMonsterTempSee($accountId, $goalId)) {
-            $tempSeeId = MonsterTempSeeManager::insertMonsterTempSee($accountId, $goalId);
+        if(null == MonsterTempSeeManager::getMonsterTempSee($accountId, $goalId)) {
+            $tempSeeId = MonsterTempSeeManager::insertMonsterTempSee
+                    ($accountId, $goalId);
         }
         
         BaseUtil::echoJson(CodeParam::SUCCESS, $tempSeeId);

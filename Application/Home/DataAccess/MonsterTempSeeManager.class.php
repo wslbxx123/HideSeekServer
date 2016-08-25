@@ -18,6 +18,6 @@ class MonsterTempSeeManager {
         $Dao = M("monster_temp_see");
         $condition["account_id"] = $accountId;
         $condition["goal_id"] = $goalId;
-        return $Dao->where($condition)->select();
+        return $Dao->where($condition)->find();
     }
 }
