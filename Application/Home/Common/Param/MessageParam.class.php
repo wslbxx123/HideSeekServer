@@ -34,6 +34,7 @@ class MessageParam {
     const GOAL_DISAPPEAR = "目标已经消失";
     const VERSION_EMPTY = "版本号为空";
     const ORIENTATION_EMPTY = "方向值不能为空";
+    const GOAL_ID_EMPTY = "目标ID为空";
     #endregion
     
     #region 朋友信息

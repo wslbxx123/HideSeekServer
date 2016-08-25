@@ -34,6 +34,7 @@ class CodeParam {
     const GOAL_DISAPPEAR = "10015";
     const VERSION_EMPTY = "10016";
     const ORIENTATION_EMPTY = "10017";
+    const GOAL_ID_EMPTY = "10020";
     #endregion
     
     #region 朋友信息

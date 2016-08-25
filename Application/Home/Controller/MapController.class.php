@@ -7,6 +7,7 @@ use Home\DataAccess\PullVersionManager;
 use Home\DataAccess\RecordManager;
 use Home\DataAccess\AccountManager;
 use Home\DataAccess\MonsterTempHitManager;
+use Home\DataAccess\MonsterTempSeeManager;
 use Home\DataAccess\GoalTypeManager;
 use Home\BusinessLogic\Manager\MapControllerManager;
 
@@ -115,6 +116,30 @@ class MapController extends BaseController {
                 $account['bomb_num'] - 1);
         
         BaseUtil::echoJson(CodeParam::SUCCESS, $account['bomb_num'] - 1);
+    }
+    
+    public function seeMonster() {
+        self::setHeader();
+        
+        $sessionId = filter_input(INPUT_POST, 'session_id');
+        $goalId = filter_input(INPUT_POST, 'goal_id');
+        $accountId = $this->getAccountFromToken($sessionId);
+        
+        if(!isset($sessionId) || $accountId == 0) {
+            BaseUtil::echoJson(CodeParam::NOT_LOGIN, null);
+            return false;
+        }
+        
+        if(!isset($goalId)) {
+            BaseUtil::echoJson(CodeParam::GOAL_ID_EMPTY, null);
+            return false;
+        }
+        
+        if(MonsterTempSeeManager::getMonsterTempSee($accountId, $goalId)) {
+            $tempSeeId = MonsterTempSeeManager::insertMonsterTempSee($accountId, $goalId);
+        }
+        
+        BaseUtil::echoJson(CodeParam::SUCCESS, $tempSeeId);
     }
 }
 

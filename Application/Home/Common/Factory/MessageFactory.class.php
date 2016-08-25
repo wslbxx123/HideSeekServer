@@ -91,6 +91,8 @@ class MessageFactory {
                 return MessageParam::VERSION_EMPTY;
             case CodeParam::ORIENTATION_EMPTY:
                 return MessageParam::ORIENTATION_EMPTY;
+            case CodeParam::GOAL_ID_EMPTY:
+                return MessageParam::GOAL_ID_EMPTY;
             default:
                 return null;
         }
