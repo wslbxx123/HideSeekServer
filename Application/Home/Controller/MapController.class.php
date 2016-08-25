@@ -154,8 +154,10 @@ class MapController extends BaseController {
             return false;
         }
         
-        $warnings = MonsterTempSeeManager::getDangerWarnings($accountId);    
-        BaseUtil::echoJson(CodeParam::SUCCESS, $warnings);
+        $warnings = MonsterTempSeeManager::getDangerWarnings($accountId);
+        $result = array("warnings" => $warnings, 
+            "server_time" => date('y-m-d H:i:s',time()));
+        BaseUtil::echoJson(CodeParam::SUCCESS, $result);
     }
 }
 
