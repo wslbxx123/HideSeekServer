@@ -120,7 +120,7 @@ class FriendController extends BaseController {
             return;
         }
         
-        FriendManager::addFriend($account['pk_id'], $friendId);
+        FriendManager::insertFriend($account['pk_id'], $friendId);
         $friend = AccountManager::getAccount($friendId);
         
         if(!FriendControllerManager::sendFriendRequest($account, $friend, 
