@@ -53,6 +53,8 @@ class MessageFactory {
                 return MessageParam::USER_ALREADY_EXIST;
             case CodeParam::SEX_EMPTY:
                 return MessageParam::SEX_EMPTY;
+            case CodeParam::CHANNEL_ID_EMPTY:
+                return MessageParam::CHANNEL_ID_EMPTY;
             default:
                 return null;
         }
@@ -104,6 +106,8 @@ class MessageFactory {
                 return MessageParam::SEARCH_WORD_EMPTY;
             case CodeParam::FRIEND_ID_EMPTY:
                 return MessageParam::FRIEND_ID_EMPTY;
+            case CodeParam::FAIL_SEND_MESSAGE:
+                return MessageParam::FAIL_SEND_MESSAGE;
             default:
                 return null;
         }

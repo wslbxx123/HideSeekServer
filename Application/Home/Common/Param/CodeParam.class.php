@@ -16,6 +16,7 @@ class CodeParam {
     const FAIL_UPLOAD_PHOTO = "10004";
     const USER_ALREADY_EXIST = "10005";
     const SEX_EMPTY = "10018";
+    const CHANNEL_ID_EMPTY = "10022";
     #endregion
     
     #region 商场信息
@@ -34,11 +35,12 @@ class CodeParam {
     const GOAL_DISAPPEAR = "10015";
     const VERSION_EMPTY = "10016";
     const ORIENTATION_EMPTY = "10017";
-    const GOAL_ID_EMPTY = "10020";
+    const GOAL_ID_EMPTY = "10021";
     #endregion
     
     #region 朋友信息
-    const SEARCH_WORD_EMPTY = "10018";
-    const FRIEND_ID_EMPTY = "10019";
+    const SEARCH_WORD_EMPTY = "10019";
+    const FRIEND_ID_EMPTY = "10020";
+    const FAIL_SEND_MESSAGE = "10023";
     #endregion
 }

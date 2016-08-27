@@ -16,6 +16,7 @@ class MessageParam {
     const FAIL_UPLOAD_PHOTO = "上传照片失败";
     const USER_ALREADY_EXIST = "用户已经存在";
     const SEX_EMPTY = "性别为空";
+    const CHANNEL_ID_EMPTY = "设备识别ID值为空";
     #endregion
     
     #region 商场信息
@@ -40,5 +41,6 @@ class MessageParam {
     #region 朋友信息
     const SEARCH_WORD_EMPTY = "查询字符串为空";
     const FRIEND_ID_EMPTY = "朋友ID为空";
+    const FAIL_SEND_MESSAGE = "发送消息失败";
     #endregion
 }

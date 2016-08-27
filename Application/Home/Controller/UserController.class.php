@@ -8,6 +8,7 @@ use Home\Common\Param\KeyParam;
 use Home\DataAccess\AccountManager;
 use Home\DataAccess\PullVersionManager;
 use Home\BusinessLogic\Network\ApiManager;
+use Home\BusinessLogic\Manager\UserControllerManager;
 
 class UserController extends BaseController {
     public function login(){
@@ -16,12 +17,14 @@ class UserController extends BaseController {
         session(array('name'=>'pk_id','expire'=>3600));
         $phone = filter_input(INPUT_POST, 'phone');
         $password = filter_input(INPUT_POST, 'password');
+        $channelId = filter_input(INPUT_POST, 'channel_id');
         
-        if(!isset($phone) || !isset($password)) {
-            BaseUtil::echoJson(CodeParam::PHONE_OR_PASSWORD_EMPTY, null);
+        if(!UserControllerManager::checkUserInfo($phone, $password, $channelId)) {
             return;
-        }       
-        $account = AccountManager::getAccountFromPhonePassword($phone, $password);
+        }
+        
+        $account = AccountManager::getAccountFromPhonePassword($phone, 
+                $password, $channelId);
         if(!isset($account)) {
             BaseUtil::echoJson(CodeParam::PHONE_OR_PASSWORD_WRONG, null);
             return;

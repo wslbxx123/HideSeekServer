@@ -9,7 +9,7 @@ vendor("Alipay.aop.AopClient");
  *
  * @author Two
  */
-class ApiManager {
+class AlipayManager {
     const ALIPAY_VERIFY_URL = 
             'https://mapi.alipay.com/gateway.do?service=notify_verify&';
     

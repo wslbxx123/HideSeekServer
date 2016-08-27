@@ -6,11 +6,13 @@ namespace Home\DataAccess;
  * @author Two
  */
 class AccountManager {
-    public function getAccountFromPhonePassword($phone, $password) {
+    public function getAccountFromPhonePassword($phone, $password, $channelId) {
         $Dao = M("account");
         $condition['phone'] = $phone;
         $condition['password'] = md5($password);
+        $Dao->where($condition)->setField('channel_id', $channelId);
         $account = $Dao->where($condition)->find();
+        
         return $account;
     }
     

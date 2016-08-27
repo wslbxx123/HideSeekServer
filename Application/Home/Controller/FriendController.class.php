@@ -5,6 +5,7 @@ use Home\DataAccess\FriendManager;
 use Home\DataAccess\AccountManager;
 use Home\DataAccess\PullVersionManager;
 use Home\Common\Param\CodeParam;
+use Home\BusinessLogic\Network\BaiduIMManager;
 
 class FriendController extends BaseController {
     public function getFriends(){
@@ -111,9 +112,10 @@ class FriendController extends BaseController {
         
         $sessionId = filter_input(INPUT_POST, 'session_id');
         $friendId = filter_input(INPUT_POST, 'friend_id');
-        $accountId = $this->getPkIdFromToken($sessionId);
+        $channelId = filter_input(INPUT_POST, 'channel_id');
+        $account = $this->getAccountFromToken($sessionId);
         
-        if(!isset($sessionId) || $accountId == 0) {
+        if(!isset($sessionId) || $account['pk_id'] == 0) {
             BaseUtil::echoJson(CodeParam::NOT_LOGIN, null);
             return;
         }
@@ -123,10 +125,14 @@ class FriendController extends BaseController {
             return;
         }
         
-        FriendManager::addFriend($accountId, $friendId);
-        $account = AccountManager::getAccount($friendId);
+        FriendManager::addFriend($account['pk_id'], $friendId);
+        $friend = AccountManager::getAccount($friendId);
+        $account['password'] = "";
+        if(!BaiduIMManager::sendFriendRequest($channelId, $account)) {
+            return;
+        }
         
-        BaseUtil::echoJson(CodeParam::SUCCESS, $account);
+        BaseUtil::echoJson(CodeParam::SUCCESS, $friend);
     }
 }
 
