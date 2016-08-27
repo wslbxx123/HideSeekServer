@@ -7,7 +7,7 @@ namespace Home\DataAccess;
  */
 class FriendRequestManager {
     public function insertFriendRequest($accountAId, $accountBId, $message) {
-        $Dao = M("friend");
+        $Dao = M("friend_request");
         $condition["account_a_id"] = $accountAId;
         $condition["account_b_id"] = $accountBId;
         $friendRequest = $Dao->where($condition)->find();
