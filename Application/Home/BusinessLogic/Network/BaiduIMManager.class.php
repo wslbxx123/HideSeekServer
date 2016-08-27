@@ -15,10 +15,10 @@ class BaiduIMManager {
         $sdk = new \PushSDK();
         $message = array(
             'aps' => array (
-                'alert' => $alert,
-                'type' => 1,
-                'account' => $account
-            )
+                'alert' => $alert
+            ),
+            'type' => 1,
+            'account' => $account
         );
         
         $opts = array (
@@ -26,13 +26,13 @@ class BaiduIMManager {
             'deploy_status' => 1,   // iOS应用的部署状态:  1：开发状态；2：生产状态； 若不指定，则默认设置为生产状态。
         );
         
-        $result = $sdk ->pushMsgToSingleDevice($channelId, $opts, $message);
+        $result = $sdk ->pushMsgToSingleDevice($channelId, $message, $opts);
         
-        if($result == false) {
-            BaseUtil::echoJson(CodeParam::FAIL_SEND_MESSAGE, $result);
+        if(!$result) {
+            BaseUtil::echoJson(CodeParam::FAIL_SEND_MESSAGE, $sdk->getLastErrorMsg());
             return false;
         }
-        
+
         return true;
     }
 }
