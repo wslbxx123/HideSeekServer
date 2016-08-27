@@ -127,7 +127,7 @@ class FriendController extends BaseController {
             return;
         }
         $friend['password'] = "";
-        BaseUtil::echoJson(CodeParam::SUCCESS, $message);
+        BaseUtil::echoJson(CodeParam::SUCCESS, $friend);
     }
 }
 
