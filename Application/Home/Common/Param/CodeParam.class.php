@@ -42,5 +42,6 @@ class CodeParam {
     const SEARCH_WORD_EMPTY = "10019";
     const FRIEND_ID_EMPTY = "10020";
     const FAIL_SEND_MESSAGE = "10023";
+    const REQUEST_MESSAGE_EMPTY = "10024";
     #endregion
 }

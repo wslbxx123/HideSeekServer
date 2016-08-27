@@ -108,6 +108,8 @@ class MessageFactory {
                 return MessageParam::FRIEND_ID_EMPTY;
             case CodeParam::FAIL_SEND_MESSAGE:
                 return MessageParam::FAIL_SEND_MESSAGE;
+            case CodeParam::REQUEST_MESSAGE_EMPTY:
+                return MessageParam::REQUEST_MESSAGE_EMPTY;
             default:
                 return null;
         }

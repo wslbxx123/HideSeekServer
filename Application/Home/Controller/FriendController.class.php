@@ -4,8 +4,10 @@ use Home\Common\Util\BaseUtil;
 use Home\DataAccess\FriendManager;
 use Home\DataAccess\AccountManager;
 use Home\DataAccess\PullVersionManager;
+use Home\DataAccess\FriendRequestManager;
 use Home\Common\Param\CodeParam;
 use Home\BusinessLogic\Network\BaiduIMManager;
+use Home\BusinessLogic\Manager\FriendControllerManager;
 
 class FriendController extends BaseController {
     public function getFriends(){
@@ -112,24 +114,24 @@ class FriendController extends BaseController {
         
         $sessionId = filter_input(INPUT_POST, 'session_id');
         $friendId = filter_input(INPUT_POST, 'friend_id');
-        $channelId = filter_input(INPUT_POST, 'channel_id');
+        $message = filter_input(INPUT_POST, 'message');
         $account = $this->getAccountFromToken($sessionId);
         
-        if(!isset($sessionId) || $account['pk_id'] == 0) {
-            BaseUtil::echoJson(CodeParam::NOT_LOGIN, null);
-            return;
-        }
-        
-        if(!isset($friendId)) {
-            BaseUtil::echoJson(CodeParam::FRIEND_ID_EMPTY, null);
+        if(!FriendControllerManager::checkAddFriendInfo($sessionId, 
+                $account['pk_id'], $friendId, $message)) {
             return;
         }
         
         FriendManager::addFriend($account['pk_id'], $friendId);
         $friend = AccountManager::getAccount($friendId);
         $account['password'] = "";
-        if(!BaiduIMManager::sendFriendRequest($channelId, $account)) {
-            return;
+        
+        if($friend['channel_id'] == NULL) {
+            FriendRequestManager::insertFriendRequest($account['pk_id'], $friendId);
+        } else {
+            if(!BaiduIMManager::sendFriendRequest($friend['channel_id'], $account)) {
+                return;
+            }
         }
         
         BaseUtil::echoJson(CodeParam::SUCCESS, $friend);
