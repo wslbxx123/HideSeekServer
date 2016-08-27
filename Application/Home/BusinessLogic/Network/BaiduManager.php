@@ -9,7 +9,7 @@ vendor("Baidu.sdk");
  *
  * @author apple
  */
-class BaiduIMManager {
+class BaiduManager {
     public function sendFriendRequest($channelId, $account, $alert) {
         $account['password'] = "";
         $sdk = new \PushSDK();
