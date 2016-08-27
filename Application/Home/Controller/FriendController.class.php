@@ -120,13 +120,12 @@ class FriendController extends BaseController {
             return;
         }
         
-        FriendManager::insertFriend($account['pk_id'], $friendId);
         $friend = AccountManager::getAccount($friendId);
         
-//        if(!FriendControllerManager::sendFriendRequest($account, $friend, 
-//                $message)) {
-//            return;
-//        }
+        if(!FriendControllerManager::sendFriendRequest($account, $friend, 
+                $message)) {
+            return;
+        }
         $friend['password'] = "";
         BaseUtil::echoJson(CodeParam::SUCCESS, $message);
     }
