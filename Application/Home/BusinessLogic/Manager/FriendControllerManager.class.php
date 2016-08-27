@@ -3,7 +3,7 @@
 namespace Home\BusinessLogic\Manager;
 use Home\Common\Util\BaseUtil;
 use Home\Common\Param\CodeParam;
-use Home\BusinessLogic\Network\BaiduManager;
+use Home\BusinessLogic\Network\BaiduIMManager;
 use Home\DataAccess\FriendRequestManager;
 /**
  * 处理朋友控制器的逻辑类
@@ -35,7 +35,7 @@ class FriendControllerManager {
             FriendRequestManager::insertFriendRequest($account['pk_id'], 
                     $friend['pk_id'], $message);
         } else {
-            if(!BaiduManager::sendFriendRequest($friend['channel_id'], 
+            if(!BaiduIMManager::sendFriendRequest($friend['channel_id'], 
                     $account, $message)) {
                 return false;
             }
