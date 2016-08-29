@@ -10,15 +10,16 @@ vendor("Baidu.sdk");
  * @author apple
  */
 class BaiduIMManager {
-    public function sendFriendRequest($channelId, $account, $alert) {
+    public function sendFriendRequest($channelId, $account, $extraMessage) {
         $account['password'] = "";
         $sdk = new \PushSDK();
         $message = array(
             'aps' => array (
-                'alert' => $alert
+                'alert' => array (
+                    'loc-key' => "FRIEND_REQUEST_MESSAGE"
+                )
             ),
-            'type' => 1,
-            'account' => $account
+            'type' => 1, 'account' => $account, 'extra' => $extraMessage
         );
         
         $opts = array (
@@ -30,9 +31,8 @@ class BaiduIMManager {
         
         if(!$result) {
             BaseUtil::echoJson(CodeParam::FAIL_SEND_MESSAGE, $sdk->getLastErrorMsg());
-            return false;
         }
 
-        return true;
+        return $result;
     }
 }
