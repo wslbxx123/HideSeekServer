@@ -52,7 +52,10 @@ class PullVersionManager {
         $Dao = M("pull_version");
         $version = $Dao->find();
         $version['friend_version'] = $version['friend_version'] + 1;
-        $Dao->where('1=1')->save($version);
+        $Dao->where('1=1')->save($version); 
+        
+        return $version['friend_version'];
+
     }
     
     public function updateStoreVersion() {
@@ -60,6 +63,8 @@ class PullVersionManager {
         $version = $Dao->find();
         $version['store_version'] = $version['store_version'] + 1;
         $Dao->where('1=1')->save($version);
+        
+        return $version['store_version'];
     }
     
     public function updateProductOrderVersion() {
