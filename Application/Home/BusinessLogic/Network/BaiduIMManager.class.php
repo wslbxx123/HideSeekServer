@@ -16,7 +16,7 @@ class BaiduIMManager {
         $message = array(
             'aps' => array (
                 'alert' => array (
-                    'title' => "你收到一个好友请求"
+                    'body' => "你收到一个好友请求"
 //                    'loc-key' => "FRIEND_REQUEST_MESSAGE",
 //                    'loc-args' => []
                 )
