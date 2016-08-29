@@ -129,5 +129,28 @@ class FriendController extends BaseController {
         $friend['password'] = "";
         BaseUtil::echoJson(CodeParam::SUCCESS, $friend);
     }
+    
+    public function acceptFriend() {
+        self::setHeader();
+        
+        $sessionId = filter_input(INPUT_POST, 'session_id');
+        $friendId = filter_input(INPUT_POST, 'friend_id');
+        $accountId = $this->getPkIdFromToken($sessionId);
+        
+        if(!isset($sessionId) || $accountId == 0) {
+            BaseUtil::echoJson(CodeParam::NOT_LOGIN, null);
+            return false;
+        }
+        
+        if(!isset($friendId)) {
+            BaseUtil::echoJson(CodeParam::FRIEND_ID_EMPTY, null);
+            return false;
+        }
+        
+        $version = PullVersionManager::updateFriendVersion();
+        FriendManager::insertFriend($accountId, $friendId, $version);
+        
+        BaseUtil::echoJson(CodeParam::SUCCESS, $friendId);
+    }
 }
 

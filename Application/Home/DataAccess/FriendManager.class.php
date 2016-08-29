@@ -51,10 +51,11 @@ class FriendManager {
         );
     }
     
-    public function insertFriend($accountAId, $accountBId) {
+    public function insertFriend($accountAId, $accountBId, $version) {
         $Dao = M("friend");
         $friend["account_a_id"] = $accountAId;
         $friend["account_b_id"] = $accountBId;
+        $friend["version"] = $version;
         $Dao->add($friend);
     }
 }
