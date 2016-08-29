@@ -16,9 +16,6 @@ class BaiduIMManager {
         $message = array(
             'aps' => array (
                 'alert' => array (
-//                    'body' => "FRIEND_REQUEST_MESSAGE",
-                    'title' => "hehe",
-                    'title-loc_key' => "FRIEND_REQUEST_MESSAGE",
                     'loc-key' => "FRIEND_REQUEST_MESSAGE",
                     'loc-args' => []
                 )
