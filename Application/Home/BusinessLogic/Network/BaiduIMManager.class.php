@@ -10,18 +10,18 @@ vendor("Baidu.sdk");
  * @author apple
  */
 class BaiduIMManager {
-    public function sendFriendRequest($channelId, $account, $extraMessage) {
-        $account['password'] = "";
+    public function sendFriendRequest($channelId, $body, $object, 
+            $extraMessage, $type) {
         $sdk = new \PushSDK();
         $message = array(
             'aps' => array (
                 'alert' => array (
-                    'body' => "你收到一个好友请求"
+                    'body' => $body
 //                    'loc-key' => "FRIEND_REQUEST_MESSAGE",
 //                    'loc-args' => []
                 )
             ),
-            'type' => 1, 'account' => $account, 'extra' => $extraMessage
+            'type' => $type, 'object' => $object, 'extra' => $extraMessage
         );
         
         $opts = array (

@@ -35,12 +35,20 @@ class FriendControllerManager {
             FriendRequestManager::insertFriendRequest($account['pk_id'], 
                     $friend['pk_id'], $message);
         } else {
+            $account['password'] = "";
             if(!BaiduIMManager::sendFriendRequest($friend['channel_id'], 
-                    $account, $message)) {
+                    "你收到一个好友请求",
+                    $account, $message, 1)) {
                 return false;
             }
         }
         
         return true;
+    }
+    
+    public function acceptFriendRequest($account, $friend) {
+        return BaiduIMManager::sendFriendRequest($friend['channel_id'], 
+                    $friend['nickname']."接受你的好友请求",
+                    $account, null, 2);
     }
 }

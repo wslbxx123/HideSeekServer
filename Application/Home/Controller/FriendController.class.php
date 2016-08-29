@@ -135,9 +135,9 @@ class FriendController extends BaseController {
         
         $sessionId = filter_input(INPUT_POST, 'session_id');
         $friendId = filter_input(INPUT_POST, 'friend_id');
-        $accountId = $this->getPkIdFromToken($sessionId);
+        $account = $this->getAccountFromToken($sessionId);
         
-        if(!isset($sessionId) || $accountId == 0) {
+        if(!isset($sessionId) || $account['pk_id'] == 0) {
             BaseUtil::echoJson(CodeParam::NOT_LOGIN, null);
             return false;
         }
@@ -147,10 +147,15 @@ class FriendController extends BaseController {
             return false;
         }
         
+        $friend = AccountManager::getAccount($friendId);
         $version = PullVersionManager::updateFriendVersion();
-        FriendManager::insertFriend($accountId, $friendId, $version);
+        FriendManager::insertFriend($account['pk_id'], $friendId, $version);
         
-        BaseUtil::echoJson(CodeParam::SUCCESS, $friendId);
+        if(!FriendControllerManager::acceptFriendRequest($account, $friend)) {
+            return;
+        }
+        
+        BaseUtil::echoJson(CodeParam::SUCCESS, $friend);
     }
 }
 
