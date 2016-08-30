@@ -45,4 +45,10 @@ class CodeParam {
     const REQUEST_MESSAGE_EMPTY = "10024";
     const SEARCH_MYSELF = "10025";
     #endregion
+    
+    #region 设置信息
+    const TYPE_EMPTY = "10026";
+    const CONTENT_EMPTY = "10027";
+    const CONTACT_EMPTY = "10028";
+    #endregion
 }

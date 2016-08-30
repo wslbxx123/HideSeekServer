@@ -45,4 +45,10 @@ class MessageParam {
     const REQUEST_MESSAGE_EMPTY = "请求信息为空";
     const SEARCH_MYSELF = "不能加自己为好友";
     #endregion
+    
+    #region 设置信息
+    const TYPE_EMPTY = "类型为空";
+    const CONTENT_EMPTY = "内容为空";
+    const CONTACT_EMPTY = "联系人为空";
+    #endregion
 }

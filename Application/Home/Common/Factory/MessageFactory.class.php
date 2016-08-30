@@ -37,6 +37,11 @@ class MessageFactory {
         if($friendMessage != null) {
             return $friendMessage;
         }
+        
+        $settingMessage = self::getSettingMessage($code);
+        if($settingMessage != null) {
+            return $settingMessage;
+        }
     }
     
     public function getUserMessage($code) {
@@ -112,6 +117,19 @@ class MessageFactory {
                 return MessageParam::REQUEST_MESSAGE_EMPTY;
             case CodeParam::SEARCH_MYSELF:
                 return MessageParam::SEARCH_MYSELF;
+            default:
+                return null;
+        }
+    }
+    
+    public function getSettingMessage($code) {
+        switch($code) {
+            case CodeParam::TYPE_EMPTY:
+                return MessageParam::TYPE_EMPTY;
+            case CodeParam::CONTENT_EMPTY:
+                return MessageParam::CONTENT_EMPTY;
+            case CodeParam::CONTACT_EMPTY:
+                return MessageParam::CONTACT_EMPTY;    
             default:
                 return null;
         }
