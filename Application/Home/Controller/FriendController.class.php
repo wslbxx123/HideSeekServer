@@ -90,9 +90,9 @@ class FriendController extends BaseController {
         
         $sessionId = filter_input(INPUT_POST, 'session_id');
         $searchWord = filter_input(INPUT_POST, 'search_word');
-        $accountId = $this->getPkIdFromToken($sessionId);
+        $account = $this->getAccountFromToken($sessionId);
         
-        if(!isset($sessionId) || $accountId == 0) {
+        if(!isset($sessionId) || $account['pk_id'] == 0) {
             BaseUtil::echoJson(CodeParam::NOT_LOGIN, null);
             return;
         }
@@ -102,7 +102,12 @@ class FriendController extends BaseController {
             return;
         }
         
-        $accountList = AccountManager::searchAccounts($accountId, $searchWord);
+        if($searchWord == $account['phone'] || $searchWord == $account['nickname']) {
+            BaseUtil::echoJson(CodeParam::SEARCH_MYSELF, null);
+            return;
+        }
+        
+        $accountList = AccountManager::searchAccounts($account['pk_id'], $searchWord);
         
         BaseUtil::echoJson(CodeParam::SUCCESS, $accountList);
     }

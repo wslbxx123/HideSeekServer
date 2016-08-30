@@ -110,6 +110,8 @@ class MessageFactory {
                 return MessageParam::FAIL_SEND_MESSAGE;
             case CodeParam::REQUEST_MESSAGE_EMPTY:
                 return MessageParam::REQUEST_MESSAGE_EMPTY;
+            case CodeParam::SEARCH_MYSELF:
+                return MessageParam::SEARCH_MYSELF;
             default:
                 return null;
         }

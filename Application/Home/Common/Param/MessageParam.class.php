@@ -43,5 +43,6 @@ class MessageParam {
     const FRIEND_ID_EMPTY = "朋友ID为空";
     const FAIL_SEND_MESSAGE = "发送消息失败";
     const REQUEST_MESSAGE_EMPTY = "请求信息为空";
+    const SEARCH_MYSELF = "不能加自己为好友";
     #endregion
 }
