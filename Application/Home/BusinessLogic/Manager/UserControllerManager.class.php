@@ -18,17 +18,12 @@ class UserControllerManager {
             return false;
         }
         
-        if(!isset($channelId)) {
-            BaseUtil::echoJson(CodeParam::CHANNEL_ID_EMPTY, null);
-            return false;
-        }
-        
         return true;
     }
     
     public function setRegisterUserInfo($phone, $password, $nickname, $role, 
             $sex, $region, $channelId, $photo, $photoDataUrl) {
-        if(!self::checkUserBaseInfo($phone, $password, $nickname, $channelId)) {
+        if(!self::checkUserBaseInfo($phone, $password, $nickname)) {
             return null;
         }
         
@@ -44,12 +39,12 @@ class UserControllerManager {
                 $tempFileName, 200, 200);
         $accountId = AccountManager::insertAccount($phone, $password, $nickname, 
                 PullVersionManager::getFriendVersion(), $role, $sex, $region, 
-                $photoUrl, $smallPhotoUrl);
+                $channelId, $photoUrl, $smallPhotoUrl);
         
         return $accountId;
     }
     
-    public function checkUserBaseInfo($phone, $password, $nickname, $channelId) {
+    public function checkUserBaseInfo($phone, $password, $nickname) {
         if(!isset($phone) || !isset($password)) {
             BaseUtil::echoJson(CodeParam::PHONE_OR_PASSWORD_EMPTY, null);
             return false;
@@ -57,11 +52,6 @@ class UserControllerManager {
         
         if(!isset($nickname)) {
             BaseUtil::echoJson(CodeParam::NICKNAME_EMPTY, null);
-            return false;
-        }
-        
-        if(!isset($channelId)) {
-            BaseUtil::echoJson(CodeParam::CHANNEL_ID_EMPTY, null);
             return false;
         }
         

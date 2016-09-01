@@ -10,9 +10,11 @@ class AccountManager {
         $Dao = M("account");
         $condition['phone'] = $phone;
         $condition['password'] = md5($password);
-        $Dao->where($condition)->setField('channel_id', $channelId);
-        $account = $Dao->where($condition)->find();
+        if($channelId != null) {
+            $Dao->where($condition)->setField('channel_id', $channelId);
+        }
         
+        $account = $Dao->where($condition)->find();
         return $account;
     }
     
@@ -45,7 +47,7 @@ class AccountManager {
     }
     
     public function insertAccount($phone, $password, $nickname, $version, $role, 
-            $sex, $region, $photoUrl, $smallPhotoUrl) {
+            $sex, $region, $channelId, $photoUrl, $smallPhotoUrl) {
         $Dao = M("account");
         $account["phone"] = $phone;
         $account["password"] = md5($password);
@@ -54,6 +56,10 @@ class AccountManager {
         $account["session_token"] = md5(session_id());
         $account["version"] = $version;
         $account["role"] = $role;
+        
+        if($channelId != null) {
+            $account["channelId"] = $channelId;
+        }
         
         $account = self::insertOptionalInfo($sex, $region, $photoUrl, 
                 $smallPhotoUrl, $account);
