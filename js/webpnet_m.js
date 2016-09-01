@@ -258,7 +258,6 @@ $(function(){
 				}
 				//点击兑换后是否有用户名存在判断
 				$(".exGet").click(function(){
-					alert(1);
 				    if (nickname==null){
 				   		alert("请先登录！");
 				    }
