@@ -614,11 +614,12 @@ function getPath(obj,fileQuery,transImg){
 				images.src = mypicture.toDataURL("image/jpeg");
 				$(".photo").attr("src",images.src);
 				
+				var abc = document.getElementById("abc");
 				//如果方向角不为1，都需要进行旋转  
  		        if(Orientation != "" && Orientation != 1){
  		        	switch(Orientation){
  		        		case 6://需要顺时针（向左）90度旋转  
- 		                    rotateImg(images,'left');  
+ 		                    rotateImg(abc,'left');  
  		                    break;  
  		        	}
  		        }
