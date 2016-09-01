@@ -501,4 +501,4 @@ var Vcity = {};
 	    }
 	};
 	var test=new Vcity.CitySelector({input:'citySelect'});
-//	var test2=new Vcity.CitySelector({input:'citySelect1'});
+	var test2=new Vcity.CitySelector({input:'citySelect1'});
