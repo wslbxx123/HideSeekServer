@@ -203,12 +203,9 @@ var Vcity = {};
 	        });
 	        div.className = 'citySelector';
 	        div.style.position = 'relative';
-	        div.style.margin = "0 auto";
-	        div.style.marginTop = '-130px';
-	        div.style.marginLeft = 'auto';
-	        div.style.marginRight = 'auto';
-	        div.style.height = '154px';
-	        div.style.width = '326px';
+	        div.style.top = '33%';
+	        div.style.marginLeft = '2%';
+	        div.style.width = '95%';
 	        div.style.zIndex = 999999;
 	
 	        // 判断是否IE6，如果是IE6需要添加iframe才能遮住SELECT框
@@ -504,4 +501,4 @@ var Vcity = {};
 	    }
 	};
 	var test=new Vcity.CitySelector({input:'citySelect'});
-//	var test2=new Vcity.CitySelector({input:'citySelect1'});
+	var test2=new Vcity.CitySelector({input:'citySelect1'});
