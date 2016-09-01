@@ -116,8 +116,10 @@
     	<div id = "dataArea">
     		<div class="closeBox"></div>
     		<div class="bgColor"></div>
-    		<img class = "photo" src = "img/mypicture.png"/>
+    		<img class = "photo" id ="abc" src = "img/mypicture.png"/>
+    		<img class = "photo1" id ="abc1" src = "img/mypicture.png"/>
     		<canvas id="mypicture1" width="500px" height="500px"></canvas>
+    		<canvas id="mypicture2" width="500px" height="500px"></canvas>
     		<a class="file">
             	<input type="file" accept="image/*;capture=camera" id="mycamera1">
         	</a>
@@ -207,7 +209,7 @@
     	<div id="newWin2">
     		<div class="closeBox"></div>
     		<div class="bgColor"></div>
-    		<img class = "photo" />
+    		<img class = "photo" id = "abc" />
     		<canvas id="mypicture" width="500px" height="500px"></canvas>
     		<a class="file">
             	<input type="file" accept="image/*;capture=camera" id="mycamera">
@@ -224,7 +226,7 @@
 			<p> <div class="demo">
 					<label for="district">地区&nbsp	
 					<input type="text" class="cityinput" id="citySelect1" value="未设置"/>
-					<script type="text/javascript" src="js/querycity_m.js"></script>	
+					<script type="text/javascript" src="js/querycity.js"></script>	
 				</div>
 			
     		</p>
@@ -277,7 +279,7 @@
 	    		<div class ="goodsSum">支出总计：<span class="goodsprice1">5元</span></div>
 	    		<div id = "confirmpay">确认兑换</div>
     		</div>
-    	</div>
+    	</div>  
     	
     	<!--支付宝过渡页面-->
         <div id ="alipaypage"></div>

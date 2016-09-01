@@ -54,7 +54,7 @@ input{
 	width: 58%;
     height: 30px;
     margin-left: 4px;
-    font-size: 14px;
+    font-size: 15px;
     font-family: "Microsoft Yahei";
     margin-bottom: 10px;
     border-color: dimgrey;
@@ -721,7 +721,27 @@ input.invalid {
     position: absolute;
 }
 
+#mypicture2{
+	margin-top: -62px;
+    border-radius: 63px;
+    left: 36%;
+    width: 111px;
+    height: 111px;
+    position: absolute;
+}
+
 .photo{
+	margin-top: -62px;
+    border-radius: 63px;
+    left: 36%;
+    height: 111px;
+    width: 111px;
+    background: url("../img/mypicture.png") no-repeat center;
+    background-size: cover;
+    position: absolute;
+}
+
+.photo1{
 	margin-top: -62px;
     border-radius: 63px;
     left: 36%;
