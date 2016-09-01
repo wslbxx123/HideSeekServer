@@ -6,7 +6,6 @@ use Home\Common\Util\BaseUtil;
 use Home\Common\Param\CodeParam;
 use Home\Common\Param\KeyParam;
 use Home\DataAccess\AccountManager;
-use Home\DataAccess\PullVersionManager;
 use Home\BusinessLogic\Network\ApiManager;
 use Home\BusinessLogic\Manager\UserControllerManager;
 
@@ -48,15 +47,14 @@ class UserController extends BaseController {
         $role = filter_input(INPUT_POST, 'role');
         $sex = filter_input(INPUT_POST, 'sex');
         $region = filter_input(INPUT_POST, 'region');
+        $channelId = filter_input(INPUT_POST, 'channel_id');
         $photo = $_FILES['photo'];
         $photoDataUrl = filter_input(INPUT_POST, 'photo_url');
         
         $accountId = self::setRegisterUserInfo($phone, $password, $nickname,
-                $role, $sex, $region, $photo, $photoDataUrl);
+                $role, $sex, $region, $channelId, $photo, $photoDataUrl);
         
-        if(!isset($accountId)) {
-            return;
-        }
+        if(!isset($accountId)) { return; }
         
         $_SESSION['pk_id'] = $accountId;
         $account = AccountManager::getAccount($accountId);
@@ -75,48 +73,6 @@ class UserController extends BaseController {
         }
         
         BaseUtil::echoJson(CodeParam::SUCCESS, null);
-    }
-    
-    public function setRegisterUserInfo($phone, $password, $nickname, $role, 
-            $sex, $region, $photo, $photoDataUrl) {
-        if(!self::checkUserBaseInfo($phone, $password, $nickname)) {
-            return null;
-        }
-        
-        $tempFileName = "Upload_".session_id()."_".strtotime("now");
-        $photoUrl = FileUtil::saveRealPhoto($photo, $photoDataUrl, $tempFileName);
-        
-        if(isset($photo) && !isset($photoUrl)) {
-            BaseUtil::echoJson(CodeParam::FAIL_UPLOAD_PHOTO, null);
-            return null;
-        }
-        
-        $smallPhotoUrl = FileUtil::saveSmallPhoto($photoUrl, 
-                $tempFileName, 200, 200);
-        $accountId = AccountManager::insertAccount($phone, $password, $nickname, 
-                PullVersionManager::getFriendVersion(), $role, $sex, $region, 
-                $photoUrl, $smallPhotoUrl);
-        
-        return $accountId;
-    }
-    
-    public function checkUserBaseInfo($phone, $password, $nickname) {
-        if(!isset($phone) || !isset($password)) {
-            BaseUtil::echoJson(CodeParam::PHONE_OR_PASSWORD_EMPTY, null);
-            return false;
-        }
-        
-        if(!isset($nickname)) {
-            BaseUtil::echoJson(CodeParam::NICKNAME_EMPTY, null);
-            return false;
-        }
-        
-        if(AccountManager::getAccountFromPhone($phone)) {
-            BaseUtil::echoJson(CodeParam::USER_ALREADY_EXIST, null);
-            return false;
-        }
-        
-        return true;
     }
     
     public function sendVerificationCode() {
