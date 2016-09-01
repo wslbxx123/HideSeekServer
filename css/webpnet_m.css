@@ -185,7 +185,7 @@ input.invalid {
 
 #newWin2{
 	width: 92%;
-    height: 351px;
+    height: 380px;
     background: white;
     border: 2px solid dimgrey;
     border-radius: 5px;
@@ -660,8 +660,8 @@ input.invalid {
     display: inline-block;
     background: url("../img/mycamera.png") no-repeat center;
     border-radius: 4px;
-    -moz-border-radius: 4px; /* Firefox */
-  	-webkit-border-radius: 4px; /* Safari 和 Chrome */
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
     padding: 4px 12px;
     overflow: hidden;
     text-decoration: none;
@@ -669,8 +669,8 @@ input.invalid {
     line-height: 20px;
     height: 23px;
     width: 20px;
-    background-size: contain; 
-    margin-left: -10%;
+    background-size: contain;
+    margin-left: 38%;
 }	
 
 .paragraph{
