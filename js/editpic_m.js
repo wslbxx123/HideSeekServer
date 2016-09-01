@@ -505,7 +505,6 @@ function getPath(obj,fileQuery,transImg){
 		var title = document.getElementById("title");
 		var ctx = coverpic.getContext('2d');
 		var cover = mypicture.getContext('2d');
-		
 		var isMove;
 		var startx;
 		var starty;
@@ -614,28 +613,28 @@ function getPath(obj,fileQuery,transImg){
 				images.src = mypicture.toDataURL("image/jpeg");
 				$(".photo").attr("src",images.src);
 				
-				var abc = document.getElementById("abc");
-				//如果方向角不为1，都需要进行旋转  
- 		        if(Orientation != "" && Orientation != 1){
- 		        	switch(Orientation){
- 		        		case 6://需要顺时针（向左）90度旋转  
- 		                    rotateImg(abc,'left');  
- 		                    break;  
- 		        	}
- 		        }
- 		        
- 		        function rotateImg(img,direction){
- 		        	if (direction == 'left') {
-	 					var degree = 90 * Math.PI / 180; 	
-	 					cover.translate(250,250);
-	 					cover.rotate(degree);
-	 					cover.drawImage(img,-250,-250,500,500);
- 					}
- 		        }
- 		        var images1 = new Image();
- 		        images1.src = mypicture.toDataURL("image/jpeg");
- 		        $(".photo").attr("src",images1.src);
 			}
+
+				//如果方向角不为1，都需要进行旋转  
+	        if(Orientation != "" && Orientation != 1){
+	        	switch(Orientation){
+	        		case 6://需要顺时针（向左）90度旋转  
+	                    rotateImg(mypicture,'left');  
+	                    break;  
+	        	}
+	        }
+	        
+	        function rotateImg(img,direction){
+	        	if (direction == 'left') {
+ 					var degree = 90 * Math.PI / 180; 	
+ 					cover.translate(250,250);
+ 					cover.rotate(degree);
+ 					cover.drawImage(img,-250,-250,500,500);
+				}
+	        }
+	        var images1 = new Image();
+	        images1.src = mypicture.toDataURL("image/jpeg");
+	        $(".photo2").attr("src",images1.src);
 		}	
 	});
 }			
