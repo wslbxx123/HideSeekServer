@@ -7,6 +7,7 @@ use Home\DataAccess\PullVersionManager;
 use Home\DataAccess\RecordManager;
 use Home\DataAccess\AccountManager;
 use Home\DataAccess\MonsterTempHitManager;
+use Home\DataAccess\MonsterTempSeeManager;
 use Home\DataAccess\GoalTypeManager;
 use Home\BusinessLogic\Manager\MapControllerManager;
 
@@ -115,6 +116,48 @@ class MapController extends BaseController {
                 $account['bomb_num'] - 1);
         
         BaseUtil::echoJson(CodeParam::SUCCESS, $account['bomb_num'] - 1);
+    }
+    
+    public function seeMonster() {
+        self::setHeader();
+        
+        $sessionId = filter_input(INPUT_POST, 'session_id');
+        $goalId = filter_input(INPUT_POST, 'goal_id');
+        $accountId = $this->getPkIdFromToken($sessionId);
+        
+        if(!isset($sessionId) || $accountId == 0) {
+            BaseUtil::echoJson(CodeParam::NOT_LOGIN, null);
+            return false;
+        }
+        
+        if(!isset($goalId)) {
+            BaseUtil::echoJson(CodeParam::GOAL_ID_EMPTY, null);
+            return false;
+        }
+        
+        if(null == MonsterTempSeeManager::getMonsterTempSee($accountId, $goalId)) {
+            $tempSeeId = MonsterTempSeeManager::insertMonsterTempSee
+                    ($accountId, $goalId);
+        }
+        
+        BaseUtil::echoJson(CodeParam::SUCCESS, $tempSeeId);
+    }
+    
+    public function getDangerWarnings() {
+        self::setHeader();
+        
+        $sessionId = filter_input(INPUT_POST, 'session_id');
+        $accountId = $this->getPkIdFromToken($sessionId);
+        
+        if(!isset($sessionId) || $accountId == 0) {
+            BaseUtil::echoJson(CodeParam::NOT_LOGIN, null);
+            return false;
+        }
+        
+        $warnings = MonsterTempSeeManager::getDangerWarnings($accountId);
+        $result = array("warnings" => $warnings, 
+            "server_time" => date('y-m-d H:i:s',time()));
+        BaseUtil::echoJson(CodeParam::SUCCESS, $result);
     }
 }
 

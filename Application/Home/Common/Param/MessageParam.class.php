@@ -16,6 +16,7 @@ class MessageParam {
     const FAIL_UPLOAD_PHOTO = "上传照片失败";
     const USER_ALREADY_EXIST = "用户已经存在";
     const SEX_EMPTY = "性别为空";
+    const CHANNEL_ID_EMPTY = "设备识别ID值为空";
     #endregion
     
     #region 商场信息
@@ -34,5 +35,20 @@ class MessageParam {
     const GOAL_DISAPPEAR = "目标已经消失";
     const VERSION_EMPTY = "版本号为空";
     const ORIENTATION_EMPTY = "方向值不能为空";
+    const GOAL_ID_EMPTY = "目标ID为空";
+    #endregion
+    
+    #region 朋友信息
+    const SEARCH_WORD_EMPTY = "查询字符串为空";
+    const FRIEND_ID_EMPTY = "朋友ID为空";
+    const FAIL_SEND_MESSAGE = "发送消息失败";
+    const REQUEST_MESSAGE_EMPTY = "请求信息为空";
+    const SEARCH_MYSELF = "不能加自己为好友";
+    #endregion
+    
+    #region 设置信息
+    const TYPE_EMPTY = "类型为空";
+    const CONTENT_EMPTY = "内容为空";
+    const CONTACT_EMPTY = "联系人为空";
     #endregion
 }

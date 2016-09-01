@@ -2,8 +2,10 @@
 namespace Home\Controller;
 use Home\Common\Util\BaseUtil;
 use Home\DataAccess\FriendManager;
+use Home\DataAccess\AccountManager;
 use Home\DataAccess\PullVersionManager;
 use Home\Common\Param\CodeParam;
+use Home\BusinessLogic\Manager\FriendControllerManager;
 
 class FriendController extends BaseController {
     public function getFriends(){
@@ -81,6 +83,84 @@ class FriendController extends BaseController {
                 $recordMinId);
 
         BaseUtil::echoJson(CodeParam::SUCCESS, $raceGroupResult);
+    }
+    
+    public function searchFriends() {
+        self::setHeader();
+        
+        $sessionId = filter_input(INPUT_POST, 'session_id');
+        $searchWord = filter_input(INPUT_POST, 'search_word');
+        $account = $this->getAccountFromToken($sessionId);
+        
+        if(!isset($sessionId) || $account['pk_id'] == 0) {
+            BaseUtil::echoJson(CodeParam::NOT_LOGIN, null);
+            return;
+        }
+        
+        if(!isset($searchWord)) {
+            BaseUtil::echoJson(CodeParam::SEARCH_WORD_EMPTY, null);
+            return;
+        }
+        
+        if($searchWord == $account['phone'] || $searchWord == $account['nickname']) {
+            BaseUtil::echoJson(CodeParam::SEARCH_MYSELF, null);
+            return;
+        }
+        
+        $accountList = AccountManager::searchAccounts($account['pk_id'], $searchWord);
+        
+        BaseUtil::echoJson(CodeParam::SUCCESS, $accountList);
+    }
+    
+    public function addFriend() {
+        self::setHeader();
+        
+        $sessionId = filter_input(INPUT_POST, 'session_id');
+        $friendId = filter_input(INPUT_POST, 'friend_id');
+        $message = filter_input(INPUT_POST, 'message');
+        $account = $this->getAccountFromToken($sessionId);
+        
+        if(!FriendControllerManager::checkAddFriendInfo($sessionId, 
+                $account['pk_id'], $friendId, $message)) {
+            return;
+        }
+        
+        $friend = AccountManager::getAccount($friendId);
+        
+        if(!FriendControllerManager::sendFriendRequest($account, $friend, 
+                $message)) {
+            return;
+        }
+        $friend['password'] = "";
+        BaseUtil::echoJson(CodeParam::SUCCESS, $friend);
+    }
+    
+    public function acceptFriend() {
+        self::setHeader();
+        
+        $sessionId = filter_input(INPUT_POST, 'session_id');
+        $friendId = filter_input(INPUT_POST, 'friend_id');
+        $account = $this->getAccountFromToken($sessionId);
+        
+        if(!isset($sessionId) || $account['pk_id'] == 0) {
+            BaseUtil::echoJson(CodeParam::NOT_LOGIN, null);
+            return false;
+        }
+        
+        if(!isset($friendId)) {
+            BaseUtil::echoJson(CodeParam::FRIEND_ID_EMPTY, null);
+            return false;
+        }
+        
+        $friend = AccountManager::getAccount($friendId);
+        $version = PullVersionManager::updateFriendVersion();
+        FriendManager::insertFriend($account['pk_id'], $friendId, $version);
+        
+        if(!FriendControllerManager::acceptFriendRequest($account, $friend)) {
+            return;
+        }
+        
+        BaseUtil::echoJson(CodeParam::SUCCESS, $friend);
     }
 }
 

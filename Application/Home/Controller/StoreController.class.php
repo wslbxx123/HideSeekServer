@@ -9,9 +9,8 @@ use Home\DataAccess\PullVersionManager;
 use Home\DataAccess\PurchaseOrderManager;
 use Home\DataAccess\ExchangeOrderManager;
 use Home\DataAccess\AccountManager;
-use Home\BusinessLogic\Network\ApiManager;
+use Home\BusinessLogic\Network\AlipayManager;
 use Home\BusinessLogic\Manager\StoreControllerManager;
-vendor("Alipay.aop.AopClient");
 
 class StoreController extends BaseController {
    
@@ -350,7 +349,7 @@ class StoreController extends BaseController {
         $tradeStatus = filter_input(INPUT_POST, 'trade_status');
         $tradeNo = filter_input(INPUT_POST, 'trade_no');
         
-        $verifyResult = ApiManager::verifyNotify($param, $sign, $notifyId);
+        $verifyResult = AlipayManager::verifyNotify($param, $sign, $notifyId);
         
         if($verifyResult) {
             OrderManager::updateOrderVerifyStatus($tradeNo, $tradeStatus);
@@ -384,7 +383,7 @@ class StoreController extends BaseController {
     }
     
     public function test() {
-        $rsaSign = ApiManager::rsaSign("怪兽图鉴", "可获得怪兽信息，并包含拿下怪兽的规则。",
+        $rsaSign = AlipayManager::rsaSign("怪兽图鉴", "可获得怪兽信息，并包含拿下怪兽的规则。",
                 2.0, "YKMHR1462636800");
         echo "怪兽图鉴";
         echo $rsaSign;

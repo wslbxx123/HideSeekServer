@@ -6,10 +6,14 @@ namespace Home\DataAccess;
  * @author Two
  */
 class AccountManager {
-    public function getAccountFromPhonePassword($phone, $password) {
+    public function getAccountFromPhonePassword($phone, $password, $channelId) {
         $Dao = M("account");
         $condition['phone'] = $phone;
         $condition['password'] = md5($password);
+        if($channelId != null) {
+            $Dao->where($condition)->setField('channel_id', $channelId);
+        }
+        
         $account = $Dao->where($condition)->find();
         return $account;
     }
@@ -43,7 +47,7 @@ class AccountManager {
     }
     
     public function insertAccount($phone, $password, $nickname, $version, $role, 
-            $sex, $region, $photoUrl, $smallPhotoUrl) {
+            $sex, $region, $channelId, $photoUrl, $smallPhotoUrl) {
         $Dao = M("account");
         $account["phone"] = $phone;
         $account["password"] = md5($password);
@@ -52,6 +56,10 @@ class AccountManager {
         $account["session_token"] = md5(session_id());
         $account["version"] = $version;
         $account["role"] = $role;
+        
+        if($channelId != null) {
+            $account["channelId"] = $channelId;
+        }
         
         $account = self::insertOptionalInfo($sex, $region, $photoUrl, 
                 $smallPhotoUrl, $account);
@@ -125,5 +133,12 @@ class AccountManager {
         $condition["pk_id"] = $accountId;
         $account['region'] = $region;
         $Dao->where($condition)->save($account);
+    }
+    
+    public function searchAccounts($accountId, $searchWord) {
+        $Dao = M("account");
+        $sql = "call admin_search_accounts($accountId, $searchWord)";
+        $accountList = $Dao->query($sql);
+        return $accountList;
     }
 }

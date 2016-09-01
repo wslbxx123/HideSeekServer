@@ -32,6 +32,16 @@ class MessageFactory {
         if($mapMessage != null) {
             return $mapMessage;
         }
+        
+        $friendMessage = self::getFriendMessage($code);
+        if($friendMessage != null) {
+            return $friendMessage;
+        }
+        
+        $settingMessage = self::getSettingMessage($code);
+        if($settingMessage != null) {
+            return $settingMessage;
+        }
     }
     
     public function getUserMessage($code) {
@@ -48,6 +58,8 @@ class MessageFactory {
                 return MessageParam::USER_ALREADY_EXIST;
             case CodeParam::SEX_EMPTY:
                 return MessageParam::SEX_EMPTY;
+            case CodeParam::CHANNEL_ID_EMPTY:
+                return MessageParam::CHANNEL_ID_EMPTY;
             default:
                 return null;
         }
@@ -86,6 +98,38 @@ class MessageFactory {
                 return MessageParam::VERSION_EMPTY;
             case CodeParam::ORIENTATION_EMPTY:
                 return MessageParam::ORIENTATION_EMPTY;
+            case CodeParam::GOAL_ID_EMPTY:
+                return MessageParam::GOAL_ID_EMPTY;
+            default:
+                return null;
+        }
+    }
+    
+    public function getFriendMessage($code) {
+        switch($code) {
+            case CodeParam::SEARCH_WORD_EMPTY:
+                return MessageParam::SEARCH_WORD_EMPTY;
+            case CodeParam::FRIEND_ID_EMPTY:
+                return MessageParam::FRIEND_ID_EMPTY;
+            case CodeParam::FAIL_SEND_MESSAGE:
+                return MessageParam::FAIL_SEND_MESSAGE;
+            case CodeParam::REQUEST_MESSAGE_EMPTY:
+                return MessageParam::REQUEST_MESSAGE_EMPTY;
+            case CodeParam::SEARCH_MYSELF:
+                return MessageParam::SEARCH_MYSELF;
+            default:
+                return null;
+        }
+    }
+    
+    public function getSettingMessage($code) {
+        switch($code) {
+            case CodeParam::TYPE_EMPTY:
+                return MessageParam::TYPE_EMPTY;
+            case CodeParam::CONTENT_EMPTY:
+                return MessageParam::CONTENT_EMPTY;
+            case CodeParam::CONTACT_EMPTY:
+                return MessageParam::CONTACT_EMPTY;    
             default:
                 return null;
         }
