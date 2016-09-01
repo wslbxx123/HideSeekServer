@@ -51,7 +51,7 @@ class UserController extends BaseController {
         $photo = $_FILES['photo'];
         $photoDataUrl = filter_input(INPUT_POST, 'photo_url');
         
-        $accountId = self::setRegisterUserInfo($phone, $password, $nickname,
+        $accountId = UserControllerManager::setRegisterUserInfo($phone, $password, $nickname,
                 $role, $sex, $region, $channelId, $photo, $photoDataUrl);
         
         if(!isset($accountId)) { return; }
