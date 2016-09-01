@@ -618,7 +618,7 @@ function getPath(obj,fileQuery,transImg){
  		        if(Orientation != "" && Orientation != 1){
  		        	switch(Orientation){
  		        		case 6://需要顺时针（向左）90度旋转  
- 		                    rotateImg(mypicture,'left');  
+ 		                    rotateImg(images,'left');  
  		                    break;  
  		        	}
  		        }
