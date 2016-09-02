@@ -586,6 +586,7 @@ $(function(){
 		}
 		else{
 			phone_test = false;
+			alert("密码不能少于6位数！")
 		}
 		
 		for (var i=0; i<allTags.length; i++) {
