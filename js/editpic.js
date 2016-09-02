@@ -648,3 +648,8 @@ $("#exOrder").click(function(){
 	$("#listArea1").fadeIn();
 	$("#listArea").fadeOut();
 });
+
+ 
+$(".photo").bind("onerror",function(){ 
+	this.src="img/mypicture.png"; 
+}); 
