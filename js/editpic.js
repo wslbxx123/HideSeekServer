@@ -278,7 +278,13 @@ document.getElementById("matchId").onclick = function(){
 			        //存储注册数据
 			  		sessionStorage.setItem("nickname", $("#userName").val());
 					sessionStorage.setItem("record", Num);
-					sessionStorage.setItem("myimgpath", result["result"]["small_photo_url"]);
+					//判断photo_url是否为空；
+					if(result["result"]["small_photo_url"]==null){
+						sessionStorage.setItem("myimgpath", "img/mypicture.png");
+					}
+					else{
+						sessionStorage.setItem("myimgpath", result["result"]["small_photo_url"]);
+					}
 					sessionStorage.setItem("sessionid", result["result"]["session_id"]);
 					sessionStorage.setItem("sex", result["result"]["sex"]);
 					sessionStorage.setItem("region", result["result"]["region"]);
