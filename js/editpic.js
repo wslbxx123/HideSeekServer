@@ -232,7 +232,7 @@ document.getElementById("matchId").onclick = function(){
 	var data = "phone=" + document.getElementById("userphone").value 
 				+ "&nickname="+ document.getElementById("userName").value
 				+ "&password="+ document.getElementById("passwd1").value
-				+ "&sex="+ document.getElementById("sex").options[index].text
+				+ "&sex="+ $("#sex").val()
 				+ "&region=" + document.getElementById("citySelect").value
 				+ "&role=" + myId
 				+ "&photo_url=" + encodeURIComponent($(".photo").attr("src"));
