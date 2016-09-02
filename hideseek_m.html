@@ -117,9 +117,8 @@
     		<div class="closeBox"></div>
     		<div class="bgColor"></div>
     		<img class = "photo" id ="abc" src = "img/mypicture.png"/>
-    		<img class = "photo1" id ="abc1" src = "img/mypicture.png"/>
     		<canvas id="mypicture1" width="500px" height="500px"></canvas>
-    		<canvas id="mypicture2" width="500px" height="500px"></canvas>
+    		<!--<canvas id="mypicture2" width="500px" height="500px"></canvas>-->
     		<a class="file">
             	<input type="file" accept="image/*;capture=camera" id="mycamera1">
         	</a>
@@ -130,7 +129,7 @@
 	    	<div style='height:1px;width:75%;background-color:grey;line-height:1px;clear:both;display:block;overflow:hidden' class="line"> </div>
     		<p> <label for="sex1">性别
 					<select id="sex1" class="reqd">
-					<option value="0" selected="selected">未设置</option>
+					<option class="display-none" selected>未设置</option>
 					<option value="1">女</option>
 					<option value="2">男</option>
 					<option value="3">保密</option>
@@ -209,16 +208,17 @@
     	<div id="newWin2">
     		<div class="closeBox"></div>
     		<div class="bgColor"></div>
-    		<img class = "photo" id = "abc" />
+    		<img class = "photo" src = "img/mypicture.png"/>
     		<canvas id="mypicture" width="500px" height="500px"></canvas>
     		<a class="file">
             	<input type="file" accept="image/*;capture=camera" id="mycamera">
         	</a>
     		<p> <label for="sex">性别
 					<select id="sex" class="reqd">
-					<option value="" selected>未设置</option>
-					<option value="man">男</option>
-					<option value="woman">女</option>
+						<option class="display-none" selected>未设置</option>
+						<option value="1">女</option>
+						<option value="2">男</option>
+						<option value="3">保密</option>
 					</select>
 				</label>
     		</p>
@@ -226,7 +226,7 @@
 			<p> <div class="demo">
 					<label for="district">地区&nbsp	
 					<input type="text" class="cityinput" id="citySelect1" value="未设置"/>
-					<script type="text/javascript" src="js/querycity.js"></script>	
+					<script type="text/javascript" src="js/querycity_m.js"></script>	
 				</div>
 			
     		</p>

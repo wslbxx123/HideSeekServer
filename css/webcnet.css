@@ -44,6 +44,9 @@ img {
     width: 31%;
 }
 
+.display-none{
+	display:none;
+}
 /*#gamebutton{
 	height: 150px;
     width: 150px;
