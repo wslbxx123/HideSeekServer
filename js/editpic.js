@@ -5,6 +5,8 @@ var myId = Math.floor ((Math.random() * roleImages.length));
 var logIn = false;
 var changepic = false;
 var changename = false;
+var mypictureExist = false;//判断是否上传头像；
+var data;
 
 //头像上传处理
 $('#mycamera').change(function(){
@@ -239,13 +241,24 @@ document.getElementById("matchId").onclick = function(){
 	}
 	
 	var index=document.getElementById("sex").selectedIndex;
-	var data = "phone=" + document.getElementById("userphone").value 
+	//对于是否上传图像进行判断处理
+	if(mypictureExist){
+		data = "phone=" + document.getElementById("userphone").value 
 				+ "&nickname="+ document.getElementById("userName").value
 				+ "&password="+ document.getElementById("passwd1").value
 				+ "&sex="+ $("#sex").val()
 				+ "&region=" + document.getElementById("citySelect").value
 				+ "&role=" + myId
 				+ "&photo_url=" + encodeURIComponent($(".photo").attr("src"));
+	}
+	else{
+		data = "phone=" + document.getElementById("userphone").value 
+				+ "&nickname="+ document.getElementById("userName").value
+				+ "&password="+ document.getElementById("passwd1").value
+				+ "&sex="+ $("#sex").val()
+				+ "&region=" + document.getElementById("citySelect").value
+				+ "&role=" + myId;
+	}
 				
 	var mymessages = {
 		url: "/index.php/home/user/register",	
@@ -599,6 +612,7 @@ function getPath(obj,fileQuery,transImg){
 				var images = new Image();
 				images.src = mypicture.toDataURL("image/jpeg");
 				$(".photo").attr("src",images.src);
+				mypictureExist = true;
 			}
 			else{
 				$("#dataArea").fadeIn(); 
