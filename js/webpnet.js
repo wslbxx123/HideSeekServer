@@ -1,5 +1,4 @@
 $(function(){
-	alert(1);
 	// 加载商城信息
 	var purNum;	//购买区的产品数；
 	var exNum;	//兑换区的产品数；
