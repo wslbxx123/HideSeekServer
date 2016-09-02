@@ -22,6 +22,14 @@ $("#mydata").click(function(){
 	$("#sex1").val(sessionStorage.getItem("sex"));
 	$(".cityinput").val(sessionStorage.getItem("region"));
 	$(".photo").attr('src',sessionStorage.getItem("myimgpath")); 
+	
+//	//当sex为未设置时
+//	if(sessionStorage.getItem("sex") == 0){
+//		
+//	}
+//	else{
+//		$("#sex1").val(sessionStorage.getItem("sex"));
+//	}
 });
 
 $('#mycamera1').change(function(){
@@ -63,6 +71,7 @@ $("#refreshData").click(function(){
 		$.ajax(updatePhotoUrl);			
 	}
 	
+	
 	if($("#userName1").val() != sessionStorage.getItem("nickname")){
 		var updateNickname = {
 			url: "/index.php/home/user/updateNickname",	
@@ -89,6 +98,7 @@ $("#refreshData").click(function(){
 		};
 		$.ajax(updateNickname);		
 	}
+
 
 	if($("#sex1").val() != sessionStorage.getItem("sex")){
 		var updateSex = {
