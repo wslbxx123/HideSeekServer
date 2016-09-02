@@ -651,5 +651,5 @@ $("#exOrder").click(function(){
 
  
 $(".photo").bind("onerror",function(){ 
-	this.src="img/mypicture.png"; 
+	this.src=""; 
 }); 
