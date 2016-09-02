@@ -3,7 +3,7 @@ namespace Home\BusinessLogic\Manager;
 use Home\DataAccess\PullVersionManager;
 use Home\DataAccess\ProductManager;
 use Home\DataAccess\PurchaseOrderManager;
-use Home\BusinessLogic\Network\ApiManager;
+use Home\BusinessLogic\Network\AlipayManager;
 use Home\Common\Param\CodeParam;
 use Home\Common\Util\BaseUtil;
 /**
@@ -18,17 +18,17 @@ class StoreControllerManager {
     public function getSignResultFromType($type, $product, $count, $tradeNo) {
         switch($type) {
             case 0:
-                $signResult = ApiManager::rsaSign($product['product_name'], 
+                $signResult = AlipayManager::rsaSign($product['product_name'], 
                 $product['introduction'],
                 floatval($product['price']) * $count, $tradeNo);
                 break;
             case 1:
-                $signResult = ApiManager::rsaWebSign($product['product_name'], 
+                $signResult = AlipayManager::rsaWebSign($product['product_name'], 
                 $product['introduction'],
                 floatval($product['price']) * $count, $tradeNo);
                 break;
             case 2:
-                $signResult = ApiManager::rsaH5WebSign($product['product_name'], 
+                $signResult = AlipayManager::rsaH5WebSign($product['product_name'], 
                 $product['introduction'],
                 floatval($product['price']) * $count, $tradeNo);
                 break;
@@ -39,7 +39,7 @@ class StoreControllerManager {
     public function getSignResult($storeId, $count, $accountId, $type) {
         $orderVersion = PullVersionManager::updateProductOrderVersion();
         $product = ProductManager::getProduct($storeId);
-        $tradeNo = ApiManager::generateTradeNo(5);
+        $tradeNo = AlipayManager::generateTradeNo(5);
         
         $signResult = self::getSignResultFromType($type, $product, $count, $tradeNo);
         
@@ -55,9 +55,9 @@ class StoreControllerManager {
     public function getSignResultWithoutCreateOrder($storeId, $count, 
             $type, $orderId) {
         $product = ProductManager::getProduct($storeId);
-        $tradeNo = ApiManager::generateTradeNo(5);
+        $tradeNo = AlipayManager::generateTradeNo(5);
         
-        $signResult = getSignResultFromType($type, $product, $count, $tradeNo);
+        $signResult = self::getSignResultFromType($type, $product, $count, $tradeNo);
         
         $result = Array("order_id" => $orderId, "sign" => $signResult["sign"], 
             "trade_no" => $tradeNo, "params" => $signResult["params"]);
