@@ -279,7 +279,7 @@ document.getElementById("matchId").onclick = function(){
 			  		sessionStorage.setItem("nickname", $("#userName").val());
 					sessionStorage.setItem("record", Num);
 					//判断photo_url是否为空；
-					if(result["result"]["small_photo_url"]==null){
+					if(result["result"]["photo_url"]==null){
 						sessionStorage.setItem("myimgpath", "img/mypicture.png");
 					}
 					else{
