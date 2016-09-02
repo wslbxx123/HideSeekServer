@@ -24,14 +24,6 @@ $("#mydata").click(function(){
 	$("#sex1").val(sessionStorage.getItem("sex"));
 	$(".cityinput").val(sessionStorage.getItem("region"));
 	$(".photo").attr('src',sessionStorage.getItem("myimgpath")); 
-	
-//	//当sex为未设置时
-//	if(sessionStorage.getItem("sex") == 0){
-//		
-//	}
-//	else{
-//		$("#sex1").val(sessionStorage.getItem("sex"));
-//	}
 });
 
 $('#mycamera1').change(function(){
@@ -46,7 +38,6 @@ $('#mycamera1').change(function(){
 
 $("#refreshData").click(function(){
 	if(changepic){
-//		alert(10);
 		var updatePhotoUrl = {
 			url: "/index.php/home/user/updatePhotoUrl",	
 			type: 'POST',
@@ -127,7 +118,9 @@ $("#refreshData").click(function(){
 		$.ajax(updateSex);		
 	}
 
+	alert($(".cityinput").val());
 	if($(".cityinput").val() != sessionStorage.getItem("region")){
+		alert($(".cityinput").val());
 		var updateSex = {
 			url: "/index.php/home/user/updateSex",	
 			type: 'POST',
@@ -278,6 +271,7 @@ document.getElementById("matchId").onclick = function(){
 			        //存储注册数据
 			  		sessionStorage.setItem("nickname", $("#userName").val());
 					sessionStorage.setItem("record", Num);
+					
 					//判断photo_url是否为空；
 					if(result["result"]["photo_url"]==null){
 						sessionStorage.setItem("myimgpath", "img/mypicture.png");
@@ -285,6 +279,7 @@ document.getElementById("matchId").onclick = function(){
 					else{
 						sessionStorage.setItem("myimgpath", result["result"]["small_photo_url"]);
 					}
+					
 					sessionStorage.setItem("sessionid", result["result"]["session_id"]);
 					sessionStorage.setItem("sex", result["result"]["sex"]);
 					sessionStorage.setItem("region", result["result"]["region"]);
@@ -657,6 +652,5 @@ $("#exOrder").click(function(){
 
  
 $(".photo").error(function(){
-	alert(1);
 	$(this).attr("src","img/mypicture.png");	
 }); 

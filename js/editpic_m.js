@@ -6,6 +6,8 @@ var logIn = false;
 var Orientation;
 var changepic = false;
 var changename = false;
+var mypictureExist = false;//判断是否上传头像；
+var data;
 
 //头像上传处理
 $('#mycamera').change(function(e){
@@ -238,13 +240,25 @@ document.getElementById("matchId").onclick = function(){
 	}
 	
 	var index=document.getElementById("sex").selectedIndex;
-	var data = "phone=" + document.getElementById("userphone").value 
+	//对于是否上传图像进行判断处理
+	alert(mypictureExist);
+	if(mypictureExist){
+		data = "phone=" + document.getElementById("userphone").value 
 				+ "&nickname="+ document.getElementById("userName").value
 				+ "&password="+ document.getElementById("passwd1").value
-				+ "&sex="+ document.getElementById("sex").options[index].text
+				+ "&sex="+ $("#sex").val()
 				+ "&region=" + document.getElementById("citySelect").value
 				+ "&role=" + myId
 				+ "&photo_url=" + encodeURIComponent($(".photo").attr("src"));
+	}
+	else{
+		data = "phone=" + document.getElementById("userphone").value 
+				+ "&nickname="+ document.getElementById("userName").value
+				+ "&password="+ document.getElementById("passwd1").value
+				+ "&sex="+ $("#sex").val()
+				+ "&region=" + document.getElementById("citySelect").value
+				+ "&role=" + myId;
+	}
 				
 	var mymessages = {
 		url: "/index.php/home/user/register",	
@@ -263,7 +277,15 @@ document.getElementById("matchId").onclick = function(){
 			        //存储注册数据
 			  		sessionStorage.setItem("nickname", $("#userName").val());
 					sessionStorage.setItem("record", Num);
-					sessionStorage.setItem("myimgpath", result["result"]["small_photo_url"]);
+					
+					//判断photo_url是否为空；
+					if(result["result"]["photo_url"]==null){
+						sessionStorage.setItem("myimgpath", "img/mypicture.png");
+					}
+					else{
+						sessionStorage.setItem("myimgpath", result["result"]["small_photo_url"]);
+					}
+					
 					sessionStorage.setItem("sessionid", result["result"]["session_id"]);
 					sessionStorage.setItem("sex", result["result"]["sex"]);
 					sessionStorage.setItem("region", result["result"]["region"]);
@@ -653,3 +675,7 @@ $("#exOrder").click(function(){
 	$("#listArea1").fadeIn();
 	$("#listArea").fadeOut();
 });
+
+$(".photo").error(function(){
+	$(this).attr("src","img/mypicture.png");	
+}); 
