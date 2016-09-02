@@ -242,6 +242,7 @@ document.getElementById("matchId").onclick = function(){
 	
 	var index=document.getElementById("sex").selectedIndex;
 	//对于是否上传图像进行判断处理
+	alert(mypictureExist);
 	if(mypictureExist){
 		data = "phone=" + document.getElementById("userphone").value 
 				+ "&nickname="+ document.getElementById("userName").value
@@ -267,7 +268,7 @@ document.getElementById("matchId").onclick = function(){
 		dataType: "json",
 		
 		success: function(result, status) {
-//			alert(JSON.stringify(result));
+			alert(JSON.stringify(result));
 			switch(result["code"]){
 				case "10000":
 					Num = result["result"]["record"];
