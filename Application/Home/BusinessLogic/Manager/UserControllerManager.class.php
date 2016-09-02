@@ -27,8 +27,9 @@ class UserControllerManager {
             return null;
         }
         
-        $tempFileName = "Upload_".session_id()."_".strtotime("now");
-        $photoUrl = FileUtil::saveRealPhoto($photo, $photoDataUrl, $tempFileName);
+        $tempRealFileName = "Real_".session_id()."_".strtotime("now");
+        $tempSmallFileName = "Small_".session_id()."_".strtotime("now");
+        $photoUrl = FileUtil::saveRealPhoto($photo, $photoDataUrl, $tempRealFileName);
         
         if(isset($photo) && !isset($photoUrl)) {
             BaseUtil::echoJson(CodeParam::FAIL_UPLOAD_PHOTO, null);
@@ -36,7 +37,7 @@ class UserControllerManager {
         }
         
         $smallPhotoUrl = FileUtil::saveSmallPhoto($photoUrl, 
-                $tempFileName, 200, 200);
+                $tempSmallFileName, 200, 200);
         $accountId = AccountManager::insertAccount($phone, $password, $nickname, 
                 PullVersionManager::getFriendVersion(), $role, $sex, $region, 
                 $channelId, $photoUrl, $smallPhotoUrl);
