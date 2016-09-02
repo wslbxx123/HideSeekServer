@@ -650,7 +650,7 @@ $("#exOrder").click(function(){
 });
 
  
-$(".photo").bind("onerror",function(){ 
-	$(".photo").attr("src","");
+$(".photo").error(function(){
+	$(this).attr("src","");
 	alert(1);
 }); 
