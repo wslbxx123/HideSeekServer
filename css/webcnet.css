@@ -639,21 +639,21 @@ input.invalid {
 	
 	
 .file {
-    position: relative;
+    position: absolute;
     display: inline-block;
     background: url("../img/mycamera.png") no-repeat center;
     border-radius: 4px;
-    -moz-border-radius: 4px; /* Firefox */
-  	-webkit-border-radius: 4px; /* Safari 和 Chrome */
-    padding: 4px 12px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
     overflow: hidden;
     text-decoration: none;
     text-indent: 0;
     line-height: 20px;
-    height: 23px;
-    width: 20px;
-    background-size: contain; 
-    margin-left: -16%;
+    height: 111px;
+    width: 111px;
+    background-size: contain;
+    margin-top: -20%;
+    left: 35%;
 }	
 
 .paragraph{
@@ -708,7 +708,7 @@ input.invalid {
 .photo{
 	margin-top: -20%;
     border-radius: 63px;
-    left: 36%;
+    left: 35%;
     width: 111px;
     height: 111px;
     position: absolute;
