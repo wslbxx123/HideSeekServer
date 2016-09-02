@@ -118,11 +118,9 @@ $("#refreshData").click(function(){
 		$.ajax(updateSex);		
 	}
 
-	alert($(".cityinput").val());
 	if($(".cityinput").val() != sessionStorage.getItem("region")){
-		alert($(".cityinput").val());
-		var updateSex = {
-			url: "/index.php/home/user/updateSex",	
+		var updateRegion = {
+			url: "/index.php/home/user/updateRegion",	
 			type: 'POST',
 			data: "session_id=" + sessionStorage.getItem("sessionid") 
 					+ "&region="+ $(".cityinput").val(),
@@ -142,7 +140,7 @@ $("#refreshData").click(function(){
 				alert("网络出现问题！");
 			}
 		};
-		$.ajax(updateSex);		
+		$.ajax(updateRegion);		
 	}
 	
 	$("#dataArea").fadeOut(); 
