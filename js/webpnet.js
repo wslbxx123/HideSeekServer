@@ -61,7 +61,6 @@ $(function(){
 			dataType: "json",
 			
 			success: function(result, status) {
-				alert(JSON.stringify(result));
 				purNum = result.result.products.length;
 				for(var i = 0;i < result.result.products.length;i++){	
 					//创建商品橱窗框
@@ -156,8 +155,7 @@ $(function(){
 					   		
 					   		//进入支付宝界面
 					   		$("#enterAlipay").click(function(){
-					   			alert(result.result.products[getId].pk_id);
-								var data = "session_id=" + sessionStorage.getItem("sessionid");
+								var data = "session_id=" + sessionStorage.getItem("sessionid")
 										  + "&store_id=" + result.result.products[getId].pk_id
 										  + "&count=" + $(".goodsNum").val(); 
 								var enteralipay = {

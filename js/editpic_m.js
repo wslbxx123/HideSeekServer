@@ -376,6 +376,7 @@ document.getElementById("myorder").onclick = function(){
 						type: 'POST',
 						data:data,
 						success: function(result, status) {
+							document.getElementById("alipaypage").
 							document.getElementById("alipaypage").innerHTML = result;
 							document.getElementById("alipaysubmit").submit();
 						},
