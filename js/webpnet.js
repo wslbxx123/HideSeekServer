@@ -581,7 +581,7 @@ $(function(){
 		var allTags = document.getElementById("newWin1").getElementsByTagName("*");
 		var phone_test;
 		
-		if($('#test').val().length>=6){
+		if($('#passwd1').val().length>=6){
 			phone_test = true;
 		}
 		else{
