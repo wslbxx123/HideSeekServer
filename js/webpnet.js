@@ -579,6 +579,15 @@ $(function(){
 	$("#register").click(function(){
 		var allGood = true;
 		var allTags = document.getElementById("newWin1").getElementsByTagName("*");
+		var phone_test;
+		
+		if($('#test').val().length>=6){
+			phone_test = true;
+		}
+		else{
+			phone_test = false;
+		}
+		
 		for (var i=0; i<allTags.length; i++) {
 			if (!validTag(allTags[i])) {
  				allGood = false;
@@ -642,7 +651,7 @@ $(function(){
 				if (!document.getElementById (otherFieldID)) {
 						return false;
 				}
-				return (inTag.value == document. getElementById(otherFieldID).value);
+				return ((inTag.value == document.getElementById(otherFieldID).value)&&phone_test);
 			}
 			function invalidLabel(parentTag) {
 				if (parentTag.nodeName == "LABEL") {
