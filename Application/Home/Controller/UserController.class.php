@@ -6,7 +6,7 @@ use Home\Common\Util\BaseUtil;
 use Home\Common\Param\CodeParam;
 use Home\Common\Param\KeyParam;
 use Home\DataAccess\AccountManager;
-use Home\BusinessLogic\Network\ApiManager;
+use Home\BusinessLogic\Network\AlipayManager;
 use Home\BusinessLogic\Manager\UserControllerManager;
 
 class UserController extends BaseController {
@@ -87,7 +87,7 @@ class UserController extends BaseController {
             'tpl_id'    => '18004', //您申请的短信模板ID，根据实际情况修改
             'tpl_value' => urlencode('#code#='.$code) //您设置的模板变量，根据实际情况修改
         );
-        $content = ApiManager::getHttpResponse($sendUrl, $smsConf, 0);
+        $content = AlipayManager::getHttpResponse($sendUrl, $smsConf, 0);
         if($content){
             $resultContent = json_decode($content);
         }else{
