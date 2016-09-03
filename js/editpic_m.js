@@ -16,7 +16,7 @@ $('#mycamera').change(function(e){
 		alert(EXIF.pretty(this));  
          EXIF.getAllTags(this); 
          Orientation = EXIF.getTag(this,'Orientation'); 
-         alert(Orientation);
+//       alert(Orientation);
     });
     
 	$("#newWin3").fadeIn(); 
@@ -243,7 +243,6 @@ document.getElementById("matchId").onclick = function(){
 	function mymessagesUpload(){
 		var index=document.getElementById("sex").selectedIndex;
 		//对于是否上传图像进行判断处理
-		alert(mypictureExist);
 		if(mypictureExist){
 			data = "phone=" + document.getElementById("userphone").value 
 					+ "&nickname="+ document.getElementById("userName").value
