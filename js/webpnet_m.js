@@ -131,7 +131,7 @@ $(function(){
 				
 				//点击购买后是否有用户名存在判断
 				 $(".purGet").click(function(){	
-				   if (nickname==null){
+				   if (sessionStorage.getItem("nickname")==null){
 				   		alert("请先登录！");
 				   }
 				   

@@ -264,7 +264,9 @@
     		<div class="closeBox"></div>
     		<div class ="goodsBack">
 	    		<div class ="goodsName">怪兽图鉴</div>
-	    		<input type="number" class ="goodsNum" name="points" min="1" max="100000" value="1"/>
+	    		<input type="tel" class ="goodsNum" name="points" min="1" max="100000" value="1"/>
+	    		<input type="button" value="▲" class="up" onclick="addOne()" />
+	    		<input type="button"  value="▼" class="down" onclick="removeOne()" />
 	    		<div class ="goodsSum">支出总计：<span class="goodsprice">5元</span></div>
 	    		<div id = "enterAlipay">确认付款</div>
     		</div>
@@ -275,7 +277,9 @@
     		<div class="closeBox"></div>
     		<div class ="goodsBack">
 	    		<div class ="goodsName"></div>
-	    		<input type="number" class ="goodsNum1" name="points" min="1" max="100000" value="1"/>
+	    		<input type="tel" class ="goodsNum1" name="points" min="1" max="100000" value="1"/>
+	    		<input type="button" value="▲" class="up" onclick="addOne()" />
+	    		<input type="button"  value="▼" class="down" onclick="removeOne()" />
 	    		<div class ="goodsSum">支出总计：<span class="goodsprice1">5元</span></div>
 	    		<div id = "confirmpay">确认兑换</div>
     		</div>
