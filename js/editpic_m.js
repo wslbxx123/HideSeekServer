@@ -12,11 +12,9 @@ var data;
 //头像上传处理
 $('#mycamera').change(function(e){
 	
-	EXIF.getData(e.target.files[0], function() {
-		alert(EXIF.pretty(this));  
+	EXIF.getData(e.target.files[0], function() { 
          EXIF.getAllTags(this); 
          Orientation = EXIF.getTag(this,'Orientation'); 
-//       alert(Orientation);
     });
     
 	$("#newWin3").fadeIn(); 
