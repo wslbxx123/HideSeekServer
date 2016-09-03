@@ -6,6 +6,8 @@ var logIn = false;
 var Orientation;
 var changepic = false;
 var changename = false;
+var mypictureExist = false;//判断是否上传头像；
+var data;
 
 //头像上传处理
 $('#mycamera').change(function(e){
@@ -163,7 +165,8 @@ document.getElementById("matchId").onclick = function(){
 	
 	//图片预加载处理
 	preloadimages(roleImages).done(function(){
-	  rolechange();
+		mymessagesUpload();
+	  	rolechange();
 	})
 	
 	
@@ -237,56 +240,78 @@ document.getElementById("matchId").onclick = function(){
 		}
 	}
 	
-	var index=document.getElementById("sex").selectedIndex;
-	var data = "phone=" + document.getElementById("userphone").value 
-				+ "&nickname="+ document.getElementById("userName").value
-				+ "&password="+ document.getElementById("passwd1").value
-				+ "&sex="+ document.getElementById("sex").options[index].text
-				+ "&region=" + document.getElementById("citySelect").value
-				+ "&role=" + myId
-				+ "&photo_url=" + encodeURIComponent($(".photo").attr("src"));
-				
-	var mymessages = {
-		url: "/index.php/home/user/register",	
-		type: 'POST',
-		data: data,
-		dataType: "json",
-		
-		success: function(result, status) {
-//			alert(JSON.stringify(result));
-			switch(result["code"]){
-				case "10000":
-					Num = result["result"]["record"];
-			        sessionid = result["result"]["session_id"];
-			        $("#myorder").fadeIn(); 
-			        logIn = true;
-			        //存储注册数据
-			  		sessionStorage.setItem("nickname", $("#userName").val());
-					sessionStorage.setItem("record", Num);
-					sessionStorage.setItem("myimgpath", result["result"]["small_photo_url"]);
-					sessionStorage.setItem("sessionid", result["result"]["session_id"]);
-					sessionStorage.setItem("sex", result["result"]["sex"]);
-					sessionStorage.setItem("region", result["result"]["region"]);
-					nickname = sessionStorage.getItem("nickname");
-					record = sessionStorage.getItem("record");
-					myimgpath = sessionStorage.getItem("myimgpath");
-					sex = sessionStorage.getItem("sex");
-					region = sessionStorage.getItem("region");
-					$("#nickname").html($("#userName").val());
-					$("#scoreNum").html(Num);
-					$("#myimg").attr('src',$(".photo").attr("src"));
-					$("myorder").fadeIn();
-					break;
-			  	case "10003":
-			  		alert("填写信息失败！")
-			  		break;
-			}	
-		},
-		error: function(XMLHttpRequest, textStatus, errorThrown) {
-			alert("网络出现问题！");
+	function mymessagesUpload(){
+		var index=document.getElementById("sex").selectedIndex;
+		//对于是否上传图像进行判断处理
+		alert(mypictureExist);
+		if(mypictureExist){
+			data = "phone=" + document.getElementById("userphone").value 
+					+ "&nickname="+ document.getElementById("userName").value
+					+ "&password="+ document.getElementById("passwd1").value
+					+ "&sex="+ $("#sex").val()
+					+ "&region=" + document.getElementById("citySelect").value
+					+ "&role=" + myId
+					+ "&photo_url=" + encodeURIComponent($(".photo").attr("src"));
 		}
-	};
-	$.ajax(mymessages);			
+		else{
+			data = "phone=" + document.getElementById("userphone").value 
+					+ "&nickname="+ document.getElementById("userName").value
+					+ "&password="+ document.getElementById("passwd1").value
+					+ "&sex="+ $("#sex").val()
+					+ "&region=" + document.getElementById("citySelect").value
+					+ "&role=" + myId;
+		}
+					
+		var mymessages = {
+			url: "/index.php/home/user/register",	
+			type: 'POST',
+			data: data,
+			dataType: "json",
+			
+			success: function(result, status) {
+	//			alert(JSON.stringify(result));
+				switch(result["code"]){
+					case "10000":
+						Num = result["result"]["record"];
+				        sessionid = result["result"]["session_id"];
+				        $("#myorder").fadeIn(); 
+				        logIn = true;
+				        //存储注册数据
+				  		sessionStorage.setItem("nickname", $("#userName").val());
+						sessionStorage.setItem("record", Num);
+						
+						//判断photo_url是否为空；
+						if(result["result"]["photo_url"]==null){
+							sessionStorage.setItem("myimgpath", "img/mypicture.png");
+						}
+						else{
+							sessionStorage.setItem("myimgpath", result["result"]["small_photo_url"]);
+						}
+						
+						sessionStorage.setItem("sessionid", result["result"]["session_id"]);
+						sessionStorage.setItem("sex", result["result"]["sex"]);
+						sessionStorage.setItem("region", result["result"]["region"]);
+						nickname = sessionStorage.getItem("nickname");
+						record = sessionStorage.getItem("record");
+						myimgpath = sessionStorage.getItem("myimgpath");
+						sex = sessionStorage.getItem("sex");
+						region = sessionStorage.getItem("region");
+						$("#nickname").html($("#userName").val());
+						$("#scoreNum").html(Num);
+						$("#myimg").attr('src',$(".photo").attr("src"));
+						$("myorder").fadeIn();
+						break;
+				  	case "10003":
+				  		alert("填写信息失败！")
+				  		break;
+				}	
+			},
+			error: function(XMLHttpRequest, textStatus, errorThrown) {
+				alert("网络出现问题！");
+			}
+		};
+		$.ajax(mymessages);	
+	}
 }
 
 
@@ -354,6 +379,7 @@ document.getElementById("myorder").onclick = function(){
 						type: 'POST',
 						data:data,
 						success: function(result, status) {
+							document.getElementById("alipaypage").
 							document.getElementById("alipaypage").innerHTML = result;
 							document.getElementById("alipaysubmit").submit();
 						},
@@ -653,3 +679,7 @@ $("#exOrder").click(function(){
 	$("#listArea1").fadeIn();
 	$("#listArea").fadeOut();
 });
+
+$(".photo").error(function(){
+	$(this).attr("src","img/mypicture.png");	
+}); 

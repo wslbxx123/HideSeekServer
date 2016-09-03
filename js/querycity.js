@@ -203,8 +203,9 @@ var Vcity = {};
 	        });
 	        div.className = 'citySelector';
 	        div.style.position = 'relative';
-	        div.style.margin = "0 auto";
-	        div.style.top = '-26%';
+	        div.style.marginLeft = "auto";
+	        div.style.marginRight = "auto";
+	        div.style.top = '-18%';
 	        div.style.width = '27%';
 	        div.style.zIndex = 999999;
 	

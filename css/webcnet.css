@@ -155,7 +155,7 @@ input.invalid {
   	-webkit-border-radius: 5px; /* Safari 和 Chrome */
   	behavior: url("border-radius.htc");
     display: none;
-    margin: -37% 34% 6%;
+    margin: -37% 36% 6%;
     position: absolute;
     z-index: 30;
     text-align: center;
@@ -1242,7 +1242,7 @@ p.tip{
     -moz-border-radius: 5px; /* Firefox */
   	-webkit-border-radius: 5px; /* Safari 和 Chrome */
     display: none;
-    margin: -37% 34% 6%;
+    margin: -37% 36% 6%;
     position: absolute;
     z-index: 30;
     text-align: center;

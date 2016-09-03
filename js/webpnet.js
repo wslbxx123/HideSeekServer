@@ -1,5 +1,4 @@
 $(function(){
-	
 	// 加载商城信息
 	var purNum;	//购买区的产品数；
 	var exNum;	//兑换区的产品数；
@@ -156,7 +155,7 @@ $(function(){
 					   		
 					   		//进入支付宝界面
 					   		$("#enterAlipay").click(function(){
-								var data = "session_id=" + sessionStorage.getItem("sessionid");
+								var data = "session_id=" + sessionStorage.getItem("sessionid")
 										  + "&store_id=" + result.result.products[getId].pk_id
 										  + "&count=" + $(".goodsNum").val(); 
 								var enteralipay = {
@@ -580,6 +579,16 @@ $(function(){
 	$("#register").click(function(){
 		var allGood = true;
 		var allTags = document.getElementById("newWin1").getElementsByTagName("*");
+		var phone_test;
+		
+		if($('#passwd1').val().length>=6){
+			phone_test = true;
+		}
+		else{
+			phone_test = false;
+			alert("密码不能少于6位数！")
+		}
+		
 		for (var i=0; i<allTags.length; i++) {
 			if (!validTag(allTags[i])) {
  				allGood = false;
@@ -643,7 +652,7 @@ $(function(){
 				if (!document.getElementById (otherFieldID)) {
 						return false;
 				}
-				return (inTag.value == document. getElementById(otherFieldID).value);
+				return ((inTag.value == document.getElementById(otherFieldID).value)&&phone_test);
 			}
 			function invalidLabel(parentTag) {
 				if (parentTag.nodeName == "LABEL") {
