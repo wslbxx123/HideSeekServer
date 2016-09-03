@@ -12,11 +12,9 @@ var data;
 //头像上传处理
 $('#mycamera').change(function(e){
 	
-	EXIF.getData(e.target.files[0], function() {
-		alert(EXIF.pretty(this));  
+	EXIF.getData(e.target.files[0], function() { 
          EXIF.getAllTags(this); 
          Orientation = EXIF.getTag(this,'Orientation'); 
-         alert(Orientation);
     });
     
 	$("#newWin3").fadeIn(); 
@@ -243,7 +241,6 @@ document.getElementById("matchId").onclick = function(){
 	function mymessagesUpload(){
 		var index=document.getElementById("sex").selectedIndex;
 		//对于是否上传图像进行判断处理
-		alert(mypictureExist);
 		if(mypictureExist){
 			data = "phone=" + document.getElementById("userphone").value 
 					+ "&nickname="+ document.getElementById("userName").value
