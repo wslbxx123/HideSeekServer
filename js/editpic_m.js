@@ -655,6 +655,7 @@ function getPath(obj,fileQuery,transImg){
  					cover.translate(250,250);
  					cover.rotate(degree);
  					cover.drawImage(img,-250,-250,500,500);
+ 					cover.translate(0,0);
 				}
 	        }
 	        var images1 = new Image();
