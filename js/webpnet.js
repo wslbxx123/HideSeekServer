@@ -146,7 +146,7 @@ $(function(){
 					   		$(".goodsName").html(result.result.products[getId].product_name);
 					   		$(".goodsprice").html($(".goodsNum").val()*result.result.products[getId].price+"元");
 					   		
-					   		$('input[type=number]').change(function(){
+					   		$('.goodsNum').change(function(){
 					   			$(".goodsprice").html($(".goodsNum").val()*result.result.products[getId].price+"元");
 					   		});
 					   		
@@ -273,7 +273,7 @@ $(function(){
 				   		var gNum = $(".goodsNum1").val()*result.result.reward[getId].record+"积分";
 				   		$(".goodsName").html(result.result.reward[getId].reward_name);
 				   		$(".goodsprice1").html(gNum);
-				   		$('input[type=number]').change(function(){
+				   		$('.goodsNum1').change(function(){
 				   			$(".goodsprice1").html($(".goodsNum1").val()*result.result.reward[getId].record+"元");
 				   		});
 				   		$("#confirmexchange").fadeIn();
@@ -347,6 +347,7 @@ $(function(){
 	//	注册按钮
 	$("#test2").click(function(){
 		if($("#newWin1").css("display")=='none'){
+			$("#storecover").css("height","800px");
 			$("#storecover").fadeIn(); 
 			$("#newWin1").fadeIn(); 
 			$("#newWin").fadeOut(); 
@@ -579,13 +580,14 @@ $(function(){
 	$("#register").click(function(){
 		var allGood = true;
 		var allTags = document.getElementById("newWin1").getElementsByTagName("*");
-		var phone_test;
+		var phone_figures_test;
+		var phone_identical_test;
 		
 		if($('#passwd1').val().length>=6){
-			phone_test = true;
+			phone_figures_test = true;
 		}
 		else{
-			phone_test = false;
+			phone_figures_test = false;
 			alert("密码不能少于6位数！")
 		}
 		
@@ -650,9 +652,16 @@ $(function(){
 	
 			function crossCheck (inTag,otherFieldID) {
 				if (!document.getElementById (otherFieldID)) {
-						return false;
+					return false;
 				}
-				return ((inTag.value == document.getElementById(otherFieldID).value)&&phone_test);
+				if(inTag.value == document.getElementById(otherFieldID).value){
+					phone_identical_test = true;
+				}
+				else{
+					phone_identical_test = false;
+					alert("两次输入密码不一致!")
+				}
+				return (phone_identical_test&&phone_figures_test);
 			}
 			function invalidLabel(parentTag) {
 				if (parentTag.nodeName == "LABEL") {
@@ -682,5 +691,26 @@ function hideSubMenu() {
 }
 
 
+function purAddOne(){
+	$(".goodsNum").val(parseInt($(".goodsNum").val())+1);
+	$(".goodsNum").change();
+}
 
+function purRemoveOne(){
+	if($(".goodsNum").val()>0){
+		$(".goodsNum").val(parseInt($(".goodsNum").val())-1);
+		$(".goodsNum").change();
+	}
+}
 
+function exAddOne(){
+	$(".goodsNum1").val(parseInt($(".goodsNum").val())+1);
+	$(".goodsNum1").change();
+}
+
+function exRemoveOne(){
+	if($(".goodsNum1").val()>0){
+		$(".goodsNum1").val(parseInt($(".goodsNum").val())-1);
+		$(".goodsNum1").change();
+	}
+}

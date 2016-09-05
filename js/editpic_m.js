@@ -316,7 +316,7 @@ document.getElementById("myorder").onclick = function(){
 	$("#storecover").fadeIn();
 	$("#orderArea").fadeIn();
 	var orderArea1 = {
-			url: "/index.php/home/store/refreshPurchaseOrders",
+			url: "/index.php/home/store/createOrderFromH5",
 			type: 'POST',
 			data: "version=0&order_min_id=0"+
 			"&session_id=" + sessionStorage.getItem("sessionid"),
@@ -376,7 +376,7 @@ document.getElementById("myorder").onclick = function(){
 						type: 'POST',
 						data:data,
 						success: function(result, status) {
-							document.getElementById("alipaypage").
+							$("#alipaypage").css("display")=='none';
 							document.getElementById("alipaypage").innerHTML = result;
 							document.getElementById("alipaysubmit").submit();
 						},
@@ -618,7 +618,7 @@ function getPath(obj,fileQuery,transImg){
 				}
 				
 				var images = new Image();
-				images.src = mypicture.toDataURL("image/jpeg");
+				images.src = mypicture .toDataURL("image/jpeg");
 				$(".photo").attr("src",images.src);
 			}
 			else{

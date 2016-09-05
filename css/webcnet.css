@@ -154,7 +154,7 @@ input.invalid {
     -moz-border-radius: 5px; /* Firefox */
   	-webkit-border-radius: 5px; /* Safari 和 Chrome */
   	behavior: url("border-radius.htc");
-    display: none;zz
+    display: none;
     margin: -37% 36% 6%;
     position: absolute;
     z-index: 30;
@@ -249,11 +249,11 @@ input.invalid {
 }   
 
 .goodsNum{
-	height: 25px;
-    width: 35px;
+	height: 35px;
+    width: 37px;
     float: right;
     margin-right: 33px;
-    margin-top: 15px;
+    margin-top: 11px;
 }   
 
 .goodsNum1{
@@ -1247,4 +1247,24 @@ p.tip{
     z-index: 30;
     text-align: center;
     font-size: 15px;
+}
+
+.up{
+	width: 16px;
+    height: 16px;
+    margin-top: 12px;
+    font-size: 12px;
+    float: right;
+    margin-right: -38px;
+    -webkit-appearance: none;
+}
+
+.down{
+	width: 16px;
+    height: 16px;
+    margin-top: 28px;
+    font-size: 12px;
+    float: right;
+    margin-right: -38px;
+    -webkit-appearance: none;
 }

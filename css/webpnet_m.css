@@ -275,19 +275,19 @@ input.invalid {
 }   
 
 .goodsNum{
-	height: 25px;
+	height: 33px;
     width: 35px;
     float: right;
     margin-right: 33px;
-    margin-top: 15px;
+    margin-top: 12px;
 }   
 
 .goodsNum1{
-	height: 25px;
+	height: 33px;
     width: 35px;
     float: right;
     margin-right: 33px;
-    margin-top: 15px;
+    margin-top: 12px;
 }  
 
 .goodsBack{
@@ -1273,4 +1273,24 @@ p.tip{
     overflow: auto;
     margin-top: 8px;
     position: absolute;
+}
+
+.up{
+	width: 16px;
+    height: 16px;
+    margin-top: 12px;
+    font-size: 12px;
+    float: right;
+    margin-right: -38px;
+    -webkit-appearance: none;
+}
+
+.down{
+	width: 16px;
+    height: 16px;
+    margin-top: 28px;
+    font-size: 12px;
+    float: right;
+    margin-right: -38px;
+    -webkit-appearance: none;
 }
