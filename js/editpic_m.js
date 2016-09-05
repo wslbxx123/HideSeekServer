@@ -316,7 +316,7 @@ document.getElementById("myorder").onclick = function(){
 	$("#storecover").fadeIn();
 	$("#orderArea").fadeIn();
 	var orderArea1 = {
-			url: "/index.php/home/store/refreshPurchaseOrders",
+			url: "/index.php/home/store/createOrderFromH5",
 			type: 'POST',
 			data: "version=0&order_min_id=0"+
 			"&session_id=" + sessionStorage.getItem("sessionid"),

@@ -142,7 +142,7 @@ $(function(){
 				   		$(".goodsName").html(result.result.products[getId].product_name);
 				   		$(".goodsprice").html($(".goodsNum").val()*result.result.products[getId].price+"元");
 				   		
-				   		$('input[type=number]').change(function(){
+				   		$('.goodsNum').change(function(){
 				   			$(".goodsprice").html($(".goodsNum").val()*result.result.products[getId].price+"元");
 				   		});
 				   		
@@ -268,7 +268,7 @@ $(function(){
 				   		var gNum = $(".goodsNum1").val()*result.result.reward[getId].record+"积分";
 				   		$(".goodsName").html(result.result.reward[getId].reward_name);
 				   		$(".goodsprice1").html(gNum);
-				   		$('input[type=number]').change(function(){
+				   		$('.goodsNum1').change(function(){
 				   			$(".goodsprice1").html($(".goodsNum1").val()*result.result.reward[getId].record+"元");
 				   		});
 				   		$("#confirmexchange").fadeIn();
