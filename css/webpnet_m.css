@@ -400,7 +400,7 @@ input.invalid {
     margin-left: 2%;
     background: white;
     font-size: 13px;
-    z-index: 30;
+    z-index: 29;
     position: absolute;
     border: 1px solid darkgrey;
     cursor:pointer;
@@ -578,7 +578,7 @@ input.invalid {
 #purArea{
 	position: absolute;
     background-color: white;
-    z-index: 44;
+    z-index: 29;
     display: none;
     width: 96%;
     margin-left: 2%;
@@ -591,7 +591,7 @@ input.invalid {
 #downArea{
 	position: absolute;
     background-color: white;
-    z-index: 44;
+    z-index: 29;
     display: block;
     width: 96%;
     height: 347px;
@@ -605,7 +605,7 @@ input.invalid {
 #exArea{
 	position: absolute;
     background-color: white;
-    z-index: 44;
+    z-index: 29;
     display: none;
     width: 96%;
     margin-left: 2%;

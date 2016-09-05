@@ -67,6 +67,7 @@ input{
 
 select{
 	width: 62%;
+    margin-top: 68px;
     margin-left: 4px;
     font-size: 14px;
     font-family: "Microsoft Yahei";
@@ -375,7 +376,7 @@ input.invalid {
     margin-left: 2%;
     background: white;
     font-size: 14px;
-    z-index: 30;
+    z-index: 29;
     position: absolute;
     border: 2px solid #b81d25;
     cursor:pointer;
@@ -553,7 +554,7 @@ input.invalid {
 #purArea{
 	position: absolute;
     background-color:  white;
-    z-index: 44;
+    z-index: 29;
     display: none;
     width: 96%;
     margin-left: 2%;
@@ -569,7 +570,7 @@ input.invalid {
 #downArea{
 	position: absolute;
     background-color: white;
-    z-index: 44;
+    z-index: 29;
     display: block;
     width: 96%;
     height: 34%;
@@ -585,7 +586,7 @@ input.invalid {
 #exArea{
 	position: absolute;
     background-color: white;
-    z-index: 44;
+    z-index: 29;
     display: none;
     width: 96%;
     margin-left: 2%;
@@ -696,6 +697,7 @@ input.invalid {
     height: 111px;
     background: url("../img/mypicture.png") no-repeat center;
     background-size: cover;
+    position:absolute;
 }
 
 #mypicture1{
