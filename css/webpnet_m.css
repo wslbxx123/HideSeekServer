@@ -714,6 +714,7 @@ input.invalid {
     width: 111px;
     height: 111px;
     position: absolute;
+    display:none;
 }
 
 #mypicture1{
@@ -736,7 +737,7 @@ input.invalid {
 
 .photo{
 	margin-top: -62px;
-    border-radius: 63px;
+    /*border-radius: 63px;*/
     left: 36%;
     height: 111px;
     width: 111px;
@@ -919,6 +920,7 @@ p.tip{
     height: 30px;
     line-height: 24px;
     background: url(../img/arrow.png) no-repeat scroll right center transparent;
+    font-size: 14px;
 }
 
 #matchId{

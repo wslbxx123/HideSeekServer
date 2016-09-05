@@ -11,11 +11,11 @@ var data;
 
 //头像上传处理
 $('#mycamera').change(function(e){
-	
+	$(".photo").attr("src","img/mypicture.png");
 	EXIF.getData(e.target.files[0], function() { 
          EXIF.getAllTags(this); 
          Orientation = EXIF.getTag(this,'Orientation'); 
-         alert(Orientation);
+//       alert(Orientation);
     });
     
 	$("#newWin3").fadeIn(); 
@@ -453,7 +453,6 @@ document.getElementById("myorder").onclick = function(){
 
 //图片处理转换区		
 function getPath(obj,fileQuery,transImg){
-	$(".photo").attr("src","");
 	var imgSrc = '', imgArr = [], strSrc = '' ;
 	if(window.navigator.userAgent.indexOf("MSIE")>=1){ // IE浏览器判断
 	    if(obj.select){
@@ -537,8 +536,7 @@ function getPath(obj,fileQuery,transImg){
 		var endy;
 		var x;
 		var n;
-		 
-
+		
 	    
 		if(width>document.body.clientWidth*0.76){
 	    	height = (height*document.body.clientWidth*0.76)/width;
@@ -641,26 +639,33 @@ function getPath(obj,fileQuery,transImg){
 			}
 
 				//如果方向角不为1，都需要进行旋转  
-	        if(Orientation != "" && Orientation != 1){
+	        if(Orientation != "" && Orientation != 1&&Orientation !=null){
+//	        	alert(3);
 	        	switch(Orientation){
 	        		case 6://需要顺时针（向左）90度旋转  
 	                    rotateImg(mypicture,'left');  
 	                    break;  
 	        	}
+	        	var images1 = new Image();
+		        images1.src = mypicture.toDataURL("image/jpeg");
+		        $(".photo").attr("src",images1.src);
+	        	cover.translate(0,0);
+		        cover.rotate(-90 * Math.PI / 180);
+		        cover.translate(-250,-250);
+//		    	alert(2);
 	        }
 	        
 	        function rotateImg(img,direction){
 	        	if (direction == 'left') {
+//	        		alert(1);
  					var degree = 90 * Math.PI / 180; 	
  					cover.translate(250,250);
  					cover.rotate(degree);
  					cover.drawImage(img,-250,-250,500,500);
- 					cover.translate(0,0);
 				}
 	        }
-	        var images1 = new Image();
-	        images1.src = mypicture.toDataURL("image/jpeg");
-	        $(".photo").attr("src",images1.src);
+	       
+	        
 		}	
 	});
 }			
