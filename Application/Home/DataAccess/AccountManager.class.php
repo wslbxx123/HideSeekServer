@@ -58,7 +58,7 @@ class AccountManager {
         $account["role"] = $role;
         
         if($channelId != null) {
-            $account["channelId"] = $channelId;
+            $account["channel_id"] = $channelId;
         }
         
         $account = self::insertOptionalInfo($sex, $region, $photoUrl, 
