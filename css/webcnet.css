@@ -1256,6 +1256,7 @@ p.tip{
     font-size: 12px;
     float: right;
     margin-right: -38px;
+    -webkit-appearance: none;
 }
 
 .down{
@@ -1265,4 +1266,5 @@ p.tip{
     font-size: 12px;
     float: right;
     margin-right: -38px;
+    -webkit-appearance: none;
 }

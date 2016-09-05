@@ -672,3 +672,27 @@ function hideSubMenu() {
 	var subMenu = document.getElementById("flipframe");
 	subMenu.style.display = "none";
 }
+
+function purAddOne(){
+	$(".goodsNum").val(parseInt($(".goodsNum").val())+1);
+	$(".goodsNum").change();
+}
+
+function purRemoveOne(){
+	if($(".goodsNum").val()>0){
+		$(".goodsNum").val(parseInt($(".goodsNum").val())-1);
+		$(".goodsNum").change();
+	}
+}
+
+function exAddOne(){
+	$(".goodsNum1").val(parseInt($(".goodsNum").val())+1);
+	$(".goodsNum1").change();
+}
+
+function exRemoveOne(){
+	if($(".goodsNum1").val()>0){
+		$(".goodsNum1").val(parseInt($(".goodsNum").val())-1);
+		$(".goodsNum1").change();
+	}
+}

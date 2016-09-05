@@ -147,7 +147,6 @@ $(function(){
 					   		$(".goodsprice").html($(".goodsNum").val()*result.result.products[getId].price+"元");
 					   		
 					   		$('.goodsNum').change(function(){
-					   			alert(1);
 					   			$(".goodsprice").html($(".goodsNum").val()*result.result.products[getId].price+"元");
 					   		});
 					   		
@@ -689,6 +688,20 @@ function purAddOne(){
 }
 
 function purRemoveOne(){
-	$(".goodsNum").val(parseInt($(".goodsNum").val())-1);
-	$(".goodsNum").change();
+	if($(".goodsNum").val()>0){
+		$(".goodsNum").val(parseInt($(".goodsNum").val())-1);
+		$(".goodsNum").change();
+	}
+}
+
+function exAddOne(){
+	$(".goodsNum1").val(parseInt($(".goodsNum").val())+1);
+	$(".goodsNum1").change();
+}
+
+function exRemoveOne(){
+	if($(".goodsNum1").val()>0){
+		$(".goodsNum1").val(parseInt($(".goodsNum").val())-1);
+		$(".goodsNum1").change();
+	}
 }
