@@ -15,6 +15,7 @@ $('#mycamera').change(function(e){
 	EXIF.getData(e.target.files[0], function() { 
          EXIF.getAllTags(this); 
          Orientation = EXIF.getTag(this,'Orientation'); 
+         alert(Orientation);
     });
     
 	$("#newWin3").fadeIn(); 
