@@ -737,7 +737,7 @@ input.invalid {
 
 .photo{
 	margin-top: -62px;
-    /*border-radius: 63px;*/
+    border-radius: 63px;
     left: 36%;
     height: 111px;
     width: 111px;
