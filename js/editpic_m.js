@@ -453,6 +453,7 @@ document.getElementById("myorder").onclick = function(){
 
 //图片处理转换区		
 function getPath(obj,fileQuery,transImg){
+	$(".photo").attr("src","");
 	var imgSrc = '', imgArr = [], strSrc = '' ;
 	if(window.navigator.userAgent.indexOf("MSIE")>=1){ // IE浏览器判断
 	    if(obj.select){
