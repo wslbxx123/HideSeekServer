@@ -342,7 +342,8 @@ $(function(){
 	//	注册按钮
 	$("#test2").click(function(){
 		if($("#newWin1").css("display")=='none'){
-			$("#storecover").fadeIn(); 
+			$("#storecover").css("height","590px");
+			$("#storecover").fadeIn();
 			$("#newWin1").fadeIn(); 
 			$("#newWin").fadeOut(); 
 			
