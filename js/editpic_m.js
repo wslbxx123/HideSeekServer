@@ -376,7 +376,7 @@ document.getElementById("myorder").onclick = function(){
 						type: 'POST',
 						data:data,
 						success: function(result, status) {
-							document.getElementById("alipaypage").
+							$("#alipaypage").css("display")=='none';
 							document.getElementById("alipaypage").innerHTML = result;
 							document.getElementById("alipaysubmit").submit();
 						},
@@ -618,7 +618,7 @@ function getPath(obj,fileQuery,transImg){
 				}
 				
 				var images = new Image();
-				images.src = mypicture.toDataURL("image/jpeg");
+				images.src = mypicture .toDataURL("image/jpeg");
 				$(".photo").attr("src",images.src);
 			}
 			else{

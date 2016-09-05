@@ -147,6 +147,7 @@ $(function(){
 					   		$(".goodsprice").html($(".goodsNum").val()*result.result.products[getId].price+"元");
 					   		
 					   		$('.goodsNum').change(function(){
+					   			alert(1);
 					   			$(".goodsprice").html($(".goodsNum").val()*result.result.products[getId].price+"元");
 					   		});
 					   		
@@ -684,8 +685,10 @@ function hideSubMenu() {
 
 function purAddOne(){
 	$(".goodsNum").val(parseInt($(".goodsNum").val())+1);
+	$(".goodsNum").change();
 }
 
 function purRemoveOne(){
 	$(".goodsNum").val(parseInt($(".goodsNum").val())-1);
+	$(".goodsNum").change();
 }
