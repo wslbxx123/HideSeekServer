@@ -9,12 +9,22 @@ var changename = false;
 var mypictureExist = false;//判断是否上传头像；
 var data;
 
+//性别未设置删除
+$("#sex").click(function(){
+	$(".display-none").remove();
+});
+
+$("#sex1").click(function(){
+	$(".display-none1").remove();
+});
+
 //头像上传处理
 $('#mycamera').change(function(e){
-	
+	$(".photo").attr("src","img/mypicture.png");
 	EXIF.getData(e.target.files[0], function() { 
          EXIF.getAllTags(this); 
          Orientation = EXIF.getTag(this,'Orientation'); 
+//       alert(Orientation);
     });
     
 	$("#newWin3").fadeIn(); 
@@ -28,6 +38,9 @@ $('#mycamera').change(function(e){
 $("#mydata").click(function(){
 	$("#dataArea").fadeIn();
 	$("#userName1").val($("#nickname").html());
+	if(sessionStorage.getItem("sex") == 0){
+		
+	}
 	$("#sex1").val(sessionStorage.getItem("sex"));
 	$(".cityinput").val(sessionStorage.getItem("region"));
 	$(".photo").attr('src',sessionStorage.getItem("myimgpath")); 
@@ -535,16 +548,15 @@ function getPath(obj,fileQuery,transImg){
 		var endy;
 		var x;
 		var n;
-		 
-
+		
 	    
-		if(width>document.body.clientWidth*0.9){
-	    	height = (height*document.body.clientWidth*0.9)/width;
-	    	width = document.body.clientWidth*0.9;
+		if(width>document.body.clientWidth*0.76){
+	    	height = (height*document.body.clientWidth*0.76)/width;
+	    	width = document.body.clientWidth*0.76;
 		}
-		if(height>document.body.clientWidth*0.9){
-			width = (width*document.body.clientWidth*0.9)/height;
-			height = document.body.clientWidth*0.9;
+		if(height>document.body.clientWidth*0.95){
+			width = (width*document.body.clientWidth*0.95)/height;
+			height = document.body.clientWidth*0.95;
 		}
 		fileimg.width = width;
 		fileimg.height = height;
@@ -584,8 +596,8 @@ function getPath(obj,fileQuery,transImg){
 			if(width>height){
 				n = width-height;
 				ctx.clearRect (0.1*n*(x-1),0,coverpic.height,coverpic.height);
-				upframe.style.left = document.body.clientWidth*0.9*0.1+0.1*n*(x-1)+"px";
-				downframe.style.left = height+document.body.clientWidth*0.9*0.1-20+0.1*n*(x-1)+"px";
+				upframe.style.left = document.body.clientWidth*0.95*0.1+0.1*n*(x-1)+"px";
+				downframe.style.left = height+document.body.clientWidth*0.95*0.1-20+0.1*n*(x-1)+"px";
 			}
 			else{
 				n = width-height;
@@ -597,16 +609,16 @@ function getPath(obj,fileQuery,transImg){
 		
 		
 
-		function setFrame(Num){
+		function setFrame(Num1){
 			upframe.style.marginTop = 50+"px";
-			upframe.style.left = document.body.clientWidth*0.9*0.1+"px";
-			downframe.style.marginTop = Num+30+"px";
-			downframe.style.left = Num+document.body.clientWidth*0.9*0.1-20+"px";
+			upframe.style.left = document.body.clientWidth*0.95*0.1+"px";
+			downframe.style.marginTop = Num1+30+"px";
+			downframe.style.left = Num1+document.body.clientWidth*0.95*0.1-20+"px";
 		}
 		
 		
 		confirmedit.onclick = function(){
-			if(sessionStorage.getItem("nickname")==null){
+			if(sessionStorage.getItem("nickname") == null){
 				$("#newWin2").fadeIn(); 
 				if(n>0){
 					cover.drawImage(fileimg,0.1*n*(x-1)*y,0,coverpic.height*y,coverpic.height*y,0,0,500,500);
@@ -639,25 +651,33 @@ function getPath(obj,fileQuery,transImg){
 			}
 
 				//如果方向角不为1，都需要进行旋转  
-	        if(Orientation != "" && Orientation != 1){
+	        if(Orientation != "" && Orientation != 1&&Orientation !=null){
+//	        	alert(3);
 	        	switch(Orientation){
 	        		case 6://需要顺时针（向左）90度旋转  
 	                    rotateImg(mypicture,'left');  
 	                    break;  
 	        	}
+	        	var images1 = new Image();
+		        images1.src = mypicture.toDataURL("image/jpeg");
+		        $(".photo").attr("src",images1.src);
+	        	cover.translate(0,0);
+		        cover.rotate(-90 * Math.PI / 180);
+		        cover.translate(-250,-250);
+//		    	alert(2);
 	        }
 	        
 	        function rotateImg(img,direction){
 	        	if (direction == 'left') {
+//	        		alert(1);
  					var degree = 90 * Math.PI / 180; 	
  					cover.translate(250,250);
  					cover.rotate(degree);
  					cover.drawImage(img,-250,-250,500,500);
 				}
 	        }
-	        var images1 = new Image();
-	        images1.src = mypicture.toDataURL("image/jpeg");
-	        $(".photo2").attr("src",images1.src);
+	       
+	        
 		}	
 	});
 }			
@@ -680,3 +700,7 @@ $("#exOrder").click(function(){
 $(".photo").error(function(){
 	$(this).attr("src","img/mypicture.png");	
 }); 
+
+$("#myimg").error(function(){
+	$(this).attr("src","img/mypicture.png");	
+});

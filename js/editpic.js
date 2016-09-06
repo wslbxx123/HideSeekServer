@@ -531,12 +531,11 @@ function getPath(obj,fileQuery,transImg){
 		var endy;
 		var x;
 		var n;
-		 
 
 	    
-		if(width>document.body.clientWidth*0.3){
-	    	height = (height*document.body.clientWidth*0.3)/width;
-	    	width = document.body.clientWidth*0.3;
+		if(width>document.body.clientWidth*0.24){
+	    	height = (height*document.body.clientWidth*0.24)/width;
+	    	width = document.body.clientWidth*0.24;
 		}
 		if(height>document.body.clientWidth*0.3){
 			width = (width*document.body.clientWidth*0.3)/height;

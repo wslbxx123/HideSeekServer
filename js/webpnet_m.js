@@ -342,7 +342,8 @@ $(function(){
 	//	注册按钮
 	$("#test2").click(function(){
 		if($("#newWin1").css("display")=='none'){
-			$("#storecover").fadeIn(); 
+			$("#storecover").css("height","590px");
+			$("#storecover").fadeIn();
 			$("#newWin1").fadeIn(); 
 			$("#newWin").fadeOut(); 
 			
@@ -571,13 +572,13 @@ $(function(){
 	$("#register").click(function(){
 		var allGood = true;
 		var allTags = document.getElementById("newWin1").getElementsByTagName("*");
-		var phone_test;
+		var phone_figures_test;
 		
 		if($('#passwd1').val().length>=6){
-			phone_test = true;
+			phone_figures_test = true;
 		}
 		else{
-			phone_test = false;
+			phone_figures_test = false;
 			alert("密码不能少于6位数！")
 		}
 		
@@ -636,6 +637,8 @@ $(function(){
 						classBack += thisClass;
 						break;
 					default:
+						classBack += thisClass;
+						break;
 				}
 				return classBack;
 			}
