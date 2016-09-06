@@ -129,7 +129,6 @@ class FriendController extends BaseController {
         
         if(!FriendControllerManager::sendFriendRequest($account, $friend, 
                 $message)) {
-            BaseUtil::echoJson(CodeParam::FAIL_SEND_MESSAGE, null);
             return;
         }
         $friend['password'] = "";

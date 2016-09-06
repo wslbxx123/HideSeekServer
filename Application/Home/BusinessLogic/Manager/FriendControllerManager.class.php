@@ -39,6 +39,7 @@ class FriendControllerManager {
             if(!TencentIMManager::pushSingleAccountIOS($friend['phone'], 
                     "你收到一个好友请求",
                     $account, $message, 1)) {
+                BaseUtil::echoJson(CodeParam::FAIL_SEND_MESSAGE, null);
                 return false;
             }
         }
