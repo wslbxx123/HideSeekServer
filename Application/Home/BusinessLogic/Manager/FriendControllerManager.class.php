@@ -48,8 +48,13 @@ class FriendControllerManager {
     }
     
     public function acceptFriendRequest($account, $friend) {
-        return TencentIMManager::pushSingleAccountIOS($friend['phone'], 
+        if(!TencentIMManager::pushSingleAccountIOS($friend['phone'], 
                     "FRIEND_ACCEPT_MESSAGE", [$friend['nickname']],
-                    $account, null, 2);
+                    $account, null, 2)) {
+            BaseUtil::echoJson(CodeParam::FAIL_SEND_MESSAGE, null);
+            return false;
+        }
+        
+        return true;
     }
 }
