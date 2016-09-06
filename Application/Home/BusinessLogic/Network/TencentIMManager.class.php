@@ -14,7 +14,7 @@ class TencentIMManager {
 	$push = new \XingeApp(KeyParam::ACCESS_ID, KeyParam::SECRET_KEY);
 	$message = new \MessageIOS();
 	$message->setExpireTime(86400);
-	$message->setAlert(array('body' => $body, 
+	$message->setAlert(array(
             'loc-key' => "FRIEND_REQUEST_MESSAGE",
             'loc-args' => []));
 	$message->setBadge(1);
