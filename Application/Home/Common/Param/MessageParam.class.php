@@ -44,6 +44,7 @@ class MessageParam {
     const FAIL_SEND_MESSAGE = "发送消息失败";
     const REQUEST_MESSAGE_EMPTY = "请求信息为空";
     const SEARCH_MYSELF = "不能加自己为好友";
+    const FRIEND_REMARK_EMPTY = "朋友备注为空";
     #endregion
     
     #region 设置信息

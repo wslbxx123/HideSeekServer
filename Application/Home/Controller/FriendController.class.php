@@ -154,13 +154,35 @@ class FriendController extends BaseController {
         
         $friend = AccountManager::getAccount($friendId);
         $version = PullVersionManager::updateFriendVersion();
-        FriendManager::insertFriend($account['pk_id'], $friendId, $version);
+        FriendManager::insertFriend($account['pk_id'], $friendId, 
+                $friend['remark'], $version);
         
         if(!FriendControllerManager::acceptFriendRequest($account, $friend)) {
             return;
         }
         
         BaseUtil::echoJson(CodeParam::SUCCESS, $friend);
+    }
+    
+    public function updateRemark() {
+        self::setHeader();
+        
+        $sessionId = filter_input(INPUT_POST, 'session_id');
+        $friendId = filter_input(INPUT_POST, 'friend_id');
+        $remark = filter_input(INPUT_POST, 'remark');
+        $accountId = $this->getPkIdFromToken($sessionId);
+        
+        if(!isset($sessionId) || $accountId == 0) {
+            BaseUtil::echoJson(CodeParam::NOT_LOGIN, null);
+            return false;
+        }
+        
+        if(!isset($remark)) {
+            BaseUtil::echoJson(CodeParam::FRIEND_REMARK_EMPTY, null);
+            return false;
+        }
+        
+        FriendManager::updateRemark($friendId, $accountId, $remark);
     }
 }
 

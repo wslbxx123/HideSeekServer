@@ -44,6 +44,7 @@ class CodeParam {
     const FAIL_SEND_MESSAGE = "10023";
     const REQUEST_MESSAGE_EMPTY = "10024";
     const SEARCH_MYSELF = "10025";
+    const FRIEND_REMARK_EMPTY = "10029";
     #endregion
     
     #region 设置信息

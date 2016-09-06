@@ -51,11 +51,20 @@ class FriendManager {
         );
     }
     
-    public function insertFriend($accountAId, $accountBId, $version) {
+    public function insertFriend($accountAId, $accountBId, $remark, $version) {
         $Dao = M("friend");
         $friend["account_a_id"] = $accountAId;
         $friend["account_b_id"] = $accountBId;
+        $friend["remark"] = $remark;
         $friend["version"] = $version;
         $Dao->add($friend);
+    }
+    
+    public function updateRemark($accountId, $friendId, $remark) {
+        $Dao = M("friend");
+        $condition["account_id"] = $accountId;
+        $condition["friend_id"] = $friendId;
+        $friend['remark'] = $remark;
+        $Dao->where($condition)->save($friend);
     }
 }
