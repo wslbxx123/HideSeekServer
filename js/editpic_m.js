@@ -688,3 +688,7 @@ $("#exOrder").click(function(){
 $(".photo").error(function(){
 	$(this).attr("src","img/mypicture.png");	
 }); 
+
+$("#myimg").error(function(){
+	$(this).attr("src","img/mypicture.png");	
+});
