@@ -5,6 +5,7 @@ use Home\Common\Util\BaseUtil;
 use Home\Common\Param\CodeParam;
 use Home\BusinessLogic\Network\TencentIMManager;
 use Home\DataAccess\FriendRequestManager;
+use Home\DataAccess\FriendManager;
 /**
  * 处理朋友控制器的逻辑类
  *
