@@ -14,6 +14,10 @@ $("#sex").click(function(){
 	$(".display-none").remove();
 });
 
+$("#sex1").click(function(){
+	$(".display-none1").remove();
+});
+
 //头像上传处理
 $('#mycamera').change(function(e){
 	$(".photo").attr("src","img/mypicture.png");
@@ -34,6 +38,9 @@ $('#mycamera').change(function(e){
 $("#mydata").click(function(){
 	$("#dataArea").fadeIn();
 	$("#userName1").val($("#nickname").html());
+	if(sessionStorage.getItem("sex") == 0){
+		
+	}
 	$("#sex1").val(sessionStorage.getItem("sex"));
 	$(".cityinput").val(sessionStorage.getItem("region"));
 	$(".photo").attr('src',sessionStorage.getItem("myimgpath")); 
