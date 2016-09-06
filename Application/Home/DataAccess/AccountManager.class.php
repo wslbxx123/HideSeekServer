@@ -141,4 +141,11 @@ class AccountManager {
         $accountList = $Dao->query($sql);
         return $accountList;
     }
+    
+    public function clearChannelId($accountId) {
+        $Dao = M("account");
+        $condition["pk_id"] = $accountId;
+        $account['channel_id'] = null;
+        $Dao->where($condition)->save($account);
+    }
 }

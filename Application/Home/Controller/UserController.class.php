@@ -36,6 +36,21 @@ class UserController extends BaseController {
         BaseUtil::echoJson(CodeParam::SUCCESS, $account);
     }
     
+    public function logout(){
+        self::setHeader();
+        session_destroy();
+        $sessionId = filter_input(INPUT_POST, 'session_id');
+        $accountId = $this->getPkIdFromToken($sessionId);
+        
+        if(!isset($sessionId) || $accountId == 0) {
+            BaseUtil::echoJson(CodeParam::NOT_LOGIN, null);
+            return;
+        }
+        AccountManager::clearChannelId($accountId);
+        
+        BaseUtil::echoJson(CodeParam::SUCCESS, null);
+    }
+    
     public function register() {
         self::setHeader();
         session_start();
