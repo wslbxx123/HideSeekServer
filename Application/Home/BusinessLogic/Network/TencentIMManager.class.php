@@ -24,9 +24,7 @@ class TencentIMManager {
 	$message->setCustom($custom);
 	$acceptTime = new \TimeInterval(0, 0, 23, 59);
 	$message->addAcceptTime($acceptTime);
-	$raw = '{"xg_max_payload":1,"accept_time":[{"start":{"hour":"20","min":"0"},"end":{"hour":"23","min":"59"}}],"aps":{"alert":"="}}';
-	$message->setRaw($raw);
-	$ret = $push->PushSingleAccount(0, $phone, $message, XingeApp::IOSENV_DEV);
+	$ret = $push->PushSingleAccount(0, $phone, $message, \XingeApp::IOSENV_DEV);
 	return $ret['ret_code'] == 0;
     }
 }
