@@ -3,7 +3,7 @@
 namespace Home\BusinessLogic\Manager;
 use Home\Common\Util\BaseUtil;
 use Home\Common\Param\CodeParam;
-use Home\BusinessLogic\Network\BaiduIMManager;
+use Home\BusinessLogic\Network\TencentIMManager;
 use Home\DataAccess\FriendRequestManager;
 /**
  * 处理朋友控制器的逻辑类
@@ -36,9 +36,9 @@ class FriendControllerManager {
                     $friend['pk_id'], $message);
         } else {
             $account['password'] = "";
-            if(!BaiduIMManager::sendFriendRequest($friend['channel_id'], 
+            if(TencentIMManager::pushSingleDeviceIOS($friend['channel_id'], 
                     "你收到一个好友请求",
-                    $account, $message, 1)) {
+                    $account, $message, 1) != 0) {
                 return false;
             }
         }
