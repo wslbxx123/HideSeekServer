@@ -9,14 +9,15 @@ vendor("Tencent.XingeApp");
  * @author apple
  */
 class TencentIMManager {
-    function pushSingleAccountIOS($phone, $body, $object, $extraMessage, $type)
+    function pushSingleAccountIOS($phone, $body, $args, $object, 
+            $extraMessage, $type)
     {
 	$push = new \XingeApp(KeyParam::ACCESS_ID, KeyParam::SECRET_KEY);
 	$message = new \MessageIOS();
 	$message->setExpireTime(86400);
 	$message->setAlert(array(
-            'loc-key' => "FRIEND_REQUEST_MESSAGE",
-            'loc-args' => []));
+            'loc-key' => $body,
+            'loc-args' => $args));
 	$message->setBadge(1);
 	$message->setSound("beep.wav");
 	$custom = array('type' => $type, 'object'=> $object, 

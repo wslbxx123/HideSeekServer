@@ -37,7 +37,7 @@ class FriendControllerManager {
         } else {
             $account['password'] = "";
             if(!TencentIMManager::pushSingleAccountIOS($friend['phone'], 
-                    "你收到一个好友请求",
+                    "FRIEND_REQUEST_MESSAGE", [], 
                     $account, $message, 1)) {
                 BaseUtil::echoJson(CodeParam::FAIL_SEND_MESSAGE, null);
                 return false;
@@ -48,8 +48,8 @@ class FriendControllerManager {
     }
     
     public function acceptFriendRequest($account, $friend) {
-        return BaiduIMManager::sendFriendRequest($friend['channel_id'], 
-                    $friend['nickname']."接受你的好友请求",
+        return TencentIMManager::pushSingleAccountIOS($friend['phone'], 
+                    "FRIEND_ACCEPT_MESSAGE", [$friend['nickname']],
                     $account, null, 2);
     }
 }
