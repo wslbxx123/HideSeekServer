@@ -9,6 +9,11 @@ var changename = false;
 var mypictureExist = false;//判断是否上传头像；
 var data;
 
+//性别未设置删除
+$("#sex").click(function(){
+	$(".display-none").remove();
+});
+
 //头像上传处理
 $('#mycamera').change(function(e){
 	$(".photo").attr("src","img/mypicture.png");
