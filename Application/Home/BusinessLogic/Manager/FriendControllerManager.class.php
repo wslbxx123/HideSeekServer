@@ -36,9 +36,9 @@ class FriendControllerManager {
                     $friend['pk_id'], $message);
         } else {
             $account['password'] = "";
-            if(TencentIMManager::pushSingleDeviceIOS($friend['channel_id'], 
+            if(!TencentIMManager::pushSingleDeviceIOS($friend['channel_id'], 
                     "你收到一个好友请求",
-                    $account, $message, 1) != 0) {
+                    $account, $message, 1)) {
                 return false;
             }
         }
