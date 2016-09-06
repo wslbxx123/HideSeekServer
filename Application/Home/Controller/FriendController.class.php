@@ -182,7 +182,10 @@ class FriendController extends BaseController {
             return false;
         }
         
-        FriendManager::updateRemark($friendId, $accountId, $remark);
+        $version = PullVersionManager::updateFriendVersion();
+        FriendManager::updateRemark($friendId, $accountId, $remark, $version);
+        
+        BaseUtil::echoJson(CodeParam::SUCCESS, $remark);
     }
 }
 
