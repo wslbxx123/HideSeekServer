@@ -50,7 +50,7 @@ $("#mydata").click(function(){
 	if(sessionStorage.getItem("sex") == 0){
 		
 	}
-	$("#sex1").val(sessionStorage.getItem("sex"));
+	$("#sex1").val($(sessionStorage.getItem("sex")).text());
 	$(".cityinput").val(sessionStorage.getItem("region"));
 	$(".photo").attr('src',sessionStorage.getItem("myimgpath")); 
 });
