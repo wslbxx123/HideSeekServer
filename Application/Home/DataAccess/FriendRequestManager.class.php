@@ -32,7 +32,7 @@ class FriendRequestManager {
     
     public function getFriendRequests($accountId) {
         $Dao = M("friend_request");
-        $sql = "call admin_get_temp_hit($accountId)";
+        $sql = "call admin_get_friend_requests($accountId)";
         $friendRequests = $Dao->query($sql);
         return $friendRequests;
     }
