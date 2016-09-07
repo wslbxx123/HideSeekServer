@@ -12,11 +12,21 @@ var sex;
 var region;
 
 $("#sex").click(function(){
-	$(".sexArea").fadeIn();
+	if($(".sexArea").css("display")=='none'){
+		$(".sexArea").fadeIn();
+	}
+	else{
+		$(".sexArea").fadeOut();
+	}
 });
 
 $("#sex1").click(function(){
-	$(".sexArea").fadeIn();
+	if($(".sexArea").css("display")=='none'){
+		$(".sexArea").fadeIn();
+	}
+	else{
+		$(".sexArea").fadeOut();
+	}
 });
 
 $('.sexArea li').click(function(){
