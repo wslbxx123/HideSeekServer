@@ -6,13 +6,15 @@ namespace Home\DataAccess;
  * @author Two
  */
 class MonsterTempHitManager {
-    public function insertMonsterTempHit($goalId, $accountId, $accountRole) {
-        $Dao = M("monster_temp_hit");
-        $data['goal_id'] = $goalId;
-        $data['account_id'] = $accountId;
-        $data['account_role'] = $accountRole;
-        $data['hit_time'] = date('y-m-d H:i:s',time());
-        $Dao->add($data);
+    public function insertMonsterTempHit($goalId, $accountId, $accountRole, $valid) {
+        if($valid == 1) {
+            $Dao = M("monster_temp_hit");
+            $data['goal_id'] = $goalId;
+            $data['account_id'] = $accountId;
+            $data['account_role'] = $accountRole;
+            $data['hit_time'] = date('y-m-d H:i:s',time());
+            $Dao->add($data);
+        }
 
         $sql = "call admin_get_temp_hit($goalId)";
         $accountArray = $Dao->query($sql);
