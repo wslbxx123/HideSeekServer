@@ -1186,25 +1186,18 @@ p.tip{
 
 .goodsSum{
 	height: 29px;
-    width: 100px;
     position: absolute;
     margin-top: 64px;
-    margin-left: 49%;
     line-height: 29px;
+    right: 7%;
 }
 
 .goodsprice{
-	position: absolute;
-    width: 24px;
-    margin-top: 0px;
-    margin-left: -1%;
+	position: relative;
 }
 
 .goodsprice1{
-	position: absolute;
-    width: 50px;
-    margin-top: 0px;
-    margin-left: -1%;
+	position: relative;
 }
 
 
