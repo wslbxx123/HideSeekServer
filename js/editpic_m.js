@@ -70,9 +70,9 @@ $("#mydata").click(function(){
 	}
 	
 	//检验地区填写框
-	if(sessionStorage.getItem("region") == null){
+	if(sessionStorage.getItem("region") == "null"){
 		$(".cityinput").val("未设置");
-		region = null;
+		region = "";
 	}
 	else{
 		$(".cityinput").val(sessionStorage.getItem("region"));
