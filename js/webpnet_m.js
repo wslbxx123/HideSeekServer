@@ -699,13 +699,13 @@ function purRemoveOne(){
 }
 
 function exAddOne(){
-	$(".goodsNum1").val(parseInt($(".goodsNum").val())+1);
+	$(".goodsNum1").val(parseInt($(".goodsNum1").val())+1);
 	$(".goodsNum1").change();
 }
 
 function exRemoveOne(){
 	if($(".goodsNum1").val()>0){
-		$(".goodsNum1").val(parseInt($(".goodsNum").val())-1);
+		$(".goodsNum1").val(parseInt($(".goodsNum1").val())-1);
 		$(".goodsNum1").change();
 	}
 }
