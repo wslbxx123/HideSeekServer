@@ -422,7 +422,7 @@ document.getElementById("myorder").onclick = function(){
 						  + "&store_id=" + result.result.orders[getId1].store_id
 						  + "&count=" + result.result.orders[getId1].count; 
 			    	var enteralipay = {
-						url: "/index.php/home/store/createOrderFromWeb",
+						url: "/index.php/home/store/createOrderFromH5",
 						type: 'POST',
 						data:data,
 						success: function(result, status) {
@@ -529,7 +529,7 @@ function getPath(obj,fileQuery,transImg){
 		    	obj.src = fileQuery.value ;
 	   		 }
 			else{ 
-		    	throw new Error('上传图片格式有误，请重新上传!') ;
+		    	throw new Error('上传图片格式有误，请重新上传!') ;  
 		    }
 	 
 	    }
