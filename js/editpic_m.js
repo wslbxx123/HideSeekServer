@@ -288,11 +288,11 @@ document.getElementById("matchId").onclick = function(){
 	}
 	
 	function mymessagesUpload(){
-		if(document.getElementById("sex").value = "未设置"){
+		if(document.getElementById("sex").value == "未设置"){
 			sex = 0;
 		}
 		
-		if(document.getElementById("citySelect1").value = "未设置"){
+		if(document.getElementById("citySelect1").value == "未设置"){
 			alert(1);
 			region = null;
 		}
