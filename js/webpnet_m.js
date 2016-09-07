@@ -277,8 +277,8 @@ $(function(){
 				   		$("#confirmpay").click(function(){
 				   			alert($("#scoreNum").html());
 				   			alert(gNum);
-				   			if($(parseInt("#scoreNum").html())>=parseInt(gNum)){
-				   				$("#scoreNum").html($(parseInt("#scoreNum").html())-parseInt(gNum));
+				   			if(parseInt($("#scoreNum").html())>=parseInt(gNum)){
+				   				$("#scoreNum").html(parseInt($("#scoreNum").html())-parseInt(gNum));
 				   				var data = "session_id=" + sessionStorage.getItem("sessionid")
 									  + "&reward_id=" + result.result.reward[getId].pk_id
 									  + "&count=" + $(".goodsNum1").val(); 
