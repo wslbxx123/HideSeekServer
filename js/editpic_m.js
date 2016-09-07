@@ -297,7 +297,7 @@ document.getElementById("matchId").onclick = function(){
 			region = null;
 		}
 		else{
-			alert(1);
+			alert(2);
 			region = document.getElementById("citySelect1").value;
 		}
 		
