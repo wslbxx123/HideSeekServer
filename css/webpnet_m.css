@@ -1044,6 +1044,7 @@ p.tip{
     text-decoration: none;
     cursor: pointer;
     display: none;
+    list-style-type: none;
 }
 
 #backgroundpic{
