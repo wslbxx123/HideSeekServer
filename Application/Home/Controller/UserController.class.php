@@ -32,7 +32,7 @@ class UserController extends BaseController {
         AccountManager::updateSessionToken($phone, $password);
         $_SESSION['pk_id'] = $account["pk_id"];
         $account["session_id"] = session_id();
-        $account["friend_request"] = FriendRequestManager::
+        $account["friend_requests"] = FriendRequestManager::
                 getFriendRequests($account['pk_id']);
         
         BaseUtil::echoJson(CodeParam::SUCCESS, $account);
