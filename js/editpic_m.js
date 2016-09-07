@@ -199,6 +199,7 @@ $("#refreshData").click(function(){
 	}
 	
 	$("#dataArea").fadeOut(); 
+	$("#storecover").fadeOut();
 });
 
 
