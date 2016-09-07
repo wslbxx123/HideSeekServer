@@ -293,11 +293,14 @@ document.getElementById("matchId").onclick = function(){
 		}
 		
 		if(document.getElementById("citySelect1").value = "未设置"){
+			alert(1);
 			region = null;
 		}
 		else{
+			alert(1);
 			region = document.getElementById("citySelect1").value;
 		}
+		
 		//对于是否上传图像进行判断处理
 		if(mypictureExist){
 			data = "phone=" + document.getElementById("userphone").value 
@@ -346,11 +349,7 @@ document.getElementById("matchId").onclick = function(){
 						sessionStorage.setItem("sessionid", result["result"]["session_id"]);
 						sessionStorage.setItem("sex", result["result"]["sex"]);
 						sessionStorage.setItem("region", result["result"]["region"]);
-						nickname = sessionStorage.getItem("nickname");
-						record = sessionStorage.getItem("record");
-						myimgpath = sessionStorage.getItem("myimgpath");
-						sex = sessionStorage.getItem("sex");
-						region = sessionStorage.getItem("region");
+	
 						$("#nickname").html($("#userName").val());
 						$("#scoreNum").html(Num);
 						$("#myimg").attr('src',$(".photo").attr("src"));
