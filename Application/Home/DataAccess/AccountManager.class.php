@@ -145,7 +145,7 @@ class AccountManager {
     
     public function searchAccounts($accountId, $searchWord) {
         $Dao = M("account");
-        $sql = "call admin_search_accounts($accountId, ‘$searchWord’)";
+        $sql = "call admin_search_accounts($accountId, '$searchWord')";
         $accountList = $Dao->query($sql);
         return $accountList;
     }
