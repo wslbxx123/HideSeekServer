@@ -31,6 +31,9 @@ $(function(){
 		$("#myorder").fadeOut();
 		$("#orderArea").fadeOut();
 		getClick = false;
+		$(".photo").attr("src","img/mypicture.png");
+		$("#sex").val("未设置");
+		$(".cityinput").val("未设置");
 	});
 	
 	//点击右上角叉号删除页面
