@@ -255,9 +255,6 @@ $(function(){
 				    getDiv.id = i;
 					getDiv.innerHTML= "兑换";
 				    newDiv.appendChild(getDiv);   
-				    $("#"+i).click(function(){
-				    	alert("#"+i);
-				    });
 				}
 				//点击兑换后是否有用户名存在判断
 				$(".exGet").click(function(){
@@ -266,6 +263,7 @@ $(function(){
 				    }
 				   
 				    else{
+				    	alert(15);
 				    	$("#storecover").css("height",$("body").height()-58+"px");
 				    	$("#storecover").fadeIn();
 				   		getId = $(this).attr("id");
@@ -277,9 +275,10 @@ $(function(){
 				   		});
 				   		$("#confirmexchange").fadeIn();
 				   		$("#confirmpay").click(function(){
-				   			alert(getId);
-				   			if($("#scoreNum").html()>=gNum){
-				   				$("#scoreNum").html($("#scoreNum").html()-gNum);
+				   			alert($("#scoreNum").html());
+				   			alert(gNum);
+				   			if($(parseInt("#scoreNum").html())>=parseInt(gNum)){
+				   				$("#scoreNum").html($(parseInt("#scoreNum").html())-parseInt(gNum));
 				   				var data = "session_id=" + sessionStorage.getItem("sessionid")
 									  + "&reward_id=" + result.result.reward[getId].pk_id
 									  + "&count=" + $(".goodsNum1").val(); 
