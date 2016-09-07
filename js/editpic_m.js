@@ -47,13 +47,23 @@ $('#mycamera').change(function(e){
 $("#mydata").click(function(){
 	$("#dataArea").fadeIn();
 	$("#userName1").val($("#nickname").html());
+	
+	//检验性别填写框
 	if(sessionStorage.getItem("sex") == 0){
 		$("#sex1").val("未设置");
 	}
 	else{
 		$("#sex1").val($(sessionStorage.getItem("sex")).text());
 	}
-	$(".cityinput").val(sessionStorage.getItem("region"));
+	
+	//检验地区填写框
+	if(sessionStorage.getItem("region") == null){
+		$(".cityinput").val("未设置");
+	}
+	else{
+		$(".cityinput").val(sessionStorage.getItem("region"));
+	}
+	
 	$(".photo").attr('src',sessionStorage.getItem("myimgpath")); 
 });
 
