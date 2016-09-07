@@ -35,6 +35,7 @@ class AccountManager {
     public function updateFriendNum($accountId, $friendNum) {
         $Dao = M("account");
         $account['friend_num'] = $friendNum;
+        echo $friendNum;
         $condition['pk_id'] = $accountId;
         $Dao->where($condition)->save($account);
         return $friendNum;
