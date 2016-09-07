@@ -9,6 +9,7 @@ var changename = false;
 var mypictureExist = false;//判断是否上传头像；
 var data;
 var sex;
+var region;
 
 $("#sex").click(function(){
 	$(".sexArea").fadeIn();
@@ -60,13 +61,11 @@ $("#mydata").click(function(){
 	if(sessionStorage.getItem("region") == "null"){
 		alert("2");
 		$(".cityinput").val("未设置");
-	}
-	if(sessionStorage.getItem("region") == null){
-		alert("1");
-		$(".cityinput").val("未设置");
+		region = null;
 	}
 	else{
 		$(".cityinput").val(sessionStorage.getItem("region"));
+		region = $(".cityinput").val();
 	}
 	
 	$(".photo").attr('src',sessionStorage.getItem("myimgpath")); 
@@ -287,7 +286,7 @@ document.getElementById("matchId").onclick = function(){
 					+ "&nickname="+ document.getElementById("userName").value
 					+ "&password="+ document.getElementById("passwd1").value
 					+ "&sex="+ sex
-					+ "&region=" + document.getElementById("citySelect").value
+					+ "&region=" + region
 					+ "&role=" + myId
 					+ "&photo_url=" + encodeURIComponent($(".photo").attr("src"));
 		}
@@ -296,7 +295,7 @@ document.getElementById("matchId").onclick = function(){
 					+ "&nickname="+ document.getElementById("userName").value
 					+ "&password="+ document.getElementById("passwd1").value
 					+ "&sex="+ sex
-					+ "&region=" + document.getElementById("citySelect").value
+					+ "&region=" + region
 					+ "&role=" + myId;
 		}
 					
