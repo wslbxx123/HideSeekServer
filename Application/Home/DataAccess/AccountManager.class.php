@@ -32,6 +32,14 @@ class AccountManager {
         $Dao->where($condition)->save($account);
     }
     
+    public function updateFriendSum($accountId, $friendSum) {
+        $Dao = M("account");
+        $account['friend_sum'] = $friendSum;
+        $condition['pk_id'] = $accountId;
+        $Dao->where($condition)->save($account);
+        return $friendSum;
+    }
+    
     public function getAccount($accountId) {
         $Dao = M("account");
         $condition['pk_id'] = $accountId;

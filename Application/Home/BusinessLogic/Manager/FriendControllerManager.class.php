@@ -58,4 +58,18 @@ class FriendControllerManager {
         
         return true;
     }
+    
+    public function checkAcceptFriendInfo($sessionId, $accountId, $friendId) {
+        if(!isset($sessionId) || $accountId == 0) {
+            BaseUtil::echoJson(CodeParam::NOT_LOGIN, null);
+            return false;
+        }
+        
+        if(!isset($friendId)) {
+            BaseUtil::echoJson(CodeParam::FRIEND_ID_EMPTY, null);
+            return false;
+        }
+        
+        return true;
+    }
 }
