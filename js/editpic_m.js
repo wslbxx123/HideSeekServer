@@ -54,7 +54,7 @@ $("#mydata").click(function(){
 		$("#sex1").val("未设置");
 	}
 	else{
-		$("#sex1").val($(sessionStorage.getItem("sex")).text());
+		$("#sex1").val($("#"+sessionStorage.getItem("sex")).text());
 	}
 	
 	//检验地区填写框
