@@ -15,19 +15,17 @@ $("#sex").click(function(){
 	$(".sexArea").fadeIn();
 });
 
+$("#sex1").click(function(){
+	$(".sexArea").fadeIn();
+});
+
 $('.sexArea li').click(function(){
-	alert($(this).text());
     $('#sex').val($(this).text());
+    $('#sex1').val($(this).text());
     $(".sexArea").fadeOut();
     sex = $(this).attr('class');
     alert(sex);
 });
-
-$("#sex1").click(function(){
-	
-});
-
-
 //头像上传处理
 $('#mycamera').change(function(e){
 	$(".photo").attr("src","img/mypicture.png");
@@ -54,8 +52,7 @@ $("#mydata").click(function(){
 		$("#sex1").val("未设置");
 	}
 	else{
-		alert()
-		$("#sex1").val($(".sexArea1 ."+sessionStorage.getItem("sex")).text());
+		$("#sex1").val($(".sexArea ."+sessionStorage.getItem("sex")).text());
 	}
 	
 	//检验地区填写框
@@ -138,12 +135,12 @@ $("#refreshData").click(function(){
 		$.ajax(updateNickname);		
 	}
 
-	if($("#sex1").attr('class') != sessionStorage.getItem("sex")){
+	if(sex != sessionStorage.getItem("sex")){
 		var updateSex = {
 			url: "/index.php/home/user/updateSex",	
 			type: 'POST',
 			data: "session_id=" + sessionStorage.getItem("sessionid") 
-					+ "&sex="+ $("#sex1").attr('class'),
+					+ "&sex="+ sex,
 			dataType: "json",
 			
 			success: function(result, status) {
@@ -164,8 +161,8 @@ $("#refreshData").click(function(){
 	}
 
 	if($(".cityinput").val() != sessionStorage.getItem("region")){
-		var updateSex = {
-			url: "/index.php/home/user/updateSex",	
+		var updateRegion = {
+			url: "/index.php/home/user/updateRegion",	
 			type: 'POST',
 			data: "session_id=" + sessionStorage.getItem("sessionid") 
 					+ "&region="+ $(".cityinput").val(),
@@ -185,7 +182,7 @@ $("#refreshData").click(function(){
 				alert("网络出现问题！");
 			}
 		};
-		$.ajax(updateSex);		
+		$.ajax(updateRegion);		
 	}
 	
 	$("#dataArea").fadeOut(); 
