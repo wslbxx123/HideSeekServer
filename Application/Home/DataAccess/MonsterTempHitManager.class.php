@@ -7,8 +7,9 @@ namespace Home\DataAccess;
  */
 class MonsterTempHitManager {
     public function insertMonsterTempHit($goalId, $accountId, $accountRole, $valid) {
+        $Dao = M("monster_temp_hit");
+        
         if($valid == 1) {
-            $Dao = M("monster_temp_hit");
             $data['goal_id'] = $goalId;
             $data['account_id'] = $accountId;
             $data['account_role'] = $accountRole;
