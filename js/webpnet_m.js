@@ -278,6 +278,17 @@ $(function(){
 				   		$("#confirmpay").click(function(){
 				   			if($("#scoreNum").html()>=gNum){
 				   				$("#scoreNum").html($("#scoreNum").html()-gNum);
+				   				var data = "session_id=" + sessionStorage.getItem("sessionid")
+									  + "&reward_id=" + result.result.reward[getId].pk_id
+									  + "&count=" + $(".goodsNum1").val(); 
+								var createExchangeOrder = {
+									url: "/index.php/home/store/createExchangeOrder",
+									type: 'POST',
+									data:data,
+									success: function(result, status) {
+									},
+								};
+								$.ajax(createExchangeOrder);
 				   			}
 				   			else{
 				   				alert("亲，积分不足！")
