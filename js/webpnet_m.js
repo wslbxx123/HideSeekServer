@@ -268,6 +268,7 @@ $(function(){
 				    	$("#storecover").css("height",$("body").height()-58+"px");
 				    	$("#storecover").fadeIn();
 				   		getId = $(this).attr("id");
+				   		alert(getId);
 				   		var gNum = $(".goodsNum1").val()*result.result.reward[getId].record+"积分";
 				   		$(".goodsName").html(result.result.reward[getId].reward_name);
 				   		$(".goodsprice1").html(gNum);
@@ -276,8 +277,20 @@ $(function(){
 				   		});
 				   		$("#confirmexchange").fadeIn();
 				   		$("#confirmpay").click(function(){
+				   			alert(1);
 				   			if($("#scoreNum").html()>=gNum){
 				   				$("#scoreNum").html($("#scoreNum").html()-gNum);
+				   				var data = "session_id=" + sessionStorage.getItem("sessionid")
+									  + "&reward_id=" + result.result.reward[getId].pk_id
+									  + "&count=" + $(".goodsNum1").val(); 
+								var createExchangeOrder = {
+									url: "/index.php/home/store/createExchangeOrder",
+									type: 'POST',
+									data:data,
+									success: function(result, status) {
+									},
+								};
+								$.ajax(createExchangeOrder);
 				   			}
 				   			else{
 				   				alert("亲，积分不足！")
@@ -419,6 +432,7 @@ $(function(){
 				dataType: "json",
 				
 				success: function(result, status) {
+					alert(JSON.stringify(result));
 					switch(result["code"]){
 						case "10000":
 							sessionid = result["result"]["session_id"];
