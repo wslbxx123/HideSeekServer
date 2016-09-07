@@ -57,7 +57,12 @@ $("#mydata").click(function(){
 	}
 	
 	//检验地区填写框
+	if(sessionStorage.getItem("region") == "null"){
+		alert("2");
+		$(".cityinput").val("未设置");
+	}
 	if(sessionStorage.getItem("region") == null){
+		alert("1");
 		$(".cityinput").val("未设置");
 	}
 	else{
