@@ -158,7 +158,7 @@ class FriendController extends BaseController {
             return;
         }
         
-        $friendNum = AccountManager::updateFriendSum($account['friend_num'] + 1);
+        $friendNum = AccountManager::updateFriendNum($account['friend_num'] + 1);
         BaseUtil::echoJson(CodeParam::SUCCESS, $friendNum);
     }
     
