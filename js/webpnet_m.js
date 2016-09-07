@@ -293,7 +293,7 @@ $(function(){
 	
 	// 实现内部导航的切换
 	document.getElementById("purchase").onclick = function(){
-		var bodyHeight = 322 + Math.ceil(purNum/2)*248+"px";
+		var bodyHeight = 322 + Math.ceil(purNum/2)*258+"px";
 		document.getElementById("purchase").className = "selected";
 		document.getElementById("exchange").className ="";
 		document.getElementById("appdownload").className ="";
@@ -304,7 +304,7 @@ $(function(){
 	}
 	
 	document.getElementById("exchange").onclick = function(){
-		var bodyHeight = 322 + Math.ceil(exNum/2)*248+"px";
+		var bodyHeight = 322 + Math.ceil(exNum/2)*258+"px";
 		document.getElementById("exchange").className = "selected";
 		document.getElementById("purchase").className ="";
 		document.getElementById("appdownload").className ="";
