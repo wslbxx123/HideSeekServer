@@ -29,4 +29,11 @@ class FriendRequestManager {
            
         return $friendRequest;
     }
+    
+    public function getFriendRequests($accountId) {
+        $Dao = M("friend_request");
+        $sql = "call admin_get_temp_hit($accountId)";
+        $friendRequests = $Dao->query($sql);
+        return $friendRequests;
+    }
 }

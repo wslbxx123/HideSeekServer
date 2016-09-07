@@ -150,9 +150,9 @@ class FriendController extends BaseController {
         $friend = AccountManager::getAccount($friendId);
         $version = PullVersionManager::updateFriendVersion();
         FriendManager::insertFriend($account['pk_id'], $friendId, 
-                $friend['remark'], $version);
+                $friend['nickname'], $version);
         FriendManager::insertFriend($friendId, $account['pk_id'], 
-                $account['remark'], $version);
+                $account['nickname'], $version);
         
         if(!FriendControllerManager::acceptFriendRequest($account, $friend)) {
             return;
