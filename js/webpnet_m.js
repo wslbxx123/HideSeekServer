@@ -5,6 +5,7 @@ $(function(){
 	var exNum;	//兑换区的产品数；
 	var getId;	//兑换或者购买按钮的对应ID值；
 	var sessionid;	//session_id变量；
+	var reward_id;
 	// 重新刷新页面获取缓存的数据
 	nickname = sessionStorage.getItem("nickname");
 	record = sessionStorage.getItem("record");
@@ -267,6 +268,7 @@ $(function(){
 				    	$("#storecover").css("height",$("body").height()-58+"px");
 				    	$("#storecover").fadeIn();
 				   		getId = $(this).attr("id");
+				   		reward_id = result.result.reward[getId].pk_id;
 				   		var gNum = $(".goodsNum1").val()*result.result.reward[getId].record+"积分";
 				   		$(".goodsName").html(result.result.reward[getId].reward_name);
 				   		$(".goodsprice1").html(gNum);
@@ -274,27 +276,6 @@ $(function(){
 				   			$(".goodsprice1").html($(".goodsNum1").val()*result.result.reward[getId].record+"积分");
 				   		});
 				   		$("#confirmexchange").fadeIn();
-				   		$("#confirmpay").click(function(){
-				   			alert($("#scoreNum").html());
-				   			alert(gNum);
-				   			if(parseInt($("#scoreNum").html())>=parseInt(gNum)){
-				   				$("#scoreNum").html(parseInt($("#scoreNum").html())-parseInt(gNum));
-				   				var data = "session_id=" + sessionStorage.getItem("sessionid")
-									  + "&reward_id=" + result.result.reward[getId].pk_id
-									  + "&count=" + $(".goodsNum1").val(); 
-								var createExchangeOrder = {
-									url: "/index.php/home/store/createExchangeOrder",
-									type: 'POST',
-									data:data,
-									success: function(result, status) {
-									},
-								};
-								$.ajax(createExchangeOrder);
-				   			}
-				   			else{
-				   				alert("亲，积分不足！")
-				   			}
-				   		});	
 				    }
 				});
 			},
@@ -304,6 +285,27 @@ $(function(){
 	};
 	$.ajax(exStore);
 	
+	$("#confirmpay").click(function(){
+		alert(parseInt($("#scoreNum").html())-parseInt($(".goodsprice1").html()));
+		alert(gNum);
+		if(parseInt($("#scoreNum").html())>=parseInt($(".goodsprice1").html())){
+			$("#scoreNum").html(parseInt($("#scoreNum").html())-parseInt($(".goodsprice1").html()));
+			var data = "session_id=" + sessionStorage.getItem("sessionid")
+				  + "&reward_id=" + reward_id
+				  + "&count=" + $(".goodsNum1").val(); 
+			var createExchangeOrder = {
+				url: "/index.php/home/store/createExchangeOrder",
+				type: 'POST',
+				data:data,
+				success: function(result, status) {
+				},
+			};
+			$.ajax(createExchangeOrder);
+		}
+		else{
+			alert("亲，积分不足！")
+		}
+	});	
 	
 	// 实现内部导航的切换
 	document.getElementById("purchase").onclick = function(){
