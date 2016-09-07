@@ -5,7 +5,6 @@ $(function(){
 	var exNum;	//兑换区的产品数；
 	var getId;	//兑换或者购买按钮的对应ID值；
 	var sessionid;	//session_id变量；
-
 	// 重新刷新页面获取缓存的数据
 	nickname = sessionStorage.getItem("nickname");
 	record = sessionStorage.getItem("record");
@@ -268,7 +267,6 @@ $(function(){
 				    	$("#storecover").css("height",$("body").height()-58+"px");
 				    	$("#storecover").fadeIn();
 				   		getId = $(this).attr("id");
-				   		alert(getId);
 				   		var gNum = $(".goodsNum1").val()*result.result.reward[getId].record+"积分";
 				   		$(".goodsName").html(result.result.reward[getId].reward_name);
 				   		$(".goodsprice1").html(gNum);
@@ -277,7 +275,7 @@ $(function(){
 				   		});
 				   		$("#confirmexchange").fadeIn();
 				   		$("#confirmpay").click(function(){
-				   			alert(1);
+				   			alert(getId);
 				   			if($("#scoreNum").html()>=gNum){
 				   				$("#scoreNum").html($("#scoreNum").html()-gNum);
 				   				var data = "session_id=" + sessionStorage.getItem("sessionid")
