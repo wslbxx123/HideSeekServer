@@ -332,6 +332,7 @@ input.invalid {
 }
 
 #myprofile{
+	height: 36px;
 	right: 17px;
     top: 8px;
     position: absolute;
@@ -1059,9 +1060,9 @@ p.tip{
 
 
 #myimg{
-	height: 31px;
-    width: 31px;
-    margin-top: 1%;
+	height: 34px;
+    width: 34px;
+    margin-top: 1px;
     float: left;
     margin-right: 2px;
 }
