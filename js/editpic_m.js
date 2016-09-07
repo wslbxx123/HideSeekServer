@@ -293,11 +293,9 @@ document.getElementById("matchId").onclick = function(){
 		}
 		
 		if(document.getElementById("citySelect1").value == "未设置"){
-			alert(1);
 			region = null;
 		}
 		else{
-			alert(2);
 			region = document.getElementById("citySelect1").value;
 		}
 		

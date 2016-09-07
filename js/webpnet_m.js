@@ -289,6 +289,7 @@ $(function(){
 									},
 								};
 								$.ajax(createExchangeOrder);
+								alert(1);
 				   			}
 				   			else{
 				   				alert("亲，积分不足！")
