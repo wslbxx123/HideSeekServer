@@ -48,9 +48,11 @@ $("#mydata").click(function(){
 	$("#dataArea").fadeIn();
 	$("#userName1").val($("#nickname").html());
 	if(sessionStorage.getItem("sex") == 0){
-		
+		$("#sex1").val("未设置");
 	}
-	$("#sex1").val($(sessionStorage.getItem("sex")).text());
+	else{
+		$("#sex1").val($(sessionStorage.getItem("sex")).text());
+	}
 	$(".cityinput").val(sessionStorage.getItem("region"));
 	$(".photo").attr('src',sessionStorage.getItem("myimgpath")); 
 });
