@@ -72,7 +72,7 @@ $("#mydata").click(function(){
 	//检验地区填写框
 	if(sessionStorage.getItem("region") == "null"){
 		$(".cityinput").val("未设置");
-		region = "";
+		region = null;
 	}
 	else{
 		$(".cityinput").val(sessionStorage.getItem("region"));
@@ -293,7 +293,7 @@ document.getElementById("matchId").onclick = function(){
 		}
 		
 		if(document.getElementById("citySelect1").value = "未设置"){
-			region = "";
+			region = null;
 		}
 		else{
 			region = document.getElementById("citySelect1").value;
