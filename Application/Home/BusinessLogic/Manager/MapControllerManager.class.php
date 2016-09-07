@@ -58,12 +58,6 @@ class MapControllerManager {
             return false;
         }
         
-        $goal = GoalManager::getGoal($goalId);
-        if($goal['valid'] == 0) {
-            BaseUtil::echoJson(CodeParam::GOAL_DISAPPEAR, null);
-            return false;
-        }
-        
         return true;
     }
 }
