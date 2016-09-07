@@ -456,7 +456,7 @@ input.invalid {
 	float: left;
 	margin-left: 10px;
     margin-top: 10px;
-    height: 35%;
+    height: 248px;
     width: 45%;
     background: white;
     font-size: 14px;
@@ -466,7 +466,7 @@ input.invalid {
 	float: right;
     margin-right: 10px;
     margin-top: 10px;
-    height: 35%;
+    height: 248px;
     width: 45%;
     background: white;
     font-size: 14px;
