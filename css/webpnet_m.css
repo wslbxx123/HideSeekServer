@@ -1230,6 +1230,20 @@ p.tip{
     display: none;  
 }
 
+.sexArea1{
+	text-decoration: none;
+    cursor: pointer;
+    border: 1px solid lightgrey;
+    position: absolute;
+    width: 58%;
+    height: 78px;
+    margin-left: 26%;
+    margin-top: -7px;
+    background-color: white;
+    list-style-type: none;
+    display: none;  
+}
+
 #allorder{
 	height: 380px;
     width: 100%;
