@@ -8,6 +8,7 @@ use Home\Common\Param\KeyParam;
 use Home\DataAccess\AccountManager;
 use Home\BusinessLogic\Network\AlipayManager;
 use Home\BusinessLogic\Manager\UserControllerManager;
+use Home\DataAccess\FriendRequestManager;
 
 class UserController extends BaseController {
     public function login(){
@@ -22,8 +23,7 @@ class UserController extends BaseController {
             return;
         }
         
-        $account = AccountManager::getAccountFromPhonePassword($phone, 
-                $password, $channelId);
+        $account = AccountManager::getAccountFromPhonePassword($phone, $password, $channelId);
         if(!isset($account)) {
             BaseUtil::echoJson(CodeParam::PHONE_OR_PASSWORD_WRONG, null);
             return;
@@ -32,6 +32,8 @@ class UserController extends BaseController {
         AccountManager::updateSessionToken($phone, $password);
         $_SESSION['pk_id'] = $account["pk_id"];
         $account["session_id"] = session_id();
+        $account["friend_requests"] = FriendRequestManager::
+                getFriendRequests($account['pk_id']);
         
         BaseUtil::echoJson(CodeParam::SUCCESS, $account);
     }
