@@ -156,7 +156,7 @@ $("#refreshData").click(function(){
 			success: function(result, status) {
 				switch(result["code"]){
 					case "10000":
-						sessionStorage["sex"] = $("#sex1").val();
+						sessionStorage["sex"] = sex;
 						break;
 				  	case "10003":
 				  		alert("发送信息失败！")
