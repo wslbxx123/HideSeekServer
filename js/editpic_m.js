@@ -361,6 +361,7 @@ document.getElementById("matchId").onclick = function(){
 
 
 document.getElementById("myorder").onclick = function(){
+	$("#storecover").css("height",$("body").height()-58+"px");
 	$("#storecover").fadeIn();
 	$("#orderArea").fadeIn();
 	var orderArea1 = {
@@ -371,6 +372,7 @@ document.getElementById("myorder").onclick = function(){
 			dataType: "json",
 			
 			success: function(result, status) {
+					alert(JSON.stringify(result));
 					$("#listArea").fadeIn();
 					var orderArea = document.getElementById("orderArea");
 					var listArea = document.getElementById("listArea");

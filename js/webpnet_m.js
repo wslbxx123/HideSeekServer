@@ -6,7 +6,6 @@ $(function(){
 	var getId;	//兑换或者购买按钮的对应ID值；
 	var sessionid;	//session_id变量；
 
-	
 	// 重新刷新页面获取缓存的数据
 	nickname = sessionStorage.getItem("nickname");
 	record = sessionStorage.getItem("record");
