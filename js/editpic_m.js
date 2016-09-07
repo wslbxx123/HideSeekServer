@@ -309,7 +309,7 @@ document.getElementById("matchId").onclick = function(){
 					+ "&region=" + region
 					+ "&role=" + myId;
 		}
-					
+		alert(data);
 		var mymessages = {
 			url: "/index.php/home/user/register",	
 			type: 'POST',
