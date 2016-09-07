@@ -1,4 +1,4 @@
-//var sessionid;
+  //var sessionid;
 var roleImages = new Array("img/grassfairy.jpg","img/watermagician.jpg","img/fireknight.jpg","img/stonemonster.jpg","img/lightninggiant.jpg");
 var roleNames = new Array("草魅精灵","水影巫师","火光骑士","岩石兽族","闪电巨人");
 var myId = Math.floor ((Math.random() * roleImages.length));
@@ -8,15 +8,25 @@ var changepic = false;
 var changename = false;
 var mypictureExist = false;//判断是否上传头像；
 var data;
+var sex;
+var region;
 
-//性别未设置删除
 $("#sex").click(function(){
-	$(".display-none").remove();
+	$(".sexArea").fadeIn();
+});
+
+$('.sexArea li').click(function(){
+	alert($(this).text());
+    $('#sex').val($(this).text());
+    $(".sexArea").fadeOut();
+    sex = $(this).attr('class');
+    alert(sex);
 });
 
 $("#sex1").click(function(){
-	$(".display-none1").remove();
+	
 });
+
 
 //头像上传处理
 $('#mycamera').change(function(e){
@@ -38,11 +48,27 @@ $('#mycamera').change(function(e){
 $("#mydata").click(function(){
 	$("#dataArea").fadeIn();
 	$("#userName1").val($("#nickname").html());
+	
+	//检验性别填写框
 	if(sessionStorage.getItem("sex") == 0){
-		
+		$("#sex1").val("未设置");
 	}
-	$("#sex1").val(sessionStorage.getItem("sex"));
-	$(".cityinput").val(sessionStorage.getItem("region"));
+	else{
+		alert()
+		$("#sex1").val($(".sexArea1 ."+sessionStorage.getItem("sex")).text());
+	}
+	
+	//检验地区填写框
+	if(sessionStorage.getItem("region") == "null"){
+		alert("2");
+		$(".cityinput").val("未设置");
+		region = null;
+	}
+	else{
+		$(".cityinput").val(sessionStorage.getItem("region"));
+		region = $(".cityinput").val();
+	}
+	
 	$(".photo").attr('src',sessionStorage.getItem("myimgpath")); 
 });
 
@@ -112,12 +138,12 @@ $("#refreshData").click(function(){
 		$.ajax(updateNickname);		
 	}
 
-	if($("#sex1").val() != sessionStorage.getItem("sex")){
+	if($("#sex1").attr('class') != sessionStorage.getItem("sex")){
 		var updateSex = {
 			url: "/index.php/home/user/updateSex",	
 			type: 'POST',
 			data: "session_id=" + sessionStorage.getItem("sessionid") 
-					+ "&sex="+ $("#sex1").val(),
+					+ "&sex="+ $("#sex1").attr('class'),
 			dataType: "json",
 			
 			success: function(result, status) {
@@ -252,14 +278,16 @@ document.getElementById("matchId").onclick = function(){
 	}
 	
 	function mymessagesUpload(){
-		var index=document.getElementById("sex").selectedIndex;
+		if(sex ==""){
+			sex = 0;
+		}
 		//对于是否上传图像进行判断处理
 		if(mypictureExist){
 			data = "phone=" + document.getElementById("userphone").value 
 					+ "&nickname="+ document.getElementById("userName").value
 					+ "&password="+ document.getElementById("passwd1").value
-					+ "&sex="+ $("#sex").val()
-					+ "&region=" + document.getElementById("citySelect").value
+					+ "&sex="+ sex
+					+ "&region=" + region
 					+ "&role=" + myId
 					+ "&photo_url=" + encodeURIComponent($(".photo").attr("src"));
 		}
@@ -267,8 +295,8 @@ document.getElementById("matchId").onclick = function(){
 			data = "phone=" + document.getElementById("userphone").value 
 					+ "&nickname="+ document.getElementById("userName").value
 					+ "&password="+ document.getElementById("passwd1").value
-					+ "&sex="+ $("#sex").val()
-					+ "&region=" + document.getElementById("citySelect").value
+					+ "&sex="+ sex
+					+ "&region=" + region
 					+ "&role=" + myId;
 		}
 					

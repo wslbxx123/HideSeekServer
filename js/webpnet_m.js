@@ -22,7 +22,6 @@ $(function(){
 		$("#myorder").fadeIn();
 	}
 	
-	
 	// 清除缓存
 	$("#exit").click(function(){
 		sessionStorage.clear();

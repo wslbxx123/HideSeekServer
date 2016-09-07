@@ -916,11 +916,9 @@ p.tip{
 }
 
 .cityinput{
-	width: 58%;
     height: 30px;
     line-height: 24px;
     background: url(../img/arrow.png) no-repeat scroll right center transparent;
-    font-size: 14px;
 }
 
 #matchId{
@@ -1216,6 +1214,34 @@ p.tip{
 
 #sex1{
 	margin-left: 5px;
+}
+
+.sexArea{
+	text-decoration: none;
+    cursor: pointer;
+    border: 1px solid lightgrey;
+    position: absolute;
+    width: 58%;
+    height: 78px;
+    margin-left: 26%;
+    margin-top: -7px;
+    background-color: white;
+    list-style-type: none;
+    display: none;  
+}
+
+.sexArea1{
+	text-decoration: none;
+    cursor: pointer;
+    border: 1px solid lightgrey;
+    position: absolute;
+    width: 58%;
+    height: 78px;
+    margin-left: 26%;
+    margin-top: -7px;
+    background-color: white;
+    list-style-type: none;
+    display: none;  
 }
 
 #allorder{
