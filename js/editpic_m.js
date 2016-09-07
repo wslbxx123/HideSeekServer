@@ -288,7 +288,7 @@ document.getElementById("matchId").onclick = function(){
 	}
 	
 	function mymessagesUpload(){
-		if(sex ==""){
+		if(document.getElementById("sex").value = "未设置"){
 			sex = 0;
 		}
 		
