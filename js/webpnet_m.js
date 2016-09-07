@@ -276,6 +276,7 @@ $(function(){
 				   		});
 				   		$("#confirmexchange").fadeIn();
 				   		$("#confirmpay").click(function(){
+				   			alert(1);
 				   			if($("#scoreNum").html()>=gNum){
 				   				$("#scoreNum").html($("#scoreNum").html()-gNum);
 				   				var data = "session_id=" + sessionStorage.getItem("sessionid")
@@ -289,7 +290,6 @@ $(function(){
 									},
 								};
 								$.ajax(createExchangeOrder);
-								alert(1);
 				   			}
 				   			else{
 				   				alert("亲，积分不足！")
