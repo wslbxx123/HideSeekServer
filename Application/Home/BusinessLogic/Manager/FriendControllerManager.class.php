@@ -3,8 +3,9 @@
 namespace Home\BusinessLogic\Manager;
 use Home\Common\Util\BaseUtil;
 use Home\Common\Param\CodeParam;
-use Home\BusinessLogic\Network\BaiduIMManager;
+use Home\BusinessLogic\Network\TencentIMManager;
 use Home\DataAccess\FriendRequestManager;
+use Home\DataAccess\FriendManager;
 /**
  * 处理朋友控制器的逻辑类
  *
@@ -36,9 +37,10 @@ class FriendControllerManager {
                     $friend['pk_id'], $message);
         } else {
             $account['password'] = "";
-            if(!BaiduIMManager::sendFriendRequest($friend['channel_id'], 
-                    "你收到一个好友请求",
+            if(!TencentIMManager::pushSingleAccountIOS($friend['phone'], 
+                    "FRIEND_REQUEST_MESSAGE", [], 
                     $account, $message, 1)) {
+                BaseUtil::echoJson(CodeParam::FAIL_SEND_MESSAGE, null);
                 return false;
             }
         }
@@ -47,8 +49,13 @@ class FriendControllerManager {
     }
     
     public function acceptFriendRequest($account, $friend) {
-        return BaiduIMManager::sendFriendRequest($friend['channel_id'], 
-                    $friend['nickname']."接受你的好友请求",
-                    $account, null, 2);
+        if(!TencentIMManager::pushSingleAccountIOS($friend['phone'], 
+                    "FRIEND_ACCEPT_MESSAGE", [$friend['nickname']],
+                    $account, null, 2)) {
+            BaseUtil::echoJson(CodeParam::FAIL_SEND_MESSAGE, null);
+            return false;
+        }
+        
+        return true;
     }
 }

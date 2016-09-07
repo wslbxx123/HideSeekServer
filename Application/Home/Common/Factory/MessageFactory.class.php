@@ -117,6 +117,8 @@ class MessageFactory {
                 return MessageParam::REQUEST_MESSAGE_EMPTY;
             case CodeParam::SEARCH_MYSELF:
                 return MessageParam::SEARCH_MYSELF;
+            case CodeParam::FRIEND_REMARK_EMPTY:
+                return MessageParam::FRIEND_REMARK_EMPTY;
             default:
                 return null;
         }

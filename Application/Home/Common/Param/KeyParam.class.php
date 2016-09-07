@@ -13,4 +13,7 @@ class KeyParam {
     const ALIPAY_CACERT_PATH = "Application/Resources/key/cacert.pem";
     
     const SMS_KEY = "1ceb0303d0a985b2a64ae84f023481c5";
+    
+    const ACCESS_ID = 2200218505;
+    const SECRET_KEY = "ae636fc29df1f602df4e2de998bf5a18";
 }

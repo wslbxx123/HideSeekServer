@@ -36,6 +36,21 @@ class UserController extends BaseController {
         BaseUtil::echoJson(CodeParam::SUCCESS, $account);
     }
     
+    public function logout(){
+        self::setHeader();
+        session_destroy();
+        $sessionId = filter_input(INPUT_POST, 'session_id');
+        $accountId = $this->getPkIdFromToken($sessionId);
+        
+        if(!isset($sessionId) || $accountId == 0) {
+            BaseUtil::echoJson(CodeParam::NOT_LOGIN, null);
+            return;
+        }
+        AccountManager::clearChannelId($accountId);
+        
+        BaseUtil::echoJson(CodeParam::SUCCESS, null);
+    }
+    
     public function register() {
         self::setHeader();
         session_start();
@@ -111,8 +126,9 @@ class UserController extends BaseController {
             return;
         }
         
-        $tempFileName = "Upload_".session_id()."_".strtotime("now");
-        $photoUrl = FileUtil::saveRealPhoto($photo, $photoDataUrl, $tempFileName);
+        $tempRealFileName = "Real_".session_id()."_".strtotime("now");
+        $tempSmallFileName = "Small_".session_id()."_".strtotime("now");
+        $photoUrl = FileUtil::saveRealPhoto($photo, $photoDataUrl, $tempRealFileName);
         
         if(isset($photo) && !isset($photoUrl)) {
             BaseUtil::echoJson(CodeParam::FAIL_UPLOAD_PHOTO, null);
@@ -120,7 +136,7 @@ class UserController extends BaseController {
         }
         
         $smallPhotoUrl = FileUtil::saveSmallPhoto($photoUrl, 
-                $tempFileName, 200, 200);
+                $tempSmallFileName, 200, 200);
         
         AccountManager::updatePhoto($accountId, $photoUrl, $smallPhotoUrl);
         
