@@ -35,6 +35,26 @@ $('.sexArea li').click(function(){
     $(".sexArea").fadeOut();
     sex = $(this).attr('class');
 });
+
+//检验性别填写框
+if(sessionStorage.getItem("sex") == 0){
+	$("#sex1").val("未设置");
+}
+else{
+	$("#sex1").val($(".sexArea ."+sessionStorage.getItem("sex")).text());
+}
+
+//检验地区填写框
+if(sessionStorage.getItem("region") == "undefined"){
+	$(".cityinput").val("未设置");
+	region = "undefined";
+}
+else{
+	$(".cityinput").val(sessionStorage.getItem("region"));
+	region = $(".cityinput").val();
+}
+
+
 //头像上传处理
 $('#mycamera').change(function(e){
 	$(".photo").attr("src","img/mypicture.png");
@@ -59,23 +79,6 @@ $("#mydata").click(function(){
 	$("body").css("height","590px");
 	$("#storecover").css("height","590px");
 	$("#storecover").fadeIn(); 
-	//检验性别填写框
-	if(sessionStorage.getItem("sex") == 0){
-		$("#sex1").val("未设置");
-	}
-	else{
-		$("#sex1").val($(".sexArea ."+sessionStorage.getItem("sex")).text());
-	}
-	
-	//检验地区填写框
-	if(sessionStorage.getItem("region") == "null"){
-		$(".cityinput").val("未设置");
-		region = null;
-	}
-	else{
-		$(".cityinput").val(sessionStorage.getItem("region"));
-		region = $(".cityinput").val();
-	}
 	
 	$(".photo").attr('src',sessionStorage.getItem("myimgpath")); 
 });
