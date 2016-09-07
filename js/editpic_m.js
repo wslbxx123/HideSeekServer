@@ -34,7 +34,6 @@ $('.sexArea li').click(function(){
     $('#sex1').val($(this).text());
     $(".sexArea").fadeOut();
     sex = $(this).attr('class');
-    alert(sex);
 });
 //头像上传处理
 $('#mycamera').change(function(e){
@@ -70,7 +69,6 @@ $("#mydata").click(function(){
 	
 	//检验地区填写框
 	if(sessionStorage.getItem("region") == "null"){
-		alert("2");
 		$(".cityinput").val("未设置");
 		region = null;
 	}
@@ -94,7 +92,6 @@ $('#mycamera1').change(function(){
 
 $("#refreshData").click(function(){
 	if(changepic){
-//		alert(10);
 		var updatePhotoUrl = {
 			url: "/index.php/home/user/updatePhotoUrl",	
 			type: 'POST',
@@ -376,7 +373,7 @@ document.getElementById("myorder").onclick = function(){
 			dataType: "json",
 			
 			success: function(result, status) {
-					alert(JSON.stringify(result));
+//					alert(JSON.stringify(result));
 					$("#listArea").fadeIn();
 					var orderArea = document.getElementById("orderArea");
 					var listArea = document.getElementById("listArea");
@@ -693,7 +690,6 @@ function getPath(obj,fileQuery,transImg){
 
 				//如果方向角不为1，都需要进行旋转  
 	        if(Orientation != "" && Orientation != 1&&Orientation !=null){
-//	        	alert(3);
 	        	switch(Orientation){
 	        		case 6://需要顺时针（向左）90度旋转  
 	                    rotateImg(mypicture,'left');  
@@ -705,17 +701,15 @@ function getPath(obj,fileQuery,transImg){
 	        	cover.translate(0,0);
 		        cover.rotate(-90 * Math.PI / 180);
 		        cover.translate(-250,-250);
-//		    	alert(2);
 	        }
 	        
 	        function rotateImg(img,direction){
 	        	if (direction == 'left') {
-//	        		alert(1);
- 					var degree = 90 * Math.PI / 180; 	
- 					cover.translate(250,250);
- 					cover.rotate(degree);
- 					cover.drawImage(img,-250,-250,500,500);
-				}
+		 					var degree = 90 * Math.PI / 180; 	
+		 					cover.translate(250,250);
+		 					cover.rotate(degree);
+		 					cover.drawImage(img,-250,-250,500,500);
+						}
 	        }
 	       
 	        
