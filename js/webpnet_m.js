@@ -6,7 +6,6 @@ $(function(){
 	var getId;	//兑换或者购买按钮的对应ID值；
 	var sessionid;	//session_id变量；
 
-	
 	// 重新刷新页面获取缓存的数据
 	nickname = sessionStorage.getItem("nickname");
 	record = sessionStorage.getItem("record");
@@ -31,6 +30,9 @@ $(function(){
 		$("#myorder").fadeOut();
 		$("#orderArea").fadeOut();
 		getClick = false;
+		$(".photo").attr("src","img/mypicture.png");
+		$("#sex").val("未设置");
+		$(".cityinput").val("未设置");
 	});
 	
 	//点击右上角叉号删除页面
@@ -291,7 +293,7 @@ $(function(){
 	
 	// 实现内部导航的切换
 	document.getElementById("purchase").onclick = function(){
-		var bodyHeight = 400 + Math.ceil(purNum/2)*220+"px";
+		var bodyHeight = 322 + Math.ceil(purNum/2)*258+"px";
 		document.getElementById("purchase").className = "selected";
 		document.getElementById("exchange").className ="";
 		document.getElementById("appdownload").className ="";
@@ -302,7 +304,7 @@ $(function(){
 	}
 	
 	document.getElementById("exchange").onclick = function(){
-		var bodyHeight = 400 + Math.ceil(exNum/2)*220+"px";
+		var bodyHeight = 322 + Math.ceil(exNum/2)*258+"px";
 		document.getElementById("exchange").className = "selected";
 		document.getElementById("purchase").className ="";
 		document.getElementById("appdownload").className ="";
@@ -697,13 +699,13 @@ function purRemoveOne(){
 }
 
 function exAddOne(){
-	$(".goodsNum1").val(parseInt($(".goodsNum").val())+1);
+	$(".goodsNum1").val(parseInt($(".goodsNum1").val())+1);
 	$(".goodsNum1").change();
 }
 
 function exRemoveOne(){
 	if($(".goodsNum1").val()>0){
-		$(".goodsNum1").val(parseInt($(".goodsNum").val())-1);
+		$(".goodsNum1").val(parseInt($(".goodsNum1").val())-1);
 		$(".goodsNum1").change();
 	}
 }

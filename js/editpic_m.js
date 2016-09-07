@@ -56,7 +56,9 @@ $('#mycamera').change(function(e){
 $("#mydata").click(function(){
 	$("#dataArea").fadeIn();
 	$("#userName1").val($("#nickname").html());
-	
+	$("body").css("height","590px");
+	$("#storecover").css("height","590px");
+	$("#storecover").fadeIn(); 
 	//检验性别填写框
 	if(sessionStorage.getItem("sex") == 0){
 		$("#sex1").val("未设置");
@@ -156,7 +158,7 @@ $("#refreshData").click(function(){
 			success: function(result, status) {
 				switch(result["code"]){
 					case "10000":
-						sessionStorage["sex"] = $("#sex1").val();
+						sessionStorage["sex"] = sex;
 						break;
 				  	case "10003":
 				  		alert("发送信息失败！")
@@ -361,16 +363,18 @@ document.getElementById("matchId").onclick = function(){
 
 
 document.getElementById("myorder").onclick = function(){
+	$("#storecover").css("height",$("body").height()-58+"px");
 	$("#storecover").fadeIn();
 	$("#orderArea").fadeIn();
 	var orderArea1 = {
-			url: "/index.php/home/store/createOrderFromH5",
+			url: "/index.php/home/store/refreshPurchaseOrders",
 			type: 'POST',
 			data: "version=0&order_min_id=0"+
 			"&session_id=" + sessionStorage.getItem("sessionid"),
 			dataType: "json",
 			
 			success: function(result, status) {
+					alert(JSON.stringify(result));
 					$("#listArea").fadeIn();
 					var orderArea = document.getElementById("orderArea");
 					var listArea = document.getElementById("listArea");
@@ -420,7 +424,7 @@ document.getElementById("myorder").onclick = function(){
 						  + "&store_id=" + result.result.orders[getId1].store_id
 						  + "&count=" + result.result.orders[getId1].count; 
 			    	var enteralipay = {
-						url: "/index.php/home/store/createOrderFromWeb",
+						url: "/index.php/home/store/createOrderFromH5",
 						type: 'POST',
 						data:data,
 						success: function(result, status) {
@@ -527,7 +531,7 @@ function getPath(obj,fileQuery,transImg){
 		    	obj.src = fileQuery.value ;
 	   		 }
 			else{ 
-		    	throw new Error('上传图片格式有误，请重新上传!') ;
+		    	throw new Error('上传图片格式有误，请重新上传!') ;  
 		    }
 	 
 	    }

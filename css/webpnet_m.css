@@ -456,7 +456,7 @@ input.invalid {
 	float: left;
 	margin-left: 10px;
     margin-top: 10px;
-    height: 35%;
+    height: 248px;
     width: 45%;
     background: white;
     font-size: 14px;
@@ -466,14 +466,14 @@ input.invalid {
 	float: right;
     margin-right: 10px;
     margin-top: 10px;
-    height: 35%;
+    height: 248px;
     width: 45%;
     background: white;
     font-size: 14px;
 }
 
 .productImg{
-	width: 118px;
+	width: 114px;
     height: 98px;
     margin-top: 22px;
     left: 9%;
@@ -481,7 +481,7 @@ input.invalid {
 }
 
 .productImg1{
-	width: 118px;
+	width: 114px;
     height: 98px;
     margin-top: 22px;
     left: 63%;
@@ -1044,6 +1044,7 @@ p.tip{
     text-decoration: none;
     cursor: pointer;
     display: none;
+    list-style-type: none;
 }
 
 #backgroundpic{
@@ -1084,7 +1085,7 @@ p.tip{
     height: 420px;
     border: 2px solid grey;
     width: 94%;
-    margin-top: -10%;
+    margin-top: -32%;
     margin-left: 3%;
     position: absolute;
     z-index: 50;
@@ -1231,20 +1232,7 @@ p.tip{
     z-index: 55;
     font-size: 14px;
     text-align: center;
-}
-
-.sexArea1{
-	text-decoration: none;
-    cursor: pointer;
-    border: 1px solid lightgrey;
-    position: absolute;
-    width: 58%;
-    height: 78px;
-    margin-left: 26%;
-    margin-top: -7px;
-    background-color: white;
-    list-style-type: none;
-    display: none;  
+    display:none;
 }
 
 #allorder{
