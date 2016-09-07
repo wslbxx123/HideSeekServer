@@ -268,6 +268,7 @@ $(function(){
 				    	$("#storecover").css("height",$("body").height()-58+"px");
 				    	$("#storecover").fadeIn();
 				   		getId = $(this).attr("id");
+				   		alert(getId);
 				   		var gNum = $(".goodsNum1").val()*result.result.reward[getId].record+"积分";
 				   		$(".goodsName").html(result.result.reward[getId].reward_name);
 				   		$(".goodsprice1").html(gNum);
