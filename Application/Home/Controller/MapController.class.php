@@ -76,8 +76,9 @@ class MapController extends BaseController {
             return;
         }    
 
+        $goal = GoalManager::getGoal($goalId);
         $accountArray = MonsterTempHitManager::insertMonsterTempHit($goalId, 
-                $account['pk_id'], $accountRole);
+                $account['pk_id'], $accountRole, $goal['valid']);
         
         $result = MapControllerManager::checkUserInAccountArray($accountArray, 
                 $account['pk_id'], $goalId);
