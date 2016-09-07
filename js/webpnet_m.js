@@ -676,15 +676,14 @@ $(function(){
 
 //	右上角菜单列的显示
 function displaySubMenu() {
-	var subMenu = document.getElementById("flipframe");
-	subMenu.style.display = "block";
+	if($("#flipframe").css("display")=='none'){
+		$("#flipframe").fadeIn();
+	}
+	else{
+		$("#flipframe").fadeOut();
+	}
 }
 
-//	右上角菜单列的隐藏
-function hideSubMenu() {
-	var subMenu = document.getElementById("flipframe");
-	subMenu.style.display = "none";
-}
 
 function purAddOne(){
 	$(".goodsNum").val(parseInt($(".goodsNum").val())+1);
