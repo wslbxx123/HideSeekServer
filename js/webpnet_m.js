@@ -137,6 +137,7 @@ $(function(){
 				   }
 				   
 				   else{
+				   		$("#storecover").css("height",$("body").height()-58+"px");
 				   		$("#storecover").fadeIn();
 				   		$(".goodsNum").val("1");
 				   		getId = $(this).attr("id");
@@ -259,18 +260,19 @@ $(function(){
 				}
 				//点击兑换后是否有用户名存在判断
 				$(".exGet").click(function(){
-				    if (nickname==null){
+				    if (sessionStorage.getItem("nickname")==null){
 				   		alert("请先登录！");
 				    }
 				   
 				    else{
+				    	$("#storecover").css("height",$("body").height()-58+"px");
 				    	$("#storecover").fadeIn();
 				   		getId = $(this).attr("id");
 				   		var gNum = $(".goodsNum1").val()*result.result.reward[getId].record+"积分";
 				   		$(".goodsName").html(result.result.reward[getId].reward_name);
 				   		$(".goodsprice1").html(gNum);
 				   		$('.goodsNum1').change(function(){
-				   			$(".goodsprice1").html($(".goodsNum1").val()*result.result.reward[getId].record+"元");
+				   			$(".goodsprice1").html($(".goodsNum1").val()*result.result.reward[getId].record+"积分");
 				   		});
 				   		$("#confirmexchange").fadeIn();
 				   		$("#confirmpay").click(function(){
@@ -676,15 +678,14 @@ $(function(){
 
 //	右上角菜单列的显示
 function displaySubMenu() {
-	var subMenu = document.getElementById("flipframe");
-	subMenu.style.display = "block";
+	if($("#flipframe").css("display")=='none'){
+		$("#flipframe").fadeIn();
+	}
+	else{
+		$("#flipframe").fadeOut();
+	}
 }
 
-//	右上角菜单列的隐藏
-function hideSubMenu() {
-	var subMenu = document.getElementById("flipframe");
-	subMenu.style.display = "none";
-}
 
 function purAddOne(){
 	$(".goodsNum").val(parseInt($(".goodsNum").val())+1);

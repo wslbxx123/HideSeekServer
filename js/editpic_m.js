@@ -55,6 +55,7 @@ $('#mycamera').change(function(e){
 //个人资料更改区
 $("#mydata").click(function(){
 	$("#dataArea").fadeIn();
+	$("#flipframe").fadeOut();
 	$("#userName1").val($("#nickname").html());
 	$("body").css("height","590px");
 	$("#storecover").css("height","590px");
@@ -198,6 +199,7 @@ $("#refreshData").click(function(){
 	}
 	
 	$("#dataArea").fadeOut(); 
+	$("#storecover").fadeOut();
 });
 
 
