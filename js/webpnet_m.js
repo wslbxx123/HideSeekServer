@@ -275,7 +275,8 @@ $(function(){
 				   		});
 				   		$("#confirmexchange").fadeIn();
 				   		$("#confirmpay").click(function(){
-				   			alert(getId);
+				   			alert($("#scoreNum").html());
+				   			alert(gNum);
 				   			if($("#scoreNum").html()>=gNum){
 				   				$("#scoreNum").html($("#scoreNum").html()-gNum);
 				   				var data = "session_id=" + sessionStorage.getItem("sessionid")
