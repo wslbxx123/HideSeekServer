@@ -287,7 +287,7 @@ $(function(){
 	
 	$("#confirmpay").click(function(){
 		alert(parseInt($("#scoreNum").html())-parseInt($(".goodsprice1").html()));
-		alert(gNum);
+		
 		if(parseInt($("#scoreNum").html())>=parseInt($(".goodsprice1").html())){
 			$("#scoreNum").html(parseInt($("#scoreNum").html())-parseInt($(".goodsprice1").html()));
 			var data = "session_id=" + sessionStorage.getItem("sessionid")
@@ -302,6 +302,7 @@ $(function(){
 			};
 			$.ajax(createExchangeOrder);
 		}
+		
 		else{
 			alert("亲，积分不足！")
 		}
