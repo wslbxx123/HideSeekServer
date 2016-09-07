@@ -37,7 +37,7 @@ class AccountManager {
         $account['friend_num'] = $friendNum;
         $condition['pk_id'] = $accountId;
         $Dao->where($condition)->save($account);
-        return $friendSum;
+        return $friendNum;
     }
     
     public function getAccount($accountId) {
