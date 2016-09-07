@@ -291,6 +291,13 @@ document.getElementById("matchId").onclick = function(){
 		if(sex ==""){
 			sex = 0;
 		}
+		
+		if(document.getElementById("citySelect1").value = "未设置"){
+			region = "";
+		}
+		else{
+			region = document.getElementById("citySelect1").value;
+		}
 		//对于是否上传图像进行判断处理
 		if(mypictureExist){
 			data = "phone=" + document.getElementById("userphone").value 
