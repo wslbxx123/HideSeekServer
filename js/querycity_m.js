@@ -203,9 +203,10 @@ var Vcity = {};
 	        });
 	        div.className = 'citySelector';
 	        div.style.position = 'relative';
-	        div.style.top = '33%';
-	        div.style.marginLeft = '2%';
-	        div.style.width = '95%';
+	        div.style.top = '206px';
+	        div.style.marginLeft = 'auto';
+	        div.style.marginRight = 'auto';
+	        div.style.width = '322px';
 	        div.style.zIndex = 999999;
 	
 	        // 判断是否IE6，如果是IE6需要添加iframe才能遮住SELECT框

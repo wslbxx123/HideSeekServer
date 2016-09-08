@@ -587,6 +587,7 @@ $(function(){
 		
 	//	检验注册界面填写框
 	$("#register").click(function(){
+		$("#storecover").css("height",$("body").height()-58+"px");
 		var allGood = true;
 		var allTags = document.getElementById("newWin1").getElementsByTagName("*");
 		var phone_figures_test;
