@@ -6,6 +6,7 @@ use Home\Common\Param\CodeParam;
 use Home\BusinessLogic\Network\TencentIMManager;
 use Home\DataAccess\FriendRequestManager;
 use Home\DataAccess\FriendManager;
+use Home\DataAccess\AccountManager;
 /**
  * 处理朋友控制器的逻辑类
  *
@@ -50,6 +51,7 @@ class FriendControllerManager {
     
     public function acceptFriendRequest($account, $friend) {
         $friendNum = FriendManager::getFriendSum($friend['pk_id']);
+        AccountManager::updateFriendNum($friend['pk_id'], $friendNum);
         
         if(!TencentIMManager::pushSingleAccountIOS($friend['phone'], 
                     "FRIEND_ACCEPT_MESSAGE", [$friend['nickname']],
