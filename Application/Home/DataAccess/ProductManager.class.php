@@ -48,11 +48,12 @@ class ProductManager {
         );
     }
     
-    public function updatePurchaseCount($storeId) {
+    public function updatePurchaseCount($storeId, $version) {
         $Dao = M("product");
         $condition["pk_id"] = $storeId;
         $store = $Dao->where($condition)->find();
         $store['purchase_count'] = $store['purchase_count'] + 1;
+        $store['version'] = $version;
         $Dao->where($condition)->save($store);
     }
     

@@ -227,9 +227,9 @@ class StoreController extends BaseController {
             BaseUtil::echoJson(CodeParam::ORDER_ID_WRONG, null);
             return;
         }
-              
-        ProductManager::updatePurchaseCount($order['store_id']);
-        PullVersionManager::updateStoreVersion();
+        
+        $storeVersion = PullVersionManager::updateStoreVersion();
+        ProductManager::updatePurchaseCount($order['store_id'], $storeVersion);
         
         echo BaseUtil::echoJson(CodeParam::SUCCESS, $orderId); 
     }
