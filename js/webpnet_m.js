@@ -304,6 +304,7 @@ $(function(){
 		else{
 			alert("亲，积分不足！")
 		}
+		$("confirmexchange").fadeOut();
 	});	
 	
 	// 实现内部导航的切换
