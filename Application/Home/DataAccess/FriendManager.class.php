@@ -51,13 +51,21 @@ class FriendManager {
         );
     }
     
-    public function insertFriend($accountAId, $accountBId, $remark, $version) {
+    public function insertFriend($accountAId, $accountBId, $version) {
         $Dao = M("friend");
-        $friend["account_a_id"] = $accountAId;
-        $friend["account_b_id"] = $accountBId;
-        $friend["remark"] = $remark;
-        $friend["version"] = $version;
-        $Dao->add($friend);
+        $condition["account_a_id"] = $accountAId;
+        $condition["account_b_id"] = $accountBId;
+        $friend = $Dao->where($condition)->find();
+        
+        if($friend == NULL) {
+            $friend["account_a_id"] = $accountAId;
+            $friend["account_b_id"] = $accountBId;
+            $friend["version"] = $version;
+            $Dao->add($friend);
+        } else {
+            $data["version"] = $version;
+            $Dao->where($condition)->save($data);
+        }
     }
     
     public function updateRemark($accountId, $friendId, $remark, $version) {
@@ -71,7 +79,7 @@ class FriendManager {
     
     public function getFriendSum($accountId) {
         $Dao = M("friend");
-        $condition["account_id"] = $accountId;
+        $condition["account_a_id"] = $accountId;
         return $Dao->where($condition)->count();
     }
 }
