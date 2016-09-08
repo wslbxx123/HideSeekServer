@@ -211,17 +211,12 @@ class StoreController extends BaseController {
         $orderId = filter_input(INPUT_POST, 'order_id');
         $accountId = $this->getPkIdFromToken($sessionId);
         
-        if(!isset($sessionId) || $accountId == 0) {
-            BaseUtil::echoJson(CodeParam::NOT_LOGIN, null);
+        if(!StoreControllerManager::checkPurchaseInfo($sessionId, $accountId, $orderId)) {
             return;
         }
         
-        if(!isset($orderId)) {
-            BaseUtil::echoJson(CodeParam::ORDER_ID_EMPTY, null);
-            return;
-        }
-        
-        $order = PurchaseOrderManager::updateOrder($orderId, 1);
+        $orderVersion = PullVersionManager::updateProductOrderVersion();
+        $order = PurchaseOrderManager::updateOrder($orderId, 1, $orderVersion);
         
         if($order == null) {
             BaseUtil::echoJson(CodeParam::ORDER_ID_WRONG, null);

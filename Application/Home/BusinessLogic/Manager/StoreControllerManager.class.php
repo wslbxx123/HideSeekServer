@@ -118,4 +118,18 @@ class StoreControllerManager {
         
         return true;
     }
+    
+    public function checkPurchaseInfo($sessionId, $accountId, $orderId) {
+        if(!isset($sessionId) || $accountId == 0) {
+            BaseUtil::echoJson(CodeParam::NOT_LOGIN, null);
+            return false;
+        }
+        
+        if(!isset($orderId)) {
+            BaseUtil::echoJson(CodeParam::ORDER_ID_EMPTY, null);
+            return false;
+        }
+        
+        return true;
+    }
 }
