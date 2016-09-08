@@ -26,6 +26,7 @@ class CodeParam {
     const ORDER_ID_EMPTY = "10009";
     const ORDER_ID_WRONG = "10010";
     const REWARD_ID_EMPTY = "10011";
+    const RECORD_NOT_ENOUGH = "10030";
     #endregion
     
     #region 地图信息
