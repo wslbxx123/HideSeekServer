@@ -68,4 +68,10 @@ class FriendManager {
         $friend['version'] = $version;
         $Dao->where($condition)->save($friend);
     }
+    
+    public function getFriendSum($accountId) {
+        $Dao = M("friend");
+        $condition["account_id"] = $accountId;
+        return $Dao->where($condition)->count();
+    }
 }
