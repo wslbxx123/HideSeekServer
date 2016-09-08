@@ -723,3 +723,5 @@ function exRemoveOne(){
 		$(".goodsNum1").change();
 	}
 }
+
+
