@@ -14,7 +14,7 @@ class UserController extends BaseController {
     public function login(){
         self::setHeader();
         session_start();
-        session(array('name'=>'pk_id','expire'=>3600));
+
         $phone = filter_input(INPUT_POST, 'phone');
         $password = filter_input(INPUT_POST, 'password');
         $channelId = filter_input(INPUT_POST, 'channel_id');
@@ -40,7 +40,7 @@ class UserController extends BaseController {
     
     public function logout(){
         self::setHeader();
-        session_destroy();
+
         $sessionId = filter_input(INPUT_POST, 'session_id');
         $accountId = $this->getPkIdFromToken($sessionId);
         
