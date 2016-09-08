@@ -153,14 +153,11 @@ class FriendController extends BaseController {
                 $friend['nickname'], $version);
         FriendManager::insertFriend($friendId, $account['pk_id'], 
                 $account['nickname'], $version);
+         $friendNum = FriendManager::getFriendSum($account['pk_id']);
+        AccountManager::updateFriendNum($account['pk_id'], $friendNum);
         
-        if(!FriendControllerManager::acceptFriendRequest($account, $friend)) {
-            return;
-        }
+        FriendControllerManager::acceptFriendRequest($account, $friend);
         
-        $friendNum = FriendManager::getFriendSum($account['pk_id']);
-        AccountManager::updateFriendNum($account['pk_id'], 
-                $friendNum);
         BaseUtil::echoJson(CodeParam::SUCCESS, $friendNum);
     }
     
