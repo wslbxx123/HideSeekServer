@@ -221,7 +221,7 @@ class StoreController extends BaseController {
             return;
         }
         
-        $order = OrderManager::updateOrder($orderId, 1);
+        $order = PurchaseOrderManager::updateOrder($orderId, 1);
         
         if($order == null) {
             BaseUtil::echoJson(CodeParam::ORDER_ID_WRONG, null);
