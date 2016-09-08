@@ -33,6 +33,7 @@ $(function(){
 		$(".photo").attr("src","img/mypicture.png");
 		$("#sex").val("未设置");
 		$(".cityinput").val("未设置");
+		$(".citySelector").remove();
 	});
 	
 	//点击右上角叉号删除页面
