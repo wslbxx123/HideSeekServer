@@ -502,3 +502,22 @@ var Vcity = {};
 	};
 	var test=new Vcity.CitySelector({input:'citySelect'});
 	var test2=new Vcity.CitySelector({input:'citySelect1'});
+	
+//给citybox添加上关闭按钮
+var createDiv = true;
+$(".cityinput").click(function(){
+	if(createDiv){
+		var cityBox = document.getElementById("cityBox");
+		var closeDiv = document.createElement('div');
+		closeDiv.className = "closeBox";
+		cityBox.insertBefore(closeDiv,cityBox.firstChild);
+		createDiv = false;
+	}
+	else{
+		$("#cityBox").fadeIn();
+	}
+	$(".closeBox").click(function(){
+		$("#cityBox").fadeOut();
+	});
+});
+

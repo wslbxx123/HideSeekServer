@@ -264,7 +264,6 @@ $(function(){
 				    }
 				   
 				    else{
-				    	alert(15);
 				    	$("#storecover").css("height",$("body").height()-58+"px");
 				    	$("#storecover").fadeIn();
 				   		getId = $(this).attr("id");
@@ -286,8 +285,6 @@ $(function(){
 	$.ajax(exStore);
 	
 	$("#confirmpay").click(function(){
-		alert(parseInt($("#scoreNum").html())-parseInt($(".goodsprice1").html()));
-		
 		if(parseInt($("#scoreNum").html())>=parseInt($(".goodsprice1").html())){
 			$("#scoreNum").html(parseInt($("#scoreNum").html())-parseInt($(".goodsprice1").html()));
 			var data = "session_id=" + sessionStorage.getItem("sessionid")
@@ -434,7 +431,7 @@ $(function(){
 				dataType: "json",
 				
 				success: function(result, status) {
-					alert(JSON.stringify(result));
+//					alert(JSON.stringify(result));
 					switch(result["code"]){
 						case "10000":
 							sessionid = result["result"]["session_id"];
@@ -726,3 +723,5 @@ function exRemoveOne(){
 		$(".goodsNum1").change();
 	}
 }
+
+

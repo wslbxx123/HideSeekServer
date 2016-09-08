@@ -317,7 +317,7 @@ document.getElementById("matchId").onclick = function(){
 					+ "&region=" + region
 					+ "&role=" + myId;
 		}
-		alert(data);
+//		alert(data);
 		var mymessages = {
 			url: "/index.php/home/user/register",	
 			type: 'POST',
@@ -325,7 +325,7 @@ document.getElementById("matchId").onclick = function(){
 			dataType: "json",
 			
 			success: function(result, status) {
-				alert(JSON.stringify(result));
+//				alert(JSON.stringify(result));
 				switch(result["code"]){
 					case "10000":
 						Num = result["result"]["record"];
@@ -746,3 +746,4 @@ $(".photo").error(function(){
 $("#myimg").error(function(){
 	$(this).attr("src","img/mypicture.png");	
 });
+
