@@ -747,3 +747,6 @@ $("#myimg").error(function(){
 	$(this).attr("src","img/mypicture.png");	
 });
 
+$(".cityinput").change(function(){
+	$(".citySelector").fadeOut();
+});
