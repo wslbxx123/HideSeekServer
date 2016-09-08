@@ -304,6 +304,7 @@ $(function(){
 		else{
 			alert("亲，积分不足！")
 		}
+		$("confirmexchange").fadeOut();
 	});	
 	
 	// 实现内部导航的切换
@@ -455,10 +456,9 @@ $(function(){
 							sessionStorage.setItem("sessionid", result["result"]["session_id"]);
 							sessionStorage.setItem("sex", result["result"]["sex"]);
 							sessionStorage.setItem("region", result["result"]["region"]);
-//							nickname = sessionStorage.getItem("nickname");
-//							record = sessionStorage.getItem("record");
-//							myimgpath = sessionStorage.getItem("myimgpath");
-//							sessionid = sessionStorage.getItem("sessionid");
+							$("#myimg").error(function(){
+								$(this).attr("src","img/mypicture.png");	
+							});
 					  		break;
 					  	case "10001":
 					  		$("#fault").fadeIn();

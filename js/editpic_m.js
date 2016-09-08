@@ -465,38 +465,27 @@ document.getElementById("myorder").onclick = function(){
 						//创建商品橱窗框
 						var listDiv = document.createElement('div');
 						listDiv.className = "orderlist";
-					  	listArea1.appendChild(listDiv);
-					    var listImg = document.createElement('img');
-					    listImg.className = "orderprodct";
-					    listImg.src = result.result.orders[i].reward_image_url;
-					    listDiv.appendChild(listImg);
-					    var nameDiv = document.createElement('div');
-					    nameDiv.className = "ordername";
-					    nameDiv.innerHTML = result.result.orders[i].reward_name;
-					    listDiv.appendChild(nameDiv);
-					    var sumDiv = document.createElement('div');
-					    sumDiv.className = "ordersum";
-					    sumDiv.innerHTML = "总计：";
-					    listDiv.appendChild(sumDiv);
-					    var numSpan = document.createElement('span');
-					    numSpan.className = "orderNum";
-					    numSpan.innerHTML = result.result.orders[i].count+"(个数)×"+result.result.orders[i].record+"(单价)="+result.result.orders[i].count*result.result.orders[i].record+"元"; 
-					    sumDiv.appendChild(numSpan);
-					    var statusDiv = document.createElement('div');
-					    if(result.result.orders[i].status=="0"){
-					    	statusDiv.className = "orderstatus1";
-						    statusDiv.innerHTML = "未付款";
-						    listDiv.appendChild(statusDiv);
-						    var payDiv = document.createElement('div');
-						    payDiv.className = "orderpay";
-						    payDiv.innerHTML = "点我付款";
-						    listDiv.appendChild(payDiv);
-					    }
-					    else{
-					    	statusDiv.className = "orderstatus";
-						    statusDiv.innerHTML = "交易成功";
-						    listDiv.appendChild(statusDiv);
-					    }    
+				  	listArea1.appendChild(listDiv);
+				    var listImg = document.createElement('img');
+				    listImg.className = "orderprodct";
+				    listImg.src = result.result.orders[i].reward_image_url;
+				    listDiv.appendChild(listImg);
+				    var nameDiv = document.createElement('div');
+				    nameDiv.className = "ordername";
+				    nameDiv.innerHTML = result.result.orders[i].reward_name;
+				    listDiv.appendChild(nameDiv);
+				    var sumDiv = document.createElement('div');
+				    sumDiv.className = "ordersum";
+				    sumDiv.innerHTML = "总计：";
+				    listDiv.appendChild(sumDiv);
+				    var numSpan = document.createElement('span');
+				    numSpan.className = "orderNum";
+				    numSpan.innerHTML = result.result.orders[i].count+"(个数)×"+result.result.orders[i].record+"(单价)="+result.result.orders[i].count*result.result.orders[i].record+"元"; 
+				    sumDiv.appendChild(numSpan);
+				    var statusDiv = document.createElement('div');
+			    	statusDiv.className = "orderstatus";
+				    statusDiv.innerHTML = "交易成功";
+				    listDiv.appendChild(statusDiv); 
 					}
 					$("#listArea1").fadeOut();
 			},
