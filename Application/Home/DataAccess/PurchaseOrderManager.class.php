@@ -19,11 +19,12 @@ class PurchaseOrderManager {
         return $Dao->add($order);
     }
     
-    public function updateOrder($orderId, $status) {
+    public function updateOrder($orderId, $status, $version) {
         $Dao = M("purchase_order");
         $condition["pk_id"] = $orderId;
         $order["status"] = $status;
         $order['update_time'] = date('y-m-d H:i:s',time());
+        $order['version'] = $version;
         $Dao->where($condition)->save($order);
         
         return self::getOrder($orderId);
