@@ -33,7 +33,7 @@ class UserController extends BaseController {
         $_SESSION['pk_id'] = $account["pk_id"];
         $account["session_id"] = session_id();
         $account["friend_requests"] = FriendRequestManager::
-                getFriendRequests($account['pk_id']);
+                getFriendRequests($account['pk_id']);  
         
         BaseUtil::echoJson(CodeParam::SUCCESS, $account);
     }
@@ -213,6 +213,20 @@ class UserController extends BaseController {
         
         $result = Array("region" => $region);
         BaseUtil::echoJson(CodeParam::SUCCESS, $result);
+    }
+    
+    public function refreshAccountData() {
+        self::setHeader();
+        
+        $sessionId = filter_input(INPUT_POST, 'session_id');
+        $account = $this->getAccountFromToken($sessionId);
+        
+        if(!isset($sessionId) || $account['pk_id'] == 0) {
+            BaseUtil::echoJson(CodeParam::NOT_LOGIN, null);
+            return;
+        }
+        
+        BaseUtil::echoJson(CodeParam::SUCCESS, $account);
     }
 }
 
