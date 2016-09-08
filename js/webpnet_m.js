@@ -1,16 +1,19 @@
 $(function(){
-	
 	// 加载商城信息
 	var purNum;	//购买区的产品数；
 	var exNum;	//兑换区的产品数；
 	var getId;	//兑换或者购买按钮的对应ID值；
 	var sessionid;	//session_id变量；
 	var reward_id;
+	
+	
 	// 重新刷新页面获取缓存的数据
 	nickname = sessionStorage.getItem("nickname");
 	record = sessionStorage.getItem("record");
 	myimgpath = sessionStorage.getItem("myimgpath");
 	sessionid = sessionStorage.getItem("myimgpath");
+	
+	
 	if(nickname!=null){  
 		$("#nickname").html(nickname);
 		$("#scoreNum").html(record);
@@ -20,6 +23,16 @@ $(function(){
 		$("#myprofile" ).fadeIn();
 		$("#myorder").fadeIn();
 	}
+	
+	//刷新时大头像出错，自动更换为默认图片
+	$(".photo").error(function(){
+		$(this).attr("src","img/mypicture.png");	
+	}); 
+	
+	//刷新时小头像出错，自动更换为默认图片
+	$("#myimg").error(function(){
+		$(this).attr("src","img/mypicture.png");	
+	});
 	
 	// 清除缓存
 	$("#exit").click(function(){
@@ -701,12 +714,13 @@ function displaySubMenu() {
 	}
 }
 
-
+//	点击弹出购买框上箭头，数字随之增大
 function purAddOne(){
 	$(".goodsNum").val(parseInt($(".goodsNum").val())+1);
 	$(".goodsNum").change();
 }
 
+//	点击弹出购买框上箭头，数字随之减小
 function purRemoveOne(){
 	if($(".goodsNum").val()>0){
 		$(".goodsNum").val(parseInt($(".goodsNum").val())-1);
@@ -714,11 +728,13 @@ function purRemoveOne(){
 	}
 }
 
+//	点击弹出兑换框上箭头，数字随之增大
 function exAddOne(){
 	$(".goodsNum1").val(parseInt($(".goodsNum1").val())+1);
 	$(".goodsNum1").change();
 }
 
+//	点击弹出兑换框上箭头，数字随之减小
 function exRemoveOne(){
 	if($(".goodsNum1").val()>0){
 		$(".goodsNum1").val(parseInt($(".goodsNum1").val())-1);
