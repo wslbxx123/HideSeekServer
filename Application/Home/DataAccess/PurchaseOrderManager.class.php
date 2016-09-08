@@ -24,7 +24,7 @@ class PurchaseOrderManager {
         $condition["pk_id"] = $orderId;
         $order["status"] = $status;
         $order['update_time'] = date('y-m-d H:i:s',time());
-        $order['$version'] = $version;
+        $order['version'] = $version;
         $Dao->where($condition)->save($order);
         
         return self::getOrder($orderId);
