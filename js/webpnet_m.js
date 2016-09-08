@@ -33,6 +33,7 @@ $(function(){
 		$(".photo").attr("src","img/mypicture.png");
 		$("#sex").val("未设置");
 		$(".cityinput").val("未设置");
+		$(".citySelector").remove();
 	});
 	
 	//点击右上角叉号删除页面
@@ -586,6 +587,7 @@ $(function(){
 		
 	//	检验注册界面填写框
 	$("#register").click(function(){
+		$("#storecover").css("height",$("body").height()-58+"px");
 		var allGood = true;
 		var allTags = document.getElementById("newWin1").getElementsByTagName("*");
 		var phone_figures_test;
