@@ -173,7 +173,9 @@ class StoreController extends BaseController {
         $result = StoreControllerManager::getSignResult($storeId, $count, 
                 $accountId, 1);
         $html = StoreControllerManager::createAlipayFormHtml($result);
-        echo $html;
+        $result['html'] = $html;
+        
+        echo BaseUtil::echoJson(CodeParam::SUCCESS, $result);
     }
     
     public function createOrderFromH5() {
@@ -197,7 +199,9 @@ class StoreController extends BaseController {
         $result = StoreControllerManager::getSignResult($storeId, $count, 
                 $accountId, 2);
         $html = StoreControllerManager::createAlipayFormHtml($result);
-        echo $html;
+        
+        $result['html'] = $html;
+        echo BaseUtil::echoJson(CodeParam::SUCCESS, $result);
     }
     
     public function purchase() {
@@ -217,15 +221,15 @@ class StoreController extends BaseController {
             return;
         }
         
-        $order = OrderManager::updateOrder($orderId, 1);
+        $order = PurchaseOrderManager::updateOrder($orderId, 1);
         
         if($order == null) {
             BaseUtil::echoJson(CodeParam::ORDER_ID_WRONG, null);
             return;
         }
-              
-        ProductManager::updatePurchaseCount($order['store_id']);
-        PullVersionManager::updateStoreVersion();
+        
+        $storeVersion = PullVersionManager::updateStoreVersion();
+        ProductManager::updatePurchaseCount($order['store_id'], $storeVersion);
         
         echo BaseUtil::echoJson(CodeParam::SUCCESS, $orderId); 
     }
@@ -363,14 +367,14 @@ class StoreController extends BaseController {
         $rewardId = filter_input(INPUT_POST, 'reward_id');
         $count = filter_input(INPUT_POST, 'count');
         
-        $accountId = $this->getPkIdFromToken($sessionId);
+        $account = $this->getAccountFromToken($sessionId);
         
-        if(!isset($sessionId) || $accountId == 0) {
+        if(!isset($sessionId) || $account['pk_id'] == 0) {
             BaseUtil::echoJson(CodeParam::NOT_LOGIN, null);
             return;
         }
         
-        if(!StoreControllerManager::checkExchangeOrderInfo($rewardId, $count)) {
+        if(!StoreControllerManager::checkExchangeOrderInfo($rewardId, $count, $account)) {
             return;
         }
         

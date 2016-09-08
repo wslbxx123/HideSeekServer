@@ -79,6 +79,8 @@ class MessageFactory {
                 return MessageParam::ORDER_ID_WRONG;
             case CodeParam::REWARD_ID_EMPTY:
                 return MessageParam::REWARD_ID_EMPTY;
+            case CodeParam::RECORD_NOT_ENOUGH:
+                return MessageParam::RECORD_NOT_ENOUGH;
             default:
                 return null;
         }

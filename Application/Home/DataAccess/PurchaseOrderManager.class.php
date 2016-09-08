@@ -26,7 +26,7 @@ class PurchaseOrderManager {
         $order['update_time'] = date('y-m-d H:i:s',time());
         $Dao->where($condition)->save($order);
         
-        return getOrder($orderId);
+        return self::getOrder($orderId);
     }
     
     public function updateOrderVerifyStatus($tradeNo, $verifyStatus) {

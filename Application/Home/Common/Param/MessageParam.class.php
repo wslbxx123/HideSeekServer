@@ -26,6 +26,7 @@ class MessageParam {
     const ORDER_ID_EMPTY = "订单ID值为空";
     const ORDER_ID_WRONG = "订单编号错误";
     const REWARD_ID_EMPTY = "奖品ID值为空";
+    const RECORD_NOT_ENOUGH = "积分不足";
     #endregion
     
     #region 地图信息

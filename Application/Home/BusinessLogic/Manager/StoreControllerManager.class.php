@@ -2,6 +2,7 @@
 namespace Home\BusinessLogic\Manager;
 use Home\DataAccess\PullVersionManager;
 use Home\DataAccess\ProductManager;
+use Home\DataAccess\RewardManager;
 use Home\DataAccess\PurchaseOrderManager;
 use Home\BusinessLogic\Network\AlipayManager;
 use Home\Common\Param\CodeParam;
@@ -97,7 +98,7 @@ class StoreControllerManager {
         return true;
     }
     
-    public function checkExchangeOrderInfo($rewardId, $count) {   
+    public function checkExchangeOrderInfo($rewardId, $count, $account) {   
         if(!isset($rewardId)) {
             BaseUtil::echoJson(CodeParam::REWARD_ID_EMPTY, null);
             return false;
@@ -105,6 +106,13 @@ class StoreControllerManager {
         
         if(!isset($count)) {
             BaseUtil::echoJson(CodeParam::COUNT_EMPTY, null);
+            return false;
+        }
+        
+        $reward = RewardManager::getReward($rewardId);
+        
+        if(intval($reward['record']) * $count > $account['record']) {
+            BaseUtil::echoJson(CodeParam::RECORD_NOT_ENOUGH, null);
             return false;
         }
         
