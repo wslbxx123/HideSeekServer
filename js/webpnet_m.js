@@ -359,7 +359,7 @@ $(function(){
 		else{
 			alert("亲，积分不足！")
 		}
-		$("confirmexchange").fadeOut();
+		$("#confirmexchange").fadeOut();
 	});	
 	
 	// 实现内部导航的切换
@@ -710,6 +710,7 @@ $(function(){
 						break;
 					case "reqc":
 						if (allGood && $("#codeNum").val() != codeNumber) {
+								alert("填写验证码错误！")
 								classBack = "invalid ";
 						}
 						classBack += thisClass;

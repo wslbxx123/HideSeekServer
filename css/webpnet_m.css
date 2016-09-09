@@ -1127,8 +1127,9 @@ p.tip{
 
 .orderstatus{
 	margin-top: -41px;
-    margin-left: 84%;
+    right: 5%;
     font-size: 13px;
+    position: absolute;
 }
 
 .orderpay{
