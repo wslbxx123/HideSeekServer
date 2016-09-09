@@ -362,6 +362,7 @@ document.getElementById("matchId").onclick = function(){
 				};
 				$.ajax(mymessages);	
 		}
+		$(".citySelector").remove();
 }
 
 
