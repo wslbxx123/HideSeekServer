@@ -386,7 +386,6 @@ document.getElementById("matchId").onclick = function(){
 
 document.getElementById("myorder").onclick = function(){
 		$("#storecover").css("height",$("body").height()-58+"px");
-		$("#storecover").fadeIn();
 		$("#orderArea").fadeIn();
 		var orderArea1 = {
 				url: "/index.php/home/store/refreshPurchaseOrders",
@@ -398,6 +397,7 @@ document.getElementById("myorder").onclick = function(){
 				success: function(result, status) {
 					switch(result["code"]){
 						case "10000":
+							$("#storecover").fadeIn();
 							$("#listArea").fadeIn();
 							$("#listArea").empty();
 							var orderArea = document.getElementById("orderArea");
@@ -531,7 +531,7 @@ document.getElementById("myorder").onclick = function(){
 							    statusDiv.innerHTML = "交易成功";
 							    listDiv.appendChild(statusDiv); 
 							}
-							$("#listArea1").fadeOut();
+//							$("#listArea1").fadeOut();
 							break;
 						case "11000":
 							clearStorage();
