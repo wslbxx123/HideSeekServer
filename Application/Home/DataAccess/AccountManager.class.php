@@ -10,9 +10,7 @@ class AccountManager {
         $Dao = M("account");
         $condition['phone'] = $phone;
         $condition['password'] = md5($password);
-        if($channelId != null) {
-            $Dao->where($condition)->setField('channel_id', $channelId);
-        }
+        $Dao->where($condition)->setField('channel_id', $channelId);
         
         $account = $Dao->where($condition)->find();
         return $account;
@@ -63,10 +61,7 @@ class AccountManager {
         $account["session_token"] = md5(session_id());
         $account["version"] = $version;
         $account["role"] = $role;
-        
-        if($channelId != null) {
-            $account["channel_id"] = $channelId;
-        }
+        $account["channel_id"] = $channelId;
         
         $account = self::insertOptionalInfo($sex, $region, $photoUrl, 
                 $smallPhotoUrl, $account);
