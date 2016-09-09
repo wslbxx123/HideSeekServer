@@ -351,6 +351,7 @@ $(function(){
 				type: 'POST',
 				data:data,
 				success: function(result, status) {
+					alert(JSON.stringify(result));
 				},
 			};
 			$.ajax(createExchangeOrder);
@@ -360,6 +361,7 @@ $(function(){
 			alert("亲，积分不足！")
 		}
 		$("#confirmexchange").fadeOut();
+		$("#storecover").fadeOut();
 	});	
 	
 	// 实现内部导航的切换

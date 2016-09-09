@@ -499,7 +499,7 @@ document.getElementById("myorder").onclick = function(){
 						    listDiv.appendChild(sumDiv);
 						    var numSpan = document.createElement('span');
 						    numSpan.className = "orderNum";
-						    numSpan.innerHTML = result.result.orders[i].count+"(个数)×"+result.result.orders[i].record+"(单价)="+result.result.orders[i].count*result.result.orders[i].record+"元"; 
+						    numSpan.innerHTML = result.result.orders[i].count+"(个数)×"+result.result.orders[i].record+"(单价)="+result.result.orders[i].count*result.result.orders[i].record+"积分"; 
 						    sumDiv.appendChild(numSpan);
 						    var statusDiv = document.createElement('div');
 					    	statusDiv.className = "orderstatus";
