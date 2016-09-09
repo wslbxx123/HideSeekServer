@@ -374,10 +374,11 @@ class StoreController extends BaseController {
         }
         
         $orderVersion = PullVersionManager::updateRewardOrderVersion();
-        ExchangeOrderManager::insertOrder($rewardId, $accountId, $count, 
+        ExchangeOrderManager::insertOrder($rewardId, $account['pk_id'], $count, 
                 $orderVersion);
         $reward = RewardManager::getReward($rewardId);
-        $record = AccountManager::updateRecord(floatval($reward['record']), $count, $accountId);
+        $record = AccountManager::updateRecord(floatval($reward['record']), 
+                $count, $account['pk_id']);
         echo BaseUtil::echoJson(CodeParam::SUCCESS, $record); 
     }
     
