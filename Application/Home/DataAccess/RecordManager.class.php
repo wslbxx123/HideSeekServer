@@ -60,6 +60,7 @@ class RecordManager {
     }
     
     public function insertRewardRecord($accountId, $score, $version) {
+        echo $score;
         $Dao = M("record");
         $record['goal_id'] = 0;
         $record['goal_type'] = 0;
