@@ -230,10 +230,9 @@ var Vcity = {};
 	        childdiv.appendChild(hotCity);
 	        div.appendChild(childdiv);
 	        this.createHotCity();
-	        var cityBox = document.getElementById("cityBox");
 			var closeDiv = document.createElement('div');
 			closeDiv.className = "closeBox";
-			cityBox.insertBefore(closeDiv,cityBox.firstChild);
+			childdiv.insertBefore(closeDiv,childdiv.firstChild);
 	    },
 	
 	    /* *
@@ -505,15 +504,15 @@ var Vcity = {};
 	        }
 	    }
 	};
+	
+	alert(1);
 	var test=new Vcity.CitySelector({input:'citySelect'});
 	var test2=new Vcity.CitySelector({input:'citySelect1'});
 	
 //给citybox添加上关闭按钮
-var createDiv = true;
 $(".cityinput").click(function(){
-	$("#cityBox").fadeIn();
 	$(".closeBox").click(function(){
-		$("#cityBox").fadeOut();
+		$(".cityBox").addClass("hide");
 	});
 });
 
