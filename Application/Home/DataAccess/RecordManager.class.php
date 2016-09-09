@@ -6,6 +6,47 @@ namespace Home\DataAccess;
  * @author Two
  */
 class RecordManager {
+    public function refreshRecords($accountId, $version, $recordMinId) {
+        $Dao = M("record");
+        $condition['account_id'] = $accountId;
+        $scoreSum = $Dao->where($condition)->sum('SCORE') | 0;
+
+        $sql = "call admin_refresh_record($accountId, $version, $recordMinId)";
+        $scoreList = $Dao->query($sql);
+        
+        if($scoreList != null && count($scoreList) > 0) {
+            $tempRecordMinId = end($scoreList)['pk_id'];
+            
+            if($recordMinId == 0 || $tempRecordMinId < $recordMinId) {
+                $recordMinId = $tempRecordMinId;
+            }
+        }
+        
+        return Array(
+            "record_min_id" => $recordMinId,
+            "score_sum" => $scoreSum,
+            "scores" => $scoreList
+        );
+    }
+    
+    public function getRecords($accountId, $version, $recordMinId) {
+        $Dao = M("record");
+        $sql = "call admin_get_record($accountId, $version, $recordMinId)";
+        $scoreList = $Dao->query($sql);
+        
+        if($scoreList != null && count($scoreList) > 0) {
+            $tempRecordMinId = end($scoreList)['pk_id'];
+            
+            if($recordMinId == 0 || $tempRecordMinId < $recordMinId) {
+                $recordMinId = $tempRecordMinId;
+            }
+        }
+        
+        return Array(
+            'record_min_id' => $recordMinId,
+            'scores' => $scoreList);
+    }
+    
     public function insertRecord($goalId, $goalType, $score, $accountId, $version) {
         $Dao = M("record");
         $record['goal_id'] = $goalId;
