@@ -722,8 +722,3 @@ $("#exOrder").click(function(){
 		$("#listArea1").fadeIn();
 		$("#listArea").fadeOut();
 });
-
-//当地域选项框改变时，city框自动消失
-$(".cityinput").change(function(){
-		$(".citySelector").fadeOut();
-});
