@@ -382,12 +382,13 @@ document.getElementById("myorder").onclick = function(){
 				
 				success: function(result, status) {
 						$("#listArea").fadeIn();
+						$("#listArea").empty();
 						var orderArea = document.getElementById("orderArea");
 						var listArea = document.getElementById("listArea");
 						for(var i = 0;i < result.result.orders.length;i++){	
 							//创建商品橱窗框
-								var listDiv = document.createElement('div');
-								listDiv.className = "orderlist";
+							var listDiv = document.createElement('div');
+							listDiv.className = "orderlist";
 						  	listArea.appendChild(listDiv);
 						    var listImg = document.createElement('img');
 						    listImg.className = "orderprodct";
@@ -477,7 +478,7 @@ document.getElementById("myorder").onclick = function(){
 				dataType: "json",
 			
 				success: function(result, status) {
-						$("#listArea1").fadeIn();
+						$("#listArea1").empty();
 						var orderArea = document.getElementById("orderArea");
 						var listArea1 = document.getElementById("listArea1");
 						for(var i = 0;i < result.result.orders.length;i++){	

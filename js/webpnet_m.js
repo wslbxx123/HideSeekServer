@@ -40,6 +40,7 @@ $(function(){
 						  	case "10003":
 						  		alert("发送信息失败！")
 						  		break;
+						  	case "11000"
 						}	
 				},
 				error: function(XMLHttpRequest, textStatus, errorThrown) {
