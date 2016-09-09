@@ -143,8 +143,6 @@ class StoreControllerManager {
         $rewardVersion = PullVersionManager::updateRewardVersion();
         $reward = RewardManager::updateExchangeCount($rewardId, $rewardVersion);
         $version = PullVersionManager::updateRaceGroupVersion();
-        echo "record: ".$reward['record'];
-        echo "count: ".$count;
         $record = RecordManager::insertRewardRecord($acountId, 
                 (-1 * intval($reward['record']) * $count), $version);
         AccountManager::updateRecord($acountId, $record);
