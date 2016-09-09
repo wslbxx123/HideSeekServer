@@ -83,6 +83,10 @@ $("#mydata").click(function(){
 
 $('#mycamera1').change(function(){
 	changepic = true;
+	EXIF.getData(e.target.files[0], function() { 
+		EXIF.getAllTags(this); 
+		Orientation = EXIF.getTag(this,'Orientation'); 
+  	});
 	$("#newWin3").fadeIn(); 
 	$("#dataArea").fadeIn(); 
 	var fileimg = document.getElementById("fileimg");
@@ -681,6 +685,7 @@ function getPath(obj,fileQuery,transImg){
 							$(".photo").attr("src",images.src);
 							mypictureExist = true;
 						}
+						
 						else{
 							$("#dataArea").fadeIn(); 
 							
@@ -700,12 +705,12 @@ function getPath(obj,fileQuery,transImg){
 
 							//如果方向角不为1，都需要进行旋转  
 				    if(Orientation != "" && Orientation != 1&&Orientation !=null){
-					    	switch(Orientation){
-					    		case 6://需要顺时针（向左）90度旋转  
-			                rotateImg(mypicture,'left');  
-			                break;  
-					    	}
-				    		var images1 = new Image();
+				    	switch(Orientation){
+				    		case 6://需要顺时针（向左）90度旋转  
+		                rotateImg(mypicture,'left');  
+		                break;  
+				    	}
+			    		var images1 = new Image();
 				        images1.src = mypicture.toDataURL("image/jpeg");
 				        $(".photo").attr("src",images1.src);
 				    		cover.translate(0,0);
