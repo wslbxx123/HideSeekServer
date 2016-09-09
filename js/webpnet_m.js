@@ -82,7 +82,16 @@ $(function(){
 	
 	// 清除缓存
 	$("#exit").click(function(){
-		clearStorage();
+		sessionStorage.clear();
+		$(".inner_menu").fadeIn();
+		$("#myimg").fadeOut();
+		$("#myprofile" ).fadeOut();
+		$("#myorder").fadeOut();
+		$("#orderArea").fadeOut();
+		getClick = false;
+		$(".photo").attr("src","img/mypicture.png");
+		$("#sex").val("未设置");
+		$(".cityinput").val("未设置");
 	});
 	
 	function clearStorage(){
@@ -96,6 +105,7 @@ $(function(){
 		$(".photo").attr("src","img/mypicture.png");
 		$("#sex").val("未设置");
 		$(".cityinput").val("未设置");
+		alert("你已经被迫掉线！")
 	}
 	
 	//点击右上角叉号删除页面

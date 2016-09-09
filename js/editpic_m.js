@@ -786,4 +786,5 @@ function clearStorage(){
 	$(".photo").attr("src","img/mypicture.png");
 	$("#sex").val("未设置");
 	$(".cityinput").val("未设置");
+	alert("你已经被迫掉线！")
 }
