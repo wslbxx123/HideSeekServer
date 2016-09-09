@@ -81,7 +81,7 @@ $("#mydata").click(function(){
 	$(".photo").attr('src',sessionStorage.getItem("myimgpath")); 
 });
 
-$('#mycamera1').change(function(){
+$('#mycamera1').change(function(e){
 	changepic = true;
 	EXIF.getData(e.target.files[0], function() { 
 		EXIF.getAllTags(this); 
