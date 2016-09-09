@@ -230,6 +230,10 @@ var Vcity = {};
 	        childdiv.appendChild(hotCity);
 	        div.appendChild(childdiv);
 	        this.createHotCity();
+	        var cityBox = document.getElementById("cityBox");
+			var closeDiv = document.createElement('div');
+			closeDiv.className = "closeBox";
+			cityBox.insertBefore(closeDiv,cityBox.firstChild);
 	    },
 	
 	    /* *
@@ -507,16 +511,7 @@ var Vcity = {};
 //给citybox添加上关闭按钮
 var createDiv = true;
 $(".cityinput").click(function(){
-	if(createDiv){
-		var cityBox = document.getElementById("cityBox");
-		var closeDiv = document.createElement('div');
-		closeDiv.className = "closeBox";
-		cityBox.insertBefore(closeDiv,cityBox.firstChild);
-		createDiv = false;
-	}
-	else{
-		$("#cityBox").fadeIn();
-	}
+	$("#cityBox").fadeIn();
 	$(".closeBox").click(function(){
 		$("#cityBox").fadeOut();
 	});
