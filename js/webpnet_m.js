@@ -9,9 +9,9 @@ $(function(){
 	var btn_open = document.getElementById('btn_open');
 	var open_app = document.getElementById('open_app');
 	btn_open.addEventListener('click', function() {
-	    open_app.src = 'http://www.hideseek.cn/hideseek_m.html';
+	    open_app.src = 'https://www.hideseek.cn/hideseek_m.html';
 	    setTimeout(function() {
-	        location.href = 'http://www.hideseek.cn/hideseek_m.html';
+	        location.href = 'https://www.hideseek.cn/hideseek_m.html';
 	    }, 1000);
 	}, false);
 	
