@@ -58,7 +58,7 @@ class MapController extends BaseController {
         $score = GoalTypeManager::getScore($goalType);
         $scoreSum = RecordManager::insertRecord($goalId, $goalType, $score, 
                 $account['pk_id'], $raceGroupversion);
-        AccountManager::updateScoreSum($account['pk_id'], $scoreSum);
+        AccountManager::updateRecord($account['pk_id'], $scoreSum);
         
         BaseUtil::echoJson(CodeParam::SUCCESS, $scoreSum);
     }

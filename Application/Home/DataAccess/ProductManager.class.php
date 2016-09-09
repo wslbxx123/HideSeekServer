@@ -55,6 +55,7 @@ class ProductManager {
         $store['purchase_count'] = $store['purchase_count'] + 1;
         $store['version'] = $version;
         $Dao->where($condition)->save($store);
+        return $store;
     }
     
     public function getProduct($storeId) {

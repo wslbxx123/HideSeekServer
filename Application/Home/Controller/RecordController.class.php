@@ -4,6 +4,7 @@ use Home\Common\Util\BaseUtil;
 use Home\Common\Param\CodeParam;
 use Home\DataAccess\PullVersionManager;
 use Home\DataAccess\RecordManager;
+use Home\DataAccess\AccountManager;
 use Home\BusinessLogic\Manager\RecordControllerManager;
 
 class RecordController extends BaseController {
@@ -21,6 +22,7 @@ class RecordController extends BaseController {
         }
 
         $raceGroupVersion = PullVersionManager::getRaceGroupVersion();
+        $scoreSum = AccountManager::
         $recordResult = RecordManager::refreshRecords($accountId, $version, 
                 $recordMinId);
         

@@ -9,6 +9,7 @@ use Home\DataAccess\PullVersionManager;
 use Home\DataAccess\PurchaseOrderManager;
 use Home\DataAccess\ExchangeOrderManager;
 use Home\DataAccess\AccountManager;
+use Home\DataAccess\RecordManager;
 use Home\BusinessLogic\Network\AlipayManager;
 use Home\BusinessLogic\Manager\StoreControllerManager;
 
@@ -224,9 +225,13 @@ class StoreController extends BaseController {
         }
         
         $storeVersion = PullVersionManager::updateStoreVersion();
-        ProductManager::updatePurchaseCount($order['store_id'], $storeVersion);
+        $store = ProductManager::updatePurchaseCount($order['store_id'], $storeVersion);
+        $version = PullVersionManager::updateRaceGroupVersion();
+        $scoreSum = RecordManager::insertRewardRecord($accountId, 
+                -1 * intval($store['price']) * $order['count'], $version);
+        AccountManager::updateAccountAfterPurchase($scoreSum, $orderId);
         
-        echo BaseUtil::echoJson(CodeParam::SUCCESS, $orderId); 
+        echo BaseUtil::echoJson(CodeParam::SUCCESS, $scoreSum); 
     }
     
     public function refreshPurchaseOrders() {
@@ -377,8 +382,8 @@ class StoreController extends BaseController {
         ExchangeOrderManager::insertOrder($rewardId, $account['pk_id'], $count, 
                 $orderVersion);
         $reward = RewardManager::getReward($rewardId);
-        $record = AccountManager::updateRecord(floatval($reward['record']), 
-                $count, $account['pk_id']);
+        $record = AccountManager::minusRecord($account['pk_id'], 
+                intval($reward['record']), $count);
         echo BaseUtil::echoJson(CodeParam::SUCCESS, $record); 
     }
     

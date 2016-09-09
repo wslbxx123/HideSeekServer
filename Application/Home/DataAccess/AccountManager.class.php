@@ -23,13 +23,6 @@ class AccountManager {
         $Dao->where($condition)->setField('session_token', md5(session_id()));
     }
     
-    public function updateScoreSum($accountId, $scoreSum) {
-        $Dao = M("account");
-        $account['record'] = $scoreSum;
-        $condition['pk_id'] = $accountId;
-        $Dao->where($condition)->save($account);
-    }
-    
     public function updateFriendNum($accountId, $friendNum) {
         $Dao = M("account");
         $account['friend_num'] = $friendNum;
@@ -90,7 +83,14 @@ class AccountManager {
         return $account;
     }
     
-    public function updateRecord($record, $count, $accountId) {
+    public function updateRecord($accountId, $scoreSum) {
+        $Dao = M("account");
+        $account['record'] = $scoreSum;
+        $condition['pk_id'] = $accountId;
+        $Dao->where($condition)->save($account);
+    }
+    
+    public function minusRecord($accountId, $record, $count) {
         $Dao = M("account");
         $condition["pk_id"] = $accountId;
         $account = $Dao->where($condition)->find();
@@ -149,5 +149,11 @@ class AccountManager {
         $condition["pk_id"] = $accountId;
         $account['channel_id'] = null;
         $Dao->where($condition)->save($account);
+    }
+    
+    public function updateAccountAfterPurchase($scoreSum, $orderId) {
+        $Dao = M("account");
+        $sql = "call admin_search_accounts($scoreSum, $orderId)";
+        $Dao->query($sql);
     }
 }

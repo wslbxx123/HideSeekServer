@@ -24,7 +24,7 @@ class MapControllerManager {
                     $score = MonsterTypeManager::getScore($goal['monster_type']);
                     $scoreSum = RecordManager::insertRecord($goalId, 2, $score,
                             $accountId, $version);         
-                    AccountManager::updateScoreSum($accountId, $scoreSum);
+                    AccountManager::updateRecord($accountId, $scoreSum);
                     $flag = true;
                 }
             }
