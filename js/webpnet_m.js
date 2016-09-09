@@ -6,12 +6,49 @@ $(function(){
 	var sessionid;	//session_id变量；
 	var reward_id;
 	
+	var btn_open = document.getElementById('btn_open');
+	var open_app = document.getElementById('open_app');
+	btn_open.addEventListener('click', function() {
+	    open_app.src = 'http://www.hideseek.cn/hideseek_m.html';
+	    setTimeout(function() {
+	        location.href = 'http://www.hideseek.cn/hideseek_m.html';
+	    }, 1000);
+	}, false);
+	
+	if(sessionStorage.getItem("sessionid")!=null){
+		refreshdata();
+	}
+	
+	function refreshdata(){
+		var refreshAccountData = {
+				url: "/index.php/home/user/refreshAccountData",	
+				type: 'POST',
+				data: "session_id=" + sessionStorage.getItem("sessionid"),
+				dataType: "json",
+				
+				success: function(result, status) {
+					alert(JSON.stringify(result));
+						switch(result["code"]){
+							case "10000":
+								sessionStorage["myimgpath"] = result["result"]["small_photo_url"];
+								break;
+						  	case "10003":
+						  		alert("发送信息失败！")
+						  		break;
+						}	
+				},
+				error: function(XMLHttpRequest, textStatus, errorThrown) {
+					alert("网络出现问题！");
+				}
+		};
+		$.ajax(refreshAccountData);		
+	}
 	
 	// 重新刷新页面获取缓存的数据
 	nickname = sessionStorage.getItem("nickname");
 	record = sessionStorage.getItem("record");
 	myimgpath = sessionStorage.getItem("myimgpath");
-	sessionid = sessionStorage.getItem("myimgpath");
+	sessionid = sessionStorage.getItem("sessionid");
 	
 	
 	if(nickname!=null){  
@@ -33,6 +70,7 @@ $(function(){
 	$("#myimg").error(function(){
 		$(this).attr("src","img/mypicture.png");	
 	});
+	
 	
 	// 清除缓存
 	$("#exit").click(function(){
@@ -454,7 +492,15 @@ $(function(){
 							document.getElementById("scoreNum").innerHTML = Num;
 							Num1 = result["result"]["nickname"];
 							document.getElementById("nickname").innerHTML = Num1;
-							document.getElementById("myimg").src = result["result"]["photo_url"];
+							
+							//判断photo_url是否为空；
+							if(result["result"]["photo_url"]==null){
+								document.getElementById("myimg").src = "img/mypicture.png";
+							}
+							else{
+								document.getElementById("myimg").src = result["result"]["small_photo_url"];
+							}
+							
 					  		$(".inner_menu").fadeOut();  
 					  		$("#myprofile").fadeIn(); 
 					  		$("#myimg").fadeIn(); 
@@ -469,9 +515,6 @@ $(function(){
 							sessionStorage.setItem("sessionid", result["result"]["session_id"]);
 							sessionStorage.setItem("sex", result["result"]["sex"]);
 							sessionStorage.setItem("region", result["result"]["region"]);
-							$("#myimg").error(function(){
-								$(this).attr("src","img/mypicture.png");	
-							});
 					  		break;
 					  	case "10001":
 					  		$("#fault").fadeIn();
