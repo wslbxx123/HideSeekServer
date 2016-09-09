@@ -24,7 +24,7 @@ class BaseController extends Controller {
         session_id($sessionId);
         session_start();
         
-        $account_condition['SESSION_TOKEN'] = md5($sessionId);
+        $account_condition['session_token'] = md5($sessionId);
         
         $account = M("account")->where($account_condition)->find();
         return $account;
