@@ -501,8 +501,8 @@ var Vcity = {};
 	        }
 	    }
 	};
-	var test=new Vcity.CitySelector({input:'citySelect'});
-	var test2=new Vcity.CitySelector({input:'citySelect1'});
+//	var test=new Vcity.CitySelector({input:'citySelect'});
+	var test=new Vcity.CitySelector({input:'citySelect1'});
 	
 //给citybox添加上关闭按钮
 var createDiv = true;
