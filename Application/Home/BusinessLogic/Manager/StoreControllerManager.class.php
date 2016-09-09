@@ -4,6 +4,9 @@ use Home\DataAccess\PullVersionManager;
 use Home\DataAccess\ProductManager;
 use Home\DataAccess\RewardManager;
 use Home\DataAccess\PurchaseOrderManager;
+use Home\DataAccess\ExchangeOrderManager;
+use Home\DataAccess\RecordManager;
+use Home\DataAccess\AccountManager;
 use Home\BusinessLogic\Network\AlipayManager;
 use Home\Common\Param\CodeParam;
 use Home\Common\Util\BaseUtil;
@@ -131,5 +134,19 @@ class StoreControllerManager {
         }
         
         return true;
+    }
+    
+    public function updateAfterExchange($rewardId, $acountId, $count) {
+        $orderVersion = PullVersionManager::updateRewardOrderVersion();
+        ExchangeOrderManager::insertOrder($rewardId, $acountId, $count, 
+                $orderVersion);
+        $rewardVersion = PullVersionManager::updateRewardVersion();
+        $reward = RewardManager::updateExchangeCount($rewardId, $rewardVersion);
+        $version = PullVersionManager::updateRaceGroupVersion();
+        $record = RecordManager::insertRewardRecord($acountId, 
+                -1 * intval($reward['record']) * $count, $version);
+        AccountManager::updateRecord($acountId, $record);
+        
+        return $record;
     }
 }

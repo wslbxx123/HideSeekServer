@@ -52,5 +52,14 @@ class RewardManager {
         $reward = $Dao->where($condition)->find();
         return $reward;
     }
+    
+    public function updateExchangeCount($rewardId, $version) {
+        $Dao = M("reward");
+        $condition["pk_id"] = $rewardId;
+        $store = $Dao->where($condition)->find();
+        $store['exchange_count'] = $store['exchange_count'] + 1;
+        $store['version'] = $version;
+        $Dao->where($condition)->save($store);
+    }
 }
 
