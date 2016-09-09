@@ -15,6 +15,30 @@ $(function(){
 	    }, 1000);
 	}, false);
 	
+	var refreshAccountData = {
+			url: "/index.php/home/user/refreshAccountData",	
+			type: 'POST',
+			data: "session_id=" + sessionStorage.getItem("sessionid"),
+			dataType: "json",
+			
+			success: function(result, status) {
+				alert(JSON.stringify(result));
+					switch(result["code"]){
+						case "10000":
+							sessionStorage["myimgpath"] = result["result"]["small_photo_url"];
+							break;
+					  	case "10003":
+					  		alert("发送信息失败！")
+					  		break;
+					}	
+			},
+			error: function(XMLHttpRequest, textStatus, errorThrown) {
+				alert("网络出现问题！");
+			}
+	};
+	$.ajax(refreshAccountData);		
+	
+	
 	// 重新刷新页面获取缓存的数据
 	nickname = sessionStorage.getItem("nickname");
 	record = sessionStorage.getItem("record");
@@ -41,6 +65,7 @@ $(function(){
 	$("#myimg").error(function(){
 		$(this).attr("src","img/mypicture.png");	
 	});
+	
 	
 	// 清除缓存
 	$("#exit").click(function(){
