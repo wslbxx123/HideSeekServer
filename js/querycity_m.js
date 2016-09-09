@@ -506,7 +506,7 @@ var Vcity = {};
 	
 //给citybox添加上关闭按钮
 var createDiv = true;
-$(".cityinput").click(function(){
+$(".citySelector").click(function(){
 	if(createDiv){
 		var cityBox = document.getElementById("cityBox");
 		var closeDiv = document.createElement('div');
