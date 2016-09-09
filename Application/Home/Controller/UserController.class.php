@@ -14,7 +14,7 @@ class UserController extends BaseController {
     public function login(){
         self::setHeader();
         session_start();
-        session(array('name'=>'pk_id','expire'=>3600));
+
         $phone = filter_input(INPUT_POST, 'phone');
         $password = filter_input(INPUT_POST, 'password');
         $channelId = filter_input(INPUT_POST, 'channel_id');
@@ -33,14 +33,14 @@ class UserController extends BaseController {
         $_SESSION['pk_id'] = $account["pk_id"];
         $account["session_id"] = session_id();
         $account["friend_requests"] = FriendRequestManager::
-                getFriendRequests($account['pk_id']);
+                getFriendRequests($account['pk_id']);  
         
         BaseUtil::echoJson(CodeParam::SUCCESS, $account);
     }
     
     public function logout(){
         self::setHeader();
-        session_destroy();
+
         $sessionId = filter_input(INPUT_POST, 'session_id');
         $accountId = $this->getPkIdFromToken($sessionId);
         
@@ -213,6 +213,20 @@ class UserController extends BaseController {
         
         $result = Array("region" => $region);
         BaseUtil::echoJson(CodeParam::SUCCESS, $result);
+    }
+    
+    public function refreshAccountData() {
+        self::setHeader();
+        
+        $sessionId = filter_input(INPUT_POST, 'session_id');
+        $account = $this->getAccountFromToken($sessionId);
+        
+        if(!isset($sessionId) || $account['pk_id'] == 0) {
+            BaseUtil::echoJson(CodeParam::NOT_LOGIN, null);
+            return;
+        }
+        
+        BaseUtil::echoJson(CodeParam::SUCCESS, $account);
     }
 }
 
