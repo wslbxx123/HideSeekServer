@@ -15,7 +15,9 @@ $(function(){
 	    }, 1000);
 	}, false);
 	
-	refreshdata();
+	if(sessionStorage.getItem("sessionid")!=null){
+		refreshdata();
+	}
 	
 	function refreshdata(){
 		var refreshAccountData = {
@@ -46,7 +48,7 @@ $(function(){
 	nickname = sessionStorage.getItem("nickname");
 	record = sessionStorage.getItem("record");
 	myimgpath = sessionStorage.getItem("myimgpath");
-	sessionid = sessionStorage.getItem("myimgpath");
+	sessionid = sessionStorage.getItem("sessionid");
 	
 	
 	if(nickname!=null){  
