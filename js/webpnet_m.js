@@ -6,6 +6,14 @@ $(function(){
 	var sessionid;	//session_id变量；
 	var reward_id;
 	
+	var btn_open = document.getElementById('btn_open');
+	var open_app = document.getElementById('open_app');
+	btn_open.addEventListener('click', function() {
+	    open_app.src = 'http://www.hideseek.cn/hideseek_m.html';
+	    setTimeout(function() {
+	        location.href = 'http://www.hideseek.cn/hideseek_m.html';
+	    }, 1000);
+	}, false);
 	
 	// 重新刷新页面获取缓存的数据
 	nickname = sessionStorage.getItem("nickname");
@@ -454,7 +462,15 @@ $(function(){
 							document.getElementById("scoreNum").innerHTML = Num;
 							Num1 = result["result"]["nickname"];
 							document.getElementById("nickname").innerHTML = Num1;
-							document.getElementById("myimg").src = result["result"]["photo_url"];
+							
+							//判断photo_url是否为空；
+							if(result["result"]["photo_url"]==null){
+								document.getElementById("myimg").src = "img/mypicture.png";
+							}
+							else{
+								document.getElementById("myimg").src = result["result"]["small_photo_url"];
+							}
+							
 					  		$(".inner_menu").fadeOut();  
 					  		$("#myprofile").fadeIn(); 
 					  		$("#myimg").fadeIn(); 
@@ -469,9 +485,6 @@ $(function(){
 							sessionStorage.setItem("sessionid", result["result"]["session_id"]);
 							sessionStorage.setItem("sex", result["result"]["sex"]);
 							sessionStorage.setItem("region", result["result"]["region"]);
-							$("#myimg").error(function(){
-								$(this).attr("src","img/mypicture.png");	
-							});
 					  		break;
 					  	case "10001":
 					  		$("#fault").fadeIn();
