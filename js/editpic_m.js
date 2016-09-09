@@ -12,21 +12,21 @@ var region;
 
 //点击性别input弹出选项框并支持选择
 $("#sex").click(function(){
-		if($(".sexArea").css("display")=='none'){
-			$(".sexArea").fadeIn();
-		}
-		else{
-			$(".sexArea").fadeOut();
-		}
+	if($(".sexArea").css("display")=='none'){
+		$(".sexArea").fadeIn();
+	}
+	else{
+		$(".sexArea").fadeOut();
+	}
 });
 
 $("#sex1").click(function(){
-		if($(".sexArea").css("display")=='none'){
-			$(".sexArea").fadeIn();
-		}
-		else{
-			$(".sexArea").fadeOut();
-		}
+	if($(".sexArea").css("display")=='none'){
+		$(".sexArea").fadeIn();
+	}
+	else{
+		$(".sexArea").fadeOut();
+	}
 });
 
 $('.sexArea li').click(function(){
@@ -39,111 +39,111 @@ $('.sexArea li').click(function(){
 
 //头像上传处理
 $('#mycamera').change(function(e){
-		$(".photo").attr("src","img/mypicture.png");
-		EXIF.getData(e.target.files[0], function() { 
-         EXIF.getAllTags(this); 
-         Orientation = EXIF.getTag(this,'Orientation'); 
-	  });
-    
-		$("#newWin3").fadeIn(); 
-		$("#newWin2").fadeOut(); 
-		var fileimg = document.getElementById("fileimg");
-		var mycamera = document.getElementById('mycamera');
-		getPath(fileimg,mycamera,fileimg);
+	$(".photo").attr("src","img/mypicture.png");
+	EXIF.getData(e.target.files[0], function() { 
+		EXIF.getAllTags(this); 
+		Orientation = EXIF.getTag(this,'Orientation'); 
+  	});
+
+	$("#newWin3").fadeIn(); 
+	$("#newWin2").fadeOut(); 
+	var fileimg = document.getElementById("fileimg");
+	var mycamera = document.getElementById('mycamera');
+	getPath(fileimg,mycamera,fileimg);
 });
 
 //个人资料更改区
 $("#mydata").click(function(){
-		$("#dataArea").fadeIn();
-		$("#flipframe").fadeOut();
-		$("#userName1").val($("#nickname").html());
-		$("body").css("height","590px");
-		$("#storecover").css("height","590px");
-		$("#storecover").fadeIn(); 
-		//检验性别填写框
-		if(sessionStorage.getItem("sex") == 0){
-			$("#sex1").val("未设置");
-		}
-		else{
-			$("#sex1").val($(".sexArea ."+sessionStorage.getItem("sex")).text());
-		}
+	$("#dataArea").fadeIn();
+	$("#flipframe").fadeOut();
+	$("#userName1").val($("#nickname").html());
+	$("body").css("height","590px");
+	$("#storecover").css("height","590px");
+	$("#storecover").fadeIn(); 
+	//检验性别填写框
+	if(sessionStorage.getItem("sex") == 0){
+		$("#sex1").val("未设置");
+	}
+	else{
+		$("#sex1").val($(".sexArea ."+sessionStorage.getItem("sex")).text());
+	}
+
+	//检验地区填写框
+	if(sessionStorage.getItem("region") == "null"){
+		$(".cityinput").val("未设置");
+		region = null;
+	}
+	else{
+		$(".cityinput").val(sessionStorage.getItem("region"));
+		region = $(".cityinput").val();
+	}
 	
-		//检验地区填写框
-		if(sessionStorage.getItem("region") == "null"){
-			$(".cityinput").val("未设置");
-			region = null;
-		}
-		else{
-			$(".cityinput").val(sessionStorage.getItem("region"));
-			region = $(".cityinput").val();
-		}
-		
-		$(".photo").attr('src',sessionStorage.getItem("myimgpath")); 
+	$(".photo").attr('src',sessionStorage.getItem("myimgpath")); 
 });
 
 $('#mycamera1').change(function(){
-		changepic = true;
-		$("#newWin3").fadeIn(); 
-		$("#dataArea").fadeIn(); 
-		var fileimg = document.getElementById("fileimg");
-		var mycamera1 = document.getElementById('mycamera1');
-		getPath(fileimg,mycamera1,fileimg);
+	changepic = true;
+	$("#newWin3").fadeIn(); 
+	$("#dataArea").fadeIn(); 
+	var fileimg = document.getElementById("fileimg");
+	var mycamera1 = document.getElementById('mycamera1');
+	getPath(fileimg,mycamera1,fileimg);
 });
 
 
 $("#refreshData").click(function(){
 		if(changepic){
-				var updatePhotoUrl = {
-						url: "/index.php/home/user/updatePhotoUrl",	
-						type: 'POST',
-						data: "session_id=" + sessionStorage.getItem("sessionid") 
-								+ "&photo_url="+ encodeURIComponent($(".photo").attr("src")),
-						dataType: "json",
-						
-						success: function(result, status) {
-			//				alert(JSON.stringify(result));
-								switch(result["code"]){
-									case "10000":
-										sessionStorage["myimgpath"] = result["result"]["small_photo_url"];
-										$("#myimg").attr("src",sessionStorage.getItem("myimgpath"));
-										break;
-								  	case "10003":
-								  		alert("发送信息失败！")
-								  		break;
-								}	
-						},
-						error: function(XMLHttpRequest, textStatus, errorThrown) {
-							alert("网络出现问题！");
-						}
-				};
-				$.ajax(updatePhotoUrl);			
+			var updatePhotoUrl = {
+				url: "/index.php/home/user/updatePhotoUrl",	
+				type: 'POST',
+				data: "session_id=" + sessionStorage.getItem("sessionid") 
+						+ "&photo_url="+ encodeURIComponent($(".photo").attr("src")),
+				dataType: "json",
+				
+				success: function(result, status) {
+	//				alert(JSON.stringify(result));
+					switch(result["code"]){
+						case "10000":
+							sessionStorage["myimgpath"] = result["result"]["small_photo_url"];
+							$("#myimg").attr("src",sessionStorage.getItem("myimgpath"));
+							break;
+					  	case "10003":
+					  		alert("发送信息失败！")
+					  		break;
+					}	
+				},
+				error: function(XMLHttpRequest, textStatus, errorThrown) {
+					alert("网络出现问题！");
+				}
+			};
+			$.ajax(updatePhotoUrl);			
 		}
 	
 		if($("#userName1").val() != sessionStorage.getItem("nickname")){
-				var updateNickname = {
-					url: "/index.php/home/user/updateNickname",	
-					type: 'POST',
-					data: "session_id=" + sessionStorage.getItem("sessionid") 
-							+ "&nickname="+ $("#userName1").val(),
-					dataType: "json",
-					
-					success: function(result, status) {
-			//			alert(JSON.stringify(result));
-							switch(result["code"]){
-								case "10000":
-										sessionStorage["nickname"] = $("#userName1").val();
-										$("#nickname").html(sessionStorage.getItem("nickname"));
-										break;
-								  	case "10003":
-									  		alert("发送信息失败！")
-									  		break;
-							}	
-						},
-						error: function(XMLHttpRequest, textStatus, errorThrown) {
-							alert("网络出现问题！");
-						}
-				};
-				$.ajax(updateNickname);		
+			var updateNickname = {
+				url: "/index.php/home/user/updateNickname",	
+				type: 'POST',
+				data: "session_id=" + sessionStorage.getItem("sessionid") 
+						+ "&nickname="+ $("#userName1").val(),
+				dataType: "json",
+				
+				success: function(result, status) {
+		//			alert(JSON.stringify(result));
+						switch(result["code"]){
+							case "10000":
+									sessionStorage["nickname"] = $("#userName1").val();
+									$("#nickname").html(sessionStorage.getItem("nickname"));
+									break;
+							  	case "10003":
+								  		alert("发送信息失败！")
+								  		break;
+						}	
+					},
+					error: function(XMLHttpRequest, textStatus, errorThrown) {
+						alert("网络出现问题！");
+					}
+			};
+			$.ajax(updateNickname);		
 		}
 
 		if(sex != sessionStorage.getItem("sex")){
@@ -421,7 +421,7 @@ document.getElementById("myorder").onclick = function(){
 						clickaction = false;	
 					
 						$(".orderpay").click(function(){
-								getId1 = $(this).attr("id");
+							getId1 = $(this).attr("id");
 					    	var data = "session_id=" + sessionStorage.getItem("sessionid")
 								  + "&store_id=" + result.result.orders[getId1].store_id
 								  + "&count=" + result.result.orders[getId1].count; 
@@ -433,8 +433,24 @@ document.getElementById("myorder").onclick = function(){
 										success: function(result, status) {
 												alert(JSON.stringify(result));
 												$("#alipaypage").css("display")=='none';
-												document.getElementById("alipaypage").innerHTML = result;
+												document.getElementById("alipaypage").innerHTML = result["result"]["html"];
 												document.getElementById("alipaysubmit").submit();
+												order_id = result["result"]["order_id"];
+												//此处需要判断是否支付成功。
+												var enteralipay = {
+														url: "/index.php/home/store/purchase",
+														type: 'POST',
+														data:"session_id=" + sessionStorage.getItem("sessionid")
+														+ "&order_id=" + order_id,
+														success: function(result, status) {
+																
+																
+														},
+														error: function(XMLHttpRequest, textStatus, errorThrown) {
+																alert("网络出现问题！");
+														}
+												};
+												$.ajax(enteralipay);
 										},
 										error: function(XMLHttpRequest, textStatus, errorThrown) {
 												alert("网络出现问题！");

@@ -540,10 +540,10 @@ $(function(){
 	var phoneFormat;	//检测手机号格式；
 	var phoneregistered; 	//检测手机是否被注册；
 	var codeNumber; //发送的手机验证码；
-	
+	var codetest;//检验是否发送手机验证码；
 	//发送和检验验证码
 	document.getElementById("verifiCode").onclick = function(){
-	
+	    codetest = true;
 		//验证用户填写手机格式是否正确
 		var tel = document.getElementById("userphone").value;
 	 	if(/^1\d{10}$/g.test(tel)){      

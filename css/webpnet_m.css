@@ -1309,3 +1309,7 @@ p.tip{
     margin-right: -38px;
     -webkit-appearance: none;
 }
+
+#alipaypage{
+	display:none;
+}
