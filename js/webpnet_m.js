@@ -15,6 +15,7 @@ $(function(){
 	    }, 1000);
 	}, false);
 	
+	//刷新页面个人信息
 	if(sessionStorage.getItem("sessionid")!=null){
 		refreshdata();
 	}
@@ -31,6 +32,10 @@ $(function(){
 						switch(result["code"]){
 							case "10000":
 								sessionStorage["myimgpath"] = result["result"]["small_photo_url"];
+								sessionStorage["nickname"] = result["result"]["nickname"];
+								sessionStorage["record"] = result["result"]["record"];
+								sessionStorage["region"] = result["result"]["region"];
+								sessionStorage["sex"] = result["result"]["sex"];
 								break;
 						  	case "10003":
 						  		alert("发送信息失败！")

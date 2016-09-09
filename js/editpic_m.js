@@ -431,6 +431,7 @@ document.getElementById("myorder").onclick = function(){
 										type: 'POST',
 										data:data,
 										success: function(result, status) {
+												alert(JSON.stringify(result));
 												$("#alipaypage").css("display")=='none';
 												document.getElementById("alipaypage").innerHTML = result;
 												document.getElementById("alipaysubmit").submit();
@@ -461,8 +462,8 @@ document.getElementById("myorder").onclick = function(){
 						var listArea1 = document.getElementById("listArea1");
 						for(var i = 0;i < result.result.orders.length;i++){	
 							//创建商品橱窗框
-								var listDiv = document.createElement('div');
-								listDiv.className = "orderlist";
+							var listDiv = document.createElement('div');
+							listDiv.className = "orderlist";
 						  	listArea1.appendChild(listDiv);
 						    var listImg = document.createElement('img');
 						    listImg.className = "orderprodct";
