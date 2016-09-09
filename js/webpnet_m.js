@@ -40,7 +40,9 @@ $(function(){
 						  	case "10003":
 						  		alert("发送信息失败！")
 						  		break;
-						  	case "11000"
+						  	case "11000":
+						  		clearStorage();
+						  		break;
 						}	
 				},
 				error: function(XMLHttpRequest, textStatus, errorThrown) {
@@ -80,6 +82,10 @@ $(function(){
 	
 	// 清除缓存
 	$("#exit").click(function(){
+		clearStorage();
+	});
+	
+	function clearStorage(){
 		sessionStorage.clear();
 		$(".inner_menu").fadeIn();
 		$("#myimg").fadeOut();
@@ -90,7 +96,7 @@ $(function(){
 		$(".photo").attr("src","img/mypicture.png");
 		$("#sex").val("未设置");
 		$(".cityinput").val("未设置");
-	});
+	}
 	
 	//点击右上角叉号删除页面
 	$(".closeBox").click(function(){
@@ -115,120 +121,150 @@ $(function(){
 			dataType: "json",
 			
 			success: function(result, status) {
-				purNum = result.result.products.length;
-				for(var i = 0;i < result.result.products.length;i++){	
-					//创建商品橱窗框
-					var purArea = document.getElementById("purArea");
-				  	var newDiv = document.createElement('div');
-				  	if(i%2 == 0){
-				  		newDiv.className = "N2";
-				  	    var newImg = document.createElement('img');
-				  		newImg.className = "productImg";
-				  	}
-				  	else{
-				  		newDiv.className = "N1";
-				  		var newImg = document.createElement('img');
-				  		newImg.className = "productImg1";
-				  	}
-				  	purArea.appendChild(newDiv);
-				  	
-				  	//创建商品名称
-				  	var nameSpan = document.createElement('span');
-				  
-				  	nameSpan.className = "productName";
-				  	nameSpan.innerHTML = result.result.products[i].product_name;
-				  	newDiv.appendChild(nameSpan);
-				  	
-				  	//创建商品图片
-				  	newImg.src = result.result.products[i].product_image_url;
-				  	newDiv.appendChild(newImg);
-			  	
-				  	//创建商品兑换信息框
-				  	var messageDiv = document.createElement('div');
-				  	newDiv.appendChild(messageDiv);
-				  	
-				  	//商品兑换信息框：商品积分图标
-				  	var messageImg = document.createElement('img');
-				  	messageImg.src = "img/score.png";
-				  	messageImg.className = "scoreImg";
-				  	messageDiv.appendChild(messageImg);
-				  	
-				  	//商品兑换信息框：商品积分数字
-				  	var pointNum = document.createElement('span');
-				  	pointNum.className = "pointNum";
-				  	pointNum.id = "pointNumb"+i;
-				  	pointNum.innerHTML = result.result.products[i].price+"元";
-				  	messageDiv.appendChild(pointNum);
-				  
-				  	//商品兑换信息框：商品人物图标
-				  	var peopleImg = document.createElement('img');
-				  	peopleImg.src = "img/people.png";
-				  	peopleImg.className = "peopleImg";
-				  	messageDiv.appendChild(peopleImg);
-				  	
-				  	//商品兑换信息框：商品购买人数
-				  	var peopleNum = document.createElement('span');
-				  	peopleNum.className = "peopleNum";
-				  	peopleNum.innerHTML = result.result.products[i].purchase_count+"人购买";
-				  	messageDiv.appendChild(peopleNum);
-
-                    //创建商品介绍信息
-				  	var introDiv = document.createElement('div');
-					introDiv.id = "intro";
-				  	introDiv.innerHTML = result.result.products[i].introduction;
-				    newDiv.appendChild(introDiv);
-				    
-				    //创建商品购买按钮
-				    var getDiv = document.createElement('div');
-				    getDiv.className = "purGet";
-				    getDiv.id = i;
-					getDiv.innerHTML= "购买";
-				    newDiv.appendChild(getDiv);   
-				        
-				} 
-				
-				//点击购买后是否有用户名存在判断
-				 $(".purGet").click(function(){	
-				   if (sessionStorage.getItem("nickname")==null){
-				   		alert("请先登录！");
-				   }
-				   
-				   else{
-				   		$("#storecover").css("height",$("body").height()-58+"px");
-				   		$("#storecover").fadeIn();
-				   		$(".goodsNum").val("1");
-				   		getId = $(this).attr("id");
-				   		$(".goodsName").html(result.result.products[getId].product_name);
-				   		$(".goodsprice").html($(".goodsNum").val()*result.result.products[getId].price+"元");
-				   		
-				   		$('.goodsNum').change(function(){
-				   			$(".goodsprice").html($(".goodsNum").val()*result.result.products[getId].price+"元");
-				   		});
-				   		
-				   		//进入购买支付确认界面
-				   		$("#confirmpurchase").fadeIn();
-				   		
-				   		//进入支付宝界面
-				   		$("#enterAlipay").click(function(){
-							var data = "session_id=" + sessionStorage.getItem("sessionid")
-									  + "&store_id=" + result.result.products[getId].pk_id
-									  + "&count=" + $(".goodsNum").val(); 
-							var enteralipay = {
-								url: "/index.php/home/store/createOrderFromH5",
-								type: 'POST',
-								data:data,
-								success: function(result, status) {
-									document.getElementById("alipaypage").innerHTML = result;
-									document.getElementById("alipaysubmit").submit();
-								},
-//								error: function(XMLHttpRequest, textStatus, errorThrown) {
-//									alert("网络出现问题！");
-//								}
-							};
-							$.ajax(enteralipay);
+				switch(result["code"]){
+					case "10000":
+						purNum = result.result.products.length;
+						for(var i = 0;i < result.result.products.length;i++){	
+							//创建商品橱窗框
+							var purArea = document.getElementById("purArea");
+						  	var newDiv = document.createElement('div');
+						  	if(i%2 == 0){
+						  		newDiv.className = "N2";
+						  	    var newImg = document.createElement('img');
+						  		newImg.className = "productImg";
+						  	}
+						  	else{
+						  		newDiv.className = "N1";
+						  		var newImg = document.createElement('img');
+						  		newImg.className = "productImg1";
+						  	}
+						  	purArea.appendChild(newDiv);
+						  	
+						  	//创建商品名称
+						  	var nameSpan = document.createElement('span');
+						  
+						  	nameSpan.className = "productName";
+						  	nameSpan.innerHTML = result.result.products[i].product_name;
+						  	newDiv.appendChild(nameSpan);
+						  	
+						  	//创建商品图片
+						  	newImg.src = result.result.products[i].product_image_url;
+						  	newDiv.appendChild(newImg);
+					  	
+						  	//创建商品兑换信息框
+						  	var messageDiv = document.createElement('div');
+						  	newDiv.appendChild(messageDiv);
+						  	
+						  	//商品兑换信息框：商品积分图标
+						  	var messageImg = document.createElement('img');
+						  	messageImg.src = "img/score.png";
+						  	messageImg.className = "scoreImg";
+						  	messageDiv.appendChild(messageImg);
+						  	
+						  	//商品兑换信息框：商品积分数字
+						  	var pointNum = document.createElement('span');
+						  	pointNum.className = "pointNum";
+						  	pointNum.id = "pointNumb"+i;
+						  	pointNum.innerHTML = result.result.products[i].price+"元";
+						  	messageDiv.appendChild(pointNum);
+						  
+						  	//商品兑换信息框：商品人物图标
+						  	var peopleImg = document.createElement('img');
+						  	peopleImg.src = "img/people.png";
+						  	peopleImg.className = "peopleImg";
+						  	messageDiv.appendChild(peopleImg);
+						  	
+						  	//商品兑换信息框：商品购买人数
+						  	var peopleNum = document.createElement('span');
+						  	peopleNum.className = "peopleNum";
+						  	peopleNum.innerHTML = result.result.products[i].purchase_count+"人购买";
+						  	messageDiv.appendChild(peopleNum);
+		
+		                    //创建商品介绍信息
+						  	var introDiv = document.createElement('div');
+							introDiv.id = "intro";
+						  	introDiv.innerHTML = result.result.products[i].introduction;
+						    newDiv.appendChild(introDiv);
+						    
+						    //创建商品购买按钮
+						    var getDiv = document.createElement('div');
+						    getDiv.className = "purGet";
+						    getDiv.id = i;
+							getDiv.innerHTML= "购买";
+						    newDiv.appendChild(getDiv);   
+						        
+						} 
+						
+						//点击购买后是否有用户名存在判断
+						 $(".purGet").click(function(){	
+						   if (sessionStorage.getItem("nickname")==null){
+						   		alert("请先登录！");
+						   }
+						   
+						   else{
+						   		$("#storecover").css("height",$("body").height()-58+"px");
+						   		$("#storecover").fadeIn();
+						   		$(".goodsNum").val("1");
+						   		getId = $(this).attr("id");
+						   		$(".goodsName").html(result.result.products[getId].product_name);
+						   		$(".goodsprice").html($(".goodsNum").val()*result.result.products[getId].price+"元");
+						   		
+						   		$('.goodsNum').change(function(){
+						   			$(".goodsprice").html($(".goodsNum").val()*result.result.products[getId].price+"元");
+						   		});
+						   		
+						   		//进入购买支付确认界面
+						   		$("#confirmpurchase").fadeIn();
+						   		
+						   		//进入支付宝界面
+						   		$("#enterAlipay").click(function(){
+									var data = "session_id=" + sessionStorage.getItem("sessionid")
+											  + "&store_id=" + result.result.products[getId].pk_id
+											  + "&count=" + $(".goodsNum").val(); 
+									var enteralipay = {
+										url: "/index.php/home/store/createOrderFromH5",
+										type: 'POST',
+										data:data,
+										success: function(result, status) {
+											switch(result["code"]){
+												case "10000":
+													document.getElementById("alipaypage").innerHTML = result["result"]["html"];
+													document.getElementById("alipaysubmit").submit();
+													order_id = result["result"]["order_id"];
+													//此处需要判断是否支付成功。
+													var enteralipay = {
+															url: "/index.php/home/store/purchase",
+															type: 'POST',
+															data:"session_id=" + sessionStorage.getItem("sessionid")
+															+ "&order_id=" + order_id,
+															success: function(result, status) {
+																	
+																	
+															},
+															error: function(XMLHttpRequest, textStatus, errorThrown) {
+																	alert("网络出现问题！");
+															}
+													};
+													$.ajax(enteralipay);
+													break;
+												case "11000":
+													clearStorage();
+													break;
+											}
+										},
+		//								error: function(XMLHttpRequest, textStatus, errorThrown) {
+		//									alert("网络出现问题！");
+		//								}
+									};
+									$.ajax(enteralipay);
+								});
+							}
 						});
-					}
-				});
+						break;
+					case "11000":
+						clearStorage();
+						break;
+				}
 			},
 			error: function(XMLHttpRequest, textStatus, errorThrown) {
 				alert("网络出现问题！");
@@ -244,96 +280,103 @@ $(function(){
 			dataType: "json",
 			
 			success: function(result, status) {
-				exNum = result.result.reward.length;
-				for(var i = 0;i < result.result.reward.length;i++){	
-					//创建商品橱窗框
-					var exArea = document.getElementById("exArea");
-				  	var newDiv = document.createElement('div');
-				  	if(i%2 == 0){
-				  		newDiv.className = "N2";
-				  	    var newImg = document.createElement('img');
-				  		newImg.className = "productImg";
-				  	}
-				  	else{
-				  		newDiv.className = "N1";
-				  		var newImg = document.createElement('img');
-				  		newImg.className = "productImg1";
-				  	}
-				  	exArea.appendChild(newDiv);
-				  	
-				  	//创建商品名称
-				  	var nameSpan = document.createElement('span');
-				  
-				  	nameSpan.className = "productName";
-				  	nameSpan.innerHTML = result.result.reward[i].reward_name;
-				  	newDiv.appendChild(nameSpan);
-				  	
-				  	//创建商品图片
-				  	newImg.src = result.result.reward[i].reward_image_url;
-				  	newDiv.appendChild(newImg);
-			  	
-				  	//创建商品兑换信息框
-				  	var messageDiv = document.createElement('div');
-				  	newDiv.appendChild(messageDiv);
-				  	
-				  	//商品兑换信息框：商品积分图标
-				  	var messageImg = document.createElement('img');
-				  	messageImg.src = "img/score1.png";
-				  	messageImg.className = "scoreImg";
-				  	messageDiv.appendChild(messageImg);
-				  	
-				  	//商品兑换信息框：商品积分数字
-				  	var pointNum = document.createElement('span');
-				  	pointNum.className = "pointNum";
-				  	pointNum.id = "pointNumc"+i;
-				  	pointNum.innerHTML = result.result.reward[i].record+"积分";
-				  	messageDiv.appendChild(pointNum);
-				  
-				  	//商品兑换信息框：商品人物图标
-				  	var peopleImg = document.createElement('img');
-				  	peopleImg.src = "img/people.png";
-				  	peopleImg.className = "peopleImg";
-				  	messageDiv.appendChild(peopleImg);
-				  	
-				  	//商品兑换信息框：商品购买人数
-				  	var peopleNum = document.createElement('span');
-				  	peopleNum.className = "peopleNum";
-				  	peopleNum.innerHTML = result.result.reward[i].exchange_count+"人兑换";
-				  	messageDiv.appendChild(peopleNum);
-
-                    //创建商品介绍信息
-				  	var introDiv = document.createElement('div');
-					introDiv.id = "intro";
-				  	introDiv.innerHTML = result.result.reward[i].introduction;
-				    newDiv.appendChild(introDiv);
-				    
-				    //创建商品购买按钮
-				    var getDiv = document.createElement('div');
-				    getDiv.className = "exGet";
-				    getDiv.id = i;
-					getDiv.innerHTML= "兑换";
-				    newDiv.appendChild(getDiv);   
+				switch(result["code"]){
+					case "10000":
+						exNum = result.result.reward.length;
+						for(var i = 0;i < result.result.reward.length;i++){	
+							//创建商品橱窗框
+							var exArea = document.getElementById("exArea");
+						  	var newDiv = document.createElement('div');
+						  	if(i%2 == 0){
+						  		newDiv.className = "N2";
+						  	    var newImg = document.createElement('img');
+						  		newImg.className = "productImg";
+						  	}
+						  	else{
+						  		newDiv.className = "N1";
+						  		var newImg = document.createElement('img');
+						  		newImg.className = "productImg1";
+						  	}
+						  	exArea.appendChild(newDiv);
+						  	
+						  	//创建商品名称
+						  	var nameSpan = document.createElement('span');
+						  
+						  	nameSpan.className = "productName";
+						  	nameSpan.innerHTML = result.result.reward[i].reward_name;
+						  	newDiv.appendChild(nameSpan);
+						  	
+						  	//创建商品图片
+						  	newImg.src = result.result.reward[i].reward_image_url;
+						  	newDiv.appendChild(newImg);
+					  	
+						  	//创建商品兑换信息框
+						  	var messageDiv = document.createElement('div');
+						  	newDiv.appendChild(messageDiv);
+						  	
+						  	//商品兑换信息框：商品积分图标
+						  	var messageImg = document.createElement('img');
+						  	messageImg.src = "img/score1.png";
+						  	messageImg.className = "scoreImg";
+						  	messageDiv.appendChild(messageImg);
+						  	
+						  	//商品兑换信息框：商品积分数字
+						  	var pointNum = document.createElement('span');
+						  	pointNum.className = "pointNum";
+						  	pointNum.id = "pointNumc"+i;
+						  	pointNum.innerHTML = result.result.reward[i].record+"积分";
+						  	messageDiv.appendChild(pointNum);
+						  
+						  	//商品兑换信息框：商品人物图标
+						  	var peopleImg = document.createElement('img');
+						  	peopleImg.src = "img/people.png";
+						  	peopleImg.className = "peopleImg";
+						  	messageDiv.appendChild(peopleImg);
+						  	
+						  	//商品兑换信息框：商品购买人数
+						  	var peopleNum = document.createElement('span');
+						  	peopleNum.className = "peopleNum";
+						  	peopleNum.innerHTML = result.result.reward[i].exchange_count+"人兑换";
+						  	messageDiv.appendChild(peopleNum);
+		
+		                    //创建商品介绍信息
+						  	var introDiv = document.createElement('div');
+							introDiv.id = "intro";
+						  	introDiv.innerHTML = result.result.reward[i].introduction;
+						    newDiv.appendChild(introDiv);
+						    
+						    //创建商品购买按钮
+						    var getDiv = document.createElement('div');
+						    getDiv.className = "exGet";
+						    getDiv.id = i;
+							getDiv.innerHTML= "兑换";
+						    newDiv.appendChild(getDiv);   
+						}
+						//点击兑换后是否有用户名存在判断
+						$(".exGet").click(function(){
+						    if (sessionStorage.getItem("nickname")==null){
+						   		alert("请先登录！");
+						    }
+						   
+						    else{
+						    	$("#storecover").css("height",$("body").height()-58+"px");
+						    	$("#storecover").fadeIn();
+						   		getId = $(this).attr("id");
+						   		reward_id = result.result.reward[getId].pk_id;
+						   		var gNum = $(".goodsNum1").val()*result.result.reward[getId].record+"积分";
+						   		$(".goodsName").html(result.result.reward[getId].reward_name);
+						   		$(".goodsprice1").html(gNum);
+						   		$('.goodsNum1').change(function(){
+						   			$(".goodsprice1").html($(".goodsNum1").val()*result.result.reward[getId].record+"积分");
+						   		});
+						   		$("#confirmexchange").fadeIn();
+						    }
+						});
+						break;
+					case "11000":
+						clearStorage();
+						break;
 				}
-				//点击兑换后是否有用户名存在判断
-				$(".exGet").click(function(){
-				    if (sessionStorage.getItem("nickname")==null){
-				   		alert("请先登录！");
-				    }
-				   
-				    else{
-				    	$("#storecover").css("height",$("body").height()-58+"px");
-				    	$("#storecover").fadeIn();
-				   		getId = $(this).attr("id");
-				   		reward_id = result.result.reward[getId].pk_id;
-				   		var gNum = $(".goodsNum1").val()*result.result.reward[getId].record+"积分";
-				   		$(".goodsName").html(result.result.reward[getId].reward_name);
-				   		$(".goodsprice1").html(gNum);
-				   		$('.goodsNum1').change(function(){
-				   			$(".goodsprice1").html($(".goodsNum1").val()*result.result.reward[getId].record+"积分");
-				   		});
-				   		$("#confirmexchange").fadeIn();
-				    }
-				});
 			},
 			error: function(XMLHttpRequest, textStatus, errorThrown) {
 				alert("网络出现问题！");
@@ -342,6 +385,7 @@ $(function(){
 	$.ajax(exStore);
 	
 	$("#confirmpay").click(function(){
+		refreshdata();
 		if(parseInt($("#scoreNum").html())>=parseInt($(".goodsprice1").html())){
 			$("#scoreNum").html(parseInt($("#scoreNum").html())-parseInt($(".goodsprice1").html()));
 			var data = "session_id=" + sessionStorage.getItem("sessionid")
@@ -352,7 +396,13 @@ $(function(){
 				type: 'POST',
 				data:data,
 				success: function(result, status) {
-					alert(JSON.stringify(result));
+					switch(result["code"]){
+						case "10000":
+							break;
+						case "11000":
+							clearStorage();
+							break;
+					}
 				},
 			};
 			$.ajax(createExchangeOrder);
@@ -526,6 +576,9 @@ $(function(){
 					  	case "10001":
 					  		$("#fault").fadeIn();
 					  		break;
+						case "11000":
+							clearStorage();
+							break;
 					}
 					
 				},

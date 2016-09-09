@@ -114,6 +114,9 @@ $("#refreshData").click(function(){
 					  	case "10003":
 					  		alert("发送信息失败！")
 					  		break;
+						case "11000":
+							clearStorage();
+							break;
 					}	
 				},
 				error: function(XMLHttpRequest, textStatus, errorThrown) {
@@ -138,9 +141,12 @@ $("#refreshData").click(function(){
 									sessionStorage["nickname"] = $("#userName1").val();
 									$("#nickname").html(sessionStorage.getItem("nickname"));
 									break;
-							  	case "10003":
-								  		alert("发送信息失败！")
-								  		break;
+						  	case "10003":
+							  		alert("发送信息失败！")
+							  		break;
+							case "11000":
+								clearStorage();
+								break;
 						}	
 					},
 					error: function(XMLHttpRequest, textStatus, errorThrown) {
@@ -166,6 +172,9 @@ $("#refreshData").click(function(){
 							  	case "10003":
 							  		alert("发送信息失败！")
 							  		break;
+							  	case "11000":
+									clearStorage();
+									break;
 							}	
 						},
 						error: function(XMLHttpRequest, textStatus, errorThrown) {
@@ -186,11 +195,14 @@ $("#refreshData").click(function(){
 						success: function(result, status) {
 								switch(result["code"]){
 										case "10000":
-												sessionStorage["region"] =  $(".cityinput").val();
-												break;
-										  	case "10003":
-											  		alert("发送信息失败！")
-											  		break;
+											sessionStorage["region"] =  $(".cityinput").val();
+											break;
+										case "10003":
+									  		alert("发送信息失败！")
+									  		break;
+										case "11000":
+											clearStorage();
+											break;
 								}	
 						},
 						error: function(XMLHttpRequest, textStatus, errorThrown) {
@@ -331,11 +343,11 @@ document.getElementById("matchId").onclick = function(){
 								switch(result["code"]){
 									case "10000":
 										Num = result["result"]["record"];
-						        sessionid = result["result"]["session_id"];
-						        $("#myorder").fadeIn(); 
-						        logIn = true;
-						        //存储注册数据
-						  			sessionStorage.setItem("nickname", $("#userName").val());
+								        sessionid = result["result"]["session_id"];
+								        $("#myorder").fadeIn(); 
+								        logIn = true;
+								        //存储注册数据
+						  				sessionStorage.setItem("nickname", $("#userName").val());
 										sessionStorage.setItem("record", Num);
 								
 										//判断photo_url是否为空；
@@ -356,8 +368,11 @@ document.getElementById("matchId").onclick = function(){
 										$("myorder").fadeIn();
 										break;
 								  	case "10003":
-									  		alert("填写信息失败！")
-									  		break;
+								  		alert("填写信息失败！")
+								  		break;
+									case "11000":
+										clearStorage();
+										break;
 								}	
 						},
 						error: function(XMLHttpRequest, textStatus, errorThrown) {
@@ -381,88 +396,95 @@ document.getElementById("myorder").onclick = function(){
 				dataType: "json",
 				
 				success: function(result, status) {
-						$("#listArea").fadeIn();
-						$("#listArea").empty();
-						var orderArea = document.getElementById("orderArea");
-						var listArea = document.getElementById("listArea");
-						for(var i = 0;i < result.result.orders.length;i++){	
-							//创建商品橱窗框
-							var listDiv = document.createElement('div');
-							listDiv.className = "orderlist";
-						  	listArea.appendChild(listDiv);
-						    var listImg = document.createElement('img');
-						    listImg.className = "orderprodct";
-						    listImg.src = result.result.orders[i].product_image_url;
-						    listDiv.appendChild(listImg);
-						    var nameDiv = document.createElement('div');
-						    nameDiv.className = "ordername";
-						    nameDiv.innerHTML = result.result.orders[i].product_name;
-						    listDiv.appendChild(nameDiv);
-						    var sumDiv = document.createElement('div');
-						    sumDiv.className = "ordersum";
-						    sumDiv.innerHTML = "总计：";
-						    listDiv.appendChild(sumDiv);
-						    var numSpan = document.createElement('span');
-						    numSpan.className = "orderNum";
-						    numSpan.innerHTML = result.result.orders[i].count+"(个数)×"+result.result.orders[i].price+"(单价)="+result.result.orders[i].count*result.result.orders[i].price+"元"; 
-						    sumDiv.appendChild(numSpan);
-						    var statusDiv = document.createElement('div');
-						    if(result.result.orders[i].status=="0"){
-							    	statusDiv.className = "orderstatus1";
-								    statusDiv.innerHTML = "未付款";
-								    listDiv.appendChild(statusDiv);
-								    var payDiv = document.createElement('div');
-								    payDiv.className = "orderpay";
-								    payDiv.innerHTML = "点我付款";
-								    payDiv.id = i;
-								    listDiv.appendChild(payDiv);
-						    }
-						    else{
-							    	statusDiv.className = "orderstatus";
-								    statusDiv.innerHTML = "交易成功";
-								    listDiv.appendChild(statusDiv);
-						    }    
-						}
-						clickaction = false;	
-					
-						$(".orderpay").click(function(){
-							getId1 = $(this).attr("id");
-					    	var data = "session_id=" + sessionStorage.getItem("sessionid")
-								  + "&store_id=" + result.result.orders[getId1].store_id
-								  + "&count=" + result.result.orders[getId1].count; 
-								  
-					    	var enteralipay = {
-										url: "/index.php/home/store/createOrderFromH5",
-										type: 'POST',
-										data:data,
-										success: function(result, status) {
-												alert(JSON.stringify(result));
-												$("#alipaypage").css("display")=='none';
-												document.getElementById("alipaypage").innerHTML = result["result"]["html"];
-												document.getElementById("alipaysubmit").submit();
-												order_id = result["result"]["order_id"];
-												//此处需要判断是否支付成功。
-												var enteralipay = {
-														url: "/index.php/home/store/purchase",
-														type: 'POST',
-														data:"session_id=" + sessionStorage.getItem("sessionid")
-														+ "&order_id=" + order_id,
-														success: function(result, status) {
-																
-																
-														},
-														error: function(XMLHttpRequest, textStatus, errorThrown) {
-																alert("网络出现问题！");
-														}
-												};
-												$.ajax(enteralipay);
-										},
-										error: function(XMLHttpRequest, textStatus, errorThrown) {
-												alert("网络出现问题！");
-										}
+					switch(result["code"]){
+						case "10000":
+							$("#listArea").fadeIn();
+							$("#listArea").empty();
+							var orderArea = document.getElementById("orderArea");
+							var listArea = document.getElementById("listArea");
+							for(var i = 0;i < result.result.orders.length;i++){	
+								//创建商品橱窗框
+								var listDiv = document.createElement('div');
+								listDiv.className = "orderlist";
+							  	listArea.appendChild(listDiv);
+							    var listImg = document.createElement('img');
+							    listImg.className = "orderprodct";
+							    listImg.src = result.result.orders[i].product_image_url;
+							    listDiv.appendChild(listImg);
+							    var nameDiv = document.createElement('div');
+							    nameDiv.className = "ordername";
+							    nameDiv.innerHTML = result.result.orders[i].product_name;
+							    listDiv.appendChild(nameDiv);
+							    var sumDiv = document.createElement('div');
+							    sumDiv.className = "ordersum";
+							    sumDiv.innerHTML = "总计：";
+							    listDiv.appendChild(sumDiv);
+							    var numSpan = document.createElement('span');
+							    numSpan.className = "orderNum";
+							    numSpan.innerHTML = result.result.orders[i].count+"(个数)×"+result.result.orders[i].price+"(单价)="+result.result.orders[i].count*result.result.orders[i].price+"元"; 
+							    sumDiv.appendChild(numSpan);
+							    var statusDiv = document.createElement('div');
+							    if(result.result.orders[i].status=="0"){
+								    	statusDiv.className = "orderstatus1";
+									    statusDiv.innerHTML = "未付款";
+									    listDiv.appendChild(statusDiv);
+									    var payDiv = document.createElement('div');
+									    payDiv.className = "orderpay";
+									    payDiv.innerHTML = "点我付款";
+									    payDiv.id = i;
+									    listDiv.appendChild(payDiv);
+							    }
+							    else{
+								    	statusDiv.className = "orderstatus";
+									    statusDiv.innerHTML = "交易成功";
+									    listDiv.appendChild(statusDiv);
+							    }    
+							}
+							clickaction = false;	
+						
+							$(".orderpay").click(function(){
+								getId1 = $(this).attr("id");
+						    	var data = "session_id=" + sessionStorage.getItem("sessionid")
+									  + "&store_id=" + result.result.orders[getId1].store_id
+									  + "&count=" + result.result.orders[getId1].count; 
+									  
+						    	var enteralipay = {
+									url: "/index.php/home/store/createOrderFromH5",
+									type: 'POST',
+									data:data,
+									success: function(result, status) {
+										alert(JSON.stringify(result));
+										$("#alipaypage").css("display")=='none';
+										document.getElementById("alipaypage").innerHTML = result["result"]["html"];
+										document.getElementById("alipaysubmit").submit();
+										order_id = result["result"]["order_id"];
+										//此处需要判断是否支付成功。
+										var enteralipay = {
+												url: "/index.php/home/store/purchase",
+												type: 'POST',
+												data:"session_id=" + sessionStorage.getItem("sessionid")
+												+ "&order_id=" + order_id,
+												success: function(result, status) {
+														
+														
+												},
+												error: function(XMLHttpRequest, textStatus, errorThrown) {
+														alert("网络出现问题！");
+												}
+										};
+										$.ajax(enteralipay);
+									},
+									error: function(XMLHttpRequest, textStatus, errorThrown) {
+										alert("网络出现问题！");
+									}
 								};
 								$.ajax(enteralipay);
-			    	});
+				    		});
+				    		break;
+				    	case "11000":
+				    		clearStorage();
+				    		break;
+				   	}
 				},
 				error: function(XMLHttpRequest, textStatus, errorThrown) {
 						alert("网络出现问题！");
@@ -478,36 +500,43 @@ document.getElementById("myorder").onclick = function(){
 				dataType: "json",
 			
 				success: function(result, status) {
-						$("#listArea1").empty();
-						var orderArea = document.getElementById("orderArea");
-						var listArea1 = document.getElementById("listArea1");
-						for(var i = 0;i < result.result.orders.length;i++){	
-							//创建商品橱窗框
-							var listDiv = document.createElement('div');
-							listDiv.className = "orderlist";
-						  	listArea1.appendChild(listDiv);
-						    var listImg = document.createElement('img');
-						    listImg.className = "orderprodct";
-						    listImg.src = result.result.orders[i].reward_image_url;
-						    listDiv.appendChild(listImg);
-						    var nameDiv = document.createElement('div');
-						    nameDiv.className = "ordername";
-						    nameDiv.innerHTML = result.result.orders[i].reward_name;
-						    listDiv.appendChild(nameDiv);
-						    var sumDiv = document.createElement('div');
-						    sumDiv.className = "ordersum";
-						    sumDiv.innerHTML = "总计：";
-						    listDiv.appendChild(sumDiv);
-						    var numSpan = document.createElement('span');
-						    numSpan.className = "orderNum";
-						    numSpan.innerHTML = result.result.orders[i].count+"(个数)×"+result.result.orders[i].record+"(单价)="+result.result.orders[i].count*result.result.orders[i].record+"积分"; 
-						    sumDiv.appendChild(numSpan);
-						    var statusDiv = document.createElement('div');
-					    	statusDiv.className = "orderstatus";
-						    statusDiv.innerHTML = "交易成功";
-						    listDiv.appendChild(statusDiv); 
-						}
-						$("#listArea1").fadeOut();
+					switch(result["code"]){
+						case "10000":
+							$("#listArea1").empty();
+							var orderArea = document.getElementById("orderArea");
+							var listArea1 = document.getElementById("listArea1");
+							for(var i = 0;i < result.result.orders.length;i++){	
+								//创建商品橱窗框
+								var listDiv = document.createElement('div');
+								listDiv.className = "orderlist";
+							  	listArea1.appendChild(listDiv);
+							    var listImg = document.createElement('img');
+							    listImg.className = "orderprodct";
+							    listImg.src = result.result.orders[i].reward_image_url;
+							    listDiv.appendChild(listImg);
+							    var nameDiv = document.createElement('div');
+							    nameDiv.className = "ordername";
+							    nameDiv.innerHTML = result.result.orders[i].reward_name;
+							    listDiv.appendChild(nameDiv);
+							    var sumDiv = document.createElement('div');
+							    sumDiv.className = "ordersum";
+							    sumDiv.innerHTML = "总计：";
+							    listDiv.appendChild(sumDiv);
+							    var numSpan = document.createElement('span');
+							    numSpan.className = "orderNum";
+							    numSpan.innerHTML = result.result.orders[i].count+"(个数)×"+result.result.orders[i].record+"(单价)="+result.result.orders[i].count*result.result.orders[i].record+"积分"; 
+							    sumDiv.appendChild(numSpan);
+							    var statusDiv = document.createElement('div');
+						    	statusDiv.className = "orderstatus";
+							    statusDiv.innerHTML = "交易成功";
+							    listDiv.appendChild(statusDiv); 
+							}
+							$("#listArea1").fadeOut();
+							break;
+						case "11000":
+							clearStorage();
+							break;
+					}
 				},
 				error: function(XMLHttpRequest, textStatus, errorThrown) {
 						("网络出现问题！");
@@ -745,3 +774,16 @@ $("#exOrder").click(function(){
 		$("#listArea1").fadeIn();
 		$("#listArea").fadeOut();
 });
+
+function clearStorage(){
+	sessionStorage.clear();
+	$(".inner_menu").fadeIn();
+	$("#myimg").fadeOut();
+	$("#myprofile" ).fadeOut();
+	$("#myorder").fadeOut();
+	$("#orderArea").fadeOut();
+	getClick = false;
+	$(".photo").attr("src","img/mypicture.png");
+	$("#sex").val("未设置");
+	$(".cityinput").val("未设置");
+}
