@@ -246,8 +246,9 @@ input.invalid {
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
     display: none;
+    top: 30%;
     margin: 2% 2% auto;
-    position: absolute;
+    position: fixed;
     z-index: 56;
     text-align: center;
     font-size: 15px;
@@ -615,7 +616,7 @@ input.invalid {
     margin-top: 38px;
     border-radius: 10px;
     border: 1px solid darkgrey;
-    padding-bottom: 29px;
+    padding-bottom: 43px;
 }
 
 .icon{
