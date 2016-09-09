@@ -8,9 +8,6 @@ namespace Home\DataAccess;
 class RecordManager {
     public function refreshRecords($accountId, $version, $recordMinId) {
         $Dao = M("record");
-        $condition['account_id'] = $accountId;
-        $scoreSum = $Dao->where($condition)->sum('SCORE') | 0;
-
         $sql = "call admin_refresh_record($accountId, $version, $recordMinId)";
         $scoreList = $Dao->query($sql);
         
@@ -24,7 +21,6 @@ class RecordManager {
         
         return Array(
             "record_min_id" => $recordMinId,
-            "score_sum" => $scoreSum,
             "scores" => $scoreList
         );
     }

@@ -9,7 +9,6 @@ use Home\DataAccess\PullVersionManager;
 use Home\DataAccess\PurchaseOrderManager;
 use Home\DataAccess\ExchangeOrderManager;
 use Home\DataAccess\AccountManager;
-use Home\DataAccess\RecordManager;
 use Home\BusinessLogic\Network\AlipayManager;
 use Home\BusinessLogic\Manager\StoreControllerManager;
 
