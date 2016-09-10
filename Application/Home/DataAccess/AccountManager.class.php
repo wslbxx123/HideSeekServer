@@ -154,7 +154,6 @@ class AccountManager {
     public function updateAccountAfterPurchase($scoreSum, $orderId) {
         $Dao = M("account");
         $sql = "call admin_update_after_purchase($scoreSum, $orderId)";
-        echo $sql;
-        $Dao->query($sql);
+        return $Dao->query($sql);
     }
 }

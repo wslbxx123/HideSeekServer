@@ -225,9 +225,11 @@ class StoreController extends BaseController {
         
         $storeVersion = PullVersionManager::updateStoreVersion();
         ProductManager::updatePurchaseCount($order['store_id'], $storeVersion);
-        AccountManager::updateAccountAfterPurchase($orderId);
+        $account = AccountManager::updateAccountAfterPurchase($orderId);
         
-        echo BaseUtil::echoJson(CodeParam::SUCCESS, $orderId); 
+        $result = array ("bomb_num" => $account['bomb_num'],
+                "has_guide" => $account['has_guide']);
+        echo BaseUtil::echoJson(CodeParam::SUCCESS, $result); 
     }
     
     public function refreshPurchaseOrders() {
