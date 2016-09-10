@@ -151,9 +151,10 @@ class AccountManager {
         $Dao->where($condition)->save($account);
     }
     
-    public function updateAccountAfterPurchase($scoreSum, $orderId) {
+    public function updateAccountAfterPurchase($orderId) {
         $Dao = M("account");
-        $sql = "call admin_update_after_purchase($scoreSum, $orderId)";
-        return $Dao->query($sql);
+        $sql = "call admin_update_after_purchase($orderId)";
+        $accountList = $Dao->query($sql);
+        return $accountList[0];
     }
 }
