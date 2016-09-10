@@ -370,12 +370,13 @@ class StoreController extends BaseController {
             return;
         }
         
-        if(!StoreControllerManager::checkExchangeOrderInfo($rewardId, $count, $account)) {
+        if(!StoreControllerManager::checkExchangeOrderInfo($rewardId, $count, 
+                $account)) {
             return;
         }
         
         $record = StoreControllerManager::updateAfterExchange($rewardId, 
-                $account['pk_id'], $count);
+                $account, $count);
         
         echo BaseUtil::echoJson(CodeParam::SUCCESS, $record); 
     }

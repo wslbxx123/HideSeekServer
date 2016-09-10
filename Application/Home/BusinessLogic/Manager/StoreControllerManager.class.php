@@ -136,16 +136,16 @@ class StoreControllerManager {
         return true;
     }
     
-    public function updateAfterExchange($rewardId, $acountId, $count) {
+    public function updateAfterExchange($rewardId, $account, $count) {
         $orderVersion = PullVersionManager::updateRewardOrderVersion();
-        ExchangeOrderManager::insertOrder($rewardId, $acountId, $count, 
+        ExchangeOrderManager::insertOrder($rewardId, $account['pk_id'], $count, 
                 $orderVersion);
         $rewardVersion = PullVersionManager::updateRewardVersion();
         $reward = RewardManager::updateExchangeCount($rewardId, $rewardVersion);
         $version = PullVersionManager::updateRaceGroupVersion();
-        $record = RecordManager::insertRewardRecord($acountId, 
+        $record = RecordManager::insertRewardRecord($account, 
                 (-1 * intval($reward['record']) * $count), $version);
-        AccountManager::updateRecord($acountId, $record);
+        AccountManager::updateRecord($account['pk_id'], $record);
         
         return $record;
     }

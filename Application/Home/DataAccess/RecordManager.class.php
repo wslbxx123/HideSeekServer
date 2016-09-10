@@ -59,17 +59,14 @@ class RecordManager {
         return $record['score_sum'];
     }
     
-    public function insertRewardRecord($accountId, $score, $version) {
+    public function insertRewardRecord($account, $score, $version) {
         $Dao = M("record");
         $record['goal_id'] = 0;
         $record['goal_type'] = 0;
-        $record['account_id'] = $accountId;
+        $record['account_id'] = $account['pk_id'];
         $record['score'] = $score;  
         $record['time'] = date('y-m-d H:i:s',time());
-        
-        $condition['account_id'] = $accountId;
-        $record['score_sum'] = $Dao->where($condition)->sum('score')
-                + $score;
+        $record['score_sum'] = $account['record'] + $score;
         $record['version'] = $version;
         $Dao->add($record);
         return $record['score_sum'];
