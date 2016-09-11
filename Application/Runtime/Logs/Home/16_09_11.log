@@ -1,0 +1,13 @@
+[ 2016-09-11T22:57:44+08:00 ] 192.168.1.100 /hideseek/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.036002s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.023001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.023001s ]
+NOTIC: [8] Undefined variable: message C:\xampp\htdocs\hideseek\Application\Home\Controller\IndexController.class.php ç¬¬ 6 è¡Œ.
+NOTIC: [8] Undefined variable: version C:\xampp\htdocs\hideseek\Application\Home\Controller\IndexController.class.php ç¬¬ 8 è¡Œ.
+NOTIC: [8] Undefined variable: friends C:\xampp\htdocs\hideseek\Application\Home\Controller\IndexController.class.php ç¬¬ 9 è¡Œ.
+ERR: SQLSTATE[HY000] [2002] ÓÉÓÚÁ¬½Ó·½ÔÚÒ»¶ÎÊ±¼äºóÃ»ÓÐÕýÈ·´ð¸´»òÁ¬½ÓµÄÖ÷»úÃ»ÓÐ·´Ó¦£¬Á¬½Ó³¢ÊÔÊ§°Ü¡£
+
+
