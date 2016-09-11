@@ -274,6 +274,19 @@
 	    		<div class ="goodsSum">支出总计：<span class="goodsprice">5元</span></div>
 	    		<div id = "enterAlipay">确认付款</div>		
     		</div>
+    	</div>
+    	<!--<div id ="backgroundpic"></div>-->
+    	<!--确认兑换页面-->
+    	<div id ="confirmexchange">
+    		<div class="closeBox"></div>
+    		<div class ="goodsBack">
+	    		<div class ="goodsName"></div>
+	    		<input type="tel" class ="goodsNum1" name="points" min="1" max="100000" value="1"/>
+	    		<input type="button" value="▲" class="up" onclick="exAddOne()" />
+	    		<input type="button"  value="▼" class="down" onclick="exRemoveOne()" />
+	    		<div class ="goodsSum">支出总计：<span class="goodsprice1">5积分</span></div>
+	    		<div id = "confirmpay">确认兑换</div>
+    		</div>
     		<h5 class="sr-only">区域地址：</h5>
     		<form class="form-inline">
 		      <div data-toggle="distpicker">
@@ -293,19 +306,6 @@
 		    <h5 class="sr-only2">是否设为默认地址：</h5>
 		    <label><input type="radio" name = "radioselect" class = "radioselect" value = ""/>是</label>
 		    <label><input type="radio" name = "radioselect" class = "radioselect" value = ""/>否</label>
-    	</div>
-    	<!--<div id ="backgroundpic"></div>-->
-    	<!--确认兑换页面-->
-    	<div id ="confirmexchange">
-    		<div class="closeBox"></div>
-    		<div class ="goodsBack">
-	    		<div class ="goodsName"></div>
-	    		<input type="tel" class ="goodsNum1" name="points" min="1" max="100000" value="1"/>
-	    		<input type="button" value="▲" class="up" onclick="exAddOne()" />
-	    		<input type="button"  value="▼" class="down" onclick="exRemoveOne()" />
-	    		<div class ="goodsSum">支出总计：<span class="goodsprice1">5积分</span></div>
-	    		<div id = "confirmpay">确认兑换</div>
-    		</div>
     	</div>  
     	
     	<!--支付宝过渡页面-->
