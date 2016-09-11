@@ -48,6 +48,15 @@ class PullVersionManager {
         return $version['race_group_version'];
     }
     
+    public function updateRewardVersion() {
+        $Dao = M("pull_version");
+        $version = $Dao->find();
+        $version['reward_version'] = $version['reward_version'] + 1;
+        $Dao->where('1=1')->save($version); 
+        
+        return $version['reward_version'];
+    }
+    
     public function updateFriendVersion() {
         $Dao = M("pull_version");
         $version = $Dao->find();

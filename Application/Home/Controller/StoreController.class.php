@@ -225,8 +225,11 @@ class StoreController extends BaseController {
         
         $storeVersion = PullVersionManager::updateStoreVersion();
         ProductManager::updatePurchaseCount($order['store_id'], $storeVersion);
+        $account = AccountManager::updateAccountAfterPurchase($orderId);
         
-        echo BaseUtil::echoJson(CodeParam::SUCCESS, $orderId); 
+        $result = array ("bomb_num" => $account['bomb_num'],
+                "has_guide" => $account['has_guide']);
+        echo BaseUtil::echoJson(CodeParam::SUCCESS, $result); 
     }
     
     public function refreshPurchaseOrders() {
@@ -369,16 +372,14 @@ class StoreController extends BaseController {
             return;
         }
         
-        if(!StoreControllerManager::checkExchangeOrderInfo($rewardId, $count, $account)) {
+        if(!StoreControllerManager::checkExchangeOrderInfo($rewardId, $count, 
+                $account)) {
             return;
         }
         
-        $orderVersion = PullVersionManager::updateRewardOrderVersion();
-        ExchangeOrderManager::insertOrder($rewardId, $account['pk_id'], $count, 
-                $orderVersion);
-        $reward = RewardManager::getReward($rewardId);
-        $record = AccountManager::updateRecord(floatval($reward['record']), 
-                $count, $account['pk_id']);
+        $record = StoreControllerManager::updateAfterExchange($rewardId, 
+                $account, $count);
+        
         echo BaseUtil::echoJson(CodeParam::SUCCESS, $record); 
     }
     
