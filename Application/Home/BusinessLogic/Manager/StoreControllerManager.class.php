@@ -101,7 +101,8 @@ class StoreControllerManager {
         return true;
     }
     
-    public function checkExchangeOrderInfo($rewardId, $count, $account) {   
+    public function checkExchangeOrderInfo($rewardId, $count, $account,
+            $area, $address, $setDefault) {   
         if(!isset($rewardId)) {
             BaseUtil::echoJson(CodeParam::REWARD_ID_EMPTY, null);
             return false;
@@ -109,6 +110,21 @@ class StoreControllerManager {
         
         if(!isset($count)) {
             BaseUtil::echoJson(CodeParam::COUNT_EMPTY, null);
+            return false;
+        }
+        
+        if(!isset($area)) {
+            BaseUtil::echoJson(CodeParam::AREA_EMPTY, null);
+            return false;
+        }
+        
+        if(!isset($address)) {
+            BaseUtil::echoJson(CodeParam::ADDRESS_EMPTY, null);
+            return false;
+        }
+        
+        if(!isset($setDefault)) {
+            BaseUtil::echoJson(CodeParam::SET_DEFAULT_EMPTY, null);
             return false;
         }
         
@@ -136,16 +152,20 @@ class StoreControllerManager {
         return true;
     }
     
-    public function updateAfterExchange($rewardId, $account, $count) {
+    public function updateAfterExchange($rewardId, $account, $count, 
+            $area, $address, $setDefault) {
         $orderVersion = PullVersionManager::updateRewardOrderVersion();
         ExchangeOrderManager::insertOrder($rewardId, $account['pk_id'], $count, 
-                $orderVersion);
+                $orderVersion, $area, $address);
         $rewardVersion = PullVersionManager::updateRewardVersion();
         $reward = RewardManager::updateExchangeCount($rewardId, $rewardVersion);
         $version = PullVersionManager::updateRaceGroupVersion();
         $record = RecordManager::insertRewardRecord($account, 
                 (-1 * intval($reward['record']) * $count), $version);
         AccountManager::updateRecord($account['pk_id'], $record);
+        if($setDefault == 1) {
+            AccountManager::updateAddress($account['pk_id'], $area, $address);
+        }
         
         return $record;
     }

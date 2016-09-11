@@ -6,7 +6,8 @@ namespace Home\DataAccess;
  * @author apple
  */
 class ExchangeOrderManager {
-    public function insertOrder($rewardId, $accountId, $count, $version) {
+    public function insertOrder($rewardId, $accountId, $count, $version, 
+            $area, $address) {
         $Dao = M("exchange_order");
         $order["reward_id"] = $rewardId;
         $order['status'] = 0;
@@ -15,6 +16,8 @@ class ExchangeOrderManager {
         $order['update_time'] = date('y-m-d H:i:s',time());
         $order['count'] = $count;
         $order['version'] = $version;
+        $order['area'] = $area;
+        $order['address'] = $address;
         
         return $Dao->add($order);
     }

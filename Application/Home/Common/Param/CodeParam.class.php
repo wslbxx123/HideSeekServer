@@ -27,6 +27,9 @@ class CodeParam {
     const ORDER_ID_WRONG = "10010";
     const REWARD_ID_EMPTY = "10011";
     const RECORD_NOT_ENOUGH = "10030";
+    const AREA_EMPTY = "10031";
+    const ADDRESS_EMPTY = "10032";
+    const SET_DEFAULT_EMPTY = "10033";
     #endregion
     
     #region 地图信息

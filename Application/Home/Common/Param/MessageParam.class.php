@@ -37,6 +37,8 @@ class MessageParam {
     const VERSION_EMPTY = "版本号为空";
     const ORIENTATION_EMPTY = "方向值不能为空";
     const GOAL_ID_EMPTY = "目标ID为空";
+    const AREA_EMPTY = "区域为空";
+    const ADDRESS_EMPTY = "地址为空";
     #endregion
     
     #region 朋友信息
