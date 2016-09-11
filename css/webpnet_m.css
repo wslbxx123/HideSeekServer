@@ -67,16 +67,11 @@ input{
 }
 
 select{
-	width: 58%;
-    margin-left: 4px;
+	width: 97%;
     font-size: 14px;
     font-family: "Microsoft Yahei";
-    margin-bottom: 14px;
-    border-color: dimgrey;
-    border-width: 0px;
+    border-color: lightgray;
     background-color: white;
-    -webkit-appearance: none;
-    background: url("../img/arrow.png") no-repeat scroll right center transparent;
 }
 
 input:-webkit-autofill { 
@@ -239,14 +234,14 @@ input.invalid {
 
 #confirmpurchase{
 	width: 95%;
-    height: 200px;
+    height: 301px;
     background: white;
     border: 2px solid dimgrey;
     border-radius: 5px;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
-    display: none;
-    top: 30%;
+    display: block;
+    top: 17%;
     margin: 2% 2% auto;
     position: fixed;
     z-index: 56;
@@ -1171,12 +1166,11 @@ p.tip{
 #enterAlipay{
 	width: 87%;
     height: 38px;
-    margin-top: 100px;
+    margin-top: 219px;
     background-color: #ffcc00;
     position: absolute;
     line-height: 38px;
-    cursor:pointer;
-    
+    cursor: pointer;
 }
 
 #confirmpay{
@@ -1210,6 +1204,7 @@ p.tip{
 #sex{
 	margin-top: 65px;
     margin-left: 5px;
+    background: url(../img/arrow.png) no-repeat scroll right center transparent;
 }
 
 #sex1{
@@ -1314,4 +1309,49 @@ p.tip{
 
 #alipaypage{
 	display:none;
+}
+
+.form-group{
+	float: left;
+    width: 105px;
+    margin-left: 2px;
+    margin-top: 21px;
+}
+
+.form-inline{
+    margin-top: 39px;
+}
+
+.sr-only{
+	float: left;
+    position: absolute;
+    margin-left: 5px;
+    margin-top: 16px;
+}
+
+.sr-only1{
+	float: left;
+    position: absolute;
+    margin-left: 5px;
+    margin-top: 54px;
+}
+
+.sr-only2{
+	float: left;
+    position: absolute;
+    margin-left: 5px;
+}
+
+#myaddress{
+	margin-top: 3px;
+    width: 76%;
+    margin-left: 68px;
+    border-width: 1px;
+    border-color: lightgray;
+}
+
+.radioselect{
+	width: 12px;
+    height: 12px;
+    margin-left: 5%;
 }

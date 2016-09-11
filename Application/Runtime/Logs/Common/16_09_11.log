@@ -1,0 +1,24 @@
+[ 2016-09-11T21:11:02+08:00 ] ::1 /hideseek/main.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.043002s ]
+ERR: 无法加载模块:Main
+
+[ 2016-09-11T21:11:02+08:00 ] ::1 /hideseek/bootstrap.min.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.042002s ]
+ERR: 无法加载模块:Bootstrap.min
+
+[ 2016-09-11T21:11:02+08:00 ] ::1 /hideseek/distpicker.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.044002s ]
+ERR: 无法加载模块:Distpicker
+
+[ 2016-09-11T21:11:02+08:00 ] ::1 /hideseek/distpicker.data.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.042002s ]
+ERR: 无法加载模块:Distpicker.data
+

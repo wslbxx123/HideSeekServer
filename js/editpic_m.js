@@ -185,35 +185,35 @@ $("#refreshData").click(function(){
 		}
 
 		if($(".cityinput").val() != sessionStorage.getItem("region")){
-				var updateRegion = {
-						url: "/index.php/home/user/updateRegion",	
-						type: 'POST',
-						data: "session_id=" + sessionStorage.getItem("sessionid") 
-								+ "&region="+ $(".cityinput").val(),
-						dataType: "json",
-						
-						success: function(result, status) {
-								switch(result["code"]){
-										case "10000":
-											sessionStorage["region"] =  $(".cityinput").val();
-											break;
-										case "10003":
-									  		alert("发送信息失败！")
-									  		break;
-										case "11000":
-											clearStorage();
-											break;
-								}	
-						},
-						error: function(XMLHttpRequest, textStatus, errorThrown) {
-							alert("网络出现问题！");
-						}
-				};
-				$.ajax(updateRegion);		
-		
-				$("#dataArea").fadeOut(); 
-				$("#storecover").fadeOut();
+			var updateRegion = {
+					url: "/index.php/home/user/updateRegion",	
+					type: 'POST',
+					data: "session_id=" + sessionStorage.getItem("sessionid") 
+							+ "&region="+ $(".cityinput").val(),
+					dataType: "json",
+					
+					success: function(result, status) {
+							switch(result["code"]){
+									case "10000":
+										sessionStorage["region"] =  $(".cityinput").val();
+										break;
+									case "10003":
+								  		alert("发送信息失败！")
+								  		break;
+									case "11000":
+										clearStorage();
+										break;
+							}	
+					},
+					error: function(XMLHttpRequest, textStatus, errorThrown) {
+						alert("网络出现问题！");
+					}
+			};
+			$.ajax(updateRegion);		
+				
 		}
+		$("#dataArea").fadeOut(); 
+		$("#storecover").fadeOut();
 });
 
 
@@ -534,7 +534,7 @@ document.getElementById("myorder").onclick = function(){
 //							$("#listArea1").fadeOut();
 							break;
 						case "11000":
-							clearStorage();
+//							clearStorage();
 							break;
 					}
 				},
