@@ -165,4 +165,11 @@ class AccountManager {
         $accountList = $Dao->query($sql);
         return $accountList[0];
     }
+    
+    public function updatePassword($phone, $password) {
+        $Dao = M("account");
+        $condition["phone"] = $phone;
+        $account['password'] = md5($password);
+        $Dao->where($condition)->save($account);
+    }
 }

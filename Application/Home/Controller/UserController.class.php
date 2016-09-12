@@ -216,6 +216,22 @@ class UserController extends BaseController {
         BaseUtil::echoJson(CodeParam::SUCCESS, $result);
     }
     
+    public function updatePassword() {
+        self::setHeader();
+        
+        $phone = filter_input(INPUT_POST, 'phone');
+        $password = filter_input(INPUT_POST, 'password');
+        
+        if(!isset($phone) || !isset($password)) {
+            BaseUtil::echoJson(CodeParam::PHONE_OR_PASSWORD_EMPTY, null);
+            return null;
+        }
+        
+        AccountManager::updatePassword($phone, $password);
+        
+        BaseUtil::echoJson(CodeParam::SUCCESS, null);
+    }
+    
     public function refreshAccountData() {
         self::setHeader();
         
