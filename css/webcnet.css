@@ -220,30 +220,32 @@ input.invalid {
     background: white;
     border: 2px solid dimgrey;
     border-radius: 5px;
-    -moz-border-radius: 5px; /* Firefox */
-  	-webkit-border-radius: 5px; /* Safari 和 Chrome */
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
     display: none;
-    margin: 2% 25% auto;
-    position:fixed;
-    z-index:56;
-    text-align:center;
-    font-size:15px;
+    position: fixed;
+    margin-top: -27%;
+    margin-left: 30%;
+    z-index: 56;
+    text-align: center;
+    font-size: 15px;
 }
 
 #confirmexchange{
 	width: 40%;
-    height: 200px;
+    height: 350px;
     background: white;
     border: 2px solid dimgrey;
     border-radius: 5px;
-    -moz-border-radius: 5px; /* Firefox */
-  	-webkit-border-radius: 5px; /* Safari 和 Chrome */
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
     display: none;
-    margin: 2% 25% auto;
-    position:fixed;
-    z-index:56;
-    text-align:center;
-    font-size:15px;
+    position: fixed;
+    margin-top: -35%;
+    margin-left: 30%;
+    z-index: 56;
+    text-align: center;
+    font-size: 15px;
 }
 
 .goodsName{
@@ -260,11 +262,11 @@ input.invalid {
 }   
 
 .goodsNum1{
-	height: 25px;
-    width: 35px;
+	height: 35px;
+    width: 37px;
     float: right;
     margin-right: 33px;
-    margin-top: 15px;
+    margin-top: 11px;
 }  
 
 .goodsBack{
@@ -304,8 +306,9 @@ input.invalid {
 }
 
 #myprofile{
-	right: 9px;
-    top: 1%;
+	height: 36px;
+	right: 8px;
+    top: 8px;
     position: absolute;
     display: none;
     font-size: 12px;
@@ -314,7 +317,7 @@ input.invalid {
     border-radius: 2px;
     -moz-border-radius: 2px;
     -webkit-border-radius: 2px;
-    border: 1px solid cornflowerblue;
+    border: 1px solid grey;
     cursor: pointer;
 }
 
@@ -1131,11 +1134,11 @@ p.tip{
 #confirmpay{
 	width: 87%;
     height: 38px;
-    margin-top: 100px;
+    margin-top: 241px;
     background-color: #ffcc00;
     position: absolute;
     line-height: 38px;
-    cursor:pointer;
+    cursor: pointer;
 }
 
 .goodsSum{
@@ -1283,23 +1286,22 @@ p.tip{
 }
 
 .sr-only{
-	float: left;
     position: absolute;
-    margin-left: 5px;
-    margin-top: 16px;
+    margin-left: 10%;
+    margin-top: 15px;
 }
 
 .sr-only1{
-	float: left;
-    position: absolute;
-    margin-left: 5px;
+	position: absolute;
+    margin-left: 10%;
     margin-top: 54px;
+}
 }
 
 .sr-only2{
-	float: left;
+	margin-left: 10%;
+    margin-top: 92px;
     position: absolute;
-    margin-left: 5px;
 }
 
 #myaddress{
@@ -1313,7 +1315,7 @@ p.tip{
 .radioselect{
 	width: 12px;
     height: 12px;
-    margin-left: 5%;
+    margin-top: 19%;
 }
 
 .sexArea{
