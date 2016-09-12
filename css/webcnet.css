@@ -171,7 +171,7 @@ input.invalid {
     border-radius: 5px;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
-    display: block;
+    display: none;
     margin-left: auto;
     margin-right: auto;
     margin-top: -37%;
@@ -474,10 +474,6 @@ input.invalid {
 
 
 #score{
-	width: 44px;
-    margin-top: 17px;
-    right: 0px;
-    position: absolute;
 }
 
 .pointNum{
@@ -1016,11 +1012,11 @@ p.tip{
 
 
 #myimg{
-	height: 31px;
-    width: 31px;
-    margin-top: 1%;
+	height: 34px;
+    width: 34px;
+    margin-top: 1px;
     float: left;
-    margin-right: 6px;
+    margin-right: 2px;
 }
 
 #myorder{
@@ -1184,9 +1180,8 @@ p.tip{
 }
 
 #nickname{
-	float: right;
-    margin-top: 1%;
-    margin-right: 14px;
+	margin-top: 1%;
+    margin-right: 2px;
 }
 
 #purOrder{
@@ -1343,4 +1338,9 @@ p.tip{
 	margin-top: 65px;
     margin-left: 5px;
     background: url(../img/arrow.png) no-repeat scroll right center transparent;
+}
+
+#mydataArea{
+	float: right;
+    list-style-type: none;
 }
