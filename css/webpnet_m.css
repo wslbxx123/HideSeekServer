@@ -256,7 +256,7 @@ input.invalid {
     border-radius: 5px;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
-    display: block;
+    display: none;
     top: 17%;
     margin: 2% 2% auto;
     position: fixed;
