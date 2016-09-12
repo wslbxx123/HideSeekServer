@@ -453,7 +453,7 @@ document.getElementById("myorder").onclick = function(){
 									type: 'POST',
 									data:data,
 									success: function(result, status) {
-										alert(JSON.stringify(result));
+//										alert(JSON.stringify(result));
 										$("#alipaypage").css("display")=='none';
 										document.getElementById("alipaypage").innerHTML = result["result"]["html"];
 										document.getElementById("alipaysubmit").submit();
