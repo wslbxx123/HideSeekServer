@@ -353,9 +353,15 @@ class StoreController extends BaseController {
         
         $verifyResult = AlipayManager::verifyNotify($param, $sign, $notifyId);
         
-        if($verifyResult) {
-            OrderManager::updateOrderVerifyStatus($tradeNo, $tradeStatus);
-        }
+        $Dao = M("test");
+        $test['status'] = $tradeStatus;
+        $test['result'] = $verifyResult;
+        $Dao->where('1=1')->save($test);
+//        $verifyResult = AlipayManager::verifyNotify($param, $sign, $notifyId);
+//        
+//        if($verifyResult) {
+//            OrderManager::updateOrderVerifyStatus($tradeNo, $tradeStatus);
+//        }
     }
     
     public function createExchangeOrder() {

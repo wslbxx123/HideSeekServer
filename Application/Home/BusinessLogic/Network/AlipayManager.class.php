@@ -93,7 +93,7 @@ class AlipayManager {
         $params["service"] = "create_direct_pay_by_user";
         $params["partner"] = KeyParam::ALIPAY_PARTNER;
         $params["_input_charset"] = "utf-8";
-        $params["notify_url"] = "http://www.hideseek.cn/index.php/home/store/notifyUrl";
+        $params["notify_url"] = "https://www.hideseek.cn/index.php/home/store/notifyUrl";
         $params["return_url"] = "https://www.hideseek.cn/";
         $params["out_trade_no"] = $tradeNo;
         $params["subject"] = $productName;
