@@ -10,8 +10,8 @@ class FileUtil {
     const REAL_IMAGE_DIR = "Public/Image/Photo/Real/";
     const SMALL_IMAGE_DIR = "Public/Image/Photo/Small/";
     
-    public function saveRealPhoto($photo, $photoDataUrl, $tempFileName) {
-        $fileName = $tempFileName.".jpg";
+    public function saveRealPhoto($photo, $photoDataUrl) {
+        $fileName = "Real_".session_id()."_".strtotime("now").".jpg";
         $realPhotoPath = self::REAL_IMAGE_DIR.$fileName;
         
         if(isset($photo)) {
@@ -32,8 +32,8 @@ class FileUtil {
         return null;
     }
     
-    public function saveSmallPhoto($photoUrl, $tempFileName, $width, $height) {
-        $fileName = $tempFileName.".jpg";
+    public function saveSmallPhoto($photoUrl, $width, $height) {
+        $fileName = "Small_".session_id()."_".strtotime("now").".jpg";
         $smallImagePath = self::SMALL_IMAGE_DIR.$fileName;
         
         $image = imagecreatefromjpeg($photoUrl);

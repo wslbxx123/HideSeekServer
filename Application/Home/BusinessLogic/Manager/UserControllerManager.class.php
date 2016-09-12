@@ -12,7 +12,7 @@ use Home\DataAccess\AccountManager;
  * @author Two
  */
 class UserControllerManager {
-    public function checkUserInfo($phone, $password, $channelId) {
+    public function checkUserInfo($phone, $password) {
         if(!isset($phone) || !isset($password)) {
             BaseUtil::echoJson(CodeParam::PHONE_OR_PASSWORD_EMPTY, null);
             return false;
@@ -27,17 +27,14 @@ class UserControllerManager {
             return null;
         }
         
-        $tempRealFileName = "Real_".session_id()."_".strtotime("now");
-        $tempSmallFileName = "Small_".session_id()."_".strtotime("now");
-        $photoUrl = FileUtil::saveRealPhoto($photo, $photoDataUrl, $tempRealFileName);
+        $photoUrl = FileUtil::saveRealPhoto($photo, $photoDataUrl);
         
         if(isset($photo) && !isset($photoUrl)) {
             BaseUtil::echoJson(CodeParam::FAIL_UPLOAD_PHOTO, null);
             return null;
         }
         
-        $smallPhotoUrl = FileUtil::saveSmallPhoto($photoUrl, 
-                $tempSmallFileName, 200, 200);
+        $smallPhotoUrl = FileUtil::saveSmallPhoto($photoUrl, 200, 200);
         $accountId = AccountManager::insertAccount($phone, $password, $nickname, 
                 PullVersionManager::getFriendVersion(), $role, $sex, $region, 
                 $channelId, $photoUrl, $smallPhotoUrl);

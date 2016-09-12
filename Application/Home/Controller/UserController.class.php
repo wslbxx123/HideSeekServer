@@ -6,6 +6,8 @@ use Home\Common\Util\BaseUtil;
 use Home\Common\Param\CodeParam;
 use Home\Common\Param\KeyParam;
 use Home\DataAccess\AccountManager;
+use Home\DataAccess\RecordManager;
+use Home\DataAccess\PullVersionManager;
 use Home\BusinessLogic\Network\AlipayManager;
 use Home\BusinessLogic\Manager\UserControllerManager;
 use Home\DataAccess\FriendRequestManager;
@@ -19,7 +21,7 @@ class UserController extends BaseController {
         $password = filter_input(INPUT_POST, 'password');
         $channelId = filter_input(INPUT_POST, 'channel_id');
         
-        if(!UserControllerManager::checkUserInfo($phone, $password, $channelId)) {
+        if(!UserControllerManager::checkUserInfo($phone, $password)) {
             return;
         }
         
@@ -128,19 +130,18 @@ class UserController extends BaseController {
             return;
         }
         
-        $tempRealFileName = "Real_".session_id()."_".strtotime("now");
-        $tempSmallFileName = "Small_".session_id()."_".strtotime("now");
-        $photoUrl = FileUtil::saveRealPhoto($photo, $photoDataUrl, $tempRealFileName);
+        $photoUrl = FileUtil::saveRealPhoto($photo, $photoDataUrl);
         
         if(isset($photo) && !isset($photoUrl)) {
             BaseUtil::echoJson(CodeParam::FAIL_UPLOAD_PHOTO, null);
             return null;
         }
         
-        $smallPhotoUrl = FileUtil::saveSmallPhoto($photoUrl, 
-                $tempSmallFileName, 200, 200);
+        $smallPhotoUrl = FileUtil::saveSmallPhoto($photoUrl, 200, 200);
         
         AccountManager::updatePhoto($accountId, $photoUrl, $smallPhotoUrl);
+        $version = PullVersionManager::updateRaceGroupVersion();
+        RecordManager::updateVersion($accountId, $version);
         
         $result = Array("photo_url" => $photoUrl, "small_photo_url" => $smallPhotoUrl);
         BaseUtil::echoJson(CodeParam::SUCCESS, $result);
