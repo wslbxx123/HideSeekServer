@@ -236,26 +236,31 @@ $(function(){
 										type: 'POST',
 										data:data,
 										success: function(result, status) {
+											alert(JSON.stringify(result));
+											alert(result["result"]);
+											alert(result["result"]["html"]);
+											alert(result["code"]);
 											switch(result["code"]){
 												case "10000":
 													document.getElementById("alipaypage").innerHTML = result["result"]["html"];
+													alert(result["result"]["html"]);
 													document.getElementById("alipaysubmit").submit();
 													order_id = result["result"]["order_id"];
 													//此处需要判断是否支付成功。
-													var enteralipay = {
-															url: "/index.php/home/store/purchase",
-															type: 'POST',
-															data:"session_id=" + sessionStorage.getItem("sessionid")
-															+ "&order_id=" + order_id,
-															success: function(result, status) {
-																	
-																	
-															},
-															error: function(XMLHttpRequest, textStatus, errorThrown) {
-																	alert("网络出现问题！");
-															}
-													};
-													$.ajax(enteralipay);
+//													var alipaypurchase = {
+//															url: "/index.php/home/store/purchase",
+//															type: 'POST',
+//															data:"session_id=" + sessionStorage.getItem("sessionid")
+//															+ "&order_id=" + order_id,
+//															success: function(result, status) {
+//																	
+//																	
+//															},
+//															error: function(XMLHttpRequest, textStatus, errorThrown) {
+//																	alert("网络出现问题！");
+//															}
+//													};
+//													$.ajax(alipaypurchase);
 													break;
 												case "11000":
 													clearStorage();
@@ -400,7 +405,10 @@ $(function(){
 			$("#scoreNum").html(parseInt($("#scoreNum").html())-parseInt($(".goodsprice1").html()));
 			var data = "session_id=" + sessionStorage.getItem("sessionid")
 				  + "&reward_id=" + reward_id
-				  + "&count=" + $(".goodsNum1").val(); 
+				  + "&count=" + $(".goodsNum1").val()
+				  + "&area=" + $("#province1").val()+"-"+$("#city1").val()+"-"+$("#district1").val()
+				  + "&district=" + $("myaddress").val()
+				  + "&set_default=" + $("input[name='radioselect']:checked").val();
 			var createExchangeOrder = {
 				url: "/index.php/home/store/createExchangeOrder",
 				type: 'POST',
@@ -408,6 +416,8 @@ $(function(){
 				success: function(result, status) {
 					switch(result["code"]){
 						case "10000":
+							sessionStorage["record"] = result["result"];
+							document.getElementById("scoreNum").innerHTML = result["result"];
 							break;
 						case "11000":
 							clearStorage();
