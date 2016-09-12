@@ -1,4 +1,4 @@
-var roleImages = new Array("img/grassfairy.jpg","img/watermagician.jpg","img/fireknight.jpg","img/stonemonster.jpg","img/lightninggiant.jpg");
+var roleImages = new Array("Image/Web/grassfairy.jpg","Image/Web/watermagician.jpg","Image/Web/fireknight.jpg","Image/Web/stonemonster.jpg","Image/Web/lightninggiant.jpg");
 var roleNames = new Array("草魅精灵","水影巫师","火光骑士","岩石兽族","闪电巨人");
 var myId = Math.floor ((Math.random() * roleImages.length));
 var logIn = false;
@@ -39,7 +39,7 @@ $('.sexArea li').click(function(){
 
 //头像上传处理
 $('#mycamera').change(function(e){
-	$(".photo").attr("src","img/mypicture.png");
+	$(".photo").attr("src","Image/Web/mypicture.png");
 	EXIF.getData(e.target.files[0], function() { 
 		EXIF.getAllTags(this); 
 		Orientation = EXIF.getTag(this,'Orientation'); 
@@ -350,7 +350,7 @@ document.getElementById("matchId").onclick = function(){
 								
 										//判断photo_url是否为空；
 										if(result["result"]["photo_url"]==null){
-												sessionStorage.setItem("myimgpath", "img/mypicture.png");
+												sessionStorage.setItem("myimgpath", "Image/Web/mypicture.png");
 										}
 										else{
 												sessionStorage.setItem("myimgpath", result["result"]["small_photo_url"]);
@@ -780,7 +780,7 @@ function clearStorage(){
 	$("#myorder").fadeOut();
 	$("#orderArea").fadeOut();
 	getClick = false;
-	$(".photo").attr("src","img/mypicture.png");
+	$(".photo").attr("src","Image/Web/mypicture.png");
 	$("#sex").val("未设置");
 	$(".cityinput").val("未设置");
 	alert("你已经被迫掉线！")

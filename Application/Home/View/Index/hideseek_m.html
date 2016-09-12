@@ -9,15 +9,15 @@
     	<meta name="keywords" content="积分 商城兑换 hideseek 寻宝部落  旅游 美食" />
     	<meta name="description" content="积分 商城兑换 hideseek 寻宝部落 旅游 美食" />
     	<title>寻宝部落积分商城</title>
-    	<link rel="stylesheet" href="../Public/css/webpnet_m.css">
-    	<link rel="shortcut icon" href="../Public/Image/Web/hideseek.ico"/>
-    	<script type="text/javascript" src="../Public/js/jquery.js"></script>
-    	<script type="text/javascript" src="../Public/js/exif.js"></script>
-    	<script type="text/javascript" src="../Public/js/webpnet_m.js"></script>
-    	<script type="text/javascript" src="../Public/js/bootstrap.min.js"></script>
-		<script type="text/javascript" src="../Public/js/distpicker.data.js"></script>
-	  	<script type="text/javascript" src="../Public/js/distpicker.js"></script>
-	  	<script type="text/javascript" src="../Public/js/main.js"></script>
+    	<link rel="stylesheet" href="../../../../Public/css/webpnet_m.css">
+    	<link rel="shortcut icon" href="../../../../Public/Image/Web/hideseek.ico"/>
+    	<script type="text/javascript" src="../../../../Public/js/jquery.js"></script>
+    	<script type="text/javascript" src="../../../../Public/js/exif.js"></script>
+    	<script type="text/javascript" src="../../../../Public/js/webpnet_m.js"></script>
+    	<script type="text/javascript" src="../../../../Public/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../../../../Public/js/distpicker.data.js"></script>
+	  	<script type="text/javascript" src="../../../../Public/js/distpicker.js"></script>
+	  	<script type="text/javascript" src="../../../../Public/js/main.js"></script>
 	</head>
 	<body>
 		<div id ="storecover"></div>
@@ -124,7 +124,7 @@
     	<div id = "dataArea">
     		<div class="closeBox"></div>
     		<div class="bgColor"></div>
-    		<img class = "photo" id ="abc" src = "img/mypicture.png"/>
+    		<img class = "photo" id ="abc" src = "../../../../Public/Image/Web/mypicture.png"/>
     		<canvas id="mypicture1" width="500px" height="500px"></canvas>
     		<!--<canvas id="mypicture2" width="500px" height="500px"></canvas>-->
     		<a class="file">
@@ -153,13 +153,13 @@
     		<div class="closeBox"></div>
     		<form id="loginForm" method="post" autocomplete="jsonResponse">
 	    		<p>	<label for="fname">
-		    			<img src="img/phone.png" class="icon"> 
+		    			<img src="../../../../Public/Image/Web/phone.png" class="icon"> 
 		    			<input type="text" id="fname" name="phone" class="reqd" placeholder="我的手机号">
 	    			</label>
 	    		</p>
 	    		<div style='height:1px;width:70%;background-color:grey;line-height:1px;clear:both;display:block;overflow:hidden' class="line"> </div>	
 				<p>	<label for="lname">
-						<img src="img/password.png" class="icon">
+						<img src="../../../../Public/Image/Web/password.png" class="icon">
 						<input type="password" id="lname" name="password" class="reqd" placeholder="我的密码">
 					</label>
 				</p>
@@ -173,7 +173,7 @@
     		<div class="closeBox"></div>
     		<form id="registerForm" action="code.html" method="post" autocomplete="jsonResponse">
 	    		<p>	<label for="userphone">
-	    			<img src="img/phone.png" class="icon">
+	    			<img src="../../../../Public/Image/Web/phone.png" class="icon">
 	    			<input type="text" size="30" id="userphone" class="reqd" placeholder="注册手机">
 	    			</label> 
 	    		</p>
@@ -184,19 +184,19 @@
 	    		</p>
 	    		
 	    		<p>	<label for="userName">
-		    			<img src="img/account.png" class="icon">
+		    			<img src="../../../../Public/Image/Web/account.png" class="icon">
 		    			<input type="text" size="30" id="userName" class="reqd" placeholder="我的昵称">
 	    			</label> 
 	    		</p>
 	    		<div style='height:1px;width:70%;background-color:grey;line-height:1px;clear:both;display:block;overflow:hidden' class="line"> </div>	
 				<p> <label for="passwd1">
-						<img src="img/password.png" class="icon">
+						<img src="../../../../Public/Image/Web/password.png" class="icon">
 						<input type="password" id="passwd1" class="reqd" placeholder="我的密码" maxlength="45"/>
 					</label>
 				</p>
 				<div style='height:1px;width:70%;background-color:grey;line-height:1px;clear:both;display:block;overflow:hidden' class="line"> </div>		
 				<p> <label for="passwd2">
-						<img src="img/password.png" class="icon">
+						<img src="../../../../Public/Image/Web/password.png" class="icon">
 						<input type="password" id="passwd2" class="reqd passwd1" placeholder="重输密码" maxlength="45"/>
 					</label>
 				</p>
@@ -210,7 +210,7 @@
     	<div id="newWin2">
     		<div class="closeBox"></div>
     		<div class="bgColor"></div>
-    		<img class = "photo" src = "img/mypicture.png"/>
+    		<img class = "photo" src = "../../../../Public/Image/Web/mypicture.png"/>
     		<canvas id="mypicture" width="500px" height="500px"></canvas>
     		<a class="file">
             	<input type="file" accept="image/*;capture=camera" id="mycamera">
@@ -222,7 +222,7 @@
 			<p> <div class="demo">
 					<label for="district">地区
 					<input type="text" class="cityinput" id="citySelect1" value="未设置" readonly="readonly" />
-					<script type="text/javascript" src="../Public/js/querycity_m.js"></script>	
+					<script type="text/javascript" src="../../../../Public/js/querycity_m.js"></script>	
 				</div>
 			
     		</p>
@@ -241,8 +241,8 @@
     	<!--弹出注册页面3-->
     	<div id="newWin3">
     		 <img src='' id='fileimg' />
-    		 <img src="img/upframe.png" id="upframe"/>
-    		 <img src="img/downframe.png" id="downframe"/>
+    		 <img src="../../../../Public/Image/Web/upframe.png" id="upframe"/>
+    		 <img src="../../../../Public/Image/Web/downframe.png" id="downframe"/>
     		
     		 <canvas id="coverpic" width="300px" height="300px"></canvas>
     		 <canvas id="editpic" width="100" height="100"></canvas>
@@ -251,13 +251,13 @@
     		 	<input type="range" id="rangeBar" name="points" min="1" max="10" value="1" />
     		 </div>
     		 <div id="confirmedit">确认裁剪</div>
-    		 <script type="text/javascript" src="../Public/js/editpic_m.js"></script>
+    		 <script type="text/javascript" src="../../../../Public/js/editpic_m.js"></script>
     	</div>
     	
     	<!--弹出注册页面4-->
     	<div id="newWin4">
     		<div class="closeBox"></div>
-    		<img src="img/grassfairy.jpg" id="roleimages"/>
+    		<img src="../../../../Public/Image/Web/grassfairy.jpg" id="roleimages"/>
     		<p id= "rolenames">草魅精灵</p>
     		<div id="entrance">进入寻宝部落</div>
     	</div>

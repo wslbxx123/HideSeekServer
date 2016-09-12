@@ -29,7 +29,7 @@ img {
 #mushroom  {
  	height: 39%;
     width: 25%;
-    background: url(../img/mushroom.png) no-repeat;
+    background: url(../Image/Web/mushroom.png) no-repeat;
     background-size: 77% auto;
     position: absolute;
     margin-top: -22%;
@@ -149,7 +149,7 @@ input.invalid {
     border-radius: 5px;
     -moz-border-radius: 5px; /* Firefox */
   	-webkit-border-radius: 5px; /* Safari 和 Chrome */
-  	behavior: url("border-radius.htc");
+  	/*behavior: url("border-radius.htc");*/
     display: none;
     margin: -37% 36% 6%;
     position: absolute;
@@ -641,7 +641,7 @@ input.invalid {
 .file {
     position: absolute;
     display: inline-block;
-    background: url("../img/mycamera.png") no-repeat center;
+    background: url(../Image/Web/mycamera.png) no-repeat center;
     border-radius: 4px;
     -moz-border-radius: 4px;
     -webkit-border-radius: 4px;
@@ -691,7 +691,7 @@ input.invalid {
     left: 35%;
     width: 111px;
     height: 111px;
-    background: url("../img/mypicture.png") no-repeat center;
+    background: url(../Image/Web/mypicture.png) no-repeat center;
     background-size: cover;
     position:absolute;
 }
@@ -702,7 +702,7 @@ input.invalid {
     left: 35%;
     width: 111px;
     height: 111px;
-    background: url("../img/mypicture.png") no-repeat center;
+    background: url(../Image/Web/mypicture.png) no-repeat center;
     background-size: cover;
 }
 
@@ -874,7 +874,7 @@ p.tip{
     height: 30px;
     line-height: 24px;
     font-size: 14px;
-    background: url(../img/arrow.png) no-repeat scroll right center transparent;
+    background: url(../Image/Web/arrow.png) no-repeat scroll right center transparent;
 }
 
 #matchId{
@@ -1105,7 +1105,7 @@ p.tip{
 }
 
 .closeBox{
-	background: url("../img/closeBox.png") no-repeat center;
+	background: url(../Image/Web/closeBox.png) no-repeat center;
     background-size: cover;
     height: 19px;
     width: 19px;
@@ -1346,7 +1346,7 @@ p.tip{
 #sex{
 	margin-top: 65px;
     margin-left: 5px;
-    background: url(../img/arrow.png) no-repeat scroll right center transparent;
+    background: url(../Image/Web/arrow.png) no-repeat scroll right center transparent;
 }
 
 #mydataArea{
