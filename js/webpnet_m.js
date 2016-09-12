@@ -239,6 +239,7 @@ $(function(){
 											alert(JSON.stringify(result));
 											alert(result["result"]);
 											alert(result["result"]["html"]);
+											alert(result["code"]);
 											switch(result["code"]){
 												case "10000":
 													document.getElementById("alipaypage").innerHTML = result["result"]["html"];
