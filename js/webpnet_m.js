@@ -236,10 +236,7 @@ $(function(){
 										type: 'POST',
 										data:data,
 										success: function(result, status) {
-											alert(JSON.stringify(result));
-											alert(result["code"]);
-											alert(result["result"]);
-											alert(result["result"]["html"]);
+//											alert(JSON.stringify(result));
 											switch(result["code"]){
 												case "10000":
 													document.getElementById("alipaypage").innerHTML = result["result"]["html"];
