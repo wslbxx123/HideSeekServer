@@ -83,6 +83,14 @@ class AccountManager {
         return $account;
     }
     
+    public function updateAddress($accountId, $area, $address) {
+        $Dao = M("account");
+        $account['default_area'] = $area;
+        $account['default_address'] = $address;
+        $condition['pk_id'] = $accountId;
+        $Dao->where($condition)->save($account);
+    }
+    
     public function updateRecord($accountId, $scoreSum) {
         $Dao = M("account");
         $account['record'] = $scoreSum;

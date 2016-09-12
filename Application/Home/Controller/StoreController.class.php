@@ -364,6 +364,9 @@ class StoreController extends BaseController {
         $sessionId = filter_input(INPUT_POST, 'session_id');
         $rewardId = filter_input(INPUT_POST, 'reward_id');
         $count = filter_input(INPUT_POST, 'count');
+        $area = filter_input(INPUT_POST, 'area');
+        $address = filter_input(INPUT_POST, 'address');
+        $setDefault = filter_input(INPUT_POST, 'set_default');
         
         $account = $this->getAccountFromToken($sessionId);
         
@@ -373,12 +376,12 @@ class StoreController extends BaseController {
         }
         
         if(!StoreControllerManager::checkExchangeOrderInfo($rewardId, $count, 
-                $account)) {
+                $account, $area, $address, $setDefault)) {
             return;
         }
         
         $record = StoreControllerManager::updateAfterExchange($rewardId, 
-                $account, $count);
+                $account, $count, $area, $address, $setDefault);
         
         echo BaseUtil::echoJson(CodeParam::SUCCESS, $record); 
     }

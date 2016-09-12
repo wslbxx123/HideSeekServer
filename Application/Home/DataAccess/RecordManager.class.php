@@ -71,4 +71,11 @@ class RecordManager {
         $Dao->add($record);
         return $record['score_sum'];
     }
+    
+    public function updateVersion($accountId, $version) {
+        $Dao = M("record");
+        $record['version'] = $version;
+        $condition['account_id'] = $accountId;
+        $Dao->where($condition)->save($record);
+    }
 }

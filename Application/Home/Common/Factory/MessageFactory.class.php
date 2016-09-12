@@ -81,6 +81,10 @@ class MessageFactory {
                 return MessageParam::REWARD_ID_EMPTY;
             case CodeParam::RECORD_NOT_ENOUGH:
                 return MessageParam::RECORD_NOT_ENOUGH;
+            case CodeParam::AREA_EMPTY:
+                return MessageParam::AREA_EMPTY;
+            case CodeParam::ADDRESS_EMPTY:
+                return MessageParam::ADDRESS_EMPTY;
             default:
                 return null;
         }
