@@ -357,7 +357,7 @@ class StoreController extends BaseController {
         $Dao = M("test");
         $test['status'] = $tradeStatus;
         $test['result'] = $verifyResult;
-        $Dao->where('1=1')->save($test);
+        $Dao->add($test);
 //        $verifyResult = AlipayManager::verifyNotify($param, $sign, $notifyId);
 //        
 //        if($verifyResult) {
