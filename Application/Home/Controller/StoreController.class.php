@@ -201,6 +201,7 @@ class StoreController extends BaseController {
         $html = StoreControllerManager::createAlipayFormHtml($result);
         
         $result['html'] = $html;
+        header("Content-Type: application/json; charset=utf-8");
         echo BaseUtil::echoJson(CodeParam::SUCCESS, $result);
     }
     
