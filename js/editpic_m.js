@@ -548,32 +548,32 @@ function getPath(obj,fileQuery,transImg){
 		var imgSrc = '', imgArr = [], strSrc = '' ;
 		if(window.navigator.userAgent.indexOf("MSIE")>=1){ // IE浏览器判断
 		    if(obj.select){
-				    obj.select();
-				    var path=document.selection.createRange().text;
+			    obj.select();
+			    var path=document.selection.createRange().text;
 //				    alert(path) ;
-				    obj.removeAttribute("src");
-				    imgSrc = fileQuery.value ;
-				    imgArr = imgSrc.split('.') ;
-				    strSrc = imgArr[imgArr.length - 1].toLowerCase() ;
-				    if(strSrc.localeCompare('jpg') === 0 || strSrc.localeCompare('jpeg') === 0 || strSrc.localeCompare('gif') === 0 || strSrc.localeCompare('png') === 0){
-						    obj.setAttribute("src",transImg);
-						    obj.style.filter=
-						    "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='"+path+"', sizingMethod='scale');"; // IE通过滤镜的方式实现图片显示
-				    }
-				    else{
-				    		throw new Error('上传图片格式有误，请重新上传!'); 
-				    }
+			    obj.removeAttribute("src");
+			    imgSrc = fileQuery.value ;
+			    imgArr = imgSrc.split('.') ;
+			    strSrc = imgArr[imgArr.length - 1].toLowerCase() ;
+			    if(strSrc.localeCompare('jpg') === 0 || strSrc.localeCompare('jpeg') === 0 || strSrc.localeCompare('gif') === 0 || strSrc.localeCompare('png') === 0){
+					    obj.setAttribute("src",transImg);
+					    obj.style.filter=
+					    "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='"+path+"', sizingMethod='scale');"; // IE通过滤镜的方式实现图片显示
+			    }
+			    else{
+			    		throw new Error('上传图片格式有误，请重新上传!'); 
+			    }
 		    }
 		    else{	 
-				    imgSrc = fileQuery.value ;
-				    imgArr = imgSrc.split('.') ;
-				    strSrc = imgArr[imgArr.length - 1].toLowerCase() ;
-				    if(strSrc.localeCompare('jpg') === 0 || strSrc.localeCompare('jpeg') === 0 || strSrc.localeCompare('gif') === 0 || strSrc.localeCompare('png') === 0){
-				    		obj.src = fileQuery.value ;
-			   		 }
-						else{ 
-					    	throw new Error('上传图片格式有误，请重新上传!') ;  
-					  }
+			    imgSrc = fileQuery.value ;
+			    imgArr = imgSrc.split('.') ;
+			    strSrc = imgArr[imgArr.length - 1].toLowerCase() ;
+			    if(strSrc.localeCompare('jpg') === 0 || strSrc.localeCompare('jpeg') === 0 || strSrc.localeCompare('gif') === 0 || strSrc.localeCompare('png') === 0){
+			    	obj.src = fileQuery.value ;
+		   		}
+				else{ 
+				    throw new Error('上传图片格式有误，请重新上传!') ;  
+				}
 	   	 	}
 		} 
 		else{
@@ -581,16 +581,16 @@ function getPath(obj,fileQuery,transImg){
 		    var reader = new FileReader();
 	    
 		    reader.onload = function(e){
-				    imgSrc = fileQuery.value ;
-				    
-				    imgArr = imgSrc.split('.') ;
-				    strSrc = imgArr[imgArr.length - 1].toLowerCase() ;
-			    	if(strSrc.localeCompare('jpg') === 0 || strSrc.localeCompare('jpeg') === 0 || strSrc.localeCompare('gif') === 0 || strSrc.localeCompare('png') === 0){
-			    		obj.setAttribute("src", e.target.result) ;
-			    	}
-			    	else{
-			    		throw new Error('上传图片格式有误，请重新上传!') ;
-			    	}
+			    imgSrc = fileQuery.value ;
+			    
+			    imgArr = imgSrc.split('.') ;
+			    strSrc = imgArr[imgArr.length - 1].toLowerCase() ;
+		    	if(strSrc.localeCompare('jpg') === 0 || strSrc.localeCompare('jpeg') === 0 || strSrc.localeCompare('gif') === 0 || strSrc.localeCompare('png') === 0){
+		    		obj.setAttribute("src", e.target.result) ;
+		    	}
+		    	else{
+		    		throw new Error('上传图片格式有误，请重新上传!') ;
+		    	}
 	    	}
 		}
 	    
@@ -731,17 +731,17 @@ function getPath(obj,fileQuery,transImg){
 							$(".photo").attr("src",images.src);
 						}
 
-							//如果方向角不为1，都需要进行旋转  
+					//如果方向角不为1，都需要进行旋转  
 				    if(Orientation != "" && Orientation != 1&&Orientation !=null){
 				    	switch(Orientation){
 				    		case 6://需要顺时针（向左）90度旋转  
-		                rotateImg(mypicture,'left');  
-		                break;  
+			                rotateImg(mypicture,'left');  
+			                break;  
 				    	}
 			    		var images1 = new Image();
 				        images1.src = mypicture.toDataURL("image/jpeg");
 				        $(".photo").attr("src",images1.src);
-				    		cover.translate(0,0);
+				    	cover.translate(0,0);
 				        cover.rotate(-90 * Math.PI / 180);
 				        cover.translate(-250,-250);
 				    }

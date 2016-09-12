@@ -164,7 +164,7 @@ input.invalid {
 }
 
 #newWin2{
-	width: 28%;
+	width: 31%;
     height: 351px;
     background: white;
     border: 2px solid dimgrey;
@@ -877,7 +877,6 @@ p.tip{
 	width: 61%;
     height: 30px;
     line-height: 24px;
-    padding-left: 3px;
     font-size: 14px;
     background: url(../img/arrow.png) no-repeat scroll right center transparent;
 }
@@ -1269,4 +1268,77 @@ p.tip{
     float: right;
     margin-right: -38px;
     -webkit-appearance: none;
+}
+
+#alipaypage{
+	display:none;
+}
+
+.form-group{
+	float: left;
+    width: 105px;
+    margin-left: 2px;
+    margin-top: 21px;
+}
+
+.form-inline{
+    margin-top: 39px;
+}
+
+.sr-only{
+	float: left;
+    position: absolute;
+    margin-left: 5px;
+    margin-top: 16px;
+}
+
+.sr-only1{
+	float: left;
+    position: absolute;
+    margin-left: 5px;
+    margin-top: 54px;
+}
+
+.sr-only2{
+	float: left;
+    position: absolute;
+    margin-left: 5px;
+}
+
+#myaddress{
+	margin-top: 3px;
+    width: 76%;
+    margin-left: 68px;
+    border-width: 1px;
+    border-color: lightgray;
+}
+
+.radioselect{
+	width: 12px;
+    height: 12px;
+    margin-left: 5%;
+}
+
+.sexArea{
+	text-decoration: none;
+    cursor: pointer;
+    border: 1px solid lightgrey;
+    position: absolute;
+    width: 58%;
+    height: 78px;
+    margin-left: 24%;
+    margin-top: 127px;
+    background-color: white;
+    list-style-type: none;
+    display: block;
+    z-index: 55;
+    font-size: 14px;
+    text-align: center;
+    display:none;
+}
+
+#sex{
+	margin-top: 65px;
+    margin-left: 5px;
+    background: url(../img/arrow.png) no-repeat scroll right center transparent;
 }
