@@ -237,6 +237,7 @@ $(function(){
 										data:data,
 										success: function(result, status) {
 											alert(JSON.stringify(result));
+											alert(result["result"]);
 											alert(result["result"]["html"]);
 											switch(result["code"]){
 												case "10000":
