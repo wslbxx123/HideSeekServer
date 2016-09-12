@@ -810,12 +810,16 @@ $(function(){
 
 //	右上角菜单列的显示
 function displaySubMenu() {
-	if($("#flipframe").css("display")=='none'){
+//	if($("#flipframe").css("display")=='none'){
 		$("#flipframe").fadeIn();
-	}
-	else{
-		$("#flipframe").fadeOut();
-	}
+//	}
+//	else{
+//		$("#flipframe").fadeOut();
+//	}
+}
+
+function hideSubMenu(){
+	$("#flipframe").fadeOut();
 }
 
 //	点击弹出购买框上箭头，数字随之增大
