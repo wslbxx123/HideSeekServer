@@ -224,7 +224,7 @@ input.invalid {
   	-webkit-border-radius: 5px; /* Safari 和 Chrome */
     display: none;
     margin: 2% 25% auto;
-    position:absolute;
+    position:fixed;
     z-index:56;
     text-align:center;
     font-size:15px;
@@ -240,7 +240,7 @@ input.invalid {
   	-webkit-border-radius: 5px; /* Safari 和 Chrome */
     display: none;
     margin: 2% 25% auto;
-    position:absolute;
+    position:fixed;
     z-index:56;
     text-align:center;
     font-size:15px;
