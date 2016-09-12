@@ -401,7 +401,7 @@ $(function(){
 			var data = "session_id=" + sessionStorage.getItem("sessionid")
 				  + "&reward_id=" + reward_id
 				  + "&count=" + $(".goodsNum1").val()
-				  + "&area=" + $("#province1").val()+"-"+$("#city1").val()+"-"$("#district1").val()
+				  + "&area=" + $("#province1").val()+"-"+$("#city1").val()+"-"+$("#district1").val()
 				  + "&district=" + $("myaddress").val()
 				  + "&set_default=" + $("input[name='radioselect']:checked").val();
 			var createExchangeOrder = {
