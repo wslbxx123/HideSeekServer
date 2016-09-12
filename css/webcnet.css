@@ -66,17 +66,12 @@ input{
 }
 
 select{
-	width: 62%;
-    margin-top: 68px;
-    margin-left: 4px;
+	width: 94%;
     font-size: 15px;
     font-family: "Microsoft Yahei";
     margin-bottom: 14px;
-    border-color: dimgrey;
-    border-width: 0px;
+    border-color: lightgray;
     background-color: white;
-    -webkit-appearance: none;
-    background: url("../img/arrow.png") no-repeat scroll right center transparent;
 }
 
 input:-webkit-autofill { 
@@ -1276,13 +1271,15 @@ p.tip{
 
 .form-group{
 	float: left;
-    width: 105px;
+    width: 28%;
     margin-left: 2px;
     margin-top: 21px;
 }
 
 .form-inline{
-    margin-top: 39px;
+    margin-left: 24%;
+    position: relative;
+    margin-top: -8px;
 }
 
 .sr-only{
@@ -1296,7 +1293,6 @@ p.tip{
     margin-left: 10%;
     margin-top: 54px;
 }
-}
 
 .sr-only2{
 	margin-left: 10%;
@@ -1305,17 +1301,28 @@ p.tip{
 }
 
 #myaddress{
-	margin-top: 3px;
-    width: 76%;
-    margin-left: 68px;
+	margin-top: 49px;
+    width: 63%;
+    left: 24%;
     border-width: 1px;
     border-color: lightgray;
+    position: absolute;
 }
 
 .radioselect{
 	width: 12px;
     height: 12px;
     margin-top: 19%;
+    position: absolute;
+    left: 31%;
+}
+
+.radioselect1{
+	width: 12px;
+    height: 12px;
+    margin-top: 19%;
+    position: absolute;
+    left: 40%;
 }
 
 .sexArea{
@@ -1345,4 +1352,16 @@ p.tip{
 #mydataArea{
 	float: right;
     list-style-type: none;
+}
+
+#yes{
+	position: absolute;
+    margin-top: 91px;
+    left: 35%;
+}
+
+#no{
+    position: absolute;
+    margin-top: 91px;
+    left: 45%;
 }
