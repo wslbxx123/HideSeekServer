@@ -72,7 +72,7 @@ class AlipayManager {
         $params["service"] = "\""."mobile.securitypay.pay"."\"";
         $params["partner"] = "\"".KeyParam::ALIPAY_PARTNER."\"";
         $params["_input_charset"] = "\""."utf-8"."\"";
-        $params["notify_url"] = "\""."http://www.hideseek.cn/index.php/home/store/notifyUrl"."\"";
+        $params["notify_url"] = "\""."https://www.hideseek.cn/index.php/home/store/notifyUrl"."\"";
         $params["out_trade_no"] = "\"".$tradeNo."\"";
         $params["subject"] = "\"".$productName."\"";
         $params["payment_type"] = "\""."1"."\"";
@@ -116,7 +116,7 @@ class AlipayManager {
         $params["service"] = "alipay.wap.create.direct.pay.by.user";
         $params["partner"] = KeyParam::ALIPAY_PARTNER;
         $params["_input_charset"] = "utf-8";
-        $params["notify_url"] = "http://www.hideseek.cn/index.php/home/store/notifyUrl";
+        $params["notify_url"] = "https://www.hideseek.cn/index.php/home/store/notifyUrl";
         $params["return_url"] = "https://www.hideseek.cn/";
         $params["out_trade_no"] = $tradeNo;
         $params["subject"] = $productName;
