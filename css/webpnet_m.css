@@ -234,14 +234,13 @@ input.invalid {
 
 #confirmpurchase{
 	width: 95%;
-    height: 301px;
+    height: 200px;
     background: white;
     border: 2px solid dimgrey;
     border-radius: 5px;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
-    display: block;
-    top: 17%;
+    display: none;
     margin: 2% 2% auto;
     position: fixed;
     z-index: 56;
@@ -251,15 +250,16 @@ input.invalid {
 
 #confirmexchange{
 	width: 95%;
-    height: 200px;
+    height: 301px;
     background: white;
     border: 2px solid dimgrey;
     border-radius: 5px;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
     display: none;
+    top: 17%;
     margin: 2% 2% auto;
-    position: absolute;
+    position: fixed;
     z-index: 56;
     text-align: center;
     font-size: 15px;
@@ -1166,7 +1166,7 @@ p.tip{
 #enterAlipay{
 	width: 87%;
     height: 38px;
-    margin-top: 219px;
+    margin-top: 110px;
     background-color: #ffcc00;
     position: absolute;
     line-height: 38px;
@@ -1176,12 +1176,11 @@ p.tip{
 #confirmpay{
 	width: 87%;
     height: 38px;
-    margin-top: 100px;
+    margin-top: 216px;
     background-color: #ffcc00;
     position: absolute;
     line-height: 38px;
-    cursor:pointer;
-    
+    cursor: pointer;
 }
 
 .goodsSum{

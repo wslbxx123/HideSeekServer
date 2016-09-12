@@ -14,10 +14,10 @@
     	<script type="text/javascript" src="js/jquery.js"></script>
     	<script type="text/javascript" src="js/exif.js"></script>
     	<script type="text/javascript" src="js/webpnet_m.js"></script>
-    	<script src="js/bootstrap.min.js"></script>
-		<script src="js/distpicker.data.js"></script>
-	  	<script src="js/distpicker.js"></script>
-	  	<script src="js/main.js"></script>
+    	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="js/distpicker.data.js"></script>
+	  	<script type="text/javascript" src="js/distpicker.js"></script>
+	  	<script type="text/javascript" src="js/main.js"></script>
 	</head>
 	<body>
 		<div id ="storecover"></div>
@@ -115,7 +115,7 @@
 	    		<div style='height:2px;width:40%;background-color:#ffcc00;line-height:1px;clear:both;display:block;overflow:hidden' class="line1"> </div>
 	    		<div class="apparea">下载Android版本</div>
 	    		<div class="apparea">下载iOS版本</div>
-	    		<a id ="open_app"><button class="apparea" id ="btn_open">打开app</button></a>
+	    		<button class="apparea" id ="btn_open">打开app</button>
 	    	</div>
 	    		
     	</div>
@@ -151,7 +151,7 @@
     	<!--弹出登录页面-->
     	<div id="newWin">
     		<div class="closeBox"></div>
-    		<form id="loginForm" action="http://120.25.252.252/index.php/home/user/login" method="post" autocomplete="jsonResponse">
+    		<form id="loginForm" method="post" autocomplete="jsonResponse">
 	    		<p>	<label for="fname">
 		    			<img src="img/phone.png" class="icon"> 
 		    			<input type="text" id="fname" name="phone" class="reqd" placeholder="我的手机号">
