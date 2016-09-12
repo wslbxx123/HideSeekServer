@@ -105,7 +105,6 @@ $("#refreshData").click(function(){
 				dataType: "json",
 				
 				success: function(result, status) {
-	//				alert(JSON.stringify(result));
 					switch(result["code"]){
 						case "10000":
 							sessionStorage["myimgpath"] = result["result"]["small_photo_url"];
@@ -135,7 +134,6 @@ $("#refreshData").click(function(){
 				dataType: "json",
 				
 				success: function(result, status) {
-		//			alert(JSON.stringify(result));
 						switch(result["code"]){
 							case "10000":
 									sessionStorage["nickname"] = $("#userName1").val();
@@ -552,7 +550,7 @@ function getPath(obj,fileQuery,transImg){
 		    if(obj.select){
 				    obj.select();
 				    var path=document.selection.createRange().text;
-				    alert(path) ;
+//				    alert(path) ;
 				    obj.removeAttribute("src");
 				    imgSrc = fileQuery.value ;
 				    imgArr = imgSrc.split('.') ;
