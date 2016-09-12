@@ -169,11 +169,13 @@ input.invalid {
     background: white;
     border: 2px solid dimgrey;
     border-radius: 5px;
-    -moz-border-radius: 5px; /* Firefox */
-  	-webkit-border-radius: 5px; /* Safari 和 Chrome */
-    display: none;
-    margin: -37% 36% 6%;
-    position: absolute;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -37%;
+    position: relative;
     z-index: 30;
     text-align: center;
     font-size: 15px;
@@ -1113,7 +1115,7 @@ p.tip{
     background-size: cover;
     height: 19px;
     width: 19px;
-    right: 2%;
+    right: 4%;
     margin-top: 2%;
     position: absolute;
 }
@@ -1324,17 +1326,17 @@ p.tip{
     cursor: pointer;
     border: 1px solid lightgrey;
     position: absolute;
-    width: 58%;
+    width: 21%;
     height: 78px;
-    margin-left: 24%;
-    margin-top: 127px;
+    margin-left: 41%;
+    top: 317px;
     background-color: white;
     list-style-type: none;
     display: block;
     z-index: 55;
     font-size: 14px;
     text-align: center;
-    display:none;
+    display: none;
 }
 
 #sex{
