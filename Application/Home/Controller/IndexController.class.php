@@ -5,4 +5,12 @@ class IndexController extends Controller {
     public function index(){
         $this->display();
     }
+    
+    public function screen() {
+        $this->display();
+    }
+    
+    public function hideseek_m() {
+        $this->display();
+    }
 }

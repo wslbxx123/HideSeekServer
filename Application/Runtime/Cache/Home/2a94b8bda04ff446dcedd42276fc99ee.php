@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="UTF-8">
@@ -10,8 +10,8 @@
     	<meta name="description" content="积分 商城兑换 hideseek 寻宝部落 旅游 美食" />
     	<title>寻宝部落积分商城</title>
 
-    	<link rel="stylesheet" href="__PUBLIC__/css/webcnet.css">
-    	<link rel="shortcut icon" href="__PUBLIC__/Image/Web/hideseek.ico"/>
+    	<link rel="stylesheet" href="/hideseek/Public/css/webcnet.css">
+    	<link rel="shortcut icon" href="/hideseek/Public/Image/Web/hideseek.ico"/>
     	<SCRIPT LANGUAGE="JavaScript">
 			 function mobile_device_detect(url)
 			 {
@@ -54,19 +54,19 @@
 			 }
 			mobile_device_detect("http://m.hideseek.cn");
 		</SCRIPT>
-    	<script type="text/javascript" src="__PUBLIC__/js/jquery.js"></script>
-    	<script type="text/javascript" src="__PUBLIC__/js/webpnet.js"></script>
-    	<script type="text/javascript" src="__PUBLIC__/js/exif.js"></script>
-    	<script type="text/javascript" src="__PUBLIC__/js/bootstrap.min.js"></script>
-		<script type="text/javascript" src="__PUBLIC__/js/distpicker.data.js"></script>
-	  	<script type="text/javascript" src="__PUBLIC__/js/distpicker.js"></script>
-	  	<script type="text/javascript" src="__PUBLIC__/js/main.js"></script>
+    	<script type="text/javascript" src="/hideseek/Public/js/jquery.js"></script>
+    	<script type="text/javascript" src="/hideseek/Public/js/webpnet.js"></script>
+    	<script type="text/javascript" src="/hideseek/Public/js/exif.js"></script>
+    	<script type="text/javascript" src="/hideseek/Public/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="/hideseek/Public/js/distpicker.data.js"></script>
+	  	<script type="text/javascript" src="/hideseek/Public/js/distpicker.js"></script>
+	  	<script type="text/javascript" src="/hideseek/Public/js/main.js"></script>
 	</head>
 	<body>
 		<div id ="storecover"></div>
      	<div id="headline">
         	<div class="logo">
-           		 <img title="寻宝部落积分商城" src="__PUBLIC__/Image/Web/logo.png" width="125px" height="42px"/>
+           		 <img title="寻宝部落积分商城" src="/hideseek/Public/Image/Web/logo.png" width="125px" height="42px"/>
            	</div>
             <div class="inner_menu">
            		 <button type="button" class="prompt" id="test1">登录</button>
@@ -74,7 +74,7 @@
            	</div>
            	
            	<div id="myprofile" onmouseover="displaySubMenu();" onmouseout="hideSubMenu();">
-           		<img id="myimg" src="__PUBLIC__/Image/Web/mypicture.png"/>
+           		<img id="myimg" src="/hideseek/Public/Image/Web/mypicture.png"/>
            		<ul id = "mydataArea">
 	           		<li id ="nickname">上官宛儿</li>
 					<li id ="score" ><span id="scoreNum">2</span>积分</li>
@@ -88,10 +88,10 @@
     	
     	<!-- banner图 -->
 	    <div class="banner">
-		    <img src="__PUBLIC__/Image/Web/road.gif" style="width:100%;">
-			<img src="__PUBLIC__/Image/Web/road1.gif" style="width:100%;">
-			<img src="__PUBLIC__/Image/Web/road2.gif" style="width:100%;">
-			<img src="__PUBLIC__/Image/Web/test_title.png" id="test_title"/>		
+		    <img src="/hideseek/Public/Image/Web/road.gif" style="width:100%;">
+			<img src="/hideseek/Public/Image/Web/road1.gif" style="width:100%;">
+			<img src="/hideseek/Public/Image/Web/road2.gif" style="width:100%;">
+			<img src="/hideseek/Public/Image/Web/test_title.png" id="test_title"/>		
 			<div id="mushroom"></div>
 	    </div>
     	
@@ -165,7 +165,7 @@
     	<div id = "dataArea">
     		<div class="closeBox"></div>
     		<div class="bgColor"></div>
-    		<img class = "photo" id ="abc" src = "__PUBLIC__/Image/Web/mypicture.png"/>
+    		<img class = "photo" id ="abc" src = "/hideseek/Public/Image/Web/mypicture.png"/>
     		<canvas id="mypicture1" width="500px" height="500px"></canvas>
     		<a class="file">
             	<input type="file" accept="image/*;capture=camera" id="mycamera1">
@@ -193,13 +193,13 @@
     		<div class="closeBox"></div>
     		<form id="loginForm"  method="post" autocomplete="jsonResponse">
 	    		<p>	<label for="fname">
-		    			<img src="__PUBLIC__/Image/Web/phone.png" class="icon"> 
+		    			<img src="/hideseek/Public/Image/Web/phone.png" class="icon"> 
 		    			<input type="text" id="fname" name="phone" class="reqd" placeholder="我的手机号">
 	    			</label>
 	    		</p>
 	    		<div style='height:1px;width:70%;background-color:grey;line-height:1px;clear:both;display:block;overflow:hidden' class="line"> </div>	
 				<p>	<label for="lname">
-						<img src="__PUBLIC__/Image/Web/password.png" class="icon">
+						<img src="/hideseek/Public/Image/Web/password.png" class="icon">
 						<input type="password" id="lname" name="password" class="reqd" placeholder="我的密码" maxlength="45"/>
 					</label>
 				</p>
@@ -215,7 +215,7 @@
     		<div class="closeBox"></div>
     		<form id="registerForm" method="post" autocomplete="jsonResponse">
 	    		<p>	<label for="userphone1">
-	    			<img src="__PUBLIC__/Image/Web/phone.png" class="icon">
+	    			<img src="/hideseek/Public/Image/Web/phone.png" class="icon">
 	    			<input type="text" size="30" id="userphone1" class="reqd" placeholder="注册手机">
 	    			</label> 
 	    		</p>
@@ -225,13 +225,13 @@
 	    			<input type="text" size="30" id="codeNum1" class="reqc">
 	    		</p>
 	    		<p> <label for="passwd1">
-						<img src="__PUBLIC__/Image/Web/password.png" class="icon">
+						<img src="/hideseek/Public/Image/Web/password.png" class="icon">
 						<input type="password" id="passwd1" class="reqd" placeholder="修改密码" maxlength="45"/>
 					</label>
 				</p>
 				<div style='height:1px;width:70%;background-color:grey;line-height:1px;clear:both;display:block;overflow:hidden' class="line"> </div>		
 				<p> <label for="passwd2">
-						<img src="__PUBLIC__/Image/Web/password.png" class="icon">
+						<img src="/hideseek/Public/Image/Web/password.png" class="icon">
 						<input type="password" id="passwd2" class="reqd passwd1" placeholder="重输密码" maxlength="45"/>
 					</label>
 				</p>
@@ -245,7 +245,7 @@
     		<div class="closeBox"></div>
     		<form id="registerForm" action="code.html" method="post" autocomplete="jsonResponse">
 	    		<p>	<label for="userphone">
-	    			<img src="__PUBLIC__/Image/Web/phone.png" class="icon">
+	    			<img src="/hideseek/Public/Image/Web/phone.png" class="icon">
 	    			<input type="text" size="30" id="userphone" class="reqd" placeholder="注册手机">
 	    			</label> 
 	    		</p>
@@ -256,19 +256,19 @@
 	    		</p>
 	    		
 	    		<p>	<label for="userName">
-		    			<img src="__PUBLIC__/Image/Web/account.png" class="icon">
+		    			<img src="/hideseek/Public/Image/Web/account.png" class="icon">
 		    			<input type="text" size="30" id="userName" class="reqd" placeholder="我的昵称">
 	    			</label> 
 	    		</p>
 	    		<div style='height:1px;width:70%;background-color:grey;line-height:1px;clear:both;display:block;overflow:hidden' class="line"> </div>	
 				<p> <label for="passwd1">
-						<img src="__PUBLIC__/Image/Web/password.png" class="icon">
+						<img src="/hideseek/Public/Image/Web/password.png" class="icon">
 						<input type="password" id="passwd1" class="reqd" placeholder="我的密码" maxlength="45"/>
 					</label>
 				</p>
 				<div style='height:1px;width:70%;background-color:grey;line-height:1px;clear:both;display:block;overflow:hidden' class="line"> </div>		
 				<p> <label for="passwd2">
-						<img src="__PUBLIC__/Image/Web/password.png" class="icon">
+						<img src="/hideseek/Public/Image/Web/password.png" class="icon">
 						<input type="password" id="passwd2" class="reqd passwd1" placeholder="重输密码" maxlength="45"/>
 					</label>
 				</p>
@@ -282,7 +282,7 @@
     	<div id="newWin2">
     		<div class="closeBox"></div>
     		<div class="bgColor"></div>
-    		<img class = "photo" src = "__PUBLIC__/Image/Web/mypicture.png"/>
+    		<img class = "photo" src = "/hideseek/Public/Image/Web/mypicture.png"/>
     		<canvas id="mypicture" width="500px" height="500px"></canvas>
     		<a class="file">
             	<input type="file" accept="image/*;capture=camera" id="mycamera">
@@ -294,7 +294,7 @@
 			<p> <div class="demo">
 					<label for="district">地区
 					<input type="text" class="cityinput" id="citySelect1" value="未设置" readonly="readonly" />
-					<script type="text/javascript" src="__PUBLIC__/js/querycity.js"></script>	
+					<script type="text/javascript" src="/hideseek/Public/js/querycity.js"></script>	
 				</div>
 			
     		</p>
@@ -313,8 +313,8 @@
     	<!--弹出注册页面3-->
     	<div id="newWin3">
     		 <img src='' id='fileimg' />
-    		 <img src="__PUBLIC__/Image/Web/upframe.png" id="upframe"/>
-    		 <img src="__PUBLIC__/Image/Web/downframe.png" id="downframe"/>
+    		 <img src="/hideseek/Public/Image/Web/upframe.png" id="upframe"/>
+    		 <img src="/hideseek/Public/Image/Web/downframe.png" id="downframe"/>
     		
     		 <canvas id="coverpic" width="300px" height="300px"></canvas>
     		 <canvas id="editpic" width="100" height="100"></canvas>
@@ -323,13 +323,13 @@
     		 	<input type="range" id="rangeBar" name="points" min="1" max="10" value="1" />
     		 </div>
     		 <div id="confirmedit">确认裁剪</div>
-    		 <script type="text/javascript" src="__PUBLIC__/js/editpic.js"></script>
+    		 <script type="text/javascript" src="/hideseek/Public/js/editpic.js"></script>
     	</div>
     	
     	<!--弹出注册页面4-->
     	<div id="newWin4">
     		<div class="closeBox"></div>
-    		<img src="__PUBLIC__/Image/Web/grassfairy.jpg" id="roleimages"/>
+    		<img src="/hideseek/Public/Image/Web/grassfairy.jpg" id="roleimages"/>
     		<p id= "rolenames">草魅精灵</p>
     		<div id="entrance">进入寻宝部落</div>
     	</div>
