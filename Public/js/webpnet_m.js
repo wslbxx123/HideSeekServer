@@ -7,17 +7,40 @@ $(function(){
 	var reward_id;
 	
 	var btn_open = document.getElementById('btn_open');
-//	var open_app = document.getElementById('open_app');
+	var open_app = document.getElementById('open_app');
 	btn_open.addEventListener('click', function() {
-//	    open_app.src = 'https://www.hideseek.cn/index.php/home/index/hideseek_m';
-	    var ifr = document.createElement('iframe');  
-        ifr.src = 'https://www.hideseek.cn/index.php/home/index/hideseek_m';  
-        ifr.style.display = 'none';  
-        document.body.appendChild(ifr);  
-        window.setTimeout(function(){  
-            document.body.removeChild(ifr);  
-        },3000)  
+		window.location.href = 'https://www.hideseek.cn/index.php/home/index/hideseek_m';
+		var loadDateTime = Date.now();
+		setTimeout(function () {
+            var timeOutDateTime = Date.now();
+            if (timeOutDateTime - loadDateTime < 1000) {
+                window.location.href = "https://www.hideseek.cn/index.php/home/index/hideseek_m";
+            }
+        }, 25);
+//		window.setTimeout(function(){  
+//          window.location.href = 'https://www.hideseek.cn/index.php/home/index/hideseek_m';
+//      },3000)  
+////	    open_app.src = 'https://www.hideseek.cn/index.php/home/index/hideseek_m';
+//	    var ifr = document.createElement('iframe');  
+//      ifr.src = 'https://www.hideseek.cn/index.php/home/index/hideseek_m';  
+//      ifr.style.display = 'none';  
+//      document.body.appendChild(ifr);  
+//      window.setTimeout(function(){  
+//          document.body.removeChild(ifr);  
+//      },3000)  
 	});
+	
+//	var baseScheme = "hideseek://",
+//  baseLink="https://www.hideseek.cn/index.php/home/index/hideseek_m";
+//	var createScheme=function(options,isLink){
+//  var urlScheme=isLink?baseLink:baseScheme;
+//  for(var item in options){
+//      urlScheme=urlScheme+item + '=' + encodeURIComponent(options[item]) + "&";
+//  }
+//  urlScheme = urlScheme.substring(0, urlScheme.length - 1);
+//  return isLink?urlScheme:encodeURIComponent(urlScheme);
+//	}
+	
 	
 	//刷新页面个人信息
 	if(sessionStorage.getItem("sessionid")!=null){
