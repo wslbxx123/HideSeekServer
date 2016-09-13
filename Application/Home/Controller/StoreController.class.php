@@ -138,17 +138,13 @@ class StoreController extends BaseController {
             return;
         }
         
-        if(!isset($orderId)) {
-            BaseUtil::echoJson(CodeParam::ORDER_ID_EMPTY, null);
-            return;
-        }
-        
-        if(!StoreControllerManager::checkPurchaseOrderInfo($storeId, $count)) {
+        if(!StoreControllerManager::checkPurchaseOrderInfoFromWeb($orderId, 
+                $storeId, $count)) {
             return;
         }
         
         $result = StoreControllerManager::getSignResultWithoutCreateOrder(
-                $storeId, $count, false, $orderId);
+                $storeId, $count, 0, $orderId);
         echo BaseUtil::echoJson(CodeParam::SUCCESS, $result); 
     }
     
@@ -174,8 +170,36 @@ class StoreController extends BaseController {
                 $accountId, 1);
         $html = StoreControllerManager::createAlipayFormHtml($result);
         $result['html'] = $html;
-        
+        header("Content-Type: application/json; charset=utf-8");
         echo BaseUtil::echoJson(CodeParam::SUCCESS, $result);
+    }
+    
+    public function getPurchaseOrderFromWeb() {
+        self::setHeader();
+        
+        $sessionId = filter_input(INPUT_POST, 'session_id');
+        $orderId = filter_input(INPUT_POST, 'order_id');
+        $storeId = filter_input(INPUT_POST, 'store_id');
+        $count = filter_input(INPUT_POST, 'count');
+        
+        $accountId = $this->getPkIdFromToken($sessionId);
+        
+        if(!isset($sessionId) || $accountId == 0) {
+            BaseUtil::echoJson(CodeParam::NOT_LOGIN, null);
+            return;
+        }
+        
+        if(!StoreControllerManager::checkPurchaseOrderInfoFromWeb($orderId, 
+                $storeId, $count)) {
+            return;
+        }
+        
+        $result = StoreControllerManager::getSignResultWithoutCreateOrder(
+                $storeId, $count, 1, $orderId);
+        $html = StoreControllerManager::createAlipayFormHtml($result);
+        $result['html'] = $html;
+        header("Content-Type: application/json; charset=utf-8");
+        echo BaseUtil::echoJson(CodeParam::SUCCESS, $result); 
     }
     
     public function createOrderFromH5() {
@@ -203,6 +227,34 @@ class StoreController extends BaseController {
         $result['html'] = $html;
         header("Content-Type: application/json; charset=utf-8");
         echo BaseUtil::echoJson(CodeParam::SUCCESS, $result);
+    }
+    
+    public function getPurchaseOrderFromH5() {
+        self::setHeader();
+        
+        $sessionId = filter_input(INPUT_POST, 'session_id');
+        $orderId = filter_input(INPUT_POST, 'order_id');
+        $storeId = filter_input(INPUT_POST, 'store_id');
+        $count = filter_input(INPUT_POST, 'count');
+        
+        $accountId = $this->getPkIdFromToken($sessionId);
+        
+        if(!isset($sessionId) || $accountId == 0) {
+            BaseUtil::echoJson(CodeParam::NOT_LOGIN, null);
+            return;
+        }
+        
+        if(!StoreControllerManager::checkPurchaseOrderInfoFromWeb($orderId, 
+                $storeId, $count)) {
+            return;
+        }
+        
+        $result = StoreControllerManager::getSignResultWithoutCreateOrder(
+                $storeId, $count, 2, $orderId);
+        $html = StoreControllerManager::createAlipayFormHtml($result);
+        $result['html'] = $html;
+        header("Content-Type: application/json; charset=utf-8");
+        echo BaseUtil::echoJson(CodeParam::SUCCESS, $result); 
     }
     
     public function purchase() {
