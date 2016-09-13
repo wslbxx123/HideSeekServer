@@ -152,8 +152,9 @@ $(function(){
 	});
 	
 	//此处需要判断是否支付成功。
+	alert($("#alipaystatus").val())
 	if($("#alipaystatus").val()!=""){
-		alert($("#alipaystatus").val())
+		
 		var alipaypurchase = {
 				url: "/index.php/home/store/purchase",
 				type: 'POST',
