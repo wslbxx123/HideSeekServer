@@ -8,12 +8,12 @@ $(function(){
 	
 	var btn_open = document.getElementById('btn_open');
 //	var open_app = document.getElementById('open_app');
-	btn_open.addEventListener('click', function() {
+//	btn_open.addEventListener('click', function() {
 //	    open_app.src = 'https://www.hideseek.cn/index.php/home/index/hideseek_m';
 //	    setTimeout(function() {
-	        location.href = 'https://www.hideseek.cn/index.php/home/index/hideseek_m';
+//	        location.href = 'https://www.hideseek.cn/index.php/home/index/hideseek_m';
 //	    }, 1000);
-	}, false);
+//	}, false);
 	
 	//刷新页面个人信息
 	if(sessionStorage.getItem("sessionid")!=null){
