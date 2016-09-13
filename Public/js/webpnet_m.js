@@ -8,38 +8,18 @@ $(function(){
 	
 	var btn_open = document.getElementById('btn_open');
 	var open_app = document.getElementById('open_app');
-	btn_open.addEventListener('click', function() {
-		window.location.href = 'https://www.hideseek.cn/index.php/home/index/hideseek_m';
-		var loadDateTime = Date.now();
-		setTimeout(function () {
-            var timeOutDateTime = Date.now();
-            if (timeOutDateTime - loadDateTime < 1000) {
-                window.location.href = "https://www.hideseek.cn/index.php/home/index/hideseek_m";
-            }
-        }, 25);
-//		window.setTimeout(function(){  
-//          window.location.href = 'https://www.hideseek.cn/index.php/home/index/hideseek_m';
-//      },3000)  
-////	    open_app.src = 'https://www.hideseek.cn/index.php/home/index/hideseek_m';
-//	    var ifr = document.createElement('iframe');  
-//      ifr.src = 'https://www.hideseek.cn/index.php/home/index/hideseek_m';  
-//      ifr.style.display = 'none';  
-//      document.body.appendChild(ifr);  
-//      window.setTimeout(function(){  
-//          document.body.removeChild(ifr);  
-//      },3000)  
-	});
 	
-//	var baseScheme = "hideseek://",
-//  baseLink="https://www.hideseek.cn/index.php/home/index/hideseek_m";
-//	var createScheme=function(options,isLink){
-//  var urlScheme=isLink?baseLink:baseScheme;
-//  for(var item in options){
-//      urlScheme=urlScheme+item + '=' + encodeURIComponent(options[item]) + "&";
-//  }
-//  urlScheme = urlScheme.substring(0, urlScheme.length - 1);
-//  return isLink?urlScheme:encodeURIComponent(urlScheme);
-//	}
+	if($("#goalid").val()!=""){
+		btn_open.addEventListener('click', function() {
+			window.location.href = 'https://www.hideseek.cn/index.php/home/index/hideseek_m'+'?goal_id='+$("#goalid").val();
+			var loadDateTime = Date.now();
+			setTimeout(function () {
+	            var timeOutDateTime = Date.now();
+	            if (timeOutDateTime - loadDateTime < 1100) {
+	            }
+	        }, 25);
+		});
+	}
 	
 	
 	//刷新页面个人信息
@@ -152,8 +132,7 @@ $(function(){
 	});
 	
 	//此处需要判断是否支付成功。
-	alert($("#alipaystatus").val())
-	if($("#alipaystatus").val()!=""){
+	if($("#alipaystatus").val()=="TRADE_SUCCESS"){
 		
 		var alipaypurchase = {
 				url: "/index.php/home/store/purchase",
@@ -290,21 +269,12 @@ $(function(){
 													alert(result["result"]["html"]);
 													document.getElementById("alipaysubmit").submit();
 													order_id = result["result"]["order_id"];
-													//此处需要判断是否支付成功。
-//													var alipaypurchase = {
-//															url: "/index.php/home/store/purchase",
-//															type: 'POST',
-//															data:"session_id=" + sessionStorage.getItem("sessionid")
-//															+ "&order_id=" + order_id,
-//															success: function(result, status) {
-//																	
-//																	
-//															},
-//															error: function(XMLHttpRequest, textStatus, errorThrown) {
-//																	alert("网络出现问题！");
-//															}
-//													};
-//													$.ajax(alipaypurchase);
+													if(sessionStorage.getItem("orderid")==null){
+														sessionStorage.setItem("orderid", order_id);
+													}
+													else{
+														sessionStorage["orderid"] = order_id;
+													}
 													break;
 												case "11000":
 													clearStorage();

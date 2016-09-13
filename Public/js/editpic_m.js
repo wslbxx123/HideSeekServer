@@ -444,10 +444,11 @@ document.getElementById("myorder").onclick = function(){
 								getId1 = $(this).attr("id");
 						    	var data = "session_id=" + sessionStorage.getItem("sessionid")
 									  + "&store_id=" + result.result.orders[getId1].store_id
-									  + "&count=" + result.result.orders[getId1].count; 
+									  + "&count=" + result.result.orders[getId1].count,
+									  + "&order_id=" + result.result.orders[getId1].pk_id; 
 									  
 						    	var enteralipay = {
-									url: "/index.php/home/store/createOrderFromH5",
+									url: "/index.php/home/store/getPurchaseOrderFromH5",
 									type: 'POST',
 									data:data,
 									success: function(result, status) {
@@ -456,21 +457,12 @@ document.getElementById("myorder").onclick = function(){
 										document.getElementById("alipaypage").innerHTML = result["result"]["html"];
 										document.getElementById("alipaysubmit").submit();
 										order_id = result["result"]["order_id"];
-										//此处需要判断是否支付成功。
-										var enteralipay = {
-												url: "/index.php/home/store/purchase",
-												type: 'POST',
-												data:"session_id=" + sessionStorage.getItem("sessionid")
-												+ "&order_id=" + order_id,
-												success: function(result, status) {
-														
-														
-												},
-												error: function(XMLHttpRequest, textStatus, errorThrown) {
-														alert("网络出现问题！");
-												}
-										};
-										$.ajax(enteralipay);
+										if(sessionStorage.getItem("orderid")==null){
+											sessionStorage.setItem("orderid", order_id);
+										}
+										else{
+											sessionStorage["orderid"] = order_id;
+										}
 									},
 									error: function(XMLHttpRequest, textStatus, errorThrown) {
 										alert("网络出现问题！");
