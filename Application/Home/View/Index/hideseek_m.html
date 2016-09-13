@@ -23,7 +23,7 @@
 		<div id ="storecover"></div>
      	<div id="headline">
         	<div class="logo">
-           		 <img title="寻宝部落积分商城" src="img/logo.png" width="110px" height="38px"/>
+           		 <img title="寻宝部落积分商城" src="../../../../Public/Image/Web/logo.png" width="110px" height="38px"/>
            	</div>
             <div class="inner_menu">
            		 <button type="button" class="prompt" id="test1">登录</button>
@@ -31,7 +31,7 @@
            	</div>
            	
            	<div id="myprofile" onclick="displaySubMenu();">
-           		<img id="myimg" src="img/mypicture.png"/>
+           		<img id="myimg" src="../../../../Public/Image/Web/mypicture.png"/>
            		<ul id = "mydataArea">
 	           		<li id ="nickname">上官宛儿</li>
 					<li id ="score" ><span id="scoreNum">2</span>积分</li>
@@ -46,10 +46,10 @@
     	
     	<!-- banner图 -->
 	    <div class="banner">
-		    <img src="img/road.gif" style="width:95%;margin-left:3%;">
-			<img src="img/road1.gif" style="width:95%;margin-left:3%;">
-			<img src="img/road2.gif" style="width:95%;margin-left:3%;">
-			<img src="img/test_title.png" id="test_title"/>		
+		    <img src="../../../../Public/Image/Web/road.gif" style="width:95%;margin-left:3%;">
+			<img src="../../../../Public/Image/Web/road1.gif" style="width:95%;margin-left:3%;">
+			<img src="../../../../Public/Image/Web/road2.gif" style="width:95%;margin-left:3%;">
+			<img src="../../../../Public/Image/Web/test_title.png" id="test_title"/>		
 			<div id="mushroom"></div>
 	    </div>
     	
@@ -167,7 +167,39 @@
 				<p><input type="button" value="登录" id="login"></p>
         	</form>
     		<div id="fault">您输入的账号或密码有误！</div>
+    		<div id="updatepassword">忘记密码？</div>
     	</div>
+    	
+    	<!--修改密码界面-->
+    	<div id = "passwordArea">
+    		<div class="closeBox"></div>
+    		<form id="registerForm" method="post" autocomplete="jsonResponse">
+	    		<p>	<label for="userphone1">
+	    			<img src="../../../../Public/Image/Web/phone.png" class="icon">
+	    			<input type="text" size="30" id="userphone1" class="reqd" placeholder="注册手机">
+	    			</label> 
+	    		</p>
+	    		<div style='height:1px;width:70%;background-color:grey;line-height:1px;clear:both;display:block;overflow:hidden' class="line"> </div>	
+	    		
+	    		<p> <input type="button" value="发送验证码" id="verifiCode1">
+	    			<input type="text" size="30" id="codeNum1" class="reqc">
+	    		</p>
+	    		<p> <label for="passwd1">
+						<img src="../../../../Public/Image/Web/password.png" class="icon">
+						<input type="password" id="passwd1" class="reqd" placeholder="我的密码" maxlength="45"/>
+					</label>
+				</p>
+				<div style='height:1px;width:70%;background-color:grey;line-height:1px;clear:both;display:block;overflow:hidden' class="line"> </div>		
+				<p> <label for="passwd2">
+						<img src="../../../../Public/Image/Web/password.png" class="icon">
+						<input type="password" id="passwd2" class="reqd passwd1" placeholder="重输密码" maxlength="45"/>
+					</label>
+				</p>
+				<div style='height:1px;width:70%;background-color:grey;line-height:1px;clear:both;display:block;overflow:hidden' class="line"> </div>	
+				<p><input type="button" value="我要注册" id="register1"></p>
+			</form>
+    	</div>
+    	
     	<!--弹出注册页面1-->
     	<div id="newWin1">
     		<div class="closeBox"></div>

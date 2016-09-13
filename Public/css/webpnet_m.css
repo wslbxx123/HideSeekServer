@@ -327,6 +327,20 @@ input.invalid {
     width: 80%;
 }
 
+#register1{
+    height: 35px;s
+    margin-top: 10px;
+    font-family: "Microsoft Yahei";
+    font-size: 15px;
+    background-color:#fae077;
+    border-radius:5px;
+    -moz-border-radius: 5px; /* Firefox */
+  	-webkit-border-radius: 5px; /* Safari 和 Chrome */
+    cursor: pointer; 
+    -webkit-appearance: none; 
+    width: 80%;
+}
+
 #myprofile{
 	height: 36px;
 	right: 8px;
@@ -642,6 +656,17 @@ input.invalid {
     -webkit-appearance: none; 
 }
 
+#verifiCode1{
+	height:30px;
+    width: 36%;
+    background-color: #fae077;
+    border-radius: 5px;
+    -moz-border-radius: 5px; /* Firefox */
+  	-webkit-border-radius: 5px; /* Safari 和 Chrome */
+    cursor: pointer; 
+    -webkit-appearance: none; 
+}
+
 .APPfile{
 	height: 162px;
     width: 96%;
@@ -655,8 +680,12 @@ input.invalid {
 #codeNum{
 	border-width: 1px;
 	width:38%;
-	}
+}
 	
+#codeNum1{
+	border-width: 1px;
+	width:38%;
+}
 	
 .file {
     position: absolute;
@@ -1353,4 +1382,26 @@ p.tip{
 	width: 12px;
     height: 12px;
     margin-left: 5%;
+}
+
+#updatepassword{
+	cursor: pointer;
+    font-size: 13px;
+}
+
+#passwordArea{
+	width: 91%;
+    height: 298px;
+    background: white;
+    border: 2px solid dimgrey;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    behavior: url("border-radius.htc");
+    display: none;
+    margin: -25% 4% 6%;
+    position: absolute;
+    z-index: 45;
+    text-align: center;
+    font-size: 15px;
 }

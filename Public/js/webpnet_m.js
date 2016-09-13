@@ -119,6 +119,7 @@ $(function(){
 		$("#orderArea").fadeOut();
 		$("#storecover").fadeOut();
 		$("#confirmexchange").fadeOut();
+		$("#passwordArea").fadeOut();
 		$("#dataArea").fadeOut();
 		$("#listarea .orderlist").remove();	
 	});
@@ -606,13 +607,224 @@ $(function(){
 		}		
 	});	
 	
+	//	实现登录界面到修改界面的跳转
+	$("#updatepassword").click(function() {
+		$("#passwordArea").fadeIn();
+		$("#newWin").fadeOut();
+	});
 	
-//	var timeKeeper = true;	//控制计时器的启动；
-//	var verifiClick;	//控制发送验证码按钮；
-//	var phoneFormat;	//检测手机号格式；
-//	var phoneregistered; 	//检测手机是否被注册；
-//	var codeNumber; //发送的手机验证码；
-//	var codetest;//检验是否发送手机验证码；
+	//	实现登录界面和服务器的交互
+	document.getElementById("verifiCode1").onclick = function(){
+		//验证用户填写手机格式是否正确
+		var tel = document.getElementById("userphone1").value;
+	 	if(/^1\d{10}$/g.test(tel)){      
+			phoneFormat = true;
+		}
+		else{
+			alert("手机格式不正确！")
+			phoneFormat = false;
+		}
+	
+		//验证注册界面用户手机号码是否被注册
+		var myphone = {
+			url: "/index.php/home/user/checkIfUserExist",	
+			type: 'POST',
+			data: "phone=" + $("#userphone1").val(),
+			dataType: "json",
+			
+			success: function(result, status) {
+//				alert(JSON.stringify(result));
+				switch(result["code"]){
+					case "10000":
+						phoneregistered = true;
+						alert("手机号尚未被注册！")
+						break;
+				  	case "10015":
+				  		phoneregistered = false;
+				  		break;
+				}	
+			},
+			error: function(XMLHttpRequest, textStatus, errorThrown) {
+				alert("网络出现问题！");
+				phoneregistered = true;
+			}
+		};
+		$.ajax(myphone);	
+
+		//检验是否可以发送验证码
+		if(phoneFormat&&!phoneregistered){
+			verifiClick = true;
+			document.getElementById("userphone1").className = "reqd";
+		}
+		else{
+			verifiClick = false;
+			document.getElementById("userphone1").className += " invalid";
+		}
+	
+		//开始发送验证码
+	   	if(verifiClick){    
+			var verificode = {
+				url: "/index.php/home/user/sendVerificationCode",
+				type: 'POST',
+				data: "phone=" + $("#userphone1").val(),
+				dataType: "json",
+				
+				success: function(result, status){   
+					switch(result["code"]){
+						case "10000":
+							codeNumber = result["result"]["sms_code"];
+							if(result["result"]["content"]["error_code"]==0){ 	
+								timeKeeper = true;
+								verifiClick = false;
+								var tim = 59;
+								$("#verifiCode1").val("发送成功!");
+								$("#verifiCode1").css("background-color","darkgrey"); 
+								
+								setTimeout(function(){
+									round();
+									
+								},1000);
+								
+								
+							 	function round(){
+							    	$("#verifiCode1").val(tim+"秒");
+							    	tim--;
+							    	if(tim == 0){
+							    		timeKeeper = false;
+							    		verifiClick = true;
+							        	$("#verifiCode1").css("background-color","#FFCC00"); 
+							        	$("#verifiCode1").val("发送验证码");
+							        }
+							        if(timeKeeper){
+							        	setTimeout(function(){
+											round();
+										},1000);
+							        }
+								}
+							}	
+							break;
+					  	case "10001":
+					  		$("#fault").fadeIn();
+					  		break;
+					}
+					
+				},
+				error: function(XMLHttpRequest, textStatus, errorThrown) {
+					alert("发送验证码失败！");
+				}
+			};
+			$.ajax(verificode);
+		}
+	}
+	
+	//检验修改界面填写框
+	$("#register1").click(function(){
+		var allGood = true;
+		var allTags = document.getElementById("newWin1").getElementsByTagName("*");
+		var phone_figures_test;
+		var phone_identical_test;
+		
+		if($('#passwd1').val().length>=6){
+			phone_figures_test = true;
+		}
+		else{
+			phone_figures_test = false;
+			alert("密码不能少于6位数！")
+		}
+		
+		for (var i=0; i<allTags.length; i++) {
+			if (!validTag(allTags[i])) {
+ 				allGood = false;
+		    }
+		}
+		
+		
+		function validTag(thisTag) {
+			var outClass = "";
+			var allClasses = thisTag.className. split(" ");
+			
+			for (var j=0; j<allClasses.length; j++) {
+				outClass += validBasedOnClass (allClasses[j]) + " ";
+			}
+			thisTag.className = outClass;
+			
+			if (outClass.indexOf("invalid") > -1) {
+		        invalidLabel(thisTag.parentNode);
+				thisTag.focus();
+				if (thisTag.nodeName == "INPUT") {
+						thisTag.select();
+				}
+				return false;
+			}
+			return true;
+	
+			function validBasedOnClass(thisClass) {
+				var classBack = "";
+				switch(thisClass) {
+					case "":
+					case "invalid":
+					break;
+					case "reqd":
+						if (allGood && thisTag. value == "") {
+						    	classBack = "invalid ";
+						}
+						classBack += thisClass;
+						break;
+					case "icon":
+					case "line":
+						classBack += thisClass;
+						break;
+					case "passwd1":
+						if (allGood && !crossCheck (thisTag,thisClass)) {
+								classBack = "invalid ";
+						}
+						classBack += thisClass;
+						break;
+					case "reqc":
+						if (allGood && $("#codeNum1").val() != codeNumber) {
+								classBack = "invalid ";
+						}
+						classBack += thisClass;
+						break;
+					default:
+				}
+				return classBack;
+			}
+	
+			function crossCheck (inTag,otherFieldID) {
+				if (!document.getElementById (otherFieldID)) {
+					return false;
+				}
+				if(inTag.value == document.getElementById(otherFieldID).value){
+					phone_identical_test = true;
+				}
+				else{
+					phone_identical_test = false;
+					alert("两次输入密码不一致!")
+				}
+				return (phone_identical_test&&phone_figures_test);
+			}
+			function invalidLabel(parentTag) {
+				if (parentTag.nodeName == "LABEL") {
+						parentTag.className += " invalid";
+				}
+		 	}
+  		}
+		
+		if(allGood) {
+			//	修改界面淡出
+			$("passwordArea").fadeOut(); 
+		}		
+	});
+	
+	
+	var timeKeeper = true;	//控制计时器的启动；
+	var verifiClick;	//控制发送验证码按钮；
+	var phoneFormat;	//检测手机号格式；
+	var phoneregistered; 	//检测手机是否被注册；
+	var codeNumber; //发送的手机验证码；
+	var codetest;//检验是否发送手机验证码；
+	
 	//发送和检验验证码
 //	document.getElementById("verifiCode").onclick = function(){
 //	    codetest = true;

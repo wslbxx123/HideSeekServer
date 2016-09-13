@@ -595,6 +595,11 @@ $(function(){
 		}		
 	});	
 	
+	//	实现登录界面到修改界面的跳转
+	$("#updatepassword").click(function() {
+		$("#passwordArea").fadeIn();
+	});
+	
 	
 	var timeKeeper = true;	//控制计时器的启动；
 	var verifiClick;	//控制发送验证码按钮；

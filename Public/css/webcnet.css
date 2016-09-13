@@ -126,13 +126,13 @@ input.invalid {
 
 #newWin{
 	width: 35%;
-    height: 234px;
+    height: 265px;
     background: white;
     border: 2px solid dimgrey;
     border-radius: 5px;
-    -moz-border-radius: 5px; /* Firefox */
-  	-webkit-border-radius: 5px; /* Safari 和 Chrome */
-  	behavior: url(ie-<a href="https://www.baidu.com/s?wd=css3&tn=44039180_cpr&fenlei=mv6quAkxTZn0IZRqIHckPjm4nH00T1dBuA7BnyF9ny7BPWT1rjmv0ZwV5Hcvrjm3rH6sPfKWUMw85HfYnjn4nH6sgvPsT6KdThsqpZwYTjCEQLGCpyw9Uz4Bmy-bIi4WUvYETgN-TLwGUv3EnHb3rjmkrjfsrjnLP1TzPjmvPs" target="_blank" class="baidu-highlight">css3</a>.htc);
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    behavior: url(ie-<a href="https://www.baidu.com/s?wd=css3&tn=44039180_cpr&fenlei=mv6quAkx…mkrjfsrjnLP1TzPjmvPs" target="_blank" class="baidu-highlight">css3</a>.htc);
     display: none;
     margin: -37% 32% 6%;
     position: absolute;
@@ -287,6 +287,20 @@ input.invalid {
 }
 
 #register{
+    height: 35px;s
+    margin-top: 10px;
+    font-family: "Microsoft Yahei";
+    font-size: 15px;
+    background-color:#fae077;
+    border-radius:5px;
+    -moz-border-radius: 5px; /* Firefox */
+  	-webkit-border-radius: 5px; /* Safari 和 Chrome */
+    cursor: pointer; 
+    -webkit-appearance: none; 
+    width: 80%;
+}
+
+#register1{
     height: 35px;s
     margin-top: 10px;
     font-family: "Microsoft Yahei";
@@ -622,6 +636,17 @@ input.invalid {
     -webkit-appearance: none; 
 }
 
+#verifiCode1{
+	height:30px;
+    width: 36%;
+    background-color: #fae077;
+    border-radius: 5px;
+    -moz-border-radius: 5px; /* Firefox */
+  	-webkit-border-radius: 5px; /* Safari 和 Chrome */
+    cursor: pointer; 
+    -webkit-appearance: none; 
+}
+
 .APPfile{
 	height: 85%;
     width: 47%;
@@ -635,8 +660,12 @@ input.invalid {
 #codeNum{
 	border-width: 1px;
 	width:38%;
-	}
+}
 	
+#codeNum1{
+	border-width: 1px;
+	width:38%;
+}	
 	
 .file {
     position: absolute;
@@ -1364,4 +1393,28 @@ p.tip{
     position: absolute;
     margin-top: 91px;
     left: 45%;
+}
+
+#updatepassword{
+	cursor: pointer;
+    font-size: 13px;
+}
+
+#passwordArea{
+	width: 36%;
+    height: 317px;
+    background: white;
+    border: 2px solid dimgrey;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    /* behavior: url("border-radius.htc"); */
+    display: none;
+    margin-top: -37%;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    z-index: 33;
+    text-align: center;
+    font-size: 15px;
 }
