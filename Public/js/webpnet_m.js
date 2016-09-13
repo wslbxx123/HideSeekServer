@@ -14,12 +14,10 @@ $(function(){
 		btn_open.addEventListener('click', function() {
 			alert('https://www.hideseek.cn/index.php/home/index/hideseek_m'+'?goal_id='+$("#goalid").val());
 			window.location.href = 'https://www.hideseek.cn/index.php/home/index/hideseek_m'+'?goal_id='+$("#goalid").val();
-			var loadDateTime = Date.now();
+			
 			setTimeout(function () {
-	            var timeOutDateTime = Date.now();
-	            if (timeOutDateTime - loadDateTime < 1000) {
-	            }
-	        }, 25);
+	           window.location.href = 'https://m.hideseek.cn/';
+	        }, 1000);
 		});
 	}
 	
