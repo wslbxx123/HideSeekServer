@@ -101,6 +101,25 @@ class StoreControllerManager {
         return true;
     }
     
+    public function checkPurchaseOrderInfoFromWeb($orderId, $storeId, $count) {
+        if(!isset($orderId)) {
+            BaseUtil::echoJson(CodeParam::ORDER_ID_EMPTY, null);
+            return false;
+        }
+        
+        if(!isset($storeId)) {
+            BaseUtil::echoJson(CodeParam::STORE_ID_EMPTY, null);
+            return false;
+        }
+        
+        if(!isset($count)) {
+            BaseUtil::echoJson(CodeParam::COUNT_EMPTY, null);
+            return false;
+        }
+        
+        return true;
+    }
+    
     public function checkExchangeOrderInfo($rewardId, $count, $account,
             $area, $address, $setDefault) {   
         if(!isset($rewardId)) {
