@@ -51,6 +51,7 @@ class UserController extends BaseController {
             return;
         }
         AccountManager::clearChannelId($accountId);
+        AccountManager::clearSessionToken($accountId);
         
         BaseUtil::echoJson(CodeParam::SUCCESS, null);
     }

@@ -159,6 +159,13 @@ class AccountManager {
         $Dao->where($condition)->save($account);
     }
     
+    public function clearSessionToken($accountId) {
+        $Dao = M("account");
+        $condition["pk_id"] = $accountId;
+        $account['session_token'] = null;
+        $Dao->where($condition)->save($account);
+    }
+    
     public function updateAccountAfterPurchase($orderId) {
         $Dao = M("account");
         $sql = "call admin_update_after_purchase($orderId)";
