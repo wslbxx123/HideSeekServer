@@ -29,7 +29,7 @@ img {
 #mushroom  {
  	height: 39%;
     width: 25%;
-    background: url(../img/mushroom.png) no-repeat;
+    background: url(../Image/Web/mushroom.png) no-repeat;
     background-size: 77% auto;
     position: absolute;
     margin-top: -22%;
@@ -66,17 +66,12 @@ input{
 }
 
 select{
-	width: 62%;
-    margin-top: 68px;
-    margin-left: 4px;
+	width: 94%;
     font-size: 15px;
     font-family: "Microsoft Yahei";
     margin-bottom: 14px;
-    border-color: dimgrey;
-    border-width: 0px;
+    border-color: lightgray;
     background-color: white;
-    -webkit-appearance: none;
-    background: url("../img/arrow.png") no-repeat scroll right center transparent;
 }
 
 input:-webkit-autofill { 
@@ -131,13 +126,13 @@ input.invalid {
 
 #newWin{
 	width: 35%;
-    height: 234px;
+    height: 265px;
     background: white;
     border: 2px solid dimgrey;
     border-radius: 5px;
-    -moz-border-radius: 5px; /* Firefox */
-  	-webkit-border-radius: 5px; /* Safari 和 Chrome */
-  	behavior: url(ie-<a href="https://www.baidu.com/s?wd=css3&tn=44039180_cpr&fenlei=mv6quAkxTZn0IZRqIHckPjm4nH00T1dBuA7BnyF9ny7BPWT1rjmv0ZwV5Hcvrjm3rH6sPfKWUMw85HfYnjn4nH6sgvPsT6KdThsqpZwYTjCEQLGCpyw9Uz4Bmy-bIi4WUvYETgN-TLwGUv3EnHb3rjmkrjfsrjnLP1TzPjmvPs" target="_blank" class="baidu-highlight">css3</a>.htc);
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    behavior: url(ie-<a href="https://www.baidu.com/s?wd=css3&tn=44039180_cpr&fenlei=mv6quAkx…mkrjfsrjnLP1TzPjmvPs" target="_blank" class="baidu-highlight">css3</a>.htc);
     display: none;
     margin: -37% 32% 6%;
     position: absolute;
@@ -154,7 +149,7 @@ input.invalid {
     border-radius: 5px;
     -moz-border-radius: 5px; /* Firefox */
   	-webkit-border-radius: 5px; /* Safari 和 Chrome */
-  	behavior: url("border-radius.htc");
+  	/*behavior: url("border-radius.htc");*/
     display: none;
     margin: -37% 36% 6%;
     position: absolute;
@@ -164,16 +159,18 @@ input.invalid {
 }
 
 #newWin2{
-	width: 28%;
+	width: 31%;
     height: 351px;
     background: white;
     border: 2px solid dimgrey;
     border-radius: 5px;
-    -moz-border-radius: 5px; /* Firefox */
-  	-webkit-border-radius: 5px; /* Safari 和 Chrome */
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
     display: none;
-    margin: -37% 36% 6%;
-    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -37%;
+    position: relative;
     z-index: 30;
     text-align: center;
     font-size: 15px;
@@ -218,30 +215,32 @@ input.invalid {
     background: white;
     border: 2px solid dimgrey;
     border-radius: 5px;
-    -moz-border-radius: 5px; /* Firefox */
-  	-webkit-border-radius: 5px; /* Safari 和 Chrome */
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
     display: none;
-    margin: 2% 25% auto;
-    position:absolute;
-    z-index:56;
-    text-align:center;
-    font-size:15px;
+    position: fixed;
+    margin-top: -27%;
+    margin-left: 30%;
+    z-index: 56;
+    text-align: center;
+    font-size: 15px;
 }
 
 #confirmexchange{
 	width: 40%;
-    height: 200px;
+    height: 350px;
     background: white;
     border: 2px solid dimgrey;
     border-radius: 5px;
-    -moz-border-radius: 5px; /* Firefox */
-  	-webkit-border-radius: 5px; /* Safari 和 Chrome */
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
     display: none;
-    margin: 2% 25% auto;
-    position:absolute;
-    z-index:56;
-    text-align:center;
-    font-size:15px;
+    position: fixed;
+    margin-top: -35%;
+    margin-left: 30%;
+    z-index: 56;
+    text-align: center;
+    font-size: 15px;
 }
 
 .goodsName{
@@ -258,11 +257,11 @@ input.invalid {
 }   
 
 .goodsNum1{
-	height: 25px;
-    width: 35px;
+	height: 35px;
+    width: 37px;
     float: right;
     margin-right: 33px;
-    margin-top: 15px;
+    margin-top: 11px;
 }  
 
 .goodsBack{
@@ -301,9 +300,24 @@ input.invalid {
     width: 80%;
 }
 
+#register1{
+    height: 35px;s
+    margin-top: 10px;
+    font-family: "Microsoft Yahei";
+    font-size: 15px;
+    background-color:#fae077;
+    border-radius:5px;
+    -moz-border-radius: 5px; /* Firefox */
+  	-webkit-border-radius: 5px; /* Safari 和 Chrome */
+    cursor: pointer; 
+    -webkit-appearance: none; 
+    width: 80%;
+}
+
 #myprofile{
-	right: 9px;
-    top: 1%;
+	height: 36px;
+	right: 8px;
+    top: 8px;
     position: absolute;
     display: none;
     font-size: 12px;
@@ -312,7 +326,7 @@ input.invalid {
     border-radius: 2px;
     -moz-border-radius: 2px;
     -webkit-border-radius: 2px;
-    border: 1px solid cornflowerblue;
+    border: 1px solid grey;
     cursor: pointer;
 }
 
@@ -472,10 +486,6 @@ input.invalid {
 
 
 #score{
-	width: 44px;
-    margin-top: 17px;
-    right: 0px;
-    position: absolute;
 }
 
 .pointNum{
@@ -626,6 +636,17 @@ input.invalid {
     -webkit-appearance: none; 
 }
 
+#verifiCode1{
+	height:30px;
+    width: 36%;
+    background-color: #fae077;
+    border-radius: 5px;
+    -moz-border-radius: 5px; /* Firefox */
+  	-webkit-border-radius: 5px; /* Safari 和 Chrome */
+    cursor: pointer; 
+    -webkit-appearance: none; 
+}
+
 .APPfile{
 	height: 85%;
     width: 47%;
@@ -639,13 +660,17 @@ input.invalid {
 #codeNum{
 	border-width: 1px;
 	width:38%;
-	}
+}
 	
+#codeNum1{
+	border-width: 1px;
+	width:38%;
+}	
 	
 .file {
     position: absolute;
     display: inline-block;
-    background: url("../img/mycamera.png") no-repeat center;
+    background: url(../Image/Web/mycamera.png) no-repeat center;
     border-radius: 4px;
     -moz-border-radius: 4px;
     -webkit-border-radius: 4px;
@@ -695,7 +720,7 @@ input.invalid {
     left: 35%;
     width: 111px;
     height: 111px;
-    background: url("../img/mypicture.png") no-repeat center;
+    background: url(../Image/Web/mypicture.png) no-repeat center;
     background-size: cover;
     position:absolute;
 }
@@ -706,7 +731,7 @@ input.invalid {
     left: 35%;
     width: 111px;
     height: 111px;
-    background: url("../img/mypicture.png") no-repeat center;
+    background: url(../Image/Web/mypicture.png) no-repeat center;
     background-size: cover;
 }
 
@@ -877,9 +902,8 @@ p.tip{
 	width: 61%;
     height: 30px;
     line-height: 24px;
-    padding-left: 3px;
     font-size: 14px;
-    background: url(../img/arrow.png) no-repeat scroll right center transparent;
+    background: url(../Image/Web/arrow.png) no-repeat scroll right center transparent;
 }
 
 #matchId{
@@ -1015,11 +1039,11 @@ p.tip{
 
 
 #myimg{
-	height: 31px;
-    width: 31px;
-    margin-top: 1%;
+	height: 34px;
+    width: 34px;
+    margin-top: 1px;
     float: left;
-    margin-right: 6px;
+    margin-right: 2px;
 }
 
 #myorder{
@@ -1110,11 +1134,11 @@ p.tip{
 }
 
 .closeBox{
-	background: url("../img/closeBox.png") no-repeat center;
+	background: url(../Image/Web/closeBox.png) no-repeat center;
     background-size: cover;
     height: 19px;
     width: 19px;
-    right: 2%;
+    right: 4%;
     margin-top: 2%;
     position: absolute;
 }
@@ -1134,11 +1158,11 @@ p.tip{
 #confirmpay{
 	width: 87%;
     height: 38px;
-    margin-top: 100px;
+    margin-top: 241px;
     background-color: #ffcc00;
     position: absolute;
     line-height: 38px;
-    cursor:pointer;
+    cursor: pointer;
 }
 
 .goodsSum{
@@ -1183,9 +1207,8 @@ p.tip{
 }
 
 #nickname{
-	float: right;
-    margin-top: 1%;
-    margin-right: 14px;
+	margin-top: 1%;
+    margin-right: 2px;
 }
 
 #purOrder{
@@ -1269,4 +1292,129 @@ p.tip{
     float: right;
     margin-right: -38px;
     -webkit-appearance: none;
+}
+
+#alipaypage{
+	display:none;
+}
+
+.form-group{
+	float: left;
+    width: 28%;
+    margin-left: 2px;
+    margin-top: 21px;
+}
+
+.form-inline{
+    margin-left: 24%;
+    position: relative;
+    margin-top: -8px;
+}
+
+.sr-only{
+    position: absolute;
+    margin-left: 10%;
+    margin-top: 15px;
+}
+
+.sr-only1{
+	position: absolute;
+    margin-left: 10%;
+    margin-top: 54px;
+}
+
+.sr-only2{
+	margin-left: 10%;
+    margin-top: 92px;
+    position: absolute;
+}
+
+#myaddress{
+	margin-top: 49px;
+    width: 63%;
+    left: 24%;
+    border-width: 1px;
+    border-color: lightgray;
+    position: absolute;
+}
+
+.radioselect{
+	width: 12px;
+    height: 12px;
+    margin-top: 19%;
+    position: absolute;
+    left: 31%;
+}
+
+.radioselect1{
+	width: 12px;
+    height: 12px;
+    margin-top: 19%;
+    position: absolute;
+    left: 40%;
+}
+
+.sexArea{
+	text-decoration: none;
+    cursor: pointer;
+    border: 1px solid lightgrey;
+    position: absolute;
+    width: 21%;
+    height: 78px;
+    margin-left: 41%;
+    top: 317px;
+    background-color: white;
+    list-style-type: none;
+    display: block;
+    z-index: 55;
+    font-size: 14px;
+    text-align: center;
+    display: none;
+}
+
+#sex{
+	margin-top: 65px;
+    margin-left: 5px;
+    background: url(../Image/Web/arrow.png) no-repeat scroll right center transparent;
+}
+
+#mydataArea{
+	float: right;
+    list-style-type: none;
+}
+
+#yes{
+	position: absolute;
+    margin-top: 91px;
+    left: 35%;
+}
+
+#no{
+    position: absolute;
+    margin-top: 91px;
+    left: 45%;
+}
+
+#updatepassword{
+	cursor: pointer;
+    font-size: 13px;
+}
+
+#passwordArea{
+	width: 36%;
+    height: 317px;
+    background: white;
+    border: 2px solid dimgrey;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    /* behavior: url("border-radius.htc"); */
+    display: none;
+    margin-top: -37%;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    z-index: 33;
+    text-align: center;
+    font-size: 15px;
 }

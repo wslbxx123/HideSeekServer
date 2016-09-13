@@ -205,7 +205,7 @@ var Vcity = {};
 	        div.style.position = 'relative';
 	        div.style.marginLeft = "auto";
 	        div.style.marginRight = "auto";
-	        div.style.top = '-18%';
+	        div.style.marginTop = '-65px';
 	        div.style.width = '27%';
 	        div.style.zIndex = 999999;
 	
@@ -230,6 +230,9 @@ var Vcity = {};
 	        childdiv.appendChild(hotCity);
 	        div.appendChild(childdiv);
 	        this.createHotCity();
+	        var closeDiv = document.createElement('div');
+			closeDiv.className = "closeBox";
+			childdiv.insertBefore(closeDiv,childdiv.firstChild);
 	    },
 	
 	    /* *
@@ -503,3 +506,10 @@ var Vcity = {};
 	};
 	var test=new Vcity.CitySelector({input:'citySelect'});
 	var test2=new Vcity.CitySelector({input:'citySelect1'});
+	
+//给citybox添加上关闭按钮
+$(".cityinput").click(function(){
+	$(".closeBox").click(function(){
+		$(".cityBox").addClass("hide");
+	});
+});

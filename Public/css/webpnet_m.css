@@ -29,7 +29,7 @@ img {
 #mushroom  {
  	height: 39%;
     width: 25%;
-    background: url(../img/mushroom.png) no-repeat;
+    background: url(../Image/Web/mushroom.png) no-repeat;
     background-size: 77% auto;
     position: absolute;
     margin-top: -25%;
@@ -314,6 +314,20 @@ input.invalid {
 }
 
 #register{
+    height: 35px;s
+    margin-top: 10px;
+    font-family: "Microsoft Yahei";
+    font-size: 15px;
+    background-color:#fae077;
+    border-radius:5px;
+    -moz-border-radius: 5px; /* Firefox */
+  	-webkit-border-radius: 5px; /* Safari 和 Chrome */
+    cursor: pointer; 
+    -webkit-appearance: none; 
+    width: 80%;
+}
+
+#register1{
     height: 35px;s
     margin-top: 10px;
     font-family: "Microsoft Yahei";
@@ -642,6 +656,17 @@ input.invalid {
     -webkit-appearance: none; 
 }
 
+#verifiCode1{
+	height:30px;
+    width: 36%;
+    background-color: #fae077;
+    border-radius: 5px;
+    -moz-border-radius: 5px; /* Firefox */
+  	-webkit-border-radius: 5px; /* Safari 和 Chrome */
+    cursor: pointer; 
+    -webkit-appearance: none; 
+}
+
 .APPfile{
 	height: 162px;
     width: 96%;
@@ -655,13 +680,17 @@ input.invalid {
 #codeNum{
 	border-width: 1px;
 	width:38%;
-	}
+}
 	
+#codeNum1{
+	border-width: 1px;
+	width:38%;
+}
 	
 .file {
     position: absolute;
     display: inline-block;
-    background: url("../img/mycamera.png") no-repeat center;
+    background: url(../Image/Web/mycamera.png) no-repeat center;
     border-radius: 4px;
     -moz-border-radius: 4px;
     -webkit-border-radius: 4px;
@@ -740,7 +769,7 @@ input.invalid {
     left: 36%;
     height: 111px;
     width: 111px;
-    background: url("../img/mypicture.png") no-repeat center;
+    background: url(../Image/Web/mypicture.png) no-repeat center;
     background-size: cover;
     position: absolute;
 }
@@ -751,7 +780,7 @@ input.invalid {
     left: 36%;
     height: 111px;
     width: 111px;
-    background: url("../img/mypicture.png") no-repeat center;
+    background: url(../Image/Web/mypicture.png) no-repeat center;
     background-size: cover;
     position: absolute;
 }
@@ -917,7 +946,7 @@ p.tip{
 .cityinput{
     height: 30px;
     line-height: 24px;
-    background: url(../img/arrow.png) no-repeat scroll right center transparent;
+    background: url(../Image/Web/arrow.png) no-repeat scroll right center transparent;
 }
 
 #matchId{
@@ -1153,7 +1182,7 @@ p.tip{
 }
 
 .closeBox{
-	background: url("../img/closeBox.png") no-repeat center;
+	background: url(../Image/Web/closeBox.png) no-repeat center;
     background-size: cover;
     height: 17px;
     width: 17px;
@@ -1203,7 +1232,7 @@ p.tip{
 #sex{
 	margin-top: 65px;
     margin-left: 5px;
-    background: url(../img/arrow.png) no-repeat scroll right center transparent;
+    background: url(../Image/Web/arrow.png) no-repeat scroll right center transparent;
 }
 
 #sex1{
@@ -1353,4 +1382,26 @@ p.tip{
 	width: 12px;
     height: 12px;
     margin-left: 5%;
+}
+
+#updatepassword{
+	cursor: pointer;
+    font-size: 13px;
+}
+
+#passwordArea{
+	width: 91%;
+    height: 298px;
+    background: white;
+    border: 2px solid dimgrey;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    behavior: url("border-radius.htc");
+    display: none;
+    margin: -25% 4% 6%;
+    position: absolute;
+    z-index: 45;
+    text-align: center;
+    font-size: 15px;
 }

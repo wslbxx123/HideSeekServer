@@ -9,54 +9,11 @@
     	<meta name="keywords" content="积分 商城兑换 hideseek 寻宝部落  旅游 美食" />
     	<meta name="description" content="积分 商城兑换 hideseek 寻宝部落 旅游 美食" />
     	<title>寻宝部落积分商城</title>
-
-    	<link rel="stylesheet" href="../../../../Public/css/webcnet.css">
+    	<link rel="stylesheet" href="../../../../Public/css/webpnet_m.css">
     	<link rel="shortcut icon" href="../../../../Public/Image/Web/hideseek.ico"/>
-    	<SCRIPT LANGUAGE="JavaScript">
-			 function mobile_device_detect(url)
-			 {
-			        var thisOS=navigator.platform;
-			        var os=new Array("iPhone","iPod","iPad","android","Nokia","SymbianOS","Symbian","Windows Phone","Phone","Linux armv71","MAUI","UNTRUSTED/1.0","Windows CE","BlackBerry","IEMobile");
-			 for(var i=0;i<os.length;i++)
-			        {
-			 if(thisOS.match(os[i]))
-			        {  
-			  window.location=url;
-			 }
-			          
-			 }
-			 //因为相当部分的手机系统不知道信息,这里是做临时性特殊辨认
-			 if(navigator.platform.indexOf('iPad') != -1)
-			        {
-			  window.location=url;
-			 }
-			 //做这一部分是因为Android手机的内核也是Linux
-			 //但是navigator.platform显示信息不尽相同情况繁多,因此从浏览器下手，即用navigator.appVersion信息做判断
-			  var check = navigator.appVersion;
-			  if( check.match(/linux/i) )
-			          {
-			   //X11是UC浏览器的平台 ，如果有其他特殊浏览器也可以附加上条件
-			   if(check.match(/mobile/i) || check.match(/X11/i))
-			                 {
-			   window.location=url;
-			   } 
-			 }
-			 //类in_array函数
-			 Array.prototype.in_array = function(e)
-			 {
-			  for(i=0;i<this.length;i++)
-			  {
-			   if(this[i] == e)
-			   return true;
-			  }
-			  return false;
-			 }
-			 }
-			mobile_device_detect("http://m.hideseek.cn");
-		</SCRIPT>
     	<script type="text/javascript" src="../../../../Public/js/jquery.js"></script>
-    	<script type="text/javascript" src="../../../../Public/js/webpnet.js"></script>
     	<script type="text/javascript" src="../../../../Public/js/exif.js"></script>
+    	<script type="text/javascript" src="../../../../Public/js/webpnet_m.js"></script>
     	<script type="text/javascript" src="../../../../Public/js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="../../../../Public/js/distpicker.data.js"></script>
 	  	<script type="text/javascript" src="../../../../Public/js/distpicker.js"></script>
@@ -66,31 +23,32 @@
 		<div id ="storecover"></div>
      	<div id="headline">
         	<div class="logo">
-           		 <img title="寻宝部落积分商城" src="../../../../Public/Image/Web/logo.png" width="125px" height="42px"/>
+           		 <img title="寻宝部落积分商城" src="../../../../Public/Image/Web/logo.png" width="110px" height="38px"/>
            	</div>
             <div class="inner_menu">
            		 <button type="button" class="prompt" id="test1">登录</button>
            		 <button type="button" class="prompt" id="test2">注册</button>
            	</div>
            	
-           	<div id="myprofile" onmouseover="displaySubMenu();" onmouseout="hideSubMenu();">
+           	<div id="myprofile" onclick="displaySubMenu();">
            		<img id="myimg" src="../../../../Public/Image/Web/mypicture.png"/>
            		<ul id = "mydataArea">
 	           		<li id ="nickname">上官宛儿</li>
 					<li id ="score" ><span id="scoreNum">2</span>积分</li>
-				</ul>     		
+				</ul>   		
            	</div>
-           	<ul id = "flipframe" onmouseover="displaySubMenu();" onmouseout="hideSubMenu();">
+           	<ul id = "flipframe" onclick="displaySubMenu();">
            		<li id ="mydata">个人资料</li>
 				<li id ="exit" >退出登录</li>
 			</ul>
     	</div>
     	
+    	
     	<!-- banner图 -->
 	    <div class="banner">
-		    <img src="../../../../Public/Image/Web/road.gif" style="width:100%;">
-			<img src="../../../../Public/Image/Web/road1.gif" style="width:100%;">
-			<img src="../../../../Public/Image/Web/road2.gif" style="width:100%;">
+		    <img src="../../../../Public/Image/Web/road.gif" style="width:95%;margin-left:3%;">
+			<img src="../../../../Public/Image/Web/road1.gif" style="width:95%;margin-left:3%;">
+			<img src="../../../../Public/Image/Web/road2.gif" style="width:95%;margin-left:3%;">
 			<img src="../../../../Public/Image/Web/test_title.png" id="test_title"/>		
 			<div id="mushroom"></div>
 	    </div>
@@ -102,7 +60,7 @@
     		<a id="exchange" class="">兑换区</a>
     	</div>
     	
-    	<input type="button" value="查看我的订单" id="myorder">
+    	<input type="button" value="我的订单" id="myorder">
     	
     	<!--订单区-->
     	<div id ="orderArea">
@@ -115,23 +73,23 @@
 	    	<div id = "listArea"></div>
 	    	<div id = "listArea1"></div>
     		<!--<div id = "ordertitle">我的订单</div>
-    		<div class ="orderlist">
-    			<img class="orderprodct"/ src="img/bomb.png">
-    			<div class="ordername">定时炸弹</div>
-    		</div>
-    		<div class ="orderlist">
-    			<img class="orderprodct"/ src="img/bomb.png">
-    			<div class="ordername">定时炸弹</div>
-    			<div class="ordersum">总计：<span class="orderNum">2（个数）×3（单价）=6元</span></div>
-    			<div class="orderstatus1">交易成功</div>
-    			<div class="orderpay">点我付款</div>
+    		<div id = "allorder">
+	    		<div class ="orderlist">
+	    			<img class="orderprodct"/ src="img/bomb.png">
+	    			<div class="ordername">定时炸弹</div>
+	    		</div>
+	    		<div class ="orderlist">
+	    			<img class="orderprodct"/ src="img/bomb.png">
+	    			<div class="ordername">定时炸弹</div>
+	    			<div class="ordersum">总计：<span class="orderNum">2（个数）×3（单价）=6元</span></div>
+	    			<div class="orderstatus1">交易成功</div>
+	    			<div class="orderpay">点我付款</div>
+	    		</div>
     		</div>-->
     	</div>
     	<!--购买区-->
     	<div id ="purArea">
     		
-	    	
-	 
     	</div>
     	
     	<div id ="exArea">
@@ -149,24 +107,26 @@
     	<div id ="downArea">
 	    	<div class="APPfile">
 	    		<p class ="title1">APP介绍</p>
-	    		<div style='height:2px;width:40%;background-color:#b81d25;line-height:1px;clear:both;display:block;overflow:hidden' class="line1"> </div>
-	    		<p class ="paragraph">化身你命中注定的角色身份，来场虚拟与现实交融的奇妙探险吧！在找与藏之前感受未知的快感，还可获得丰厚积分，兑换你梦寐已久的现实愿望清单！说走就走的旅行、火爆的演唱会门票等丰厚礼品在这里都只剩下步与步之间力量组合的高能转换。</p>
+	    		<div style='height:2px;width:40%;background-color:#ffcc00;line-height:1px;clear:both;display:block;overflow:hidden' class="line1"> </div>
+	    		<p class ="paragraph">化身你命中注定的角色身份，来场虚拟与现实交融的奇妙探险吧！在找与藏之前感受未知的快感，还可获得丰厚积分，兑换你梦寐已久的现实愿望清单！</p>
 	    	</div>
 	    	<div class="APPfile">
 	    		<p class ="title1">APP下载</p>
-	    		<div style='height:2px;width:40%;background-color:#b81d25;line-height:1px;clear:both;display:block;overflow:hidden' class="line1"> </div>
+	    		<div style='height:2px;width:40%;background-color:#ffcc00;line-height:1px;clear:both;display:block;overflow:hidden' class="line1"> </div>
 	    		<div class="apparea">下载Android版本</div>
 	    		<div class="apparea">下载iOS版本</div>
+	    		<button class="apparea" id ="btn_open">打开app</button>
 	    	</div>
+	    		
     	</div>
     	
-    	
-    	<!-- 个人资料修改区 -->
+		<!-- 个人资料修改区 -->
     	<div id = "dataArea">
     		<div class="closeBox"></div>
     		<div class="bgColor"></div>
     		<img class = "photo" id ="abc" src = "../../../../Public/Image/Web/mypicture.png"/>
     		<canvas id="mypicture1" width="500px" height="500px"></canvas>
+    		<!--<canvas id="mypicture2" width="500px" height="500px"></canvas>-->
     		<a class="file">
             	<input type="file" accept="image/*;capture=camera" id="mycamera1">
         	</a>
@@ -186,12 +146,12 @@
     		</p>
 			<div style='height:1px;width:75%;background-color:grey;line-height:1px;clear:both;display:block;overflow:hidden' class="line"> </div>	
 			<p><input type="button" value="确认修改" id="refreshData"></p>
-    	</div>        
+    	</div>      	
     	
     	<!--弹出登录页面-->
     	<div id="newWin">
     		<div class="closeBox"></div>
-    		<form id="loginForm"  method="post" autocomplete="jsonResponse">
+    		<form id="loginForm" method="post" autocomplete="jsonResponse">
 	    		<p>	<label for="fname">
 		    			<img src="../../../../Public/Image/Web/phone.png" class="icon"> 
 		    			<input type="text" id="fname" name="phone" class="reqd" placeholder="我的手机号">
@@ -200,7 +160,7 @@
 	    		<div style='height:1px;width:70%;background-color:grey;line-height:1px;clear:both;display:block;overflow:hidden' class="line"> </div>	
 				<p>	<label for="lname">
 						<img src="../../../../Public/Image/Web/password.png" class="icon">
-						<input type="password" id="lname" name="password" class="reqd" placeholder="我的密码" maxlength="45"/>
+						<input type="password" id="lname" name="password" class="reqd" placeholder="我的密码">
 					</label>
 				</p>
 				<div style='height:1px;width:70%;background-color:grey;line-height:1px;clear:both;display:block;overflow:hidden' class="line"> </div>		
@@ -226,7 +186,7 @@
 	    		</p>
 	    		<p> <label for="passwd1">
 						<img src="../../../../Public/Image/Web/password.png" class="icon">
-						<input type="password" id="passwd1" class="reqd" placeholder="修改密码" maxlength="45"/>
+						<input type="password" id="passwd1" class="reqd" placeholder="我的密码" maxlength="45"/>
 					</label>
 				</p>
 				<div style='height:1px;width:70%;background-color:grey;line-height:1px;clear:both;display:block;overflow:hidden' class="line"> </div>		
@@ -294,7 +254,7 @@
 			<p> <div class="demo">
 					<label for="district">地区
 					<input type="text" class="cityinput" id="citySelect1" value="未设置" readonly="readonly" />
-					<script type="text/javascript" src="../../../../Public/js/querycity.js"></script>	
+					<script type="text/javascript" src="../../../../Public/js/querycity_m.js"></script>	
 				</div>
 			
     		</p>
@@ -323,7 +283,7 @@
     		 	<input type="range" id="rangeBar" name="points" min="1" max="10" value="1" />
     		 </div>
     		 <div id="confirmedit">确认裁剪</div>
-    		 <script type="text/javascript" src="../../../../Public/js/editpic.js"></script>
+    		 <script type="text/javascript" src="../../../../Public/js/editpic_m.js"></script>
     	</div>
     	
     	<!--弹出注册页面4-->
@@ -376,8 +336,8 @@
 		    <h5 class="sr-only1">详细地址：</h5>
 		    <input type="text" id="myaddress" placeholder="请在此处填写详细地址"/>
 		    <h5 class="sr-only2">是否设为默认地址：</h5>
-		    <label><input type="radio" name = "radioselect" class = "radioselect" value = "1"/><span id = "yes">是</span></label>
-		    <label><input type="radio" name = "radioselect" class = "radioselect1" value = "0"/><span id = "no">否</span></label>
+		    <label><input type="radio" name = "radioselect" class = "radioselect" value = "1"/>是</label>
+		    <label><input type="radio" name = "radioselect" class = "radioselect" value = "0"/>否</label>
     	</div>  
     	
     	<!--支付宝过渡页面-->

@@ -205,7 +205,7 @@ var Vcity = {};
 	        div.style.position = 'relative';
 	        div.style.marginLeft = "auto";
 	        div.style.marginRight = "auto";
-	        div.style.top = '-18%';
+	        div.style.marginTop = '-65px';
 	        div.style.width = '27%';
 	        div.style.zIndex = 999999;
 	
