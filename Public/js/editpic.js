@@ -39,7 +39,7 @@ $('.sexArea li').click(function(){
 
 //头像上传处理
 $('#mycamera').change(function(e){
-	$(".photo").attr("src","Image/Web/mypicture.png");
+	$(".photo").attr("src","./Public/Image/Web/mypicture.png");
 	EXIF.getData(e.target.files[0], function() { 
 		EXIF.getAllTags(this); 
 		Orientation = EXIF.getTag(this,'Orientation'); 
@@ -444,7 +444,8 @@ document.getElementById("myorder").onclick = function(){
 								getId1 = $(this).attr("id");
 						    	var data = "session_id=" + sessionStorage.getItem("sessionid")
 									  + "&store_id=" + result.result.orders[getId1].store_id
-									  + "&count=" + result.result.orders[getId1].count; 
+									  + "&count=" + result.result.orders[getId1].count,
+									  + "&order_id=" + result.result.orders[getId1].pk_id; 
 									  
 						    	var enteralipay = {
 									url: "/index.php/home/store/createOrderFromWeb",
@@ -456,6 +457,12 @@ document.getElementById("myorder").onclick = function(){
 										document.getElementById("alipaypage").innerHTML = result["result"]["html"];
 										document.getElementById("alipaysubmit").submit();
 										order_id = result["result"]["order_id"];
+										if(sessionStorage.getItem("orderid")==null){
+											sessionStorage.setItem("orderid", order_id);
+										}
+										else{
+											sessionStorage["orderid"] = order_id;
+										}
 									},
 									error: function(XMLHttpRequest, textStatus, errorThrown) {
 										alert("网络出现问题！");
@@ -765,7 +772,7 @@ function clearStorage(){
 	$("#myorder").fadeOut();
 	$("#orderArea").fadeOut();
 	getClick = false;
-	$(".photo").attr("src","Image/Web/mypicture.png");
+	$(".photo").attr("src","./Public/Image/Web/mypicture.png");
 	$("#sex").val("未设置");
 	$(".cityinput").val("未设置");
 	alert("你已经被迫掉线！")

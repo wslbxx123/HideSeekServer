@@ -382,5 +382,8 @@
     	
     	<!--支付宝过渡页面-->
         <div id ="alipaypage"></div>
+        
+         <input type = "text" id = "alipaystatus1" value = "1" />
+        <input type = "text" id = "alipaystatus" value = "<?php echo ($tradeStatus); ?>" />
 	</body>
 </html>

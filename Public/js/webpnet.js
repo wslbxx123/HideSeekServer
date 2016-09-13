@@ -62,12 +62,12 @@ $(function(){
 	
 	//刷新时大头像出错，自动更换为默认图片
 	$(".photo").error(function(){
-		$(this).attr("src","img/mypicture.png");	
+		$(this).attr("src","./Public/Image/Web/mypicture.png");	
 	}); 
 	
 	//刷新时小头像出错，自动更换为默认图片
 	$("#myimg").error(function(){
-		$(this).attr("src","img/mypicture.png");	
+		$(this).attr("src","./Public/Image/Web/mypicture.png");	
 	});
 	
 	
@@ -80,7 +80,7 @@ $(function(){
 		$("#myorder").fadeOut();
 		$("#orderArea").fadeOut();
 		getClick = false;
-		$(".photo").attr("src","img/mypicture.png");
+		$(".photo").attr("src","./Public/Image/Web/mypicture.png");
 		$("#sex").val("未设置");
 		$(".cityinput").val("未设置");
 	});
@@ -93,7 +93,7 @@ $(function(){
 		$("#myorder").fadeOut();
 		$("#orderArea").fadeOut();
 		getClick = false;
-		$(".photo").attr("src","img/mypicture.png");
+		$(".photo").attr("src","./Public/Image/Web/mypicture.png");
 		$("#sex").val("未设置");
 		$(".cityinput").val("未设置");
 		alert("你已经被迫掉线！")
@@ -117,8 +117,7 @@ $(function(){
 	});
 	
 	//此处需要判断是否支付成功。
-	if($("#alipaystatus").val()!=""){
-		alert($("#alipaystatus").val())
+	if($("#alipaystatus").val()=="TRADE_SUCCESS"){
 		var alipaypurchase = {
 				url: "/index.php/home/store/purchase",
 				type: 'POST',
@@ -136,7 +135,7 @@ $(function(){
 	
 	//获取购买商场信息
 	var purStore = {
-			url: "index.php/home/store/refreshProducts",
+			url: "/index.php/home/store/refreshProducts",
 			type: 'POST',
 			data: "version=0&product_min_id=0",
 			dataType: "json",
@@ -178,7 +177,7 @@ $(function(){
 						  	
 						  	//商品兑换信息框：商品积分图标
 						  	var messageImg = document.createElement('img');
-						  	messageImg.src = "img/score.png";
+						  	messageImg.src = "./Public/Image/Web/score.png";
 						  	messageImg.className = "scoreImg";
 						  	messageDiv.appendChild(messageImg);
 						  	
@@ -191,7 +190,7 @@ $(function(){
 						  
 						  	//商品兑换信息框：商品人物图标
 						  	var peopleImg = document.createElement('img');
-						  	peopleImg.src = "img/people.png";
+						  	peopleImg.src = "./Public/Image/Web/people.png";
 						  	peopleImg.className = "peopleImg";
 						  	messageDiv.appendChild(peopleImg);
 						  	
@@ -243,7 +242,7 @@ $(function(){
 											  + "&store_id=" + result.result.products[getId].pk_id
 											  + "&count=" + $(".goodsNum").val(); 
 									var enteralipay = {
-										url: "index.php/home/store/createOrderFromWeb",
+										url: "/index.php/home/store/createOrderFromWeb",
 										type: 'POST',
 										data:data,
 										success: function(result, status) {
@@ -254,6 +253,12 @@ $(function(){
 													alert(result["result"]["html"]);
 													document.getElementById("alipaysubmit").submit();
 													order_id = result["result"]["order_id"];
+													if(sessionStorage.getItem("orderid")==null){
+														sessionStorage.setItem("orderid", order_id);
+													}
+													else{
+														sessionStorage["orderid"] = order_id;
+													}
 													break;
 												case "11000":
 													clearStorage();
@@ -282,7 +287,7 @@ $(function(){
 	
 	//获取兑换商场信息
 	var exStore = {
-			url: "index.php/home/store/refreshReward",
+			url: "/index.php/home/store/refreshReward",
 			type: 'POST',
 			data: "version=0&reward_min_id=0",
 			dataType: "json",
@@ -324,7 +329,7 @@ $(function(){
 						  	
 						  	//商品兑换信息框：商品积分图标
 						  	var messageImg = document.createElement('img');
-						  	messageImg.src = "img/score1.png";
+						  	messageImg.src = "./Public/Image/Web/score1.png";
 						  	messageImg.className = "scoreImg";
 						  	messageDiv.appendChild(messageImg);
 						  	
@@ -337,7 +342,7 @@ $(function(){
 						  
 						  	//商品兑换信息框：商品人物图标
 						  	var peopleImg = document.createElement('img');
-						  	peopleImg.src = "img/people.png";
+						  	peopleImg.src = "./Public/Image/Web/people.png";
 						  	peopleImg.className = "peopleImg";
 						  	messageDiv.appendChild(peopleImg);
 						  	
@@ -619,7 +624,7 @@ $(function(){
 	
 		//验证注册界面用户手机号码是否被注册
 		var myphone = {
-			url: "index.php/home/user/checkIfUserExist",	
+			url: "/index.php/home/user/checkIfUserExist",	
 			type: 'POST',
 			data: "phone=" + $("#userphone1").val(),
 			dataType: "json",
@@ -656,7 +661,7 @@ $(function(){
 		//开始发送验证码
 	   	if(verifiClick){    
 			var verificode = {
-				url: "index.php/home/user/sendVerificationCode",
+				url: "/index.php/home/user/sendVerificationCode",
 				type: 'POST',
 				data: "phone=" + $("#userphone1").val(),
 				dataType: "json",

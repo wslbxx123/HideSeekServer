@@ -8,38 +8,18 @@ $(function(){
 	
 	var btn_open = document.getElementById('btn_open');
 	var open_app = document.getElementById('open_app');
-	btn_open.addEventListener('click', function() {
-		window.location.href = 'https://www.hideseek.cn/index.php/home/index/hideseek_m';
-		var loadDateTime = Date.now();
-		setTimeout(function () {
-            var timeOutDateTime = Date.now();
-            if (timeOutDateTime - loadDateTime < 1000) {
-                window.location.href = "https://www.hideseek.cn/index.php/home/index/hideseek_m";
-            }
-        }, 25);
-//		window.setTimeout(function(){  
-//          window.location.href = 'https://www.hideseek.cn/index.php/home/index/hideseek_m';
-//      },3000)  
-////	    open_app.src = 'https://www.hideseek.cn/index.php/home/index/hideseek_m';
-//	    var ifr = document.createElement('iframe');  
-//      ifr.src = 'https://www.hideseek.cn/index.php/home/index/hideseek_m';  
-//      ifr.style.display = 'none';  
-//      document.body.appendChild(ifr);  
-//      window.setTimeout(function(){  
-//          document.body.removeChild(ifr);  
-//      },3000)  
-	});
+	alert('https://www.hideseek.cn/index.php/home/index/hideseek_m'+'?goal_id='+$("#goalid").val());
 	
-//	var baseScheme = "hideseek://",
-//  baseLink="https://www.hideseek.cn/index.php/home/index/hideseek_m";
-//	var createScheme=function(options,isLink){
-//  var urlScheme=isLink?baseLink:baseScheme;
-//  for(var item in options){
-//      urlScheme=urlScheme+item + '=' + encodeURIComponent(options[item]) + "&";
-//  }
-//  urlScheme = urlScheme.substring(0, urlScheme.length - 1);
-//  return isLink?urlScheme:encodeURIComponent(urlScheme);
-//	}
+	if($("#goalid").val()!=""){
+		btn_open.addEventListener('click', function() {
+			alert('https://www.hideseek.cn/index.php/home/index/hideseek_m'+'?goal_id='+$("#goalid").val());
+			window.location.href = 'https://www.hideseek.cn/index.php/home/index/hideseek_m'+'?goal_id='+$("#goalid").val();
+			
+			setTimeout(function () {
+	           window.location.href = 'https://m.hideseek.cn/';
+	        }, 1000);
+		});
+	}
 	
 	
 	//刷新页面个人信息
@@ -98,12 +78,12 @@ $(function(){
 	
 	//刷新时大头像出错，自动更换为默认图片
 	$(".photo").error(function(){
-		$(this).attr("src","img/mypicture.png");	
+		$(this).attr("src","./Public/Image/Web/mypicture.png");	
 	}); 
 	
 	//刷新时小头像出错，自动更换为默认图片
 	$("#myimg").error(function(){
-		$(this).attr("src","img/mypicture.png");	
+		$(this).attr("src","./Public/Image/Web/mypicture.png");	
 	});
 	
 	
@@ -116,7 +96,7 @@ $(function(){
 		$("#myorder").fadeOut();
 		$("#orderArea").fadeOut();
 		getClick = false;
-		$(".photo").attr("src","img/mypicture.png");
+		$(".photo").attr("src","./Public/Image/Web/mypicture.png");
 		$("#sex").val("未设置");
 		$(".cityinput").val("未设置");
 	});
@@ -129,7 +109,7 @@ $(function(){
 		$("#myorder").fadeOut();
 		$("#orderArea").fadeOut();
 		getClick = false;
-		$(".photo").attr("src","img/mypicture.png");
+		$(".photo").attr("src","./Public/Image/Web/mypicture.png");
 		$("#sex").val("未设置");
 		$(".cityinput").val("未设置");
 		alert("你已经被迫掉线！")
@@ -152,8 +132,7 @@ $(function(){
 	});
 	
 	//此处需要判断是否支付成功。
-	alert($("#alipaystatus").val())
-	if($("#alipaystatus").val()!=""){
+	if($("#alipaystatus").val()=="TRADE_SUCCESS"){
 		
 		var alipaypurchase = {
 				url: "/index.php/home/store/purchase",
@@ -214,7 +193,7 @@ $(function(){
 						  	
 						  	//商品兑换信息框：商品积分图标
 						  	var messageImg = document.createElement('img');
-						  	messageImg.src = "img/score.png";
+						  	messageImg.src = "./Public/Image/Web/score.png";
 						  	messageImg.className = "scoreImg";
 						  	messageDiv.appendChild(messageImg);
 						  	
@@ -227,7 +206,7 @@ $(function(){
 						  
 						  	//商品兑换信息框：商品人物图标
 						  	var peopleImg = document.createElement('img');
-						  	peopleImg.src = "img/people.png";
+						  	peopleImg.src = "./Public/Image/Web/people.png";
 						  	peopleImg.className = "peopleImg";
 						  	messageDiv.appendChild(peopleImg);
 						  	
@@ -290,21 +269,12 @@ $(function(){
 													alert(result["result"]["html"]);
 													document.getElementById("alipaysubmit").submit();
 													order_id = result["result"]["order_id"];
-													//此处需要判断是否支付成功。
-//													var alipaypurchase = {
-//															url: "/index.php/home/store/purchase",
-//															type: 'POST',
-//															data:"session_id=" + sessionStorage.getItem("sessionid")
-//															+ "&order_id=" + order_id,
-//															success: function(result, status) {
-//																	
-//																	
-//															},
-//															error: function(XMLHttpRequest, textStatus, errorThrown) {
-//																	alert("网络出现问题！");
-//															}
-//													};
-//													$.ajax(alipaypurchase);
+													if(sessionStorage.getItem("orderid")==null){
+														sessionStorage.setItem("orderid", order_id);
+													}
+													else{
+														sessionStorage["orderid"] = order_id;
+													}
 													break;
 												case "11000":
 													clearStorage();
@@ -375,7 +345,7 @@ $(function(){
 						  	
 						  	//商品兑换信息框：商品积分图标
 						  	var messageImg = document.createElement('img');
-						  	messageImg.src = "img/score1.png";
+						  	messageImg.src = "./Public/Image/Web/score1.png";
 						  	messageImg.className = "scoreImg";
 						  	messageDiv.appendChild(messageImg);
 						  	
@@ -388,7 +358,7 @@ $(function(){
 						  
 						  	//商品兑换信息框：商品人物图标
 						  	var peopleImg = document.createElement('img');
-						  	peopleImg.src = "img/people.png";
+						  	peopleImg.src = "./Public/Image/Web/people.png";
 						  	peopleImg.className = "peopleImg";
 						  	messageDiv.appendChild(peopleImg);
 						  	
@@ -615,7 +585,7 @@ $(function(){
 							
 							//判断photo_url是否为空；
 							if(result["result"]["photo_url"]==null){
-								document.getElementById("myimg").src = "img/mypicture.png";
+								document.getElementById("myimg").src = "./Public/Image/Web/mypicture.png";
 							}
 							else{
 								document.getElementById("myimg").src = result["result"]["small_photo_url"];
