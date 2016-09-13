@@ -4,7 +4,7 @@
         "details": [
             {
                 "appID": "EH35J6D2H3.mj.HideSeek",
-                "paths": [ "*" ]
+                "paths": [ "/index.php/home/index/hideseek_m" ]
             }
         ]
     }
