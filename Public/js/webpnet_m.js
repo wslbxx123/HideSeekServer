@@ -10,9 +10,13 @@ $(function(){
 //	var open_app = document.getElementById('open_app');
 	btn_open.addEventListener('click', function() {
 //	    open_app.src = 'https://www.hideseek.cn/index.php/home/index/hideseek_m';
-	    setTimeout(function() {
-	        location.href = 'https://www.hideseek.cn/index.php/home/index/hideseek_m';
-	    }, 1000);
+	    var ifr = document.createElement('iframe');  
+        ifr.src = 'https://www.hideseek.cn/index.php/home/index/hideseek_m';  
+        ifr.style.display = 'none';  
+        document.body.appendChild(ifr);  
+        window.setTimeout(function(){  
+            document.body.removeChild(ifr);  
+        },3000)  
 	}, false);
 	
 	//刷新页面个人信息
