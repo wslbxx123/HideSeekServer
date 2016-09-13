@@ -82,4 +82,11 @@ class FriendManager {
         $condition["account_a_id"] = $accountId;
         return $Dao->where($condition)->count();
     }
+    
+    public function deleteFriend($accountId, $friendId) {
+        $Dao = M("friend");
+        $condition["account_a_id"] = $accountId;
+        $condition["account_b_id"] = $friendId;
+        $Dao->where($condition)->delete();
+    }
 }
