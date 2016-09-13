@@ -7,12 +7,12 @@ $(function(){
 	var reward_id;
 	
 	var btn_open = document.getElementById('btn_open');
-	var open_app = document.getElementById('open_app');
+//	var open_app = document.getElementById('open_app');
 	btn_open.addEventListener('click', function() {
-	    open_app.src = 'https://www.hideseek.cn/index.php/home/index/hideseek_m';
-	    setTimeout(function() {
+//	    open_app.src = 'https://www.hideseek.cn/index.php/home/index/hideseek_m';
+//	    setTimeout(function() {
 	        location.href = 'https://www.hideseek.cn/index.php/home/index/hideseek_m';
-	    }, 1000);
+//	    }, 1000);
 	}, false);
 	
 	//刷新页面个人信息
