@@ -62,12 +62,12 @@ $(function(){
 	
 	//刷新时大头像出错，自动更换为默认图片
 	$(".photo").error(function(){
-		$(this).attr("src","img/mypicture.png");	
+		$(this).attr("src","Image/Web/mypicture.png");	
 	}); 
 	
 	//刷新时小头像出错，自动更换为默认图片
 	$("#myimg").error(function(){
-		$(this).attr("src","img/mypicture.png");	
+		$(this).attr("src","Image/Web/mypicture.png");	
 	});
 	
 	
@@ -80,7 +80,7 @@ $(function(){
 		$("#myorder").fadeOut();
 		$("#orderArea").fadeOut();
 		getClick = false;
-		$(".photo").attr("src","img/mypicture.png");
+		$(".photo").attr("src","Image/Web/mypicture.png");
 		$("#sex").val("未设置");
 		$(".cityinput").val("未设置");
 	});
@@ -93,7 +93,7 @@ $(function(){
 		$("#myorder").fadeOut();
 		$("#orderArea").fadeOut();
 		getClick = false;
-		$(".photo").attr("src","img/mypicture.png");
+		$(".photo").attr("src","Image/Web/mypicture.png");
 		$("#sex").val("未设置");
 		$(".cityinput").val("未设置");
 		alert("你已经被迫掉线！")
@@ -177,7 +177,7 @@ $(function(){
 						  	
 						  	//商品兑换信息框：商品积分图标
 						  	var messageImg = document.createElement('img');
-						  	messageImg.src = "img/score.png";
+						  	messageImg.src = "Image/Web/score.png";
 						  	messageImg.className = "scoreImg";
 						  	messageDiv.appendChild(messageImg);
 						  	
@@ -190,7 +190,7 @@ $(function(){
 						  
 						  	//商品兑换信息框：商品人物图标
 						  	var peopleImg = document.createElement('img');
-						  	peopleImg.src = "img/people.png";
+						  	peopleImg.src = "Image/Web/people.png";
 						  	peopleImg.className = "peopleImg";
 						  	messageDiv.appendChild(peopleImg);
 						  	
@@ -329,7 +329,7 @@ $(function(){
 						  	
 						  	//商品兑换信息框：商品积分图标
 						  	var messageImg = document.createElement('img');
-						  	messageImg.src = "img/score1.png";
+						  	messageImg.src = "Image/Web/score1.png";
 						  	messageImg.className = "scoreImg";
 						  	messageDiv.appendChild(messageImg);
 						  	
@@ -342,7 +342,7 @@ $(function(){
 						  
 						  	//商品兑换信息框：商品人物图标
 						  	var peopleImg = document.createElement('img');
-						  	peopleImg.src = "img/people.png";
+						  	peopleImg.src = "Image/Web/people.png";
 						  	peopleImg.className = "peopleImg";
 						  	messageDiv.appendChild(peopleImg);
 						  	
