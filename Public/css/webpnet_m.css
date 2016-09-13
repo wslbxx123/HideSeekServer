@@ -1405,3 +1405,7 @@ p.tip{
     text-align: center;
     font-size: 15px;
 }
+
+#alipaystatus{
+	display:none;
+}
