@@ -17,7 +17,7 @@ $(function(){
         window.setTimeout(function(){  
             document.body.removeChild(ifr);  
         },3000)  
-	}, false);
+	});
 	
 	//刷新页面个人信息
 	if(sessionStorage.getItem("sessionid")!=null){
