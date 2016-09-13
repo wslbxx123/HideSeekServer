@@ -13,7 +13,7 @@ $(function(){
 	
 	function refreshdata(){
 		var refreshAccountData = {
-				url: "/index.php/home/user/refreshAccountData",	
+				url: "/hideseek/index.php/home/user/refreshAccountData",	
 				type: 'POST',
 				data: "session_id=" + sessionStorage.getItem("sessionid"),
 				dataType: "json",
@@ -118,7 +118,7 @@ $(function(){
 	
 	//获取购买商场信息
 	var purStore = {
-			url: "/index.php/home/store/refreshProducts",
+			url: "/hideseek/index.php/home/store/refreshProducts",
 			type: 'POST',
 			data: "version=0&product_min_id=0",
 			dataType: "json",
@@ -225,7 +225,7 @@ $(function(){
 											  + "&store_id=" + result.result.products[getId].pk_id
 											  + "&count=" + $(".goodsNum").val(); 
 									var enteralipay = {
-										url: "/index.php/home/store/createOrderFromH5",
+										url: "/hideseek/index.php/home/store/createOrderFromH5",
 										type: 'POST',
 										data:data,
 										success: function(result, status) {
@@ -279,7 +279,7 @@ $(function(){
 	
 	//获取兑换商场信息
 	var exStore = {
-			url: "/index.php/home/store/refreshReward",
+			url: "/hideseek/index.php/home/store/refreshReward",
 			type: 'POST',
 			data: "version=0&reward_min_id=0",
 			dataType: "json",
@@ -546,7 +546,7 @@ $(function(){
 		//	实现登录界面和服务器的交互
 		if(allGood) {			
 			var options = {
-				url: "/index.php/home/user/login",
+				url: "/hideseek/index.php/home/user/login",
 				type: 'POST',
 				data: $("#loginForm").serialize(),
 				dataType: "json",
@@ -616,7 +616,7 @@ $(function(){
 	
 		//验证注册界面用户手机号码是否被注册
 		var myphone = {
-			url: "/index.php/home/user/checkIfUserExist",	
+			url: "/hideseek/index.php/home/user/checkIfUserExist",	
 			type: 'POST',
 			data: "phone=" + $("#userphone1").val(),
 			dataType: "json",
@@ -653,7 +653,7 @@ $(function(){
 		//开始发送验证码
 	   	if(verifiClick){    
 			var verificode = {
-				url: "/index.php/home/user/sendVerificationCode",
+				url: "/hideseek/index.php/home/user/sendVerificationCode",
 				type: 'POST',
 				data: "phone=" + $("#userphone1").val(),
 				dataType: "json",
