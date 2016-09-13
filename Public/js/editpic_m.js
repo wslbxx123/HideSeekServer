@@ -529,7 +529,7 @@ document.getElementById("myorder").onclick = function(){
 							    statusDiv.innerHTML = "交易成功";
 							    listDiv.appendChild(statusDiv); 
 							}
-//							$("#listArea1").fadeOut();
+							$("#listArea1").fadeOut();
 							break;
 						case "11000":
 //							clearStorage();
