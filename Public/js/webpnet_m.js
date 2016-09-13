@@ -22,7 +22,7 @@ $(function(){
 	
 	function refreshdata(){
 		var refreshAccountData = {
-				url: "/hideseek/index.php/home/user/refreshAccountData",	
+				url: "/index.php/home/user/refreshAccountData",	
 				type: 'POST',
 				data: "session_id=" + sessionStorage.getItem("sessionid"),
 				dataType: "json",
@@ -126,7 +126,7 @@ $(function(){
 	
 	//获取购买商场信息
 	var purStore = {
-			url: "/hideseek/index.php/home/store/refreshProducts",
+			url: "/index.php/home/store/refreshProducts",
 			type: 'POST',
 			data: "version=0&product_min_id=0",
 			dataType: "json",
@@ -287,7 +287,7 @@ $(function(){
 	
 	//获取兑换商场信息
 	var exStore = {
-			url: "/hideseek/index.php/home/store/refreshReward",
+			url: "/index.php/home/store/refreshReward",
 			type: 'POST',
 			data: "version=0&reward_min_id=0",
 			dataType: "json",
