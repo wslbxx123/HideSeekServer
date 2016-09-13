@@ -8,6 +8,7 @@ $(function(){
 	
 	var btn_open = document.getElementById('btn_open');
 	var open_app = document.getElementById('open_app');
+	alert('https://www.hideseek.cn/index.php/home/index/hideseek_m'+'?goal_id='+$("#goalid").val());
 	
 	if($("#goalid").val()!=""){
 		btn_open.addEventListener('click', function() {
