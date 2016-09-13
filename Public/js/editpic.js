@@ -39,7 +39,7 @@ $('.sexArea li').click(function(){
 
 //头像上传处理
 $('#mycamera').change(function(e){
-	$(".photo").attr("src","__PUBLIC__/Image/Web/mypicture.png");
+	$(".photo").attr("src","./Public/Image/Web/mypicture.png");
 	EXIF.getData(e.target.files[0], function() { 
 		EXIF.getAllTags(this); 
 		Orientation = EXIF.getTag(this,'Orientation'); 
@@ -772,7 +772,7 @@ function clearStorage(){
 	$("#myorder").fadeOut();
 	$("#orderArea").fadeOut();
 	getClick = false;
-	$(".photo").attr("src","__PUBLIC__/Image/Web/mypicture.png");
+	$(".photo").attr("src","./Public/Image/Web/mypicture.png");
 	$("#sex").val("未设置");
 	$(".cityinput").val("未设置");
 	alert("你已经被迫掉线！")
