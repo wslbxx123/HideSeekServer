@@ -116,6 +116,24 @@ $(function(){
 		$("#listarea .orderlist").remove();	
 	});
 	
+	//此处需要判断是否支付成功。
+	if($("#alipaystatus").val()!=""){
+		alert($("#alipaystatus").val())
+		var alipaypurchase = {
+				url: "/index.php/home/store/purchase",
+				type: 'POST',
+				data:"session_id=" + sessionStorage.getItem("sessionid")
+				+ "&order_id=" + order_id,
+				success: function(result, status) {
+									
+				},
+				error: function(XMLHttpRequest, textStatus, errorThrown) {
+						alert("网络出现问题！");
+				}
+		};
+		$.ajax(alipaypurchase); 
+	}
+	
 	//获取购买商场信息
 	var purStore = {
 			url: "index.php/home/store/refreshProducts",
@@ -225,7 +243,7 @@ $(function(){
 											  + "&store_id=" + result.result.products[getId].pk_id
 											  + "&count=" + $(".goodsNum").val(); 
 									var enteralipay = {
-										url: "index.php/home/store/createOrderFromH5",
+										url: "index.php/home/store/createOrderFromWeb",
 										type: 'POST',
 										data:data,
 										success: function(result, status) {
@@ -236,21 +254,6 @@ $(function(){
 													alert(result["result"]["html"]);
 													document.getElementById("alipaysubmit").submit();
 													order_id = result["result"]["order_id"];
-													//此处需要判断是否支付成功。
-//													var alipaypurchase = {
-//															url: "/index.php/home/store/purchase",
-//															type: 'POST',
-//															data:"session_id=" + sessionStorage.getItem("sessionid")
-//															+ "&order_id=" + order_id,
-//															success: function(result, status) {
-//																	
-//																	
-//															},
-//															error: function(XMLHttpRequest, textStatus, errorThrown) {
-//																	alert("网络出现问题！");
-//															}
-//													};
-//													$.ajax(alipaypurchase);
 													break;
 												case "11000":
 													clearStorage();

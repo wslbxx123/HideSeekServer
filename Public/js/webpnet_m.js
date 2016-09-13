@@ -124,6 +124,24 @@ $(function(){
 		$("#listarea .orderlist").remove();	
 	});
 	
+	//此处需要判断是否支付成功。
+	if($("#alipaystatus").val()!=""){
+		alert($("#alipaystatus").val())
+		var alipaypurchase = {
+				url: "/index.php/home/store/purchase",
+				type: 'POST',
+				data:"session_id=" + sessionStorage.getItem("sessionid")
+				+ "&order_id=" + order_id,
+				success: function(result, status) {
+									
+				},
+				error: function(XMLHttpRequest, textStatus, errorThrown) {
+						alert("网络出现问题！");
+				}
+		};
+		$.ajax(alipaypurchase); 
+	}
+	
 	//获取购买商场信息
 	var purStore = {
 			url: "/index.php/home/store/refreshProducts",
@@ -233,7 +251,7 @@ $(function(){
 											  + "&store_id=" + result.result.products[getId].pk_id
 											  + "&count=" + $(".goodsNum").val(); 
 									var enteralipay = {
-										url: "/hideseek/index.php/home/store/createOrderFromH5",
+										url: "/index.php/home/store/createOrderFromH5",
 										type: 'POST',
 										data:data,
 										success: function(result, status) {
@@ -408,7 +426,7 @@ $(function(){
 				  + "&district=" + $("myaddress").val()
 				  + "&set_default=" + $("input[name='radioselect']:checked").val();
 			var createExchangeOrder = {
-				url: "/hideseek/index.php/home/store/createExchangeOrder",
+				url: "/index.php/home/store/createExchangeOrder",
 				type: 'POST',
 				data:data,
 				success: function(result, status) {
@@ -553,7 +571,7 @@ $(function(){
 		//	实现登录界面和服务器的交互
 		if(allGood) {			
 			var options = {
-				url: "/hideseek/index.php/home/user/login",
+				url: "/index.php/home/user/login",
 				type: 'POST',
 				data: $("#loginForm").serialize(),
 				dataType: "json",
@@ -627,7 +645,7 @@ $(function(){
 	
 		//验证注册界面用户手机号码是否被注册
 		var myphone = {
-			url: "/hideseek/index.php/home/user/checkIfUserExist",	
+			url: "/index.php/home/user/checkIfUserExist",	
 			type: 'POST',
 			data: "phone=" + $("#userphone1").val(),
 			dataType: "json",
@@ -664,7 +682,7 @@ $(function(){
 		//开始发送验证码
 	   	if(verifiClick){    
 			var verificode = {
-				url: "/hideseek/index.php/home/user/sendVerificationCode",
+				url: "/index.php/home/user/sendVerificationCode",
 				type: 'POST',
 				data: "phone=" + $("#userphone1").val(),
 				dataType: "json",

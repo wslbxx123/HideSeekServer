@@ -98,7 +98,7 @@ $('#mycamera1').change(function(e){
 $("#refreshData").click(function(){
 		if(changepic){
 			var updatePhotoUrl = {
-				url: "/hideseek/index.php/home/user/updatePhotoUrl",	
+				url: "/index.php/home/user/updatePhotoUrl",	
 				type: 'POST',
 				data: "session_id=" + sessionStorage.getItem("sessionid") 
 						+ "&photo_url="+ encodeURIComponent($(".photo").attr("src")),
@@ -127,7 +127,7 @@ $("#refreshData").click(function(){
 	
 		if($("#userName1").val() != sessionStorage.getItem("nickname")){
 			var updateNickname = {
-				url: "/hideseek/index.php/home/user/updateNickname",	
+				url: "/index.php/home/user/updateNickname",	
 				type: 'POST',
 				data: "session_id=" + sessionStorage.getItem("sessionid") 
 						+ "&nickname="+ $("#userName1").val(),
@@ -156,7 +156,7 @@ $("#refreshData").click(function(){
 
 		if(sex != sessionStorage.getItem("sex")){
 				var updateSex = {
-						url: "/hideseek/index.php/home/user/updateSex",	
+						url: "/index.php/home/user/updateSex",	
 						type: 'POST',
 						data: "session_id=" + sessionStorage.getItem("sessionid") 
 								+ "&sex="+ sex,
@@ -184,7 +184,7 @@ $("#refreshData").click(function(){
 
 		if($(".cityinput").val() != sessionStorage.getItem("region")){
 			var updateRegion = {
-					url: "/hideseek/index.php/home/user/updateRegion",	
+					url: "/index.php/home/user/updateRegion",	
 					type: 'POST',
 					data: "session_id=" + sessionStorage.getItem("sessionid") 
 							+ "&region="+ $(".cityinput").val(),
@@ -386,7 +386,7 @@ document.getElementById("myorder").onclick = function(){
 		$("#storecover").css("height",$("body").height()-58+"px");
 		$("#orderArea").fadeIn();
 		var orderArea1 = {
-				url: "/hideseek/index.php/home/store/refreshPurchaseOrders",
+				url: "/index.php/home/store/refreshPurchaseOrders",
 				type: 'POST',
 				data: "version=0&order_min_id=0"+
 				"&session_id=" + sessionStorage.getItem("sessionid"),
@@ -447,7 +447,7 @@ document.getElementById("myorder").onclick = function(){
 									  + "&count=" + result.result.orders[getId1].count; 
 									  
 						    	var enteralipay = {
-									url: "/hideseek/index.php/home/store/createOrderFromH5",
+									url: "/index.php/home/store/createOrderFromH5",
 									type: 'POST',
 									data:data,
 									success: function(result, status) {
@@ -458,7 +458,7 @@ document.getElementById("myorder").onclick = function(){
 										order_id = result["result"]["order_id"];
 										//此处需要判断是否支付成功。
 										var enteralipay = {
-												url: "/hideseek/index.php/home/store/purchase",
+												url: "/index.php/home/store/purchase",
 												type: 'POST',
 												data:"session_id=" + sessionStorage.getItem("sessionid")
 												+ "&order_id=" + order_id,
@@ -491,7 +491,7 @@ document.getElementById("myorder").onclick = function(){
 		$.ajax(orderArea1);
 
 		var orderArea2 = {
-				url: "/hideseek/index.php/home/store/refreshExchangeOrders",
+				url: "/index.php/home/store/refreshExchangeOrders",
 				type: 'POST',
 				data: "version=0&order_min_id=0"+
 				"&session_id=" + sessionStorage.getItem("sessionid"),
