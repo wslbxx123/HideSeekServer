@@ -432,6 +432,7 @@ $(function(){
 				type: 'POST',
 				data:data,
 				success: function(result, status) {
+					alert(JSON.stringify(result));
 					switch(result["code"]){
 						case "10000":
 							sessionStorage["record"] = result["result"];
