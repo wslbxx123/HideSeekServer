@@ -117,6 +117,7 @@ $(function(){
 	});
 	
 	//此处需要判断是否支付成功。
+	alert($("#alipaystatus").val());
 	if($("#alipaystatus").val()=="TRADE_SUCCESS"){
 		var alipaypurchase = {
 				url: "/index.php/home/store/purchase",
@@ -124,7 +125,7 @@ $(function(){
 				data:"session_id=" + sessionStorage.getItem("sessionid")
 				+ "&order_id=" + order_id,
 				success: function(result, status) {
-									
+					alert(JSON.stringify(result));				
 				},
 				error: function(XMLHttpRequest, textStatus, errorThrown) {
 						alert("网络出现问题！");
@@ -733,8 +734,8 @@ $(function(){
 		var allTags = document.getElementById("newWin1").getElementsByTagName("*");
 		var phone_figures_test;
 		var phone_identical_test;
-		
-		if($('#passwd1').val().length>=6){
+//		alert($('#passwd3').val().length);
+		if($('#passwd3').val().length>=6){
 			phone_figures_test = true;
 		}
 		else{
@@ -784,7 +785,7 @@ $(function(){
 					case "line":
 						classBack += thisClass;
 						break;
-					case "passwd1":
+					case "passwd3":
 						if (allGood && !crossCheck (thisTag,thisClass)) {
 								classBack = "invalid ";
 						}
@@ -944,7 +945,7 @@ $(function(){
 		var allTags = document.getElementById("newWin1").getElementsByTagName("*");
 		var phone_figures_test;
 		var phone_identical_test;
-		
+		alert(phone_figures_test);
 		if($('#passwd1').val().length>=6){
 			phone_figures_test = true;
 		}
