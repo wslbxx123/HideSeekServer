@@ -448,7 +448,7 @@ $(function(){
 				  + "&reward_id=" + reward_id
 				  + "&count=" + $(".goodsNum1").val()
 				  + "&area=" + $("#province1").val()+"-"+$("#city1").val()+"-"+$("#district1").val()
-				  + "&district=" + $("#myaddress").val()
+				  + "&address=" + $("#myaddress").val()
 				  + "&set_default=" + $("input[name='radioselect']:checked").val();
 			var createExchangeOrder = {
 				url: "/index.php/home/store/createExchangeOrder",
