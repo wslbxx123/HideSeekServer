@@ -427,6 +427,7 @@ $(function(){
 				  + "&area=" + $("#province1").val()+"-"+$("#city1").val()+"-"+$("#district1").val()
 				  + "&district=" + $("myaddress").val()
 				  + "&set_default=" + $("input[name='radioselect']:checked").val();
+			alert(data);
 			var createExchangeOrder = {
 				url: "/index.php/home/store/createExchangeOrder",
 				type: 'POST',
