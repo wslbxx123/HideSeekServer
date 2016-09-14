@@ -147,10 +147,16 @@ $(function(){
 				url: "/index.php/home/store/purchase",
 				type: 'POST',
 				data:"session_id=" + sessionStorage.getItem("sessionid")
-				+ "&order_id=" + order_id,
+				+ "&order_id=" + orderid,
 				success: function(result, status) {
 					alert(JSON.stringify(result));
-									
+					$("#nickname").html(sessionStorage.getItem("nickname"));
+					$("#scoreNum").html(sessionStorage.getItem("record"));
+					$("#myimg").attr('src',sessionStorage.getItem("myimgpath")); 
+					$(".inner_menu").fadeOut();
+					$("#myimg").fadeIn();
+					$("#myprofile" ).fadeIn();
+					$("#myorder").fadeIn();			
 				},
 				error: function(XMLHttpRequest, textStatus, errorThrown) {
 						alert("网络出现问题！");
