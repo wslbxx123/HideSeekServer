@@ -68,6 +68,7 @@ input{
 
 select{
 	width: 97%;
+	height: 28px;
     font-size: 14px;
     font-family: "Microsoft Yahei";
     border-color: lightgray;
@@ -1384,6 +1385,9 @@ p.tip{
     height: 12px;
     margin-left: 9%;
     margin-top: 38px;
+    appearance:none;
+  	-moz-appearance:none;
+  	-webkit-appearance:none;
 }
 
 #updatepassword{
