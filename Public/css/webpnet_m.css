@@ -72,10 +72,13 @@ select{
     font-family: "Microsoft Yahei";
     border-color: lightgray;
     background-color: white;
+    appearance:none;
+  	-moz-appearance:none;
+  	-webkit-appearance:none;
 }
 
 input:-webkit-autofill { 
--webkit-box-shadow: 0 0 0px 1000px white inset; 
+	-webkit-box-shadow: 0 0 0px 1000px white inset; 
 }
 
 input.invalid {
