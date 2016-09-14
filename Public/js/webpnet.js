@@ -383,6 +383,17 @@ $(function(){
 						   			$(".goodsprice1").html($(".goodsNum1").val()*result.result.reward[getId].record+"积分");
 						   		});
 						   		$("#confirmexchange").fadeIn();
+						   		default_area = sessionStorage.getItem("default_area");
+						   		default_address = sessionStorage.getItem("default_address");
+						   		if(default_area!=null&&default_area!="null"&&default_area!=""){
+							   		arr = default_area.split("-");
+							   		$("#province1").val(arr[0]);
+							   		$("#city1").val(arr[1]);
+							   		$("#district1").val(arr[2]);
+							   		$("#myaddress").val(default_address);
+							   		$("input[name='radioselect']").eq(0).attr("checked","checked");
+            						$("input[name='radioselect']").eq(1).removeAttr("checked");
+						   		}
 						    }
 						});
 						break;
@@ -583,6 +594,8 @@ $(function(){
 							sessionStorage.setItem("sessionid", result["result"]["session_id"]);
 							sessionStorage.setItem("sex", result["result"]["sex"]);
 							sessionStorage.setItem("region", result["result"]["region"]);
+							sessionStorage.setItem("default_area", result["result"]["default_area"]);
+							sessionStorage.setItem("default_address", result["result"]["default_address"]);
 //							nickname = sessionStorage.getItem("nickname");
 //							record = sessionStorage.getItem("record");
 //							myimgpath = sessionStorage.getItem("myimgpath");
