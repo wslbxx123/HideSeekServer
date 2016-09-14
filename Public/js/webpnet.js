@@ -13,7 +13,7 @@ $(function(){
 	
 	function refreshdata(){
 		var refreshAccountData = {
-				url: "/hideseek/index.php/home/user/refreshAccountData",	
+				url: "/index.php/home/user/refreshAccountData",	
 				type: 'POST',
 				data: "session_id=" + sessionStorage.getItem("sessionid"),
 				dataType: "json",
