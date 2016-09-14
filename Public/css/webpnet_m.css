@@ -1381,13 +1381,14 @@ p.tip{
 }
 
 .radioselect{
-	width: 12px;
-    height: 12px;
+    width: 17px;
+    height: 17px;
     margin-left: 9%;
-    margin-top: 38px;
-    appearance:none;
+    margin-top: 32px;
+
+    /*appearance:none;
   	-moz-appearance:none;
-  	-webkit-appearance:none;
+  	-webkit-appearance:none;*/
 }
 
 #updatepassword{
