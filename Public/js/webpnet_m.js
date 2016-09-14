@@ -17,6 +17,15 @@ $(function(){
 			
 			setTimeout(function () {
 	           window.location.href = 'https://m.hideseek.cn/';
+	           var u = navigator.userAgent;
+			   var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端 
+			   var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+			   if(isAndroid){
+			   	alert("Android近期上线，敬请期待！")
+			   }
+			   if(isIos){
+			   	window.location.href = 'https://m.hideseek.cn/';
+			   }
 	        }, 1000);
 		});
 	}
