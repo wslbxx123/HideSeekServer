@@ -394,6 +394,7 @@ $(function(){
 						   		default_area = sessionStorage.getItem("default_area");
 						   		default_address = sessionStorage.getItem("default_address");
 						   		if(default_area!=null&&default_area!="null"&&default_area!=""){
+						   			alert(1);
 							   		arr = default_area.split("-");
 							   		$("#province1").val(arr[0]);
 							   		$("#city1").val(arr[1]);
