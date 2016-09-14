@@ -52,6 +52,8 @@ $(function(){
 								sessionStorage["record"] = result["result"]["record"];
 								sessionStorage["region"] = result["result"]["region"];
 								sessionStorage["sex"] = result["result"]["sex"];
+								sessionStorage["default_address"] = result["result"]["default_address"];
+								sessionStorage["default_area"] = result["result"]["default_area"];
 								break;
 						  	case "10003":
 						  		alert("发送信息失败！")
