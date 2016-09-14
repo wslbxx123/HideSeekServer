@@ -143,7 +143,7 @@ class AlipayManager {
             $randomStr .= $sourceStr[rand(0, $max)];
 	}
         
-        return $randomStr.strtotime(date('Y-d-m'));;
+        return $randomStr.strtotime(date ("Y-m-d h:i:s"));
     }
     
     /**
