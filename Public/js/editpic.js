@@ -444,7 +444,7 @@ document.getElementById("myorder").onclick = function(){
 								getId1 = $(this).attr("id");
 						    	var data = "session_id=" + sessionStorage.getItem("sessionid")
 									  + "&store_id=" + result.result.orders[getId1].store_id
-									  + "&count=" + result.result.orders[getId1].count,
+									  + "&count=" + result.result.orders[getId1].count
 									  + "&order_id=" + result.result.orders[getId1].pk_id; 
 									  
 						    	var enteralipay = {

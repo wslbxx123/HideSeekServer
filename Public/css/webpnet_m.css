@@ -68,14 +68,18 @@ input{
 
 select{
 	width: 97%;
+	height: 28px;
     font-size: 14px;
     font-family: "Microsoft Yahei";
     border-color: lightgray;
     background-color: white;
+    appearance:none;
+  	-moz-appearance:none;
+  	-webkit-appearance:none;
 }
 
 input:-webkit-autofill { 
--webkit-box-shadow: 0 0 0px 1000px white inset; 
+	-webkit-box-shadow: 0 0 0px 1000px white inset; 
 }
 
 input.invalid {
@@ -454,10 +458,10 @@ input.invalid {
 
 .apparea{
 	background-color: #fedf75;
-    width: 93%;
-    height: 43%;
+    width: 86%;
+    height: 38%;
     float: left;
-    margin-left: 4%;
+    margin-left: 7%;
     margin-top: 27px;
     border-radius: 10px;
     -moz-border-radius: 10px;
@@ -466,7 +470,8 @@ input.invalid {
     text-align: center;
     line-height: 4;
     cursor: pointer;
-    font-size: 20px;
+    font-size: 16px;
+    border: 1px solid gray;
 }
 
 .N2{
@@ -1341,48 +1346,49 @@ p.tip{
 }
 
 .form-group{
-	float: left;
-    width: 105px;
-    margin-left: 2px;
-    margin-top: 21px;
+	width: 29%;
+    float: left;
 }
 
 .form-inline{
-    margin-top: 39px;
+    margin-top: 71px;
+    margin-left: 27px;
 }
 
 .sr-only{
 	float: left;
     position: absolute;
-    margin-left: 5px;
-    margin-top: 16px;
+    margin-left: 22px;
+    margin-top: 27px;
 }
 
 .sr-only1{
-	float: left;
+	margin-top: 35px;
+    margin-left: 22px;
     position: absolute;
-    margin-left: 5px;
-    margin-top: 54px;
 }
 
 .sr-only2{
-	float: left;
-    position: absolute;
-    margin-left: 5px;
+	position: absolute;
+    margin-left: 22px;
+    margin-top: 60px;
 }
 
 #myaddress{
-	margin-top: 3px;
-    width: 76%;
-    margin-left: 68px;
-    border-width: 1px;
-    border-color: lightgray;
+	left: 86px;
+    margin-top: 28px;
+    position: absolute;
 }
 
 .radioselect{
-	width: 12px;
-    height: 12px;
-    margin-left: 5%;
+    width: 17px;
+    height: 17px;
+    margin-left: 9%;
+    margin-top: 32px;
+
+    /*appearance:none;
+  	-moz-appearance:none;
+  	-webkit-appearance:none;*/
 }
 
 #updatepassword{
