@@ -123,7 +123,7 @@ $(function(){
 				url: "/index.php/home/store/purchase",
 				type: 'POST',
 				data:"session_id=" + sessionStorage.getItem("sessionid")
-				+ "&order_id=" + order_id,
+				+ "&order_id=" + orderid,
 				success: function(result, status) {
 					alert(JSON.stringify(result));				
 				},

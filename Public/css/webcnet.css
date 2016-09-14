@@ -1204,6 +1204,7 @@ p.tip{
     text-decoration: none;
     cursor: pointer;
     display: none;
+    z-index: 40;
 }
 
 #nickname{
