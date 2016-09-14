@@ -45,23 +45,23 @@ $(function(){
 				
 				success: function(result, status) {
 //					alert(JSON.stringify(result));
-						switch(result["code"]){
-							case "10000":
-								sessionStorage["myimgpath"] = result["result"]["small_photo_url"];
-								sessionStorage["nickname"] = result["result"]["nickname"];
-								sessionStorage["record"] = result["result"]["record"];
-								sessionStorage["region"] = result["result"]["region"];
-								sessionStorage["sex"] = result["result"]["sex"];
-								sessionStorage["default_address"] = result["result"]["default_address"];
-								sessionStorage["default_area"] = result["result"]["default_area"];
-								break;
-						  	case "10003":
-						  		alert("发送信息失败！")
-						  		break;
-						  	case "11000":
-						  		clearStorage();
-						  		break;
-						}	
+					switch(result["code"]){
+						case "10000":
+							sessionStorage["myimgpath"] = result["result"]["small_photo_url"];
+							sessionStorage["nickname"] = result["result"]["nickname"];
+							sessionStorage["record"] = result["result"]["record"];
+							sessionStorage["region"] = result["result"]["region"];
+							sessionStorage["sex"] = result["result"]["sex"];
+							sessionStorage["default_address"] = result["result"]["default_address"];
+							sessionStorage["default_area"] = result["result"]["default_area"];
+							break;
+					  	case "10003":
+					  		alert("发送信息失败！")
+					  		break;
+					  	case "11000":
+					  		clearStorage();
+					  		break;
+					}	
 				},
 				error: function(XMLHttpRequest, textStatus, errorThrown) {
 					alert("网络出现问题！");
