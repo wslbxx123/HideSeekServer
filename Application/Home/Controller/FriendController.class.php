@@ -182,5 +182,27 @@ class FriendController extends BaseController {
         
         BaseUtil::echoJson(CodeParam::SUCCESS, $remark);
     }
+    
+    public function removeFriend() {
+        self::setHeader();
+        
+        $sessionId = filter_input(INPUT_POST, 'session_id');
+        $friendId = filter_input(INPUT_POST, 'friend_id');
+        $accountId = $this->getPkIdFromToken($sessionId);
+        
+        if(!isset($sessionId) || $accountId == 0) {
+            BaseUtil::echoJson(CodeParam::NOT_LOGIN, null);
+            return false;
+        }
+        
+        if(!isset($friendId)) {
+            BaseUtil::echoJson(CodeParam::FRIEND_ID_EMPTY, null);
+            return false;
+        }
+        
+        FriendManager::deleteFriend($accountId, $friendId);
+        
+        BaseUtil::echoJson(CodeParam::SUCCESS, null);
+    }
 }
 
