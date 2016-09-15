@@ -60,4 +60,16 @@ class MapControllerManager {
         
         return true;
     }
+    
+    public function checkGetGoalInfo($sessionId, $accountId, $goalId, $goalType) {
+        if(!isset($sessionId) || $accountId == 0) {
+            BaseUtil::echoJson(CodeParam::NOT_LOGIN, null);
+            return false;
+        }
+        
+        if(!isset($goalId) || !isset($goalType)) {
+            BaseUtil::echoJson(CodeParam::GOAL_ID_OR_TYPE_EMPTY, null);
+            return;
+        }
+    }
 }
