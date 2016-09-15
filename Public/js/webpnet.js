@@ -837,11 +837,11 @@ $(function(){
 				url: "/index.php/home/user/updatePassword",	
 				type: 'POST',
 				data: "phone=" + $("#userphone1").val()
-					+"&password"+$("#passwd3").val(),
+					+"&password="+$("#passwd3").val(),
 				dataType: "json",
 				
 				success: function(result, status) {
-	//				alert(JSON.stringify(result));
+					alert(JSON.stringify(result));
 					switch(result["code"]){
 						case "10000":
 							alert("修改密码成功！");
@@ -855,7 +855,7 @@ $(function(){
 					alert("网络出现问题！");
 				}
 			};
-		$.ajax(updatePassword);
+			$.ajax(updatePassword);
 			//	修改界面淡出
 			$("#passwordArea").fadeOut(); 
 		}		
