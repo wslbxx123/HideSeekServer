@@ -45,21 +45,23 @@ $(function(){
 				
 				success: function(result, status) {
 //					alert(JSON.stringify(result));
-						switch(result["code"]){
-							case "10000":
-								sessionStorage["myimgpath"] = result["result"]["small_photo_url"];
-								sessionStorage["nickname"] = result["result"]["nickname"];
-								sessionStorage["record"] = result["result"]["record"];
-								sessionStorage["region"] = result["result"]["region"];
-								sessionStorage["sex"] = result["result"]["sex"];
-								break;
-						  	case "10003":
-						  		alert("发送信息失败！")
-						  		break;
-						  	case "11000":
-						  		clearStorage();
-						  		break;
-						}	
+					switch(result["code"]){
+						case "10000":
+							sessionStorage["myimgpath"] = result["result"]["small_photo_url"];
+							sessionStorage["nickname"] = result["result"]["nickname"];
+							sessionStorage["record"] = result["result"]["record"];
+							sessionStorage["region"] = result["result"]["region"];
+							sessionStorage["sex"] = result["result"]["sex"];
+							sessionStorage["default_address"] = result["result"]["default_address"];
+							sessionStorage["default_area"] = result["result"]["default_area"];
+							break;
+					  	case "10003":
+					  		alert("发送信息失败！")
+					  		break;
+					  	case "11000":
+					  		clearStorage();
+					  		break;
+					}	
 				},
 				error: function(XMLHttpRequest, textStatus, errorThrown) {
 					alert("网络出现问题！");
@@ -147,10 +149,16 @@ $(function(){
 				url: "/index.php/home/store/purchase",
 				type: 'POST',
 				data:"session_id=" + sessionStorage.getItem("sessionid")
-				+ "&order_id=" + order_id,
+				+ "&order_id=" + orderid,
 				success: function(result, status) {
 					alert(JSON.stringify(result));
-									
+					$("#nickname").html(sessionStorage.getItem("nickname"));
+					$("#scoreNum").html(sessionStorage.getItem("record"));
+					$("#myimg").attr('src',sessionStorage.getItem("myimgpath")); 
+					$(".inner_menu").fadeOut();
+					$("#myimg").fadeIn();
+					$("#myprofile" ).fadeIn();
+					$("#myorder").fadeIn();			
 				},
 				error: function(XMLHttpRequest, textStatus, errorThrown) {
 						alert("网络出现问题！");
@@ -442,7 +450,7 @@ $(function(){
 				  + "&reward_id=" + reward_id
 				  + "&count=" + $(".goodsNum1").val()
 				  + "&area=" + $("#province1").val()+"-"+$("#city1").val()+"-"+$("#district1").val()
-				  + "&district=" + $("myaddress").val()
+				  + "&address=" + $("#myaddress").val()
 				  + "&set_default=" + $("input[name='radioselect']:checked").val();
 			var createExchangeOrder = {
 				url: "/index.php/home/store/createExchangeOrder",

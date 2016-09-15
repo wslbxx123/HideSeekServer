@@ -27,6 +27,8 @@ $(function(){
 								sessionStorage["record"] = result["result"]["record"];
 								sessionStorage["region"] = result["result"]["region"];
 								sessionStorage["sex"] = result["result"]["sex"];
+								sessionStorage["default_address"] = result["result"]["default_address"];
+								sessionStorage["default_area"] = result["result"]["default_area"];
 								break;
 						  	case "10003":
 						  		alert("发送信息失败！")
@@ -123,9 +125,16 @@ $(function(){
 				url: "/index.php/home/store/purchase",
 				type: 'POST',
 				data:"session_id=" + sessionStorage.getItem("sessionid")
-				+ "&order_id=" + order_id,
+				+ "&order_id=" + sessionStorage.getItem("orderid"),
 				success: function(result, status) {
-					alert(JSON.stringify(result));				
+					alert(JSON.stringify(result));
+					$("#nickname").html(sessionStorage.getItem("nickname"));
+					$("#scoreNum").html(sessionStorage.getItem("record"));
+					$("#myimg").attr('src',sessionStorage.getItem("myimgpath")); 
+					$(".inner_menu").fadeOut();
+					$("#myimg").fadeIn();
+					$("#myprofile" ).fadeIn();
+					$("#myorder").fadeIn();
 				},
 				error: function(XMLHttpRequest, textStatus, errorThrown) {
 						alert("网络出现问题！");
@@ -387,6 +396,7 @@ $(function(){
 						   		default_area = sessionStorage.getItem("default_area");
 						   		default_address = sessionStorage.getItem("default_address");
 						   		if(default_area!=null&&default_area!="null"&&default_area!=""){
+						   			alert(1);
 							   		arr = default_area.split("-");
 							   		$("#province1").val(arr[0]);
 							   		$("#city1").val(arr[1]);
@@ -417,13 +427,15 @@ $(function(){
 				  + "&reward_id=" + reward_id
 				  + "&count=" + $(".goodsNum1").val()
 				  + "&area=" + $("#province1").val()+"-"+$("#city1").val()+"-"+$("#district1").val()
-				  + "&district=" + $("myaddress").val()
+				  + "&address=" + $("#myaddress").val()
 				  + "&set_default=" + $("input[name='radioselect']:checked").val();
+			alert(data);
 			var createExchangeOrder = {
 				url: "/index.php/home/store/createExchangeOrder",
 				type: 'POST',
 				data:data,
 				success: function(result, status) {
+					alert(JSON.stringify(result));
 					switch(result["code"]){
 						case "10000":
 							sessionStorage["record"] = result["result"];
