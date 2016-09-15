@@ -842,12 +842,16 @@ $(function(){
 				if (!document.getElementById (otherFieldID)) {
 					return false;
 				}
-				if(inTag.value == document.getElementById(otherFieldID).value){
-					phone_identical_test = true;
-				}
-				else{
-					phone_identical_test = false;
-					alert("两次输入密码不一致!")
+				if(phone_figures_test){
+					if(inTag.value == document.getElementById(otherFieldID).value){
+						phone_identical_test = true;
+						return true;
+					}
+					else{
+						phone_identical_test = false;
+						return false;
+						alert("两次输入密码不一致!")
+					}
 				}
 				return (phone_identical_test&&phone_figures_test);
 			}
@@ -1057,15 +1061,17 @@ $(function(){
 				if (!document.getElementById (otherFieldID)) {
 						return false;
 				}
-				
-				if(inTag.value == document.getElementById(otherFieldID).value){
-					phone_identical_test = true;
+				if(phone_figures_test){
+					if(inTag.value == document.getElementById(otherFieldID).value){
+						phone_identical_test = true;
+						return true;
+					}
+					else{
+						phone_identical_test = false;
+						return false;
+						alert("两次输入密码不一致!")
+					}
 				}
-				else{
-					phone_identical_test = false;
-					alert("两次输入密码不一致!")
-				}
-				
 				return (phone_identical_test&&phone_figures_test);
 			}
 			function invalidLabel(parentTag) {

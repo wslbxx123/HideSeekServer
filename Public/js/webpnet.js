@@ -609,12 +609,6 @@ $(function(){
 							sessionStorage.setItem("region", result["result"]["region"]);
 							sessionStorage.setItem("default_area", result["result"]["default_area"]);
 							sessionStorage.setItem("default_address", result["result"]["default_address"]);
-//							nickname = sessionStorage.getItem("nickname");
-//							record = sessionStorage.getItem("record");
-//							myimgpath = sessionStorage.getItem("myimgpath");
-//							sessionid = sessionStorage.getItem("sessionid");
-//							sex = sessionStorage.getItem("sex");
-//							region = sessionStorage.getItem("region");
 					  		break;
 					  	case "10001":
 					  		$("#fault").fadeIn();
@@ -743,7 +737,7 @@ $(function(){
 	//检验修改界面填写框
 	$("#register1").click(function(){
 		var allGood = true;
-		var allTags = document.getElementById("newWin1").getElementsByTagName("*");
+		var allTags = document.getElementById("passwordArea").getElementsByTagName("*");
 		var phone_figures_test;
 		var phone_identical_test;
 //		alert($('#passwd3').val().length);
@@ -818,12 +812,16 @@ $(function(){
 				if (!document.getElementById (otherFieldID)) {
 					return false;
 				}
-				if(inTag.value == document.getElementById(otherFieldID).value){
-					phone_identical_test = true;
-				}
-				else{
-					phone_identical_test = false;
-					alert("两次输入密码不一致!")
+				if(phone_figures_test){
+					if(inTag.value == document.getElementById(otherFieldID).value){
+						phone_identical_test = true;
+						return true;
+					}
+					else{
+						phone_identical_test = false;
+						return false;
+						alert("两次输入密码不一致!")
+					}
 				}
 				return (phone_identical_test&&phone_figures_test);
 			}
@@ -835,8 +833,32 @@ $(function(){
   		}
 		
 		if(allGood) {
+			var updatePassword = {
+				url: "/index.php/home/user/updatePassword",	
+				type: 'POST',
+				data: "phone=" + $("#userphone1").val()
+					+"&password="+$("#passwd3").val(),
+				dataType: "json",
+				
+				success: function(result, status) {
+					alert(JSON.stringify(result));
+					switch(result["code"]){
+						case "10000":
+							alert("修改密码成功！");
+							break;
+					  	case "11000":
+					  		clearStorage();
+					  		break;
+					}	
+				},
+				error: function(XMLHttpRequest, textStatus, errorThrown) {
+					alert("网络出现问题！");
+				}
+			};
+			$.ajax(updatePassword);
 			//	修改界面淡出
-			$("passwordArea").fadeOut(); 
+			$("#passwordArea").fadeOut(); 
+			$("#storecover").fadeOut(); 
 		}		
 	});
 	
@@ -1029,12 +1051,16 @@ $(function(){
 				if (!document.getElementById (otherFieldID)) {
 					return false;
 				}
-				if(inTag.value == document.getElementById(otherFieldID).value){
-					phone_identical_test = true;
-				}
-				else{
-					phone_identical_test = false;
-					alert("两次输入密码不一致!")
+				if(phone_figures_test){
+					if(inTag.value == document.getElementById(otherFieldID).value){
+						phone_identical_test = true;
+						return true;
+					}
+					else{
+						phone_identical_test = false;
+						alert("两次输入密码不一致!")
+						return false;
+					}
 				}
 				return (phone_identical_test&&phone_figures_test);
 			}
