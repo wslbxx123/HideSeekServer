@@ -2,6 +2,7 @@
 namespace Home\Controller;
 use Home\Common\Util\BaseUtil;
 use Home\DataAccess\FriendManager;
+use Home\DataAccess\RecordManager;
 use Home\DataAccess\AccountManager;
 use Home\DataAccess\PullVersionManager;
 use Home\Common\Param\CodeParam;
