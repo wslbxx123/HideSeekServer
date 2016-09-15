@@ -70,8 +70,8 @@ class FriendManager {
     
     public function updateRemark($accountId, $friendId, $remark, $version) {
         $Dao = M("friend");
-        $condition["account_id"] = $accountId;
-        $condition["friend_id"] = $friendId;
+        $condition["account_a_id"] = $accountId;
+        $condition["account_b_id"] = $friendId;
         $friend['remark'] = $remark;
         $friend['version'] = $version;
         $Dao->where($condition)->save($friend);

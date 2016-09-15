@@ -2,6 +2,7 @@
 namespace Home\Controller;
 use Home\Common\Util\BaseUtil;
 use Home\DataAccess\FriendManager;
+use Home\DataAccess\RecordManager;
 use Home\DataAccess\AccountManager;
 use Home\DataAccess\PullVersionManager;
 use Home\Common\Param\CodeParam;
@@ -178,7 +179,9 @@ class FriendController extends BaseController {
         }
         
         $version = PullVersionManager::updateFriendVersion();
-        FriendManager::updateRemark($friendId, $accountId, $remark, $version);
+        FriendManager::updateRemark($accountId, $friendId, $remark, $version);
+        $raceGroupVersion = PullVersionManager::updateRaceGroupVersion();
+        RecordManager::updateVersion($friendId, $raceGroupVersion);
         
         BaseUtil::echoJson(CodeParam::SUCCESS, $remark);
     }

@@ -166,6 +166,8 @@ class UserController extends BaseController {
         }
         
         AccountManager::updateNickname($accountId, $nickname);
+        $version = PullVersionManager::updateRaceGroupVersion();
+        RecordManager::updateVersion($accountId, $version);
         
         $result = Array("nickname" => $nickname);
         BaseUtil::echoJson(CodeParam::SUCCESS, $result);
