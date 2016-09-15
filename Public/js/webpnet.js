@@ -858,6 +858,7 @@ $(function(){
 			$.ajax(updatePassword);
 			//	修改界面淡出
 			$("#passwordArea").fadeOut(); 
+			$("#storecover").fadeOut(); 
 		}		
 	});
 	
