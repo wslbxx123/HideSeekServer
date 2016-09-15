@@ -179,6 +179,8 @@ class FriendController extends BaseController {
         
         $version = PullVersionManager::updateFriendVersion();
         FriendManager::updateRemark($friendId, $accountId, $remark, $version);
+        $raceGroupVersion = PullVersionManager::updateRaceGroupVersion();
+        RecordManager::updateVersion($friendId, $raceGroupVersion);
         
         BaseUtil::echoJson(CodeParam::SUCCESS, $remark);
     }
