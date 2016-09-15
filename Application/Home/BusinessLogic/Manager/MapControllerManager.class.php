@@ -69,7 +69,9 @@ class MapControllerManager {
         
         if(!isset($goalId) || !isset($goalType)) {
             BaseUtil::echoJson(CodeParam::GOAL_ID_OR_TYPE_EMPTY, null);
-            return;
+            return false;
         }
+        
+        return true;
     }
 }
