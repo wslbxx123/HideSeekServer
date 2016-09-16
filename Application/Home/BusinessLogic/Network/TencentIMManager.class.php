@@ -20,9 +20,8 @@ class TencentIMManager {
             'loc-args' => $args));
 	$message->setBadge(1);
 	$message->setSound("beep.wav");
-        echo $extraMessage;
 	$custom = array('type' => $type, 'object'=> $object, 
-            'extra' => 2);
+            'extra' => $extraMessage);
 	$message->setCustom($custom);
 //	$acceptTime = new \TimeInterval(0, 0, 23, 59);
 //	$message->addAcceptTime($acceptTime);
