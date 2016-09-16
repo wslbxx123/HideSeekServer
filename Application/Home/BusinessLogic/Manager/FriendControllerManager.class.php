@@ -37,7 +37,7 @@ class FriendControllerManager {
             FriendRequestManager::insertFriendRequest($account['pk_id'], 
                     $friend['pk_id'], $message, 0);
         } else {
-            $account['password'] = "";
+            $account = BaseUtil::removeSecretInfo($account);
             if(!TencentIMManager::pushSingleAccountIOS($friend['phone'], 
                     "FRIEND_REQUEST_MESSAGE", [], 
                     $account, $message, 1)) {
@@ -57,8 +57,7 @@ class FriendControllerManager {
             FriendRequestManager::insertFriendRequest($account['pk_id'], 
                     $friend['pk_id'], null, 1);
         } else {
-            $account['password'] = "";
-            $account['session_token'] = "";
+            $account = BaseUtil::removeSecretInfo($account);
             if(!TencentIMManager::pushSingleAccountIOS($friend['phone'], 
                     "FRIEND_ACCEPT_MESSAGE", [$friend['nickname']],
                     $account, $friendNum, 2)) {

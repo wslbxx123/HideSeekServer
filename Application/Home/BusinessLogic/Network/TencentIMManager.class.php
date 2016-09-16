@@ -23,16 +23,10 @@ class TencentIMManager {
 	$custom = array('type' => $type, 'object'=> $object, 
             'extra' => $extraMessage);
 	$message->setCustom($custom);
-//	$acceptTime = new \TimeInterval(0, 0, 23, 59);
-//	$message->addAcceptTime($acceptTime);
+	$acceptTime = new \TimeInterval(0, 0, 23, 59);
+	$message->addAcceptTime($acceptTime);
         
-//	$custom = array('type' => 2, 'object'=> null, 
-//            'extra' => 2);
-//	$message->setCustom($custom);
-	$acceptTime1 = new \TimeInterval(0, 0, 23, 59);
-	$message->addAcceptTime($acceptTime1);
 	$ret = $push->PushSingleAccount(0, $phone, $message, \XingeApp::IOSENV_DEV);
-        echo json_encode($ret);
 	return $ret['ret_code'] == 0;
     }
 }

@@ -55,4 +55,16 @@ class BaseUtil {
         reset($param);
         return $param;
     }
+    
+    /**
+     * 去除用户的敏感信息
+     * @param type $account
+     */
+    public function removeSecretInfo($account) {
+        $account['password'] = "";
+        $account['session_token'] = "";
+        $account['register_date'] = "";
+        $account['channel_id'] = "";
+        return $account;
+    }
 }
