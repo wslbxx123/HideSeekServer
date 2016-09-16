@@ -35,7 +35,7 @@ class FriendControllerManager {
     public function sendFriendRequest($account, $friend, $message) {
         if($friend['channel_id'] == NULL) {
             FriendRequestManager::insertFriendRequest($account['pk_id'], 
-                    $friend['pk_id'], $message);
+                    $friend['pk_id'], $message, 0);
         } else {
             $account['password'] = "";
             if(!TencentIMManager::pushSingleAccountIOS($friend['phone'], 
@@ -53,10 +53,16 @@ class FriendControllerManager {
         $friendNum = FriendManager::getFriendSum($friend['pk_id']);
         AccountManager::updateFriendNum($friend['pk_id'], $friendNum);
         
-        if(!TencentIMManager::pushSingleAccountIOS($friend['phone'], 
+        if($friend['channel_id'] == NULL) {
+            FriendRequestManager::insertFriendRequest($account['pk_id'], 
+                    $friend['pk_id'], null, 1);
+        } else {
+            if(!TencentIMManager::pushSingleAccountIOS($friend['phone'], 
                     "FRIEND_ACCEPT_MESSAGE", [$friend['nickname']],
                     $account, $friendNum, 2)) {
-            return false;
+                BaseUtil::echoJson(CodeParam::FAIL_SEND_MESSAGE, null);
+                return false;
+            }
         }
         
         return true;
