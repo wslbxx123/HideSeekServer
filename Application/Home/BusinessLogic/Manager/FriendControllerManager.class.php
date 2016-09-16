@@ -60,7 +60,7 @@ class FriendControllerManager {
             $account['password'] = "";
             if(!TencentIMManager::pushSingleAccountIOS($friend['phone'], 
                     "FRIEND_ACCEPT_MESSAGE", [$friend['nickname']],
-                    $account, $friendNum, 2)) {
+                    null, $friendNum, 2)) {
                 BaseUtil::echoJson(CodeParam::FAIL_SEND_MESSAGE, null);
                 return false;
             }
