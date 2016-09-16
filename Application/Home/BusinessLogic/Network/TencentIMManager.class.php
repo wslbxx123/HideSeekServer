@@ -15,9 +15,9 @@ class TencentIMManager {
 	$push = new \XingeApp(KeyParam::ACCESS_ID, KeyParam::SECRET_KEY);
 	$message = new \MessageIOS();
 	$message->setExpireTime(86400);
-//	$message->setAlert(array(
-//            'loc-key' => $body,
-//            'loc-args' => $args));
+	$message->setAlert(array(
+            'loc-key' => $body,
+            'loc-args' => $args));
 //	$message->setBadge(1);
 //	$message->setSound("beep.wav");
 //	$custom = array('type' => $type, 'object'=> $object, 
@@ -26,9 +26,9 @@ class TencentIMManager {
 //	$acceptTime = new \TimeInterval(0, 0, 23, 59);
 //	$message->addAcceptTime($acceptTime);
         
-	$message->setAlert(array(
-            'loc-key' => "FRIEND_ACCEPT_MESSAGE",
-            'loc-args' => ["向捷"]));
+//	$message->setAlert(array(
+//            'loc-key' => "FRIEND_ACCEPT_MESSAGE",
+//            'loc-args' => ["向捷"]));
 	//$mess->setAlert(array('key1'=>'value1'));
 	$message->setBadge(1);
 	$message->setSound("beep.wav");
