@@ -57,6 +57,7 @@ class FriendControllerManager {
             FriendRequestManager::insertFriendRequest($account['pk_id'], 
                     $friend['pk_id'], null, 1);
         } else {
+            $account['password'] = "";
             if(!TencentIMManager::pushSingleAccountIOS($friend['phone'], 
                     "FRIEND_ACCEPT_MESSAGE", [$friend['nickname']],
                     $account, $friendNum, 2)) {

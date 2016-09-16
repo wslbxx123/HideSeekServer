@@ -12,11 +12,6 @@ class TencentIMManager {
     function pushSingleAccountIOS($phone, $body, $args, $object, 
             $extraMessage, $type)
     {
-        echo $phone;
-        echo " ".$body;
-        echo " ".json_encode($args);
-        echo " ".json_encode($object);
-        echo $extraMessage;
 	$push = new \XingeApp(KeyParam::ACCESS_ID, KeyParam::SECRET_KEY);
 	$message = new \MessageIOS();
 	$message->setExpireTime(86400);
