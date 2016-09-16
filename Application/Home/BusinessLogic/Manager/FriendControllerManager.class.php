@@ -50,25 +50,21 @@ class FriendControllerManager {
     }
     
     public function acceptFriendRequest($account, $friend) {
-//        $friendNum = FriendManager::getFriendSum($friend['pk_id']);
-//        AccountManager::updateFriendNum($friend['pk_id'], $friendNum);
-//        
-//        if($friend['channel_id'] == NULL) {
-//            FriendRequestManager::insertFriendRequest($account['pk_id'], 
-//                    $friend['pk_id'], null, 1);
-//        } else {
-//            $account['password'] = "";
-//            if(!TencentIMManager::pushSingleAccountIOS($friend['phone'], 
-//                    "FRIEND_ACCEPT_MESSAGE", ["haha"],
-//                    null, $friendNum, 2)) {
-//                BaseUtil::echoJson(CodeParam::FAIL_SEND_MESSAGE, null);
-//                return false;
-//            }
-//        }
+        $friendNum = FriendManager::getFriendSum($friend['pk_id']);
+        AccountManager::updateFriendNum($friend['pk_id'], $friendNum);
         
-        TencentIMManager::pushSingleAccountIOS($friend['phone'], 
-                    "FRIEND_ACCEPT_MESSAGE", ["haha"],
-                    null, $friendNum, 2);
+        if($friend['channel_id'] == NULL) {
+            FriendRequestManager::insertFriendRequest($account['pk_id'], 
+                    $friend['pk_id'], null, 1);
+        } else {
+            if(!TencentIMManager::pushSingleAccountIOS($friend['phone'], 
+                    "FRIEND_ACCEPT_MESSAGE", [$friend['nickname']],
+                    $account, $friendNum, 2)) {
+                BaseUtil::echoJson(CodeParam::FAIL_SEND_MESSAGE, null);
+                return false;
+            }
+        }
+        
         return true;
     }
     
