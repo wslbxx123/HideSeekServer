@@ -398,6 +398,7 @@ $(function(){
 						   		if(default_area!=null&&default_area!="null"&&default_area!=""){
 						   			alert(1);
 							   		arr = default_area.split("-");
+							   		alert(arr);
 							   		$("#province1").val(arr[0]);
 							   		$("#city1").val(arr[1]);
 							   		$("#district1").val(arr[2]);
@@ -435,7 +436,7 @@ $(function(){
 				type: 'POST',
 				data:data,
 				success: function(result, status) {
-					alert(JSON.stringify(result));
+//					alert(JSON.stringify(result));
 					switch(result["code"]){
 						case "10000":
 							sessionStorage["record"] = result["result"];
