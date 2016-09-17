@@ -412,13 +412,18 @@ class StoreController extends BaseController {
         
         if($tradeStatus == 'TRADE_SUCCESS') {
             $order = PurchaseOrderManager::getOrderFromTradeNo($outTradeNo);
-            if($order['status'] == 0) {
-                $orderVersion = PullVersionManager::updateProductOrderVersion();
-                PurchaseOrderManager::updateOrderFromTradeNo($outTradeNo, 1, $orderVersion);
-                $storeVersion = PullVersionManager::updateStoreVersion();
-                ProductManager::updatePurchaseCount($order['store_id'], $storeVersion);
-                AccountManager::updateAccountAfterPurchase($order['pk_id']);
-            }
+            
+            $Dao = M("test");
+            $test['status'] = $order['status'];
+            $test['result'] = $tradeStatus;
+            $Dao->add($test);
+//            if($order['status'] == 0) {
+//                $orderVersion = PullVersionManager::updateProductOrderVersion();
+//                PurchaseOrderManager::updateOrderFromTradeNo($outTradeNo, 1, $orderVersion);
+//                $storeVersion = PullVersionManager::updateStoreVersion();
+//                ProductManager::updatePurchaseCount($order['store_id'], $storeVersion);
+//                AccountManager::updateAccountAfterPurchase($order['pk_id']);
+//            }
         }
 
         echo "success";
