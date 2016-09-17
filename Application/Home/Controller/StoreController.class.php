@@ -402,19 +402,25 @@ class StoreController extends BaseController {
         $sign = filter_input(INPUT_POST, 'sign');
         $notifyId = filter_input(INPUT_POST, 'notify_id');
         $tradeStatus = filter_input(INPUT_POST, 'trade_status');
-        $tradeNo = filter_input(INPUT_POST, 'trade_no');
+        $outTradeNo = filter_input(INPUT_POST, 'out_trade_no');
         
         $verifyResult = AlipayManager::verifyNotify($param, $sign, $notifyId);
         
-        $Dao = M("test");
-        $test['status'] = $tradeStatus;
-        $test['result'] = $verifyResult == false ? 0 : 1;
-        $Dao->add($test);
-//        $verifyResult = AlipayManager::verifyNotify($param, $sign, $notifyId);
-//        
-//        if($verifyResult) {
-//            OrderManager::updateOrderVerifyStatus($tradeNo, $tradeStatus);
-//        }
+        if(!$verifyResult) {
+           return;
+        }
+        
+        if($tradeStatus == 'TRADE_SUCCESS') {
+            $order = PurchaseOrderManager::getOrderFromTradeNo($outTradeNo);
+            if($order['status'] == 0) {
+                $orderVersion = PullVersionManager::updateProductOrderVersion();
+                PurchaseOrderManager::updateOrderFromTradeNo($outTradeNo, 1, $orderVersion);
+                $storeVersion = PullVersionManager::updateStoreVersion();
+                ProductManager::updatePurchaseCount($order['store_id'], $storeVersion);
+                AccountManager::updateAccountAfterPurchase($order['pk_id']);
+            }
+        }
+
         echo "success";
     }
     

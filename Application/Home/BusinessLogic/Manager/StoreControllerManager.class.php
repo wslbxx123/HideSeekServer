@@ -168,6 +168,14 @@ class StoreControllerManager {
             return false;
         }
         
+        $order = PurchaseOrderManager::getOrder($orderId);
+        if($order['status'] == 0){
+            $account = AccountManager::updateAccountAfterPurchase($orderId);
+            $result = array ("bomb_num" => $account['bomb_num'],
+                "has_guide" => $account['has_guide']);
+            BaseUtil::echoJson(CodeParam::SUCCESS, $result);
+        }
+        
         return true;
     }
     

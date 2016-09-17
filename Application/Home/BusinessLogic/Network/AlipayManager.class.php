@@ -160,14 +160,13 @@ class AlipayManager {
         
         $isSign = self::rsaVerify($paramStr, 
                             trim(KeyParam::ALIPAY_PUBLIC_KEY_PATH), $sign);
-//
-//        if(!isset($notifyId)) {
-//            return false;
-//        }
-//        
-//        $responseText = self::getAlipayResponse($notifyId);
-//        return preg_match("/true$/i",$responseText) && $isSign;
-        return $isSign;
+
+        $responseText = 'false';
+        if(!isset($notifyId)) {
+            $responseText = self::getAlipayResponse($notifyId);
+        }
+
+        return preg_match("/true$/i", $responseText) && $isSign;
     }
     
     /**
@@ -198,7 +197,7 @@ class AlipayManager {
         $partner = KeyParam::ALIPAY_PARTNER;
         $verifyUrl = self::ALIPAY_VERIFY_URL."partner=" . $partner . 
                 "&notify_id=" . $notifyId;
-        $responseText = getHttpResponse($verifyUrl, KeyParam::ALIPAY_CACERT_PATH);
+        $responseText = self::getHttpResponse($verifyUrl, KeyParam::ALIPAY_CACERT_PATH);
 
         return $responseText;
     }
