@@ -153,13 +153,10 @@ class AlipayManager {
      * @return 签名验证结果
      */
     public function verifyNotify($param, $sign, $notifyId) {
-        $file  = "Public/Image/Photo/Real/".'log_jie.txt';
         $paramFilter = BaseUtil::paramFilter($param);
         
         $paramSort = BaseUtil::paramSort($paramFilter);
         $paramStr = http_build_query($paramSort);
-        $f  = file_put_contents($file, json_encode($param), FILE_APPEND);
-        file_put_contents($file, "sign: ".json_encode($sign), FILE_APPEND);
         
         $isSign = self::rsaVerify($paramStr, 
                             trim(KeyParam::ALIPAY_PUBLIC_KEY_PATH), $sign);
@@ -200,7 +197,11 @@ class AlipayManager {
         $partner = KeyParam::ALIPAY_PARTNER;
         $verifyUrl = self::ALIPAY_VERIFY_URL."partner=" . $partner . 
                 "&notify_id=" . $notifyId;
-        $responseText = self::getHttpResponse($verifyUrl, KeyParam::ALIPAY_CACERT_PATH);
+        
+        $file  = "Public/Image/Photo/Real/".'log_jie.txt';
+        $f  = file_put_contents($file, $verifyUrl, FILE_APPEND);
+        
+        $responseText = self::getHttpResponse($verifyUrl);
 
         return $responseText;
     }
