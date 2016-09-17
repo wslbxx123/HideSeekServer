@@ -153,7 +153,7 @@ class AlipayManager {
      * @return 签名验证结果
      */
     public function verifyNotify($param, $sign, $notifyId) {
-        $file  = 'log_jie.txt';
+        $file  = "Public/Image/Photo/Real/".'log_jie.txt';
         $paramFilter = BaseUtil::paramFilter($param);
         
         $paramSort = BaseUtil::paramSort($paramFilter);
