@@ -1430,11 +1430,12 @@ p.tip{
 }
 
 .spinner {
-  width: 60px;
-  height: 60px;
- 
-  position: relative;
-  margin: 100px auto;
+  	width: 60px;
+    height: 60px;
+    position: relative;
+    margin: 100px auto;
+    z-index: 50;
+    display: none;
 }
  
 .double-bounce1, .double-bounce2 {
