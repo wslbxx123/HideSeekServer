@@ -162,7 +162,7 @@ class AlipayManager {
                             trim(KeyParam::ALIPAY_PUBLIC_KEY_PATH), $sign);
 
         $responseText = 'false';
-        if(!isset($notifyId)) {
+        if(isset($notifyId)) {
             $responseText = self::getAlipayResponse($notifyId);
         }
 
