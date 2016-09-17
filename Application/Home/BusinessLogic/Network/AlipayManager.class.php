@@ -166,7 +166,7 @@ class AlipayManager {
             $responseText = self::getAlipayResponse($notifyId);
         }
 
-        return $responseText;
+        return $paramStr;
     }
     
     /**
