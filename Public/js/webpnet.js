@@ -400,6 +400,7 @@ $(function(){
 							   		arr = default_area.split("-");
 							   		alert(arr);
 							   		alert(arr[0]);
+							   		alert(arr[1]);
 							   		$("#province1 option[value=arr[0]]").attr("selected", true); 
 							   		$("#city1 option[value=arr[1]]").attr("selected", true); 
 							   		$("#district1 option[value=arr[2]]").attr("selected", true); 
