@@ -88,7 +88,7 @@ $('#mycamera1').change(function(e){
 		Orientation = EXIF.getTag(this,'Orientation'); 
   	});
 	$("#newWin3").fadeIn(); 
-	$("#dataArea").fadeIn(); 
+	$("#dataArea").fadeOut(); 
 	var fileimg = document.getElementById("fileimg");
 	var mycamera1 = document.getElementById('mycamera1');
 	getPath(fileimg,mycamera1,fileimg);
@@ -383,6 +383,7 @@ document.getElementById("matchId").onclick = function(){
 
 
 document.getElementById("myorder").onclick = function(){
+		$("spinner").fadeIn();
 		$("#storecover").css("height",$("body").height()-58+"px");
 		$("#orderArea").fadeIn();
 		var orderArea1 = {
@@ -395,6 +396,7 @@ document.getElementById("myorder").onclick = function(){
 				success: function(result, status) {
 					switch(result["code"]){
 						case "10000":
+							$("spinner").fadeOut();
 							$("#storecover").fadeIn();
 							$("#listArea").fadeIn();
 							$("#listArea").empty();
