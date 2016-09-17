@@ -398,7 +398,7 @@ class StoreController extends BaseController {
     }
     
     public function notifyUrl() {
-        $param = filter_input(INPUT_POST);
+        $param = filter_input_array(INPUT_POST);
         $sign = filter_input(INPUT_POST, 'sign');
         $notifyId = filter_input(INPUT_POST, 'notify_id');
         $tradeStatus = filter_input(INPUT_POST, 'trade_status');
