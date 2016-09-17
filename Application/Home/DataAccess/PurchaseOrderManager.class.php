@@ -30,6 +30,17 @@ class PurchaseOrderManager {
         return self::getOrder($orderId);
     }
     
+    public function updateOrderFromTradeNo($outTradeNo, $status, $version) {
+        $Dao = M("purchase_order");
+        $condition["trade_no"] = $outTradeNo;
+        $order["status"] = $status;
+        $order['update_time'] = date('y-m-d H:i:s',time());
+        $order['version'] = $version;
+        $Dao->where($condition)->save($order);
+        
+        return self::getOrderFromTradeNo($outTradeNo);
+    }
+    
     public function updateOrderVerifyStatus($tradeNo, $verifyStatus) {
         $Dao = M("purchase_order");
         $condition["trade_no"] = $tradeNo;
@@ -40,6 +51,14 @@ class PurchaseOrderManager {
     public function getOrder($orderId) {
         $Dao = M("purchase_order");
         $condition['pk_id'] = $orderId;
+        $order = $Dao->where($condition)->find();
+        
+        return $order;
+    }
+    
+    public function getOrderFromTradeNo($outTradeNo) {
+        $Dao = M("purchase_order");
+        $condition['trade_no'] = $outTradeNo;
         $order = $Dao->where($condition)->find();
         
         return $order;
