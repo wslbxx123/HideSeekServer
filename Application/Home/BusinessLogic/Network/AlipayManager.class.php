@@ -153,10 +153,8 @@ class AlipayManager {
      * @return 签名验证结果
      */
     public function verifyNotify($param, $sign, $notifyId) {
-        $paramFilter = BaseUtil::paramFilter($param);
-        
-        $paramSort = BaseUtil::paramSort($paramFilter);
-        $paramStr = http_build_query($paramSort);
+        $paramFilter = BaseUtil::paramFilter($param);  
+        $paramStr = http_build_query($paramFilter);
         
         $isSign = self::rsaVerify($paramStr, 
                             trim(KeyParam::ALIPAY_PUBLIC_KEY_PATH), $sign);
