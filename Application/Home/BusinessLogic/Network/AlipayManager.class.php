@@ -166,7 +166,7 @@ class AlipayManager {
             $responseText = self::getAlipayResponse($notifyId);
         }
 
-        return preg_match("/true$/i", $responseText) && $isSign;
+        return $responseText;
     }
     
     /**
