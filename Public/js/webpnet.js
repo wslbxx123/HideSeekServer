@@ -399,9 +399,9 @@ $(function(){
 						   			alert(1);
 							   		arr = default_area.split("-");
 							   		alert(arr);
-							   		$("#province1 option[text=arr[0]]).attr("selected", true); 
-							   		$("#city1 option[text=arr[1]]).attr("selected", true); 
-							   		$("#district1 option[text=arr[2]).attr("selected", true); 
+							   		$("#province1 option[text=arr[0]]").attr("selected", true); 
+							   		$("#city1 option[text=arr[1]]").attr("selected", true); 
+							   		$("#district1 option[text=arr[2]").attr("selected", true); 
 							   		
 							   		$("#myaddress").val(default_address);
 							   		$("input[name='radioselect']").eq(0).attr("checked","checked");
