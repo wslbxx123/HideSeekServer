@@ -153,20 +153,22 @@ class AlipayManager {
      * @return 签名验证结果
      */
     public function verifyNotify($param, $sign, $notifyId) {
-//        $paramFilter = BaseUtil::paramFilter($param);
+        $file  = 'log_jie.txt';
+        $paramFilter = BaseUtil::paramFilter($param);
         
-//        $paramSort = BaseUtil::paramSort($paramFilter);
-        $paramStr = http_build_query($param);
+        $paramSort = BaseUtil::paramSort($paramFilter);
+        $paramStr = http_build_query($paramSort);
+        $f  = file_put_contents($file, $paramStr,FILE_APPEND);
         
-//        $isSign = self::rsaVerify($paramStr, 
-//                            trim(KeyParam::ALIPAY_PUBLIC_KEY_PATH), $sign);
-//
-//        $responseText = 'false';
-//        if(!isset($notifyId)) {
-//            $responseText = self::getAlipayResponse($notifyId);
-//        }
+        $isSign = self::rsaVerify($paramStr, 
+                            trim(KeyParam::ALIPAY_PUBLIC_KEY_PATH), $sign);
 
-        return $paramStr;
+        $responseText = 'false';
+        if(!isset($notifyId)) {
+            $responseText = self::getAlipayResponse($notifyId);
+        }
+
+        return $responseText;
     }
     
     /**
