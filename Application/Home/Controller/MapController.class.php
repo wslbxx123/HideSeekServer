@@ -47,8 +47,8 @@ class MapController extends BaseController {
         $goalType = filter_input(INPUT_POST, 'goal_type');
         $account = $this->getAccountFromToken($sessionId);
         
-        if(!isset($goalId) || !isset($goalType)) {
-            BaseUtil::echoJson(CodeParam::GOAL_ID_OR_TYPE_EMPTY, null);
+        if(!MapControllerManager::checkGetGoalInfo($sessionId, $account['pk_id'], 
+                $goalId, $goalType)) {
             return;
         }
        

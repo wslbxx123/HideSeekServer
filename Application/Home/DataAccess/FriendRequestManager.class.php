@@ -6,7 +6,7 @@ namespace Home\DataAccess;
  * @author Two
  */
 class FriendRequestManager {
-    public function insertFriendRequest($accountAId, $accountBId, $message) {
+    public function insertFriendRequest($accountAId, $accountBId, $message, $status) {
         $Dao = M("friend_request");
         $condition["account_a_id"] = $accountAId;
         $condition["account_b_id"] = $accountBId;
@@ -18,16 +18,16 @@ class FriendRequestManager {
             $friendRequest["account_b_id"] = $accountBId;
             $friendRequest["request_time"] = $time;
             $friendRequest["message"] = $message;
+            $friendRequest["status"] = $status;
             $Dao->add($friendRequest);
         } else {
             $data["request_time"] = $time;
             $data["message"] = $message;
+            $data["status"] = $status;
             $Dao->where($condition)->save($data);
-            $friendRequest['request_time'] = $time;
-            $friendRequest['message'] = $message;
         }
            
-        return $friendRequest;
+        return $Dao->where($condition)->find();
     }
     
     public function getFriendRequests($accountId) {
