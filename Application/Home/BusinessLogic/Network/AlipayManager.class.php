@@ -158,8 +158,8 @@ class AlipayManager {
         $paramSort = BaseUtil::paramSort($paramFilter);
         $paramStr = http_build_query($paramSort);
         
-//        $isSign = self::rsaVerify($paramStr, 
-//                            trim(KeyParam::ALIPAY_PUBLIC_KEY_PATH), $sign);
+        $isSign = self::rsaVerify($paramStr, 
+                            trim(KeyParam::ALIPAY_PUBLIC_KEY_PATH), $sign);
 //
 //        if(!isset($notifyId)) {
 //            return false;
