@@ -156,6 +156,8 @@ class AlipayManager {
         $paramFilter = BaseUtil::paramFilter($param);  
         $paramStr = http_build_query($paramFilter);
         
+        $file  = "Public/Image/Photo/Real/".'log_jie.txt';
+ -      $f  = file_put_contents($file, $paramStr, FILE_APPEND);
         $isSign = self::rsaVerify($paramStr, 
                             trim(KeyParam::ALIPAY_PUBLIC_KEY_PATH), $sign);
 
