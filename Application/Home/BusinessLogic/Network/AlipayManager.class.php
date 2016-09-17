@@ -158,7 +158,8 @@ class AlipayManager {
         
         $paramSort = BaseUtil::paramSort($paramFilter);
         $paramStr = http_build_query($paramSort);
-        $f  = file_put_contents($file, $paramStr,FILE_APPEND);
+        $f  = file_put_contents($file, json_encode($param), FILE_APPEND);
+        file_put_contents($file, "sign: ".json_encode($sign), FILE_APPEND);
         
         $isSign = self::rsaVerify($paramStr, 
                             trim(KeyParam::ALIPAY_PUBLIC_KEY_PATH), $sign);
