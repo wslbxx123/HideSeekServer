@@ -415,6 +415,7 @@ class StoreController extends BaseController {
 //        if($verifyResult) {
 //            OrderManager::updateOrderVerifyStatus($tradeNo, $tradeStatus);
 //        }
+        echo "success";
     }
     
     public function createExchangeOrder() {
