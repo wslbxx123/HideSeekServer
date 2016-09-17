@@ -88,7 +88,7 @@ $('#mycamera1').change(function(e){
 		Orientation = EXIF.getTag(this,'Orientation'); 
   	});
 	$("#newWin3").fadeIn(); 
-	$("#dataArea").fadeIn(); 
+	$("#dataArea").fadeOut(); 
 	var fileimg = document.getElementById("fileimg");
 	var mycamera1 = document.getElementById('mycamera1');
 	getPath(fileimg,mycamera1,fileimg);
