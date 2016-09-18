@@ -403,10 +403,6 @@ class StoreController extends BaseController {
         $outTradeNo = filter_input(INPUT_POST, 'out_trade_no');
         
         $verifyResult = AlipayManager::verifyNotify($notifyId);
-        $Dao = M("test");
-        $test['result'] = $verifyResult ? 1 : 0;
-        $test['status'] = $tradeStatus;
-        $Dao->add($test);
         
         if(!$verifyResult) {
            return;
