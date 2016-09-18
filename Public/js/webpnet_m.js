@@ -12,7 +12,7 @@ $(function(){
 	
 	if($("#goalid").val()!=""){
 		btn_open.addEventListener('click', function() {
-			alert('https://www.hideseek.cn/index.php/home/index/hideseek_m'+'?goal_id='+$("#goalid").val());
+//			alert('https://www.hideseek.cn/index.php/home/index/hideseek_m'+'?goal_id='+$("#goalid").val());
 			window.location.href = 'https://www.hideseek.cn/index.php/home/index/hideseek_m'+'?goal_id='+$("#goalid").val();
 			
 			setTimeout(function () {
@@ -33,6 +33,7 @@ $(function(){
 	
 	//刷新页面个人信息
 	if(sessionStorage.getItem("sessionid")!=null){
+		alert(sessionStorage.getItem("sessionid"));
 		refreshdata();
 	}
 	

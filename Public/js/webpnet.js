@@ -7,6 +7,7 @@ $(function(){
 	var reward_id;
 	//刷新页面个人信息
 	if(sessionStorage.getItem("sessionid")!=null){
+		alert(sessionStorage.getItem("sessionid"));
 		refreshdata();
 	}
 	
