@@ -400,7 +400,7 @@ $(function(){
 							   		alert(arr);
 							   		alert(arr[0]);
 							   		alert(arr[1]);
-//							   		$("#province1 option:contains('"+arr[0]+"')").attr("selected", true);
+							   		$("#province1 option:contains('"+arr[0]+"')").attr("selected", true);
 							   		
 //							   		bind();
 //							   		$("#city1 option:contains(arr[1])").attr("selected", true);

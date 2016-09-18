@@ -253,16 +253,6 @@
 $(".exGet").click(function(){
     if (sessionStorage.getItem("nickname")!=null){
     	alert(1);
-    	this.outputaddress();
-    	
-   		outputaddress: function (deep) {
-			if (!deep) {
-			    this.output(PROVINCE);
-			    this.output(CIRY);
-			    this.output(DISTRICT);
-			} else if (this.$province) {
-			    this.$province.find(':second').prop('selected', true).trigger(EVENT_CHANGE);
-			}
-		}
-    }
+		$('#province1').find(':second').prop('selected', true).trigger(EVENT_CHANGE);
+	}	   
 });
