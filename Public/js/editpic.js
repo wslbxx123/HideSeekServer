@@ -57,8 +57,7 @@ $("#mydata").click(function(){
 	$("#dataArea").fadeIn();
 	$("#flipframe").fadeOut();
 	$("#userName1").val($("#nickname").html());
-	$("body").css("height","590px");
-	$("#storecover").css("height","590px");
+	$("#storecover").css("height",$("body").height()-58+"px");
 	$("#storecover").fadeIn(); 
 	//检验性别填写框
 	if(sessionStorage.getItem("sex") == 0){
