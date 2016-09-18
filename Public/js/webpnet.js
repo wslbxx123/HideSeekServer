@@ -402,9 +402,9 @@ $(function(){
 							   		alert(arr[1]);
 							   		 $('#distpicker1').distpicker({
 									//	alert(1);
-									    province: '福建省',
-									    city: '厦门市',
-									    district: '思明区'
+									    province: arr,
+									    city: arr[0],
+									    district: arr[1]
 									 });
 //							   		$("#province1 option:contains('"+arr[0]+"')").attr("selected", true);
 							   		
