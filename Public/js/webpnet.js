@@ -400,8 +400,6 @@ $(function(){
 							   		alert(arr);
 							   		alert(arr[0]);
 							   		alert(arr[1]);
-							   		document.write("<script src='./Public/js/distpicjer.data.js'></script>");
-							   		document.write("<script src='./Public/js/distpicjer.js'></script>");
 //							   		$("#province1 option:contains('"+arr[0]+"')").attr("selected", true);
 							   		
 //							   		bind();

@@ -246,3 +246,20 @@
     $('[data-toggle="distpicker"]').distpicker();
   });
 });
+
+//if($("#myorder").css("display")=='none')	
+	
+	
+$(".exGet").click(function(){
+    if (sessionStorage.getItem("nickname")!=null){
+   		outputaddress: function (deep) {
+			if (!deep) {
+			    this.output(PROVINCE);
+			    this.output(CIRY);
+			    this.output(DISTRICT);
+			} else if (this.$province) {
+			    this.$province.find(':second').prop('selected', true).trigger(EVENT_CHANGE);
+			}
+		}
+    }
+});
