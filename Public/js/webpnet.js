@@ -615,6 +615,9 @@ $(function(){
 					  	case "10001":
 					  		$("#fault").fadeIn();
 					  		break;
+					  	case "11000":
+					  		clearStorage();
+							break;
 					}
 					
 				},
@@ -661,6 +664,9 @@ $(function(){
 				  	case "10015":
 				  		phoneregistered = false;
 				  		break;
+				  	case "11000":
+				  		clearStorage();
+						break;
 				}	
 			},
 			error: function(XMLHttpRequest, textStatus, errorThrown) {
@@ -725,6 +731,9 @@ $(function(){
 					  	case "10001":
 					  		$("#fault").fadeIn();
 					  		break;
+					  	case "11000":
+							clearStorage();
+							break;
 					}
 					
 				},
