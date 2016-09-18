@@ -395,7 +395,7 @@ document.getElementById("myorder").onclick = function(){
 				dataType: "json",
 				
 				success: function(result, status) {
-//					alert(JSON.stringify(result));
+					alert(JSON.stringify(result));
 					switch(result["code"]){
 						case "10000":
 							$("spinner").fadeOut();
@@ -527,9 +527,9 @@ document.getElementById("myorder").onclick = function(){
 							}
 							$("#listArea1").fadeOut();
 							break;
-						case "11000":
+//						case "11000":
 //							clearStorage();
-							break;
+//							break;
 					}
 				},
 				error: function(XMLHttpRequest, textStatus, errorThrown) {
