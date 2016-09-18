@@ -402,9 +402,9 @@ $(function(){
 							   		alert(arr[1]);
 							   		 $('#distpicker1').distpicker({
 									//	alert(1);
-									    province: arr,
-									    city: arr[0],
-									    district: arr[1]
+									    province: arr[0],
+									    city: arr[1],
+									    district: arr[2]
 									 });
 //							   		$("#province1 option:contains('"+arr[0]+"')").attr("selected", true);
 							   		
