@@ -349,7 +349,7 @@ document.getElementById("matchId").onclick = function(){
 								
 										//判断photo_url是否为空；
 										if(result["result"]["photo_url"]==null){
-												sessionStorage.setItem("myimgpath", "Image/Web/mypicture.png");
+												sessionStorage.setItem("myimgpath", "./Public/Image/Web/mypicture.png");
 										}
 										else{
 												sessionStorage.setItem("myimgpath", result["result"]["small_photo_url"]);

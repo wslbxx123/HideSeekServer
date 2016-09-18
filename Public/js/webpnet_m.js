@@ -111,6 +111,9 @@ $(function(){
 		$(".photo").attr("src","./Public/Image/Web/mypicture.png");
 		$("#sex").val("未设置");
 		$(".cityinput").val("未设置");
+		$("#listArea").empty();
+		$("#listArea1").empty();
+//		$("#abc").css();
 	});
 	
 	function clearStorage(){
@@ -125,6 +128,9 @@ $(function(){
 		$("#sex").val("未设置");
 		$(".cityinput").val("未设置");
 		alert("你已经被迫掉线！")
+		$("#listArea").empty();
+		$("#listArea1").empty();
+//		$("#abc").empty();
 	}
 	
 	//点击右上角叉号删除页面
@@ -260,7 +266,7 @@ $(function(){
 											switch(result["code"]){
 												case "10000":
 													document.getElementById("alipaypage").innerHTML = result["result"]["html"];
-//													alert(result["result"]["html"]);
+													alert(result["result"]["html"]);
 													document.getElementById("alipaysubmit").submit();
 													order_id = result["result"]["order_id"];
 													if(sessionStorage.getItem("orderid")==null){
