@@ -401,7 +401,7 @@ $(function(){
 							   		alert(arr[0]);
 							   		alert(arr[1]);
 							   		$("#province1 option:contains('"+arr[0]+"')").attr("selected", true);
-							   		this.bind();
+							   		bind();
 //							   		$("#city1 option:contains(arr[1])").attr("selected", true);
 //							   		$("#district1 option:contains(arr[2])").attr("selected", true);
 //							   		$("#province1 option[text='天津市']").attr("selected", "selected"); 
