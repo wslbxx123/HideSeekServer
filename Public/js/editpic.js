@@ -383,7 +383,7 @@ document.getElementById("matchId").onclick = function(){
 
 
 document.getElementById("myorder").onclick = function(){
-		$("spinner").fadeIn();
+		$("#spinner").fadeIn();
 		$("#storecover").css("height",$("body").height()-58+"px");
 		$("#orderArea").fadeIn();
 		$("#purOrder").attr("class", "selected");
