@@ -1,4 +1,4 @@
-var roleImages = new Array("Image/Web/grassfairy.jpg","Image/Web/watermagician.jpg","Image/Web/fireknight.jpg","Image/Web/stonemonster.jpg","Image/Web/lightninggiant.jpg");
+var roleImages = new Array("./Public/Image/Web/grassfairy.jpg","./Public/Image/Web/watermagician.jpg","./Public/Image/Web/fireknight.jpg","./Public/Image/Web/stonemonster.jpg","./Public/Image/Web/lightninggiant.jpg");
 var roleNames = new Array("草魅精灵","水影巫师","火光骑士","岩石兽族","闪电巨人");
 var myId = Math.floor ((Math.random() * roleImages.length));
 var logIn = false;
@@ -386,6 +386,8 @@ document.getElementById("myorder").onclick = function(){
 		$("spinner").fadeIn();
 		$("#storecover").css("height",$("body").height()-58+"px");
 		$("#orderArea").fadeIn();
+		$("#purOrder").attr("class", "selected");
+		$("#exOrder").attr("class", "");
 		var orderArea1 = {
 				url: "/index.php/home/store/refreshPurchaseOrders",
 				type: 'POST',

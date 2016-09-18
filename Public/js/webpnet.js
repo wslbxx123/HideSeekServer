@@ -395,26 +395,14 @@ $(function(){
 						   		default_area = sessionStorage.getItem("default_area");
 						   		default_address = sessionStorage.getItem("default_address");
 						   		if(default_area!=null&&default_area!="null"&&default_area!=""){
-						   			alert(1);
 							   		arr = default_area.split("-");
-							   		alert(arr);
-							   		alert(arr[0]);
-							   		alert(arr[1]);
-							   		 $('#distpicker1').distpicker({
-									//	alert(1);
+		
+							   		$('#distpicker1').distpicker({
 									    province: arr[0],
 									    city: arr[1],
 									    district: arr[2]
-									 });
-//							   		$("#province1 option:contains('"+arr[0]+"')").attr("selected", true);
-							   		
-//							   		bind();
-//							   		$("#city1 option:contains(arr[1])").attr("selected", true);
-//							   		$("#district1 option:contains(arr[2])").attr("selected", true);
-//							   		$("#province1 option[text='天津市']").attr("selected", "selected"); 
-//							   		$("#city1 option[text='天津']").attr("selected", true); 
-//							   		$("#district1 option[text='河东区']").attr("selected", true); 
-							   		
+									});
+									 
 							   		$("#myaddress").val(default_address);
 							   		$("input[name='radioselect']").eq(0).attr("checked","checked");
             						$("input[name='radioselect']").eq(1).removeAttr("checked");

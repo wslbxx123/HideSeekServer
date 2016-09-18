@@ -140,32 +140,7 @@ $(function(){
 		$("#passwordArea").fadeOut();
 		$("#dataArea").fadeOut();
 		$("#listarea .orderlist").remove();	
-	});
-	
-	//此处需要判断是否支付成功。
-	alert($("#alipaystatus").val());
-	if($("#alipaystatus").val()=="TRADE_SUCCESS"){
-		var alipaypurchase = {
-				url: "/index.php/home/store/purchase",
-				type: 'POST',
-				data:"session_id=" + sessionStorage.getItem("sessionid")
-				+ "&order_id=" + orderid,
-				success: function(result, status) {
-					alert(JSON.stringify(result));
-					$("#nickname").html(sessionStorage.getItem("nickname"));
-					$("#scoreNum").html(sessionStorage.getItem("record"));
-					$("#myimg").attr('src',sessionStorage.getItem("myimgpath")); 
-					$(".inner_menu").fadeOut();
-					$("#myimg").fadeIn();
-					$("#myprofile" ).fadeIn();
-					$("#myorder").fadeIn();			
-				},
-				error: function(XMLHttpRequest, textStatus, errorThrown) {
-						alert("网络出现问题！");
-				}
-		};
-		$.ajax(alipaypurchase); 
-	}
+	});	
 	
 	//获取购买商场信息
 	var purStore = {
@@ -421,9 +396,13 @@ $(function(){
 						   		default_address = sessionStorage.getItem("default_address");
 						   		if(default_area!=null&&default_area!="null"&&default_area!=""){
 							   		arr = default_area.split("-");
-							   		$("#province1").val(arr[0]);
-							   		$("#city1").val(arr[1]);
-							   		$("#district1").val(arr[2]);
+							   		
+							   		$('#distpicker1').distpicker({
+									    province: arr[0],
+									    city: arr[1],
+									    district: arr[2]
+									});
+									
 							   		$("#myaddress").val(default_address);
 							   		$("input[name='radioselect']").eq(0).attr("checked","checked");
             						$("input[name='radioselect']").eq(1).removeAttr("checked");
