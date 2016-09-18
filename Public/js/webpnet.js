@@ -18,7 +18,7 @@ $(function(){
 				dataType: "json",
 				
 				success: function(result, status) {
-//					alert(JSON.stringify(result));
+					alert(JSON.stringify(result));
 						switch(result["code"]){
 							case "10000":
 								sessionStorage["myimgpath"] = result["result"]["small_photo_url"];
