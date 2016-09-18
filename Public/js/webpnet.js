@@ -400,8 +400,11 @@ $(function(){
 							   		alert(arr);
 							   		alert(arr[0]);
 							   		alert(arr[1]);
-							   		$("#province1 option:contains('"+arr[0]+"')").attr("selected", true);
-							   		bind();
+							   		document.write("<script src='./Public/js/distpicjer.data.js'></script>");
+							   		document.write("<script src='./Public/js/distpicjer.js'></script>");
+//							   		$("#province1 option:contains('"+arr[0]+"')").attr("selected", true);
+							   		
+//							   		bind();
 //							   		$("#city1 option:contains(arr[1])").attr("selected", true);
 //							   		$("#district1 option:contains(arr[2])").attr("selected", true);
 //							   		$("#province1 option[text='天津市']").attr("selected", "selected"); 
