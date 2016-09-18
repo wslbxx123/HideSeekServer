@@ -252,6 +252,9 @@
 	
 $(".exGet").click(function(){
     if (sessionStorage.getItem("nickname")!=null){
+    	alert(1);
+    	this.outputaddress();
+    	
    		outputaddress: function (deep) {
 			if (!deep) {
 			    this.output(PROVINCE);
