@@ -147,26 +147,17 @@ class AlipayManager {
     }
     
     /**
-     * 获取返回时的签名验证结果
-     * @param $param 通知返回来的参数数组
-     * @param $sign 返回的签名结果
-     * @return 签名验证结果
+     * 验证返回的签名验证结果是否从支付宝来
+     * @param $notifyId 通知校验ID
+     * @return 验证结果
      */
-    public function verifyNotify($param, $sign, $notifyId) {
-        $paramFilter = BaseUtil::paramFilter($param);  
-        $paramStr = http_build_query($paramFilter);
-        
-        $file  = "Public/Image/Photo/Real/".'log_jie.txt';
- -      $f  = file_put_contents($file, $paramStr, FILE_APPEND);
-        $isSign = self::rsaVerify($paramStr, 
-                            trim(KeyParam::ALIPAY_PUBLIC_KEY_PATH), $sign);
-
+    public function verifyNotify($notifyId) {
         $responseText = 'false';
         if(isset($notifyId)) {
             $responseText = self::getAlipayResponse($notifyId);
         }
 
-        return preg_match("/true$/i", $responseText) && $isSign;
+        return preg_match("/true$/i", $responseText);
     }
     
     /**
