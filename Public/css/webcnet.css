@@ -1105,12 +1105,14 @@ p.tip{
 
 .orderstatus{
 	margin-top: -41px;
-    margin-left: 84%;
+    right: 6%;
     font-size: 13px;
+    position: absolute;
 }
 
 .orderpay{
-	margin-left: 83%;
+	right: 6%;
+    margin-top: -28px;
     font-size: 12px;
     width: 59px;
     height: 18px;
@@ -1118,12 +1120,14 @@ p.tip{
     text-align: center;
     line-height: 18px;
     border-radius: 2px;
+    position: absolute;
 }
 
 .orderstatus1{
-    margin-top: -49px;
-    margin-left: 84%;
+    margin-top: -48px;
+    right: 6%;
     font-size: 13px;
+    position: absolute;
 }
 
 .ordersum{
