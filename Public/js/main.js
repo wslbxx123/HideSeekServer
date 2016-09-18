@@ -1,16 +1,16 @@
 $(function () {
 
-  'use strict';
-	
-  var $distpicker = $('#distpicker1');
-
-  $('#distpicker1').distpicker({
-//	alert(1);
-    province: '福建省',
-    city: '厦门市',
-    district: '思明区'
-  });
-  
+//'use strict';
+//	
+//var $distpicker = $('#distpicker1');
+//
+//$('#distpicker1').distpicker({
+////	alert(1);
+//  province: '福建省',
+//  city: '厦门市',
+//  district: '思明区'
+//});
+//
 
 //$('#reset').click(function () {
 //  $distpicker.distpicker('reset');

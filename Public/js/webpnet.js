@@ -400,11 +400,12 @@ $(function(){
 							   		alert(arr);
 							   		alert(arr[0]);
 							   		alert(arr[1]);
-							   		$("#distpicker1").distpicker({
-										province: "浙江省",
-										city: "杭州市",
-										district: "西湖区"
-									});
+							   		 $('#distpicker1').distpicker({
+									//	alert(1);
+									    province: '福建省',
+									    city: '厦门市',
+									    district: '思明区'
+									 });
 //							   		$("#province1 option:contains('"+arr[0]+"')").attr("selected", true);
 							   		
 //							   		bind();
