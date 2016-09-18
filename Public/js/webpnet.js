@@ -5,7 +5,6 @@ $(function(){
 	var getId;	//兑换或者购买按钮的对应ID值；
 	var sessionid;	//session_id变量；
 	var reward_id;
-	
 	//刷新页面个人信息
 	if(sessionStorage.getItem("sessionid")!=null){
 		refreshdata();
@@ -402,6 +401,7 @@ $(function(){
 							   		alert(arr[0]);
 							   		alert(arr[1]);
 							   		$("#province1 option:contains('"+arr[0]+"')").attr("selected", true);
+							   		this.bind();
 //							   		$("#city1 option:contains(arr[1])").attr("selected", true);
 //							   		$("#district1 option:contains(arr[2])").attr("selected", true);
 //							   		$("#province1 option[text='天津市']").attr("selected", "selected"); 
