@@ -9,6 +9,7 @@ $(function () {
     city: '厦门市',
     district: '思明区'
   });
+  
 
   $('#reset').click(function () {
     $distpicker.distpicker('reset');
@@ -44,4 +45,13 @@ $(function () {
     autoSelect: false
   });
 
+});
+
+
+$(".exGet").click(function(){
+    if (sessionStorage.getItem("nickname")!=null){
+    	alert(1);
+		$('#province1').find(':second').prop('selected', true).trigger(EVENT_CHANGE);
+		bind
+	}	   
 });

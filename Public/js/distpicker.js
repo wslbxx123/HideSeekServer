@@ -19,7 +19,9 @@
     // Browser globals.
     factory(jQuery, ChineseDistricts);
   }
-})(function ($, ChineseDistricts) {
+})
+
+(function ($, ChineseDistricts) {
 
   'use strict';
 
@@ -97,162 +99,153 @@
     },
 
     output: function (type) {
-      var options = this.options;
-      var placeholders = this.placeholders;
-      var $select = this['$' + type];
-      var districts = {};
-      var data = [];
-      var code;
-      var matched;
-      var value;
-
-      if (!$select || !$select.length) {
-        return;
-      }
-
-      value = options[type];
-
-      code = (
-        type === PROVINCE ? 86 :
-        type === CIRY ? this.$province && this.$province.find(':selected').data('code') :
-        type === DISTRICT ? this.$city && this.$city.find(':selected').data('code') : code
-      );
-
-      districts = $.isNumeric(code) ? ChineseDistricts[code] : null;
-
-      if ($.isPlainObject(districts)) {
-        $.each(districts, function (code, address) {
-          var selected = address === value;
-
-          if (selected) {
-            matched = true;
-          }
-
-          data.push({
-            code: code,
-            address: address,
-            selected: selected
-          });
-        });
-      }
-
-      if (!matched) {
-        if (data.length && (options.autoSelect || options.autoselect)) {
-          data[0].selected = true;
-        }
-
-        // Save the unmatched value as a placeholder at the first output
-        if (!this.active && value) {
-          placeholders[type] = value;
-        }
-      }
-
-      // Add placeholder option
-      if (options.placeholder) {
-        data.unshift({
-          code: '',
-          address: placeholders[type],
-          selected: false
-        });
-      }
-
-      $select.html(this.getList(data));
-    },
-
-    getList: function (data) {
-      var list = [];
-
-      $.each(data, function (i, n) {
-        list.push(
-          '<option' +
-          ' value="' + (n.address && n.code ? n.address : '') + '"' +
-          ' data-code="' + (n.code || '') + '"' +
-          (n.selected ? ' selected' : '') +
-          '>' +
-            (n.address || '') +
-          '</option>'
-        );
-      });
-
-      return list.join('');
-    },
-
-    reset: function (deep) {
-      if (!deep) {
-        this.output(PROVINCE);
-        this.output(CIRY);
-        this.output(DISTRICT);
-      } else if (this.$province) {
-        this.$province.find(':first').prop('selected', true).trigger(EVENT_CHANGE);
-      }
-    },
-
-    destroy: function () {
-      this.unbind();
-      this.$element.removeData(NAMESPACE);
-    }
-  };
-
-  Distpicker.DEFAULTS = {
-    autoSelect: true,
-    placeholder: true,
-    province: '—— 省 ——',
-    city: '—— 市 ——',
-    district: '—— 区 ——'
-  };
-
-  Distpicker.setDefaults = function (options) {
-    $.extend(Distpicker.DEFAULTS, options);
-  };
-
-  // Save the other distpicker
-  Distpicker.other = $.fn.distpicker;
-
-  // Register as jQuery plugin
-  $.fn.distpicker = function (option) {
-    var args = [].slice.call(arguments, 1);
-
-    return this.each(function () {
-      var $this = $(this);
-      var data = $this.data(NAMESPACE);
-      var options;
-      var fn;
-
-      if (!data) {
-        if (/destroy/.test(option)) {
-          return;
-        }
-
-        options = $.extend({}, $this.data(), $.isPlainObject(option) && option);
-        $this.data(NAMESPACE, (data = new Distpicker(this, options)));
-      }
-
-      if (typeof option === 'string' && $.isFunction(fn = data[option])) {
-        fn.apply(data, args);
-      }
-    });
-  };
-
-  $.fn.distpicker.Constructor = Distpicker;
-  $.fn.distpicker.setDefaults = Distpicker.setDefaults;
-
-  // No conflict
-  $.fn.distpicker.noConflict = function () {
-    $.fn.distpicker = Distpicker.other;
-    return this;
-  };
-
-  $(function () {
-    $('[data-toggle="distpicker"]').distpicker();
-  });
-});
-
-//if($("#myorder").css("display")=='none')	
+	    var options = this.options;
+	    var placeholders = this.placeholders;
+	    var $select = this['$' + type];
+	    var districts = {};
+	    var data = [];
+	    var code;
+	    var matched;
+	    var value;
 	
+	    if (!$select || !$select.length) {
+	       	return;
+	    }
+
+        value = options[type];
+
+	    code = (
+	       type === PROVINCE ? 86 :
+	       type === CIRY ? this.$province && this.$province.find(':selected').data('code') :
+	       type === DISTRICT ? this.$city && this.$city.find(':selected').data('code') : code
+	    );
+
+        districts = $.isNumeric(code) ? ChineseDistricts[code] : null;
+
+      	if ($.isPlainObject(districts)) {
+        	$.each(districts, function (code, address) {
+          		var selected = address === value;
+
+         		if (selected) {
+           			matched = true;
+          		}
+
+          		data.push({
+            		code: code,
+           			address: address,
+            		selected: selected
+          		});
+        	});
+     	}
+
+      	if (!matched) {
+	        if (data.length && (options.autoSelect || options.autoselect)) {
+	          data[0].selected = true;
+	        }
+
+        	// Save the unmatched value as a placeholder at the first output
+	        if (!this.active && value) {
+	          placeholders[type] = value;
+	        }
+      	}
+
+	      // Add placeholder option
+	    if (options.placeholder) {
+	        data.unshift({
+	          	code: '',
+	          	address: placeholders[type],
+	          	selected: false
+	        });
+	      }
 	
-$(".exGet").click(function(){
-    if (sessionStorage.getItem("nickname")!=null){
-    	alert(1);
-		$('#province1').find(':second').prop('selected', true).trigger(EVENT_CHANGE);
-	}	   
+	      $select.html(this.getList(data));
+	    },
+
+    	getList: function (data) {
+     		var list = [];
+
+     		$.each(data, function (i, n) {
+        		list.push(
+		          '<option' +
+		          ' value="' + (n.address && n.code ? n.address : '') + '"' +
+		          ' data-code="' + (n.code || '') + '"' +
+		          (n.selected ? ' selected' : '') +
+		          '>' +
+		            (n.address || '') +
+		          '</option>'
+		        );
+      		});
+
+      		return list.join('');
+   		},
+
+	    reset: function (deep) {
+	      	if (!deep) {
+		        this.output(PROVINCE);
+		        this.output(CIRY);
+		        this.output(DISTRICT);
+		      } 
+		    else if (this.$province) {
+	        	this.$province.find(':first').prop('selected', true).trigger(EVENT_CHANGE);
+	      	}
+	    },
+
+	    destroy: function () {
+	      	this.unbind();
+      		this.$element.removeData(NAMESPACE);
+	    }
+ 	};
+
+  	Distpicker.DEFAULTS = {
+	    autoSelect: true,
+	    placeholder: true,
+	    province: '—— 省 ——',
+	    city: '—— 市 ——',
+	    district: '—— 区 ——'
+ 	};
+
+  	Distpicker.setDefaults = function (options) {
+    	$.extend(Distpicker.DEFAULTS, options);
+  	};
+
+	// Save the other distpicker
+	Distpicker.other = $.fn.distpicker;
+
+  	// Register as jQuery plugin
+  	$.fn.distpicker = function (option) {
+    	var args = [].slice.call(arguments, 1);
+
+    	return this.each(function () {
+	      	var $this = $(this);
+	      	var data = $this.data(NAMESPACE);
+	      	var options;
+	      	var fn;
+
+      		if (!data) {
+        		if (/destroy/.test(option)) {
+          			return;
+       			}
+
+	        	options = $.extend({}, $this.data(), $.isPlainObject(option) && option);
+	        	$this.data(NAMESPACE, (data = new Distpicker(this, options)));
+     		}
+
+	      	if (typeof option === 'string' && $.isFunction(fn = data[option])) {
+	        	fn.apply(data, args);
+	      	}
+    	});
+ 	};
+
+	$.fn.distpicker.Constructor = Distpicker;
+	$.fn.distpicker.setDefaults = Distpicker.setDefaults;
+
+    // No conflict
+    $.fn.distpicker.noConflict = function () {
+	    $.fn.distpicker = Distpicker.other;
+	    return this;
+  	};
+
+  	$(function () {
+    	$('[data-toggle="distpicker"]').distpicker();
+  	});
 });
