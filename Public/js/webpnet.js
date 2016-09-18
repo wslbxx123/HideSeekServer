@@ -411,9 +411,9 @@ $(function(){
 						    }
 						});
 						break;
-					case "11000":
-						clearStorage();
-						break;
+//					case "11000":
+//						clearStorage();
+//						break;
 				}
 			},
 			error: function(XMLHttpRequest, textStatus, errorThrown) {
