@@ -398,13 +398,11 @@ class StoreController extends BaseController {
     }
     
     public function notifyUrl() {
-        $param = filter_input_array(INPUT_POST);
-        $sign = filter_input(INPUT_POST, 'sign');
         $notifyId = filter_input(INPUT_POST, 'notify_id');
         $tradeStatus = filter_input(INPUT_POST, 'trade_status');
         $outTradeNo = filter_input(INPUT_POST, 'out_trade_no');
         
-        $verifyResult = AlipayManager::verifyNotify($param, $sign, $notifyId);
+        $verifyResult = AlipayManager::verifyNotify($notifyId);
         $Dao = M("test");
         $test['result'] = $verifyResult ? 1 : 0;
         $test['status'] = $tradeStatus;
@@ -417,13 +415,13 @@ class StoreController extends BaseController {
         if($tradeStatus == 'TRADE_SUCCESS') {
             $order = PurchaseOrderManager::getOrderFromTradeNo($outTradeNo);
             
-//            if($order['status'] == 0) {
-//                $orderVersion = PullVersionManager::updateProductOrderVersion();
-//                PurchaseOrderManager::updateOrderFromTradeNo($outTradeNo, 1, $orderVersion);
-//                $storeVersion = PullVersionManager::updateStoreVersion();
-//                ProductManager::updatePurchaseCount($order['store_id'], $storeVersion);
-//                AccountManager::updateAccountAfterPurchase($order['pk_id']);
-//            }
+            if($order['status'] == 0) {
+                $orderVersion = PullVersionManager::updateProductOrderVersion();
+                PurchaseOrderManager::updateOrderFromTradeNo($outTradeNo, 1, $orderVersion);
+                $storeVersion = PullVersionManager::updateStoreVersion();
+                ProductManager::updatePurchaseCount($order['store_id'], $storeVersion);
+                AccountManager::updateAccountAfterPurchase($order['pk_id']);
+            }
         }
 
         echo "success";
