@@ -5,7 +5,7 @@ $(function () {
   var $distpicker = $('#distpicker');
 
   $distpicker.distpicker({
-  	alert(1);
+//	alert(1);
     province: '福建省',
     city: '厦门市',
     district: '思明区'
