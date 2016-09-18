@@ -1,10 +1,11 @@
 $(function () {
 
   'use strict';
-
+	
   var $distpicker = $('#distpicker');
 
   $distpicker.distpicker({
+  	alert(1);
     province: '福建省',
     city: '厦门市',
     district: '思明区'
@@ -48,10 +49,10 @@ $(function () {
 });
 
 
-$(".exGet").click(function(){
-    if (sessionStorage.getItem("nickname")!=null){
-    	alert(1);
-		$('#province1').find(':second').prop('selected', true).trigger(EVENT_CHANGE);
-		bind
-	}	   
-});
+//$(".exGet").click(function(){
+//  if (sessionStorage.getItem("nickname")!=null){
+//  	alert(1);
+//		$('#province1').find(':second').prop('selected', true).trigger(EVENT_CHANGE);
+//		bind
+//	}	   
+//});
