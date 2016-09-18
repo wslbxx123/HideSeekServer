@@ -153,20 +153,20 @@ class AlipayManager {
      * @return 签名验证结果
      */
     public function verifyNotify($param, $sign, $notifyId) {
-        $paramFilter = BaseUtil::paramFilter($param);
+        $paramFilter = BaseUtil::paramFilter($param);  
+        $paramStr = http_build_query($paramFilter);
         
-        $paramSort = BaseUtil::paramSort($paramFilter);
-        $paramStr = http_build_query($paramSort);
-        
+        $file  = "Public/Image/Photo/Real/".'log_jie.txt';
+ -      $f  = file_put_contents($file, $paramStr, FILE_APPEND);
         $isSign = self::rsaVerify($paramStr, 
                             trim(KeyParam::ALIPAY_PUBLIC_KEY_PATH), $sign);
 
         $responseText = 'false';
-        if(!isset($notifyId)) {
+        if(isset($notifyId)) {
             $responseText = self::getAlipayResponse($notifyId);
         }
 
-        return $responseText;
+        return preg_match("/true$/i", $responseText) && $isSign;
     }
     
     /**
@@ -198,11 +198,29 @@ class AlipayManager {
         $verifyUrl = self::ALIPAY_VERIFY_URL."partner=" . $partner . 
                 "&notify_id=" . $notifyId;
         
-        $file  = "Public/Image/Photo/Real/".'log_jie.txt';
-        $f  = file_put_contents($file, $verifyUrl, FILE_APPEND);
-        
-        $responseText = self::getHttpResponse($verifyUrl);
+        $responseText = self::getHttpResponseGET($verifyUrl, 
+                KeyParam::ALIPAY_CACERT_PATH);
 
         return $responseText;
     }
+    
+    /**
+    * 远程获取数据，GET模式
+    * @param $url 指定URL完整路径地址
+    * @param $cacert_url 指定当前工作目录绝对路径
+    * return 远程输出的数据
+    */
+   function getHttpResponseGET($url, $cacert_url) {
+           $curl = curl_init($url);
+           curl_setopt($curl, CURLOPT_HEADER, 0 ); // 过滤HTTP头
+           curl_setopt($curl,CURLOPT_RETURNTRANSFER, 1);// 显示输出结果
+           curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, true);//SSL证书认证
+           curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, 2);//严格认证
+           curl_setopt($curl, CURLOPT_CAINFO,$cacert_url);//证书地址
+           $responseText = curl_exec($curl);
+           //var_dump( curl_error($curl) );//如果执行curl过程中出现异常，可打开此开关，以便查看异常内容
+           curl_close($curl);
+
+           return $responseText;
+   }
 }
