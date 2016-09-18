@@ -206,8 +206,9 @@ class FriendController extends BaseController {
         }
         
         FriendManager::deleteFriend($accountId, $friendId);
+        $account = AccountManager::getAccount($accountId);
         
-        BaseUtil::echoJson(CodeParam::SUCCESS, null);
+        BaseUtil::echoJson(CodeParam::SUCCESS, $account['friend_num']);
     }
 }
 
