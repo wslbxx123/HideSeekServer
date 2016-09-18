@@ -33,7 +33,7 @@ $(function(){
 	
 	//刷新页面个人信息
 	if(sessionStorage.getItem("sessionid")!=null){
-		alert(sessionStorage.getItem("sessionid"));
+//		alert(sessionStorage.getItem("sessionid"));
 		refreshdata();
 	}
 	
@@ -45,7 +45,7 @@ $(function(){
 				dataType: "json",
 				
 				success: function(result, status) {
-					alert(JSON.stringify(result));
+//					alert(JSON.stringify(result));
 					switch(result["code"]){
 						case "10000":
 							sessionStorage["myimgpath"] = result["result"]["small_photo_url"];
@@ -260,7 +260,7 @@ $(function(){
 											switch(result["code"]){
 												case "10000":
 													document.getElementById("alipaypage").innerHTML = result["result"]["html"];
-													alert(result["result"]["html"]);
+//													alert(result["result"]["html"]);
 													document.getElementById("alipaysubmit").submit();
 													order_id = result["result"]["order_id"];
 													if(sessionStorage.getItem("orderid")==null){
@@ -972,7 +972,7 @@ $(function(){
 		var allGood = true;
 		var allTags = document.getElementById("newWin1").getElementsByTagName("*");
 		var phone_figures_test;
-		alert(phone_figures_test);
+//		alert(phone_figures_test);
 		if($('#passwd1').val().length>=6){
 			phone_figures_test = true;
 		}

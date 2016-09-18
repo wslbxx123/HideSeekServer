@@ -7,7 +7,7 @@ $(function(){
 	var reward_id;
 	//刷新页面个人信息
 	if(sessionStorage.getItem("sessionid")!=null){
-		alert(sessionStorage.getItem("sessionid"));
+//		alert(sessionStorage.getItem("sessionid"));
 		refreshdata();
 	}
 	
@@ -19,7 +19,7 @@ $(function(){
 				dataType: "json",
 				
 				success: function(result, status) {
-					alert(JSON.stringify(result));
+//					alert(JSON.stringify(result));
 						switch(result["code"]){
 							case "10000":
 								sessionStorage["myimgpath"] = result["result"]["small_photo_url"];
@@ -432,7 +432,7 @@ $(function(){
 				  + "&area=" + $("#province1").val()+"-"+$("#city1").val()+"-"+$("#district1").val()
 				  + "&address=" + $("#myaddress").val()
 				  + "&set_default=" + $("input[name='radioselect']:checked").val();
-			alert(data);
+//			alert(data);
 			var createExchangeOrder = {
 				url: "/index.php/home/store/createExchangeOrder",
 				type: 'POST',
@@ -587,7 +587,7 @@ $(function(){
 				dataType: "json",
 				
 				success: function(result, status) {
-					alert(JSON.stringify(result));
+//					alert(JSON.stringify(result));
 					switch(result["code"]){
 						case "10000":
 							sessionid = result["result"]["session_id"];
@@ -853,7 +853,7 @@ $(function(){
 				dataType: "json",
 				
 				success: function(result, status) {
-					alert(JSON.stringify(result));
+//					alert(JSON.stringify(result));
 					switch(result["code"]){
 						case "10000":
 							alert("修改密码成功！");

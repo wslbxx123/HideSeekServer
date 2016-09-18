@@ -395,7 +395,7 @@ document.getElementById("myorder").onclick = function(){
 				dataType: "json",
 				
 				success: function(result, status) {
-					alert(JSON.stringify(result));
+//					alert(JSON.stringify(result));
 					switch(result["code"]){
 						case "10000":
 							$("spinner").fadeOut();
