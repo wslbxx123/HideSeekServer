@@ -401,9 +401,9 @@ $(function(){
 							   		alert(arr);
 							   		alert(arr[0]);
 							   		alert(arr[1]);
-							   		$("#province1 option[text=arr[0]]").attr("selected", true); 
-							   		$("#city1 option[text=arr[1]]").attr("selected", true); 
-							   		$("#district1 option[text=arr[2]]").attr("selected", true); 
+							   		$("#province1 option[text='天津市']").attr("selected", true); 
+							   		$("#city1 option[text='天津']").attr("selected", true); 
+							   		$("#district1 option[text='河东区']").attr("selected", true); 
 							   		
 							   		$("#myaddress").val(default_address);
 							   		$("input[name='radioselect']").eq(0).attr("checked","checked");
