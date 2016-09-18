@@ -108,7 +108,8 @@ $(function(){
 		$("#myorder").fadeOut();
 		$("#orderArea").fadeOut();
 		getClick = false;
-		$(".photo").attr("src","./Public/Image/Web/mypicture.png");
+		$("#abc").attr("src","");
+		$("#abc1").attr("src","");
 		$("#sex").val("未设置");
 		$(".cityinput").val("未设置");
 		$("#listArea").empty();
@@ -124,7 +125,8 @@ $(function(){
 		$("#myorder").fadeOut();
 		$("#orderArea").fadeOut();
 		getClick = false;
-		$(".photo").attr("src","./Public/Image/Web/mypicture.png");
+		$("#abc").attr("src","");
+		$("#abc1").attr("src","");
 		$("#sex").val("未设置");
 		$(".cityinput").val("未设置");
 		alert("你已经被迫掉线！")

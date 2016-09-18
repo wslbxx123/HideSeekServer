@@ -39,7 +39,7 @@ $('.sexArea li').click(function(){
 
 //头像上传处理
 $('#mycamera').change(function(e){
-	$(".photo").attr("src","./Public/Image/Web/mypicture.png");
+	$("#abc").attr("src","./Public/Image/Web/mypicture.png");
 	EXIF.getData(e.target.files[0], function() { 
 		EXIF.getAllTags(this); 
 		Orientation = EXIF.getTag(this,'Orientation'); 
@@ -81,6 +81,7 @@ $("#mydata").click(function(){
 });
 
 $('#mycamera1').change(function(e){
+	$("#abc1").attr("src","./Public/Image/Web/mypicture.png");
 	changepic = true;
 	EXIF.getData(e.target.files[0], function() { 
 		EXIF.getAllTags(this); 
@@ -100,7 +101,7 @@ $("#refreshData").click(function(){
 				url: "/index.php/home/user/updatePhotoUrl",	
 				type: 'POST',
 				data: "session_id=" + sessionStorage.getItem("sessionid") 
-						+ "&photo_url="+ encodeURIComponent($(".photo").attr("src")),
+						+ "&photo_url="+ encodeURIComponent($("#abc1").attr("src")),
 				dataType: "json",
 				
 				success: function(result, status) {
@@ -319,7 +320,7 @@ document.getElementById("matchId").onclick = function(){
 								+ "&sex="+ sex
 								+ "&region=" + region
 								+ "&role=" + myId
-								+ "&photo_url=" + encodeURIComponent($(".photo").attr("src"));
+								+ "&photo_url=" + encodeURIComponent($("#abc").attr("src"));
 				}
 				else{
 						data = "phone=" + document.getElementById("userphone").value 
@@ -361,7 +362,7 @@ document.getElementById("matchId").onclick = function(){
 			
 										$("#nickname").html($("#userName").val());
 										$("#scoreNum").html(Num);
-										$("#myimg").attr('src',$(".photo").attr("src"));
+										$("#myimg").attr('src',$("#abc").attr("src"));
 										$("myorder").fadeIn();
 										break;
 								  	case "10003":
@@ -706,8 +707,22 @@ function getPath(obj,fileQuery,transImg){
 							
 							var images = new Image();
 							images.src = mypicture .toDataURL("image/jpeg");
-							$(".photo").attr("src",images.src);
+							$("#abc").attr("src",images.src);
 							mypictureExist = true;
+							//如果方向角不为1，都需要进行旋转  
+						    if(Orientation != "" && Orientation != 1&&Orientation !=null){
+						    	switch(Orientation){
+						    		case 6://需要顺时针（向左）90度旋转  
+					                rotateImg(mypicture,'left');  
+					                break;  
+						    	}
+					    		var images1 = new Image();
+						        images1.src = mypicture.toDataURL("image/jpeg");
+						        $("#abc").attr("src",images1.src);
+						    	cover.translate(0,0);
+						        cover.rotate(-90 * Math.PI / 180);
+						        cover.translate(-250,-250);
+						    }
 						}
 						
 						else{
@@ -724,23 +739,23 @@ function getPath(obj,fileQuery,transImg){
 						
 							var images = new Image();
 							images.src = mypicture.toDataURL("image/jpeg");
-							$(".photo").attr("src",images.src);
+							$("#abc1").attr("src",images.src);
+							//如果方向角不为1，都需要进行旋转  
+						    if(Orientation != "" && Orientation != 1&&Orientation !=null){
+						    	switch(Orientation){
+						    		case 6://需要顺时针（向左）90度旋转  
+					                rotateImg(mypicture,'left');  
+					                break;  
+						    	}
+					    		var images1 = new Image();
+						        images1.src = mypicture.toDataURL("image/jpeg");
+						        $("#abc1").attr("src",images1.src);
+						    	cover.translate(0,0);
+						        cover.rotate(-90 * Math.PI / 180);
+						        cover.translate(-250,-250);
+						    }
 						}
 
-					//如果方向角不为1，都需要进行旋转  
-				    if(Orientation != "" && Orientation != 1&&Orientation !=null){
-				    	switch(Orientation){
-				    		case 6://需要顺时针（向左）90度旋转  
-			                rotateImg(mypicture,'left');  
-			                break;  
-				    	}
-			    		var images1 = new Image();
-				        images1.src = mypicture.toDataURL("image/jpeg");
-				        $(".photo").attr("src",images1.src);
-				    	cover.translate(0,0);
-				        cover.rotate(-90 * Math.PI / 180);
-				        cover.translate(-250,-250);
-				    }
 		        
 				    function rotateImg(img,direction){
 				    	if (direction == 'left') {
