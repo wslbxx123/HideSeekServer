@@ -77,7 +77,7 @@ $("#mydata").click(function(){
 		region = $(".cityinput").val();
 	}
 	
-	$(".photo").attr('src',sessionStorage.getItem("myimgpath")); 
+	$("#abc1").attr('src',sessionStorage.getItem("myimgpath")); 
 });
 
 $('#mycamera1').change(function(e){
@@ -792,7 +792,8 @@ function clearStorage(){
 	$("#myorder").fadeOut();
 	$("#orderArea").fadeOut();
 	getClick = false;
-	$(".photo").attr("src","./Public/Image/Web/mypicture.png");
+	$("#abc").attr("src","./Public/Image/Web/mypicture.png");
+	$("#abc1").attr("src","./Public/Image/Web/mypicture.png");
 	$("#sex").val("未设置");
 	$(".cityinput").val("未设置");
 	alert("你已经被迫掉线！")
