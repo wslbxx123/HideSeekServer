@@ -1,8 +1,12 @@
 <?php
 namespace Home\Controller;
-use Think\Controller;
-class IndexController extends Controller {
+use Home\Controller\BaseController;
+
+
+class IndexController extends BaseController {
     public function index(){
+        self::setHeader();
+        
         $tradeStatus = filter_input(INPUT_GET, 'trade_status');
         
         $this->assign("tradeStatus", $tradeStatus);
@@ -16,9 +20,11 @@ class IndexController extends Controller {
     public function hideseek_m() {
         $tradeStatus = filter_input(INPUT_GET, 'trade_status');
         $goalId = filter_input(INPUT_GET, 'goal_id');
+        $sessionId = filter_input(INPUT_GET, 'session_id');
         
         $this->assign("tradeStatus", $tradeStatus);
         $this->assign("goalId", $goalId);
+        $this->assign("sessionId", $sessionId);
         $this->display();
     }
     
