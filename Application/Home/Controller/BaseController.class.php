@@ -21,7 +21,8 @@ class BaseController extends Controller {
     }
     
     public function getAccountFromToken($sessionId){
-        session_id($sessionId);
+        $length = strlen($sessionId);
+        session_id(subStr($sessionId, 0, $length - 10));
         session_start();
         
         $account_condition['session_token'] = md5($sessionId);

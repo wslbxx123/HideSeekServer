@@ -20,7 +20,11 @@ class AccountManager {
         $Dao = M("account");
         $condition['phone'] = $phone;
         $condition['password'] = md5($password);
-        $Dao->where($condition)->setField('session_token', md5(session_id()));
+        $sessionId = session_id().strtotime(date ("Y-m-d h:i:s"));
+        $Dao->where($condition)->setField('session_token', 
+                md5($sessionId));
+        
+        return $sessionId;
     }
     
     public function updateFriendNum($accountId, $friendNum) {
@@ -45,13 +49,13 @@ class AccountManager {
     }
     
     public function insertAccount($phone, $password, $nickname, $version, $role, 
-            $sex, $region, $channelId, $photoUrl, $smallPhotoUrl) {
+            $sex, $region, $channelId, $photoUrl, $smallPhotoUrl, $sessionId) {
         $Dao = M("account");
         $account["phone"] = $phone;
         $account["password"] = md5($password);
         $account["nickname"] = $nickname;
         $account["register_date"] = date('y-m-d H:i:s',time());
-        $account["session_token"] = md5(session_id());
+        $account["session_token"] = md5($sessionId);
         $account["version"] = $version;
         $account["role"] = $role;
         $account["channel_id"] = $channelId;
