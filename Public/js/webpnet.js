@@ -64,12 +64,12 @@ $(function(){
 	
 	//刷新时大头像出错，自动更换为默认图片
 	$(".photo").error(function(){
-		$(this).attr("src","./Public/Image/Web/mypicture.png");	
+		$(this).attr("src",mypictureImage);	
 	}); 
 	
 	//刷新时小头像出错，自动更换为默认图片
 	$("#myimg").error(function(){
-		$(this).attr("src","./Public/Image/Web/mypicture.png");	
+		$(this).attr("src",mypictureImage);	
 	});
 	
 	
@@ -82,7 +82,7 @@ $(function(){
 		$("#myorder").fadeOut();
 		$("#orderArea").fadeOut();
 		getClick = false;
-		$(".photo").attr("src","./Public/Image/Web/mypicture.png");
+		$(".photo").attr("src",mypictureImage);
 		$("#sex").val("未设置");
 		$(".cityinput").val("未设置");
 	});
@@ -95,7 +95,7 @@ $(function(){
 		$("#myorder").fadeOut();
 		$("#orderArea").fadeOut();
 		getClick = false;
-		$(".photo").attr("src","./Public/Image/Web/mypicture.png");
+		$(".photo").attr("src",mypictureImage);
 		$("#sex").val("未设置");
 		$(".cityinput").val("未设置");
 		alert("你已经被迫掉线！")
@@ -187,7 +187,7 @@ $(function(){
 						  	
 						  	//商品兑换信息框：商品积分图标
 						  	var messageImg = document.createElement('img');
-						  	messageImg.src = "./Public/Image/Web/score.png";
+						  	messageImg.src = scoreImage;
 						  	messageImg.className = "scoreImg";
 						  	messageDiv.appendChild(messageImg);
 						  	
@@ -200,7 +200,7 @@ $(function(){
 						  
 						  	//商品兑换信息框：商品人物图标
 						  	var peopleImg = document.createElement('img');
-						  	peopleImg.src = "./Public/Image/Web/people.png";
+						  	peopleImg.src = peopleImage;
 						  	peopleImg.className = "peopleImg";
 						  	messageDiv.appendChild(peopleImg);
 						  	
@@ -339,7 +339,7 @@ $(function(){
 						  	
 						  	//商品兑换信息框：商品积分图标
 						  	var messageImg = document.createElement('img');
-						  	messageImg.src = "./Public/Image/Web/score1.png";
+						  	messageImg.src = mypictureImage;
 						  	messageImg.className = "scoreImg";
 						  	messageDiv.appendChild(messageImg);
 						  	
@@ -352,7 +352,7 @@ $(function(){
 						  
 						  	//商品兑换信息框：商品人物图标
 						  	var peopleImg = document.createElement('img');
-						  	peopleImg.src = "./Public/Image/Web/people.png";
+						  	peopleImg.src = peopleImage;
 						  	peopleImg.className = "peopleImg";
 						  	messageDiv.appendChild(peopleImg);
 						  	
