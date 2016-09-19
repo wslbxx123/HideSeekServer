@@ -268,7 +268,7 @@ $(function(){
 											switch(result["code"]){
 												case "10000":
 													document.getElementById("alipaypage").innerHTML = result["result"]["html"];
-													alert(result["result"]["html"]);
+//													alert(result["result"]["html"]);
 													document.getElementById("alipaysubmit").submit();
 													order_id = result["result"]["order_id"];
 													if(sessionStorage.getItem("orderid")==null){
