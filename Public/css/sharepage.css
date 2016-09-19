@@ -1,0 +1,91 @@
+@charset "GB2312";
+
+*{margin:0;padding:0;       
+}
+
+
+body{
+	background:#fde582;
+	width:100%;
+	height:100%;
+}
+
+#sharelogo{
+	width:120px;
+	position:absolute;
+	right:5px;
+	top:5px;
+}
+
+#frame{
+	width:100%;
+	top:10%;
+	position:absolute;
+}
+
+#monster{
+	width: 98%;
+    position: relative;
+    margin-top: 25%;
+    margin-left: 1%;
+}
+
+#openapp{
+	width: 43%;
+    position: absolute;
+    left: 5%;
+    bottom: 36px;
+}
+
+#openstore{
+	width: 43%;
+    position: absolute;
+    right: 5%;
+    bottom: 34px;
+}
+
+#invitation{
+	width: 80%;
+    height: 79px;
+    position: absolute;
+    left: 10%;
+    bottom: 126px;
+    text-align: center;
+}
+
+#profile{
+	position: relative;
+    text-align: center;
+    font-family: "Microsoft Yahei"; 
+    font-size: 17px;
+    margin-top: 2px;
+}
+
+#role{
+	height:40px;
+	width:40px;
+	margin:0 auto;
+}
+
+#name{
+	color: #ae0c23;
+}
+
+#message{
+	margin-top: -25px;
+}
+
+#rm{
+	font-family: "Microsoft Yahei";
+    -moz-transform: rotate(8deg);
+    -webkit-transform: rotate(8deg);
+    -ms-transform: rotate(8deg);
+    transform: rotate(8deg);
+    position: absolute;
+    right: 21%;
+    top: 58%;
+}
+
+#goalid{
+	display:none;
+}
