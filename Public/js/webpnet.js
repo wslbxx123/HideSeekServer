@@ -260,7 +260,7 @@ $(function(){
 											switch(result["code"]){
 												case "10000":
 													document.getElementById("alipaypage").innerHTML = result["result"]["html"];
-													alert(result["result"]["html"]);
+//													alert(result["result"]["html"]);
 													document.getElementById("alipaysubmit").submit();
 													order_id = result["result"]["order_id"];
 													if(sessionStorage.getItem("orderid")==null){
@@ -991,7 +991,7 @@ $(function(){
 		var allTags = document.getElementById("newWin1").getElementsByTagName("*");
 		var phone_figures_test;
 		var phone_identical_test;
-		alert(phone_figures_test);
+//		alert(phone_figures_test);
 		if($('#passwd1').val().length>=6){
 			phone_figures_test = true;
 		}
