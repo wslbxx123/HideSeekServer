@@ -160,6 +160,20 @@ class MapController extends BaseController {
             "server_time" => date('y-m-d H:i:s',time()));
         BaseUtil::echoJson(CodeParam::SUCCESS, $result);
     }
+    
+    public function getGoalById() {
+        self::setHeader();
+        
+        $goalId = filter_input(INPUT_POST, 'goal_id');
+        
+        if(!isset($goalId)) {
+            BaseUtil::echoJson(CodeParam::GOAL_ID_EMPTY, null);
+            return false;
+        }
+        
+        $result = GoalManager::getGoal($goalId);
+        BaseUtil::echoJson(CodeParam::SUCCESS, $result);
+    }
 }
 
 
