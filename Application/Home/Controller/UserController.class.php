@@ -31,9 +31,9 @@ class UserController extends BaseController {
             return;
         }
         
-        AccountManager::updateSessionToken($phone, $password);
+        $sessionId = AccountManager::updateSessionToken($phone, $password);
         $_SESSION['pk_id'] = $account["pk_id"];
-        $account["session_id"] = session_id();
+        $account["session_id"] = $sessionId;
         $account["friend_requests"] = FriendRequestManager::
                 getFriendRequests($account['pk_id']);  
         
@@ -71,14 +71,15 @@ class UserController extends BaseController {
         $photo = $_FILES['photo'];
         $photoDataUrl = filter_input(INPUT_POST, 'photo_url');
         
+        $sessionId = session_id().strtotime(date ("Y-m-d h:i:s"));
         $accountId = UserControllerManager::setRegisterUserInfo($phone, $password, $nickname,
-                $role, $sex, $region, $channelId, $photo, $photoDataUrl);
+                $role, $sex, $region, $channelId, $photo, $photoDataUrl, $sessionId);
         
         if(!isset($accountId)) { return; }
         
         $_SESSION['pk_id'] = $accountId;
         $account = AccountManager::getAccount($accountId);
-        $account["session_id"] = session_id();
+        $account["session_id"] = $sessionId;
         
         BaseUtil::echoJson(CodeParam::SUCCESS, $account); 
     }
