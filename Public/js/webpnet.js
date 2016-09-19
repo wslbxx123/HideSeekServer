@@ -5,9 +5,9 @@ $(function(){
 	var getId;	//兑换或者购买按钮的对应ID值；
 	var sessionid;	//session_id变量；
 	var reward_id;
-	
 	//刷新页面个人信息
 	if(sessionStorage.getItem("sessionid")!=null){
+//		alert(sessionStorage.getItem("sessionid"));
 		refreshdata();
 	}
 	
@@ -396,18 +396,14 @@ $(function(){
 						   		default_area = sessionStorage.getItem("default_area");
 						   		default_address = sessionStorage.getItem("default_address");
 						   		if(default_area!=null&&default_area!="null"&&default_area!=""){
-						   			alert(1);
 							   		arr = default_area.split("-");
-							   		alert(arr);
-							   		alert(arr[0]);
-							   		alert(arr[1]);
-							   		$("#province1 option:contains('"+arr[0]+"')").attr("selected", true);
-//							   		$("#city1 option:contains(arr[1])").attr("selected", true);
-//							   		$("#district1 option:contains(arr[2])").attr("selected", true);
-//							   		$("#province1 option[text='天津市']").attr("selected", "selected"); 
-//							   		$("#city1 option[text='天津']").attr("selected", true); 
-//							   		$("#district1 option[text='河东区']").attr("selected", true); 
-							   		
+		
+							   		$('#distpicker1').distpicker({
+									    province: arr[0],
+									    city: arr[1],
+									    district: arr[2]
+									});
+									 
 							   		$("#myaddress").val(default_address);
 							   		$("input[name='radioselect']").eq(0).attr("checked","checked");
             						$("input[name='radioselect']").eq(1).removeAttr("checked");
@@ -415,9 +411,9 @@ $(function(){
 						    }
 						});
 						break;
-					case "11000":
-						clearStorage();
-						break;
+//					case "11000":
+//						clearStorage();
+//						break;
 				}
 			},
 			error: function(XMLHttpRequest, textStatus, errorThrown) {
@@ -436,7 +432,7 @@ $(function(){
 				  + "&area=" + $("#province1").val()+"-"+$("#city1").val()+"-"+$("#district1").val()
 				  + "&address=" + $("#myaddress").val()
 				  + "&set_default=" + $("input[name='radioselect']:checked").val();
-			alert(data);
+//			alert(data);
 			var createExchangeOrder = {
 				url: "/index.php/home/store/createExchangeOrder",
 				type: 'POST',
@@ -620,6 +616,9 @@ $(function(){
 					  	case "10001":
 					  		$("#fault").fadeIn();
 					  		break;
+					  	case "11000":
+					  		clearStorage();
+							break;
 					}
 					
 				},
@@ -666,6 +665,9 @@ $(function(){
 				  	case "10015":
 				  		phoneregistered = false;
 				  		break;
+				  	case "11000":
+				  		clearStorage();
+						break;
 				}	
 			},
 			error: function(XMLHttpRequest, textStatus, errorThrown) {
@@ -730,6 +732,9 @@ $(function(){
 					  	case "10001":
 					  		$("#fault").fadeIn();
 					  		break;
+					  	case "11000":
+							clearStorage();
+							break;
 					}
 					
 				},
@@ -848,7 +853,7 @@ $(function(){
 				dataType: "json",
 				
 				success: function(result, status) {
-					alert(JSON.stringify(result));
+//					alert(JSON.stringify(result));
 					switch(result["code"]){
 						case "10000":
 							alert("修改密码成功！");

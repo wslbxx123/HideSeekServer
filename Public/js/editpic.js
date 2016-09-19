@@ -1,4 +1,4 @@
-var roleImages = new Array("Image/Web/grassfairy.jpg","Image/Web/watermagician.jpg","Image/Web/fireknight.jpg","Image/Web/stonemonster.jpg","Image/Web/lightninggiant.jpg");
+var roleImages = new Array("./Public/Image/Web/grassfairy.jpg","./Public/Image/Web/watermagician.jpg","./Public/Image/Web/fireknight.jpg","./Public/Image/Web/stonemonster.jpg","./Public/Image/Web/lightninggiant.jpg");
 var roleNames = new Array("草魅精灵","水影巫师","火光骑士","岩石兽族","闪电巨人");
 var myId = Math.floor ((Math.random() * roleImages.length));
 var logIn = false;
@@ -57,8 +57,7 @@ $("#mydata").click(function(){
 	$("#dataArea").fadeIn();
 	$("#flipframe").fadeOut();
 	$("#userName1").val($("#nickname").html());
-	$("body").css("height","590px");
-	$("#storecover").css("height","590px");
+	$("#storecover").css("height",$("body").height()-58+"px");
 	$("#storecover").fadeIn(); 
 	//检验性别填写框
 	if(sessionStorage.getItem("sex") == 0){
@@ -350,7 +349,7 @@ document.getElementById("matchId").onclick = function(){
 								
 										//判断photo_url是否为空；
 										if(result["result"]["photo_url"]==null){
-												sessionStorage.setItem("myimgpath", "Image/Web/mypicture.png");
+												sessionStorage.setItem("myimgpath", "./Public/Image/Web/mypicture.png");
 										}
 										else{
 												sessionStorage.setItem("myimgpath", result["result"]["small_photo_url"]);
@@ -383,9 +382,11 @@ document.getElementById("matchId").onclick = function(){
 
 
 document.getElementById("myorder").onclick = function(){
-		$("spinner").fadeIn();
+		$("#spinner").fadeIn();
 		$("#storecover").css("height",$("body").height()-58+"px");
 		$("#orderArea").fadeIn();
+		$("#purOrder").attr("class", "selected");
+		$("#exOrder").attr("class", "");
 		var orderArea1 = {
 				url: "/index.php/home/store/refreshPurchaseOrders",
 				type: 'POST',
@@ -394,6 +395,7 @@ document.getElementById("myorder").onclick = function(){
 				dataType: "json",
 				
 				success: function(result, status) {
+					alert(JSON.stringify(result));
 					switch(result["code"]){
 						case "10000":
 							$("spinner").fadeOut();
@@ -455,7 +457,7 @@ document.getElementById("myorder").onclick = function(){
 									data:data,
 									success: function(result, status) {
 //										alert(JSON.stringify(result));
-										$("#alipaypage").css("display")=='none';
+										$("#alipaypage").css("display","none");
 										document.getElementById("alipaypage").innerHTML = result["result"]["html"];
 										document.getElementById("alipaysubmit").submit();
 										order_id = result["result"]["order_id"];
@@ -492,6 +494,7 @@ document.getElementById("myorder").onclick = function(){
 				dataType: "json",
 			
 				success: function(result, status) {
+//					alert(JSON.stringify(result));
 					switch(result["code"]){
 						case "10000":
 							$("#listArea1").empty();

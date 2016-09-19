@@ -59,7 +59,6 @@
     	<script type="text/javascript" src="__PUBLIC__/js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="__PUBLIC__/js/distpicker.data.js"></script>
 	  	<script type="text/javascript" src="__PUBLIC__/js/distpicker.js"></script>
-	  	<script type="text/javascript" src="__PUBLIC__/js/main.js"></script>
 	  	<script type="text/javascript" src="__PUBLIC__/js/webpnet.js"></script>
 	</head>
 	<body>
@@ -112,6 +111,10 @@
 	    		<a id="purOrder" class="selected">购买区</a>
 	    		<a id="exOrder" class="">兑换区</a>
     		</div>
+    		 <div class="spinner">
+				  <div class="double-bounce1"></div>
+				  <div class="double-bounce2"></div>
+			</div>
 	    	<div id = "listArea"></div>
 	    	<div id = "listArea1"></div>
     		<!--<div id = "ordertitle">我的订单</div>
@@ -266,7 +269,7 @@
 						<input type="password" id="passwd1" class="reqd" placeholder="我的密码" maxlength="45"/>
 					</label>
 				</p>
-				<div style='height:1px;width:70%;background-color:gre y;line-height:1px;clear:both;display:block;overflow:hidden' class="line"> </div>		
+				<div style='height:1px;width:70%;background-color:grey;line-height:1px;clear:both;display:block;overflow:hidden' class="line"> </div>		
 				<p> <label for="passwd2">
 						<img src="__PUBLIC__/Image/Web/password.png" class="icon">
 						<input type="password" id="passwd2" class="reqd passwd1" placeholder="重输密码" maxlength="45"/>
@@ -361,7 +364,7 @@
     		</div>
     		<h5 class="sr-only">区域地址：</h5>
     		<form class="form-inline">
-		      <div data-toggle="distpicker">
+		      <div id = "distpicker1">
 		        <div class="form-group">         
 		          <select class="form-control" id="province1" autocomplete="off"><option value="" data-code="">—— 省 ——</option><option value="北京市" data-code="110000" selected="">北京市</option><option value="天津市" data-code="120000">天津市</option><option value="河北省" data-code="130000">河北省</option><option value="山西省" data-code="140000">山西省</option><option value="内蒙古自治区" data-code="150000">内蒙古自治区</option><option value="辽宁省" data-code="210000">辽宁省</option><option value="吉林省" data-code="220000">吉林省</option><option value="黑龙江省" data-code="230000">黑龙江省</option><option value="上海市" data-code="310000">上海市</option><option value="江苏省" data-code="320000">江苏省</option><option value="浙江省" data-code="330000">浙江省</option><option value="安徽省" data-code="340000">安徽省</option><option value="福建省" data-code="350000">福建省</option><option value="江西省" data-code="360000">江西省</option><option value="山东省" data-code="370000">山东省</option><option value="河南省" data-code="410000">河南省</option><option value="湖北省" data-code="420000">湖北省</option><option value="湖南省" data-code="430000">湖南省</option><option value="广东省" data-code="440000">广东省</option><option value="广西壮族自治区" data-code="450000">广西壮族自治区</option><option value="海南省" data-code="460000">海南省</option><option value="重庆市" data-code="500000">重庆市</option><option value="四川省" data-code="510000">四川省</option><option value="贵州省" data-code="520000">贵州省</option><option value="云南省" data-code="530000">云南省</option><option value="西藏自治区" data-code="540000">西藏自治区</option><option value="陕西省" data-code="610000">陕西省</option><option value="甘肃省" data-code="620000">甘肃省</option><option value="青海省" data-code="630000">青海省</option><option value="宁夏回族自治区" data-code="640000">宁夏回族自治区</option><option value="新疆维吾尔自治区" data-code="650000">新疆维吾尔自治区</option><option value="台湾省" data-code="710000">台湾省</option><option value="香港特别行政区" data-code="810000">香港特别行政区</option><option value="澳门特别行政区" data-code="820000">澳门特别行政区</option></select>
 		        </div>
@@ -382,11 +385,6 @@
     	
     	<!--支付宝过渡页面-->
         <div id ="alipaypage"></div>
-        
-        <div class="spinner">
-		  <div class="double-bounce1"></div>
-		  <div class="double-bounce2"></div>
-		</div>
         
         <input type = "text" id = "alipaystatus" value = "{$tradeStatus}" />
 	</body>

@@ -8,11 +8,11 @@ $(function(){
 	
 	var btn_open = document.getElementById('btn_open');
 	var open_app = document.getElementById('open_app');
-	alert('https://www.hideseek.cn/index.php/home/index/hideseek_m'+'?goal_id='+$("#goalid").val());
+//	alert('https://www.hideseek.cn/index.php/home/index/hideseek_m'+'?goal_id='+$("#goalid").val());
 	
 	if($("#goalid").val()!=""){
 		btn_open.addEventListener('click', function() {
-			alert('https://www.hideseek.cn/index.php/home/index/hideseek_m'+'?goal_id='+$("#goalid").val());
+//			alert('https://www.hideseek.cn/index.php/home/index/hideseek_m'+'?goal_id='+$("#goalid").val());
 			window.location.href = 'https://www.hideseek.cn/index.php/home/index/hideseek_m'+'?goal_id='+$("#goalid").val();
 			
 			setTimeout(function () {
@@ -33,6 +33,7 @@ $(function(){
 	
 	//刷新页面个人信息
 	if(sessionStorage.getItem("sessionid")!=null){
+//		alert(sessionStorage.getItem("sessionid"));
 		refreshdata();
 	}
 	
@@ -107,9 +108,13 @@ $(function(){
 		$("#myorder").fadeOut();
 		$("#orderArea").fadeOut();
 		getClick = false;
-		$(".photo").attr("src","./Public/Image/Web/mypicture.png");
+		$("#abc").attr("src","");
+		$("#abc1").attr("src","");
 		$("#sex").val("未设置");
 		$(".cityinput").val("未设置");
+		$("#listArea").empty();
+		$("#listArea1").empty();
+//		$("#abc").css();
 	});
 	
 	function clearStorage(){
@@ -120,10 +125,14 @@ $(function(){
 		$("#myorder").fadeOut();
 		$("#orderArea").fadeOut();
 		getClick = false;
-		$(".photo").attr("src","./Public/Image/Web/mypicture.png");
+		$("#abc").attr("src","");
+		$("#abc1").attr("src","");
 		$("#sex").val("未设置");
 		$(".cityinput").val("未设置");
 		alert("你已经被迫掉线！")
+		$("#listArea").empty();
+		$("#listArea1").empty();
+//		$("#abc").empty();
 	}
 	
 	//点击右上角叉号删除页面
@@ -140,32 +149,7 @@ $(function(){
 		$("#passwordArea").fadeOut();
 		$("#dataArea").fadeOut();
 		$("#listarea .orderlist").remove();	
-	});
-	
-	//此处需要判断是否支付成功。
-	alert($("#alipaystatus").val());
-	if($("#alipaystatus").val()=="TRADE_SUCCESS"){
-		var alipaypurchase = {
-				url: "/index.php/home/store/purchase",
-				type: 'POST',
-				data:"session_id=" + sessionStorage.getItem("sessionid")
-				+ "&order_id=" + orderid,
-				success: function(result, status) {
-					alert(JSON.stringify(result));
-					$("#nickname").html(sessionStorage.getItem("nickname"));
-					$("#scoreNum").html(sessionStorage.getItem("record"));
-					$("#myimg").attr('src',sessionStorage.getItem("myimgpath")); 
-					$(".inner_menu").fadeOut();
-					$("#myimg").fadeIn();
-					$("#myprofile" ).fadeIn();
-					$("#myorder").fadeIn();			
-				},
-				error: function(XMLHttpRequest, textStatus, errorThrown) {
-						alert("网络出现问题！");
-				}
-		};
-		$.ajax(alipaypurchase); 
-	}
+	});	
 	
 	//获取购买商场信息
 	var purStore = {
@@ -421,9 +405,13 @@ $(function(){
 						   		default_address = sessionStorage.getItem("default_address");
 						   		if(default_area!=null&&default_area!="null"&&default_area!=""){
 							   		arr = default_area.split("-");
-							   		$("#province1").val(arr[0]);
-							   		$("#city1").val(arr[1]);
-							   		$("#district1").val(arr[2]);
+							   		
+							   		$('#distpicker1').distpicker({
+									    province: arr[0],
+									    city: arr[1],
+									    district: arr[2]
+									});
+									
 							   		$("#myaddress").val(default_address);
 							   		$("input[name='radioselect']").eq(0).attr("checked","checked");
             						$("input[name='radioselect']").eq(1).removeAttr("checked");
@@ -689,6 +677,9 @@ $(function(){
 				  	case "10015":
 				  		phoneregistered = false;
 				  		break;
+				  	case "11000":
+						clearStorage();
+						break;
 				}	
 			},
 			error: function(XMLHttpRequest, textStatus, errorThrown) {
@@ -753,6 +744,9 @@ $(function(){
 					  	case "10001":
 					  		$("#fault").fadeIn();
 					  		break;
+					  	case "11000":
+							clearStorage();
+							break;
 					}
 					
 				},
@@ -986,7 +980,7 @@ $(function(){
 		var allGood = true;
 		var allTags = document.getElementById("newWin1").getElementsByTagName("*");
 		var phone_figures_test;
-		alert(phone_figures_test);
+//		alert(phone_figures_test);
 		if($('#passwd1').val().length>=6){
 			phone_figures_test = true;
 		}
