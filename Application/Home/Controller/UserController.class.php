@@ -270,5 +270,19 @@ class UserController extends BaseController {
         AccountManager::updateChannelId($accountId, $channelId);
         BaseUtil::echoJson(CodeParam::SUCCESS, $channelId);
     }
+    
+    public function getAccount() {
+        self::setHeader();
+        
+        $sessionId = filter_input(INPUT_POST, 'session_id');
+        $account = $this->getAccountFromToken($sessionId);
+        
+        if(!isset($sessionId) || $account['pk_id'] == 0) {
+            BaseUtil::echoJson(CodeParam::NOT_LOGIN, null);
+            return;
+        }
+        
+        BaseUtil::echoJson(CodeParam::SUCCESS, $account);
+    }
 }
 
