@@ -1,4 +1,4 @@
-var roleImages = new Array("./Public/Image/Web/grassfairy.jpg","./Public/Image/Web/watermagician.jpg","./Public/Image/Web/fireknight.jpg","./Public/Image/Web/stonemonster.jpg","./Public/Image/Web/lightninggiant.jpg");
+var roleImages = new Array(grassfairyImage,watermagicianImage,fireknightImage,stonemonsterImage,lightninggiantImage);
 var roleNames = new Array("草魅精灵","水影巫师","火光骑士","岩石兽族","闪电巨人");
 var myId = Math.floor ((Math.random() * roleImages.length));
 var logIn = false;
@@ -39,7 +39,7 @@ $('.sexArea li').click(function(){
 
 //头像上传处理
 $('#mycamera').change(function(e){
-	$("#abc").attr("src","./Public/Image/Web/mypicture.png");
+	$("#abc").attr("src",mypictureImage);
 	EXIF.getData(e.target.files[0], function() { 
 		EXIF.getAllTags(this); 
 		Orientation = EXIF.getTag(this,'Orientation'); 
@@ -81,7 +81,7 @@ $("#mydata").click(function(){
 });
 
 $('#mycamera1').change(function(e){
-	$("#abc1").attr("src","./Public/Image/Web/mypicture.png");
+	$("#abc1").attr("src",mypictureImage);
 	changepic = true;
 	EXIF.getData(e.target.files[0], function() { 
 		EXIF.getAllTags(this); 
@@ -350,7 +350,7 @@ document.getElementById("matchId").onclick = function(){
 								
 										//判断photo_url是否为空；
 										if(result["result"]["photo_url"]==null){
-												sessionStorage.setItem("myimgpath", "./Public/Image/Web/mypicture.png");
+												sessionStorage.setItem("myimgpath", mypictureImage);
 										}
 										else{
 												sessionStorage.setItem("myimgpath", result["result"]["small_photo_url"]);
@@ -792,8 +792,8 @@ function clearStorage(){
 	$("#myorder").fadeOut();
 	$("#orderArea").fadeOut();
 	getClick = false;
-	$("#abc").attr("src","./Public/Image/Web/mypicture.png");
-	$("#abc1").attr("src","./Public/Image/Web/mypicture.png");
+	$("#abc").attr("src",mypictureImage);
+	$("#abc1").attr("src",mypictureImage);
 	$("#sex").val("未设置");
 	$(".cityinput").val("未设置");
 	alert("你已经被迫掉线！")
