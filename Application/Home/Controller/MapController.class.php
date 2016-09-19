@@ -26,7 +26,7 @@ class MapController extends BaseController {
         }
         
         if(!isset($accountRole)) {
-            $accountRole = 0;
+            $accountRole = -1;
         }
         
         settype($latitude, "double");
