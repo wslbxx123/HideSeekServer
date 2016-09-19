@@ -24,7 +24,7 @@ class GoalManager {
     }
     
     public function getGoal($goalId) {
-        $Dao = M("goal");
+        $Dao = M("goal_monster_v");
         $condition['pk_id'] = $goalId;
         $goal = $Dao->where($condition)->find();
         return $goal;
