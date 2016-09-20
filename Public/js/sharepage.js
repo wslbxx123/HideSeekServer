@@ -16,6 +16,7 @@ $(function(){
 		url: "/index.php/home/map/getGoalById",
 		type: 'POST',
 		data:"goal_id=" + $("#goalid").val(),
+		dataType: "json",
 		
 		success: function(result, status) {
 			alert(JSON.stringify(result));

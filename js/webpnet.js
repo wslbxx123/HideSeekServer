@@ -227,6 +227,8 @@ $(function(){
 										url: "/index.php/home/store/createOrderFromH5",
 										type: 'POST',
 										data:data,
+										dataType: "json",
+										
 										success: function(result, status) {
 //											alert(JSON.stringify(result));
 											switch(result["code"]){
