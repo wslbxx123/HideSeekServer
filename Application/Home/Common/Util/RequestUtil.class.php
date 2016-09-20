@@ -28,15 +28,10 @@ class RequestUtil {
             return true;
         }     
         
-        //协议法，因为有可能不准确，放到最后判断
-        if (isset ($server['HTTP_ACCEPT'])) {
-            // 如果只支持wml并且不支持html那一定是移动设备
-            // 如果支持wml和html但是wml在html之前则是移动设备
-            if ((strpos($server['HTTP_ACCEPT'], 'vnd.wap.wml') !== false) && 
-                    (strpos($_SERVER['HTTP_ACCEPT'], 'text/html') === false || (strpos($_SERVER['HTTP_ACCEPT'], 'vnd.wap.wml') < strpos($_SERVER['HTTP_ACCEPT'], 'text/html')))) {
-                return true;
-            }
+        if(self::checkProtocol($server)) {
+            return true;
         }
+        
         return false;
     }
     
@@ -44,13 +39,50 @@ class RequestUtil {
     function checkClientFlag($server) {
         if (isset ($server['HTTP_USER_AGENT'])) {
             $clientkeywords = array(
-                'nokia','sony','ericsson','mot','samsung','htc','sgh','lg','sharp','sie-','philips','panasonic','alcatel','lenovo','iphone','ipod','blackberry','meizu','android','netfront','symbian','ucweb','windowsce','palm','operamini','operamobi','openwave','nexusone','cldc','midp','wap','mobile'
+                'nokia','sony','ericsson','mot','samsung','htc','sgh','lg',
+                'sharp','sie-','philips','panasonic','alcatel','lenovo',
+                'iphone','ipod','blackberry','meizu','android','netfront',
+                'symbian','ucweb','windowsce','palm','operamini','operamobi',
+                'openwave','nexusone','cldc','midp','wap','mobile'
             );
             //从HTTP_USER_AGENT中查找手机浏览器的关键字
             if (preg_match("/(" . implode('|', $clientkeywords) . ")/i", 
-                    strtolower($_SERVER['HTTP_USER_AGENT']))) {
+                    strtolower($server['HTTP_USER_AGENT']))) {
                 return true;
             }
         }
+        
+        return false;
+    }
+    
+    //协议法，因为有可能不准确，放到最后判断
+    function checkProtocol($server) {
+        if (isset ($server['HTTP_ACCEPT'])) {
+            // 如果只支持wml并且不支持html那一定是移动设备
+            // 如果支持wml和html但是wml在html之前则是移动设备
+            if ((strpos($server['HTTP_ACCEPT'], 'vnd.wap.wml') !== false) && 
+                    (strpos($server['HTTP_ACCEPT'], 'text/html') === false || 
+                    (strpos($server['HTTP_ACCEPT'], 'vnd.wap.wml') < 
+                            strpos($server['HTTP_ACCEPT'], 'text/html')))) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    function isSSL($server){  
+        if(!isset($server['HTTPS'])) {
+            return false;  
+        }  
+        
+        if($server['HTTPS'] === 1){  //Apache  
+            return true;  
+        } else if($server['HTTPS'] === 'on'){ //IIS  
+            return true;  
+        } else if($_SERVER['SERVER_PORT'] == 443){ //其他  
+            return true;  
+        }  
+        
+        return false;
     }
 }
