@@ -227,7 +227,7 @@ $(function(){
 						    //创建商品购买按钮
 						    var getDiv = document.createElement('div');
 						    getDiv.className = "purGet";
-						    getDiv.id = i;
+						    getDiv.id = result.result.products[i].pk_id;
 							getDiv.innerHTML= "购买";
 						    newDiv.appendChild(getDiv);   
 						        
@@ -240,20 +240,29 @@ $(function(){
 						   }
 						   
 						   else{
+						   		getId = $(this).attr("id");
 						   		$("#storecover").css("height",$("body").height()-58+"px");
 						   		$("#storecover").fadeIn();
 						   		$(".goodsNum").val("1");
-						   		getId = $(this).attr("id");
 						   		$(".goodsName").html(result.result.products[getId].product_name);
 						   		$(".goodsprice").html($(".goodsNum").val()*result.result.products[getId].price+"元");
 						   		
 						   		$('.goodsNum').change(function(){
 						   			$(".goodsprice").html($(".goodsNum").val()*result.result.products[getId].price+"元");
 						   		});
-						   		
 						   		//进入购买支付确认界面
-						   		$("#confirmpurchase").fadeIn();
+						   		if(getId==2){
+							   		if(sessionStorage.getItem("has_guide")==1){
+							   			var cf = confirm("您已经拥有怪兽图鉴，是否继续购买？")
+							   			if(cf){
+							   				$("#confirmpurchase").fadeIn();
+							   			}
+							   		}
+						   		}
 						   		
+						   		else{
+						   			$("#confirmpurchase").fadeIn();
+						   		}
 						   		//进入支付宝界面
 						   		$("#enterAlipay").click(function(){
 									var data = "session_id=" + sessionStorage.getItem("sessionid")
@@ -379,7 +388,7 @@ $(function(){
 						    //创建商品购买按钮
 						    var getDiv = document.createElement('div');
 						    getDiv.className = "exGet";
-						    getDiv.id = i;
+						    getDiv.id = result.result.reward[i].pk_id;
 							getDiv.innerHTML= "兑换";
 						    newDiv.appendChild(getDiv);   
 						}
@@ -462,6 +471,7 @@ $(function(){
 		else{
 			alert("亲，积分不足！")
 		}
+		alert("兑换成功！请等待发货通知。");
 		$("#confirmexchange").fadeOut();
 		$("#storecover").fadeOut();
 	});	
@@ -624,6 +634,7 @@ $(function(){
 							sessionStorage.setItem("region", result["result"]["region"]);
 							sessionStorage.setItem("default_area", result["result"]["default_area"]);
 							sessionStorage.setItem("default_address", result["result"]["default_address"]);
+					  		sessionStorage.setItem("has_guide", result["result"]["has_guide"]);
 					  		break;
 					  	case "10001":
 					  		$("#fault").fadeIn();
