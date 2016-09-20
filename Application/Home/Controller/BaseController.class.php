@@ -12,13 +12,29 @@ class BaseController extends Controller {
     }
     
     public function setWebHeader() {
+        header("Content-Type:text/html; charset=utf-8");
         $server = filter_input_array(INPUT_SERVER);
         $isMobile = RequestUtil::isMobile($server);
         
+        $serverName = $isMobile ? "m.hideseek.cn" : $server['SERVER_NAME'];
+        
         if($isMobile || !RequestUtil::isSSL($server)) {
-             header('Location: https://'.$server['SERVER_NAME'].U('Mindex/'.ACTION_NAME));
+             header('Location: https://'.$serverName.U('Mindex/'.ACTION_NAME));
              exit();
         } 
+    }
+    
+    public function setMobileHeader() {
+        header("Content-Type:text/html; charset=utf-8");
+        $server = filter_input_array(INPUT_SERVER);
+        $isMobile = RequestUtil::isMobile($server);
+        
+        $serverName = $isMobile ? "m.hideseek.cn" : $server['SERVER_NAME'];
+        
+        if(!$isMobile || !RequestUtil::isSSL($server)) {
+             header('Location: https://'.$serverName.U('Mindex/'.ACTION_NAME));
+             exit();
+        }
     }
     
     public function getPkIdFromToken($sessionId){
