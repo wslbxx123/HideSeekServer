@@ -30,6 +30,7 @@ $(function(){
 						$("#monster").attr('src',bomb); 
 					}
 					if(result["result"]["type"]==2||result["result"]["type"]=="2"){
+						alert(result["result"]["show_type_name"]);
 						$("#monster").attr('src',result["result"]["show_type_name"]); 
 					}
 					break;
