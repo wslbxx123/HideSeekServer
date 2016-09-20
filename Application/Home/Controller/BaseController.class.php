@@ -16,12 +16,15 @@ class BaseController extends Controller {
         $server = filter_input_array(INPUT_SERVER);
         $isMobile = RequestUtil::isMobile($server);
         
-        $serverName = $isMobile ? "m.hideseek.cn" : $server['SERVER_NAME'];
+        $serverName = $isMobile ? "m.hideseek.cn" : "www.hideseek.cn";
         $controller = $isMobile ? "Mindex" : "Index";
+        if(!strtolower(ACTION_NAME) == "index") {
+            $url = U($controller.'/'.ACTION_NAME);
+        }
         
         if($isMobile || !RequestUtil::isSSL($server)) {
              header('Location: https://'.$serverName
-                     .U($controller, ACTION_NAME).$server['QUERY_STRING']);
+                     .$url.$server['QUERY_STRING']);
              exit();
         } 
     }
@@ -31,11 +34,15 @@ class BaseController extends Controller {
         $server = filter_input_array(INPUT_SERVER);
         $isMobile = RequestUtil::isMobile($server);
         
-        $serverName = $isMobile ? "m.hideseek.cn" : $server['SERVER_NAME'];
+        $serverName = $isMobile ? "m.hideseek.cn" : "www.hideseek.cn";
+        $controller = $isMobile ? "Mindex" : "Index";
+        if(!strtolower(ACTION_NAME) == "index") {
+            $url = U($controller.'/'.ACTION_NAME);
+        }
         
         if(!$isMobile || !RequestUtil::isSSL($server)) {
-             header('Location: https://'.$serverName.U('Mindex/'
-                     .ACTION_NAME.$server['QUERY_STRING']));
+             header('Location: https://'.$serverName
+                     .$url.$server['QUERY_STRING']);
              exit();
         }
     }
