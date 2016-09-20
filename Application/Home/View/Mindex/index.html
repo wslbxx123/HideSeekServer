@@ -12,16 +12,23 @@
     	<link rel="stylesheet" href="__PUBLIC__/css/webpnet_m.css">
     	<link rel="shortcut icon" href="__PUBLIC__/Image/Web/hideseek.ico"/>
     	<script type="text/javascript">
-    		var system ={};  
-		    var p = navigator.platform;       
+    		var system ={  
+		        win : false,  
+		        mac : false,  
+		        xll : false  
+		    };  
+		    //检测平台  
+		    var p = navigator.platform;  
+		    alert(p);  
 		    system.win = p.indexOf("Win") == 0;  
 		    system.mac = p.indexOf("Mac") == 0;  
-		    system.x11 = (p == "X11") || (p.indexOf("Linux") == 0);     
-		    if(system.win||system.mac||system.xll){//如果是电脑跳转到百度  
-		        window.location.href="http://www.hideseek.cn";  
-		    }else{  //如果是手机,跳转到谷歌
-		        window.location.href="http://m.hideseek.cn";  
-		    }
+		    system.x11 = (p == "X11") || (p.indexOf("Linux") == 0);  
+		    //跳转语句  
+		    if(system.win||system.mac||system.xll){//转向后台登陆页面  
+		        window.location.href="www.hideseek.cn";  
+		    }else{  
+		        window.location.href="m.hideseek.cn";  
+		    }  
     	</script> 
     	<script type="text/javascript">
     		var score1Image = "__PUBLIC__/Image/Web/score1.png";
