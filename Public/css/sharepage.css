@@ -32,16 +32,22 @@ body{
 
 #openapp{
 	width: 43%;
+    height: 53px;
     position: absolute;
     left: 5%;
-    bottom: 36px;
+    bottom: 34px;
+    background: url(../Image/Web/openapp.png) no-repeat center;
+    background-size: cover;
 }
 
 #openstore{
 	width: 43%;
+    height: 53px;
     position: absolute;
     right: 5%;
     bottom: 34px;
+    background: url(../Image/Web/openstore.png) no-repeat center;
+    background-size: cover;
 }
 
 #invitation{
@@ -87,5 +93,9 @@ body{
 }
 
 #goalid{
+	display:none;
+}
+
+#sessionid{
 	display:none;
 }
