@@ -30,12 +30,14 @@ $(function(){
 						$("#monster").css('width', 0.7*width);
 						$("#monster").css('margin-top', 0.34*height);
 						$("#monster").css('margin-left', 0.15*width);
+						$("rm").html("蘑菇兽");
 					}
 					if(result["result"]["type"]==3||result["result"]["type"]=="3"){
 						$("#monster").attr('src',bomb); 
 						$("#monster").css('width', 0.86*width);
 						$("#monster").css('margin-top', 0.45*height);
 						$("#monster").css('margin-left', 0.12*width);
+						$("rm").html("诡诈兽");
 					}
 					if(result["result"]["type"]==2||result["result"]["type"]=="2"){
 						switch(result["result"]["show_type_name"]){
@@ -44,30 +46,35 @@ $(function(){
 								$("#monster").css('width', 0.51*width);
 								$("#monster").css('margin-top', 0.34*height);
 								$("#monster").css('margin-left', 0.25*width);
+								$("rm").html("怪诞兽");
 								break;
 							case "bird":
 								$("#monster").attr('src',bird); 
 								$("#monster").css('width', 0.90*width);
 								$("#monster").css('margin-top', 0.25*height);
 								$("#monster").css('margin-left', 0.5*width);
+								$("rm").html("飞魂兽");
 								break;
 							case "dragon":
 								$("#monster").attr('src',bird); 
 								$("#monster").css('width', 0.7*width);
 								$("#monster").css('margin-top', 0.32*height);
-								$("#monster").css('margin-left', 0.15*width)
+								$("#monster").css('margin-left', 0.15*width);
+								$("rm").html("龙冠兽");
 								break;
 							case "giraffe":
 								$("#monster").attr('src',giraffe); 
 								$("#monster").css('width', 0.8*width);
 								$("#monster").css('margin-top', 0.27*height);
-								$("#monster").css('margin-left', 0.10*width)
+								$("#monster").css('margin-left', 0.10*width);
+								$("rm").html("长悠兽");
 								break;
 							case "cow":
 								$("#monster").attr('src',cow); 
 								$("#monster").css('width', 0.76*width);
 								$("#monster").css('margin-top', 0.31*height);
-								$("#monster").css('margin-left', 0.12*width)
+								$("#monster").css('margin-left', 0.12*width);
+								$("rm").html("呲牙兽");
 								break;
 						}
 					}
