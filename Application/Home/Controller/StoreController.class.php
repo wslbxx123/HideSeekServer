@@ -11,6 +11,7 @@ use Home\DataAccess\ExchangeOrderManager;
 use Home\DataAccess\AccountManager;
 use Home\BusinessLogic\Network\AlipayManager;
 use Home\BusinessLogic\Manager\StoreControllerManager;
+use Home\Common\Util\RequestUtil;
 
 class StoreController extends BaseController {
    
@@ -455,6 +456,7 @@ class StoreController extends BaseController {
         $rsaSign = AlipayManager::rsaSign("怪兽图鉴", "可获得怪兽信息，并包含拿下怪兽的规则。",
                 2.0, "YKMHR1462636800");
         echo "怪兽图鉴";
-        echo $rsaSign;
+        $server = filter_input_array(INPUT_SERVER);
+        echo RequestUtil::isMobile($server) ? 1 : 0;
     }
 }
