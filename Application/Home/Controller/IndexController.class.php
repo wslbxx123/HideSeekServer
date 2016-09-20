@@ -4,7 +4,7 @@ use Home\Controller\BaseController;
 
 class IndexController extends BaseController {
     public function Index(){
-//        self::setWebHeader();
+        self::setWebHeader();
         
         $tradeStatus = filter_input(INPUT_GET, 'trade_status');
         
