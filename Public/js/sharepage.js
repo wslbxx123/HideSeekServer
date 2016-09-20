@@ -19,6 +19,7 @@ $(function(){
 		
 		success: function(result, status) {
 			alert(JSON.stringify(result));
+			alert(result["code"]);
 			switch(result["code"]){
 				case "10000":
 					if(result["result"]["type"]==1||result["result"]["type"]=="1"){
