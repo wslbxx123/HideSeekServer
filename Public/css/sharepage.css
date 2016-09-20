@@ -25,10 +25,10 @@ body{
 }
 
 #monster{
-	width: 98%;
+	width: 90%;
     position: relative;
     margin-top: 25%;
-    margin-left: 1%;
+    margin-left: 5%;
 }
 
 #openapp{
