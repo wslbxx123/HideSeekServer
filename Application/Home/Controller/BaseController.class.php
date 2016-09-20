@@ -16,7 +16,7 @@ class BaseController extends Controller {
         $server = filter_input_array(INPUT_SERVER);
         $isMobile = RequestUtil::isMobile($server);
         
-        $serverName = $isMobile ? "m.hideseek.cn" : $server['SERVER_NAME'];
+        $serverName = $isMobile ? "m.hideseek.cn" : "www.hideseek.cn";
         $controller = $isMobile ? "Mindex" : "Index";
         if(!strtolower(ACTION_NAME) == "index") {
             $url = U($controller.'/'.ACTION_NAME);
@@ -34,7 +34,7 @@ class BaseController extends Controller {
         $server = filter_input_array(INPUT_SERVER);
         $isMobile = RequestUtil::isMobile($server);
         
-        $serverName = $isMobile ? "m.hideseek.cn" : $server['SERVER_NAME'];
+        $serverName = $isMobile ? "m.hideseek.cn" : "www.hideseek.cn";
         $controller = $isMobile ? "Mindex" : "Index";
         if(!strtolower(ACTION_NAME) == "index") {
             $url = U($controller.'/'.ACTION_NAME);
