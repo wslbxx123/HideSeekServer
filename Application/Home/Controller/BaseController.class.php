@@ -21,7 +21,7 @@ class BaseController extends Controller {
         
         if($isMobile || !RequestUtil::isSSL($server)) {
              header('Location: https://'.$serverName
-                     .U($controller.ACTION_NAME).$server['QUERY_STRING']);
+                     .U($controller, ACTION_NAME).$server['QUERY_STRING']);
              exit();
         } 
     }
