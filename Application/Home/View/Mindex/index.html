@@ -12,21 +12,25 @@
     	<link rel="stylesheet" href="__PUBLIC__/css/webpnet_m.css">
     	<link rel="shortcut icon" href="__PUBLIC__/Image/Web/hideseek.ico"/>
     	<script type="text/javascript">
-    		var system ={  
-		        win : false,  
-		        mac : false,  
-		        xll : false  
-		    };  
-		    //检测平台  
-		    var p = navigator.platform;  
-		    alert(p);  
-		    system.win = p.indexOf("Win") == 0;  
-		    system.mac = p.indexOf("Mac") == 0;  
-		    system.x11 = (p == "X11") || (p.indexOf("Linux") == 0);  
-		    //跳转语句  
-		    if(system.win||system.mac||system.xll){//转向后台登陆页面  
-		        window.location.href="http://www.hideseek.cn";  
-		    }
+    		function browserRedirect() { 
+				var sUserAgent= navigator.userAgent.toLowerCase(); 
+				var bIsIpad= sUserAgent.match(/ipad/i) == "ipad"; 
+				var bIsIphoneOs= sUserAgent.match(/iphone os/i) == "iphone os"; 
+				var bIsMidp= sUserAgent.match(/midp/i) == "midp"; 
+				var bIsUc7= sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4"; 
+				var bIsUc= sUserAgent.match(/ucweb/i) == "ucweb"; 
+				var bIsAndroid= sUserAgent.match(/android/i) == "android"; 
+				var bIsCE= sUserAgent.match(/windows ce/i) == "windows ce"; 
+				var bIsWM= sUserAgent.match(/windows mobile/i) == "windows mobile"; 
+				 
+				if (bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM) { 
+					window.location.href= 'm.hideseek.cn'; 
+				} 
+				else {
+					window.location= 'www.hideseek.cn'; 
+				} 
+			} 
+			browserRedirect(); 
     	</script> 
     	
     	<script type="text/javascript">
