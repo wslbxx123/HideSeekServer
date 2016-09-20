@@ -6,9 +6,12 @@ $(function(){
 	alert($("#role").val());
 	alert($("#goalid").val());
 	$("#name").html($("#nickname").val());
-	$("#role").attr('src',roleImages[("#role").val()]); 
-							
-	
+	if(("#role").val()!=""&&("#role").val()!=null){
+		$("#role").attr('src',roleImages[("#role").val()]); 
+	}						
+	else{
+		$("#role").attr('src',roleImages[0]); 
+	}
 	var getGoalById = {
 		url: "/index.php/home/map/getGoalById",
 		type: 'POST',
