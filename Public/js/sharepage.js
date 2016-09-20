@@ -2,30 +2,10 @@ $(function(){
 //	alert($("#sessionid").val());
 //	alert($("#goalid").val());
 	var roleImages = new Array(fairyImage,magicianImage,knightImage,monsterImage,giantImage);
-	var refreshAccountData = {
-				url: "/index.php/home/user/refreshAccountData",	
-				type: 'POST',
-				data: "session_id=" + $("#sessionid").val(),
-				dataType: "json",
-				
-				success: function(result, status) {
-					switch(result["code"]){
-						case "10000":
-							$("#name").html(result["result"]["nickname"]);
-							$("#role").attr('src',roleImages[result["result"]["role"]]); 
-							break;
-					  	case "10003":
-					  		alert("发送信息失败！")
-					  		break;
-					  	case "11000":
-					  		break;
-					}	
-				},
-				error: function(XMLHttpRequest, textStatus, errorThrown) {
-					alert("网络出现问题！");
-				}
-		};
-		$.ajax(refreshAccountData);		
+	
+	$("#name").html($("#nickname").val());
+	$("#role").attr('src',roleImages[("#role").val()]); 
+							
 	
 	var getGoalById = {
 		url: "/index.php/home/map/getGoalById",
@@ -55,7 +35,7 @@ $(function(){
 	var btn_open = document.getElementById('openapp');
 	btn_open.addEventListener('click', function() {
 //			alert('https://www.hideseek.cn/index.php/home/index/hideseek_m'+'?goal_id='+$("#goalid").val());
-			window.location.href = 'https://www.hideseek.cn/index.php/home/index/hideseek_m'+'?goal_id='+$("#goalid").val()+;
+			window.location.href = 'https://www.hideseek.cn/home/mindex/index'+'?goal_id='+$("#goalid").val();
 			
 			setTimeout(function () {
 //	           window.location.href = 'https://m.hideseek.cn/';
