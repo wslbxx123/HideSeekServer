@@ -4,7 +4,7 @@ $(function(){
 	var roleImages = new Array(fairyImage,magicianImage,knightImage,monsterImage,giantImage);
 	
 	$("#name").html($("#nickname").val());
-	$("#role").attr('src',$("#role").val()); 
+	$("#role").attr('src',roleImages[("#role").val()]); 
 							
 	
 	var getGoalById = {
@@ -35,7 +35,7 @@ $(function(){
 	var btn_open = document.getElementById('openapp');
 	btn_open.addEventListener('click', function() {
 //			alert('https://www.hideseek.cn/index.php/home/index/hideseek_m'+'?goal_id='+$("#goalid").val());
-			window.location.href = 'https://www.hideseek.cn/index.php/home/index/hideseek_m'+'?goal_id='+$("#goalid").val();
+			window.location.href = 'https://www.hideseek.cn/home/mindex/index'+'?goal_id='+$("#goalid").val();
 			
 			setTimeout(function () {
 //	           window.location.href = 'https://m.hideseek.cn/';
