@@ -8,5 +8,6 @@ return array(
     'DB_PORT'   => '3306',                                          //端口
     'DB_PREFIX' => 'admin_',                                        //数据库表前缀
     'URL_MODEL' => 2,
-    'URL_HTML_SUFFIX' => ''
+    'URL_HTML_SUFFIX' => '',
+    'URL_CASE_INSENSITIVE'  =>  true
 );

@@ -79,7 +79,7 @@ class RequestUtil {
             return true;  
         } else if($server['HTTPS'] === 'on'){ //IIS  
             return true;  
-        } else if($_SERVER['SERVER_PORT'] == 443){ //其他  
+        } else if($server['SERVER_PORT'] == 443){ //其他  
             return true;  
         }  
         
