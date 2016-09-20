@@ -19,7 +19,8 @@ class BaseController extends Controller {
         $serverName = $isMobile ? "m.hideseek.cn" : $server['SERVER_NAME'];
         
         if($isMobile || !RequestUtil::isSSL($server)) {
-             header('Location: https://'.$serverName.U('Mindex/'.ACTION_NAME));
+             header('Location: https://'.$serverName
+                     .U('Mindex/'.ACTION_NAME).$server['QUERY_STRING']);
              exit();
         } 
     }
@@ -32,7 +33,8 @@ class BaseController extends Controller {
         $serverName = $isMobile ? "m.hideseek.cn" : $server['SERVER_NAME'];
         
         if(!$isMobile || !RequestUtil::isSSL($server)) {
-             header('Location: https://'.$serverName.U('Mindex/'.ACTION_NAME));
+             header('Location: https://'.$serverName.U('Mindex/'
+                     .ACTION_NAME.$server['QUERY_STRING']));
              exit();
         }
     }
