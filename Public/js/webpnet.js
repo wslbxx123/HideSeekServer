@@ -246,7 +246,7 @@ $(function(){
 						   		
 						   		//进入购买支付确认界面
 						   		if(products_id==2){
-							   		if(sessionStorage.getItem("has_guide")==1){
+							   		if(sessionStorage.getItem("has_guide")=="1"){
 							   			var cf = confirm("您已经拥有怪兽图鉴，是否继续购买？")
 							   			if(cf){
 							   				$("#confirmpurchase").fadeIn();
