@@ -251,6 +251,12 @@ $(function(){
 							   			if(cf){
 							   				$("#confirmpurchase").fadeIn();
 							   			}
+							   			else{
+							   				$("#storecover").fadeOut();
+							   			}
+							   		}
+							   		else{
+							   			$("#confirmpurchase").fadeIn();
 							   		}
 						   		}
 						   		
