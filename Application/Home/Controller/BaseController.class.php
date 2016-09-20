@@ -1,6 +1,7 @@
 <?php
 namespace Home\Controller;
 use Think\Controller;
+use Home\Common\Util\RequestUtil;
 
 class BaseController extends Controller {
     public function setHeader() {
@@ -8,6 +9,16 @@ class BaseController extends Controller {
         header('Access-Control-Allow-Origin: www.hideseek.cn');
         header('Access-Control-Allow-Methods: POST');
         header('Access-Control-Max-Age: 1000');
+    }
+    
+    public function setWebHeader() {
+        $server = filter_input_array(INPUT_SERVER);
+        $isMobile = RequestUtil::isMobile($server);
+        
+        if($isMobile || !RequestUtil::isSSL($server)) {
+             header('Location: https://'.$server['SERVER_NAME'].U('Mindex/'.ACTION_NAME));
+             exit();
+        } 
     }
     
     public function getPkIdFromToken($sessionId){
