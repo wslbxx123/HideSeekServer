@@ -1,12 +1,7 @@
 $(function(){
-//	alert($("#sessionid").val());
-//	alert($("#goalid").val());
 	var roleImages = new Array(fairyImage,magicianImage,knightImage,monsterImage,giantImage);
 	var width = document.body.clientWidth;
 	var height = document.body.clientHeight;
-	alert($("#nickname").val());
-	alert($("#role").val());
-	alert($("#goalid").val());
 	$("#name").html($("#nickname").val());
 	if($("#role").val()!=""&&$("#role").val()!=null){
 		$("#role").attr('src',roleImages[$("#role").val()]); 
@@ -21,7 +16,7 @@ $(function(){
 		dataType: "json",
 		
 		success: function(result, status) {
-			alert(JSON.stringify(result));
+//			alert(JSON.stringify(result));
 			alert(result["code"]);
 			switch(result["code"]){
 				case "10000":
