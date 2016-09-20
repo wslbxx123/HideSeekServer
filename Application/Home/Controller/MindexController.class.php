@@ -4,7 +4,7 @@ use Home\Controller\BaseController;
 
 class MindexController extends BaseController {
     public function index(){
-        self::setHeader();
+        self::setMobileHeader();
         
         $tradeStatus = filter_input(INPUT_GET, 'trade_status');
         
@@ -13,7 +13,7 @@ class MindexController extends BaseController {
     }
     
     public function sharePage(){
-        self::setHeader();
+        self::setMobileHeader();
         
         $goalId = filter_input(INPUT_GET, 'goal_id');
         $nickname = filter_input(INPUT_GET, 'nickname');
