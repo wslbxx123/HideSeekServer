@@ -6,8 +6,8 @@ $(function(){
 	alert($("#role").val());
 	alert($("#goalid").val());
 	$("#name").html($("#nickname").val());
-	if(("#role").val()!=""&&("#role").val()!=null){
-		$("#role").attr('src',roleImages[("#role").val()]); 
+	if($("#role").val()!=""&&$("#role").val()!=null){
+		$("#role").attr('src',roleImages[$("#role").val()]); 
 	}						
 	else{
 		$("#role").attr('src',roleImages[0]); 
