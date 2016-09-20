@@ -458,5 +458,7 @@ class StoreController extends BaseController {
         echo "怪兽图鉴";
         $server = filter_input_array(INPUT_SERVER);
         echo RequestUtil::isMobile($server) ? 1 : 0;
+        $isSSL = RequestUtil::isSSL($server);
+        echo $isSSL ? 1 : 0;
     }
 }
