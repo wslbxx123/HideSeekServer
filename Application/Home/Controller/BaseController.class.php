@@ -17,10 +17,11 @@ class BaseController extends Controller {
         $isMobile = RequestUtil::isMobile($server);
         
         $serverName = $isMobile ? "m.hideseek.cn" : $server['SERVER_NAME'];
+        $controller = $isMobile ? "Mindex" : "Index";
         
         if($isMobile || !RequestUtil::isSSL($server)) {
              header('Location: https://'.$serverName
-                     .U('Mindex/'.ACTION_NAME).$server['QUERY_STRING']);
+                     .U($controller.ACTION_NAME).$server['QUERY_STRING']);
              exit();
         } 
     }
