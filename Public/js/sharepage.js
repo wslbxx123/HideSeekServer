@@ -16,9 +16,11 @@ $(function(){
 		url: "/index.php/home/map/getGoalById",
 		type: 'POST',
 		data:"goal_id=" + $("#goalid").val(),
+		dataType: "json",
 		
 		success: function(result, status) {
 			alert(JSON.stringify(result));
+			alert(result["code"]);
 			switch(result["code"]){
 				case "10000":
 					if(result["result"]["type"]==1||result["result"]["type"]=="1"){
@@ -28,6 +30,7 @@ $(function(){
 						$("#monster").attr('src',bomb); 
 					}
 					if(result["result"]["type"]==2||result["result"]["type"]=="2"){
+						alert(result["result"]["show_type_name"]);
 						$("#monster").attr('src',result["result"]["show_type_name"]); 
 					}
 					break;
