@@ -2,7 +2,9 @@ $(function(){
 //	alert($("#sessionid").val());
 //	alert($("#goalid").val());
 	var roleImages = new Array(fairyImage,magicianImage,knightImage,monsterImage,giantImage);
-	
+	alert($("#nickname").val());
+	alert($("#role").val());
+	alert($("#goalid").val());
 	$("#name").html($("#nickname").val());
 	$("#role").attr('src',roleImages[("#role").val()]); 
 							
