@@ -2,6 +2,8 @@ $(function(){
 //	alert($("#sessionid").val());
 //	alert($("#goalid").val());
 	var roleImages = new Array(fairyImage,magicianImage,knightImage,monsterImage,giantImage);
+	var width = document.body.clientWidth;
+	var height = document.body.clientHeight;
 	alert($("#nickname").val());
 	alert($("#role").val());
 	alert($("#goalid").val());
@@ -25,13 +27,49 @@ $(function(){
 				case "10000":
 					if(result["result"]["type"]==1||result["result"]["type"]=="1"){
 						$("#monster").attr('src',mushroom); 
+						$("#monster").css('width', 0.7*width);
+						$("#monster").css('margin-top', 0.34*height);
+						$("#monster").css('margin-left', 0.15*width);
 					}
 					if(result["result"]["type"]==3||result["result"]["type"]=="3"){
 						$("#monster").attr('src',bomb); 
+						$("#monster").css('width', 0.86*width);
+						$("#monster").css('margin-top', 0.45*height);
+						$("#monster").css('margin-left', 0.12*width);
 					}
 					if(result["result"]["type"]==2||result["result"]["type"]=="2"){
-						alert(result["result"]["show_type_name"]);
-						$("#monster").attr('src',eval(result["result"]["show_type_name"])); 
+						switch(result["result"]["show_type_name"]){
+							case "egg":
+								$("#monster").attr('src',egg); 
+								$("#monster").css('width', 0.51*width);
+								$("#monster").css('margin-top', 0.34*height);
+								$("#monster").css('margin-left', 0.25*width);
+								break;
+							case "bird":
+								$("#monster").attr('src',bird); 
+								$("#monster").css('width', 0.90*width);
+								$("#monster").css('margin-top', 0.25*height);
+								$("#monster").css('margin-left', 0.5*width);
+								break;
+							case "dragon":
+								$("#monster").attr('src',bird); 
+								$("#monster").css('width', 0.7*width);
+								$("#monster").css('margin-top', 0.32*height);
+								$("#monster").css('margin-left', 0.15*width)
+								break;
+							case "giraffe":
+								$("#monster").attr('src',giraffe); 
+								$("#monster").css('width', 0.8*width);
+								$("#monster").css('margin-top', 0.27*height);
+								$("#monster").css('margin-left', 0.10*width)
+								break;
+							case "cow":
+								$("#monster").attr('src',cow); 
+								$("#monster").css('width', 0.76*width);
+								$("#monster").css('margin-top', 0.31*height);
+								$("#monster").css('margin-left', 0.12*width)
+								break;
+						}
 					}
 					break;
 				case "11000":
