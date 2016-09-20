@@ -252,6 +252,7 @@ $(function(){
 						   			$(".goodsprice").html($(".goodsNum").val()*result.result.products[getId].price+"元");
 						   		});
 						   		//进入购买支付确认界面
+						   		alert(products_id);
 						   		if(products_id==2){
 							   		if(sessionStorage.getItem("has_guide")==1){
 							   			var cf = confirm("您已经拥有怪兽图鉴，是否继续购买？")

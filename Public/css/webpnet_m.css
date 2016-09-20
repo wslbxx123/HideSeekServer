@@ -1382,6 +1382,8 @@ p.tip{
 	left: 86px;
     margin-top: 29px;
     position: absolute;
+    border-color: lightgray;
+    border-width: 1px;
 }
 
 .radioselect{
