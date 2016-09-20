@@ -3,7 +3,7 @@ namespace Home\Controller;
 use Home\Controller\BaseController;
 
 class MindexController extends BaseController {
-    public function Index(){
+    public function index(){
 //        self::setMobileHeader();
         
         $tradeStatus = filter_input(INPUT_GET, 'trade_status');
