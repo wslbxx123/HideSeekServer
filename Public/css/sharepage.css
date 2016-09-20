@@ -51,6 +51,26 @@ body{
     background-size: cover;
 }
 
+#openapp:active{
+	width: 43%;
+    height: 53px;
+    position: absolute;
+    left: 5%;
+    bottom: 34px;
+    background: url(../Image/Web/openapp_selected.png) no-repeat center;
+    background-size: cover;
+}
+
+#openstore:active{
+	width: 43%;
+    height: 53px;
+    position: absolute;
+    right: 5%;
+    bottom: 34px;
+    background: url(../Image/Web/openstore_selected.png) no-repeat center;
+    background-size: cover;
+}
+
 #invitation{
 	width: 80%;
     height: 79px;
