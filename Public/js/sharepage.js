@@ -17,7 +17,6 @@ $(function(){
 		
 		success: function(result, status) {
 //			alert(JSON.stringify(result));
-			alert(result["code"]);
 			switch(result["code"]){
 				case "10000":
 					if(result["result"]["type"]==1||result["result"]["type"]=="1"){
@@ -36,6 +35,23 @@ $(function(){
 					}
 					if(result["result"]["type"]==2||result["result"]["type"]=="2"){
 						$("#monster").attr('src',eval(result["result"]["show_type_name"])); 
+						switch(result["result"]["show_type_name"]){
+							case "cow":
+								$("rm").html("呲牙兽");
+								break;
+							case "bird":
+								$("rm").html("飞魂兽");
+								break;
+							case "dragon":
+								$("rm").html("龙冠兽");
+								break;	
+							case "giraffe":
+								$("rm").html("长悠兽");
+								break;
+							case "egg":
+								$("rm").html("怪诞兽");
+								break;
+						}
 					}
 					break;
 				case "11000":
