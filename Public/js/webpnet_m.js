@@ -18,6 +18,7 @@ $(function(){
 	   	alert("请对应下载Android版本！")
 	   }
 	   if(isIos){
+	   	alert(1);
 	   	window.location.href = 'https://itunes.apple.com/us/app/hideseek/id1154398844?ls=1&mt=8';
 	   }
 	});
