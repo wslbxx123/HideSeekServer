@@ -10,6 +10,7 @@ $(function(){
 	var btn_open1 = document.getElementById('btn_open1');
 	
 	btn_open.addEventListener('click', function() {
+		alert(1);
        var u = navigator.userAgent;
 	   var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端 
 	   var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
