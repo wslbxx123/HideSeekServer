@@ -61,28 +61,28 @@ $(function(){
 	};
 	$.ajax(getGoalById);
 	
-	var btn_open = document.getElementById('openapp');
-        btn_open.href = 'https://www.baidu.com';
-	btn_open.addEventListener('click', function() {
-//			alert('https://www.hideseek.cn/index.php/home/index/hideseek_m'+'?goal_id='+$("#goalid").val());
-//			window.location.href = 'https://www.hideseek.cn/home/mindex/sharePage';
-                        window.location.href = 'https://www.baidu.com';
-			
-			setTimeout(function () {
-//	           window.location.href = 'https://m.hideseek.cn/';
-	           var u = navigator.userAgent;
-			   var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端 
-			   var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
-			   if(isAndroid){
-			   	alert("Android近期上线，敬请期待！")
-			   }
-			   if(isIos){
-			   	window.location.href = 'https://m.hideseek.cn/home/mindex/index';
-			   }
-	        }, 1000);
-		});
-	
-	$("#openstore").click(function(){
-		window.location.href = 'https://www.baidu.com';
-	});
+//	var btn_open = document.getElementById('openapp');
+//        btn_open.href = 'https://www.baidu.com';
+//	btn_open.addEventListener('click', function() {
+////			alert('https://www.hideseek.cn/index.php/home/index/hideseek_m'+'?goal_id='+$("#goalid").val());
+////			window.location.href = 'https://www.hideseek.cn/home/mindex/sharePage';
+//                        window.location.href = 'https://www.baidu.com';
+//			
+//			setTimeout(function () {
+////	           window.location.href = 'https://m.hideseek.cn/';
+//	           var u = navigator.userAgent;
+//			   var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端 
+//			   var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+//			   if(isAndroid){
+//			   	alert("Android近期上线，敬请期待！")
+//			   }
+//			   if(isIos){
+//			   	window.location.href = 'https://m.hideseek.cn/home/mindex/index';
+//			   }
+//	        }, 1000);
+//		});
+//	
+//	$("#openstore").click(function(){
+//		window.location.href = 'https://www.baidu.com';
+//	});
 });
