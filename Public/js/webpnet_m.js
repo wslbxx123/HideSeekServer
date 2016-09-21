@@ -12,7 +12,7 @@ $(function(){
 	if($("#goalid").val()!=""){
 		btn_open.addEventListener('click', function() {
 //			alert('https://www.hideseek.cn/index.php/home/index/hideseek_m'+'?goal_id='+$("#goalid").val());
-			window.location.href = 'https://www.hideseek.cn/index.php/home/index/hideseek_m'+'?goal_id='+$("#goalid").val();
+			window.location.href = 'https://www.hideseek.cn/home/mindex/index'+'?goal_id='+$("#goalid").val();
 			
 			setTimeout(function () {
 	           window.location.href = 'https://m.hideseek.cn/';
@@ -30,7 +30,7 @@ $(function(){
 		
 		btn_open1.addEventListener('click', function() {
 //			alert('https://www.hideseek.cn/index.php/home/index/hideseek_m'+'?goal_id='+$("#goalid").val());
-			window.location.href = 'https://www.hideseek.cn/index.php/home/index/hideseek_m'+'?goal_id='+$("#goalid").val();
+			window.location.href = 'https://www.hideseek.cn/home/mindex/index'+'?goal_id='+$("#goalid").val();
 			
 			setTimeout(function () {
 	           window.location.href = 'https://m.hideseek.cn/';
