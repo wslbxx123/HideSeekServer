@@ -17,7 +17,7 @@ $(function(){
 	   if(isAndroid){
 	   	alert("请对应下载Android版本！")
 	   }
-	   if(isIos){
+	   if(isiOS){
 	   	alert(1);
 	   	window.location.href = 'https://itunes.apple.com/us/app/hideseek/id1154398844?ls=1&mt=8';
 	   }
@@ -30,7 +30,7 @@ $(function(){
 	   if(isAndroid){
 	   	alert("Android版本近期上线，敬请期待！")
 	   }
-	   if(isIos){
+	   if(isiOS){
 	   	window.location.href = "请对应下载iOS版本！";
 	   }
 	});
