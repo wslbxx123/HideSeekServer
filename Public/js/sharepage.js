@@ -24,32 +24,32 @@ $(function(){
 						$("#monster").css('width', 0.7*width);
 						$("#monster").css('margin-top', 0.34*height);
 						$("#monster").css('margin-left', 0.15*width);
-						$("rm").html("蘑菇兽");
+						$("#rm").html("蘑菇兽");
 					}
 					if(result["result"]["type"]==3||result["result"]["type"]=="3"){
 						$("#monster").attr('src',bomb); 
 						$("#monster").css('width', 0.86*width);
 						$("#monster").css('margin-top', 0.45*height);
 						$("#monster").css('margin-left', 0.12*width);
-						$("rm").html("诡诈兽");
+						$("#rm").html("诡诈兽");
 					}
 					if(result["result"]["type"]==2||result["result"]["type"]=="2"){
 						$("#monster").attr('src',eval(result["result"]["show_type_name"])); 
 						switch(result["result"]["show_type_name"]){
 							case "cow":
-								$("rm").html("呲牙兽");
+								$("#rm").html("呲牙兽");
 								break;
 							case "bird":
-								$("rm").html("飞魂兽");
+								$("#rm").html("飞魂兽");
 								break;
 							case "dragon":
-								$("rm").html("龙冠兽");
+								$("#rm").html("龙冠兽");
 								break;	
 							case "giraffe":
-								$("rm").html("长悠兽");
+								$("#rm").html("长悠兽");
 								break;
 							case "egg":
-								$("rm").html("怪诞兽");
+								$("#rm").html("怪诞兽");
 								break;
 						}
 					}
@@ -61,28 +61,24 @@ $(function(){
 	};
 	$.ajax(getGoalById);
 	
-//	var btn_open = document.getElementById('openapp');
-//        btn_open.href = 'https://www.baidu.com';
-//	btn_open.addEventListener('click', function() {
-////			alert('https://www.hideseek.cn/index.php/home/index/hideseek_m'+'?goal_id='+$("#goalid").val());
-////			window.location.href = 'https://www.hideseek.cn/home/mindex/sharePage';
-//                        window.location.href = 'https://www.baidu.com';
-//			
-//			setTimeout(function () {
-////	           window.location.href = 'https://m.hideseek.cn/';
-//	           var u = navigator.userAgent;
-//			   var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端 
-//			   var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
-//			   if(isAndroid){
-//			   	alert("Android近期上线，敬请期待！")
-//			   }
-//			   if(isIos){
-//			   	window.location.href = 'https://m.hideseek.cn/home/mindex/index';
-//			   }
-//	        }, 1000);
-//		});
-//	
-//	$("#openstore").click(function(){
-//		window.location.href = 'https://www.baidu.com';
-//	});
+	var btn_open = document.getElementById('openapp');
+	btn_open.addEventListener('click', function() {
+		window.location.href = 'https://www.hideseek.cn/home/mindex/sharePage'+'?goal_id='+$("#goalid").val();
+			
+		setTimeout(function () {
+           var u = navigator.userAgent;
+		   var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端 
+		   var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+		   if(isAndroid){
+		   	alert("Android近期上线，敬请期待！")
+		   }
+		   if(isIos){
+		   	window.location.href = 'https://m.hideseek.cn/home/mindex/index';
+		   }
+        }, 1000);
+	});
+	
+	$("#openstore").click(function(){
+		window.location.href = 'https://m.hideseek.cn';
+	});
 });

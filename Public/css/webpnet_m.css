@@ -458,7 +458,7 @@ input.invalid {
 
 .apparea{
 	background-color: #fedf75;
-    width: 86%;
+    width: 39%;
     height: 38%;
     float: left;
     margin-left: 7%;
@@ -470,7 +470,7 @@ input.invalid {
     text-align: center;
     line-height: 4;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 15px;
     border: 1px solid gray;
 }
 

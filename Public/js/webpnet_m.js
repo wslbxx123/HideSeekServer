@@ -7,28 +7,43 @@ $(function(){
 	var reward_id;
 	
 	var btn_open = document.getElementById('btn_open');
-	var open_app = document.getElementById('open_app');
-//	alert('https://www.hideseek.cn/index.php/home/index/hideseek_m'+'?goal_id='+$("#goalid").val());
+	var btn_open1 = document.getElementById('btn_open1');
 	
-	if($("#goalid").val()!=""){
-		btn_open.addEventListener('click', function() {
+	btn_open.addEventListener('click', function() {
 //			alert('https://www.hideseek.cn/index.php/home/index/hideseek_m'+'?goal_id='+$("#goalid").val());
-			window.location.href = 'https://www.hideseek.cn/index.php/home/index/hideseek_m'+'?goal_id='+$("#goalid").val();
-			
-			setTimeout(function () {
-	           window.location.href = 'https://m.hideseek.cn/';
-	           var u = navigator.userAgent;
-			   var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端 
-			   var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
-			   if(isAndroid){
-			   	alert("Android近期上线，敬请期待！")
-			   }
-			   if(isIos){
-			   	window.location.href = 'https://m.hideseek.cn/';
-			   }
-	        }, 1000);
-		});
-	}
+		window.location.href = 'https://www.hideseek.cn/home/mindex/index';
+		
+		setTimeout(function () {
+           window.location.href = 'https://m.hideseek.cn/';
+           var u = navigator.userAgent;
+		   var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端 
+		   var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+		   if(isAndroid){
+		   	alert("请对应下载Android版本！")
+		   }
+		   if(isIos){
+		   	window.location.href = 'https://m.hideseek.cn/';
+		   }
+        }, 1000);
+	});
+	
+	btn_open1.addEventListener('click', function() {
+//			alert('https://www.hideseek.cn/index.php/home/index/hideseek_m'+'?goal_id='+$("#goalid").val());
+		window.location.href = 'https://www.hideseek.cn/home/mindex/index';
+		
+		setTimeout(function () {
+           window.location.href = 'https://m.hideseek.cn/';
+           var u = navigator.userAgent;
+		   var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端 
+		   var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+		   if(isAndroid){
+		   	alert("Android版本近期上线，敬请期待！")
+		   }
+		   if(isIos){
+		   	window.location.href = "请对应下载Android版本！";
+		   }
+        }, 1000);
+	});
 	
 	
 	//刷新页面个人信息
@@ -892,108 +907,107 @@ $(function(){
 	var codetest;//检验是否发送手机验证码；
 	
 	//发送和检验验证码
-//	document.getElementById("verifiCode").onclick = function(){
-//	    codetest = true;
-//		//验证用户填写手机格式是否正确
-//		var tel = document.getElementById("userphone").value;
-//	 	if(/^1\d{10}$/g.test(tel)){      
-//			phoneFormat = true;
-//		}
-//		else{
-//			alert("手机格式不正确！")
-//			phoneFormat = false;
-//		}
-//	
-//		//验证注册界面用户手机号码是否被注册
-//		var myphone = {
-//			url: "/index.php/home/user/checkIfUserExist",	
-//			type: 'POST',
-//			data: "phone=" + $("#userphone").val(),
-//			dataType: "json",
-//			
-//			success: function(result, status) {
-////				alert(JSON.stringify(result));
-//				switch(result["code"]){
-//					case "10000":
-//						phoneregistered = false;
-//						break;
-//				  	case "10015":
-//				  		phoneregistered = true;
-//				  		break;
-//				}	
-//			},
-//			error: function(XMLHttpRequest, textStatus, errorThrown) {
-//				alert("网络出现问题！");
-//				phoneregistered = true;
-//			}
-//		};
-//		$.ajax(myphone);	
-//
-//		//检验是否可以发送验证码
-//		if(phoneFormat&&!phoneregistered){
-//			verifiClick = true;
-//			document.getElementById("userphone").className = "reqd";
-//		}
-//		else{
-//			verifiClick = false;
-//			document.getElementById("userphone").className += " invalid";
-//		}
-//	
-//		//开始发送验证码
-//	   	if(verifiClick){    
-//			var verificode = {
-//				url: "/index.php/home/user/sendVerificationCode",
-//				type: 'POST',
-//				data: "phone=" + $("#userphone").val(),
-//				dataType: "json",
-//				
-//				success: function(result, status){   
-//					switch(result["code"]){
-//						case "10000":
-//							codeNumber = result["result"]["sms_code"];
-//							if(result["result"]["content"]["error_code"]==0){ 	
-//								timeKeeper = true;
-//								verifiClick = false;
-//								var tim = 59;
-//								$("#verifiCode").val("发送成功!");
-//								$("#verifiCode").css("background-color","darkgrey"); 
-//								
-//								setTimeout(function(){
-//									round();
-//									
-//								},1000);
-//								
-//								
-//							 	function round(){
-//							    	$("#verifiCode").val(tim+"秒");
-//							    	tim--;
-//							    	if(tim == 0){
-//							    		timeKeeper = false;
-//							    		verifiClick = true;
-//							        	$("#verifiCode").css("background-color","#FFCC00"); 
-//							        	$("#verifiCode").val("发送验证码");
-//							        }
-//							        if(timeKeeper){
-//							        	setTimeout(function(){
-//											round();
-//										},1000);
-//							        }
-//								}
-//							}	
-//							break;
-//					  	case "10001":
-//					  		$("#fault").fadeIn();
-//					  		break;
-//					}
-//					
-//				},
-//				error: function(XMLHttpRequest, textStatus, errorThrown) {
-//					alert("发送验证码失败！");
-//				}
-//			};
-//			$.ajax(verificode);
-//		}
-//	}
+	document.getElementById("verifiCode").onclick = function(){
+	    codetest = true;
+		//验证用户填写手机格式是否正确
+		var tel = document.getElementById("userphone").value;
+	 	if(/^1\d{10}$/g.test(tel)){      
+			phoneFormat = true;
+		}
+		else{
+			alert("手机格式不正确！")
+			phoneFormat = false;
+		}
+	
+		//验证注册界面用户手机号码是否被注册
+		var myphone = {
+			url: "/index.php/home/user/checkIfUserExist",	
+			type: 'POST',
+			data: "phone=" + $("#userphone").val(),
+			dataType: "json",
+			
+			success: function(result, status) {
+//				alert(JSON.stringify(result));
+				switch(result["code"]){
+					case "10000":
+						phoneregistered = false;
+						break;
+				  	case "10015":
+				  		phoneregistered = true;
+				  		break;
+				}	
+			},
+			error: function(XMLHttpRequest, textStatus, errorThrown) {
+				alert("网络出现问题！");
+				phoneregistered = true;
+			}
+		};
+		$.ajax(myphone);	
+		//检验是否可以发送验证码
+		if(phoneFormat&&!phoneregistered){
+			verifiClick = true;
+			document.getElementById("userphone").className = "reqd";
+		}
+		else{
+			verifiClick = false;
+			document.getElementById("userphone").className += " invalid";
+		}
+	
+		//开始发送验证码
+	   	if(verifiClick){    
+			var verificode = {
+				url: "/index.php/home/user/sendVerificationCode",
+				type: 'POST',
+				data: "phone=" + $("#userphone").val(),
+				dataType: "json",
+				
+				success: function(result, status){   
+					switch(result["code"]){
+						case "10000":
+							codeNumber = result["result"]["sms_code"];
+							if(result["result"]["content"]["error_code"]==0){ 	
+								timeKeeper = true;
+								verifiClick = false;
+								var tim = 59;
+								$("#verifiCode").val("发送成功!");
+								$("#verifiCode").css("background-color","darkgrey"); 
+								
+								setTimeout(function(){
+									round();
+									
+								},1000);
+								
+								
+							 	function round(){
+							    	$("#verifiCode").val(tim+"秒");
+							    	tim--;
+							    	if(tim == 0){
+							    		timeKeeper = false;
+							    		verifiClick = true;
+							        	$("#verifiCode").css("background-color","#FFCC00"); 
+							        	$("#verifiCode").val("发送验证码");
+							        }
+							        if(timeKeeper){
+							        	setTimeout(function(){
+											round();
+										},1000);
+							        }
+								}
+							}	
+							break;
+					  	case "10001":
+					  		$("#fault").fadeIn();
+					  		break;
+					}
+					
+				},
+				error: function(XMLHttpRequest, textStatus, errorThrown) {
+					alert("发送验证码失败！");
+				}
+			};
+			$.ajax(verificode);
+		}
+	}
 		
 	//	检验注册界面填写框
 	$("#register").click(function(){
@@ -1058,13 +1072,13 @@ $(function(){
 						}
 						classBack += thisClass;
 						break;
-//					case "reqc":
-//						if (allGood && $("#codeNum").val() != codeNumber) {
-//								alert("填写验证码错误！")
-//								classBack = "invalid ";
-//						}
-//						classBack += thisClass;
-//						break;
+					case "reqc":
+						if (allGood && $("#codeNum").val() != codeNumber) {
+								alert("填写验证码错误！")
+								classBack = "invalid ";
+						}
+						classBack += thisClass;
+						break;
 					default:
 						classBack += thisClass;
 						break;
