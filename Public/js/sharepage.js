@@ -81,6 +81,6 @@ $(function(){
 		});
 	
 	$("#openstore").click(function(){
-		window.location.href = 'https://m.hideseek.cn/';
+		window.location.href = 'https://www.baidu.com/';
 	});
 });
