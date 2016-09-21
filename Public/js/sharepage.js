@@ -64,7 +64,7 @@ $(function(){
 	var btn_open = document.getElementById('openapp');
 	btn_open.addEventListener('click', function() {
 //			alert('https://www.hideseek.cn/index.php/home/index/hideseek_m'+'?goal_id='+$("#goalid").val());
-			window.location.href = 'https://www.hideseek.cn/home/mindex/index'+'?goal_id='+$("#goalid").val();
+			window.location.href = 'https://www.hideseek.cn/home/mindex/sharePage';
 			
 			setTimeout(function () {
 //	           window.location.href = 'https://m.hideseek.cn/';
