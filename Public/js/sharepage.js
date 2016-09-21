@@ -24,32 +24,32 @@ $(function(){
 						$("#monster").css('width', 0.7*width);
 						$("#monster").css('margin-top', 0.34*height);
 						$("#monster").css('margin-left', 0.15*width);
-						$("rm").html("蘑菇兽");
+						$("#rm").html("蘑菇兽");
 					}
 					if(result["result"]["type"]==3||result["result"]["type"]=="3"){
 						$("#monster").attr('src',bomb); 
 						$("#monster").css('width', 0.86*width);
 						$("#monster").css('margin-top', 0.45*height);
 						$("#monster").css('margin-left', 0.12*width);
-						$("rm").html("诡诈兽");
+						$("#rm").html("诡诈兽");
 					}
 					if(result["result"]["type"]==2||result["result"]["type"]=="2"){
 						$("#monster").attr('src',eval(result["result"]["show_type_name"])); 
 						switch(result["result"]["show_type_name"]){
 							case "cow":
-								$("rm").html("呲牙兽");
+								$("#rm").html("呲牙兽");
 								break;
 							case "bird":
-								$("rm").html("飞魂兽");
+								$("#rm").html("飞魂兽");
 								break;
 							case "dragon":
-								$("rm").html("龙冠兽");
+								$("#rm").html("龙冠兽");
 								break;	
 							case "giraffe":
-								$("rm").html("长悠兽");
+								$("#rm").html("长悠兽");
 								break;
 							case "egg":
-								$("rm").html("怪诞兽");
+								$("#rm").html("怪诞兽");
 								break;
 						}
 					}
