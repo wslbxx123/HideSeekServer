@@ -460,5 +460,6 @@ class StoreController extends BaseController {
         echo RequestUtil::isMobile($server) ? 1 : 0;
         $isSSL = RequestUtil::isSSL($server);
         echo $isSSL ? 1 : 0;
+        echo $server['HTTP_USER_AGENT'];
     }
 }
