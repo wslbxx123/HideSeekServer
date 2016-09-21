@@ -10,29 +10,35 @@ $(function(){
 	var btn_open1 = document.getElementById('btn_open1');
 	
 	btn_open.addEventListener('click', function() {
-		alert(1);
-       var u = navigator.userAgent;
-	   var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端 
-	   var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
-	   if(isAndroid){
-	   	alert("请对应下载Android版本！")
-	   }
-	   if(isiOS){
-	   	alert(1);
-	   	window.location.href = 'https://itunes.apple.com/us/app/hideseek/id1154398844?ls=1&mt=8';
-	   }
+		window.location.href = 'https://www.hideseek.cn/home/mindex/index';
+		
+		setTimeout(function () {
+           var u = navigator.userAgent;
+		   var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端 
+		   var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+		   if(isAndroid){
+		   	alert("请对应下载Android版本！")
+		   }
+		   if(isiOS){
+		   	window.location.href = 'https://itunes.apple.com/us/app/hideseek/id1154398844?ls=1&mt=8';
+		   }
+        }, 1000);
 	});
 	
 	btn_open1.addEventListener('click', function() {
-       var u = navigator.userAgent;
-	   var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端 
-	   var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
-	   if(isAndroid){
-	   	alert("Android版本近期上线，敬请期待！")
-	   }
-	   if(isiOS){
-	   	window.location.href = "请对应下载iOS版本！";
-	   }
+		window.location.href = 'https://www.hideseek.cn/home/mindex/index';
+		
+		setTimeout(function () {
+           var u = navigator.userAgent;
+		   var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端 
+		   var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+		   if(isAndroid){
+		   	alert("Android版本近期上线，敬请期待！")
+		   }
+		   if(isiOS){
+		   	window.location.href = "请对应下载iOS版本！";
+		   }
+        }, 1000);
 	});
 	
 	
