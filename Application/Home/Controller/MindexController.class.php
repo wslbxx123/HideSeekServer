@@ -4,7 +4,7 @@ use Home\Controller\BaseController;
 
 class MindexController extends BaseController {
     public function index(){
-        self::setMobileHeader();
+        //self::setMobileHeader();
         
         $tradeStatus = filter_input(INPUT_GET, 'trade_status');
         
