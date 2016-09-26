@@ -9,6 +9,15 @@ $(function(){
 	var btn_open = document.getElementById('btn_open');
 	var btn_open1 = document.getElementById('btn_open1');
 	
+	var ver = (navigator.appVersion).match(/OS (\d+)_(\d+)_?(\d+)?/);  
+    ver = parseInt(ver[1], 10);  
+    alert(ver);
+    if(ver<7)  
+    {  
+        alert("需要IOS7及以上才可安装");  
+        return;  
+    }  
+	
 	btn_open.addEventListener('click', function() {
 		window.location.href = 'https://www.hideseek.cn/home/mindex/index';
 		
