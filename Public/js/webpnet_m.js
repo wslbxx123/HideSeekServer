@@ -8,7 +8,7 @@ $(function(){
 	
 	var btn_open = document.getElementById('btn_open');
 	var btn_open1 = document.getElementById('btn_open1');
-	
+	alert(1);
 	var ver = (navigator.appVersion).match(/OS (\d+)_(\d+)_?(\d+)?/);  
     ver = parseInt(ver[1], 10);  
     alert(ver);
