@@ -174,6 +174,7 @@ class StoreControllerManager {
             $result = array ("bomb_num" => $account['bomb_num'],
                 "has_guide" => $account['has_guide']);
             BaseUtil::echoJson(CodeParam::SUCCESS, $result);
+            return false;
         }
         
         return true;
