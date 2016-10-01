@@ -13,7 +13,7 @@ $(function(){
    	var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
 	var ver = (navigator.appVersion).match(/OS (\d+)_(\d+)_?(\d+)?/);  
     ver = parseInt(ver[1], 10);  
-//  alert(ver);
+    alert(ver);
 	
 	btn_open.addEventListener('click', function() {
 		if(ver>=9){  
