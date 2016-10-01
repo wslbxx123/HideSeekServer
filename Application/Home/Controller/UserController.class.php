@@ -8,11 +8,19 @@ use Home\Common\Param\KeyParam;
 use Home\DataAccess\AccountManager;
 use Home\DataAccess\RecordManager;
 use Home\DataAccess\PullVersionManager;
+use Home\DataAccess\SettingManager;
 use Home\BusinessLogic\Network\AlipayManager;
 use Home\BusinessLogic\Manager\UserControllerManager;
 use Home\DataAccess\FriendRequestManager;
 
 class UserController extends BaseController {
+    public function getSettings() {
+        self::setHeader();
+        
+        $setting = SettingManager::getSetting();
+        BaseUtil::echoJson(CodeParam::SUCCESS, $setting);
+    }
+    
     public function login(){
         self::setHeader();
         session_start();

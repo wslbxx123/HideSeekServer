@@ -169,11 +169,12 @@ class StoreControllerManager {
         }
         
         $order = PurchaseOrderManager::getOrder($orderId);
-        if($order['status'] == 0){
-            $account = AccountManager::updateAccountAfterPurchase($orderId);
+        if($order['status'] == 1){
+            $account = AccountManager::getAccount($accountId);
             $result = array ("bomb_num" => $account['bomb_num'],
                 "has_guide" => $account['has_guide']);
             BaseUtil::echoJson(CodeParam::SUCCESS, $result);
+            return false;
         }
         
         return true;
