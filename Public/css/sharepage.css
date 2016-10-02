@@ -26,7 +26,7 @@ body{
 
 #monster{
 	width: 90%;
-    position: relative;
+    position: absolute;
     margin-top: 17%;
     margin-left: 5%;
 }
