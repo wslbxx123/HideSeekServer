@@ -62,13 +62,21 @@ $(function(){
 	$.ajax(getGoalById);
 	
 	var btn_open = document.getElementById('openapp');
+	var u = navigator.userAgent;
+   	var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端 
+   	var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+	var ver = (navigator.appVersion).match(/OS (\d+)_(\d+)_?(\d+)?/);  
+    ver = parseInt(ver[1], 10);  
+    
 	btn_open.addEventListener('click', function() {
-		window.location.href = 'https://www.hideseek.cn/home/mindex/sharePage'+'?goal_id='+$("#goalid").val();
-			
+		if(ver>=9){  
+        	window.location.href = 'https://www.hideseek.cn/home/mindex/sharePage'+'?goal_id='+$("#goalid").val();
+		}  
+		else{  
+	        window.location.href = 'hideseek://'; 
+		} 
 		setTimeout(function () {
-           var u = navigator.userAgent;
-		   var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端 
-		   var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+           
 		   if(isAndroid){
 		   	alert("Android近期上线，敬请期待！")
 		   }
