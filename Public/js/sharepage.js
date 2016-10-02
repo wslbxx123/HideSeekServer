@@ -70,12 +70,13 @@ $(function(){
     alert(ver);
     
 	btn_open.addEventListener('click', function() {
-//		if(ver>=9){  
-//      	window.location.href = 'https://www.hideseek.cn/home/mindex/sharePage'+'?goal_id='+$("#goalid").val();
-//		}  
-//		else{  
+		if(ver>=9){  
+        	window.location.href = 'https://www.hideseek.cn/home/mindex/sharePage'+'?goal_id='+$("#goalid").val();
+		}  
+		else{
+			alert(1);
 	        window.location.href = 'hideseek://'; 
-//		} 
+		} 
 		setTimeout(function () {
            
 		   if(isAndroid){
