@@ -69,12 +69,12 @@ $(function(){
     ver = parseInt(ver[1], 10);  
     
 	btn_open.addEventListener('click', function() {
-		if(ver>=9){  
-        	window.location.href = 'https://www.hideseek.cn/home/mindex/sharePage'+'?goal_id='+$("#goalid").val();
-		}  
-		else{  
+//		if(ver>=9){  
+//      	window.location.href = 'https://www.hideseek.cn/home/mindex/sharePage'+'?goal_id='+$("#goalid").val();
+//		}  
+//		else{  
 	        window.location.href = 'hideseek://'; 
-		} 
+//		} 
 		setTimeout(function () {
            
 		   if(isAndroid){
