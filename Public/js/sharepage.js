@@ -67,14 +67,13 @@ $(function(){
    	var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
 	var ver = (navigator.appVersion).match(/OS (\d+)_(\d+)_?(\d+)?/);  
     ver = parseInt(ver[1], 10);  
-    alert(ver);
     
 	btn_open.addEventListener('click', function() {
 		if(ver>=9){  
         	window.location.href = 'https://www.hideseek.cn/home/mindex/sharePage'+'?goal_id='+$("#goalid").val();
 		}  
 		else{
-			alert(1);
+			alert("请在浏览器中打开此链接！");
 	        window.location.href = 'hideseek://'; 
 		} 
 		setTimeout(function () {
