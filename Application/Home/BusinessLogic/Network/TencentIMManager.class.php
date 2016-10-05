@@ -26,7 +26,7 @@ class TencentIMManager {
 	$acceptTime = new \TimeInterval(0, 0, 23, 59);
 	$message->addAcceptTime($acceptTime);
         
-	$ret = $push->PushSingleAccount(0, $phone, $message, \XingeApp::IOSENV_DEV);
+	$ret = $push->PushSingleAccount(0, $phone, $message, \XingeApp::IOSENV_PROD);
 	return $ret['ret_code'] == 0;
     }
 }
