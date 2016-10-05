@@ -69,22 +69,22 @@ $(function(){
     ver = parseInt(ver[1], 10);  
     
 	btn_open.addEventListener('click', function() {
-		if(ver>=9){  
-        	window.location.href = 'https://www.hideseek.cn/home/mindex/sharePage'+'?goal_id='+$("#goalid").val();
-		}  
-		else{
-			alert("请在浏览器中打开此链接！");
-	        window.location.href = 'hideseek://'; 
-		} 
-		setTimeout(function () {
-           
-		   if(isAndroid){
+		if(isAndroid){
 		   	alert("Android近期上线，敬请期待！")
-		   }
-		   if(isIos){
-		   	window.location.href = 'https://m.hideseek.cn/home/mindex/index';
-		   }
-        }, 1000);
+		}
+		if(isIos){
+			if(ver>=9){  
+	        	window.location.href = 'https://www.hideseek.cn/home/mindex/sharePage'+'?goal_id='+$("#goalid").val();
+			}  
+			else{
+				alert("请在浏览器中打开此链接！");
+		        window.location.href = 'hideseek://'; 
+			} 
+			setTimeout(function () {
+	           window.location.href = 'https://m.hideseek.cn/home/mindex/index';
+			   }
+	        }, 1000);
+	   }
 	});
 	
 	$("#openstore").click(function(){
