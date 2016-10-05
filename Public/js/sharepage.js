@@ -82,7 +82,6 @@ $(function(){
 			} 
 			setTimeout(function () {
 	           window.location.href = 'https://m.hideseek.cn/home/mindex/index';
-			   }
 	        }, 1000);
 	   }
 	});
