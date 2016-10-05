@@ -21,6 +21,22 @@ class UserController extends BaseController {
         BaseUtil::echoJson(CodeParam::SUCCESS, $setting);
     }
     
+    public function getFriendRequests() {
+        self::setHeader();
+        
+        $sessionId = filter_input(INPUT_POST, 'session_id');
+        $accountId = $this->getPkIdFromToken($sessionId);
+        
+        if(!isset($sessionId) || $accountId == 0) {
+            BaseUtil::echoJson(CodeParam::NOT_LOGIN, null);
+            return;
+        }
+        
+        $friendReqeusts = FriendRequestManager::getFriendRequests($accountId);
+        
+        BaseUtil::echoJson(CodeParam::SUCCESS, $friendReqeusts);
+    }
+    
     public function login(){
         self::setHeader();
         session_start();
