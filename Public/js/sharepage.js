@@ -4,10 +4,10 @@ $(function(){
 	var height = document.body.clientHeight;
 	$("#name").html($("#nickname").val());
 	if($("#role").val()!=""&&$("#role").val()!=null){
-		$("#role").attr('src',roleImages[$("#role").val()]); 
+		$("#myrole").attr('src',roleImages[$("#role").val()]); 
 	}						
 	else{
-		$("#role").attr('src',roleImages[0]); 
+		$("#myrole").attr('src',roleImages[0]); 
 	}
 	var getGoalById = {
 		url: "/index.php/home/map/getGoalById",
@@ -62,20 +62,28 @@ $(function(){
 	$.ajax(getGoalById);
 	
 	var btn_open = document.getElementById('openapp');
+	var u = navigator.userAgent;
+   	var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端 
+   	var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+	var ver = (navigator.appVersion).match(/OS (\d+)_(\d+)_?(\d+)?/);  
+    ver = parseInt(ver[1], 10);  
+    
 	btn_open.addEventListener('click', function() {
-		window.location.href = 'https://www.hideseek.cn/home/mindex/sharePage'+'?goal_id='+$("#goalid").val();
-			
-		setTimeout(function () {
-           var u = navigator.userAgent;
-		   var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端 
-		   var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
-		   if(isAndroid){
+		if(isAndroid){
 		   	alert("Android近期上线，敬请期待！")
-		   }
-		   if(isIos){
-		   	window.location.href = 'https://m.hideseek.cn/home/mindex/index';
-		   }
-        }, 1000);
+		}
+		if(isIos){
+			if(ver>=9){  
+	        	window.location.href = 'https://www.hideseek.cn/home/mindex/sharePage'+'?goal_id='+$("#goalid").val();
+			}  
+			else{
+				alert("请在浏览器中打开此链接！");
+		        window.location.href = 'hideseek://'; 
+			} 
+			setTimeout(function () {
+	           window.location.href = 'https://m.hideseek.cn/home/mindex/index';
+	        }, 1000);
+	   }
 	});
 	
 	$("#openstore").click(function(){

@@ -26,8 +26,8 @@ body{
 
 #monster{
 	width: 90%;
-    position: relative;
-    margin-top: 15%;
+    position: absolute;
+    top: 15%;
     margin-left: 5%;
 }
 
@@ -73,10 +73,10 @@ body{
 
 #invitation{
 	width: 80%;
-    height: 79px;
+    height: 18%;
     position: absolute;
     left: 10%;
-    bottom: 126px;
+    bottom: 16.5%;
     text-align: center;
 }
 
