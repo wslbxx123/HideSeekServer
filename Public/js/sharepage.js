@@ -70,7 +70,7 @@ $(function(){
 		if(isAndroid){
 		   	alert("Android近期上线，敬请期待！")
 		}
-		if(isiOS){
+		else if(isiOS){
 			var ver = (navigator.appVersion).match(/OS (\d+)_(\d+)_?(\d+)?/);  
     		ver = parseInt(ver[1], 10);  
 			if(ver >= 9){  
@@ -85,6 +85,9 @@ $(function(){
 			setTimeout(function(){
 	           window.location.href = 'https://m.hideseek.cn/home/mindex/index';
 	        }, 1000);
+	   }
+	   else{
+	   	alert("亲，请使用手机打开链接！")
 	   }
 	});
 	
