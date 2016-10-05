@@ -70,7 +70,7 @@ $(function(){
 		if(isAndroid){
 		   	alert("Android近期上线，敬请期待！")
 		}
-		if(isIos){
+		if(isiOS){
 			var ver = (navigator.appVersion).match(/OS (\d+)_(\d+)_?(\d+)?/);  
     		ver = parseInt(ver[1], 10);  
 			if(ver >= 9){  
