@@ -4,10 +4,10 @@ $(function(){
 	var height = document.body.clientHeight;
 	$("#name").html($("#nickname").val());
 	if($("#role").val()!=""&&$("#role").val()!=null){
-		$("#role").attr('src',roleImages[$("#role").val()]); 
+		$("#myrole").attr('src',roleImages[$("#role").val()]); 
 	}						
 	else{
-		$("#role").attr('src',roleImages[0]); 
+		$("#myrole").attr('src',roleImages[0]); 
 	}
 	var getGoalById = {
 		url: "/index.php/home/map/getGoalById",
