@@ -8,7 +8,7 @@ $(function(){
 		$("#myrole").attr('src',roleImages[$("#role").val()]); 
 	}						
 	else{
-		$("#myrole").attr('src',''); 
+		$("#myrole").attr('src',warning); 
 		$("#message").html('跳转失败，请使用浏览器查看页面！'); 
 	}
 	
