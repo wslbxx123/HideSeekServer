@@ -84,6 +84,7 @@ $(function(){
 			
 			setTimeout(function(){
 	           window.location.href = 'https://itunes.apple.com/us/app/hideseek/id1154398844?ls=1&mt=8';
+	           alert("1");
 	           $("#message").html('跳转失败，请使用浏览器查看页面！'); 
 	           $("#myrole").attr('src',''); 
 	        }, 200);
