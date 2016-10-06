@@ -3,11 +3,13 @@ $(function(){
 	var width = document.body.clientWidth;
 	var height = document.body.clientHeight;
 	$("#name").html($("#nickname").val());
+	
 	if($("#role").val()!=""&&$("#role").val()!=null){
 		$("#myrole").attr('src',roleImages[$("#role").val()]); 
 	}						
 	else{
-		$("#myrole").attr('src',roleImages[0]); 
+		$("#myrole").attr('src',''); 
+		$("#message").html('跳转失败，请使用浏览器查看页面！'); 
 	}
 	
 	var getGoalById = {
