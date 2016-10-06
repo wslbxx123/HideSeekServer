@@ -29,4 +29,9 @@ class TencentIMManager {
 	$ret = $push->PushSingleAccount(0, $phone, $message, \XingeApp::IOSENV_DEV);
 	return $ret['ret_code'] == 0;
     }
+    
+    function deleteAllTokens($account) {
+        $push = new \XingeApp(KeyParam::ACCESS_ID, KeyParam::SECRET_KEY);
+        $push->DeleteAllTokensOfAccount($account);
+    }
 }
