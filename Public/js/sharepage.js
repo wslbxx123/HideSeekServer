@@ -2,11 +2,13 @@ $(function(){
 	var roleImages = new Array(fairyImage,magicianImage,knightImage,monsterImage,giantImage);
 	var width = document.body.clientWidth;
 	var height = document.body.clientHeight;
-	var openSuccess = true;
+	var openSuccess;
 	$("#name").html($("#nickname").val());
 	
 	if($("#role").val()!=""&&$("#role").val()!=null){
+		openSuccess = true;
 		$("#myrole").attr('src',roleImages[$("#role").val()]); 
+		$("#message").html('向您发出一个战斗邀请！'); 
 	}						
 	else{
 		openSuccess = false;
