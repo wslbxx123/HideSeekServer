@@ -89,7 +89,7 @@ $(function(){
 	           alert("1");
 	           $("#message").html('跳转失败，请使用浏览器查看页面！'); 
 	           $("#myrole").attr('src',''); 
-	        }, 200);
+	        }, 100);
 	   }
 	   else{
 	   	alert("亲，请使用手机浏览器打开链接！")
