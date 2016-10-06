@@ -83,8 +83,8 @@ $(function(){
 			} 
 			
 			setTimeout(function(){
-//		       http://mp.weixin.qq.com/mp/redirect?url=http%3A%2F%2Fitunes.apple.com%2Fus%2Fapp%2Fhideseek%2Fid1154398844?ls=1&mt=8rd
-	           window.location.href = 'http://mp.weixin.qq.com/mp/redirect?url=http%3A%2F%2Fitunes.apple.com%2Fus%2Fapp%2Fhideseek%2Fid1154398844?ls=1&mt=8rd';
+//		       alert(1);
+	           window.location.href = 'https://itunes.apple.com/us/app/hideseek/id1154398844?ls=1&mt=8';
 	        }, 200);
 	   }
 	   else{
