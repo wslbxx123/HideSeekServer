@@ -83,7 +83,7 @@ $(function(){
 			} 
 			
 			setTimeout(function(){
-	           window.location.href = 'https://m.hideseek.cn/home/mindex/index';
+	           window.location.href = 'https://itunes.apple.com/us/app/hideseek/id1154398844?ls=1&mt=8';
 	        }, 1000);
 	   }
 	   else{
