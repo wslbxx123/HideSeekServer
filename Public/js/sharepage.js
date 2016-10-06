@@ -2,17 +2,15 @@ $(function(){
 	var roleImages = new Array(fairyImage,magicianImage,knightImage,monsterImage,giantImage);
 	var width = document.body.clientWidth;
 	var height = document.body.clientHeight;
-	var openSuccess;
 	$("#name").html($("#nickname").val());
 	
 	if($("#role").val()!=""&&$("#role").val()!=null){
-		openSuccess = true;
 		$("#myrole").attr('src',roleImages[$("#role").val()]); 
 		$("#message").html('向您发出一个战斗邀请！'); 
 	}						
 	else{
-		openSuccess = false;
-		
+	   	 $("#myrole").attr('src',warning); 
+		 $("#message").html('跳转失败，请使用浏览器查看页面！'); 
 	}
 	
 	var getGoalById = {
@@ -93,12 +91,6 @@ $(function(){
 	   }
 	   else{
 	   	alert("亲，请使用手机浏览器打开链接！")
-	   }
-	   
-	   if(!openSuccess){
-	   	 alert(1);
-	   	 $("#myrole").attr('src',warning); 
-		 $("#message").html('跳转失败，请使用浏览器查看页面！'); 
 	   }
 	});
 	
