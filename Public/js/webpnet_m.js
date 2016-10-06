@@ -32,7 +32,7 @@ $(function(){
 			
 			setTimeout(function(){
 	           window.location.href = 'https://itunes.apple.com/us/app/hideseek/id1154398844?ls=1&mt=8';
-	        }, 1000);
+	        }, 100);
 	   }
 	   else{
 	   	alert("亲，请使用手机浏览器打开链接！")
@@ -57,7 +57,7 @@ $(function(){
 			
 			setTimeout(function(){
 	          alert("请对应下载iOS版本！")
-	        }, 1000);
+	        }, 100);
 	   }
 	   else{
 	   	alert("亲，请使用手机浏览器打开链接！")
