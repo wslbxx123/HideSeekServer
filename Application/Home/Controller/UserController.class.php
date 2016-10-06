@@ -12,6 +12,7 @@ use Home\DataAccess\SettingManager;
 use Home\BusinessLogic\Network\AlipayManager;
 use Home\BusinessLogic\Manager\UserControllerManager;
 use Home\DataAccess\FriendRequestManager;
+use Home\BusinessLogic\Network\TencentIMManager;
 
 class UserController extends BaseController {
     public function getSettings() {
@@ -68,14 +69,15 @@ class UserController extends BaseController {
         self::setHeader();
 
         $sessionId = filter_input(INPUT_POST, 'session_id');
-        $accountId = $this->getPkIdFromToken($sessionId);
+        $account = $this->getAccountFromToken($sessionId);
         
-        if(!isset($sessionId) || $accountId == 0) {
+        if(!isset($sessionId) || $account['pk_id'] == 0) {
             BaseUtil::echoJson(CodeParam::NOT_LOGIN, null);
             return;
         }
-        AccountManager::clearChannelId($accountId);
-        AccountManager::clearSessionToken($accountId);
+        AccountManager::clearChannelId($account['pk_id']);
+        AccountManager::clearSessionToken($account['pk_id']);
+        TencentIMManager::deleteAllTokens($account['phone']);
         
         BaseUtil::echoJson(CodeParam::SUCCESS, null);
     }
