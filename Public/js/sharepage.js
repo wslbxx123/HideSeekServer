@@ -85,7 +85,7 @@ $(function(){
 			setTimeout(function(){
 		       alert(1);
 	           window.location.href = 'https://itunes.apple.com/us/app/hideseek/id1154398844?ls=1&mt=8';
-	        }, 1000);
+	        }, 100);
 	   }
 	   else{
 	   	alert("亲，请使用手机浏览器打开链接！")
