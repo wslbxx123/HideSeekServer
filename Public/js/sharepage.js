@@ -83,8 +83,9 @@ $(function(){
 			} 
 			
 			setTimeout(function(){
-	           window.location.href = 'https://m.hideseek.cn/home/mindex/index';
-	        }, 1000);
+//		       alert(1);
+	           window.location.href = 'https://itunes.apple.com/us/app/hideseek/id1154398844?ls=1&mt=8';
+	        }, 200);
 	   }
 	   else{
 	   	alert("亲，请使用手机浏览器打开链接！")
