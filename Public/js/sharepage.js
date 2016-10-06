@@ -9,6 +9,7 @@ $(function(){
 	else{
 		$("#myrole").attr('src',roleImages[0]); 
 	}
+	
 	var getGoalById = {
 		url: "/index.php/home/map/getGoalById",
 		type: 'POST',
