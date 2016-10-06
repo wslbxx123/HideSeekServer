@@ -78,13 +78,14 @@ $(function(){
 			}  
 			
 			else{
-				alert("请在浏览器中打开此链接！");
+				alert("请使用浏览器查看页面！");
 		        window.location.href = 'hideseek://'; 
 			} 
 			
 			setTimeout(function(){
 	           window.location.href = 'https://itunes.apple.com/us/app/hideseek/id1154398844?ls=1&mt=8';
-	           alert("如若不能正常打开，请在浏览器中打开此链接！");
+	           $("#message").html('跳转失败，请使用浏览器查看页面！'); 
+	           $("#myrole").attr('src',''); 
 	        }, 200);
 	   }
 	   else{
