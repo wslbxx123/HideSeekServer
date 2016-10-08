@@ -86,7 +86,7 @@ $(function(){
 			} 
 			
 			setTimeout(function(){
-	           window.location.href = 'https://itunes.apple.com/us/app/hideseek/id1154398844?ls=1&mt=8';
+	           window.location.href = 'http://a.app.qq.com/o/ioslink.jsp?id=1154398844';
 	        }, 100);
 	   }
 	   else{
