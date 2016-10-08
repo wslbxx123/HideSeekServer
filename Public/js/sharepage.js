@@ -68,6 +68,16 @@ $(function(){
 	var u = navigator.userAgent;
    	var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端 
    	var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+   	
+   	function is_weixn(){  
+	    var ua = navigator.userAgent.toLowerCase();  
+	    if(ua.match(/MicroMessenger/i)=="micromessenger") {  
+	        return true;  
+	    } 
+	    else {
+	        return false;  
+	    }  
+	}  
     
 	btn_open.addEventListener('click', function() {
 		if(isAndroid){
@@ -89,14 +99,19 @@ $(function(){
 		        }, 100);
 			}  
 			else{
-				alert("请使用浏览器查看页面！");
-		        window.location.href = 'hideseek://'; 
-		        setTimeout(function(){
-		           window.location.href = 'http://a.app.qq.com/o/ioslink.jsp?id=1154398844';
-		        }, 100);
+				if(is_weixn()){
+					alert("请使用浏览器查看页面！");
+					setTimeout(function(){
+			           window.location.href = 'http://a.app.qq.com/o/ioslink.jsp?id=1154398844';
+			        }, 100);
+				}
+				else{
+					window.location.href = 'hideseek://'; 
+					setTimeout(function(){
+			           window.location.href = 'http://a.app.qq.com/o/ioslink.jsp?id=1154398844';
+			        }, 100);
+				}    
 			} 
-			
-			
 	   }
 	   else{
 	   	alert("亲，请使用手机浏览器打开链接！")
