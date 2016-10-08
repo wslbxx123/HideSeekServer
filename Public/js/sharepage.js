@@ -76,18 +76,27 @@ $(function(){
 		else if(isiOS){
 			var ver = (navigator.appVersion).match(/OS (\d+)_(\d+)_?(\d+)?/);  
     		ver = parseInt(ver[1], 10);  
-			if(ver >= 9){  
+			if(ver == 9){  
 	        	window.location.href = 'https://www.hideseek.cn/home/mindex/sharePage'+'?goal_id='+$("#goalid").val();
+	        	setTimeout(function(){
+		           window.location.href = 'http://a.app.qq.com/o/ioslink.jsp?id=1154398844';
+		        }, 100);
 			}  
-			
+			else if(ver == 10){  
+	        	window.location.href = 'https://www.hideseek.cn/home/mindex/sharePage'+'?goal_id='+$("#goalid").val();
+	        	setTimeout(function(){
+		           window.location.href = 'http://a.app.qq.com/o/ioslink.jsp?id=1154398844';
+		        }, 100);
+			}  
 			else{
 				alert("请使用浏览器查看页面！");
 		        window.location.href = 'hideseek://'; 
+		        setTimeout(function(){
+		           window.location.href = 'http://a.app.qq.com/o/ioslink.jsp?id=1154398844';
+		        }, 100);
 			} 
 			
-			setTimeout(function(){
-	           window.location.href = 'http://a.app.qq.com/o/ioslink.jsp?id=1154398844';
-	        }, 100);
+			
 	   }
 	   else{
 	   	alert("亲，请使用手机浏览器打开链接！")
