@@ -124,3 +124,8 @@ body{
 #role{
 	display:none;
 }
+
+#wx_pic{
+	width:30px;
+	height:30px;
+}
