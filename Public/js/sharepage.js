@@ -3,12 +3,16 @@ $(function(){
 	var width = document.body.clientWidth;
 	var height = document.body.clientHeight;
 	$("#name").html($("#nickname").val());
+	
 	if($("#role").val()!=""&&$("#role").val()!=null){
 		$("#myrole").attr('src',roleImages[$("#role").val()]); 
+		$("#message").html('向您发出一个战斗邀请！'); 
 	}						
 	else{
-		$("#myrole").attr('src',roleImages[0]); 
+	   	 $("#myrole").attr('src',warning); 
+		 $("#message").html('跳转失败，请使用浏览器查看页面！'); 
 	}
+	
 	var getGoalById = {
 		url: "/index.php/home/map/getGoalById",
 		type: 'POST',
@@ -16,7 +20,6 @@ $(function(){
 		dataType: "json",
 		
 		success: function(result, status) {
-//			alert(JSON.stringify(result));
 			switch(result["code"]){
 				case "10000":
 					if(result["result"]["type"]==1||result["result"]["type"]=="1"){
@@ -65,6 +68,16 @@ $(function(){
 	var u = navigator.userAgent;
    	var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端 
    	var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+   	
+   	function is_weixn(){  
+	    var ua = navigator.userAgent.toLowerCase();  
+	    if(ua.match(/MicroMessenger/i)=="micromessenger") {  
+	        return true;  
+	    } 
+	    else {
+	        return false;  
+	    }  
+	}  
     
 	btn_open.addEventListener('click', function() {
 		if(isAndroid){
@@ -73,19 +86,32 @@ $(function(){
 		else if(isiOS){
 			var ver = (navigator.appVersion).match(/OS (\d+)_(\d+)_?(\d+)?/);  
     		ver = parseInt(ver[1], 10);  
-			if(ver >= 9){  
+			if(ver == 9){  
 	        	window.location.href = 'https://www.hideseek.cn/home/mindex/sharePage'+'?goal_id='+$("#goalid").val();
+	        	setTimeout(function(){
+		           window.location.href = 'http://a.app.qq.com/o/ioslink.jsp?id=1154398844';
+		        }, 100);
 			}  
-			
+			else if(ver == 10){  
+	        	window.location.href = 'https://www.hideseek.cn/home/mindex/sharePage'+'?goal_id='+$("#goalid").val();
+	        	setTimeout(function(){
+		           window.location.href = 'http://a.app.qq.com/o/ioslink.jsp?id=1154398844';
+		        }, 100);
+			}  
 			else{
-				alert("请在浏览器中打开此链接！");
-		        window.location.href = 'hideseek://'; 
+				if(is_weixn()){
+					alert("请使用浏览器查看页面！");
+					setTimeout(function(){
+			           window.location.href = 'http://a.app.qq.com/o/ioslink.jsp?id=1154398844';
+			        }, 100);
+				}
+				else{
+					window.location.href = 'hideseek://'; 
+					setTimeout(function(){
+			           window.location.href = 'http://a.app.qq.com/o/ioslink.jsp?id=1154398844';
+			        }, 100);
+				}    
 			} 
-			
-			setTimeout(function(){
-//		       alert(1);
-	           window.location.href = 'https://itunes.apple.com/us/app/hideseek/id1154398844?ls=1&mt=8';
-	        }, 200);
 	   }
 	   else{
 	   	alert("亲，请使用手机浏览器打开链接！")
