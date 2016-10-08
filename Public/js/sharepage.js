@@ -87,7 +87,7 @@ $(function(){
 			
 			setTimeout(function(){
 	           window.location.href = 'http://a.app.qq.com/o/ioslink.jsp?id=1154398844';
-	        }, 50);
+	        }, 100);
 	   }
 	   else{
 	   	alert("亲，请使用手机浏览器打开链接！")
