@@ -22,4 +22,12 @@ class MonsterTempHitManager {
         
         return $accountArray;
     }
+    
+    public function getCount($accountId, $goalId) {
+        $Dao = M("monster_temp_hit");
+        
+        $condition['goal_id'] = $goalId;
+        $condition['account_id'] = $accountId;
+        return $Dao->where($condition)->count();  
+    }
 }
