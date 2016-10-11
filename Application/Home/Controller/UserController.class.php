@@ -45,12 +45,14 @@ class UserController extends BaseController {
         $phone = filter_input(INPUT_POST, 'phone');
         $password = filter_input(INPUT_POST, 'password');
         $channelId = filter_input(INPUT_POST, 'channel_id');
+        $appVersion = filter_input(INPUT_POST, 'app_version');
         
         if(!UserControllerManager::checkUserInfo($phone, $password)) {
             return;
         }
         
-        $account = AccountManager::getAccountFromPhonePassword($phone, $password, $channelId);
+        $account = AccountManager::getAccountFromPhonePassword($phone, $password, 
+                $channelId, $appVersion);
         if(!isset($account)) {
             BaseUtil::echoJson(CodeParam::PHONE_OR_PASSWORD_WRONG, null);
             return;
@@ -59,8 +61,7 @@ class UserController extends BaseController {
         $sessionId = AccountManager::updateSessionToken($phone, $password);
         $_SESSION['pk_id'] = $account["pk_id"];
         $account["session_id"] = $sessionId;
-        $account["friend_requests"] = FriendRequestManager::
-                getFriendRequests($account['pk_id']);  
+        $account["friend_requests"] = FriendRequestManager::getFriendRequests($account['pk_id']);  
         
         BaseUtil::echoJson(CodeParam::SUCCESS, $account);
     }
@@ -94,12 +95,13 @@ class UserController extends BaseController {
         $sex = filter_input(INPUT_POST, 'sex');
         $region = filter_input(INPUT_POST, 'region');
         $channelId = filter_input(INPUT_POST, 'channel_id');
+        $appVersion = filter_input(INPUT_POST, 'app_version');
         $photo = $_FILES['photo'];
         $photoDataUrl = filter_input(INPUT_POST, 'photo_url');
         
         $sessionId = session_id().strtotime(date ("Y-m-d h:i:s"));
         $accountId = UserControllerManager::setRegisterUserInfo($phone, $password, $nickname,
-                $role, $sex, $region, $channelId, $photo, $photoDataUrl, $sessionId);
+                $role, $sex, $region, $channelId, $appVersion, $photo, $photoDataUrl, $sessionId);
         
         if(!isset($accountId)) { return; }
         

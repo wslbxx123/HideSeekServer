@@ -6,11 +6,13 @@ namespace Home\DataAccess;
  * @author Two
  */
 class AccountManager {
-    public function getAccountFromPhonePassword($phone, $password, $channelId) {
+    public function getAccountFromPhonePassword($phone, $password, $channelId,
+            $appVersion) {
         $Dao = M("account");
         $condition['phone'] = $phone;
         $condition['password'] = md5($password);
-        $Dao->where($condition)->setField('channel_id', $channelId);
+        $Dao->where($condition)->setField(array('channel_id', 'version'), 
+                array($channelId, $appVersion));
         
         $account = $Dao->where($condition)->find();
         return $account;
@@ -49,7 +51,7 @@ class AccountManager {
     }
     
     public function insertAccount($phone, $password, $nickname, $version, $role, 
-            $sex, $region, $channelId, $photoUrl, $smallPhotoUrl, $sessionId) {
+            $sex, $region, $channelId, $appVersion, $photoUrl, $smallPhotoUrl, $sessionId) {
         $Dao = M("account");
         $account["phone"] = $phone;
         $account["password"] = md5($password);
@@ -59,6 +61,7 @@ class AccountManager {
         $account["version"] = $version;
         $account["role"] = $role;
         $account["channel_id"] = $channelId;
+        $account["app_version"] = $appVersion;
         
         $account = self::insertOptionalInfo($sex, $region, $photoUrl, 
                 $smallPhotoUrl, $account);

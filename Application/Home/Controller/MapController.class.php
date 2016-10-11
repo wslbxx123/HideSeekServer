@@ -157,7 +157,7 @@ class MapController extends BaseController {
         
         $warnings = MonsterTempSeeManager::getDangerWarnings($accountId);
         $result = array("warnings" => $warnings, 
-            "server_time" => date('y-m-d H:i:s',time()));
+            "server_time" => date('Y-m-d H:i:s',time()));
         BaseUtil::echoJson(CodeParam::SUCCESS, $result);
     }
     
