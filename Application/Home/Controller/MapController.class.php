@@ -124,7 +124,8 @@ class MapController extends BaseController {
         
         $sessionId = filter_input(INPUT_POST, 'session_id');
         $goalId = filter_input(INPUT_POST, 'goal_id');
-        $accountId = $this->getPkIdFromToken($sessionId);
+        $appVersion = filter_input(INPUT_POST, 'app_version');
+        $accountId = $this->getPkIdFromToken($sessionId, $appVersion);
         
         if(!isset($sessionId) || $accountId == 0) {
             BaseUtil::echoJson(CodeParam::NOT_LOGIN, null);
@@ -148,7 +149,8 @@ class MapController extends BaseController {
         self::setHeader();
         
         $sessionId = filter_input(INPUT_POST, 'session_id');
-        $accountId = $this->getPkIdFromToken($sessionId);
+        $appVersion = filter_input(INPUT_POST, 'app_version');
+        $accountId = $this->getPkIdFromToken($sessionId, $appVersion);
         
         if(!isset($sessionId) || $accountId == 0) {
             BaseUtil::echoJson(CodeParam::NOT_LOGIN, null);

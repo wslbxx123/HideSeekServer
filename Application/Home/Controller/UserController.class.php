@@ -26,7 +26,8 @@ class UserController extends BaseController {
         self::setHeader();
         
         $sessionId = filter_input(INPUT_POST, 'session_id');
-        $accountId = $this->getPkIdFromToken($sessionId);
+        $appVersion = filter_input(INPUT_POST, 'app_version');
+        $accountId = $this->getPkIdFromToken($sessionId, $appVersion);
         
         if(!isset($sessionId) || $accountId == 0) {
             BaseUtil::echoJson(CodeParam::NOT_LOGIN, null);
@@ -45,14 +46,14 @@ class UserController extends BaseController {
         $phone = filter_input(INPUT_POST, 'phone');
         $password = filter_input(INPUT_POST, 'password');
         $channelId = filter_input(INPUT_POST, 'channel_id');
-        $appVersion = filter_input(INPUT_POST, 'app_version');
+        $appPlatform = filter_input(INPUT_POST, 'app_platform');
         
         if(!UserControllerManager::checkUserInfo($phone, $password)) {
             return;
         }
         
         $account = AccountManager::getAccountFromPhonePassword($phone, $password, 
-                $channelId, $appVersion);
+                $channelId, $appPlatform);
         if(!isset($account)) {
             BaseUtil::echoJson(CodeParam::PHONE_OR_PASSWORD_WRONG, null);
             return;
@@ -95,13 +96,14 @@ class UserController extends BaseController {
         $sex = filter_input(INPUT_POST, 'sex');
         $region = filter_input(INPUT_POST, 'region');
         $channelId = filter_input(INPUT_POST, 'channel_id');
-        $appVersion = filter_input(INPUT_POST, 'app_version');
+        $appPlatform = filter_input(INPUT_POST, 'app_platform');
         $photo = $_FILES['photo'];
         $photoDataUrl = filter_input(INPUT_POST, 'photo_url');
         
         $sessionId = session_id().strtotime(date ("Y-m-d h:i:s"));
-        $accountId = UserControllerManager::setRegisterUserInfo($phone, $password, $nickname,
-                $role, $sex, $region, $channelId, $appVersion, $photo, $photoDataUrl, $sessionId);
+        $accountId = UserControllerManager::setRegisterUserInfo($phone, 
+                $password, $nickname, $role, $sex, $region, $channelId, 
+                $photo, $photoDataUrl, $sessionId, $appPlatform);
         
         if(!isset($accountId)) { return; }
         
@@ -153,7 +155,8 @@ class UserController extends BaseController {
         $sessionId = filter_input(INPUT_POST, 'session_id');
         $photo = $_FILES['photo'];
         $photoDataUrl = filter_input(INPUT_POST, 'photo_url');
-        $accountId = $this->getPkIdFromToken($sessionId);
+        $appVersion = filter_input(INPUT_POST, 'app_version');
+        $accountId = $this->getPkIdFromToken($sessionId, $appVersion);
         
         if(!isset($sessionId) || $accountId == 0) {
             BaseUtil::echoJson(CodeParam::NOT_LOGIN, null);
@@ -182,7 +185,8 @@ class UserController extends BaseController {
         
         $sessionId = filter_input(INPUT_POST, 'session_id');
         $nickname = filter_input(INPUT_POST, 'nickname');
-        $accountId = $this->getPkIdFromToken($sessionId);
+        $appVersion = filter_input(INPUT_POST, 'app_version');
+        $accountId = $this->getPkIdFromToken($sessionId, $appVersion);
         
         if(!isset($sessionId) || $accountId == 0) {
             BaseUtil::echoJson(CodeParam::NOT_LOGIN, null);
@@ -207,7 +211,8 @@ class UserController extends BaseController {
         
         $sessionId = filter_input(INPUT_POST, 'session_id');
         $sex = filter_input(INPUT_POST, 'sex');
-        $accountId = $this->getPkIdFromToken($sessionId);
+        $appVersion = filter_input(INPUT_POST, 'app_version');
+        $accountId = $this->getPkIdFromToken($sessionId, $appVersion);
         
         if(!isset($sessionId) || $accountId == 0) {
             BaseUtil::echoJson(CodeParam::NOT_LOGIN, null);
@@ -230,7 +235,8 @@ class UserController extends BaseController {
         
         $sessionId = filter_input(INPUT_POST, 'session_id');
         $region = filter_input(INPUT_POST, 'region');
-        $accountId = $this->getPkIdFromToken($sessionId);
+        $appVersion = filter_input(INPUT_POST, 'app_version');
+        $accountId = $this->getPkIdFromToken($sessionId, $appVersion);
         
         if(!isset($sessionId) || $accountId == 0) {
             BaseUtil::echoJson(CodeParam::NOT_LOGIN, null);
@@ -283,7 +289,8 @@ class UserController extends BaseController {
         
         $sessionId = filter_input(INPUT_POST, 'session_id');
         $channelId = filter_input(INPUT_POST, 'channel_id');
-        $accountId = $this->getPkIdFromToken($sessionId);
+        $appVersion = filter_input(INPUT_POST, 'app_version');
+        $accountId = $this->getPkIdFromToken($sessionId, $appVersion);
         
         if(!isset($sessionId) || $accountId == 0) {
             BaseUtil::echoJson(CodeParam::NOT_LOGIN, null);

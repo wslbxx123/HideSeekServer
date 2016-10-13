@@ -22,8 +22,8 @@ class UserControllerManager {
     }
     
     public function setRegisterUserInfo($phone, $password, $nickname, $role, 
-            $sex, $region, $channelId, $appVersion, $photo, $photoDataUrl, 
-            $sessionId) {
+            $sex, $region, $channelId, $photo, $photoDataUrl, 
+            $sessionId, $appPlatform) {
         if(!self::checkUserBaseInfo($phone, $password, $nickname)) {
             return null;
         }
@@ -38,7 +38,7 @@ class UserControllerManager {
         $smallPhotoUrl = FileUtil::saveSmallPhoto($photoUrl, 200, 200);
         $accountId = AccountManager::insertAccount($phone, $password, $nickname, 
                 PullVersionManager::getFriendVersion(), $role, $sex, $region, 
-                $channelId, $appVersion, $photoUrl, $smallPhotoUrl, $sessionId);
+                $channelId, $photoUrl, $smallPhotoUrl, $sessionId, $appPlatform);
         
         return $accountId;
     }

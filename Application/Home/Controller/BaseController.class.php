@@ -2,6 +2,7 @@
 namespace Home\Controller;
 use Think\Controller;
 use Home\Common\Util\RequestUtil;
+use Home\DataAccess\AccountManager;
 
 class BaseController extends Controller {
     public function setHeader() {
@@ -47,8 +48,8 @@ class BaseController extends Controller {
         }
     }
     
-    public function getPkIdFromToken($sessionId){
-        $account = $this->getAccountFromToken($sessionId);
+    public function getPkIdFromToken($sessionId, $appVersion){
+        $account = $this->getAccountFromToken($sessionId, $appVersion);
         
         if(!isset($account)) {
             return 0;
@@ -57,14 +58,13 @@ class BaseController extends Controller {
         return $account['pk_id'];
     }
     
-    public function getAccountFromToken($sessionId){
+    public function getAccountFromToken($sessionId, $appVersion){
         $length = strlen($sessionId);
         session_id(subStr($sessionId, 0, $length - 10));
         session_start();
         
-        $account_condition['session_token'] = md5($sessionId);
+        $account = AccountManager::updateAppVersion(md5($sessionId), $appVersion);
         
-        $account = M("account")->where($account_condition)->find();
         return $account;
     }
 }

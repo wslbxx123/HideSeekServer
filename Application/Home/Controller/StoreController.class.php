@@ -107,8 +107,8 @@ class StoreController extends BaseController {
         $sessionId = filter_input(INPUT_POST, 'session_id');
         $storeId = filter_input(INPUT_POST, 'store_id');
         $count = filter_input(INPUT_POST, 'count');
-        
-        $accountId = $this->getPkIdFromToken($sessionId);
+        $appVersion = filter_input(INPUT_POST, 'app_version');
+        $accountId = $this->getPkIdFromToken($sessionId, $appVersion);
         
         if(!isset($sessionId) || $accountId == 0) {
             BaseUtil::echoJson(CodeParam::NOT_LOGIN, null);
@@ -131,8 +131,8 @@ class StoreController extends BaseController {
         $orderId = filter_input(INPUT_POST, 'order_id');
         $storeId = filter_input(INPUT_POST, 'store_id');
         $count = filter_input(INPUT_POST, 'count');
-        
-        $accountId = $this->getPkIdFromToken($sessionId);
+        $appVersion = filter_input(INPUT_POST, 'app_version');
+        $accountId = $this->getPkIdFromToken($sessionId, $appVersion);
         
         if(!isset($sessionId) || $accountId == 0) {
             BaseUtil::echoJson(CodeParam::NOT_LOGIN, null);
@@ -155,8 +155,8 @@ class StoreController extends BaseController {
         $sessionId = filter_input(INPUT_POST, 'session_id');
         $storeId = filter_input(INPUT_POST, 'store_id');
         $count = filter_input(INPUT_POST, 'count');
-        
-        $accountId = $this->getPkIdFromToken($sessionId);
+        $appVersion = filter_input(INPUT_POST, 'app_version');
+        $accountId = $this->getPkIdFromToken($sessionId, $appVersion);
         
         if(!isset($sessionId) || $accountId == 0) {
             BaseUtil::echoJson(CodeParam::NOT_LOGIN, null);
@@ -182,8 +182,8 @@ class StoreController extends BaseController {
         $orderId = filter_input(INPUT_POST, 'order_id');
         $storeId = filter_input(INPUT_POST, 'store_id');
         $count = filter_input(INPUT_POST, 'count');
-        
-        $accountId = $this->getPkIdFromToken($sessionId);
+        $appVersion = filter_input(INPUT_POST, 'app_version');
+        $accountId = $this->getPkIdFromToken($sessionId, $appVersion);
         
         if(!isset($sessionId) || $accountId == 0) {
             BaseUtil::echoJson(CodeParam::NOT_LOGIN, null);
@@ -209,8 +209,8 @@ class StoreController extends BaseController {
         $sessionId = filter_input(INPUT_POST, 'session_id');
         $storeId = filter_input(INPUT_POST, 'store_id');
         $count = filter_input(INPUT_POST, 'count');
-        
-        $accountId = $this->getPkIdFromToken($sessionId);
+        $appVersion = filter_input(INPUT_POST, 'app_version');
+        $accountId = $this->getPkIdFromToken($sessionId, $appVersion);
         
         if(!isset($sessionId) || $accountId == 0) {
             BaseUtil::echoJson(CodeParam::NOT_LOGIN, null);
@@ -237,8 +237,8 @@ class StoreController extends BaseController {
         $orderId = filter_input(INPUT_POST, 'order_id');
         $storeId = filter_input(INPUT_POST, 'store_id');
         $count = filter_input(INPUT_POST, 'count');
-        
-        $accountId = $this->getPkIdFromToken($sessionId);
+        $appVersion = filter_input(INPUT_POST, 'app_version');
+        $accountId = $this->getPkIdFromToken($sessionId, $appVersion);
         
         if(!isset($sessionId) || $accountId == 0) {
             BaseUtil::echoJson(CodeParam::NOT_LOGIN, null);
@@ -263,7 +263,8 @@ class StoreController extends BaseController {
         
         $sessionId = filter_input(INPUT_POST, 'session_id');
         $orderId = filter_input(INPUT_POST, 'order_id');
-        $accountId = $this->getPkIdFromToken($sessionId);
+        $appVersion = filter_input(INPUT_POST, 'app_version');
+        $accountId = $this->getPkIdFromToken($sessionId, $appVersion);
         
         if(!StoreControllerManager::checkPurchaseInfo($sessionId, $accountId, $orderId)) {
             return;
@@ -292,7 +293,8 @@ class StoreController extends BaseController {
         $sessionId = filter_input(INPUT_POST, 'session_id');
         $version = filter_input(INPUT_POST, 'version');
         $orderMinId = filter_input(INPUT_POST, 'order_min_id');
-        $accountId = $this->getPkIdFromToken($sessionId);
+        $appVersion = filter_input(INPUT_POST, 'app_version');
+        $accountId = $this->getPkIdFromToken($sessionId, $appVersion);
         
         $orderVersion = PullVersionManager::getProductOrderVersion();
         
@@ -321,7 +323,8 @@ class StoreController extends BaseController {
         $sessionId = filter_input(INPUT_POST, 'session_id');
         $version = filter_input(INPUT_POST, 'version');
         $orderMinId = filter_input(INPUT_POST, 'order_min_id');
-        $accountId = $this->getPkIdFromToken($sessionId);
+        $appVersion = filter_input(INPUT_POST, 'app_version');
+        $accountId = $this->getPkIdFromToken($sessionId, $appVersion);
         
         if(!isset($sessionId) || $accountId == 0) {
             BaseUtil::echoJson(CodeParam::NOT_LOGIN, null);
@@ -348,7 +351,8 @@ class StoreController extends BaseController {
         $sessionId = filter_input(INPUT_POST, 'session_id');
         $version = filter_input(INPUT_POST, 'version');
         $orderMinId = filter_input(INPUT_POST, 'order_min_id');
-        $accountId = $this->getPkIdFromToken($sessionId);
+        $appVersion = filter_input(INPUT_POST, 'app_version');
+        $accountId = $this->getPkIdFromToken($sessionId, $appVersion);
         
         $orderVersion = PullVersionManager::getRewardOrderVersion();
         
@@ -377,7 +381,8 @@ class StoreController extends BaseController {
         $sessionId = filter_input(INPUT_POST, 'session_id');
         $version = filter_input(INPUT_POST, 'version');
         $orderMinId = filter_input(INPUT_POST, 'order_min_id');
-        $accountId = $this->getPkIdFromToken($sessionId);
+        $appVersion = filter_input(INPUT_POST, 'app_version');
+        $accountId = $this->getPkIdFromToken($sessionId, $appVersion);
         
         if(!isset($sessionId) || $accountId == 0) {
             BaseUtil::echoJson(CodeParam::NOT_LOGIN, null);
