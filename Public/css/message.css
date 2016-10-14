@@ -13,6 +13,10 @@ body{
 	-webkit-overflow-scrolling: touch; 
 	overflow-scrolling: touch; 
 	}
+
+label{
+	margin-left: 42%;
+}
 	
 #message{
 	width: 50%;
@@ -33,12 +37,11 @@ body{
     font-family: "Microsoft Yahei";
 }
 
-#sendAll{
+/*#sendAll{
 	margin-left:42%
-}
+}*/
 
 #phone{
-	margin-left: 41%;
     height: 26px;
     width: 16%;
 }
