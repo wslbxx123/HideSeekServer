@@ -26,10 +26,16 @@ body{
 	margin-left: 36%;
     width: 27%;
     height: 49px;
-    top: 51%;
+    top: 53%;
     position: absolute;
+    font-size: 17px;
+    font-family: "Microsoft Yahei";
 }
 
 #sendAll{
 	margin-left:42%
+}
+
+#phone{
+	
 }
