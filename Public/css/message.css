@@ -22,14 +22,14 @@ body{
     font-size: 20px;
 }
 
-label{
-	margin-left: 42%;
-}
-
 #submit{
 	margin-left: 36%;
     width: 27%;
     height: 49px;
     top: 51%;
     position: absolute;
+}
+
+#sendAll{
+	margin-left:42%
 }
