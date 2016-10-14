@@ -37,5 +37,14 @@ body{
 }
 
 #phone{
-	
+	margin-left: 41%;
+    height: 26px;
+    width: 16%;
+}
+
+#logo{
+	float: left; 
+	width:160px; 
+	padding-top: 10px;
+	padding-left:10px;
 }
