@@ -37,13 +37,9 @@ label{
     font-family: "Microsoft Yahei";
 }
 
-/*#sendAll{
-	margin-left:42%
-}*/
-
 #phone{
     height: 26px;
-    width: 16%;
+    width: 12%;
 }
 
 #logo{
