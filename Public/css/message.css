@@ -1,0 +1,19 @@
+@charset "GB2312";
+
+*{margin:0;padding:0;       
+}
+
+
+body{
+	background:#ffcc00;
+	width:100%;
+	height:800px;
+	position:absolute;
+	font-family:"Microsoft Yahei"; 
+	-webkit-overflow-scrolling: touch; 
+	overflow-scrolling: touch; 
+	}
+	
+#message{
+	
+}
