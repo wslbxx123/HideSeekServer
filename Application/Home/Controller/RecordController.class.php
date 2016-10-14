@@ -38,7 +38,8 @@ class RecordController extends BaseController {
         $sessionId = filter_input(INPUT_POST, 'session_id');
         $version = filter_input(INPUT_POST, 'version');
         $recordMinId = filter_input(INPUT_POST, 'record_min_id');
-        $accountId = $this->getPkIdFromToken($sessionId);
+        $appVersion = filter_input(INPUT_POST, 'app_version');
+        $accountId = $this->getPkIdFromToken($sessionId, $appVersion);
         
         if(!RecordControllerManager::checkRefreshRecordInfo($sessionId, $accountId, 
                 $version, $recordMinId)) {

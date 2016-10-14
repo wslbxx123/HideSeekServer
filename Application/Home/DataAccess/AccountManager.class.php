@@ -6,11 +6,31 @@ namespace Home\DataAccess;
  * @author Two
  */
 class AccountManager {
-    public function getAccountFromPhonePassword($phone, $password, $channelId) {
+    public function getAccountFromPhonePassword($phone, $password, $channelId,
+            $appPlatform) {
         $Dao = M("account");
         $condition['phone'] = $phone;
         $condition['password'] = md5($password);
         $Dao->where($condition)->setField('channel_id', $channelId);
+        
+        if($appPlatform != null) {
+            $Dao->where($condition)->setField('app_platform', $appPlatform);
+        }
+        
+        $account = $Dao->where($condition)->find();
+        return $account;
+    }
+    
+    public function updateAppVersion($sessionToken, $appVersion) {
+        $Dao = M("account");
+        $condition['session_token'] = $sessionToken;
+        
+        if($appVersion != null) {
+            $Dao->where($condition)->setField('app_version', $appVersion);
+        }
+        
+        $Dao->where($condition)->setField('active_time', 
+                date('y-m-d H:i:s',time()));
         
         $account = $Dao->where($condition)->find();
         return $account;
@@ -49,7 +69,8 @@ class AccountManager {
     }
     
     public function insertAccount($phone, $password, $nickname, $version, $role, 
-            $sex, $region, $channelId, $photoUrl, $smallPhotoUrl, $sessionId) {
+            $sex, $region, $channelId, $photoUrl, $smallPhotoUrl, $sessionId, 
+            $appPlatform) {
         $Dao = M("account");
         $account["phone"] = $phone;
         $account["password"] = md5($password);
@@ -61,13 +82,13 @@ class AccountManager {
         $account["channel_id"] = $channelId;
         
         $account = self::insertOptionalInfo($sex, $region, $photoUrl, 
-                $smallPhotoUrl, $account);
+                $smallPhotoUrl, $account, $appPlatform);
         
         return $Dao->add($account);
     }
     
     private function insertOptionalInfo($sex, $region, $photoUrl, 
-            $smallPhotoUrl, $account) {
+            $smallPhotoUrl, $account, $appPlatform) {
         if(isset($sex)) {
             $account["sex"] = $sex;
         }
@@ -82,6 +103,10 @@ class AccountManager {
         
         if(isset($smallPhotoUrl)) {
             $account["small_photo_url"] = $smallPhotoUrl;
+        }
+        
+        if(isset($appPlatform)) {
+            $account["app_platform"] = $appPlatform;
         }
         
         return $account;

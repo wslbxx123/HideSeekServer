@@ -14,7 +14,8 @@ class FriendController extends BaseController {
         
         $sessionId = filter_input(INPUT_POST, 'session_id');
         $version = filter_input(INPUT_POST, 'version');
-        $accountId = $this->getPkIdFromToken($sessionId);
+        $appVersion = filter_input(INPUT_POST, 'app_version');
+        $accountId = $this->getPkIdFromToken($sessionId, $appVersion);
         
         if(!isset($sessionId) || $accountId == 0) {
             BaseUtil::echoJson(CodeParam::NOT_LOGIN, null);
@@ -40,7 +41,8 @@ class FriendController extends BaseController {
         $sessionId = filter_input(INPUT_POST, 'session_id');
         $version = filter_input(INPUT_POST, 'version');
         $recordMinId = filter_input(INPUT_POST, 'record_min_id');
-        $accountId = $this->getPkIdFromToken($sessionId);
+        $appVersion = filter_input(INPUT_POST, 'app_version');
+        $accountId = $this->getPkIdFromToken($sessionId, $appVersion);
         
         if(!isset($sessionId) || $accountId == 0) {
             BaseUtil::echoJson(CodeParam::NOT_LOGIN, null);
@@ -68,7 +70,8 @@ class FriendController extends BaseController {
         $sessionId = filter_input(INPUT_POST, 'session_id');
         $version = filter_input(INPUT_POST, 'version');
         $recordMinId = filter_input(INPUT_POST, 'record_min_id');
-        $accountId = $this->getPkIdFromToken($sessionId);
+        $appVersion = filter_input(INPUT_POST, 'app_version');
+        $accountId = $this->getPkIdFromToken($sessionId, $appVersion);
         
         if(!isset($sessionId) || $accountId == 0) {
             BaseUtil::echoJson(CodeParam::NOT_LOGIN, null);
@@ -168,7 +171,8 @@ class FriendController extends BaseController {
         $sessionId = filter_input(INPUT_POST, 'session_id');
         $friendId = filter_input(INPUT_POST, 'friend_id');
         $remark = filter_input(INPUT_POST, 'remark');
-        $accountId = $this->getPkIdFromToken($sessionId);
+        $appVersion = filter_input(INPUT_POST, 'app_version');
+        $accountId = $this->getPkIdFromToken($sessionId, $appVersion);
         
         if(!isset($sessionId) || $accountId == 0) {
             BaseUtil::echoJson(CodeParam::NOT_LOGIN, null);
@@ -193,7 +197,8 @@ class FriendController extends BaseController {
         
         $sessionId = filter_input(INPUT_POST, 'session_id');
         $friendId = filter_input(INPUT_POST, 'friend_id');
-        $accountId = $this->getPkIdFromToken($sessionId);
+        $appVersion = filter_input(INPUT_POST, 'app_version');
+        $accountId = $this->getPkIdFromToken($sessionId, $appVersion);
         
         if(!isset($sessionId) || $accountId == 0) {
             BaseUtil::echoJson(CodeParam::NOT_LOGIN, null);

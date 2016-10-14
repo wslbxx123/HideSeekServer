@@ -4,6 +4,7 @@ use Home\DataAccess\PullVersionManager;
 use Home\DataAccess\AccountManager;
 use Home\DataAccess\RecordManager;
 use Home\DataAccess\GoalManager;
+use Home\DataAccess\MonsterTempHitManager;
 use Home\DataAccess\MonsterTypeManager;
 use Home\Common\Util\BaseUtil;
 use Home\Common\Param\CodeParam;
@@ -30,7 +31,10 @@ class MapControllerManager {
             }
         }
         
-        return Array("flag" => $flag, "score_sum" => $scoreSum);
+        $count = MonsterTempHitManager::getCount($accountId, $goalId);
+        $ifCanSuccess = $count > 5 ? 0 : 1;
+        return Array("flag" => $flag, "score_sum" => $scoreSum, 
+            "if_can_success" => $ifCanSuccess);
     }
     
     public function checkRefreshMapInfo($latitude, $longitude, $version) {
