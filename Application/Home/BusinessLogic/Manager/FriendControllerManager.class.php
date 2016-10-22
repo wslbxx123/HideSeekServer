@@ -38,8 +38,8 @@ class FriendControllerManager {
                     $friend['pk_id'], $message, 0);
         } else {
             $account = BaseUtil::removeSecretInfo($account);
-            if(!TencentIMManager::pushSingleAccountIOS($friend['phone'], 
-                    "FRIEND_REQUEST_MESSAGE", [], 
+            if(!TencentIMManager::pushSingleAccount($friend['app_platform'], 
+                    $friend['phone'], "FRIEND_REQUEST_MESSAGE", [], 
                     $account, $message, 1)) {
                 BaseUtil::echoJson(CodeParam::FAIL_SEND_MESSAGE, null);
                 return false;
@@ -58,8 +58,8 @@ class FriendControllerManager {
                     $friend['pk_id'], null, 1);
         } else {
             $account = BaseUtil::removeSecretInfo($account);
-            if(!TencentIMManager::pushSingleAccountIOS($friend['phone'], 
-                    "FRIEND_ACCEPT_MESSAGE", [$friend['nickname']],
+            if(!TencentIMManager::pushSingleAccount($friend['app_platform'],
+                    $friend['phone'], "FRIEND_ACCEPT_MESSAGE", [$friend['nickname']],
                     $account, $friendNum, 2)) {
                 BaseUtil::echoJson(CodeParam::FAIL_SEND_MESSAGE, null);
                 return false;

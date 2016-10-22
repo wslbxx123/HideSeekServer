@@ -78,7 +78,7 @@ class StoreController extends BaseController {
                 'reward_min_id' => $rewardResult["reward_min_id"],
                 'reward' => $rewardResult["rewards"]);
         
-        echo BaseUtil::echoJson(CodeParam::SUCCESS, $result); 
+        BaseUtil::echoJson(CodeParam::SUCCESS, $result); 
     }
     
     public function getReward() {
@@ -98,7 +98,7 @@ class StoreController extends BaseController {
                 'version' => $version,
                 'reward_min_id' => $rewardResult["reward_min_id"],
                 'reward' => $rewardResult["rewards"]);
-        echo BaseUtil::echoJson(CodeParam::SUCCESS, $result); 
+        BaseUtil::echoJson(CodeParam::SUCCESS, $result); 
     }
     
     public function createOrder() {
@@ -121,7 +121,7 @@ class StoreController extends BaseController {
         
         $result = StoreControllerManager::getSignResult($storeId, $count, 
                 $accountId, 0);
-        echo BaseUtil::echoJson(CodeParam::SUCCESS, $result); 
+        BaseUtil::echoJson(CodeParam::SUCCESS, $result); 
     }
     
     public function getPurchaseOrder() {
@@ -146,7 +146,7 @@ class StoreController extends BaseController {
         
         $result = StoreControllerManager::getSignResultWithoutCreateOrder(
                 $storeId, $count, 0, $orderId);
-        echo BaseUtil::echoJson(CodeParam::SUCCESS, $result); 
+        BaseUtil::echoJson(CodeParam::SUCCESS, $result); 
     }
     
     public function createOrderFromWeb() {
@@ -172,7 +172,7 @@ class StoreController extends BaseController {
         $html = StoreControllerManager::createAlipayFormHtml($result);
         $result['html'] = $html;
         header("Content-Type: application/json; charset=utf-8");
-        echo BaseUtil::echoJson(CodeParam::SUCCESS, $result);
+        BaseUtil::echoJson(CodeParam::SUCCESS, $result);
     }
     
     public function getPurchaseOrderFromWeb() {
@@ -200,7 +200,7 @@ class StoreController extends BaseController {
         $html = StoreControllerManager::createAlipayFormHtml($result);
         $result['html'] = $html;
         header("Content-Type: application/json; charset=utf-8");
-        echo BaseUtil::echoJson(CodeParam::SUCCESS, $result); 
+        BaseUtil::echoJson(CodeParam::SUCCESS, $result); 
     }
     
     public function createOrderFromH5() {
@@ -227,7 +227,7 @@ class StoreController extends BaseController {
         
         $result['html'] = $html;
         header("Content-Type: application/json; charset=utf-8");
-        echo BaseUtil::echoJson(CodeParam::SUCCESS, $result);
+        BaseUtil::echoJson(CodeParam::SUCCESS, $result);
     }
     
     public function getPurchaseOrderFromH5() {
@@ -255,7 +255,7 @@ class StoreController extends BaseController {
         $html = StoreControllerManager::createAlipayFormHtml($result);
         $result['html'] = $html;
         header("Content-Type: application/json; charset=utf-8");
-        echo BaseUtil::echoJson(CodeParam::SUCCESS, $result); 
+        BaseUtil::echoJson(CodeParam::SUCCESS, $result); 
     }
     
     public function purchase() {
@@ -284,7 +284,7 @@ class StoreController extends BaseController {
         
         $result = array ("bomb_num" => $account['bomb_num'],
                 "has_guide" => $account['has_guide']);
-        echo BaseUtil::echoJson(CodeParam::SUCCESS, $result); 
+        BaseUtil::echoJson(CodeParam::SUCCESS, $result); 
     }
     
     public function refreshPurchaseOrders() {
@@ -314,7 +314,7 @@ class StoreController extends BaseController {
             'order_min_id' => $orderResult["order_min_id"],
             'orders' => $orderResult["orders"]);
         
-        echo BaseUtil::echoJson(CodeParam::SUCCESS, $result); 
+        BaseUtil::echoJson(CodeParam::SUCCESS, $result); 
     }
     
     public function getPurchaseOrders() {
@@ -342,7 +342,7 @@ class StoreController extends BaseController {
             'order_min_id' => $orderResult["order_min_id"],
             'orders' => $orderResult["orders"]);
         
-        echo BaseUtil::echoJson(CodeParam::SUCCESS, $result); 
+        BaseUtil::echoJson(CodeParam::SUCCESS, $result); 
     }
     
     public function refreshExchangeOrders() {
@@ -372,7 +372,7 @@ class StoreController extends BaseController {
             'order_min_id' => $orderResult["order_min_id"],
             'orders' => $orderResult["orders"]);
         
-        echo BaseUtil::echoJson(CodeParam::SUCCESS, $result); 
+        BaseUtil::echoJson(CodeParam::SUCCESS, $result); 
     }
     
     public function getExchangeOrders() {
@@ -400,7 +400,7 @@ class StoreController extends BaseController {
             'order_min_id' => $orderResult["order_min_id"],
             'orders' => $orderResult["orders"]);
         
-        echo BaseUtil::echoJson(CodeParam::SUCCESS, $result); 
+        BaseUtil::echoJson(CodeParam::SUCCESS, $result); 
     }
     
     public function notifyUrl() {
@@ -454,7 +454,7 @@ class StoreController extends BaseController {
         $record = StoreControllerManager::updateAfterExchange($rewardId, 
                 $account, $count, $area, $address, $setDefault);
         
-        echo BaseUtil::echoJson(CodeParam::SUCCESS, $record); 
+        BaseUtil::echoJson(CodeParam::SUCCESS, $record); 
     }
     
     public function test() {

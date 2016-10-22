@@ -7,6 +7,7 @@ use Home\DataAccess\AccountManager;
 use Home\DataAccess\PullVersionManager;
 use Home\Common\Param\CodeParam;
 use Home\BusinessLogic\Manager\FriendControllerManager;
+use Home\BusinessLogic\Network\TencentIMManager;
 
 class FriendController extends BaseController {
     public function getFriends(){
@@ -215,6 +216,14 @@ class FriendController extends BaseController {
         AccountManager::updateFriendNum($accountId, $friendNum);
         
         BaseUtil::echoJson(CodeParam::SUCCESS, $friendNum);
+    }
+    
+    public function test() {
+        TencentIMManager::pushSingleAccountAndroid("13510239470", "haha", $args, 
+                $object, 
+            $extraMessage, 1);
+        
+        BaseUtil::echoJson(CodeParam::SUCCESS, null);
     }
 }
 

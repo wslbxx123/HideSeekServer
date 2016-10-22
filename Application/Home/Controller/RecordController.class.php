@@ -29,7 +29,7 @@ class RecordController extends BaseController {
                 'score_sum' => $account['record'],
                 'scores' => $recordResult['scores']);
         
-        echo BaseUtil::echoJson(CodeParam::SUCCESS, $result); 
+        BaseUtil::echoJson(CodeParam::SUCCESS, $result); 
     }
     
     public function getRecords() {
@@ -48,7 +48,7 @@ class RecordController extends BaseController {
         
         $result = RecordManager::getRecords($accountId, $version, $recordMinId);
         
-        echo BaseUtil::echoJson(CodeParam::SUCCESS, $result); 
+        BaseUtil::echoJson(CodeParam::SUCCESS, $result); 
     }
 }
 
