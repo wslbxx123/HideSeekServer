@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+    	<meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,width=device-width,user-scalable=no" />
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	    <meta name="x5-fullscreen" content="true">
+		<meta name="full-screen" content="yes">
+    	<meta name="keywords" content="" />
+    	<meta name="description" content="" />
+		<title>寻宝部落信息窗口</title>
+		<link rel="stylesheet" href="__PUBLIC__/css/message.css">
+		<script type="text/javascript" src="__PUBLIC__/js/message.js"></script>
+	</head>
+	
+	<body>
+		<div class="logo">
+           	<img title="寻宝部落商标" src="__PUBLIC__/Image/Web/logo.png" width="125px" height="42px"/>
+        </div>
+		<form action="#">
+			<p><textarea id="message" rows="10"cols="30"></textarea></p>
+			<p><label><input type="radio" name="nodeAction" id="sendAll">全部发送</label><br/>
+			<label>
+				<input type="radio" name="nodeAction">输入手机号
+				<input type="phone" id="phone">
+			</label>
+			</p>
+			<input type="submit" value="Submit" id="submit">
+		</form>
+	</body>
+</html>
