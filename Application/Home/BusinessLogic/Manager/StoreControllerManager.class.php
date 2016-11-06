@@ -59,7 +59,8 @@ class StoreControllerManager {
     public function getSignResultWithoutCreateOrder($storeId, $count, 
             $type, $orderId) {
         $product = ProductManager::getProduct($storeId);
-        $tradeNo = AlipayManager::generateTradeNo(5);
+        $order = PurchaseOrderManager::getOrder($orderId);
+        $tradeNo = $order['trade_no'];
         
         $signResult = self::getSignResultFromType($type, $product, $count, $tradeNo);
         
