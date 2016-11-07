@@ -62,7 +62,11 @@ class TencentIMManager {
     }
     
     function deleteAllTokens($account) {
-        $push = new \XingeApp(KeyParam::ACCESS_ID, KeyParam::SECRET_KEY);
-        $push->DeleteAllTokensOfAccount($account);
+        $androidPush = new \XingeApp(KeyParam::XG_ANDROID_ACCESS_ID, 
+                KeyParam::XG_ANDROID_SECRET_KEY);
+        $androidPush->DeleteAllTokensOfAccount($account);
+        $iOSPush = new \XingeApp(KeyParam::XG_IOS_ACCESS_ID, 
+                KeyParam::XG_ANDROID_SECRET_KEY);
+        $iOSPush->DeleteAllTokensOfAccount($account);
     }
 }
