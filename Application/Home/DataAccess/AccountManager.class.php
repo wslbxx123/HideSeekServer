@@ -185,13 +185,6 @@ class AccountManager {
         return $accountList;
     }
     
-    public function updateChannelId($accountId, $channelId) {
-        $Dao = M("account");
-        $condition["pk_id"] = $accountId;
-        $account['channel_id'] = $channelId;
-        $Dao->where($condition)->save($account);
-    }
-    
     public function clearChannelId($accountId) {
         $Dao = M("account");
         $condition["pk_id"] = $accountId;
