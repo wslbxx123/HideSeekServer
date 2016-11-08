@@ -5,6 +5,7 @@ use Home\Common\Util\BaseUtil;
 use Home\DataAccess\PullVersionManager;
 use Home\Common\Util\FileUtil;
 use Home\DataAccess\AccountManager;
+use Home\BusinessLogic\Network\TencentIMManager;
 
 /**
  * 处理用户控制器的逻辑类
@@ -54,9 +55,16 @@ class UserControllerManager {
             return false;
         }
         
-        if(AccountManager::getAccountFromPhone($phone)) {
+        $account = AccountManager::getAccountFromPhone($phone);
+        if($account) {
             BaseUtil::echoJson(CodeParam::USER_ALREADY_EXIST, null);
             return false;
+        }
+        
+        if($account['channel_id'] != null) {
+            TencentIMManager::pushSingleAccount($account['app_platform'],
+                    $phone, "FRIEND_ACCEPT_MESSAGE", [],
+                    null, null, 3);
         }
         
         return true;
