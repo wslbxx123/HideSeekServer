@@ -219,7 +219,7 @@ class FriendController extends BaseController {
     }
     
     public function test() {
-        TencentIMManager::pushSingleAccountAndroid("13510239470", "haha", $args, 
+        TencentIMManager::pushSingleAccount(0, "13510239470", "haha", $args, 
                 $object, 
             $extraMessage, 1);
         
