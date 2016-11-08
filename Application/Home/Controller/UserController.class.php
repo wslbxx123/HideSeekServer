@@ -53,14 +53,14 @@ class UserController extends BaseController {
         }
         
         $account = AccountManager::getAccountFromPhonePassword($phone, $password, 
-                $channelId, $appPlatform);
+                $appPlatform);
         
         if(!isset($account)) {
             BaseUtil::echoJson(CodeParam::PHONE_OR_PASSWORD_WRONG, null);
             return;
         }
         
-        $sessionId = UserControllerManager::updateSessionToken($account);
+        $sessionId = UserControllerManager::updateUserInfo($account);
         $_SESSION['pk_id'] = $account["pk_id"];
         $account["session_id"] = $sessionId;
         $account["friend_requests"] = FriendRequestManager::getFriendRequests($account['pk_id']);  

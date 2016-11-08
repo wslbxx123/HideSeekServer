@@ -13,7 +13,7 @@ use Home\BusinessLogic\Network\TencentIMManager;
  * @author Two
  */
 class UserControllerManager {
-    public function updateSessionToken($account) {
+    public function updateUserInfo($account, $channelId) {
         $sessionId = AccountManager::updateSessionToken($account["pk_id"]);
         
         if($account['channel_id'] != null) {
@@ -21,6 +21,8 @@ class UserControllerManager {
                     $account['phone'], "FRIEND_ACCEPT_MESSAGE", [],
                     null, null, 3);
         }
+        
+        AccountManager::updateChannelId($account["pk_id"], $channelId);
         
         return $sessionId;
     }

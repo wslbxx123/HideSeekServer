@@ -6,12 +6,10 @@ namespace Home\DataAccess;
  * @author Two
  */
 class AccountManager {
-    public function getAccountFromPhonePassword($phone, $password, $channelId,
-            $appPlatform) {
+    public function getAccountFromPhonePassword($phone, $password, $appPlatform) {
         $Dao = M("account");
         $condition['phone'] = $phone;
         $condition['password'] = md5($password);
-        $Dao->where($condition)->setField('channel_id', $channelId);
         
         if($appPlatform != null) {
             $Dao->where($condition)->setField('app_platform', $appPlatform);
@@ -34,6 +32,13 @@ class AccountManager {
         
         $account = $Dao->where($condition)->find();
         return $account;
+    }
+    
+    public function updateChannelId($accountId, $channelId) {
+        $Dao = M("account");
+        $condition['pk_id'] = $accountId;
+        $Dao->where($condition)->setField('channel_id', 
+                $channelId);
     }
     
     public function updateSessionToken($accountId) {
