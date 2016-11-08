@@ -36,10 +36,9 @@ class AccountManager {
         return $account;
     }
     
-    public function updateSessionToken($phone, $password) {
+    public function updateSessionToken($accountId) {
         $Dao = M("account");
-        $condition['phone'] = $phone;
-        $condition['password'] = md5($password);
+        $condition['pk_id'] = $accountId;
         $sessionId = session_id().strtotime(date ("Y-m-d h:i:s"));
         $Dao->where($condition)->setField('session_token', 
                 md5($sessionId));

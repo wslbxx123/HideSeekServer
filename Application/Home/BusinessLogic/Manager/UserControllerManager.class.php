@@ -13,6 +13,18 @@ use Home\BusinessLogic\Network\TencentIMManager;
  * @author Two
  */
 class UserControllerManager {
+    public function updateSessionToken($account) {
+        $sessionId = AccountManager::updateSessionToken($account["pk_id"]);
+        
+        if($account['channel_id'] != null) {
+            TencentIMManager::pushSingleAccount($account['app_platform'],
+                    $account['phone'], "FRIEND_ACCEPT_MESSAGE", [],
+                    null, null, 3);
+        }
+        
+        return $sessionId;
+    }
+    
     public function checkUserInfo($phone, $password) {
         if(!isset($phone) || !isset($password)) {
             BaseUtil::echoJson(CodeParam::PHONE_OR_PASSWORD_EMPTY, null);
@@ -59,12 +71,6 @@ class UserControllerManager {
         if($account) {
             BaseUtil::echoJson(CodeParam::USER_ALREADY_EXIST, null);
             return false;
-        }
-        
-        if($account['channel_id'] != null) {
-            TencentIMManager::pushSingleAccount($account['app_platform'],
-                    $phone, "FRIEND_ACCEPT_MESSAGE", [],
-                    null, null, 3);
         }
         
         return true;
